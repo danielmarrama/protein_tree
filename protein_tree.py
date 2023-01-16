@@ -20,6 +20,7 @@ def create_protein_tree(proteome):
   
   data = []
   for protein in proteins:
+    uniprot_id = protein.id.split('|')[1]
 
     # get gene symbol from FASTA file
     try:
@@ -32,10 +33,11 @@ def create_protein_tree(proteome):
       except AttributeError:
         gene = ''
 
-    data.append([protein.id.split('|')[0], gene, protein.id.split('|')[1], str(protein.seq)])
+    gp = 1 if uniprot_id in gp_ids else 0
+    data.append([protein.id.split('|')[0], gene, uniprot_id, gp, str(protein.seq)])
   
   # put protein tree data into dataframe
-  df = pd.DataFrame(data, columns=['db', 'gene', 'id', 'seq'])
+  df = pd.DataFrame(data, columns=['db', 'gene', 'id', 'gp', 'seq'])
 
   # start tree with nodes - genes as root and UniProt IDs as children
   nodes = {}
@@ -53,3 +55,7 @@ def create_protein_tree(proteome):
         else:
           f.write("%s%s" % (pre, node.name))
           f.write('\n')
+
+  df.to_csv('human_proteome.csv', index=False)
+
+  return df
