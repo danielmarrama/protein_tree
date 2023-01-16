@@ -1,18 +1,47 @@
+#!/usr/bin/env python3
+
 import re
+import pickle
 import pandas as pd
 
 from Bio import SeqIO
 from anytree import Node, RenderTree
 
 
+def pickle_gp_mapping(df):
+  '''
+  Creates a map of the canonical UniProt protein ID for a gene to all the
+  other UniProt protein IDs. Dictionary is stored as a pickle file.
+  '''
+  gp_mapping = {}
+  for i, group in df.groupby('gene'):
+    for id in list(group['id']):
+      try:
+        gp_mapping[id] = str(group[group['gp'] == 1]['id'].iloc[0])
+      except IndexError:
+        pass
+
+  with open('gp_mapping.pickle', 'wb') as f:
+    pickle.dump(gp_mapping, f)
+
+
 def add_nodes(nodes, parent, child):
+  '''Creates nodes for gene to UniProt ID mappings.'''
   if parent not in nodes:
     nodes[parent] = Node(parent)  
   if child not in nodes:
     nodes[child] = Node(child)
   nodes[child].parent = nodes[parent]
 
+
 def create_protein_tree(proteome):
+  '''
+  Makes the basic protein tree. Reads in a proteome and an accompanying
+  gene priority proteome. Genes as the root and UniProt IDs as the children.
+  Outputs a dataframe of the proteome data as well as a text file of the
+  protein tree itself. It will also output a pickle file mapping of the 
+  canonical UniProt protein ID for a gene to the other UniProt protein IDs.  
+  '''
   proteins = list(SeqIO.parse(proteome, 'fasta'))
 
   # get UniProt IDs for one protein per gene proteome
@@ -56,6 +85,7 @@ def create_protein_tree(proteome):
           f.write("%s%s" % (pre, node.name))
           f.write('\n')
 
+  pickle_gp_mapping(df)
   df.to_csv('human_proteome.csv', index=False)
 
   return df
