@@ -21,7 +21,7 @@ def pickle_gp_mapping(df):
       except IndexError:
         pass
 
-  with open('gp_mapping.pickle', 'wb') as f:
+  with open('canonical_protein_mapping.pickle', 'wb') as f:
     pickle.dump(gp_mapping, f)
 
 
