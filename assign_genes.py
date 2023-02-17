@@ -22,8 +22,8 @@ def assign_genes():
 def run_blast():
   pass
 
-def create_blast_db():
-  pass
+def create_blast_db(taxon_id):
+  os.system('makeblastdb -in %s/proteome.fasta -dbtype prot' % taxon_id)
 
 def create_source_epitope_map(sources, epitopes):
   source_epitope_map = {}
@@ -62,15 +62,22 @@ def get_data(taxon_id):
 
 def run(taxon_id):
   # TODO: 
-  # create BLAST DB on proteome 
   # run BLAST using sources on proteome
   # bucket sources that did not get a BLAST match
   # limit results to highest % identity / alignment length
   # tiebreak the tied results with PEPMatch epitope search
 
+  # get sources and epitopes data
   sources, epitopes = get_data(taxon_id) 
+
+  # write source antigens to FASTA with their IDs
   sources_to_fasta(sources)
+
+  # create dict of source antigens to their list of epitopes
   source_epitope_map = create_source_epitope_map(sources, epitopes)
+
+  # create a BLAST database of the species proteome
+  create_blast_db(taxon_id)
 
 if __name__ == '__main__':
   taxon_id = '9606'
