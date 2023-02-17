@@ -4,3 +4,4 @@ blast_output.csv
 human_proteome.csv
 makeblastdb
 snapshot_2022-12-20/
+test.fasta
