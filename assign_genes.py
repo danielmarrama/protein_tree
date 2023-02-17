@@ -19,8 +19,14 @@ def pepmatch_tiebreak():
 def assign_genes():
   pass
 
-def run_blast():
-  pass
+def run_blast(taxon_id):
+  '''
+  Run blastp with source antigens to the proteome. 
+  '''
+  os.system('./blastp -query test.fasta -db %s/proteome.fasta'\
+            '-evalue 0.0001 -num_threads 14 -outfmt 10 -out'\
+            '%s/blast_results.csv' % (taxon_id, taxon_id)
+  )
 
 def create_blast_db(taxon_id):
   os.system('makeblastdb -in %s/proteome.fasta -dbtype prot' % taxon_id)
@@ -62,7 +68,6 @@ def get_data(taxon_id):
 
 def run(taxon_id):
   # TODO: 
-  # run BLAST using sources on proteome
   # bucket sources that did not get a BLAST match
   # limit results to highest % identity / alignment length
   # tiebreak the tied results with PEPMatch epitope search
