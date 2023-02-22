@@ -13,21 +13,18 @@ from Bio.SeqRecord import SeqRecord
 class GeneAssigner(object):
   def __init__(self, taxon_id):
     self.taxon_id = taxon_id
+    self.sources = pd.read_csv(f'{self.taxon_id}/sources.tsv', sep='\t')
+    self.epitopes =  pd.read_csv(f'{self.taxon_id}/epitopes.tsv', sep='\t')
 
-  def get_data(self):
-    sources = pd.read_csv(f'{self.taxon_id}/sources.tsv', sep='\t')
-    epitopes =  pd.read_csv(f'{self.taxon_id}/epitopes.tsv', sep='\t')
-    return sources, epitopes
-
-  def sources_to_fasta(self, sources):
+  def sources_to_fasta(self):
     # sources that are missing sequences - write to file and then drop those
-    sources[sources['Source Sequence'].isna()].to_csv(f'{self.taxon_id}/sources_missing_seqs.csv', index=False)
-    sources.dropna(subset=['Source Sequence'], inplace=True)
+    self.sources[self.sources['Source Sequence'].isna()].to_csv(f'{self.taxon_id}/sources_missing_seqs.csv', index=False)
+    self.sources.dropna(subset=['Source Sequence'], inplace=True)
 
     # create seq records of sources with ID and sequence
     # TEST: use 10,000 sources for testing
     seq_records = []
-    for i, row in sources.iloc[0:100, :].iterrows():
+    for i, row in self.sources.iloc[0:100, :].iterrows():
       seq_records.append(
         SeqRecord(
           row['Source Sequence'], 
@@ -38,9 +35,9 @@ class GeneAssigner(object):
     with open(f'{self.taxon_id}/sources.fasta', 'w') as f:
       SeqIO.write(seq_records, f, 'fasta')
 
-  def create_source_epitope_map(self, epitopes):
+  def create_source_epitope_map(self):
     source_epitope_map = {}
-    for i, row in epitopes.iterrows():
+    for i, row in self.epitopes.iterrows():
       if row['Source Accession'] in source_epitope_map.keys():
         source_epitope_map[row['Source Accession']].append(row['Peptide'])
       else:
@@ -69,13 +66,27 @@ class GeneAssigner(object):
 
   def no_blast_match(self):
     '''Write sources that have no BLAST match to a file.'''
-    blast_results = pd.read_csv(f'{self.taxon_id}/blast_results.csv')
-    print(blast_results)
 
+    # get all source ids
+    source_ids = []
+    for record in list(SeqIO.parse(f'{self.taxon_id}/sources.fasta', 'fasta')):
+      source_ids.append(str(record.id))
+    
+    # get BLAST results and then get ids that are not in results
+    blast_results = pd.read_csv(f'{self.taxon_id}/blast_results.csv')
+    blast_result_ids = list(blast_results['query'].unique())
 
   def assign_genes(self):
+    '''
+    Assign gene to sources based on BLAST results.
+    '''
+
+    # read in proteome and create a map of id to gene
     proteome = pd.read_csv(f'{self.taxon_id}/proteome.csv')
     id_to_gene_map = dict(zip(proteome['id'], hproteomep['gene']))
+
+    # read in BLAST results
+    df = pd.read_csv(f'{self.taxon_id}/blast_results.csv')
 
     # df['subject_gene'] = df['subject'].str.split('|').str[1].map(gene_id_map)
 
@@ -90,19 +101,14 @@ class GeneAssigner(object):
     # limit results to highest % identity / alignment length
     # tiebreak the tied results with PEPMatch epitope search
 
-    # get sources and epitopes data
-    print('Reading in sources and epitopes data...')
-    sources, epitopes = self.get_data()
-    print('Done.')
-
     # write source antigens to FASTA with their IDs
     print('Writing sources to FASTA file...')
-    self.sources_to_fasta(sources)
+    self.sources_to_fasta()
     print('Done.')
 
     # create dict of source antigens to their list of epitopes
     print('Creating source to epitopes mapping...')
-    source_epitope_map = self.create_source_epitope_map(epitopes)
+    source_epitope_map = self.create_source_epitope_map()
     print('Done.')
 
     # create a BLAST database of the species proteome
