@@ -8,6 +8,9 @@ from Bio import SeqIO
 
 from pepmatch import Preprocessor, Matcher
 
+# TODO:
+# - 
+
 class ProteomeSelector(object):
   def __init__(self, taxon_id):
     self.taxon_id = taxon_id
@@ -56,7 +59,6 @@ class ProteomeSelector(object):
     for batch in self.get_protein_batches(url):
       with open(f'{taxon_id}.fasta', 'a') as f:
         f.write(batch.text)
-
 
   def get_reference_proteome(self):
     """Get the list of UniProt proteomes for a given taxon ID."""
