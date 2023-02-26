@@ -77,20 +77,25 @@ def select_proteome(taxon_id):
   UniProt FTP server.
   """
   # get list of  proteomes for the species using the taxon ID
-  taxon_df = proteomes[proteomes['speciesTaxon'] == int(taxon_id)]
+  taxon_df = proteomes_df[proteomes_df['speciesTaxon'] == int(taxon_id)]
 
   # make sure there are proteomes for the species
-  if taxon_df.empty:
+  if taxon_df.empty:  
     # get_all_proteins(taxon_id)
-    return
+    return 'all_proteins'
 
-  # check if there is a representative proteome
+  # TODO: check if there are any MULTIPLES of representative or reference proteomes
+  # check if there are any representative proteome
   if taxon_df['isRepresentativeProteome'].any():
     proteome = taxon_df[taxon_df['isRepresentativeProteome']]['upid'].iloc[0]
+  # check if there are any reference proteomes
   elif taxon_df['isReferenceProteome'].any():
     proteome = taxon_df[taxon_df['isReferenceProteome']]['upid'].iloc[0]
+  # check if there are any non-redundant proteomes
+  elif taxon_df['redundantTo'].isna().any():
+    proteome = taxon_df[taxon_df['redundantTo'].isna()]['upid'].iloc[0]
   else:
-    proteome = 'lol'
+    proteome = taxon_df['upid'].iloc[0]
 
   return proteome
 
@@ -102,8 +107,8 @@ def main():
   taxon_id = args.taxon_id
 
   # read in proteomes file and species file
-  global proteomes, species_df
-  proteomes = pd.read_csv('proteomes.csv')
+  global proteomes_df, species_df
+  proteomes_df = pd.read_csv('proteomes.csv')
   species_df = pd.read_csv('species.csv')
 
   # save all taxon IDs to list for checking
@@ -111,8 +116,10 @@ def main():
 
   # perform proteome selection for all IEDB species
   if taxon_id == 'all':
+    proteomes = []
     for taxon_id in species_df['Taxon ID']:
       proteome = select_proteome(taxon_id)
+      proteomes.append(proteome)
   
   # or just one species at a time - check if its valid
   else:
