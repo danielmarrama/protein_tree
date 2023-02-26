@@ -59,6 +59,19 @@ def get_all_proteins(taxon_id):
     with open(f'{taxon_id}.fasta', 'a') as f:
       f.write(batch.text)
 
+def get_proteome_fasta(proteome_id):
+  """
+  Get the FASTA file for a proteome from UniProt. Either through the
+  API or the FTP server. If the proteome is a reference proteome, then
+  we also need to get the gene priority proteome, which is a file that 
+  contains the best protein record for each gene. We will use this for 
+  better gene assignment in the assign_genes.py script.
+
+  Args:
+    proteome_id (str): Proteome ID.
+  """
+  pass
+
 def select_proteome(taxon_id):
   """
   Select the proteome to use for a species and its taxon ID.
@@ -68,36 +81,41 @@ def select_proteome(taxon_id):
 
   1. Are there any representative proteomes?
   2. Are there any reference proteomes?
-  3. Are there any non-redudant proteome?
+  3. Are there any non-redudant proteomes?
+  4. Are there any other proteomes?
 
   If no to all of the above, then get every protein associated with
   the taxon using the get_all_proteins method from uniprot.org/taxonomy.
 
-  If yes to any of the above, get the proteome ID and download from the
-  UniProt FTP server.
+  If yes to any of the above, get the proteome ID. 
   """
   # get list of  proteomes for the species using the taxon ID
   taxon_df = proteomes_df[proteomes_df['speciesTaxon'] == int(taxon_id)]
 
   # make sure there are proteomes for the species
-  if taxon_df.empty:  
-    # get_all_proteins(taxon_id)
-    return 'all_proteins'
+  if taxon_df.empty:
+    get_all_proteins(taxon_id)
+    return '', 'All-proteins'
 
   # TODO: check if there are any MULTIPLES of representative or reference proteomes
+  # TODO: 
   # check if there are any representative proteome
   if taxon_df['isRepresentativeProteome'].any():
     proteome = taxon_df[taxon_df['isRepresentativeProteome']]['upid'].iloc[0]
+    proteome_type = 'Representative'
   # check if there are any reference proteomes
   elif taxon_df['isReferenceProteome'].any():
     proteome = taxon_df[taxon_df['isReferenceProteome']]['upid'].iloc[0]
+    proteome_type = 'Reference'
   # check if there are any non-redundant proteomes
   elif taxon_df['redundantTo'].isna().any():
     proteome = taxon_df[taxon_df['redundantTo'].isna()]['upid'].iloc[0]
+    proteome_type = 'Non-redundant'
   else:
     proteome = taxon_df['upid'].iloc[0]
+    proteome_type = 'Other'
 
-  return proteome
+  return proteome, proteome_type
 
 def main():
   # define command line args which will take in a taxon ID
@@ -114,17 +132,17 @@ def main():
   # save all taxon IDs to list for checking
   valid_taxon_ids = species_df['Taxon ID'].astype(str).tolist()
 
-  # perform proteome selection for all IEDB species
+  # do proteome selection for all IEDB species
   if taxon_id == 'all':
     proteomes = []
     for taxon_id in species_df['Taxon ID']:
-      proteome = select_proteome(taxon_id)
+      proteome, proteome_type = select_proteome(taxon_id)
       proteomes.append(proteome)
   
   # or just one species at a time - check if its valid
   else:
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
-    proteome = select_proteome(taxon_id)
+    proteome, proteome_type = select_proteome(taxon_id)
 
 if __name__ == '__main__':
   main()
