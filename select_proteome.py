@@ -59,7 +59,7 @@ def get_all_proteins(taxon_id):
     with open(f'{taxon_id}.fasta', 'a') as f:
       f.write(batch.text)
 
-def get_proteome_fasta(proteome_id):
+def get_proteome_fasta(proteome_id, proteome_type):
   """
   Get the FASTA file for a proteome from UniProt. Either through the
   API or the FTP server. If the proteome is a reference proteome, then
@@ -68,7 +68,9 @@ def get_proteome_fasta(proteome_id):
   better gene assignment in the assign_genes.py script.
 
   Args:
-    proteome_id (str): Proteome ID.
+    proteome_id (str):   Proteome ID.
+    proteome_type (str): Proteome type. Either: 1. Representative, 
+                         2. Reference, 3. Non-redundant, 4. Other
   """
   pass
 
@@ -94,7 +96,7 @@ def select_proteome(taxon_id):
 
   # make sure there are proteomes for the species
   if taxon_df.empty:
-    get_all_proteins(taxon_id)
+    # get_all_proteins(taxon_id)
     return '', 'All-proteins'
 
   # TODO: check if there are any MULTIPLES of representative or reference proteomes
@@ -134,11 +136,16 @@ def main():
 
   # do proteome selection for all IEDB species
   if taxon_id == 'all':
-    proteomes = []
+    proteomes = {}
     for taxon_id in species_df['Taxon ID']:
       proteome, proteome_type = select_proteome(taxon_id)
-      proteomes.append(proteome)
-  
+      proteomes[taxon_id] = (proteome, proteome_type)
+    
+    # create new columns for species with proteome ID and type
+    species_df['Proteome ID'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[0])
+    species_df['Proteome Type'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[1])
+    species_df.to_csv('species.csv', index=False)
+
   # or just one species at a time - check if its valid
   else:
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
