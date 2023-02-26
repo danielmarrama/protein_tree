@@ -81,39 +81,43 @@ def select_proteome(taxon_id):
 
   # make sure there are proteomes for the species
   if taxon_df.empty:
-    print(f'No proteomes for {taxon_id}.')
     # get_all_proteins(taxon_id)
+    return
 
   # check if there is a representative proteome
   if taxon_df['isRepresentativeProteome'].any():
-    proteome_id = taxon_df[taxon_df['isRepresentativeProteome']]['upid'].iloc[0]
+    proteome = taxon_df[taxon_df['isRepresentativeProteome']]['upid'].iloc[0]
   elif taxon_df['isReferenceProteome'].any():
-    proteome_id = taxon_df[taxon_df['isReferenceProteome']]['upid'].iloc[0]
+    proteome = taxon_df[taxon_df['isReferenceProteome']]['upid'].iloc[0]
   else:
-    proteome_id = str(len(taxon_df))
+    proteome = 'lol'
 
-  return proteome_id
+  return proteome
 
 def main():
-  # read in proteomes file
-  global proteomes 
-  proteomes = pd.read_csv('proteomes.csv')
-  
   # define command line args which will take in a taxon ID
   parser = argparse.ArgumentParser(description='Select and get the proteome to use for a species.')
   parser.add_argument('taxon_id', help='Taxon ID for the species.')
   args = parser.parse_args()
-
   taxon_id = args.taxon_id
 
-  # TODO: add option select the proteomes for all species
-  if taxon_id == 'all':
-    species_df = pd.read_csv('species.csv')
-    for taxon_id in species_df['Taxon ID']:
-      proteome_id = select_proteome(taxon_id)
-      print(taxon_id, proteome_id)
+  # read in proteomes file and species file
+  global proteomes, species_df
+  proteomes = pd.read_csv('proteomes.csv')
+  species_df = pd.read_csv('species.csv')
 
-  # proteome_id = select_proteome(taxon_id)
+  # save all taxon IDs to list for checking
+  valid_taxon_ids = species_df['Taxon ID'].astype(str).tolist()
+
+  # perform proteome selection for all IEDB species
+  if taxon_id == 'all':
+    for taxon_id in species_df['Taxon ID']:
+      proteome = select_proteome(taxon_id)
+  
+  # or just one species at a time - check if its valid
+  else:
+    assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
+    proteome = select_proteome(taxon_id)
 
 if __name__ == '__main__':
   main()
