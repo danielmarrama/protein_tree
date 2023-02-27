@@ -84,6 +84,10 @@ def get_proteome_to_fasta(taxon_id, proteome_id, proteome_type):
   url = f'https://rest.uniprot.org/uniprotkb/stream?query=proteome:{proteome_id}&format=fasta&compressed=false&includeIsoform=true'
   # with open()
 
+def get_id_with_max_proteins(proteome_list):
+  """Get the proteome ID with the most proteins in case there is a tie."""
+  return proteome_list.loc[proteome_list['proteinCount'].idxmax()]['upid']
+
 def select_proteome(taxon_id):
   """
   Select the proteome to use for a species and its taxon ID.
@@ -117,25 +121,27 @@ def select_proteome(taxon_id):
 
   # remove the namespace from the columns
   proteome_list.columns = [x.replace('{http://uniprot.org/proteome}', '') for x in proteome_list.columns]
-  
+
   # TODO: check if there are any MULTIPLES of representative or reference proteomes
 
-  # check if there are any representative proteome
+  # get proteome ID and proteome type based on the checks - if there are ties
+  # then get the ID with most proteins
+
   if proteome_list['isRepresentativeProteome'].any():
-    proteome = proteome_list[proteome_list['isRepresentativeProteome']]['upid'].iloc[0]
+    proteome_list = proteome_list[proteome_list['isRepresentativeProteome']]
+    proteome = get_id_with_max_proteins(proteome_list)
     proteome_type = 'Representative'
-  # check if there are any reference proteomes
   elif proteome_list['isReferenceProteome'].any():
-    proteome = proteome_list[proteome_list['isReferenceProteome']]['upid'].iloc[0]
+    proteome_list = proteome_list[proteome_list['isReferenceProteome']]
+    proteome = get_id_with_max_proteins(proteome_list)
     proteome_type = 'Reference'
-  # check if there are any non-redundant proteomes - sometimes the 
-  # proteome_list does not have a redundantTo column so use try/except
-  else:
-    try:
-      proteome = proteome_list[proteome_list['redundantTo'].isna()]['upid'].iloc[0]
+  else: # check if there are any non-redundant proteomes
+    try:  # sometimes the proteome_list does not have a redundantTo column so use try/except
+      proteome_list = proteome_list[proteome_list['redundantTo'].isna()]
+      proteome = get_id_with_max_proteins(proteome_list)
       proteome_type = 'Non-redundant'
     except (KeyError, IndexError):
-      proteome = proteome_list['upid'].iloc[0]
+      proteome = get_id_with_max_proteins(proteome_list)
       proteome_type = 'Other'
 
   return proteome, proteome_type
