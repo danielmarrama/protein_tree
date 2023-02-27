@@ -1,219 +1,219 @@
 Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 24,Shewanella putrefaciens,319224,bacterium,319224; 24,UP000252468,Non-redundant
 34,Myxococcus xanthus,246197,bacterium,34; 246197,UP000002402,Representative
-106,Runella slithyformis,761193,bacterium,761193; 106,UP000000493,Non-redundant
-108,Spirosoma linguale,108,bacterium,108,,All-proteins
+106,Runella slithyformis,761193,bacterium,761193; 106,UP000000493,Other
+108,Spirosoma linguale,108,bacterium,108,UP000002028,Other
 139,Borreliella burgdorferi (Lyme disease spirochete),224326; 139; 521007; 498738; 498739; 498740,bacterium,498739; 498738; 139; 498740; 521007; 224326,UP000001807,Representative
-158,Treponema denticola,158,bacterium,158,,All-proteins
+158,Treponema denticola,158,bacterium,158,UP000008212,Representative
 160,Treponema pallidum,160; 161; 455434; 243276,bacterium,160; 161; 243276; 455434,UP000000811,Representative
 162,Treponema phagedenis,754027,bacterium,754027; 162,UP000004157,Representative
-173,Leptospira interrogans,211882; 173; 189518; 57678; 214675; 44276; 267671,bacterium,267671; 189518; 173; 57678; 211882; 214675; 44276,UP000001408,Representative
-188,Magnetospirillum magnetotacticum,272627,bacterium,272627; 188,UP000031971,Non-redundant
-195,Campylobacter coli,195; 306254,bacterium,306254; 195,UP000190802,Non-redundant
+173,Leptospira interrogans,211882; 173; 189518; 57678; 214675; 44276; 267671,bacterium,267671; 189518; 173; 57678; 211882; 214675; 44276,UP000012139,Representative
+188,Magnetospirillum magnetotacticum,272627,bacterium,272627; 188,UP000031971,Other
+195,Campylobacter coli,195; 306254,bacterium,306254; 195,UP000411654,Non-redundant
 196,Campylobacter fetus,196; 32019,bacterium,32019; 196,UP000052237,Non-redundant
 197,Campylobacter jejuni,567106; 354242; 482628; 197; 407148; 1347340; 398000; 360112; 1338035; 195099; 192222,bacterium,192222; 407148; 354242; 398000; 195099; 197; 482628; 360112; 567106; 1338035; 1347340,UP000000799,Representative
-201,Campylobacter lari,306263,bacterium,201; 306263,UP000007727,Non-redundant
+201,Campylobacter lari,306263,bacterium,201; 306263,UP000842245,Non-redundant
 210,Helicobacter pylori,981216; 1352357; 637383; 85962; 85963; 570508; 1337393; 210; 684950; 102617; 992121,bacterium,210; 637383; 85962; 981216; 1337393; 102617; 570508; 684950; 1352357; 992121; 85963,UP000000429,Representative
-214,Helicobacter felis,214,bacterium,214,,All-proteins
+214,Helicobacter felis,214,bacterium,214,UP000007934,Other
 235,Brucella abortus (Brucella melitensis bv. Abortus),520450; 575591; 262698; 235; 430066; 641140; 359391,bacterium,520450; 575591; 641140; 262698; 430066; 235; 359391,UP000002719,Representative
 236,Brucella ovis (Brucella melitensis bv. Ovis),236; 444178,bacterium,444178; 236,UP000006383,Non-redundant
 263,Francisella tularensis,441952; 263; 177416; 376619; 401614; 545422; 119856; 393011; 418136; 458234; 393115; 430556; 351581; 430557,bacterium,441952; 119856; 376619; 263; 177416; 401614; 545422; 418136; 430556; 351581; 393011; 430557; 393115; 458234,UP000001174,Representative
 266,Paracoccus denitrificans,266; 318586,bacterium,266; 318586,UP000000361,Representative
-271,Thermus aquaticus,271,bacterium,271,UP000037685,Non-redundant
+271,Thermus aquaticus,271,bacterium,271,UP000058660,Other
 274,Thermus thermophilus,274; 300852,bacterium,274; 300852,UP000000532,Representative
 280,Xanthobacter autotrophicus,78245; 280,bacterium,280; 78245,UP000002417,Representative
 287,Pseudomonas aeruginosa,208963; 208964; 983918; 350703; 388272; 350704; 557722; 381754; 287,bacterium,350703; 381754; 208963; 208964; 557722; 350704; 983918; 388272; 287,UP000002438,Representative
 288,Pseudoalteromonas atlantica,342610,bacterium,288; 342610,UP000001981,Representative
-292,Burkholderia cepacia (Burkholderia cepacia genomovar I),292,bacterium,292,UP000036338,Non-redundant
-294,Pseudomonas fluorescens,294,bacterium,294,UP000031587,Non-redundant
-298,Pseudomonas marginalis,298,bacterium,298,UP000315041,Non-redundant
-300,Pseudomonas mendocina,300; 399739,bacterium,300; 399739,UP000238327,Non-redundant
-303,Pseudomonas putida,351746; 76869; 303,bacterium,351746; 303; 76869,UP000002157,Non-redundant
+292,Burkholderia cepacia (Burkholderia cepacia genomovar I),292,bacterium,292,UP000298185,Non-redundant
+294,Pseudomonas fluorescens,294,bacterium,294,UP000609797,Non-redundant
+298,Pseudomonas marginalis,298,bacterium,298,UP000316123,Non-redundant
+300,Pseudomonas mendocina,300; 399739,bacterium,300; 399739,UP000612856,Non-redundant
+303,Pseudomonas putida,351746; 76869; 303,bacterium,351746; 303; 76869,UP000000556,Representative
 306,Pseudomonas sp.,306,bacterium,306,UP000315499,Representative
 312,Pseudomonas sp. RS-16,312,bacterium,312,,All-proteins
-316,Pseudomonas stutzeri,316,bacterium,316,UP000019522,Non-redundant
+316,Pseudomonas stutzeri,316,bacterium,316,UP000000233,Representative
 354,Azotobacter vinelandii,354; 322710,bacterium,354; 322710,UP000002424,Non-redundant
-358,Agrobacterium tumefaciens,358,bacterium,358,UP000033487,Non-redundant
+358,Agrobacterium tumefaciens,358,bacterium,358,UP000001600,Representative
 382,Sinorhizobium meliloti,266834; 382,bacterium,382; 266834,UP000001976,Representative
-384,Rhizobium leguminosarum,384,bacterium,384,UP000076193,Non-redundant
+384,Rhizobium leguminosarum,384,bacterium,384,UP000482243,Non-redundant
 446,Legionella pneumophila,866628; 272624; 297245,bacterium,272624; 297245; 446; 866628,UP000000609,Representative
 450,Legionella longbeachae,661367,bacterium,450; 661367,UP000001060,Non-redundant
-470,Acinetobacter baumannii,470; 400667,bacterium,470; 400667,UP000031035,Non-redundant
-471,Acinetobacter calcoaceticus,575585,bacterium,471; 575585,UP000005126,Non-redundant
-480,Moraxella catarrhalis,480,bacterium,480,UP000078228,Non-redundant
+470,Acinetobacter baumannii,470; 400667,bacterium,470; 400667,UP000263147,Non-redundant
+471,Acinetobacter calcoaceticus,575585,bacterium,471; 575585,UP000013274,Non-redundant
+480,Moraxella catarrhalis,480,bacterium,480,UP000000930,Representative
 485,Neisseria gonorrhoeae,485; 521006; 242231; 528348,bacterium,485; 521006; 242231; 528348,UP000000535,Reference
 487,Neisseria meningitidis,604162; 65699; 487; 1095688; 135720; 491; 1172206; 374833; 942513; 122586; 122587; 272831,bacterium,374833; 491; 135720; 1172206; 272831; 65699; 942513; 122586; 604162; 487; 1095688; 122587,UP000000425,Representative
 511,Alcaligenes faecalis,511,bacterium,511,UP000245216,Non-redundant
 512,Alcaligenes sp.,512,bacterium,512,UP000673886,Other
-518,Bordetella bronchiseptica,518,bacterium,518,UP000093392,Non-redundant
+518,Bordetella bronchiseptica,518,bacterium,518,UP000025971,Non-redundant
 520,Bordetella pertussis,257313; 568706; 520; 1017264,bacterium,1017264; 520; 568706; 257313,UP000002676,Representative
 521,Bordetella avium,360910,bacterium,521; 360910,UP000001977,Representative
 524,Acidiphilium cryptum (Acidiphilum cryptum),349163,bacterium,524; 349163,UP000000245,Representative
-546,Citrobacter freundii,546,bacterium,546,UP000019194,Non-redundant
-550,Enterobacter cloacae,550,bacterium,550,UP000034104,Non-redundant
-554,Pectobacterium carotovorum,554; 561230,bacterium,561230; 554,UP000002736,Non-redundant
-556,Dickeya chrysanthemi,556,bacterium,556,,All-proteins
+546,Citrobacter freundii,546,bacterium,546,UP000609372,Non-redundant
+550,Enterobacter cloacae,550,bacterium,550,UP000249511,Non-redundant
+554,Pectobacterium carotovorum,554; 561230,bacterium,561230; 554,UP000284819,Non-redundant
+556,Dickeya chrysanthemi,556,bacterium,556,UP000002735,Other
 562,Escherichia coli,244320; 525281; 316385; 344610; 37762; 656419; 405955; 340197; 679205; 83333; 444454; 679206; 83334; 362663; 331111; 331112; 595496; 217992; 511145; 585034; 364106; 431946; 1432555; 749547; 481805; 199310; 439855; 469008; 550672; 316401; 562; 550676; 358709; 550677; 478005; 478006; 316407; 340184; 155864; 478008; 340185; 344601; 386585; 340186; 656380,bacterium,244320; 83333; 83334; 405955; 340185; 362663; 364106; 340197; 478008; 511145; 439855; 199310; 469008; 340186; 444454; 155864; 595496; 386585; 656380; 679206; 585034; 679205; 344601; 562; 431946; 358709; 550676; 340184; 316401; 344610; 550677; 478006; 481805; 331111; 749547; 316407; 1432555; 217992; 525281; 37762; 316385; 331112; 656419; 550672; 478005,UP000000625,Representative
-573,Klebsiella pneumoniae,507522; 272620; 484021; 573,bacterium,507522; 484021; 573; 272620,UP000000265,Representative
+573,Klebsiella pneumoniae,507522; 272620; 484021; 573,bacterium,507522; 484021; 573; 272620,UP000254702,Representative
 584,Proteus mirabilis,529507; 584,bacterium,584; 529507,UP000008319,Representative
-615,Serratia marcescens,615,bacterium,615,UP000037482,Non-redundant
-621,Shigella boydii,344609; 300268; 621,bacterium,621; 300268; 344609,UP000001030,Non-redundant
+615,Serratia marcescens,615,bacterium,615,UP000298510,Non-redundant
+621,Shigella boydii,344609; 300268; 621,bacterium,621; 300268; 344609,UP000215573,Non-redundant
 622,Shigella dysenteriae (Escherichia/Shigella dysenteriae),300267; 622,bacterium,622; 300267,UP000002716,Reference
 623,Shigella flexneri (Escherichia/Shigella flexneri),198214; 198215; 373384; 591020; 424717; 424718; 623,bacterium,198214; 373384; 424718; 198215; 424717; 623; 591020,UP000001006,Reference
-624,Shigella sonnei,300269; 624,bacterium,624; 300269,UP000002529,Non-redundant
-630,Yersinia enterocolitica,913028; 34054; 630; 393305,bacterium,34054; 913028; 393305; 630,UP000000642,Non-redundant
+624,Shigella sonnei,300269; 624,bacterium,624; 300269,UP000215054,Non-redundant
+630,Yersinia enterocolitica,913028; 34054; 630; 393305,bacterium,34054; 913028; 393305; 630,UP000069750,Non-redundant
 632,Yersinia pestis,386656; 373665; 412420; 637382; 360102; 214092; 187410; 349746; 632; 375450; 377628,bacterium,386656; 375450; 377628; 349746; 360102; 214092; 187410; 632; 637382; 373665; 412420,UP000000815,Representative
-633,Yersinia pseudotuberculosis,273123; 502801; 349747; 633,bacterium,349747; 273123; 633; 502801,UP000001011,Non-redundant
+633,Yersinia pseudotuberculosis,273123; 502801; 349747; 633,bacterium,349747; 273123; 633; 502801,UP000255087,Non-redundant
 634,Yersinia bercovieri,349968,bacterium,349968; 634,UP000229378,Non-redundant
-636,Edwardsiella tarda,636,bacterium,636,UP000219788,Non-redundant
-644,Aeromonas hydrophila,644,bacterium,644,UP000059863,Non-redundant
-645,Aeromonas salmonicida,645; 29491,bacterium,645; 29491,UP000077360,Non-redundant
-659,Photobacterium phosphoreum,659,bacterium,659,UP000240683,Non-redundant
+636,Edwardsiella tarda,636,bacterium,636,UP000003692,Non-redundant
+644,Aeromonas hydrophila,644,bacterium,644,UP000000756,Representative
+645,Aeromonas salmonicida,645; 29491,bacterium,645; 29491,UP000196533,Non-redundant
+659,Photobacterium phosphoreum,659,bacterium,659,UP000240514,Non-redundant
 661,Photobacterium angustum,314292,bacterium,314292; 661,UP000001603,Non-redundant
-663,Vibrio alginolyticus,314288,bacterium,663; 314288,UP000037536,Non-redundant
-666,Vibrio cholerae,45888; 675809; 412966; 412614; 412967; 243277; 404974; 686; 345072; 345073; 345074; 412883; 345075; 345076; 417398; 417399; 417400; 592313; 666,bacterium,675809; 345074; 345075; 592313; 45888; 412883; 345073; 345076; 412966; 417398; 417399; 417400; 243277; 686; 345072; 412967; 412614; 404974; 666,UP000000584,Representative
+663,Vibrio alginolyticus,314288,bacterium,663; 314288,UP000565155,Non-redundant
+666,Vibrio cholerae,45888; 675809; 412966; 412614; 412967; 243277; 404974; 686; 345072; 345073; 345074; 412883; 345075; 345076; 417398; 417399; 417400; 592313; 666,bacterium,675809; 345074; 345075; 592313; 45888; 412883; 345073; 345076; 412966; 417398; 417399; 417400; 243277; 686; 345072; 412967; 412614; 404974; 666,UP000471242,Representative
 668,Aliivibrio fischeri,312309,bacterium,668; 312309,UP000000537,Representative
 670,Vibrio parahaemolyticus,419109; 223926; 627611; 563773; 670,bacterium,627611; 223926; 563773; 419109; 670,UP000002493,Representative
-671,Vibrio proteolyticus,671,bacterium,671,,All-proteins
+671,Vibrio proteolyticus,671,bacterium,671,UP000016570,Other
 672,Vibrio vulnificus,672; 196600; 216895,bacterium,196600; 216895; 672,UP000002675,Representative
 674,Vibrio mimicus,674,bacterium,674,UP000053748,Non-redundant
-703,Plesiomonas shigelloides,703,bacterium,703,UP000241379,Non-redundant
-714,Aggregatibacter actinomycetemcomitans,714,bacterium,714,UP000323961,Non-redundant
+703,Plesiomonas shigelloides,703,bacterium,703,UP000014012,Representative
+714,Aggregatibacter actinomycetemcomitans,714,bacterium,714,UP000808925,Non-redundant
 715,Actinobacillus pleuropneumoniae,715; 416269; 228399; 537457,bacterium,537457; 228399; 416269; 715,UP000001432,Representative
 727,Haemophilus influenzae,456482; 262727; 262728; 375432; 375177; 521004; 521005; 374927; 374928; 656913; 374931; 374932; 374933; 727; 71421,bacterium,262728; 71421; 262727; 374933; 456482; 521004; 375177; 521005; 374927; 656913; 374932; 374931; 374928; 727; 375432,UP000000579,Representative
-730,[Haemophilus] ducreyi,730,bacterium,730,UP000278368,Non-redundant
-731,Histophilus somni,205914,bacterium,731; 205914,UP000295746,Non-redundant
-738,[Haemophilus] parasuis,738,bacterium,738,UP000028522,Non-redundant
-747,Pasteurella multocida,272843; 747; 44283,bacterium,272843; 747; 44283,UP000000809,Representative
-769,Anaplasma centrale,769; 574556,bacterium,574556; 769,UP000000630,Non-redundant
+730,[Haemophilus] ducreyi,730,bacterium,730,UP000001022,Representative
+731,Histophilus somni,205914,bacterium,731; 205914,UP000306061,Non-redundant
+738,[Haemophilus] parasuis,738,bacterium,738,UP000006743,Representative
+747,Pasteurella multocida,272843; 747; 44283,bacterium,272843; 747; 44283,UP000002751,Representative
+769,Anaplasma centrale,769; 574556,bacterium,574556; 769,UP000000630,Other
 770,Anaplasma marginale,770; 320483; 234826,bacterium,770; 320483; 234826,UP000007307,Representative
 774,Bartonella bacilliformis,360095,bacterium,360095; 774,UP000000643,Representative
 777,Coxiella burnetii,777; 434922; 434923; 434924; 227377; 360115; 360116; 360117,bacterium,434924; 434922; 777; 227377; 360115; 360117; 360116; 434923,UP000002671,Representative
-779,Ehrlichia ruminantium (heartwater rickettsia),779,bacterium,779,UP000092677,Non-redundant
-781,Rickettsia conorii,781; 302011,bacterium,781; 302011,,All-proteins
+779,Ehrlichia ruminantium (heartwater rickettsia),779,bacterium,779,UP000092731,Non-redundant
+781,Rickettsia conorii,781; 302011,bacterium,781; 302011,UP000000816,Non-redundant
 782,Rickettsia prowazekii,782; 272947,bacterium,272947; 782,UP000002480,Representative
 783,Rickettsia rickettsii,783; 452659; 392021,bacterium,452659; 783; 392021,UP000000796,Non-redundant
 784,Orientia tsutsugamushi,334380; 784; 357244,bacterium,334380; 357244; 784,UP000001565,Representative
 785,Rickettsia typhi,785; 257363,bacterium,257363; 785,UP000000604,Non-redundant
-786,Rickettsia akari (rickettsialpox),293614,bacterium,786; 293614,UP000006830,Non-redundant
-787,Rickettsia australis,787,bacterium,787,,All-proteins
-788,Rickettsia canadensis,788,bacterium,788,,All-proteins
+786,Rickettsia akari (rickettsialpox),293614,bacterium,786; 293614,UP000006830,Other
+787,Rickettsia australis,787,bacterium,787,UP000007589,Other
+788,Rickettsia canadensis,788,bacterium,788,UP000007056,Non-redundant
 813,Chlamydia trachomatis,759363; 813; 315277; 471472; 272561; 707186; 573237,bacterium,813; 573237; 759363; 471472; 315277; 707186; 272561,UP000000431,Representative
-817,Bacteroides fragilis,295405,bacterium,295405; 817,UP000002197,Non-redundant
+817,Bacteroides fragilis,295405,bacterium,295405; 817,UP000006731,Representative
 818,Bacteroides thetaiotaomicron,226186,bacterium,818; 226186,UP000001414,Representative
 837,Porphyromonas gingivalis,837; 431947; 1125722; 242619,bacterium,242619; 1125722; 837; 431947,UP000000588,Representative
-851,Fusobacterium nucleatum (Fusibacterium nucleatum),469601; 209882,bacterium,469601; 209882; 851,UP000006454,Non-redundant
+851,Fusobacterium nucleatum (Fusibacterium nucleatum),469601; 209882,bacterium,469601; 209882; 851,UP000005392,Representative
 891,Desulfuromonas acetoxidans,281689,bacterium,281689; 891,UP000005695,Representative
-920,Acidithiobacillus ferrooxidans,920,bacterium,920,UP000078302,Representative
+920,Acidithiobacillus ferrooxidans,920,bacterium,920,UP000001362,Representative
 944,Ehrlichia canis,269484; 944,bacterium,944; 269484,UP000000435,Representative
 945,Ehrlichia chaffeensis,205920; 945,bacterium,205920; 945,UP000008320,Reference
 948,Anaplasma phagocytophilum (agent of human granulocytic ehrlichiosis),212042; 948,bacterium,212042; 948,UP000001943,Representative
 985,Cytophaga hutchinsonii,269798,bacterium,985; 269798,UP000001822,Representative
-1006,Marivirga tractuosa,1006,bacterium,1006,,All-proteins
+1006,Marivirga tractuosa,1006,bacterium,1006,UP000008720,Representative
 1018,Capnocytophaga ochracea,521097,bacterium,521097; 1018,UP000006650,Representative
-1022,Beggiatoa alba,1022,bacterium,1022,,All-proteins
+1022,Beggiatoa alba,1022,bacterium,1022,UP000005744,Representative
 1027,Microscilla marina,313606,bacterium,313606; 1027,UP000004095,Representative
 1063,Rhodobacter sphaeroides,557760; 349101; 272943,bacterium,272943; 1063; 557760; 349101,UP000002703,Representative
 1076,Rhodopseudomonas palustris,1076; 316056,bacterium,316056; 1076,UP000032515,Representative
 1102,Prosthecochloris aestuarii,290512,bacterium,1102; 290512,UP000002725,Representative
 1108,Chloroflexus aurantiacus,324602,bacterium,1108; 324602,UP000002008,Representative
-1148,Synechocystis sp. PCC 6803,1148,bacterium,1148,UP000008187,Other
+1148,Synechocystis sp. PCC 6803,1148,bacterium,1148,UP000001425,Representative
 1206,Trichodesmium erythraeum,203124,bacterium,1206; 203124,,All-proteins
-1219,Prochlorococcus marinus,93058,bacterium,1219; 93058,UP000002804,Non-redundant
-1254,Pediococcus acidilactici,1254,bacterium,1254,UP000181709,Non-redundant
+1219,Prochlorococcus marinus,93058,bacterium,1219; 93058,UP000001423,Representative
+1254,Pediococcus acidilactici,1254,bacterium,1254,UP000009880,Non-redundant
 1260,Finegoldia magna,1260; 334413,bacterium,1260; 334413,UP000001319,Representative
 1265,Ruminococcus flavefaciens,641112,bacterium,1265; 641112,UP000183461,Representative
-1270,Micrococcus luteus,1270,bacterium,1270,UP000023905,Non-redundant
+1270,Micrococcus luteus,1270,bacterium,1270,UP000000738,Representative
 1280,Staphylococcus aureus,1280; 93061; 93062; 196620; 553583; 1417139; 548470; 282458; 158878; 426430; 158879,bacterium,196620; 158878; 158879; 93061; 1280; 548470; 282458; 1417139; 553583; 426430; 93062,UP000008816,Representative
-1282,Staphylococcus epidermidis,525374,bacterium,525374; 1282,UP000185636,Non-redundant
-1303,Streptococcus oralis,1303,bacterium,1303,UP000028098,Non-redundant
+1282,Staphylococcus epidermidis,525374,bacterium,525374; 1282,UP000000531,Reference
+1303,Streptococcus oralis,1303,bacterium,1303,UP000790600,Non-redundant
 1305,Streptococcus sanguinis,388919; 1305,bacterium,388919; 1305,UP000002148,Representative
-1307,Streptococcus suis,1307,bacterium,1307,UP000038006,Non-redundant
+1307,Streptococcus suis,1307,bacterium,1307,UP000000243,Representative
 1309,Streptococcus mutans,210007; 1309,bacterium,1309; 210007,UP000002512,Representative
-1310,Streptococcus sobrinus,1310,bacterium,1310,UP000216265,Other
+1310,Streptococcus sobrinus,1310,bacterium,1310,UP000016617,Non-redundant
 1311,Streptococcus agalactiae,211110; 208435; 342614; 1311,bacterium,211110; 342614; 208435; 1311,UP000000821,Representative
-1313,Streptococcus pneumoniae,406560; 1313; 373153; 170187; 453366; 171101,bacterium,171101; 1313; 406560; 170187; 453366; 373153,UP000000586,Representative
-1314,Streptococcus pyogenes,562017; 1314; 1115815; 301449; 301450; 160490; 160491; 286636; 1115822; 1115825; 561522; 370553; 370554,bacterium,160490; 370553; 1115825; 286636; 1115822; 561522; 1115815; 370554; 301450; 562017; 1314; 301449; 160491,UP000001167,Non-redundant
-1317,Streptococcus downei (Streptococcus downensis),1317,bacterium,1317,,All-proteins
+1313,Streptococcus pneumoniae,406560; 1313; 373153; 170187; 453366; 171101,bacterium,171101; 1313; 406560; 170187; 453366; 373153,UP000002642,Representative
+1314,Streptococcus pyogenes,562017; 1314; 1115815; 301449; 301450; 160490; 160491; 286636; 1115822; 1115825; 561522; 370553; 370554,bacterium,160490; 370553; 1115825; 286636; 1115822; 561522; 1115815; 370554; 301450; 562017; 1314; 301449; 160491,UP000000750,Representative
+1317,Streptococcus downei (Streptococcus downensis),1317,bacterium,1317,UP000254082,Non-redundant
 1320,Streptococcus sp. 'group G',1320,bacterium,1320,,All-proteins
 1323,Faecalicoccus pleomorphus,1323,bacterium,1323,UP000255523,Representative
 1325,Streptococcus sp. GX7805,1325,bacterium,1325,,All-proteins
-1329,Streptococcus canis,1329,bacterium,1329,UP000229589,Non-redundant
-1334,Streptococcus dysgalactiae,486410; 119602; 1334,bacterium,119602; 1334; 486410,UP000002732,Non-redundant
-1336,Streptococcus equi,1336,bacterium,1336,UP000646256,Non-redundant
-1349,Streptococcus uberis,1349,bacterium,1349,UP000030468,Non-redundant
-1351,Enterococcus faecalis,1351,bacterium,1351,UP000239475,Non-redundant
+1329,Streptococcus canis,1329,bacterium,1329,UP000280759,Non-redundant
+1334,Streptococcus dysgalactiae,486410; 119602; 1334,bacterium,119602; 1334; 486410,UP000384095,Non-redundant
+1336,Streptococcus equi,1336,bacterium,1336,UP000041669,Non-redundant
+1349,Streptococcus uberis,1349,bacterium,1349,UP000000449,Representative
+1351,Enterococcus faecalis,1351,bacterium,1351,UP000001415,Representative
 1352,Enterococcus faecium,1352; 333849; 525279,bacterium,525279; 1352; 333849,UP000005269,Representative
 1358,Lactococcus lactis,684738; 272622; 272623,bacterium,1358; 684738; 272623; 272622,UP000002196,Representative
-1390,Bacillus amyloliquefaciens,1390; 999891,bacterium,999891; 1390,UP000276875,Non-redundant
+1390,Bacillus amyloliquefaciens,1390; 999891,bacterium,999891; 1390,UP000032472,Non-redundant
 1392,Bacillus anthracis (anthrax bacterium),405536; 486624; 212045; 198094; 568206; 1392; 191218; 592021; 261594; 486619; 486620; 486621; 486623; 260799,bacterium,1392; 486620; 486624; 191218; 592021; 198094; 568206; 261594; 260799; 486623; 212045; 486621; 405536; 486619,UP000000594,Reference
 1396,Bacillus cereus,526977; 526979; 347495; 572264; 269801; 288681; 1396; 226900; 405531; 451707; 222523; 405532; 451708; 405533; 451709; 405917; 526974,bacterium,451708; 405917; 405533; 572264; 526979; 526977; 288681; 526974; 347495; 222523; 1396; 269801; 226900; 451707; 405532; 451709; 405531,UP000001417,Representative
-1402,Bacillus licheniformis,1402,bacterium,1402,UP000187481,Non-redundant
-1404,Bacillus megaterium,1404,bacterium,1404,UP000036876,Non-redundant
-1408,Bacillus pumilus,1408,bacterium,1408,UP000031978,Non-redundant
-1421,Lysinibacillus sphaericus,1421,bacterium,1421,UP000237319,Non-redundant
-1422,Geobacillus stearothermophilus,1422,bacterium,1422,UP000075424,Non-redundant
+1402,Bacillus licheniformis,1402,bacterium,1402,UP000000606,Representative
+1404,Bacillus megaterium,1404,bacterium,1404,UP000000935,Representative
+1408,Bacillus pumilus,1408,bacterium,1408,UP000001355,Representative
+1421,Lysinibacillus sphaericus,1421,bacterium,1421,UP000770901,Non-redundant
+1422,Geobacillus stearothermophilus,1422,bacterium,1422,UP000217162,Non-redundant
 1423,Bacillus subtilis,1423; 535026; 224308; 645657,bacterium,535026; 645657; 1423; 224308,UP000001570,Representative
 1427,Bacillus thermoproteolyticus,1427,bacterium,1427,,All-proteins
-1428,Bacillus thuringiensis,128936; 527019; 527020; 339854; 527024; 527026; 1428; 527029; 412694; 1435; 29339,bacterium,1435; 527026; 527029; 527024; 339854; 412694; 1428; 128936; 29339; 527019; 527020,UP000000761,Non-redundant
+1428,Bacillus thuringiensis,128936; 527019; 527020; 339854; 527024; 527026; 1428; 527029; 412694; 1435; 29339,bacterium,1435; 527026; 527029; 527024; 339854; 412694; 1428; 128936; 29339; 527019; 527020,UP000224003,Non-redundant
 1467,Bacillus lentus,1467,bacterium,1467,UP000249134,Representative
 1488,Clostridium acetobutylicum,272562,bacterium,1488; 272562,UP000000814,Representative
 1491,Clostridium botulinum,441771; 413999; 1491; 445335; 36828; 935198; 36830; 508767,bacterium,441771; 413999; 1491; 36828; 935198; 445335; 36830; 508767,UP000001986,Representative
-1496,Clostridium difficile,645463; 1496,bacterium,1496; 645463,UP000037983,Non-redundant
+1496,Clostridium difficile,645463; 1496,bacterium,1496; 645463,UP000001978,Representative
 1502,Clostridium perfringens,107819; 488537; 1502; 195102,bacterium,1502; 195102; 107819; 488537,UP000000818,Representative
 1513,Clostridium tetani,1513; 212717,bacterium,212717; 1513,UP000001412,Representative
 1515,Ruminiclostridium thermocellum,203119,bacterium,203119; 1515,UP000002145,Representative
-1520,Clostridium beijerinckii,290402,bacterium,290402; 1520,UP000000565,Non-redundant
-1521,[Clostridium] cellulolyticum (Clostridium cellulosilyticum),1521,bacterium,1521,,All-proteins
+1520,Clostridium beijerinckii,290402,bacterium,290402; 1520,UP000250158,Non-redundant
+1521,[Clostridium] cellulolyticum (Clostridium cellulosilyticum),1521,bacterium,1521,UP000001349,Representative
 1525,Moorella thermoacetica,264732,bacterium,264732; 1525,UP000182811,Representative
 1542,Clostridium novyi,386415,bacterium,386415; 1542,UP000008220,Representative
-1584,Lactobacillus delbrueckii,1585,bacterium,1584; 1585,UP000052235,Non-redundant
-1599,Lactobacillus sakei,1599,bacterium,1599,UP000233764,Non-redundant
-1604,Lactobacillus amylovorus,1604,bacterium,1604,UP000007491,Non-redundant
-1638,Listeria ivanovii,1638,bacterium,1638,UP000183610,Other
+1584,Lactobacillus delbrueckii,1585,bacterium,1584; 1585,UP000001259,Representative
+1599,Lactobacillus sakei,1599,bacterium,1599,UP000002707,Representative
+1604,Lactobacillus amylovorus,1604,bacterium,1604,UP000007033,Non-redundant
+1638,Listeria ivanovii,1638,bacterium,1638,UP000029667,Non-redundant
 1639,Listeria monocytogenes,393124; 265669; 393125; 393126; 1639; 393128; 393130; 169963; 393133; 267409; 267410; 401650; 568819; 552536; 393117,bacterium,393130; 393126; 265669; 393117; 393128; 393124; 568819; 401650; 552536; 393125; 1639; 169963; 267410; 393133; 267409,UP000000817,Representative
-1640,Listeria seeligeri,1640,bacterium,1640,UP000523362,Non-redundant
-1641,Listeria grayi (Listeria grayi grayi),1641,bacterium,1641,UP000254879,Non-redundant
-1642,Listeria innocua,1642,bacterium,1642,UP000327971,Non-redundant
-1643,Listeria welshimeri,386043,bacterium,1643; 386043,UP000000779,Non-redundant
+1640,Listeria seeligeri,1640,bacterium,1640,UP000004302,Non-redundant
+1641,Listeria grayi (Listeria grayi grayi),1641,bacterium,1641,UP000010119,Representative
+1642,Listeria innocua,1642,bacterium,1642,UP000555375,Non-redundant
+1643,Listeria welshimeri,386043,bacterium,1643; 386043,UP000594789,Non-redundant
 1646,Renibacterium salmoninarum,288705,bacterium,1646; 288705,UP000002007,Representative
-1655,Actinomyces naeslundii,1655,bacterium,1655,UP000185840,Non-redundant
-1661,Trueperella pyogenes,1661,bacterium,1661,UP000019771,Non-redundant
-1681,Bifidobacterium bifidum,1207543,bacterium,1207543; 1681,UP000007366,Non-redundant
-1685,Bifidobacterium breve,1685,bacterium,1685,UP000037451,Non-redundant
-1717,Corynebacterium diphtheriae,1717,bacterium,1717,UP000477297,Non-redundant
+1655,Actinomyces naeslundii,1655,bacterium,1655,UP000250032,Non-redundant
+1661,Trueperella pyogenes,1661,bacterium,1661,UP000275951,Non-redundant
+1681,Bifidobacterium bifidum,1207543,bacterium,1207543; 1681,UP000006173,Representative
+1685,Bifidobacterium breve,1685,bacterium,1685,UP000003191,Non-redundant
+1717,Corynebacterium diphtheriae,1717,bacterium,1717,UP000002198,Representative
 1718,Corynebacterium glutamicum,340322; 196627; 1718,bacterium,196627; 340322; 1718,UP000000582,Representative
-1744,Propionibacterium freudenreichii,1752,bacterium,1752; 1744,UP000049868,Non-redundant
-1747,Propionibacterium acnes (Propionicibacterium acnes),765103; 1747,bacterium,765103; 1747,UP000256961,Non-redundant
-1764,Mycobacterium avium,1299329; 1764; 553481; 1770; 243243; 262316; 1010838,bacterium,1010838; 243243; 1770; 262316; 1299329; 553481; 1764,UP000000580,Representative
-1765,Mycobacterium bovis,33892; 1765; 233413; 410289; 561275,bacterium,561275; 410289; 1765; 233413; 33892,UP000001419,Non-redundant
-1767,Mycobacterium intracellulare,487521; 1767,bacterium,1767; 487521,UP000008004,Non-redundant
+1744,Propionibacterium freudenreichii,1752,bacterium,1752; 1744,UP000000936,Representative
+1747,Propionibacterium acnes (Propionicibacterium acnes),765103; 1747,bacterium,765103; 1747,UP000019081,Representative
+1764,Mycobacterium avium,1299329; 1764; 553481; 1770; 243243; 262316; 1010838,bacterium,1010838; 243243; 1770; 262316; 1299329; 553481; 1764,UP000019908,Representative
+1765,Mycobacterium bovis,33892; 1765; 233413; 410289; 561275,bacterium,561275; 410289; 1765; 233413; 33892,UP000059860,Non-redundant
+1767,Mycobacterium intracellulare,487521; 1767,bacterium,1767; 487521,UP000020825,Non-redundant
 1768,Mycobacterium kansasii,1768,bacterium,1768,UP000516380,Representative
 1769,Mycobacterium leprae,1769; 272631,bacterium,272631; 1769,UP000000806,Representative
 1772,Mycobacterium smegmatis,246196,bacterium,246196; 1772,UP000000757,Representative
 1773,Mycobacterium tuberculosis,515616; 182785; 515617; 478434; 478435; 83331; 83332; 555461; 611302; 611303; 1438824; 652616; 348776; 419947; 1078763; 1354156; 1091500; 520140; 1773; 443149; 1091501; 520141; 443150; 1306414; 1448751; 1427279; 1452723; 336982; 1455286; 1304279; 395095; 537209; 675513; 537210; 515615; 1448575,bacterium,182785; 443149; 537209; 1452723; 443150; 83332; 520141; 675513; 652616; 515615; 83331; 1091500; 611302; 611303; 1354156; 1438824; 515616; 478435; 1306414; 395095; 537210; 1091501; 336982; 1448575; 1448751; 478434; 1078763; 1455286; 419947; 515617; 520140; 1304279; 1773; 1427279; 348776; 555461,UP000001584,Representative
-1777,Mycobacterium gastri,1436723,bacterium,1777; 1436723,UP000193738,Non-redundant
+1777,Mycobacterium gastri,1436723,bacterium,1777; 1436723,UP000019111,Other
 1778,Mycobacterium gordonae,1778,bacterium,1778,UP000051677,Representative
 1781,Mycobacterium marinum,216594; 1781,bacterium,216594; 1781,UP000001190,Representative
-1783,Mycobacterium scrofulaceum,1783,bacterium,1783,UP000092207,Non-redundant
-1795,Mycobacterium neoaurum,1795,bacterium,1795,UP000199692,Non-redundant
-1804,Mycobacterium gilvum,350054; 278137,bacterium,278137; 1804; 350054,UP000008916,Non-redundant
-1809,Mycobacterium ulcerans,362242; 1809,bacterium,362242; 1809,UP000000765,Non-redundant
-1828,Rhodococcus fascians,1828,bacterium,1828,UP000076038,Non-redundant
-1833,Rhodococcus erythropolis,1833,bacterium,1833,UP000031966,Non-redundant
+1783,Mycobacterium scrofulaceum,1783,bacterium,1783,UP000192601,Non-redundant
+1795,Mycobacterium neoaurum,1795,bacterium,1795,UP000018763,Representative
+1804,Mycobacterium gilvum,350054; 278137,bacterium,278137; 1804; 350054,UP000254291,Other
+1809,Mycobacterium ulcerans,362242; 1809,bacterium,362242; 1809,UP000020681,Representative
+1828,Rhodococcus fascians,1828,bacterium,1828,UP000731849,Non-redundant
+1833,Rhodococcus erythropolis,1833,bacterium,1833,UP000502345,Non-redundant
 1902,Streptomyces coelicolor,100226,bacterium,1902; 100226,UP000001973,Representative
-1916,Streptomyces lividans,1916,bacterium,1916,,All-proteins
+1916,Streptomyces lividans,1916,bacterium,1916,UP000014062,Non-redundant
 1946,Streptomyces kasugaensis (Streptomyces kasugensis),1946,bacterium,1946,UP000292452,Representative
 2021,Thermobifida fusca,269800,bacterium,2021; 269800,UP000249530,Non-redundant
-2039,Tropheryma whipplei,218496,bacterium,218496; 2039,UP000001413,Other
+2039,Tropheryma whipplei,218496,bacterium,218496; 2039,UP000002200,Representative
 2066,Kitasatospora setae (Kitasatospora setensis),452652,bacterium,452652; 2066,UP000007076,Representative
-2096,Mycoplasma gallisepticum,2096,bacterium,2096,UP000325749,Non-redundant
+2096,Mycoplasma gallisepticum,2096,bacterium,2096,UP000001418,Representative
 2097,Mycoplasma genitalium,243273; 2097,bacterium,2097; 243273,UP000000807,Representative
-2099,Mycoplasma hyopneumoniae,262722; 754503; 2099; 295358,bacterium,262722; 295358; 2099; 754503,UP000000553,Non-redundant
+2099,Mycoplasma hyopneumoniae,262722; 754503; 2099; 295358,bacterium,262722; 295358; 2099; 754503,UP000215452,Non-redundant
 2104,Mycoplasma pneumoniae,722438; 2104; 272634,bacterium,2104; 272634; 722438,UP000000808,Reference
 2110,Mycoplasma agalactiae,347257,bacterium,347257; 2110,UP000007065,Representative
-2111,Mycoplasma arthritidis,2111,bacterium,2111,UP000289422,Other
-2133,Spiroplasma citri,2133,bacterium,2133,UP000501133,Non-redundant
+2111,Mycoplasma arthritidis,2111,bacterium,2111,UP000008812,Representative
+2133,Spiroplasma citri,2133,bacterium,2133,UP000183717,Non-redundant
 2148,Acholeplasma laidlawii,441768,bacterium,441768; 2148,UP000008558,Representative
 2190,Methanocaldococcus jannaschii,243232,archeobacterium,2190; 243232,UP000000805,Representative
 2234,Archaeoglobus fulgidus,224325,archeobacterium,2234; 224325,UP000002199,Representative
@@ -225,7 +225,7 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 3067,Volvox carteri,3068,other-eukaryote,3067; 3068,UP000001058,Representative
 3352,Pinus taeda (loblolly pine),3352,other-eukaryote,3352,,All-proteins
 3369,Cryptomeria japonica (Japanese cedar),3369,other-eukaryote,3369,,All-proteins
-3505,Betula pendula (white birch),3505,other-eukaryote,3505,UP000595565,Non-redundant
+3505,Betula pendula (white birch),3505,other-eukaryote,3505,UP000595565,Other
 3513,Quercus alba (white oak),3513,other-eukaryote,3513,,All-proteins
 3517,Alnus glutinosa,3517,other-eukaryote,3517,,All-proteins
 3559,Chenopodium album (pigweed),3559,other-eukaryote,3559,,All-proteins
@@ -233,7 +233,7 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 3617,Fagopyrum esculentum (common buckwheat),3617,other-eukaryote,3617,,All-proteins
 3645,Bertholletia excelsa (Brazil nut),3645,other-eukaryote,3645,,All-proteins
 3649,Carica papaya (mamon),3649,other-eukaryote,3649,,All-proteins
-3656,Cucumis melo (Oriental melon),3656,other-eukaryote,3656,UP000089565,Representative
+3656,Cucumis melo (Oriental melon),3656,other-eukaryote,3656,UP000321393,Representative
 3663,Cucurbita pepo,3665,other-eukaryote,3665; 3663,,All-proteins
 3677,Trichosanthes kirilowii (tian hua fen),3677,other-eukaryote,3677,,All-proteins
 3694,Populus trichocarpa (western balsam poplar),3694,other-eukaryote,3694,UP000006729,Representative
@@ -260,12 +260,12 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 3986,Mercurialis annua (herb mercury),3986,other-eukaryote,3986,,All-proteins
 3988,Ricinus communis (castor bean),3988,other-eukaryote,3988,UP000008311,Representative
 4026,Acer pseudoplatanus (sycamore maple),4026,other-eukaryote,4026,,All-proteins
-4039,Daucus carota (carrots),4039,other-eukaryote,4039,,All-proteins
+4039,Daucus carota (carrots),4039,other-eukaryote,4039,UP000077755,Representative
 4045,Apium graveolens,4045,other-eukaryote,4045,UP000593563,Representative
 4081,Solanum lycopersicum (tomato),4081,other-eukaryote,4081,UP000004994,Representative
 4097,Nicotiana tabacum (tobacco),4097,other-eukaryote,4097,UP000084051,Representative
 4113,Solanum tuberosum (potatoes),4113,other-eukaryote,4113,UP000011115,Representative
-4146,Olea europaea (common olive),4146,other-eukaryote,4146,,All-proteins
+4146,Olea europaea (common olive),4146,other-eukaryote,4146,UP000594638,Other
 4182,Sesamum indicum (koba),4182,other-eukaryote,4182,UP000504604,Representative
 4212,Ambrosia artemisiifolia (short ragweed),4212; 4215,other-eukaryote,4212; 4215,,All-proteins
 4214,Ambrosia trifida (giant ragweed),4214,other-eukaryote,4214,,All-proteins
@@ -283,73 +283,73 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 4550,Secale cereale (rye),4550; 155091,other-eukaryote,4550; 155091,,All-proteins
 4565,Triticum aestivum (Canadian hard winter wheat),4565,other-eukaryote,4565,UP000019116,Representative
 4568,Triticum monococcum (einkorn wheat),4568,other-eukaryote,4568,,All-proteins
-4571,Triticum turgidum (poulard wheat),4571,other-eukaryote,4571,,All-proteins
+4571,Triticum turgidum (poulard wheat),4571,other-eukaryote,4571,UP000324705,Other
 4572,Triticum urartu,4572,other-eukaryote,4572,UP000015106,Representative
 4573,Aegilops speltoides,4573,other-eukaryote,4573,,All-proteins
 4577,Zea mays (maize),4577; 76912,other-eukaryote,4577; 76912,UP000007305,Representative
 4601,Thinopyrum bessarabicum,4601,other-eukaryote,4601,,All-proteins
 4606,Festuca arundinacea (tall fescue),4606,other-eukaryote,4606,,All-proteins
 4615,Ananas comosus (pineapple),4615,other-eukaryote,4615,UP000092600,Representative
-4641,Musa acuminata (banana),4641; 214697,other-eukaryote,4641; 214697,,All-proteins
-4754,Pneumocystis carinii,4754,other-eukaryote,4754,,All-proteins
+4641,Musa acuminata (banana),4641; 214697,other-eukaryote,4641; 214697,UP000012960,Representative
+4754,Pneumocystis carinii,4754,other-eukaryote,4754,UP000054454,Other
 4768,Achlya ambisexualis,4768,other-eukaryote,4768,,All-proteins
 4896,Schizosaccharomyces pombe (fission yeast),284812,other-eukaryote,4896; 284812,UP000002485,Representative
 4932,Saccharomyces cerevisiae (baker's yeast),643680; 545124; 4932; 285006; 559292,other-eukaryote,545124; 559292; 643680; 285006; 4932,UP000002311,Representative
-5037,Histoplasma capsulatum,447093,other-eukaryote,5037; 447093,UP000001631,Representative
+5037,Histoplasma capsulatum,447093,other-eukaryote,5037; 447093,UP000002624,Representative
 5039,Blastomyces dermatitidis,559297; 5039; 447095,other-eukaryote,559297; 447095; 5039,UP000002039,Representative
-5061,Aspergillus niger,425011,other-eukaryote,425011; 5061,UP000068243,Representative
+5061,Aspergillus niger,425011,other-eukaryote,425011; 5061,UP000009038,Representative
 5064,Aspergillus restrictus,5064,other-eukaryote,5064,,All-proteins
 5067,Aspergillus parasiticus,5067,other-eukaryote,5067,UP000326532,Representative
-5076,Penicillium chrysogenum,5076,other-eukaryote,5076,UP000076449,Non-redundant
+5076,Penicillium chrysogenum,5076,other-eukaryote,5076,UP000076449,Other
 5077,Penicillium citrinum,5077,other-eukaryote,5077,,All-proteins
-5141,Neurospora crassa,5141,other-eukaryote,5141,UP000053122,Non-redundant
+5141,Neurospora crassa,5141,other-eukaryote,5141,UP000001805,Representative
 5207,Cryptococcus neoformans,235443; 283643; 214684,other-eukaryote,235443; 5207; 283643; 214684,UP000002149,Representative
 5270,Ustilago maydis,237631,other-eukaryote,237631; 5270,UP000000561,Representative
-5334,Schizophyllum commune,5334,other-eukaryote,5334,,All-proteins
-5476,Candida albicans,5476; 237561; 294748,other-eukaryote,5476; 294748; 237561,UP000000559,Representative
-5482,Candida tropicalis,5482,other-eukaryote,5482,UP000664676,Other
-5501,Coccidioides immitis,5501,other-eukaryote,5501,UP000290473,Other
+5334,Schizophyllum commune,5334,other-eukaryote,5334,UP000007431,Representative
+5476,Candida albicans,5476; 237561; 294748,other-eukaryote,5476; 294748; 237561,UP000536275,Representative
+5482,Candida tropicalis,5482,other-eukaryote,5482,UP000002037,Representative
+5501,Coccidioides immitis,5501,other-eukaryote,5501,UP000054559,Representative
 5503,Curvularia lunata,5503,other-eukaryote,5503,,All-proteins
 5537,Rhodotorula mucilaginosa,5537,other-eukaryote,5537,,All-proteins
-5551,Trichophyton rubrum,5551,other-eukaryote,5551,UP000243015,Representative
+5551,Trichophyton rubrum,5551,other-eukaryote,5551,UP000008864,Representative
 5599,Alternaria alternata,5599,other-eukaryote,5599,UP000077248,Representative
 5659,Leishmania amazonensis,5659,other-eukaryote,5659,,All-proteins
 5660,Leishmania braziliensis,420245; 5660,other-eukaryote,420245; 5660,UP000007258,Reference
-5661,Leishmania donovani,5661,other-eukaryote,5661,UP000274082,Non-redundant
+5661,Leishmania donovani,5661,other-eukaryote,5661,UP000274082,Other
 5664,Leishmania major,5664; 347515,other-eukaryote,347515; 5664,UP000000542,Representative
-5665,Leishmania mexicana,5665; 929439,other-eukaryote,5665; 929439,UP000007259,Non-redundant
+5665,Leishmania mexicana,5665; 929439,other-eukaryote,5665; 929439,UP000007259,Other
 5667,Leishmania aethiopica,5667,other-eukaryote,5667,,All-proteins
 5671,Leishmania infantum,5671; 435258,other-eukaryote,5671; 435258,UP000008153,Reference
-5679,Leishmania panamensis,5679,other-eukaryote,5679,UP000063063,Non-redundant
+5679,Leishmania panamensis,5679,other-eukaryote,5679,UP000063063,Other
 5682,Leishmania pifanoi,5682,other-eukaryote,5682,,All-proteins
 5691,Trypanosoma brucei,679716; 5702; 31285; 185431; 5691,other-eukaryote,185431; 31285; 5691; 5702; 679716,UP000008524,Representative
 5693,Trypanosoma cruzi,353153; 5693,other-eukaryote,5693; 353153,UP000002296,Representative
 5722,Trichomonas vaginalis,412133; 5722,other-eukaryote,412133; 5722,UP000001542,Representative
 5741,Giardia intestinalis (Giardia lamblia),658858; 5741; 598745; 184922,other-eukaryote,5741; 184922; 658858; 598745,UP000001548,Representative
-5755,Acanthamoeba castellanii,5755,other-eukaryote,5755,UP000792414,Non-redundant
+5755,Acanthamoeba castellanii,5755,other-eukaryote,5755,UP000011083,Representative
 5759,Entamoeba histolytica,294381; 885311; 5759,other-eukaryote,294381; 885311; 5759,UP000001926,Representative
 5762,Naegleria gruberi,744533,other-eukaryote,744533; 5762,UP000006671,Representative
-5801,Eimeria acervulina,5801,other-eukaryote,5801,UP000018050,Non-redundant
-5802,Eimeria tenella,5802,other-eukaryote,5802,UP000030747,Non-redundant
+5801,Eimeria acervulina,5801,other-eukaryote,5801,UP000018050,Other
+5802,Eimeria tenella,5802,other-eukaryote,5802,UP000030747,Other
 5807,Cryptosporidium parvum,353152; 5807,other-eukaryote,353152; 5807,UP000006726,Representative
 5811,Toxoplasma gondii,508771; 1130820; 935652; 432359; 943118; 943119; 507601; 383379; 5811; 933077,other-eukaryote,508771; 943118; 507601; 432359; 933077; 1130820; 5811; 943119; 935652; 383379,UP000002226,Representative
 5821,Plasmodium berghei,5821; 5823,other-eukaryote,5821; 5823,UP000074855,Representative
 5824,Plasmodium brasilianum,5824,other-eukaryote,5824,,All-proteins
-5825,Plasmodium chabaudi,5825; 31271,other-eukaryote,5825; 31271,UP000071118,Non-redundant
-5827,Plasmodium cynomolgi,5827; 5828,other-eukaryote,5828; 5827,,All-proteins
-5833,Plasmodium falciparum (malaria parasite P. falciparum),36329; 5833; 5834; 5835; 5837; 5838; 5839; 5841; 5842; 57266; 1036723; 5843; 5846; 57270; 5848; 580058; 580059,other-eukaryote,5842; 5843; 36329; 580058; 5837; 5838; 1036723; 57266; 5848; 5833; 5835; 57270; 5839; 580059; 5841; 5834; 5846,UP000001450,Representative
-5849,Plasmodium gallinaceum,5849,other-eukaryote,5849,UP000220797,Non-redundant
+5825,Plasmodium chabaudi,5825; 31271,other-eukaryote,5825; 31271,UP000507536,Other
+5827,Plasmodium cynomolgi,5827; 5828,other-eukaryote,5828; 5827,UP000006319,Representative
+5833,Plasmodium falciparum (malaria parasite P. falciparum),36329; 5833; 5834; 5835; 5837; 5838; 5839; 5841; 5842; 57266; 1036723; 5843; 5846; 57270; 5848; 580058; 580059,other-eukaryote,5842; 5843; 36329; 580058; 5837; 5838; 1036723; 57266; 5848; 5833; 5835; 57270; 5839; 580059; 5841; 5834; 5846,UP000030708,Representative
+5849,Plasmodium gallinaceum,5849,other-eukaryote,5849,UP000220797,Other
 5850,Plasmodium knowlesi,5850; 5851; 5852,other-eukaryote,5852; 5850; 5851,UP000031513,Representative
-5854,Plasmodium reichenowi,5854,other-eukaryote,5854,UP000027581,Non-redundant
+5854,Plasmodium reichenowi,5854,other-eukaryote,5854,UP000240500,Other
 5855,Plasmodium vivax (malaria parasite P. vivax),31273; 126793; 5855,other-eukaryote,31273; 5855; 126793,UP000008333,Representative
-5857,Plasmodium fragile,5857,other-eukaryote,5857,UP000054561,Non-redundant
+5857,Plasmodium fragile,5857,other-eukaryote,5857,UP000054561,Other
 5858,Plasmodium malariae,5858,other-eukaryote,5858,UP000219813,Representative
 5859,Plasmodium simium,5859,other-eukaryote,5859,,All-proteins
 5861,Plasmodium yoelii,5861; 352914; 73239,other-eukaryote,73239; 5861; 352914,UP000008553,Representative
 5865,Babesia bovis,5865; 484906,other-eukaryote,484906; 5865,UP000002173,Representative
 5866,Babesia bigemina,5866,other-eukaryote,5866,UP000033188,Representative
-5868,Babesia microti,5868,other-eukaryote,5868,,All-proteins
-5872,Theileria equi,5872,other-eukaryote,5872,,All-proteins
+5868,Babesia microti,5868,other-eukaryote,5868,UP000002899,Representative
+5872,Theileria equi,5872,other-eukaryote,5872,UP000031512,Representative
 5874,Theileria annulata,353154; 5874,other-eukaryote,353154; 5874,UP000001950,Representative
 5875,Theileria parva,333668; 5875,other-eukaryote,333668; 5875,UP000001949,Representative
 5877,Theileria sergenti,5877,other-eukaryote,5877,,All-proteins
@@ -374,11 +374,11 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 6269,Anisakis simplex (herring worm),6269,other-eukaryote,6269,UP000267096,Representative
 6279,Brugia malayi (agent of lymphatic filariasis),6279,other-eukaryote,6279,UP000006672,Representative
 6282,Onchocerca volvulus,6282,other-eukaryote,6282,UP000024404,Representative
-6289,Haemonchus contortus (red stomach worm),6289,other-eukaryote,6289,UP000025227,Non-redundant
+6289,Haemonchus contortus (red stomach worm),6289,other-eukaryote,6289,UP000025227,Other
 6293,Wuchereria bancrofti (agent of lymphatic filariasis),6293,other-eukaryote,6293,UP000270924,Representative
 6299,Litomosoides carinii,6299,other-eukaryote,6299,,All-proteins
 6334,Trichinella spiralis,6334,other-eukaryote,6334,UP000054776,Representative
-6339,Heligmosomoides polygyrus,6339,other-eukaryote,6339,UP000050761,Non-redundant
+6339,Heligmosomoides polygyrus,6339,other-eukaryote,6339,UP000050761,Other
 6421,Hirudo medicinalis (medicinal leech),6421,other-eukaryote,6421,,All-proteins
 6454,Haliotis rufescens (California red abalone),6454,other-eukaryote,6454,,All-proteins
 6491,Conus geographus (geography cone),6491,other-eukaryote,6491,,All-proteins
@@ -403,15 +403,15 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 6938,Ornithodoros moubata,6938,other-eukaryote,6938,,All-proteins
 6941,Rhipicephalus microplus (cattle tick),6941,other-eukaryote,6941,,All-proteins
 6945,Ixodes scapularis (blacklegged tick),6945,other-eukaryote,6945,UP000001555,Representative
-6954,Dermatophagoides farinae (American house dust mite),6954,other-eukaryote,6954,UP000463959,Non-redundant
+6954,Dermatophagoides farinae (American house dust mite),6954,other-eukaryote,6954,UP000790347,Other
 6956,Dermatophagoides pteronyssinus (European house dust mite),6956,other-eukaryote,6956,UP000515146,Representative
 6958,Euroglyphus maynei,6958,other-eukaryote,6958,UP000194236,Representative
 6973,Blattella germanica (German cockroach),6973,other-eukaryote,6973,UP000245037,Representative
 6978,Periplaneta americana (American cockroach),6978,other-eukaryote,6978,,All-proteins
 7004,Locusta migratoria (migratory locust),7004,other-eukaryote,7004,,All-proteins
 7091,Bombyx mori (silk moth),7091,other-eukaryote,7091,UP000005204,Representative
-7108,Spodoptera frugiperda (fall armyworm),7108,other-eukaryote,7108,UP000801118,Non-redundant
-7130,Manduca sexta (hornblower),7130,other-eukaryote,7130,UP000791440,Non-redundant
+7108,Spodoptera frugiperda (fall armyworm),7108,other-eukaryote,7108,UP000801118,Other
+7130,Manduca sexta (hornblower),7130,other-eukaryote,7130,UP000791440,Other
 7137,Galleria mellonella (greater wax moth),7137,other-eukaryote,7137,UP000504614,Representative
 7154,Chironomus thummi (midge),7154; 7155,other-eukaryote,7154; 7155,,All-proteins
 7160,Aedes albopictus (forest day mosquito),7160,other-eukaryote,7160,UP000249989,Representative
@@ -421,7 +421,7 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 7237,Drosophila pseudoobscura,46245,other-eukaryote,7237; 46245,UP000001819,Representative
 7244,Drosophila virilis,7244,other-eukaryote,7244,UP000008792,Representative
 7386,Sarcophaga peregrina,7386,other-eukaryote,7386,,All-proteins
-7394,Glossina morsitans (tsetse fly),7394; 37546,other-eukaryote,37546; 7394,UP000092444,Non-redundant
+7394,Glossina morsitans (tsetse fly),7394; 37546,other-eukaryote,37546; 7394,UP000092444,Other
 7441,Dolichovespula maculata (white-face hornet),7441,other-eukaryote,7441,,All-proteins
 7444,Vespa basalis,7444,other-eukaryote,7444,,All-proteins
 7452,Vespula lewisii,7452,other-eukaryote,7452,,All-proteins
@@ -474,11 +474,11 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 8731,Crotalus durissus (cascabel),8732,vertebrate,8731; 8732,,All-proteins
 8752,Lachesis muta (bushmaster),8753,vertebrate,8752; 8753,,All-proteins
 8790,Dromaius novaehollandiae (emu),8790,vertebrate,8790,UP000543287,Representative
-8839,Anas platyrhynchos (duck),8839,vertebrate,8839,UP000296049,Representative
+8839,Anas platyrhynchos (duck),8839,vertebrate,8839,UP000016666,Representative
 8845,Anser cygnoides (white Chinese goose),8845,vertebrate,8845,UP000694521,Representative
-8855,Cairina moschata (musky duck),8855,vertebrate,8855,,All-proteins
+8855,Cairina moschata (musky duck),8855,vertebrate,8855,UP000694556,Representative
 8932,Columba livia (rock dove),8932,vertebrate,8932,UP000053872,Representative
-8996,Numida meleagris (helmeted guineafowl),8996,vertebrate,8996,UP000243875,Non-redundant
+8996,Numida meleagris (helmeted guineafowl),8996,vertebrate,8996,UP000243875,Other
 9014,Colinus virginianus (common bobwhite),9014,vertebrate,9014,UP000198419,Representative
 9031,Gallus gallus (chicken),9031,vertebrate,9031,UP000000539,Representative
 9054,Phasianus colchicus (common pheasant),9057,vertebrate,9054; 9057,UP000472261,Representative
@@ -515,9 +515,9 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 9627,Vulpes vulpes (silver fox),9627,vertebrate,9627,UP000286640,Representative
 9668,Mustela putorius (European polecat),9669,vertebrate,9669; 9668,UP000000715,Representative
 9685,Felis catus (cat),9685,vertebrate,9685,UP000011712,Representative
-9704,Zalophus californianus (California sealion),9704,vertebrate,9704,UP000515165,Non-redundant
+9704,Zalophus californianus (California sealion),9704,vertebrate,9704,UP000515165,Other
 9725,Inia geoffrensis (pink river dolphin),9725,vertebrate,9725,,All-proteins
-9733,Orcinus orca (Orca),9733,vertebrate,9733,UP000242909,Non-redundant
+9733,Orcinus orca (Orca),9733,vertebrate,9733,UP000242909,Other
 9755,Physeter catodon (sperm whale),9755,vertebrate,9755,UP000248484,Representative
 9768,Balaenoptera borealis (sei whale),9768,vertebrate,9768,,All-proteins
 9770,Balaenoptera physalus (common rorqual),9770,vertebrate,9770,UP000437017,Representative
@@ -527,14 +527,14 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 9823,Sus scrofa (pig),9825; 9823,vertebrate,9823; 9825,UP000008227,Representative
 9838,Camelus dromedarius (one-humped camel),9838,vertebrate,9838,UP000299084,Representative
 9844,Lama glama (llama),9844,vertebrate,9844,,All-proteins
-9860,Cervus elaphus (red deer),9860,vertebrate,9860,,All-proteins
+9860,Cervus elaphus (red deer),9860,vertebrate,9860,UP000242450,Representative
 9872,Odocoileus hemionus (mule deer),9872,vertebrate,9872,,All-proteins
-9874,Odocoileus virginianus (white-tailed deer),9874,vertebrate,9874,,All-proteins
+9874,Odocoileus virginianus (white-tailed deer),9874,vertebrate,9874,UP000504613,Representative
 9913,Bos taurus (domestic cow),9913,vertebrate,9913,UP000009136,Representative
 9915,Bos indicus (zebu cattle),9915,vertebrate,9915,UP000515132,Representative
 9925,Capra hircus (goats),9925,vertebrate,9925,UP000291000,Representative
 9940,Ovis aries (wild sheep),9940,vertebrate,9940,UP000002356,Representative
-9978,Ochotona princeps (southern American pika),9978,vertebrate,9978,UP000790362,Non-redundant
+9978,Ochotona princeps (southern American pika),9978,vertebrate,9978,UP000790362,Other
 9986,Oryctolagus cuniculus (rabbit),9986,vertebrate,9986,UP000001811,Representative
 10009,Tamiasciurus hudsonicus (red squirrel),10009,vertebrate,10009,,All-proteins
 10029,Cricetulus griseus (Chinese hamsters),10029,vertebrate,10029,UP000001075,Representative
@@ -547,175 +547,175 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 10118,Rattus sp. (rats),10118,vertebrate,10118,,All-proteins
 10141,Cavia porcellus (guinea pig),10141,vertebrate,10141,UP000005447,Representative
 10185,Castor fiber (Eurasian beaver),10185,vertebrate,10185,,All-proteins
-10243,Cowpox virus,10243; 265872,large-virus,10243; 265872,UP000097203,Non-redundant
+10243,Cowpox virus,10243; 265872,large-virus,10243; 265872,UP000279063,Other
 10244,Monkeypox virus,10244,large-virus,10244,UP000516359,Reference
-10245,Vaccinia virus,201444; 10245; 10247; 696871; 10249; 502057; 45417; 126794; 31531; 10253; 10254; 32605; 397342; 32606,large-virus,696871; 10254; 32606; 201444; 10249; 45417; 10253; 397342; 10247; 502057; 31531; 10245; 32605; 126794,UP000000344,Representative
+10245,Vaccinia virus,201444; 10245; 10247; 696871; 10249; 502057; 45417; 126794; 31531; 10253; 10254; 32605; 397342; 32606,large-virus,696871; 10254; 32606; 201444; 10249; 45417; 10253; 397342; 10247; 502057; 31531; 10245; 32605; 126794,UP000008269,Representative
 10255,Variola virus (smallpox virus),587200; 12870; 53258; 10255,large-virus,10255; 53258; 12870; 587200,UP000002060,Representative
-10261,Fowlpox virus,10261; 10263,large-virus,10261; 10263,UP000150838,Representative
-10273,Myxoma virus,10273,large-virus,10273,UP000291149,Representative
-10276,Swinepox virus,10276,large-virus,10276,UP000671927,Non-redundant
-10298,Human herpesvirus 1 (Herpes simplex virus type 1),10304; 10305; 10306; 10308; 10309; 37107; 10298; 10299; 10301; 10303,large-virus,37107; 10299; 10306; 10303; 10309; 10298; 10305; 10304; 10308; 10301,UP000009294,Representative
+10261,Fowlpox virus,10261; 10263,large-virus,10261; 10263,UP000008597,Representative
+10273,Myxoma virus,10273,large-virus,10273,UP000000867,Representative
+10276,Swinepox virus,10276,large-virus,10276,UP000000871,Representative
+10298,Human herpesvirus 1 (Herpes simplex virus type 1),10304; 10305; 10306; 10308; 10309; 37107; 10298; 10299; 10301; 10303,large-virus,37107; 10299; 10306; 10303; 10309; 10298; 10305; 10304; 10308; 10301,UP000106517,Representative
 10310,Human herpesvirus 2,10310; 10313; 10315,large-virus,10313; 10315; 10310,UP000001874,Representative
-10317,Cercopithecine herpesvirus 2 (SA8),10317,large-virus,10317,UP000137988,Non-redundant
+10317,Cercopithecine herpesvirus 2 (SA8),10317,large-virus,10317,UP000137988,Other
 10320,Bovine herpesvirus 1,10320; 79889; 10321; 10323; 10324; 31518; 45407; 31519,large-virus,31519; 79889; 10320; 10323; 10321; 45407; 10324; 31518,UP000144590,Representative
 10325,Macacine herpesvirus 1 (monkey B virus),10325,large-virus,10325,UP000110594,Representative
-10326,Equid herpesvirus 1 (Equine herpesvirus 1),10326; 10328; 10330,large-virus,10330; 10326; 10328,UP000098226,Non-redundant
-10331,Equid herpesvirus 4 (Equine herpesvirus 4),10331,large-virus,10331,,All-proteins
+10326,Equid herpesvirus 1 (Equine herpesvirus 1),10326; 10328; 10330,large-virus,10330; 10326; 10328,UP000001189,Representative
+10331,Equid herpesvirus 4 (Equine herpesvirus 4),10331,large-virus,10331,UP000009245,Other
 10335,Human herpesvirus 3 (Varicella-zoster virus),10338; 341980; 10335,large-virus,341980; 10338; 10335,UP000002602,Representative
 10345,Suid herpesvirus 1 (Pseudorabies virus),33703; 10345,large-virus,33703; 10345,UP000165522,Representative
 10359,Human herpesvirus 5 (Human cytomegalovirus),295027; 10359; 10360; 10363,large-virus,295027; 10363; 10359; 10360,UP000000938,Reference
-10366,Murid herpesvirus 1 (Murine cytomegalovirus),69156; 524649; 524650; 524651; 10366; 10367,small-virus,524651; 524649; 69156; 10367; 524650; 10366,UP000008774,Representative
+10366,Murid herpesvirus 1 (Murine cytomegalovirus),69156; 524649; 524650; 524651; 10366; 10367,small-virus,524651; 524649; 69156; 10367; 524650; 10366,UP000122533,Representative
 10368,Human herpesvirus 6,10368,large-virus,10368,,All-proteins
 10372,Human herpesvirus 7,10372; 57278,large-virus,10372; 57278,UP000009246,Representative
 10373,Macaca mulatta cytomegalovirus,10373,small-virus,10373,,All-proteins
-10376,Human herpesvirus 4 (Epstein Barr virus),36352; 31525; 10376; 10377; 82830; 12509,large-virus,12509; 10377; 82830; 36352; 10376; 31525,UP000007639,Representative
+10376,Human herpesvirus 4 (Epstein Barr virus),36352; 31525; 10376; 10377; 82830; 12509,large-virus,12509; 10377; 82830; 36352; 10376; 31525,UP000153037,Representative
 10381,Saimiriine herpesvirus 2 (Herpesvirus saimiri),10381; 10383,large-virus,10383; 10381,UP000000587,Representative
 10406,Ground squirrel hepatitis virus,10406,small-virus,10406,UP000009156,Representative
 10407,Hepatitis B virus,45410; 106820; 106821; 10407; 10408; 10409; 489449; 10410; 489450; 489483; 10411; 489451; 489484; 10412; 10413; 10414; 10415; 489491; 10419; 489492; 480116; 489460; 489493; 490133; 1219350; 482134; 489463; 31512; 1219353; 31514; 489466; 31515; 489469,small-virus,31512; 480116; 10413; 489469; 489484; 489483; 490133; 10408; 10409; 10407; 10410; 482134; 1219350; 489449; 106821; 106820; 10411; 31515; 10412; 489450; 489460; 1219353; 489493; 489451; 10415; 489492; 489491; 31514; 10419; 489463; 489466; 45410; 10414,UP000007930,Representative
-10479,Thermoproteus tenax virus 1,10479,large-virus,10479,,All-proteins
-10497,African swine fever virus,10497; 10498; 10500,large-virus,10498; 10500; 10497,UP000000624,Representative
+10479,Thermoproteus tenax virus 1,10479,large-virus,10479,UP000009250,Representative
+10497,African swine fever virus,10497; 10498; 10500,large-virus,10498; 10500; 10497,UP000594088,Representative
 10561,Xipapillomavirus 1,10562,small-virus,10561; 10562,UP000185274,Representative
-10566,Human papillomavirus,10566,small-virus,10566,UP000097802,Non-redundant
+10566,Human papillomavirus,10566,small-virus,10566,UP000174799,Other
 10571,Bovine papillomavirus,10571,large-virus,10571,UP000201557,Representative
 10623,Kappapapillomavirus 2,10623,small-virus,10623,UP000170994,Representative
 10658,Enterobacteria phage PRD1,10658,large-virus,10658,UP000002143,Representative
 10703,Corynephage beta,10703,small-virus,10703,,All-proteins
 10710,Enterobacteria phage lambda,10710,large-virus,10710,UP000001711,Representative
 10714,Corynephage omega,10714,small-virus,10714,,All-proteins
-10754,Enterobacteria phage P22,10754,large-virus,10754,UP000001795,Representative
+10754,Enterobacteria phage P22,10754,large-virus,10754,UP000225870,Representative
 10760,Enterobacteria phage T7,10760,large-virus,10760,UP000000840,Representative
 10864,Enterobacteria phage fd,10864,small-virus,10864,,All-proteins
-10870,Enterobacteria phage M13,10863; 10870,small-virus,10870; 10863,UP000002557,Non-redundant
+10870,Enterobacteria phage M13,10863; 10870,small-virus,10870; 10863,,All-proteins
 10879,Pseudomonas phage phi6,10879,small-virus,10879,UP000002610,Representative
 10891,Reovirus sp.,10891,large-virus,10891,,All-proteins
-10995,Infectious bursal disease virus (Gumboro virus),31560; 10995,small-virus,10995; 31560,UP000099980,Non-redundant
-11002,Infectious pancreatic necrosis virus,11002,small-virus,11002,UP000267262,Non-redundant
-11021,Eastern equine encephalitis virus,11021; 11022,small-virus,11022; 11021,UP000095835,Non-redundant
-11029,Ross River virus,11029; 11032,small-virus,11032; 11029,UP000104623,Non-redundant
+10995,Infectious bursal disease virus (Gumboro virus),31560; 10995,small-virus,10995; 31560,UP000007429,Representative
+11002,Infectious pancreatic necrosis virus,11002,small-virus,11002,UP000007213,Representative
+11021,Eastern equine encephalitis virus,11021; 11022,small-virus,11022; 11021,UP000104280,Other
+11029,Ross River virus,11029; 11032,small-virus,11032; 11029,UP000006579,Other
 11033,Semliki Forest virus,11033,small-virus,11033,UP000000570,Reference
 11034,Sindbis virus,11034,small-virus,11034,UP000006710,Reference
-11036,Venezuelan equine encephalitis virus,11036; 11037; 36382,small-virus,11036; 11037; 36382,UP000008299,Non-redundant
-11039,Western equine encephalitis virus,11039,small-virus,11039,UP000007630,Non-redundant
-11041,Rubella virus,11041; 11045,small-virus,11041; 11045,UP000148004,Representative
-11047,Equine arteritis virus,11047,small-virus,11047,UP000174156,Representative
+11036,Venezuelan equine encephalitis virus,11036; 11037; 36382,small-virus,11036; 11037; 36382,UP000127220,Other
+11039,Western equine encephalitis virus,11039,small-virus,11039,UP000007630,Other
+11041,Rubella virus,11041; 11045,small-virus,11041; 11045,UP000007143,Representative
+11047,Equine arteritis virus,11047,small-virus,11047,UP000000353,Representative
 11048,Lactate dehydrogenase-elevating virus,11048,small-virus,11048,UP000171571,Representative
-11072,Japanese encephalitis virus,11072; 11073; 11075; 11076,small-virus,11075; 11073; 11076; 11072,UP000007214,Non-redundant
-11079,Murray Valley encephalitis virus,301478; 11079; 44017,small-virus,11079; 301478; 44017,UP000008863,Non-redundant
-11080,St. Louis encephalitis virus,11080; 11081,small-virus,11080; 11081,UP000096039,Non-redundant
-11082,West Nile virus,307044; 11077; 11078; 11082; 406269; 449278,small-virus,406269; 307044; 11078; 11077; 11082; 449278,UP000008379,Non-redundant
-11083,Powassan virus,11083,small-virus,11083,UP000096423,Non-redundant
-11084,Tick-borne encephalitis virus,11084; 11087,small-virus,11087; 11084,UP000007401,Non-redundant
-11085,Langat virus,11085,small-virus,11085,UP000143846,Non-redundant
-11086,Louping ill virus,11086,small-virus,11086,UP000007644,Non-redundant
+11072,Japanese encephalitis virus,11072; 11073; 11075; 11076,small-virus,11075; 11073; 11076; 11072,UP000007214,Other
+11079,Murray Valley encephalitis virus,301478; 11079; 44017,small-virus,11079; 301478; 44017,UP000008863,Other
+11080,St. Louis encephalitis virus,11080; 11081,small-virus,11080; 11081,UP000096039,Other
+11082,West Nile virus,307044; 11077; 11078; 11082; 406269; 449278,small-virus,406269; 307044; 11078; 11077; 11082; 449278,UP000008379,Other
+11083,Powassan virus,11083,small-virus,11083,UP000006848,Other
+11084,Tick-borne encephalitis virus,11084; 11087,small-virus,11087; 11084,UP000007400,Other
+11085,Langat virus,11085,small-virus,11085,UP000007766,Other
+11086,Louping ill virus,11086,small-virus,11086,UP000007644,Other
 11089,Yellow fever virus,407136; 407137; 407140; 407141; 617102; 11089; 11090; 31641; 407134,small-virus,407140; 407136; 407137; 617102; 11090; 407134; 31641; 407141; 11089,UP000000360,Reference
-11096,Classical swine fever virus,279150; 358769; 358805; 11096; 11098,small-virus,279150; 358769; 11096; 358805; 11098,UP000008569,Non-redundant
-11099,Bovine viral diarrhea virus 1,82470; 31656; 99472; 11099; 11100,small-virus,11100; 11099; 82470; 31656; 99472,UP000002317,Reference
+11096,Classical swine fever virus,279150; 358769; 358805; 11096; 11098,small-virus,279150; 358769; 11096; 358805; 11098,UP000095960,Other
+11099,Bovine viral diarrhea virus 1,82470; 31656; 99472; 11099; 11100,small-virus,11100; 11099; 82470; 31656; 99472,UP000097372,Other
 11103,Hepatitis C virus,356416; 11104; 356417; 11105; 945057; 31649; 356386; 356418; 63746; 31650; 356419; 759939; 1006435; 356388; 356420; 333284; 11108; 356421; 356390; 356422; 11110; 356391; 11111; 31655; 356424; 11112; 356425; 11113; 356426; 11114; 11115; 357355; 11116; 329389; 420174; 40271; 33745; 356114; 33746; 421877; 421879; 595609; 356410; 595610; 31642; 356411; 31644; 356413; 31645; 356414; 484894; 31646; 356415; 11103; 31647,small-virus,33746; 759939; 11113; 356390; 945057; 595610; 356114; 31645; 356426; 31646; 356418; 11110; 356411; 40271; 329389; 333284; 31647; 356414; 31650; 11108; 63746; 11116; 11114; 356422; 357355; 421877; 421879; 356410; 484894; 356425; 356417; 11115; 595609; 1006435; 356420; 31649; 356413; 356419; 356391; 356388; 356424; 420174; 33745; 31642; 11104; 11103; 356416; 31644; 356421; 11112; 356386; 11105; 11111; 356415; 31655,UP000000518,Reference
 11137,Human coronavirus 229E,11137,small-virus,11137,UP000006716,Representative
-11161,Mumps virus,11171; 11173; 11161,small-virus,11171; 11173; 11161,UP000002331,Reference
+11161,Mumps virus,11171; 11173; 11161,small-virus,11171; 11173; 11161,,All-proteins
 11176,Newcastle disease virus,11176; 11177; 11178; 11180; 11185; 351071,small-virus,11178; 11185; 351071; 11177; 11176; 11180,,All-proteins
 11191,Sendai virus,302272; 11191; 11194; 11195; 11196; 11198,small-virus,11191; 11195; 302272; 11198; 11194; 11196,UP000006560,Representative
 11207,Parainfluenza virus 5,11207,small-virus,11207,,All-proteins
-11212,Human parainfluenza virus 2,11212; 11214,small-virus,11214; 11212,UP000000472,Representative
+11212,Human parainfluenza virus 2,11212; 11214,small-virus,11214; 11212,,All-proteins
 11215,Bovine parainfluenza virus 3,11215,small-virus,11215,UP000138683,Representative
 11216,Human parainfluenza virus 3,11216; 11217,large-virus,11217; 11216,UP000172444,Representative
 11232,Canine distemper virus,11232; 11233,small-virus,11233; 11232,UP000007634,Representative
-11234,Measles virus,70146; 11234; 11235; 132484; 11236; 70149; 11237; 132487; 11239; 36408,small-virus,11237; 11235; 11234; 36408; 70149; 70146; 11236; 132487; 132484; 11239,UP000000833,Representative
-11240,Phocine distemper virus,11240,small-virus,11240,UP000159978,Non-redundant
+11234,Measles virus,70146; 11234; 11235; 132484; 11236; 70149; 11237; 132487; 11239; 36408,small-virus,11237; 11235; 11234; 36408; 70149; 70146; 11236; 132487; 132484; 11239,UP000008699,Representative
+11240,Phocine distemper virus,11240,small-virus,11240,UP000159978,Other
 11241,Rinderpest virus,11241; 11243; 36409,small-virus,11241; 11243; 36409,UP000107782,Representative
-11246,Bovine respiratory syncytial virus,82823; 82824; 11246,small-virus,82823; 11246; 82824,UP000128003,Non-redundant
+11246,Bovine respiratory syncytial virus,82823; 82824; 11246,small-virus,82823; 11246; 82824,UP000007616,Representative
 11250,Human respiratory syncytial virus,11250; 11251; 11252; 11253; 11255; 11256; 11257; 11259; 11260; 208893; 253182; 410078; 208895,small-virus,208893; 11260; 410078; 253182; 208895; 11259; 11256; 11251; 11250; 11252; 11257; 11253; 11255,UP000181262,Representative
 11263,Murine pneumonia virus,296738; 270473; 11263,small-virus,270473; 11263; 296738,UP000133604,Representative
 11269,Marburg marburgvirus,33728; 11269; 378830; 378809; 33727,small-virus,378830; 378809; 33728; 33727; 11269,UP000180448,Representative
-11276,Vesicular stomatitis virus,11276,large-virus,11276,UP000147073,Non-redundant
+11276,Vesicular stomatitis virus,11276,large-virus,11276,UP000147073,Other
 11277,Vesicular stomatitis Indiana virus,11277; 11278; 11279; 11284; 11285,small-virus,11278; 11285; 11279; 11277; 11284,UP000002327,Representative
 11287,Viral hemorrhagic septicemia virus,11287; 11288,small-virus,11287; 11288,UP000135814,Representative
-11290,Infectious hematopoietic necrosis virus,11290,small-virus,11290,UP000139359,Representative
+11290,Infectious hematopoietic necrosis virus,11290,small-virus,11290,UP000007211,Representative
 11292,Rabies virus,11296; 11300; 103929; 11292; 11293; 11294; 11295,small-virus,11293; 11294; 103929; 11300; 11292; 11295; 11296,UP000174835,Representative
-11303,Bovine ephemeral fever virus,11303,small-virus,11303,UP000137612,Non-redundant
+11303,Bovine ephemeral fever virus,11303,small-virus,11303,UP000008588,Representative
 11307,Sonchus yellow net virus,11307,small-virus,11307,UP000002326,Representative
 11309,unidentified influenza virus,11309,large-virus,11309,,All-proteins
-11318,Dhori virus,11319,small-virus,11319; 11318,UP000181622,Non-redundant
-11320,Influenza A virus,402464; 62496; 547904; 1305728; 496800; 762400; 176672; 385600; 228928; 421472; 319104; 210656; 505600; 1346336; 225088; 382848; 336800; 547905; 558177; 407649; 342145; 407713; 644289; 173473; 251297; 415169; 393697; 1069537; 159201; 371233; 1654305; 395841; 270945; 142945; 375457; 1068705; 255681; 714561; 225089; 41857; 311169; 380833; 742305; 95234; 205954; 1078402; 342210; 882946; 185794; 352706; 991714; 183778; 533026; 395842; 36418; 383586; 158306; 63106; 529058; 255682; 352034; 518946; 516994; 458626; 1229762; 1342434; 387139; 11363; 387203; 1330339; 486627; 352515; 407843; 537923; 319875; 761251; 100835; 384483; 284195; 445027; 404163; 210659; 947939; 444195; 680739; 382787; 542563; 478051; 482147; 680803; 10001315; 483267; 322564; 177188; 380964; 440388; 97348; 211044; 62564; 62596; 496036; 82372; 415172; 384484; 36420; 364132; 142948; 1727172; 497380; 1000292; 10001316; 380836; 1283012; 192549; 11397; 996581; 475493; 573797; 173477; 335333; 384485; 132613; 765445; 327205; 385605; 438885; 383589; 518981; 1447813; 10001317; 107493; 353253; 322566; 107558; 369766; 476294; 430278; 83206; 887110; 632134; 170342; 437606; 307622; 352710; 164326; 856550; 383558; 915014; 401030; 768646; 260806; 715494; 10001318; 432070; 577543; 166951; 1391655; 88103; 62503; 402503; 440391; 991335; 387207; 387239; 292039; 304359; 183783; 384487; 441895; 381511; 768647; 88775; 210663; 678695; 1472295; 462695; 1122279; 88104; 504904; 387208; 1071368; 352520; 355624; 336232; 1331560; 619880; 415176; 284168; 385576; 381512; 438888; 385640; 165512; 1268360; 88776; 130760; 682728; 291592; 478056; 1171336; 468968; 177128; 416744; 402473; 97353; 415177; 335337; 991753; 207401; 503337; 365129; 381513; 383561; 392809; 404137; 132841; 945961; 569161; 365417; 382825; 1093545; 432073; 402474; 368714; 304362; 697610; 765258; 137578; 371082; 400810; 506282; 380330; 135658; 183786; 1176042; 762378; 284202; 441962; 392810; 1331850; 404138; 767722; 642794; 518922; 214826; 380842; 519082; 157642; 387147; 389259; 387243; 169163; 374987; 380299; 198059; 231851; 1000875; 383531; 266827; 298603; 307819; 392811; 223947; 130763; 544555; 488235; 908203; 197579; 332747; 400331; 177131; 388108; 587884; 643212; 1481964; 304364; 55532; 535852; 393548; 274828; 380332; 342508; 282124; 165420; 385580; 381516; 383564; 385644; 300748; 768716; 253676; 1346348; 562988; 382828; 154540; 461772; 468972; 421901; 351277; 256045; 62541; 681069; 387213; 342221; 292045; 336205; 1149325; 274829; 380301; 135661; 384493; 383533; 381517; 300749; 216877; 306061; 411662; 62478; 504910; 311374; 270510; 169166; 518350; 393486; 510222; 887118; 434606; 645582; 506350; 371214; 385582; 381518; 383566; 576142; 93838; 327310; 393902; 300750; 464622; 292590; 932622; 196430; 196462; 207822; 398318; 62446; 62575; 476303; 887119; 560463; 336207; 311695; 1000847; 370127; 384495; 384527; 385583; 383567; 425551; 327311; 132783; 464623; 210671; 479983; 159471; 1087279; 225071; 59375; 285712; 62512; 11408; 383152; 192720; 556272; 393616; 370128; 367120; 383568; 385616; 425552; 95888; 562992; 1000304; 89169; 383121; 514193; 169169; 1477937; 383281; 352561; 153969; 941425; 1163697; 359921; 913937; 284209; 385585; 680689; 457457; 641809; 220977; 680753; 488241; 680785; 197585; 273361; 62449; 380978; 658578; 982258; 380210; 384498; 365074; 342546; 385586; 383570; 155218; 383602; 191090; 299730; 404178; 426738; 253682; 680690; 402194; 320306; 884530; 427890; 382834; 380979; 936115; 378131; 715091; 380307; 380339; 506355; 384499; 1041907; 385587; 224819; 383571; 383603; 173715; 614035; 304883; 253683; 647923; 480019; 382835; 1332244; 418868; 89172; 387156; 270484; 303316; 317652; 380212; 352564; 400788; 380340; 1435060; 183764; 384500; 522740; 1176116; 415316; 155220; 385620; 383604; 510644; 644788; 680692; 132884; 641812; 1087284; 215892; 221012; 1081236; 354228; 197588; 566260; 380949; 351253; 62549; 172149; 642261; 279797; 760085; 644373; 1313077; 380213; 393557; 365077; 411157; 680501; 425557; 663189; 299733; 414453; 680693; 129781; 357205; 1003445; 197589; 380950; 431158; 380982; 383030; 1470614; 1697974; 244950; 279798; 168278; 475478; 203126; 380342; 384502; 365078; 344598; 162326; 385590; 499286; 383574; 155222; 425558; 404150; 253686; 215862; 382838; 548822; 128982; 192535; 387191; 1082519; 387223; 1330359; 380343; 352695; 573943; 506391; 673367; 147095; 305847; 908183; 106423; 62488; 11320; 383064; 11384; 449656; 11448; 336248; 132504; 388536; 365080; 385624; 648856; 717464; 404152; 480024; 215864; 518968; 221016; 357208; 336792; 404408; 647096; 655288; 402489; 380985; 387161; 342137; 1144025; 380217; 203129; 444793; 373145; 384505; 155225; 746073; 298713; 680729; 329593; 504697; 1285210; 938074; 205946; 370810; 270490; 645306; 353466; 11482; 642266; 136474; 1084762; 380282; 464314; 586170; 616922; 402938; 405050; 284218; 448058; 383578; 155226; 661114; 1403514; 529050; 357210; 382842; 336794; 145306; 416730; 370811; 413883; 378139; 1007931; 1086875; 629211; 654811; 506363; 284219; 363131; 404155; 223931; 229051; 253691; 357211; 145307; 538555; 354235; 547900; 186460; 352348; 1305724; 884924; 336092; 11484; 634172; 414044; 342396; 936316; 380284; 1414588; 400828; 352764; 249372; 645724; 223932; 187164; 366524; 401372; 38973; 11357; 404573; 1305725; 1007933; 380285; 183741; 641501; 182781; 384509; 515581; 137885; 447133; 427773; 334589; 382781; 382813; 311165; 332733; 519101; 1342397; 177117; 986174; 444510; 1305726; 646302; 882942; 147742; 264510; 299390; 311710; 415166; 335358; 384510; 284190; 383550; 653886; 385630; 1042014; 137886; 754366; 161502; 334590; 479006; 1305374; 559966; 444318; 432094; 417758; 351263; 547903; 402527; 62559; 1305727; 435359; 293055; 383231; 1414591; 472511; 415167; 311775; 411167; 578079; 286239; 385599; 383583; 132735; 223935; 210655; 680767; 511839; 680799,small-virus,300748; 746073; 381518; 173715; 385583; 197579; 299730; 311169; 449656; 256045; 714561; 387208; 221012; 402527; 165420; 644289; 383571; 137886; 327311; 384484; 327205; 395842; 335333; 351277; 544555; 385605; 647096; 380282; 438885; 274829; 106423; 380964; 381512; 680692; 383121; 680689; 762400; 380343; 547903; 380836; 432070; 332747; 681069; 556272; 385640; 369766; 533026; 437606; 279798; 480024; 1305374; 365129; 378131; 383558; 304362; 614035; 169166; 185794; 159201; 529050; 371233; 1305728; 220977; 383583; 284209; 62512; 380339; 1697974; 387223; 365417; 680799; 680690; 1082519; 249372; 177188; 166951; 128982; 381511; 192720; 468972; 458626; 673367; 147095; 1000292; 402474; 284190; 421472; 647923; 641501; 559966; 378139; 761251; 332733; 680785; 562988; 384502; 352561; 1346336; 393697; 380217; 373145; 499286; 462695; 411662; 352515; 411167; 192549; 334590; 715494; 173473; 352520; 387243; 210663; 400788; 173477; 380212; 244950; 100835; 506282; 187164; 62559; 11482; 518922; 370810; 401030; 1144025; 1346348; 1041907; 447133; 145307; 11384; 488241; 62478; 224819; 157642; 438888; 548822; 1654305; 642261; 1305727; 464623; 291592; 382834; 351263; 36420; 388536; 215892; 887119; 253686; 384498; 457457; 203129; 1069537; 468968; 97353; 159471; 153969; 336232; 228928; 768716; 306061; 382813; 161502; 62549; 207401; 754366; 317652; 370128; 168278; 425552; 38973; 503337; 11408; 336092; 357211; 383550; 203126; 177131; 11448; 147742; 1086875; 634172; 680753; 464622; 476294; 488235; 196430; 307819; 658578; 383231; 504904; 393902; 285712; 95234; 680767; 616922; 388108; 364132; 88104; 351253; 365078; 405050; 10001315; 991753; 374987; 155225; 311710; 197588; 375457; 299733; 215862; 55532; 560463; 365077; 478056; 207822; 383561; 311374; 577543; 385624; 383589; 587884; 191090; 383567; 887110; 661114; 382828; 518981; 196462; 62541; 62575; 435359; 506355; 380978; 421901; 402194; 336792; 292045; 192535; 644788; 357210; 538555; 407649; 183764; 1268360; 381513; 445027; 573797; 89172; 387203; 642794; 578079; 155222; 355624; 342221; 41857; 342210; 155226; 413883; 383566; 385616; 566260; 1331850; 586170; 387147; 1305726; 264510; 354228; 11320; 177117; 311775; 319875; 62596; 383603; 307622; 441895; 432073; 427890; 393486; 384505; 359921; 380342; 765445; 282124; 407713; 183741; 518350; 164326; 300749; 547905; 135661; 385590; 415172; 293055; 311695; 336248; 210655; 363131; 562992; 444793; 418868; 170342; 856550; 384500; 382848; 506350; 464314; 425558; 402938; 352564; 479006; 62503; 183786; 441962; 1071368; 270484; 1176116; 1068705; 1229762; 645306; 380284; 430278; 1285210; 643212; 368714; 387191; 1081236; 352764; 415176; 385620; 393557; 292039; 132504; 284195; 182781; 1332244; 380330; 768646; 945961; 132613; 266827; 1000875; 383586; 214826; 319104; 225088; 1093545; 682728; 63106; 93838; 680739; 205954; 432094; 380213; 1171336; 414044; 384493; 1330339; 402464; 371214; 62496; 371082; 11397; 381516; 136474; 510644; 395841; 645582; 646302; 183778; 169163; 270490; 223935; 1078402; 132841; 10001318; 398318; 385599; 382835; 304364; 384510; 130760; 231851; 404408; 384495; 380833; 511839; 444318; 416730; 381517; 504910; 205946; 1342434; 1305725; 653886; 253682; 385585; 1481964; 137885; 380985; 380979; 982258; 991335; 132783; 1042014; 370811; 519082; 518968; 1342397; 380340; 382825; 680693; 135658; 83206; 36418; 1414588; 211044; 936115; 334589; 380982; 384527; 385580; 62446; 385600; 387161; 882942; 426738; 742305; 384487; 1163697; 1007931; 644373; 225089; 389259; 62449; 629211; 270510; 342145; 1122279; 404163; 1477937; 380842; 354235; 404138; 767722; 414453; 506391; 415316; 768647; 383531; 382781; 304359; 415169; 380950; 210659; 1435060; 384509; 223931; 762378; 516994; 535852; 132735; 404152; 384499; 329593; 444510; 393548; 1472295; 284219; 518946; 387156; 342508; 573943; 936316; 717464; 510222; 352034; 654811; 366524; 400810; 1305724; 641809; 155220; 542563; 142945; 89169; 383030; 478051; 645724; 425551; 274828; 260806; 365080; 97348; 1000847; 95888; 342396; 130763; 229051; 476303; 697610; 225071; 480019; 154540; 915014; 380949; 177128; 938074; 392810; 169169; 619880; 393616; 913937; 440391; 884530; 947939; 427773; 1087279; 255682; 648856; 162326; 59375; 382838; 336207; 383568; 400828; 402489; 385576; 383570; 352695; 402503; 383604; 311165; 183783; 322566; 440388; 486627; 176672; 411157; 392811; 384485; 479983; 82372; 1414591; 253676; 336205; 88103; 760085; 342137; 216877; 384483; 529058; 11363; 387213; 1727172; 385630; 404137; 475493; 425557; 986174; 497380; 1447813; 519101; 385587; 11357; 576142; 327310; 569161; 320306; 253683; 286239; 284202; 365074; 352348; 932622; 715091; 547900; 385586; 107493; 10001317; 270945; 383578; 1313077; 304883; 496036; 142948; 198059; 1003445; 404178; 537923; 215864; 400331; 407843; 284218; 444195; 415166; 298713; 908203; 680729; 298603; 1176042; 431158; 352706; 505600; 632134; 335358; 210671; 292590; 129781; 680803; 1403514; 88776; 353253; 107558; 336794; 404155; 483267; 908183; 1330359; 663189; 88775; 158306; 357208; 385582; 415167; 137578; 62564; 279797; 186460; 496800; 392809; 461772; 680501; 404150; 132884; 417758; 273361; 404573; 387239; 382842; 402473; 434606; 383533; 506363; 305847; 678695; 416744; 380307; 155218; 383152; 482147; 1149325; 514193; 344598; 223932; 299390; 415177; 383281; 558177; 367120; 322564; 401372; 255681; 887118; 641812; 284168; 197585; 380210; 11484; 387139; 642266; 10001316; 253691; 221016; 383602; 1283012; 303316; 996581; 380332; 475478; 765258; 382787; 336800; 1470614; 547904; 472511; 353466; 165512; 1087284; 251297; 352710; 504697; 145306; 383564; 385644; 370127; 335337; 300750; 884924; 1007933; 1391655; 515581; 882946; 380301; 357205; 383574; 172149; 1331560; 941425; 522740; 223947; 383064; 380299; 448058; 387207; 380285; 991714; 197589; 62488; 1084762; 655288; 342546; 1000304; 210656,UP000009255,Representative
-11520,Influenza B virus,11520; 11521; 171425; 464417; 224964; 335812; 408901; 593990; 289353; 518987; 461739; 11532; 107404; 587885; 107406; 150127; 256080; 184816; 38994; 427826; 1077587; 604436; 504660; 11541; 283957; 504662; 504664; 107417; 503386; 206203; 664507; 430428; 430429; 871647,small-virus,503386; 206203; 256080; 408901; 335812; 871647; 107406; 107417; 224964; 504662; 504660; 289353; 461739; 11521; 427826; 171425; 107404; 664507; 430428; 593990; 464417; 150127; 604436; 11520; 518987; 1077587; 283957; 11541; 504664; 184816; 38994; 587885; 11532; 430429,UP000008158,Representative
-11552,Influenza C virus,11552; 11553; 224197,small-virus,11553; 11552; 224197,UP000008286,Representative
-11588,Rift Valley fever virus,11588; 11589,small-virus,11588; 11589,UP000002477,Representative
+11318,Dhori virus,11319,small-virus,11319; 11318,UP000181622,Other
+11320,Influenza A virus,402464; 62496; 547904; 1305728; 496800; 762400; 176672; 385600; 228928; 421472; 319104; 210656; 505600; 1346336; 225088; 382848; 336800; 547905; 558177; 407649; 342145; 407713; 644289; 173473; 251297; 415169; 393697; 1069537; 159201; 371233; 1654305; 395841; 270945; 142945; 375457; 1068705; 255681; 714561; 225089; 41857; 311169; 380833; 742305; 95234; 205954; 1078402; 342210; 882946; 185794; 352706; 991714; 183778; 533026; 395842; 36418; 383586; 158306; 63106; 529058; 255682; 352034; 518946; 516994; 458626; 1229762; 1342434; 387139; 11363; 387203; 1330339; 486627; 352515; 407843; 537923; 319875; 761251; 100835; 384483; 284195; 445027; 404163; 210659; 947939; 444195; 680739; 382787; 542563; 478051; 482147; 680803; 10001315; 483267; 322564; 177188; 380964; 440388; 97348; 211044; 62564; 62596; 496036; 82372; 415172; 384484; 36420; 364132; 142948; 1727172; 497380; 1000292; 10001316; 380836; 1283012; 192549; 11397; 996581; 475493; 573797; 173477; 335333; 384485; 132613; 765445; 327205; 385605; 438885; 383589; 518981; 1447813; 10001317; 107493; 353253; 322566; 107558; 369766; 476294; 430278; 83206; 887110; 632134; 170342; 437606; 307622; 352710; 164326; 856550; 383558; 915014; 401030; 768646; 260806; 715494; 10001318; 432070; 577543; 166951; 1391655; 88103; 62503; 402503; 440391; 991335; 387207; 387239; 292039; 304359; 183783; 384487; 441895; 381511; 768647; 88775; 210663; 678695; 1472295; 462695; 1122279; 88104; 504904; 387208; 1071368; 352520; 355624; 336232; 1331560; 619880; 415176; 284168; 385576; 381512; 438888; 385640; 165512; 1268360; 88776; 130760; 682728; 291592; 478056; 1171336; 468968; 177128; 416744; 402473; 97353; 415177; 335337; 991753; 207401; 503337; 365129; 381513; 383561; 392809; 404137; 132841; 945961; 569161; 365417; 382825; 1093545; 432073; 402474; 368714; 304362; 697610; 765258; 137578; 371082; 400810; 506282; 380330; 135658; 183786; 1176042; 762378; 284202; 441962; 392810; 1331850; 404138; 767722; 642794; 518922; 214826; 380842; 519082; 157642; 387147; 389259; 387243; 169163; 374987; 380299; 198059; 231851; 1000875; 383531; 266827; 298603; 307819; 392811; 223947; 130763; 544555; 488235; 908203; 197579; 332747; 400331; 177131; 388108; 587884; 643212; 1481964; 304364; 55532; 535852; 393548; 274828; 380332; 342508; 282124; 165420; 385580; 381516; 383564; 385644; 300748; 768716; 253676; 1346348; 562988; 382828; 154540; 461772; 468972; 421901; 351277; 256045; 62541; 681069; 387213; 342221; 292045; 336205; 1149325; 274829; 380301; 135661; 384493; 383533; 381517; 300749; 216877; 306061; 411662; 62478; 504910; 311374; 270510; 169166; 518350; 393486; 510222; 887118; 434606; 645582; 506350; 371214; 385582; 381518; 383566; 576142; 93838; 327310; 393902; 300750; 464622; 292590; 932622; 196430; 196462; 207822; 398318; 62446; 62575; 476303; 887119; 560463; 336207; 311695; 1000847; 370127; 384495; 384527; 385583; 383567; 425551; 327311; 132783; 464623; 210671; 479983; 159471; 1087279; 225071; 59375; 285712; 62512; 11408; 383152; 192720; 556272; 393616; 370128; 367120; 383568; 385616; 425552; 95888; 562992; 1000304; 89169; 383121; 514193; 169169; 1477937; 383281; 352561; 153969; 941425; 1163697; 359921; 913937; 284209; 385585; 680689; 457457; 641809; 220977; 680753; 488241; 680785; 197585; 273361; 62449; 380978; 658578; 982258; 380210; 384498; 365074; 342546; 385586; 383570; 155218; 383602; 191090; 299730; 404178; 426738; 253682; 680690; 402194; 320306; 884530; 427890; 382834; 380979; 936115; 378131; 715091; 380307; 380339; 506355; 384499; 1041907; 385587; 224819; 383571; 383603; 173715; 614035; 304883; 253683; 647923; 480019; 382835; 1332244; 418868; 89172; 387156; 270484; 303316; 317652; 380212; 352564; 400788; 380340; 1435060; 183764; 384500; 522740; 1176116; 415316; 155220; 385620; 383604; 510644; 644788; 680692; 132884; 641812; 1087284; 215892; 221012; 1081236; 354228; 197588; 566260; 380949; 351253; 62549; 172149; 642261; 279797; 760085; 644373; 1313077; 380213; 393557; 365077; 411157; 680501; 425557; 663189; 299733; 414453; 680693; 129781; 357205; 1003445; 197589; 380950; 431158; 380982; 383030; 1470614; 1697974; 244950; 279798; 168278; 475478; 203126; 380342; 384502; 365078; 344598; 162326; 385590; 499286; 383574; 155222; 425558; 404150; 253686; 215862; 382838; 548822; 128982; 192535; 387191; 1082519; 387223; 1330359; 380343; 352695; 573943; 506391; 673367; 147095; 305847; 908183; 106423; 62488; 11320; 383064; 11384; 449656; 11448; 336248; 132504; 388536; 365080; 385624; 648856; 717464; 404152; 480024; 215864; 518968; 221016; 357208; 336792; 404408; 647096; 655288; 402489; 380985; 387161; 342137; 1144025; 380217; 203129; 444793; 373145; 384505; 155225; 746073; 298713; 680729; 329593; 504697; 1285210; 938074; 205946; 370810; 270490; 645306; 353466; 11482; 642266; 136474; 1084762; 380282; 464314; 586170; 616922; 402938; 405050; 284218; 448058; 383578; 155226; 661114; 1403514; 529050; 357210; 382842; 336794; 145306; 416730; 370811; 413883; 378139; 1007931; 1086875; 629211; 654811; 506363; 284219; 363131; 404155; 223931; 229051; 253691; 357211; 145307; 538555; 354235; 547900; 186460; 352348; 1305724; 884924; 336092; 11484; 634172; 414044; 342396; 936316; 380284; 1414588; 400828; 352764; 249372; 645724; 223932; 187164; 366524; 401372; 38973; 11357; 404573; 1305725; 1007933; 380285; 183741; 641501; 182781; 384509; 515581; 137885; 447133; 427773; 334589; 382781; 382813; 311165; 332733; 519101; 1342397; 177117; 986174; 444510; 1305726; 646302; 882942; 147742; 264510; 299390; 311710; 415166; 335358; 384510; 284190; 383550; 653886; 385630; 1042014; 137886; 754366; 161502; 334590; 479006; 1305374; 559966; 444318; 432094; 417758; 351263; 547903; 402527; 62559; 1305727; 435359; 293055; 383231; 1414591; 472511; 415167; 311775; 411167; 578079; 286239; 385599; 383583; 132735; 223935; 210655; 680767; 511839; 680799,small-virus,300748; 746073; 381518; 173715; 385583; 197579; 299730; 311169; 449656; 256045; 714561; 387208; 221012; 402527; 165420; 644289; 383571; 137886; 327311; 384484; 327205; 395842; 335333; 351277; 544555; 385605; 647096; 380282; 438885; 274829; 106423; 380964; 381512; 680692; 383121; 680689; 762400; 380343; 547903; 380836; 432070; 332747; 681069; 556272; 385640; 369766; 533026; 437606; 279798; 480024; 1305374; 365129; 378131; 383558; 304362; 614035; 169166; 185794; 159201; 529050; 371233; 1305728; 220977; 383583; 284209; 62512; 380339; 1697974; 387223; 365417; 680799; 680690; 1082519; 249372; 177188; 166951; 128982; 381511; 192720; 468972; 458626; 673367; 147095; 1000292; 402474; 284190; 421472; 647923; 641501; 559966; 378139; 761251; 332733; 680785; 562988; 384502; 352561; 1346336; 393697; 380217; 373145; 499286; 462695; 411662; 352515; 411167; 192549; 334590; 715494; 173473; 352520; 387243; 210663; 400788; 173477; 380212; 244950; 100835; 506282; 187164; 62559; 11482; 518922; 370810; 401030; 1144025; 1346348; 1041907; 447133; 145307; 11384; 488241; 62478; 224819; 157642; 438888; 548822; 1654305; 642261; 1305727; 464623; 291592; 382834; 351263; 36420; 388536; 215892; 887119; 253686; 384498; 457457; 203129; 1069537; 468968; 97353; 159471; 153969; 336232; 228928; 768716; 306061; 382813; 161502; 62549; 207401; 754366; 317652; 370128; 168278; 425552; 38973; 503337; 11408; 336092; 357211; 383550; 203126; 177131; 11448; 147742; 1086875; 634172; 680753; 464622; 476294; 488235; 196430; 307819; 658578; 383231; 504904; 393902; 285712; 95234; 680767; 616922; 388108; 364132; 88104; 351253; 365078; 405050; 10001315; 991753; 374987; 155225; 311710; 197588; 375457; 299733; 215862; 55532; 560463; 365077; 478056; 207822; 383561; 311374; 577543; 385624; 383589; 587884; 191090; 383567; 887110; 661114; 382828; 518981; 196462; 62541; 62575; 435359; 506355; 380978; 421901; 402194; 336792; 292045; 192535; 644788; 357210; 538555; 407649; 183764; 1268360; 381513; 445027; 573797; 89172; 387203; 642794; 578079; 155222; 355624; 342221; 41857; 342210; 155226; 413883; 383566; 385616; 566260; 1331850; 586170; 387147; 1305726; 264510; 354228; 11320; 177117; 311775; 319875; 62596; 383603; 307622; 441895; 432073; 427890; 393486; 384505; 359921; 380342; 765445; 282124; 407713; 183741; 518350; 164326; 300749; 547905; 135661; 385590; 415172; 293055; 311695; 336248; 210655; 363131; 562992; 444793; 418868; 170342; 856550; 384500; 382848; 506350; 464314; 425558; 402938; 352564; 479006; 62503; 183786; 441962; 1071368; 270484; 1176116; 1068705; 1229762; 645306; 380284; 430278; 1285210; 643212; 368714; 387191; 1081236; 352764; 415176; 385620; 393557; 292039; 132504; 284195; 182781; 1332244; 380330; 768646; 945961; 132613; 266827; 1000875; 383586; 214826; 319104; 225088; 1093545; 682728; 63106; 93838; 680739; 205954; 432094; 380213; 1171336; 414044; 384493; 1330339; 402464; 371214; 62496; 371082; 11397; 381516; 136474; 510644; 395841; 645582; 646302; 183778; 169163; 270490; 223935; 1078402; 132841; 10001318; 398318; 385599; 382835; 304364; 384510; 130760; 231851; 404408; 384495; 380833; 511839; 444318; 416730; 381517; 504910; 205946; 1342434; 1305725; 653886; 253682; 385585; 1481964; 137885; 380985; 380979; 982258; 991335; 132783; 1042014; 370811; 519082; 518968; 1342397; 380340; 382825; 680693; 135658; 83206; 36418; 1414588; 211044; 936115; 334589; 380982; 384527; 385580; 62446; 385600; 387161; 882942; 426738; 742305; 384487; 1163697; 1007931; 644373; 225089; 389259; 62449; 629211; 270510; 342145; 1122279; 404163; 1477937; 380842; 354235; 404138; 767722; 414453; 506391; 415316; 768647; 383531; 382781; 304359; 415169; 380950; 210659; 1435060; 384509; 223931; 762378; 516994; 535852; 132735; 404152; 384499; 329593; 444510; 393548; 1472295; 284219; 518946; 387156; 342508; 573943; 936316; 717464; 510222; 352034; 654811; 366524; 400810; 1305724; 641809; 155220; 542563; 142945; 89169; 383030; 478051; 645724; 425551; 274828; 260806; 365080; 97348; 1000847; 95888; 342396; 130763; 229051; 476303; 697610; 225071; 480019; 154540; 915014; 380949; 177128; 938074; 392810; 169169; 619880; 393616; 913937; 440391; 884530; 947939; 427773; 1087279; 255682; 648856; 162326; 59375; 382838; 336207; 383568; 400828; 402489; 385576; 383570; 352695; 402503; 383604; 311165; 183783; 322566; 440388; 486627; 176672; 411157; 392811; 384485; 479983; 82372; 1414591; 253676; 336205; 88103; 760085; 342137; 216877; 384483; 529058; 11363; 387213; 1727172; 385630; 404137; 475493; 425557; 986174; 497380; 1447813; 519101; 385587; 11357; 576142; 327310; 569161; 320306; 253683; 286239; 284202; 365074; 352348; 932622; 715091; 547900; 385586; 107493; 10001317; 270945; 383578; 1313077; 304883; 496036; 142948; 198059; 1003445; 404178; 537923; 215864; 400331; 407843; 284218; 444195; 415166; 298713; 908203; 680729; 298603; 1176042; 431158; 352706; 505600; 632134; 335358; 210671; 292590; 129781; 680803; 1403514; 88776; 353253; 107558; 336794; 404155; 483267; 908183; 1330359; 663189; 88775; 158306; 357208; 385582; 415167; 137578; 62564; 279797; 186460; 496800; 392809; 461772; 680501; 404150; 132884; 417758; 273361; 404573; 387239; 382842; 402473; 434606; 383533; 506363; 305847; 678695; 416744; 380307; 155218; 383152; 482147; 1149325; 514193; 344598; 223932; 299390; 415177; 383281; 558177; 367120; 322564; 401372; 255681; 887118; 641812; 284168; 197585; 380210; 11484; 387139; 642266; 10001316; 253691; 221016; 383602; 1283012; 303316; 996581; 380332; 475478; 765258; 382787; 336800; 1470614; 547904; 472511; 353466; 165512; 1087284; 251297; 352710; 504697; 145306; 383564; 385644; 370127; 335337; 300750; 884924; 1007933; 1391655; 515581; 882946; 380301; 357205; 383574; 172149; 1331560; 941425; 522740; 223947; 383064; 380299; 448058; 387207; 380285; 991714; 197589; 62488; 1084762; 655288; 342546; 1000304; 210656,UP000115522,Representative
+11520,Influenza B virus,11520; 11521; 171425; 464417; 224964; 335812; 408901; 593990; 289353; 518987; 461739; 11532; 107404; 587885; 107406; 150127; 256080; 184816; 38994; 427826; 1077587; 604436; 504660; 11541; 283957; 504662; 504664; 107417; 503386; 206203; 664507; 430428; 430429; 871647,small-virus,503386; 206203; 256080; 408901; 335812; 871647; 107406; 107417; 224964; 504662; 504660; 289353; 461739; 11521; 427826; 171425; 107404; 664507; 430428; 593990; 464417; 150127; 604436; 11520; 518987; 1077587; 283957; 11541; 504664; 184816; 38994; 587885; 11532; 430429,UP000150109,Representative
+11552,Influenza C virus,11552; 11553; 224197,small-virus,11553; 11552; 224197,UP000138885,Representative
+11588,Rift Valley fever virus,11588; 11589,small-virus,11588; 11589,UP000136639,Representative
 11593,Crimean-Congo hemorrhagic fever virus,11593,small-virus,11593,,All-proteins
-11599,Hantaan virus,470918; 370830; 11599; 11601; 11602; 458678; 74941; 74942; 74943; 11583,small-virus,74941; 74942; 11599; 458678; 11583; 74943; 370830; 470918; 11602; 11601,UP000008627,Representative
+11599,Hantaan virus,470918; 370830; 11599; 11601; 11602; 458678; 74941; 74942; 74943; 11583,small-virus,74941; 74942; 11599; 458678; 11583; 74943; 370830; 470918; 11602; 11601,,All-proteins
 11603,Prospect Hill virus,11603,small-virus,11603,,All-proteins
-11604,Puumala virus,11604; 11605; 39000; 39002,small-virus,11605; 11604; 39002; 39000,UP000008482,Non-redundant
-11608,Seoul virus,279233; 12557; 11607; 11608,small-virus,12557; 279233; 11607; 11608,UP000207620,Non-redundant
+11604,Puumala virus,11604; 11605; 39000; 39002,small-virus,11605; 11604; 39002; 39000,,All-proteins
+11608,Seoul virus,279233; 12557; 11607; 11608,small-virus,12557; 279233; 11607; 11608,,All-proteins
 11619,Junin mammarenavirus,11619,small-virus,11619,,All-proteins
 11620,Lassa mammarenavirus,11620; 11621; 11622,small-virus,11620; 11621; 11622,UP000002473,Representative
 11623,Lymphocytic choriomeningitis mammarenavirus,11623; 11624; 11625; 11626; 11627,small-virus,11623; 11626; 11624; 11627; 11625,UP000002474,Representative
-11628,Machupo mammarenavirus,11628,small-virus,11628,UP000009263,Non-redundant
-11629,Mopeia mammarenavirus,11629; 300175,small-virus,300175; 11629,UP000119238,Non-redundant
+11628,Machupo mammarenavirus,11628,small-virus,11628,UP000118009,Other
+11629,Mopeia mammarenavirus,11629; 300175,small-virus,300175; 11629,UP000119238,Other
 11630,Pichinde mammarenavirus,11630,small-virus,11630,,All-proteins
-11631,Tacaribe mammarenavirus,31616; 11631; 31615,small-virus,31615; 11631; 31616,UP000112345,Non-redundant
-11636,Reticuloendotheliosis virus,11636,small-virus,11636,UP000098146,Non-redundant
+11631,Tacaribe mammarenavirus,31616; 11631; 31615,small-virus,31615; 11631; 31616,UP000008026,Reference
+11636,Reticuloendotheliosis virus,11636,small-virus,11636,UP000098146,Other
 11660,Caprine arthritis encephalitis virus,11660; 11661; 11662; 254355,small-virus,254355; 11660; 11661; 11662,UP000203242,Representative
-11665,Equine infectious anemia virus,11665; 11668; 11670; 11671; 11672; 31675,small-virus,11672; 11665; 11671; 11670; 11668; 31675,UP000830805,Non-redundant
+11665,Equine infectious anemia virus,11665; 11668; 11670; 11671; 11672; 31675,small-virus,11672; 11665; 11671; 11670; 11668; 31675,UP000830805,Other
 11673,Feline immunodeficiency virus,45409; 36371; 11673; 11674; 11675; 31676,small-virus,11673; 11675; 31676; 45409; 11674; 36371,UP000242267,Representative
 11676,Human immunodeficiency virus 1,11681; 327105; 11682; 11683; 11684; 11685; 11686; 401671; 11687; 11688; 11689; 11690; 11691; 11694; 11695; 11696; 11697; 11698; 82834; 11699; 290579; 11701; 11703; 36375; 11704; 11705; 11706; 362651; 11676; 11708; 587644; 11678; 31678; 11679,small-virus,327105; 362651; 11687; 11697; 36375; 11703; 11704; 11698; 11690; 11682; 31678; 11689; 11691; 11705; 290579; 11683; 401671; 11681; 11676; 11688; 11686; 82834; 11701; 11684; 11679; 11706; 587644; 11685; 11699; 11678; 11696; 11695; 11694; 11708,UP000002241,Representative
-11709,Human immunodeficiency virus 2,11713; 31681; 11714; 11715; 11716; 11717; 11718; 11720; 73484; 11709,small-virus,11709; 11716; 11720; 11713; 11715; 11718; 11717; 31681; 73484; 11714,UP000002242,Representative
+11709,Human immunodeficiency virus 2,11713; 31681; 11714; 11715; 11716; 11717; 11718; 11720; 73484; 11709,small-virus,11709; 11716; 11720; 11713; 11715; 11718; 11717; 31681; 73484; 11714,UP000007423,Representative
 11723,Simian immunodeficiency virus,31682; 31683; 31684; 11723; 224206; 160753; 11730; 402771; 11731; 11732; 11733; 11734; 11735; 11736; 11737; 11738; 11711,small-virus,11730; 11732; 11711; 11735; 11734; 31682; 402771; 11737; 31683; 11738; 11731; 31684; 11733; 224206; 160753; 11736; 11723,UP000007221,Representative
 11741,Visna/maedi virus,12750; 36374; 11741; 11742; 11743,small-virus,11743; 12750; 36374; 11742; 11741,,All-proteins
 11757,Mouse mammary tumor virus,11757; 11759,small-virus,11759; 11757,UP000006540,Reference
-11768,Feline leukemia virus,11824; 11768; 11769,small-virus,11769; 11768; 11824,UP000118006,Non-redundant
-11780,Snyder-Theilen feline sarcoma virus,11780,small-virus,11780,UP000815315,Non-redundant
-11786,Murine leukemia virus,11786; 11790; 11791; 44561; 11795; 11797; 11801,small-virus,11791; 11795; 11801; 44561; 11786; 11790; 11797,UP000008875,Non-redundant
-11809,Moloney murine sarcoma virus,11812,small-virus,11812; 11809,UP000108184,Non-redundant
+11768,Feline leukemia virus,11824; 11768; 11769,small-virus,11769; 11768; 11824,UP000118006,Other
+11780,Snyder-Theilen feline sarcoma virus,11780,small-virus,11780,UP000815315,Other
+11786,Murine leukemia virus,11786; 11790; 11791; 44561; 11795; 11797; 11801,small-virus,11791; 11795; 11801; 44561; 11786; 11790; 11797,UP000006625,Reference
+11809,Moloney murine sarcoma virus,11812,small-virus,11812; 11809,UP000108184,Other
 11827,Human endogenous retrovirus,11827; 228277,large-virus,11827; 228277,UP000147721,Representative
-11855,Mason-Pfizer monkey virus,11942; 39068,small-virus,11855; 11942; 39068,UP000007228,Non-redundant
-11864,Avian leukosis virus,1401444; 79685; 11864,small-virus,79685; 1401444; 11864,UP000149542,Non-redundant
-11866,Avian myeloblastosis virus,11866,small-virus,11866,UP000235313,Non-redundant
+11855,Mason-Pfizer monkey virus,11942; 39068,small-virus,11855; 11942; 39068,UP000007228,Other
+11864,Avian leukosis virus,1401444; 79685; 11864,small-virus,79685; 1401444; 11864,UP000149542,Other
+11866,Avian myeloblastosis virus,11866,small-virus,11866,UP000235313,Other
 11867,Avian myelocytomatosis virus,11867,small-virus,11867,,All-proteins
-11886,Rous sarcoma virus,11886,small-virus,11886,,All-proteins
+11886,Rous sarcoma virus,11886,small-virus,11886,UP000002238,Reference
 11901,Bovine leukemia virus,11901,small-virus,11901,UP000202838,Representative
 11966,Aids-associated retrovirus,11966,large-virus,11966,,All-proteins
 11976,Rabbit hemorrhagic disease virus,314536; 11976,small-virus,11976; 314536,UP000000413,Reference
-11978,Feline calicivirus,11980; 11981,small-virus,11978; 11981; 11980,UP000008762,Non-redundant
+11978,Feline calicivirus,11980; 11981,small-virus,11978; 11981; 11980,UP000001098,Reference
 11983,Norwalk virus,1182144; 150080; 94433; 1387905; 158465; 439201; 82658; 627331; 546980; 165509; 165510; 165511; 546984; 1350216; 207241; 1350217; 741353; 1350218; 463722; 524364; 95340; 392172; 99565; 795438; 11983; 633679; 122928; 122929; 340018; 660658; 106515; 182835; 171859; 52276; 302388; 503764; 493845; 1241973; 670199; 1286616; 1097017; 539227; 33755; 1208060; 223997; 386270; 489822; 463711,small-virus,302388; 670199; 1350217; 1350216; 546980; 1387905; 95340; 463711; 1350218; 52276; 463722; 182835; 539227; 82658; 546984; 33755; 1208060; 11983; 165510; 524364; 503764; 1182144; 106515; 386270; 627331; 158465; 633679; 489822; 165509; 1241973; 165511; 1097017; 150080; 207241; 122928; 94433; 223997; 660658; 171859; 741353; 795438; 392172; 340018; 439201; 122929; 1286616; 99565; 493845,UP000000826,Reference
 12040,Barley yellow dwarf virus-PAV,12040,small-virus,12040,,All-proteins
-12064,Enterovirus E,12064,small-virus,12064,UP000096257,Non-redundant
+12064,Enterovirus E,12064,small-virus,12064,UP000006566,Other
 12092,Hepatovirus A,470593; 12098; 12099; 208726; 12092; 12093,small-virus,12092; 12098; 470593; 12093; 12099; 208726,UP000006724,Reference
-12110,Foot-and-mouth disease virus,168586; 73482; 12110; 12111; 12112; 12113; 46290; 12114; 110195; 12115; 12116; 12117; 12118; 12120; 12121; 12122; 12123; 35292,small-virus,73482; 12118; 12117; 12123; 46290; 12115; 12112; 12114; 110195; 35292; 168586; 12122; 12121; 12120; 12110; 12113; 12111; 12116,UP000007707,Non-redundant
-12145,Tomato bushy stunt virus,12146,small-virus,12145; 12146,,All-proteins
-12161,Beet yellows virus,12161,small-virus,12161,,All-proteins
+12110,Foot-and-mouth disease virus,168586; 73482; 12110; 12111; 12112; 12113; 46290; 12114; 110195; 12115; 12116; 12117; 12118; 12120; 12121; 12122; 12123; 35292,small-virus,73482; 12118; 12117; 12123; 46290; 12115; 12112; 12114; 110195; 35292; 168586; 12122; 12121; 12120; 12110; 12113; 12111; 12116,UP000000682,Reference
+12145,Tomato bushy stunt virus,12146,small-virus,12145; 12146,UP000001666,Representative
+12161,Beet yellows virus,12161,small-virus,12161,UP000000359,Representative
 12162,Citrus tristeza virus,12162,small-virus,12162,UP000204414,Representative
 12183,Potato virus X,12183,small-virus,12183,UP000006841,Representative
-12205,Papaya ringspot virus,12205,small-virus,12205,,All-proteins
-12211,Plum pox virus,12211; 12213,small-virus,12211; 12213,UP000006685,Non-redundant
-12215,Potato virus A,12215,small-virus,12215,UP000008484,Non-redundant
-12216,Potato virus Y,122280; 12216,small-virus,12216; 122280,UP000232425,Non-redundant
-12227,Tobacco etch virus,12227,small-virus,12227,UP000007404,Non-redundant
-12228,Tobacco vein mottling virus,12228,small-virus,12228,UP000007549,Non-redundant
-12232,Zucchini yellow mosaic virus,12232,small-virus,12232,UP000201960,Non-redundant
-12238,Odontoglossum ringspot virus,12238,small-virus,12238,,All-proteins
-12242,Tobacco mosaic virus,12242; 12246,small-virus,12242; 12246,,All-proteins
-12260,Bean pod mottle virus,31715; 12260,small-virus,31715; 12260,UP000007610,Non-redundant
-12264,Cowpea mosaic virus,12264,small-virus,12264,,All-proteins
-12287,Flock house virus,12287,small-virus,12287,UP000203899,Non-redundant
-12305,Cucumber mosaic virus (cucumber mosaic cucumovirus),12305,small-virus,12305,UP000246914,Non-redundant
-12321,Alfalfa mosaic virus,12321,small-virus,12321,,All-proteins
+12205,Papaya ringspot virus,12205,small-virus,12205,UP000006688,Other
+12211,Plum pox virus,12211; 12213,small-virus,12211; 12213,UP000006685,Other
+12215,Potato virus A,12215,small-virus,12215,UP000008484,Other
+12216,Potato virus Y,122280; 12216,small-virus,12216; 122280,UP000000520,Reference
+12227,Tobacco etch virus,12227,small-virus,12227,UP000007404,Other
+12228,Tobacco vein mottling virus,12228,small-virus,12228,UP000007549,Other
+12232,Zucchini yellow mosaic virus,12232,small-virus,12232,UP000008610,Other
+12238,Odontoglossum ringspot virus,12238,small-virus,12238,UP000202780,Other
+12242,Tobacco mosaic virus,12242; 12246,small-virus,12242; 12246,UP000000522,Representative
+12260,Bean pod mottle virus,31715; 12260,small-virus,31715; 12260,UP000007610,Other
+12264,Cowpea mosaic virus,12264,small-virus,12264,UP000008589,Reference
+12287,Flock house virus,12287,small-virus,12287,UP000203899,Other
+12305,Cucumber mosaic virus (cucumber mosaic cucumovirus),12305,small-virus,12305,UP000008454,Representative
+12321,Alfalfa mosaic virus,12321,small-virus,12321,UP000000358,Representative
 12340,Enterobacteria phage 933J,12340,small-virus,12340,,All-proteins
-12455,Borna disease virus,12455,small-virus,12455,UP000006642,Non-redundant
-12461,Hepatitis E virus,12461; 33774; 31767; 31768; 509628; 63421,small-virus,31768; 31767; 12461; 33774; 509628; 63421,UP000001322,Non-redundant
-12475,Hepatitis delta virus,31764; 10422; 10423; 10426; 12475,small-virus,31764; 10422; 10423; 12475; 10426,UP000007708,Non-redundant
+12455,Borna disease virus,12455,small-virus,12455,UP000007804,Representative
+12461,Hepatitis E virus,12461; 33774; 31767; 31768; 509628; 63421,small-virus,31768; 31767; 12461; 33774; 509628; 63421,,All-proteins
+12475,Hepatitis delta virus,31764; 10422; 10423; 10426; 12475,small-virus,31764; 10422; 10423; 12475; 10426,UP000006675,Representative
 12480,African green monkey polyomavirus,10574,small-virus,12480; 10574,UP000173801,Representative
 12506,Dobrava-Belgrade virus,12506,small-virus,12506,,All-proteins
 12618,Chicken anemia virus,73475,small-virus,12618; 73475,UP000007528,Representative
 12637,Dengue virus,408871; 408685; 11053; 33741; 408686; 408687; 408688; 408689; 11057; 408690; 31634; 408691; 11059; 31635; 408692; 11060; 31636; 408693; 408694; 11062; 11063; 11064; 11065; 11066; 11067; 11068; 12637; 11069; 11070,small-virus,11070; 408690; 12637; 408688; 408694; 11069; 11066; 11053; 11067; 408687; 11057; 31635; 11060; 11064; 408871; 11059; 11062; 31634; 11068; 31636; 408691; 408692; 408693; 408685; 11063; 408689; 11065; 33741; 408686,UP000002500,Reference
-12639,Duck hepatitis B virus,489543; 12639,small-virus,12639; 489543,UP000007203,Representative
-12643,Ectromelia virus,12643,large-virus,12643,UP000172110,Non-redundant
-12657,Equid herpesvirus 2 (Equine herpesvirus 2),12657,large-virus,12657,UP000163076,Non-redundant
+12639,Duck hepatitis B virus,489543; 12639,small-virus,12639; 489543,UP000181081,Representative
+12643,Ectromelia virus,12643,large-virus,12643,UP000130118,Other
+12657,Equid herpesvirus 2 (Equine herpesvirus 2),12657,large-virus,12657,UP000007083,Representative
 12730,Human parainfluenza virus 1,36412,large-virus,36412; 12730,UP000096504,Representative
-12814,Respiratory syncytial virus,12814,small-virus,12814,UP000111526,Non-redundant
+12814,Respiratory syncytial virus,12814,small-virus,12814,UP000111526,Other
 12990,Carpinus betulus (European hornbeam),12990,other-eukaryote,12990,,All-proteins
 13101,Juniperus ashei (Ashe juniper),13101,other-eukaryote,13101,,All-proteins
 13187,Parietaria officinalis,13187,other-eukaryote,13187,,All-proteins
 13286,Theromyzon tessulatum,13286,other-eukaryote,13286,,All-proteins
-13373,Burkholderia mallei,320388; 320390; 334802; 334803; 412022; 243160; 13373,bacterium,320388; 334803; 13373; 243160; 412022; 334802; 320390,UP000002283,Non-redundant
+13373,Burkholderia mallei,320388; 320390; 334802; 334803; 412022; 243160; 13373,bacterium,320388; 334803; 13373; 243160; 412022; 334802; 320390,UP000003995,Non-redundant
 13415,Chamaecyparis obtusa,13415,other-eukaryote,13415,,All-proteins
 13451,Corylus avellana (European hazelnut),13451,other-eukaryote,13451,,All-proteins
 13469,Cupressus sempervirens,13469,other-eukaryote,13469,,All-proteins
@@ -731,52 +731,52 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 28038,Lactobacillus curvatus,28038,bacterium,28038,UP000031010,Non-redundant
 28049,Acidothermus cellulolyticus (Acidithermus cellulolyticus),351607,bacterium,28049; 351607,UP000008221,Representative
 28080,Campylobacter upsaliensis,306264,bacterium,28080; 306264,UP000254161,Non-redundant
-28108,Alteromonas macleodii,529120,bacterium,529120; 28108,UP000063991,Non-redundant
-28112,Tannerella forsythia,28112,bacterium,28112,UP000182057,Non-redundant
-28130,Prevotella disiens,28130,bacterium,28130,UP000254072,Non-redundant
-28131,Prevotella intermedia,28131,bacterium,28131,UP000186059,Non-redundant
-28151,Serratia proteamaculans,28151,bacterium,28151,UP000192912,Non-redundant
-28152,Yersinia kristensenii,28152,bacterium,28152,UP000044230,Non-redundant
+28108,Alteromonas macleodii,529120,bacterium,529120; 28108,UP000095499,Non-redundant
+28112,Tannerella forsythia,28112,bacterium,28112,UP000005436,Representative
+28130,Prevotella disiens,28130,bacterium,28130,UP000003610,Non-redundant
+28131,Prevotella intermedia,28131,bacterium,28131,UP000217431,Non-redundant
+28151,Serratia proteamaculans,28151,bacterium,28151,UP000292051,Non-redundant
+28152,Yersinia kristensenii,28152,bacterium,28152,UP000045824,Non-redundant
 28227,Mycoplasma penetrans,28227; 272633,bacterium,28227; 272633,UP000002522,Representative
 28295,Porcine epidemic diarrhea virus,28295,small-virus,28295,UP000147626,Representative
-28300,Heron hepatitis B virus,28300,small-virus,28300,UP000008679,Non-redundant
+28300,Heron hepatitis B virus,28300,small-virus,28300,UP000008679,Other
 28327,Murine rotavirus,28327,large-virus,28327,UP000141373,Representative
-28344,Porcine reproductive and respiratory syndrome virus,11049; 28344; 288959,small-virus,11049; 28344; 288959,UP000006687,Representative
+28344,Porcine reproductive and respiratory syndrome virus,11049; 28344; 288959,small-virus,11049; 28344; 288959,UP000115075,Representative
 28368,Corynebacterium diphtheriae phage,28368,virus,28368,,All-proteins
-28375,Soil-borne wheat mosaic virus,28375,small-virus,28375,,All-proteins
-28448,Komagataeibacter xylinus,28448,bacterium,28448,UP000228665,Non-redundant
+28375,Soil-borne wheat mosaic virus,28375,small-virus,28375,UP000009270,Representative
+28448,Komagataeibacter xylinus,28448,bacterium,28448,UP000019231,Non-redundant
 28450,Burkholderia pseudomallei,28450; 357348; 331109; 441158; 441159; 441160; 331978; 425067; 272560; 320372; 320373; 360118; 320374,bacterium,357348; 331109; 320374; 331978; 425067; 28450; 272560; 360118; 320372; 441160; 441158; 320373; 441159,UP000000605,Representative
 28479,Phalaris aquatica (canary grass),28479,other-eukaryote,28479,,All-proteins
 28869,Ovine respiratory syncytial virus,79699,small-virus,79699; 28869,,All-proteins
 28871,Taterapox virus,28871,large-virus,28871,UP000139570,Representative
 28873,Camelpox virus,203172; 203173; 203174; 28873,large-virus,203174; 203173; 203172; 28873,UP000107153,Representative
 28875,Rotavirus A,94432; 72132; 35333; 450149; 10950; 42567; 10952; 10922; 28875; 10923; 31563; 73036; 10925; 10927; 36432; 10960; 37137; 31569; 10930; 10962; 195700; 10934; 408599; 36439; 10969; 444186; 10941,small-virus,444186; 72132; 10930; 10923; 37137; 10950; 36432; 31569; 28875; 10962; 10969; 408599; 36439; 10927; 10922; 73036; 450149; 31563; 10941; 35333; 10934; 94432; 10925; 10952; 10960; 42567; 195700,UP000001119,Representative
-28901,Salmonella enterica,85569; 90370; 321314; 149539; 90371; 439843; 59203; 28901; 59205; 1016998; 439847; 119912; 423368; 41514; 209261; 28142; 554290; 54388; 596; 220341; 216597; 440534; 295319; 99287; 98360; 497976; 48409; 497977; 605; 286783,bacterium,439843; 554290; 28142; 286783; 54388; 98360; 216597; 119912; 149539; 90371; 423368; 596; 321314; 48409; 497977; 497976; 99287; 209261; 439847; 28901; 1016998; 220341; 90370; 295319; 59203; 41514; 605; 85569; 59205; 440534,UP000001014,Representative
-28903,Mycoplasma bovis,28903,bacterium,28903,UP000076372,Non-redundant
+28901,Salmonella enterica,85569; 90370; 321314; 149539; 90371; 439843; 59203; 28901; 59205; 1016998; 439847; 119912; 423368; 41514; 209261; 28142; 554290; 54388; 596; 220341; 216597; 440534; 295319; 99287; 98360; 497976; 48409; 497977; 605; 286783,bacterium,439843; 554290; 28142; 286783; 54388; 98360; 216597; 119912; 149539; 90371; 423368; 596; 321314; 48409; 497977; 497976; 99287; 209261; 439847; 28901; 1016998; 220341; 90370; 295319; 59203; 41514; 605; 85569; 59205; 440534,UP000298196,Representative
+28903,Mycoplasma bovis,28903,bacterium,28903,UP000233776,Non-redundant
 28909,Cynodon dactylon (Bermuda grass),28909,other-eukaryote,28909,,All-proteins
-29176,Neospora caninum,29176,other-eukaryote,29176,UP000808630,Non-redundant
-29271,Dasheen mosaic virus,29271,small-virus,29271,UP000203176,Non-redundant
-29292,Pyrococcus abyssi,272844,archeobacterium,29292; 272844,UP000000810,Non-redundant
-29320,Paenarthrobacter nicotinovorans (Arthrobacter nicotinivorans),29320,bacterium,29320,UP000078426,Non-redundant
-29362,[Clostridium] papyrosolvens,588581; 29362,bacterium,588581; 29362,UP000003860,Non-redundant
-29371,[Clostridium] termitidis,29371,bacterium,29371,,All-proteins
+29176,Neospora caninum,29176,other-eukaryote,29176,UP000007494,Representative
+29271,Dasheen mosaic virus,29271,small-virus,29271,UP000203176,Other
+29292,Pyrococcus abyssi,272844,archeobacterium,29292; 272844,UP000009139,Other
+29320,Paenarthrobacter nicotinovorans (Arthrobacter nicotinivorans),29320,bacterium,29320,UP000078426,Other
+29362,[Clostridium] papyrosolvens,588581; 29362,bacterium,588581; 29362,UP000003860,Other
+29371,[Clostridium] termitidis,29371,bacterium,29371,UP000014155,Representative
 29388,Staphylococcus capitis,29388,bacterium,29388,UP000291949,Non-redundant
-29438,Pseudomonas savastanoi,264730,bacterium,264730; 29438,UP000000551,Non-redundant
-29442,Pseudomonas tolaasii,29442,bacterium,29442,UP000549134,Non-redundant
-29447,Xanthomonas albilineans,29447,bacterium,29447,UP000463904,Non-redundant
-29459,Brucella melitensis,546272; 1029825; 520464; 224914; 29459,bacterium,1029825; 520464; 546272; 224914; 29459,UP000000419,Non-redundant
-29461,Brucella suis (Brucella melitensis bv. Suis),204722; 29461; 470137,bacterium,470137; 204722; 29461,UP000007104,Non-redundant
+29438,Pseudomonas savastanoi,264730,bacterium,264730; 29438,UP000005466,Non-redundant
+29442,Pseudomonas tolaasii,29442,bacterium,29442,UP000776114,Non-redundant
+29447,Xanthomonas albilineans,29447,bacterium,29447,UP000001890,Representative
+29459,Brucella melitensis,546272; 1029825; 520464; 224914; 29459,bacterium,1029825; 520464; 546272; 224914; 29459,UP000005102,Non-redundant
+29461,Brucella suis (Brucella melitensis bv. Suis),204722; 29461; 470137,bacterium,470137; 204722; 29461,UP000325361,Representative
 29484,Yersinia frederiksenii,349966,bacterium,349966; 29484,UP000044703,Non-redundant
 29497,Vibrio splendidus,314291,bacterium,314291; 29497,UP000005350,Non-redundant
-29507,Leptospira kirschneri,29507,bacterium,29507,UP000011895,Other
+29507,Leptospira kirschneri,29507,bacterium,29507,UP000012127,Non-redundant
 29518,Borreliella afzelii,29518; 390236,bacterium,29518; 390236,UP000005216,Non-redundant
-29519,Borreliella garinii,1081646; 29519,bacterium,1081646; 29519,UP000006806,Other
+29519,Borreliella garinii,1081646; 29519,bacterium,1081646; 29519,UP000006103,Non-redundant
 29543,Pelobacter propionicus,338966,bacterium,29543; 338966,UP000006732,Representative
 29661,Anthoxanthum odoratum,29661,other-eukaryote,29661,,All-proteins
 29679,Holcus lanatus (velvet grass),29679,other-eukaryote,29679,,All-proteins
 29715,Ambrosia psilostachya,29715,other-eukaryote,29715,,All-proteins
 29760,Vitis vinifera (wine grape),29760,other-eukaryote,29760,UP000009183,Representative
-29780,Mangifera indica (mango),29780,other-eukaryote,29780,UP000813799,Non-redundant
+29780,Mangifera indica (mango),29780,other-eukaryote,29780,UP000813799,Other
 29918,Cladosporium herbarum,29918,other-eukaryote,29918,,All-proteins
 29960,Fenneropenaeus indicus,29960,other-eukaryote,29960,,All-proteins
 30211,Vespula flavopilosa,30211,other-eukaryote,30211,,All-proteins
@@ -785,94 +785,94 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 31276,Perkinsus marinus,423536,other-eukaryote,423536; 31276,UP000007800,Representative
 31330,Ephydatia fluviatilis,31330,other-eukaryote,31330,,All-proteins
 31604,Peste-des-petits-ruminants virus,31604,small-virus,31604,UP000118493,Representative
-31721,Beet necrotic yellow vein virus,31721,small-virus,31721,,All-proteins
+31721,Beet necrotic yellow vein virus,31721,small-virus,31721,UP000001100,Representative
 32025,Helicobacter hepaticus,235279,bacterium,32025; 235279,UP000002495,Representative
 32049,Synechococcus sp. PCC 7002,32049,bacterium,32049,UP000001688,Representative
-32201,Carya illinoinensis (pecan),32201,other-eukaryote,32201,UP000811609,Non-redundant
+32201,Carya illinoinensis (pecan),32201,other-eukaryote,32201,UP000809784,Other
 32278,Metapenaeus ensis,32278,other-eukaryote,32278,,All-proteins
 32544,Dasyuroides byrnei (kowari),32544,vertebrate,32544,,All-proteins
 32603,Human herpesvirus 6A,10369; 10370; 32603,large-virus,32603; 10370; 10369,UP000009295,Representative
 32604,Human herpesvirus 6B,32604; 36351,large-virus,32604; 36351,UP000006930,Reference
 32630,synthetic construct,32630,artificial,32630,,All-proteins
 32644,Unidentified,32644,unidentified,32644,,All-proteins
-33060,Yersinia mollaretii,349967,bacterium,349967; 33060,UP000043938,Non-redundant
+33060,Yersinia mollaretii,349967,bacterium,349967; 33060,UP000230102,Non-redundant
 33127,Parietaria judaica,33127,other-eukaryote,33127,,All-proteins
 33178,Aspergillus terreus,341663,other-eukaryote,33178; 341663,UP000007963,Representative
-33706,Caviid herpesvirus 2,33706,large-virus,33706,UP000102041,Representative
+33706,Caviid herpesvirus 2,33706,large-virus,33706,UP000163196,Representative
 33708,Murid herpesvirus 4 (Murine herpesvirus 68),338561; 33708,large-virus,33708; 338561,UP000099649,Representative
-33743,Kyasanur forest disease virus,172148,small-virus,33743; 172148,UP000097483,Non-redundant
-33894,Mycobacterium africanum,611304,bacterium,33894; 611304,UP000005088,Non-redundant
-33934,Anoxybacillus flavithermus,33934,bacterium,33934,UP000078336,Non-redundant
-33940,Geobacillus thermodenitrificans,420246,bacterium,33940; 420246,UP000001578,Non-redundant
-33990,Rickettsia bellii,336407; 391896,bacterium,33990; 336407; 391896,UP000001951,Non-redundant
+33743,Kyasanur forest disease virus,172148,small-virus,33743; 172148,UP000097483,Other
+33894,Mycobacterium africanum,611304,bacterium,33894; 611304,UP000066547,Non-redundant
+33934,Anoxybacillus flavithermus,33934,bacterium,33934,UP000000742,Representative
+33940,Geobacillus thermodenitrificans,420246,bacterium,33940; 420246,UP000194134,Non-redundant
+33990,Rickettsia bellii,336407; 391896,bacterium,33990; 336407; 391896,UP000033689,Non-redundant
 34245,Zinnia violacea (garden zinnia),34245,other-eukaryote,34245,,All-proteins
 34631,Rhipicephalus appendiculatus,34631,other-eukaryote,34631,,All-proteins
 34632,Rhipicephalus sanguineus (brown dog tick),34632,other-eukaryote,34632,,All-proteins
 34862,Otospermophilus beecheyi (California ground squirrel),34862,vertebrate,34862,,All-proteins
 35241,Lactococcus phage Tuc2009,35241,large-virus,35241,UP000001587,Representative
-35244,Bovine herpesvirus 5,35244,large-virus,35244,UP000105204,Non-redundant
-35258,Lambdapapillomavirus 2,35258,small-virus,35258,UP000117669,Representative
+35244,Bovine herpesvirus 5,35244,large-virus,35244,UP000105204,Other
+35258,Lambdapapillomavirus 2,35258,small-virus,35258,UP000008788,Representative
 35269,Woodchuck hepatitis virus,10432; 10433; 35269; 341946; 10430,small-virus,10433; 341946; 35269; 10432; 10430,UP000008598,Representative
 35275,Murine endogenous retrovirus,35275,virus,35275,,All-proteins
-35288,Grapevine virus A,35288,small-virus,35288,,All-proteins
+35288,Grapevine virus A,35288,small-virus,35288,UP000000679,Representative
 35297,Striped Jack nervous necrosis virus,35297,small-virus,35297,UP000000414,Reference
-35305,California encephalitis virus,35305; 11577; 11578,small-virus,11577; 11578; 35305,UP000232774,Representative
+35305,California encephalitis virus,35305; 11577; 11578,small-virus,11577; 11578; 35305,UP000267394,Other
 35321,El Moro Canyon virus,35321,large-virus,35321,,All-proteins
 35345,Lactococcus phage TP901-1,35345,large-virus,35345,UP000203132,Representative
 35670,Naja naja (Indian cobra),35670,vertebrate,35670,UP000694559,Representative
 35725,Macrophomina phaseolina,1126212,other-eukaryote,35725; 1126212,UP000007129,Representative
-35788,Rickettsia africae,35788,bacterium,35788,,All-proteins
-35791,Rickettsia massiliae,35791; 416276,bacterium,416276; 35791,UP000001311,Non-redundant
-35793,Rickettsia sibirica,35793; 272951,bacterium,272951; 35793,UP000004455,Non-redundant
-35795,Ehrlichia muris,35795,bacterium,35795,,All-proteins
-35797,Nitrococcus mobilis,35797,bacterium,35797,,All-proteins
-36427,Rotavirus C,10915; 10917; 10919; 36433,small-virus,10917; 10915; 36427; 36433; 10919,UP000126370,Non-redundant
+35788,Rickettsia africae,35788,bacterium,35788,UP000002305,Other
+35791,Rickettsia massiliae,35791; 416276,bacterium,416276; 35791,UP000007999,Other
+35793,Rickettsia sibirica,35793; 272951,bacterium,272951; 35793,UP000004455,Other
+35795,Ehrlichia muris,35795,bacterium,35795,UP000033546,Other
+35797,Nitrococcus mobilis,35797,bacterium,35797,UP000003374,Representative
+36427,Rotavirus C,10915; 10917; 10919; 36433,small-virus,10917; 10915; 36427; 36433; 10919,UP000007664,Representative
 36596,Prunus armeniaca (apricot),36596,other-eukaryote,36596,UP000507245,Representative
-36809,Mycobacterium abscessus,1198627; 36809,bacterium,1198627; 36809,UP000045782,Non-redundant
+36809,Mycobacterium abscessus,1198627; 36809,bacterium,1198627; 36809,UP000185014,Representative
 36855,Brucella canis (Brucella melitensis bv. Canis),483179,bacterium,36855; 483179,UP000001385,Non-redundant
 36873,Paraburkholderia xenovorans,266265,bacterium,266265; 36873,UP000001817,Representative
 36936,Lepidoglyphus destructor,36936,other-eukaryote,36936,,All-proteins
 37124,Chikungunya virus,37124; 371094,small-virus,37124; 371094,UP000000569,Reference
-37128,Potato mop-top virus,37128,small-virus,37128,,All-proteins
+37128,Potato mop-top virus,37128,small-virus,37128,UP000006715,Representative
 37133,Tula virus,37133,small-virus,37133,,All-proteins
 37207,Rio Segundo virus,37207,small-virus,37207,,All-proteins
 37296,Human herpesvirus 8,37296,large-virus,37296,UP000155579,Representative
-37326,Nocardia brasiliensis (Nocardia brasilensis),37326,bacterium,37326,UP000255173,Non-redundant
+37326,Nocardia brasiliensis (Nocardia brasilensis),37326,bacterium,37326,UP000006304,Representative
 37333,Nocardia transvalensis (Nocardia transvaalensis),37333,bacterium,37333,UP000540412,Representative
 37347,Tupaia belangeri (common tree shrew),37347,vertebrate,37347,,All-proteins
-37682,Aegilops tauschii,37682,other-eukaryote,37682,UP000791815,Non-redundant
+37682,Aegilops tauschii,37682,other-eukaryote,37682,UP000015105,Representative
 37705,Sin Nombre virus,31621; 32614; 37705,small-virus,37705; 31621; 32614,,All-proteins
 37962,Bayou virus,37962,small-virus,37962,,All-proteins
 38020,marmosets,38020,vertebrate,38020,,All-proteins
 38033,Chaetomium globosum,306901,other-eukaryote,38033; 306901,UP000001056,Representative
-38170,Avian orthoreovirus,77153; 38170; 38171,small-virus,77153; 38171; 38170,UP000100541,Representative
+38170,Avian orthoreovirus,77153; 38170; 38171,small-virus,77153; 38171; 38170,UP000247179,Representative
 38289,Corynebacterium jeikeium,306537,bacterium,306537; 38289,UP000000545,Representative
-38323,Bartonella henselae,283166,bacterium,283166; 38323,UP000000421,Non-redundant
-38767,Duvenhage virus,38767,small-virus,38767,UP000111405,Non-redundant
-38873,Fraxinus excelsior (European ash),38873,other-eukaryote,38873,,All-proteins
+38323,Bartonella henselae,283166,bacterium,283166; 38323,UP000503821,Non-redundant
+38767,Duvenhage virus,38767,small-virus,38767,UP000111405,Other
+38873,Fraxinus excelsior (European ash),38873,other-eukaryote,38873,UP000595290,Other
 39113,Hepatitis GB virus B,39113,small-virus,39113,,All-proteins
-39152,Methanococcus maripaludis,39152,archeobacterium,39152,UP000239462,Non-redundant
+39152,Methanococcus maripaludis,39152,archeobacterium,39152,UP000000590,Representative
 39414,Plantago lanceolata (ribgrass),39414,other-eukaryote,39414,,All-proteins
 39584,Juniperus virginiana (red cedar),39584,other-eukaryote,39584,,All-proteins
-40050,African horse sickness virus,36421; 40050; 117204,small-virus,40050; 36421; 117204,UP000146235,Representative
+40050,African horse sickness virus,36421; 40050; 117204,small-virus,40050; 36421; 117204,UP000247123,Representative
 40051,Bluetongue virus,35328; 35329; 35330; 35331; 45029; 40051; 197780; 10900; 33717; 94966; 33718; 10903; 94967; 10904; 10906; 35327,small-virus,10906; 33718; 94967; 94966; 35329; 45029; 197780; 35331; 10903; 10904; 35328; 35327; 40051; 33717; 35330; 10900,UP000007662,Representative
 40054,Epizootic hemorrhagic disease virus,40054,small-virus,40054,UP000125387,Representative
-40214,Acinetobacter johnsonii,40214,bacterium,40214,UP000196240,Non-redundant
+40214,Acinetobacter johnsonii,40214,bacterium,40214,UP000277537,Non-redundant
 40697,Blomia tropicalis,40697,other-eukaryote,40697,,All-proteins
-40834,Borrelia duttonii,40834,bacterium,40834,,All-proteins
-42068,Pneumocystis jirovecii,42068,other-eukaryote,42068,,All-proteins
+40834,Borrelia duttonii,40834,bacterium,40834,UP000019148,Representative
+42068,Pneumocystis jirovecii,42068,other-eukaryote,42068,UP000053447,Representative
 42097,Isla Vista virus,42097,small-virus,42097,,All-proteins
 42229,Prunus avium (gean),42229,other-eukaryote,42229,UP000515124,Representative
 42345,Phoenix dactylifera (date palm),42345,other-eukaryote,42345,UP000228380,Representative
 42358,Hantavirus Monongahela-3,42358,small-virus,42358,,All-proteins
-42764,Oliveros mammarenavirus,42764,small-virus,42764,UP000009264,Non-redundant
-42862,Rickettsia felis,315456; 42862,bacterium,42862; 315456,UP000008548,Non-redundant
+42764,Oliveros mammarenavirus,42764,small-virus,42764,UP000009264,Other
+42862,Rickettsia felis,315456; 42862,bacterium,42862; 315456,UP000033475,Non-redundant
 42894,Khabarovsk virus,74537; 42894,small-virus,74537; 42894,,All-proteins
 43141,Watermelon silver mottle virus,43141,small-virus,43141,,All-proteins
-43765,Corynebacterium amycolatum,43765,bacterium,43765,UP000188980,Non-redundant
-43767,Rhodococcus equi,43767,bacterium,43767,UP000464648,Non-redundant
-44001,Caldicellulosiruptor saccharolyticus,351627,bacterium,351627; 44001,UP000000256,Non-redundant
-44026,Sepik virus,44026,small-virus,44026,UP000112296,Non-redundant
+43765,Corynebacterium amycolatum,43765,bacterium,43765,UP000594774,Non-redundant
+43767,Rhodococcus equi,43767,bacterium,43767,UP000004245,Representative
+44001,Caldicellulosiruptor saccharolyticus,351627,bacterium,351627; 44001,UP000000256,Other
+44026,Sepik virus,44026,small-virus,44026,UP000112296,Other
 44088,Canarypox virus,44088,large-virus,44088,UP000168164,Representative
 44271,Leishmania chagasi,44271,other-eukaryote,44271,,All-proteins
 44689,Dictyostelium discoideum,44689,other-eukaryote,44689,UP000002195,Representative
@@ -885,18 +885,18 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 45709,Sabia mammarenavirus,45709,small-virus,45709,,All-proteins
 46221,Porcine circovirus,46221,large-virus,46221,UP000157713,Representative
 46457,Cycloclasticus oligotrophus,46457,bacterium,46457,,All-proteins
-46607,Andes virus,69248; 238817; 367400; 46607; 69245; 69246; 69247,small-virus,69247; 69246; 69248; 46607; 367400; 69245; 238817,UP000130449,Non-redundant
-46681,Entamoeba dispar,370354,other-eukaryote,46681; 370354,UP000008076,Non-redundant
+46607,Andes virus,69248; 238817; 367400; 46607; 69245; 69246; 69247,small-virus,69247; 69246; 69248; 46607; 367400; 69245; 238817,,All-proteins
+46681,Entamoeba dispar,370354,other-eukaryote,46681; 370354,UP000008076,Other
 46771,Simian virus 12,46771,small-virus,46771,UP000130309,Representative
 46835,Fasciola gigantica,46835,other-eukaryote,46835,UP000316759,Representative
-46919,Whitewater Arroyo mammarenavirus,46919,small-virus,46919,UP000009268,Non-redundant
-46920,Rio Mamore virus,46920; 379963,large-virus,46920; 379963,UP000125085,Non-redundant
-47000,Equine rhinitis A virus,47000,small-virus,47000,UP000100919,Non-redundant
-47929,Macacine herpesvirus 3 (Rhesus cytomegalovirus),47929; 103930,large-virus,47929; 103930,UP000101154,Representative
+46919,Whitewater Arroyo mammarenavirus,46919,small-virus,46919,UP000009268,Other
+46920,Rio Mamore virus,46920; 379963,large-virus,46920; 379963,UP000125085,Other
+47000,Equine rhinitis A virus,47000,small-virus,47000,UP000136880,Other
+47929,Macacine herpesvirus 3 (Rhesus cytomegalovirus),47929; 103930,large-virus,47929; 103930,UP000118435,Representative
 48483,Reclinomonas americana,48483,other-eukaryote,48483,,All-proteins
 49011,Hesperocyparis arizonica,49011,other-eukaryote,49011,,All-proteins
 49318,Secale cereale x Triticum aestivum (octaploid triticale),49318,other-eukaryote,49318,,All-proteins
-49338,Desulfitobacterium hafniense,272564,bacterium,272564; 49338,UP000007726,Non-redundant
+49338,Desulfitobacterium hafniense,272564,bacterium,272564; 49338,UP000001946,Representative
 50292,Cercopithecine herpesvirus 5,50292,large-virus,50292,UP000113346,Representative
 50411,Dasyatis americana (southern stingray),50411,vertebrate,50411,,All-proteins
 51022,Ancylostoma duodenale,51022,other-eukaryote,51022,UP000054047,Representative
@@ -906,128 +906,128 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 53179,Porcine rubulavirus,53179,small-virus,53179,,All-proteins
 53326,Ancylostoma ceylanicum,53326,other-eukaryote,53326,UP000024635,Representative
 53432,Nocardia uniformis,96045,bacterium,53432; 96045,UP000586827,Representative
-54315,Bovine viral diarrhea virus 2 (BVDV-2),54315,small-virus,54315,UP000095904,Non-redundant
+54315,Bovine viral diarrhea virus 2 (BVDV-2),54315,small-virus,54315,UP000095904,Other
 54390,Micrurus corallinus (painted coral snake),54390,vertebrate,54390,,All-proteins
-55097,Mobala mammarenavirus,55097,small-virus,55097,UP000140987,Non-redundant
+55097,Mobala mammarenavirus,55097,small-virus,55097,UP000140987,Other
 55194,Malassezia furfur (Pityriasis (Tinea) versicolor infection agent),55194,other-eukaryote,55194,,All-proteins
 55429,Megathura crenulata,55429,other-eukaryote,55429,,All-proteins
 55518,Magnetospirillum gryphiswaldense,431944,bacterium,55518; 431944,UP000018922,Representative
 55521,Rapana venosa (veined rapa whelk),55521,other-eukaryote,55521,,All-proteins
-55601,Vibrio anguillarum,55601,bacterium,55601,UP000197612,Non-redundant
-55951,Grapevine leafroll-associated virus 3,55951,small-virus,55951,,All-proteins
+55601,Vibrio anguillarum,55601,bacterium,55601,UP000655243,Non-redundant
+55951,Grapevine leafroll-associated virus 3,55951,small-virus,55951,UP000006707,Representative
 56636,Aeropyrum pernix,272557; 56636,archeobacterium,56636; 272557,UP000002518,Representative
 57068,Acanthisitta chloris (rifleman),57068,vertebrate,57068,UP000053537,Representative
 57282,Human endogenous retrovirus H,129526,virus,129526; 57282,,All-proteins
-57372,Mycoplasma suis,57372,bacterium,57372,,All-proteins
-57482,European bat lyssavirus 1,57482,small-virus,57482,UP000110275,Non-redundant
-57483,European bat lyssavirus 2,57483,small-virus,57483,UP000103828,Non-redundant
-57975,Burkholderia thailandensis,271848,bacterium,57975; 271848,UP000001930,Non-redundant
+57372,Mycoplasma suis,57372,bacterium,57372,UP000007484,Representative
+57482,European bat lyssavirus 1,57482,small-virus,57482,UP000008926,Representative
+57483,European bat lyssavirus 2,57483,small-virus,57483,UP000103828,Other
+57975,Burkholderia thailandensis,271848,bacterium,57975; 271848,UP000004682,Non-redundant
 58216,Loxosceles gaucho,58216,other-eukaryote,58216,,All-proteins
 58217,Loxosceles laeta,58217,other-eukaryote,58217,,All-proteins
 58218,Loxosceles intermedia,58218,other-eukaryote,58218,,All-proteins
 58866,Secale strictum,58866,other-eukaryote,58866,,All-proteins
 58933,Triticum spelta (spelt),279889,other-eukaryote,279889; 58933,,All-proteins
-59538,Pantholops hodgsonii (chiru),59538,vertebrate,59538,UP000790603,Non-redundant
+59538,Pantholops hodgsonii (chiru),59538,vertebrate,59538,UP000790603,Other
 59729,Taeniopygia guttata (zebra finch),59729,vertebrate,59729,UP000007754,Representative
 59799,Angomonas deanei,59799,other-eukaryote,59799,UP000515908,Representative
 60135,Cano Delgadito virus,60135,small-virus,60135,,All-proteins
 60189,Rhipicephalus decoloratus,60189,other-eukaryote,60189,,All-proteins
-60217,Shewanella violacea,60217,bacterium,60217,,All-proteins
+60217,Shewanella violacea,60217,bacterium,60217,UP000002350,Representative
 60552,Burkholderia vietnamiensis,269482,bacterium,60552; 269482,UP000002287,Representative
 60711,Chlorocebus sabaeus (green monkey),60711,vertebrate,60711,UP000029965,Representative
-60876,Pixuna virus,60876,small-virus,60876,UP000101231,Non-redundant
-60879,Cabassou virus,60879,small-virus,60879,UP000115220,Non-redundant
-60893,Desulfobacca acetoxidans,60893,bacterium,60893,,All-proteins
+60876,Pixuna virus,60876,small-virus,60876,UP000101231,Other
+60879,Cabassou virus,60879,small-virus,60879,UP000115220,Other
+60893,Desulfobacca acetoxidans,60893,bacterium,60893,UP000000483,Representative
 61172,Laguna Negra virus,61172,large-virus,61172,,All-proteins
 61435,Dehalococcoides mccartyi,243164,bacterium,243164; 61435,UP000008289,Representative
 61466,Gnathostoma binucleatum,61466,other-eukaryote,61466,,All-proteins
-62319,Halococcus saccharolyticus,62319,archeobacterium,62319,,All-proteins
-62322,Shewanella baltica,325240,bacterium,62322; 325240,UP000001557,Non-redundant
+62319,Halococcus saccharolyticus,62319,archeobacterium,62319,UP000011669,Representative
+62322,Shewanella baltica,325240,bacterium,62322; 325240,UP000000770,Non-redundant
 62330,Fagopyrum tataricum (Kangra buckwheat),62330,other-eukaryote,62330,,All-proteins
 62977,Acinetobacter sp. ADP1 (Acinetobacter baylyi str. ADP1),62977,bacterium,62977,UP000000430,Representative
-63330,Hendra virus,63330,small-virus,63330,UP000106822,Non-redundant
+63330,Hendra virus,63330,small-virus,63330,UP000008771,Representative
 63363,Aquifex aeolicus,63363; 224324,bacterium,224324; 63363,UP000000798,Representative
 63673,Turbo cornutus,63673,other-eukaryote,63673,,All-proteins
-64284,Saboya virus,64284,small-virus,64284,UP000166038,Non-redundant
-64289,Carey Island virus,64289,small-virus,64289,UP000232605,Non-redundant
+64284,Saboya virus,64284,small-virus,64284,UP000112648,Other
+64289,Carey Island virus,64289,small-virus,64289,UP000232605,Other
 64320,Zika virus,64320,small-virus,64320,UP000054557,Reference
-65743,Blackcurrant reversion virus,65743,small-virus,65743,UP000007614,Non-redundant
-68887,Torque teno virus,167758; 68887,small-virus,167758; 68887,UP000122687,Representative
-68909,Deinococcus geothermalis,68909,bacterium,68909,,All-proteins
+65743,Blackcurrant reversion virus,65743,small-virus,65743,UP000007614,Other
+68887,Torque teno virus,167758; 68887,small-virus,167758; 68887,UP000008256,Representative
+68909,Deinococcus geothermalis,68909,bacterium,68909,UP000002431,Representative
 69008,Juniperus oxycedrus (prickly juniper),69008,other-eukaryote,69008,,All-proteins
 70203,Vibrio phage fs1,70203,small-virus,70203,UP000000880,Representative
 70566,Akabane virus,70566,small-virus,70566,UP000157164,Representative
 71238,Pseudomonas sp. G-179,71238,bacterium,71238,,All-proteins
 71647,Pinus pinaster (cluster pine),71647,other-eukaryote,71647,,All-proteins
-72539,Physalis mottle virus,72539,small-virus,72539,UP000204435,Non-redundant
-72556,Achromobacter piechaudii,72556,bacterium,72556,UP000494105,Non-redundant
+72539,Physalis mottle virus,72539,small-virus,72539,UP000204435,Other
+72556,Achromobacter piechaudii,72556,bacterium,72556,UP000004510,Representative
 74138,Pseudomonas sp. DJ-12,74138,bacterium,74138,,All-proteins
 74569,Pseudomonas sp. M114,74569,bacterium,74569,,All-proteins
-74722,Stachybotrys chartarum,74722,other-eukaryote,74722,,All-proteins
+74722,Stachybotrys chartarum,74722,other-eukaryote,74722,UP000028045,Non-redundant
 74724,Canine calicivirus,74724,small-virus,74724,,All-proteins
-75922,Mycobacterium tusciae,75922,bacterium,75922,UP000192411,Non-redundant
+75922,Mycobacterium tusciae,75922,bacterium,75922,UP000192411,Other
 75985,Mannheimia haemolytica,75985,bacterium,75985,UP000271188,Representative
-76777,Malassezia sympodialis,76777,other-eukaryote,76777,,All-proteins
-76832,Myroides odoratimimus,76832,bacterium,76832,UP000069030,Non-redundant
+76777,Malassezia sympodialis,76777,other-eukaryote,76777,UP000186303,Representative
+76832,Myroides odoratimimus,76832,bacterium,76832,UP000254940,Non-redundant
 79880,Bacillus clausii,66692,bacterium,66692; 79880,UP000001168,Representative
 80849,Wolbachia endosymbiont of Brugia malayi,292805,bacterium,80849; 292805,UP000000534,Non-redundant
 80859,Streptomyces ribosidificus,80859,bacterium,80859,,All-proteins
 80956,Pomacentrus moluccensis (lemon damsel),80956,vertebrate,80956,,All-proteins
 81032,Hyphomonas neptunium,228405,bacterium,81032; 228405,UP000001959,Representative
-81475,Frateuria aurantia,81475,bacterium,81475,,All-proteins
-82508,Trichosporon asahii,1186058,other-eukaryote,1186058; 82508,UP000002748,Non-redundant
+81475,Frateuria aurantia,81475,bacterium,81475,UP000005234,Representative
+82508,Trichosporon asahii,1186058,other-eukaryote,1186058; 82508,UP000006757,Representative
 83192,Topografov virus,83192,small-virus,83192,,All-proteins
-83455,Myxococcus stipitatus,1278073,bacterium,83455; 1278073,UP000011131,Non-redundant
-83554,Chlamydia psittaci <Chlamydophila psittaci>,83554,bacterium,83554,UP000229171,Non-redundant
-83555,Chlamydia abortus,218497; 83555,bacterium,83555; 218497,UP000001012,Non-redundant
+83455,Myxococcus stipitatus,1278073,bacterium,83455; 1278073,UP000011131,Other
+83554,Chlamydia psittaci <Chlamydophila psittaci>,83554,bacterium,83554,UP000014827,Representative
+83555,Chlamydia abortus,218497; 83555,bacterium,83555; 218497,UP000246061,Non-redundant
 83558,Chlamydia pneumoniae,115713; 182082; 83558; 406984,bacterium,115713; 83558; 406984; 182082,UP000000583,Non-redundant
 83560,Chlamydia muridarum (agent of mouse pneumonitis),243161,bacterium,83560; 243161,UP000000800,Non-redundant
 83810,Thosea asigna virus,83810,small-virus,83810,,All-proteins
 85552,Scylla paramamosain (green mud crab),85552,other-eukaryote,85552,,All-proteins
 85708,Porcine circovirus 2,85543; 85708,small-virus,85543; 85708,UP000156789,Representative
 86600,Discosoma sp.,86600,other-eukaryote,86600,,All-proteins
-86662,Bacillus weihenstephanensis,315730,bacterium,86662; 315730,UP000002154,Non-redundant
-86782,Amur virus,170955; 86782,large-virus,86782; 170955,UP000114071,Non-redundant
+86662,Bacillus weihenstephanensis,315730,bacterium,86662; 315730,,All-proteins
+86782,Amur virus,170955; 86782,large-virus,86782; 170955,UP000114071,Other
 87786,Human endogenous retrovirus W,89382; 87786; 62805,small-virus,62805; 89382; 87786,,All-proteins
 87883,Burkholderia multivorans,395019; 87883,bacterium,87883; 395019,UP000008815,Representative
 88036,Selaginella moellendorffii,88036,other-eukaryote,88036,UP000001514,Representative
 88086,Protobothrops elegans (sakishima habu),88086,vertebrate,88086,,All-proteins
 88087,Protobothrops flavoviridis (habu),88087,vertebrate,88087,,All-proteins
-89462,Bubalus bubalis (domestic water buffalo),89462,vertebrate,89462,UP000791956,Non-redundant
-89586,Candidatus Neoehrlichia mikurensis,89586,bacterium,89586,UP000693963,Non-redundant
-90961,Australian bat lyssavirus,90961,small-virus,90961,UP000135220,Non-redundant
+89462,Bubalus bubalis (domestic water buffalo),89462,vertebrate,89462,UP000791956,Other
+89586,Candidatus Neoehrlichia mikurensis,89586,bacterium,89586,UP000693963,Other
+90961,Australian bat lyssavirus,90961,small-virus,90961,UP000006934,Reference
 91465,Pseudomonas sp. MIS38,91465,bacterium,91465,,All-proteins
 93621,Heteropneustes fossilis (stinging catfish),93621,vertebrate,93621,,All-proteins
-93678,TTV-like mini virus,93678,small-virus,93678,UP000101695,Non-redundant
+93678,TTV-like mini virus,93678,small-virus,93678,UP000138259,Other
 93934,Coturnix japonica (Japanese quail),93934,vertebrate,93934,UP000694412,Representative
 94827,Tinamus guttatus (white-throated tinamou),94827,vertebrate,94827,UP000053641,Representative
-95342,Sapporo virus,82659; 234603,small-virus,234603; 82659; 95342,UP000113838,Non-redundant
-95486,Burkholderia cenocepacia,331271; 331272; 350702; 95486,bacterium,95486; 350702; 331271; 331272,UP000029413,Non-redundant
+95342,Sapporo virus,82659; 234603,small-virus,234603; 82659; 95342,UP000007049,Reference
+95486,Burkholderia cenocepacia,331271; 331272; 350702; 95486,bacterium,95486; 350702; 331271; 331272,UP000681928,Non-redundant
 95648,Bothrops neuwiedi (Jararaca pintada),95648,vertebrate,95648,,All-proteins
 96794,Naja annulifera (banded Egyptian cobra),96794,vertebrate,96794,,All-proteins
 97097,Phaethon lepturus (white-tailed tropicbird),97097,vertebrate,97097,UP000053638,Representative
-97477,Anaerobaculum mobile,97477,bacterium,97477,,All-proteins
+97477,Anaerobaculum mobile,97477,bacterium,97477,UP000006061,Representative
 99000,Tanapox virus,132475,large-virus,99000; 132475,UP000136581,Representative
 99586,Echis ocellatus,99586,vertebrate,99586,,All-proteins
 99883,Tetraodon nigroviridis (spotted green pufferfish),99883,vertebrate,99883,UP000007303,Representative
 103448,Pleistophora sp. LS,103448,other-eukaryote,103448,,All-proteins
-104102,Acetobacter tropicalis,749388,bacterium,104102; 749388,UP000004319,Non-redundant
+104102,Acetobacter tropicalis,749388,bacterium,104102; 749388,UP000029448,Non-redundant
 104388,Anatid herpesvirus 1,104388,large-virus,104388,UP000135812,Representative
 105560,Methylibium petroleiphilum,420662,bacterium,420662; 105560,UP000000366,Representative
-105751,Aeromonas bestiarum,105751,bacterium,105751,UP000029394,Other
+105751,Aeromonas bestiarum,105751,bacterium,105751,UP000237293,Other
 106516,Human norovirus - Alphatron,106516,small-virus,106516,,All-proteins
 106590,Cupriavidus necator,381666,bacterium,381666; 106590,UP000008210,Representative
-108098,Human mastadenovirus B,714978; 108098; 343462; 343463; 10541; 10519; 10521; 10522; 45659; 35261; 35262,large-virus,10541; 10522; 343462; 10521; 108098; 343463; 35262; 10519; 45659; 714978; 35261,UP000320422,Representative
-110321,Sinorhizobium medicae,366394,bacterium,110321; 366394,UP000001108,Non-redundant
-110539,Mycobacterium vanbaalenii,350058,bacterium,350058; 110539,UP000009159,Representative
-114742,Pythium insidiosum,114742,other-eukaryote,114742,UP000054177,Non-redundant
+108098,Human mastadenovirus B,714978; 108098; 343462; 343463; 10541; 10519; 10521; 10522; 45659; 35261; 35262,large-virus,10541; 10522; 343462; 10521; 108098; 343463; 35262; 10519; 45659; 714978; 35261,UP000166099,Representative
+110321,Sinorhizobium medicae,366394,bacterium,110321; 366394,UP000507954,Non-redundant
+110539,Mycobacterium vanbaalenii,350058,bacterium,350058; 110539,UP000430146,Representative
+114742,Pythium insidiosum,114742,other-eukaryote,114742,UP000054177,Other
 117207,Sphingopyxis alaskensis (Sphingomonas alaska),317655,bacterium,317655; 117207,UP000006578,Representative
 119219,Cupriavidus metallidurans,266264,bacterium,266264; 119219,UP000002429,Representative
 120505,Baboon cytomegalovirus,120505,small-virus,120505,,All-proteins
-121723,Photobacterium sp. SKA34,121723,bacterium,121723,UP000005284,Non-redundant
+121723,Photobacterium sp. SKA34,121723,bacterium,121723,UP000005284,Other
 121759,Paracoccidioides brasiliensis,502780; 121759,other-eukaryote,502780; 121759,UP000001628,Representative
 121791,Nipah virus,121791,small-virus,121791,UP000170143,Representative
-122291,Kappapapillomavirus 1,122291,small-virus,122291,,All-proteins
+122291,Kappapapillomavirus 1,122291,small-virus,122291,UP000101963,Representative
 122355,Pseudomonas psychrophila,122355,bacterium,122355,UP000658390,Non-redundant
 127586,Filamentous phage display vector f88-4,127586,artificial,127586,,All-proteins
 129052,Catelliglobosispora koreensis (Catellatispora koreensis),129052,bacterium,129052,,All-proteins
@@ -1039,45 +1039,45 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 130310,Human mastadenovirus D,46921; 46929; 28275; 46932; 31545; 46937; 46941; 10527,large-virus,46932; 130310; 28275; 46929; 31545; 46941; 10527; 46921; 46937,UP000318854,Representative
 131568,Kineococcus radiotolerans,266940,bacterium,131568; 266940,UP000001116,Representative
 133704,Porcine circovirus 1,133704,small-virus,133704,UP000180335,Reference
-134537,Paraburkholderia fungorum,134537,bacterium,134537,UP000183487,Non-redundant
+134537,Paraburkholderia fungorum,134537,bacterium,134537,UP000542901,Non-redundant
 136966,SEN virus (SEN-V),136966,large-virus,136966,,All-proteins
 137544,Concholepas concholepas (barnacle rock-shell),137544,other-eukaryote,137544,,All-proteins
 138336,Blastococcus saxobsidens,1146883,bacterium,1146883; 138336,UP000007517,Representative
-138948,Enterovirus A,138948; 39054; 31704; 150846,small-virus,39054; 138948; 31704; 150846,UP000095905,Non-redundant
-138949,Enterovirus B,103904; 103905; 103906; 318563; 12067; 12071; 12072; 318569; 12073; 12075; 12076; 47501; 12077; 12078; 82639; 41846; 31705; 200154; 47516; 12060; 35293; 103902; 103903,small-virus,12073; 41846; 103905; 12078; 103903; 12075; 12067; 12076; 12077; 12060; 103902; 200154; 82639; 35293; 318569; 318563; 47516; 103906; 12071; 138949; 103904; 31705; 47501; 12072,UP000000837,Non-redundant
+138948,Enterovirus A,138948; 39054; 31704; 150846,small-virus,39054; 138948; 31704; 150846,UP000007709,Other
+138949,Enterovirus B,103904; 103905; 103906; 318563; 12067; 12071; 12072; 318569; 12073; 12075; 12076; 47501; 12077; 12078; 82639; 41846; 31705; 200154; 47516; 12060; 35293; 103902; 103903,small-virus,12073; 41846; 103905; 12078; 103903; 12075; 12067; 12076; 12077; 12060; 103902; 200154; 82639; 35293; 318569; 318563; 47516; 103906; 12071; 138949; 103904; 31705; 47501; 12072,UP000007760,Other
 138950,Enterovirus C,138950; 12080; 12081; 12082; 12083; 12086; 12088; 42782,small-virus,12080; 12083; 42782; 12081; 12088; 138950; 12082; 12086,UP000000356,Reference
 139445,Limestone Canyon virus,139445,small-virus,139445,,All-proteins
-141904,Vibrio phage CTX,141904,small-virus,141904,UP000024440,Representative
+141904,Vibrio phage CTX,141904,small-virus,141904,UP000202246,Representative
 145262,Methanothermobacter thermautotrophicus,187420,archeobacterium,187420; 145262,UP000005223,Representative
-146500,Watermelon mosaic virus,146500,small-virus,146500,UP000201658,Non-redundant
+146500,Watermelon mosaic virus,146500,small-virus,146500,UP000201658,Other
 147272,Paspalum notatum (Bahia grass),147272,other-eukaryote,147272,,All-proteins
-147711,Rhinovirus A,12130; 12132; 12134; 185905; 167321,small-virus,12130; 185905; 147711; 167321; 12132; 12134,UP000007682,Non-redundant
-147712,Rhinovirus B,12131,small-virus,12131; 147712,UP000007679,Non-redundant
+147711,Rhinovirus A,12130; 12132; 12134; 185905; 167321,small-virus,12130; 185905; 147711; 167321; 12132; 12134,UP000007070,Reference
+147712,Rhinovirus B,12131,small-virus,12131; 147712,UP000007679,Other
 150340,Vibrio antiquarius,150340,bacterium,150340,UP000184767,Non-redundant
-150396,Pseudomonas sp. MT-1,150396,bacterium,150396,UP000031648,Non-redundant
+150396,Pseudomonas sp. MT-1,150396,bacterium,150396,UP000031648,Other
 151250,Kali turgidum (common saltwort),151250,other-eukaryote,151250,,All-proteins
-152219,Menangle virus,152219,small-virus,152219,UP000144543,Non-redundant
-152480,Burkholderia ambifaria,339670,bacterium,339670; 152480,UP000000662,Non-redundant
+152219,Menangle virus,152219,small-virus,152219,UP000144543,Other
+152480,Burkholderia ambifaria,339670,bacterium,339670; 152480,UP000004814,Non-redundant
 152794,Corynebacterium efficiens,196164; 152794,bacterium,196164; 152794,UP000001409,Representative
-154334,Macacine herpesvirus 5 (Rhesus rhadinovirus),169974,large-virus,169974; 154334,,All-proteins
+154334,Macacine herpesvirus 5 (Rhesus rhadinovirus),169974,large-virus,169974; 154334,UP000162467,Other
 156586,Flavobacteria bacterium BBFL7,156586,bacterium,156586,UP000002172,Representative
-157673,[Mannheimia] succiniciproducens,221988,bacterium,221988; 157673,UP000000607,Non-redundant
+157673,[Mannheimia] succiniciproducens,221988,bacterium,221988; 157673,UP000000607,Other
 157914,Ziziphus mauritiana (Indian-plum),157914,other-eukaryote,157914,,All-proteins
 158899,Collimonas fungivorans,1005048,bacterium,158899; 1005048,UP000008392,Representative
 159091,Pseudomonas sp. KIE171,159091,bacterium,159091,,All-proteins
-159141,Sathuperi virus,159142,small-virus,159141; 159142,UP000165259,Non-redundant
-159150,Shamonda virus,159150,small-virus,159150,UP000203298,Non-redundant
+159141,Sathuperi virus,159142,small-virus,159141; 159142,UP000202175,Other
+159150,Shamonda virus,159150,small-virus,159150,UP000203298,Other
 159479,Saaremaa virus,159479,small-virus,159479,,All-proteins
 161600,Yellow grouper nervous necrosis virus,161600,small-virus,161600,,All-proteins
 162013,Tioman virus,162013,small-virus,162013,UP000118722,Reference
-162145,Human metapneumovirus,162145,small-virus,162145,UP000097150,Non-redundant
+162145,Human metapneumovirus,162145,small-virus,162145,UP000001398,Representative
 163164,Wolbachia endosymbiont of Drosophila melanogaster,163164,bacterium,163164,UP000008215,Non-redundant
-164608,Sphingomonas sp. KA1,164608,bacterium,164608,UP000662740,Non-redundant
+164608,Sphingomonas sp. KA1,164608,bacterium,164608,UP000662740,Other
 164756,Mycobacterium sp. MCS,164756,bacterium,164756,,All-proteins
 164757,Mycobacterium sp. JLS,164757,bacterium,164757,,All-proteins
 168098,Orectolobus maculatus (spotted wobbegong),168098,vertebrate,168098,,All-proteins
 169066,Human rhinovirus sp.,169066,large-virus,169066,,All-proteins
-169173,Choclo virus,169173,small-virus,169173,UP000243631,Non-redundant
+169173,Choclo virus,169173,small-virus,169173,UP000243631,Other
 169174,Calabazo virus,169174,small-virus,169174,,All-proteins
 170325,Canid herpesvirus 1,170325,large-virus,170325,UP000130192,Representative
 170824,Rhinobatos productus (shovelnose guitarfish),170824,vertebrate,170824,,All-proteins
@@ -1085,94 +1085,94 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 172851,Avian hepatitis E virus,172851,small-virus,172851,,All-proteins
 180498,Jatropha curcas,180498,other-eukaryote,180498,UP000027138,Representative
 184976,Filamentous phage display vector f8-5,184976,artificial,184976,,All-proteins
-185782,Aquareovirus C,128987,small-virus,185782; 128987,UP000133386,Representative
+185782,Aquareovirus C,128987,small-virus,185782; 128987,UP000006713,Representative
 186538,Zaire ebolavirus,129000; 186538; 1570291; 128947; 128951; 128952,small-virus,129000; 128951; 1570291; 186538; 128947; 128952,UP000007209,Representative
-186539,Reston ebolavirus,186539; 129003; 386032,small-virus,129003; 386032; 186539,UP000007207,Non-redundant
+186539,Reston ebolavirus,186539; 129003; 386032,small-virus,129003; 386032; 186539,UP000007207,Other
 186540,Sudan ebolavirus,186540; 386033; 128948; 428693; 128949,small-virus,128948; 186540; 428693; 386033; 128949,UP000000277,Representative
-186541,Tai Forest ebolavirus,128999; 186541,small-virus,186541; 128999,UP000100390,Non-redundant
+186541,Tai Forest ebolavirus,128999; 186541,small-virus,186541; 128999,UP000100390,Other
 188763,Panine herpesvirus 2 (Chimpanzee cytomegalovirus),188763,large-virus,188763,UP000099188,Representative
 189918,Mycobacterium sp. KMS,189918,bacterium,189918,,All-proteins
 190898,Desulfotignum phosphitoxidans,1286635,bacterium,190898; 1286635,UP000014216,Representative
 194422,Minireovirus,194422,small-virus,194422,,All-proteins
 194440,Primate T-lymphotropic virus 1,11908; 39015; 33747; 11926; 11927,small-virus,33747; 194440; 11926; 39015; 11927; 11908,UP000007683,Representative
 194441,Primate T-lymphotropic virus 2,11909; 36368,small-virus,36368; 11909; 194441,UP000009254,Representative
-195054,Human parechovirus,12063,small-virus,12063; 195054,UP000101720,Non-redundant
+195054,Human parechovirus,12063,small-virus,12063; 195054,,All-proteins
 195316,Narcine timlei (blackspotted numbfish),195316,vertebrate,195316,,All-proteins
-196403,Baboon endogenous virus,11764,small-virus,196403; 11764,UP000007443,Non-redundant
+196403,Baboon endogenous virus,11764,small-virus,196403; 11764,UP000007443,Other
 199306,Coccidioides posadasii,199306; 443226,other-eukaryote,443226; 199306,UP000002497,Representative
-203192,Pseudomonas chloritidismutans,203192,bacterium,203192,,All-proteins
+203192,Pseudomonas chloritidismutans,203192,bacterium,203192,UP000017822,Other
 205075,Candidatus Rickettsia tarasevichiae,205075,bacterium,205075,,All-proteins
 205488,Ebola virus sp.,205488,virus,205488,,All-proteins
-208899,Cupixi mammarenavirus,208899,small-virus,208899,UP000008164,Non-redundant
+208899,Cupixi mammarenavirus,208899,small-virus,208899,UP000008164,Other
 209285,Chaetomium thermophilum,759272,other-eukaryote,759272; 209285,UP000008066,Representative
-211977,Aravan virus,211977,small-virus,211977,UP000007445,Non-redundant
-212663,Vibrio tasmaniensis,575788,bacterium,575788; 212663,UP000009100,Representative
+211977,Aravan virus,211977,small-virus,211977,UP000007445,Other
+212663,Vibrio tasmaniensis,575788,bacterium,575788; 212663,UP000319292,Non-redundant
 216465,Polaromonas naphthalenivorans,365044,bacterium,216465; 365044,UP000000644,Representative
-216816,Bifidobacterium longum,205913,bacterium,205913; 216816,UP000002419,Non-redundant
+216816,Bifidobacterium longum,205913,bacterium,205913; 216816,UP000000439,Representative
 217686,Little cherry virus 1,217686,small-virus,217686,UP000207657,Representative
 219595,Cygnus cygnus (common whooper),219595,vertebrate,219595,,All-proteins
 220837,Cryptosporidium sp. MNJ-1,220837,other-eukaryote,220837,,All-proteins
 222994,Thinopyrum ponticum x Triticum aestivum,222994,other-eukaryote,222994,,All-proteins
-223337,Tobacco leaf curl Zimbabwe virus,223337,small-virus,223337,UP000204184,Non-redundant
+223337,Tobacco leaf curl Zimbabwe virus,223337,small-virus,223337,UP000204184,Other
 226899,Grosmannia clavigera,655863,other-eukaryote,226899; 655863,UP000007796,Representative
-231455,Dyella japonica,231455,bacterium,231455,,All-proteins
-237609,Pseudomonas alkylphenolia,237609,bacterium,237609,UP000028931,Non-redundant
-237716,Khujand virus,237716,small-virus,237716,UP000136780,Non-redundant
-237895,Cryptosporidium hominis,237895; 353151,other-eukaryote,237895; 353151,UP000199752,Non-redundant
+231455,Dyella japonica,231455,bacterium,231455,UP000027987,Other
+237609,Pseudomonas alkylphenolia,237609,bacterium,237609,UP000288983,Other
+237716,Khujand virus,237716,small-virus,237716,UP000136780,Other
+237895,Cryptosporidium hominis,237895; 353151,other-eukaryote,237895; 353151,UP000199752,Other
 239984,Nocardiopsis ganjiahuensis,239984,bacterium,239984,,All-proteins
-240125,Mycobacterium parascrofulaceum,525368,bacterium,240125; 525368,UP000003653,Non-redundant
+240125,Mycobacterium parascrofulaceum,525368,bacterium,240125; 525368,UP000003653,Other
 240426,Squirrelpox virus,240426,large-virus,240426,UP000144311,Representative
 246437,Tupaia chinensis (Chinese tree shrew),246437,vertebrate,246437,UP000011518,Representative
-249583,Irkut virus,249583,small-virus,249583,UP000008381,Non-redundant
+249583,Irkut virus,249583,small-virus,249583,UP000008381,Other
 252307,Robiginitalea biformata,313596,bacterium,252307; 313596,UP000009049,Representative
-257758,Streptococcus pseudopneumoniae,1054460,bacterium,257758; 1054460,UP000001637,Non-redundant
-259354,Desulfatibacillum alkenivorans (Desulfatibacillum alcenivorans),439235,bacterium,439235; 259354,,All-proteins
+257758,Streptococcus pseudopneumoniae,1054460,bacterium,257758; 1054460,UP000266144,Non-redundant
+259354,Desulfatibacillum alkenivorans (Desulfatibacillum alcenivorans),439235,bacterium,439235; 259354,UP000183994,Other
 261202,Alto Paraguay hantavirus,261202,small-virus,261202,,All-proteins
 261204,Itapua hantavirus,261204,small-virus,261204,,All-proteins
-261658,Dictyostelium fasciculatum,261658,other-eukaryote,261658,,All-proteins
+261658,Dictyostelium fasciculatum,261658,other-eukaryote,261658,UP000007797,Representative
 263511,Crocosphaera watsonii,165597,bacterium,263511; 165597,UP000003922,Representative
-263815,Pneumocystis murina,263815,other-eukaryote,263815,,All-proteins
+263815,Pneumocystis murina,263815,other-eukaryote,263815,UP000011958,Representative
 265619,Ornithodoros erraticus,265619,other-eukaryote,265619,,All-proteins
 266779,Chelativorans sp. BNC1 ([Mesorhizobium] sp. BNC1),266779,bacterium,266779,,All-proteins
-270478,Zantedeschia mild mosaic virus,270478,small-virus,270478,UP000202900,Non-redundant
-271108,Bombyx mori nucleopolyhedrovirus,271108,large-virus,271108,UP000204315,Non-redundant
+270478,Zantedeschia mild mosaic virus,270478,small-virus,270478,UP000202900,Other
+271108,Bombyx mori nucleopolyhedrovirus,271108,large-virus,271108,UP000204315,Other
 272131,Nostoc punctiforme,63737,bacterium,63737; 272131,UP000001191,Representative
-272636,Adeno-associated virus,272636,large-virus,272636,UP000290640,Non-redundant
+272636,Adeno-associated virus,272636,large-virus,272636,UP000290640,Other
 280240,Nocardiopsis baichengensis,280240,bacterium,280240,,All-proteins
-286540,Soochong virus,286542,small-virus,286540; 286542,UP000114195,Non-redundant
-288000,Bradyrhizobium sp. BTAi1,288000,bacterium,288000,UP000000246,Non-redundant
+286540,Soochong virus,286542,small-virus,286540; 286542,UP000104382,Other
+288000,Bradyrhizobium sp. BTAi1,288000,bacterium,288000,UP000000246,Other
 290399,Arthrobacter sp. FB24,290399,bacterium,290399,UP000000754,Representative
-292633,Dragon grouper nervous necrosis virus,292633,small-virus,292633,UP000271218,Non-redundant
+292633,Dragon grouper nervous necrosis virus,292633,small-virus,292633,UP000271218,Other
 296587,Micromonas commoda,296587,other-eukaryote,296587,UP000002009,Representative
 298653,Frankia sp. EAN1pec,298653,bacterium,298653,,All-proteins
 299811,Cloning vector pASK88-huHRS3-VH-EP3/1,299811,artificial,299811,,All-proteins
-300180,Mopeia Lassa virus reassortant 29,300180,small-virus,300180,UP000099038,Non-redundant
+300180,Mopeia Lassa virus reassortant 29,300180,small-virus,300180,UP000099038,Other
 301964,CY1014 virus,301964,small-virus,301964,,All-proteins
-304895,Catenulispora acidiphila,304895,bacterium,304895,,All-proteins
+304895,Catenulispora acidiphila,304895,bacterium,304895,UP000000851,Representative
 305674,Deerpox virus W-848-83,305674,large-virus,305674,UP000000866,Representative
 307456,Autographa californica multiple nucleopolyhedrovirus,307456; 46015,large-virus,46015; 307456,UP000008292,Representative
 308159,Araucaria virus,308061; 308159,small-virus,308159; 308061,,All-proteins
-310542,Chimpanzee adenovirus,310542,virus,310542,UP000831567,Non-redundant
-312185,Equine rhinitis B virus,168014; 312185; 47001,small-virus,168014; 47001; 312185,UP000147084,Non-redundant
-312306,Pseudomonas entomophila,384676,bacterium,384676; 312306,UP000000658,Non-redundant
+310542,Chimpanzee adenovirus,310542,virus,310542,UP000831567,Other
+312185,Equine rhinitis B virus,168014; 312185; 47001,small-virus,168014; 47001; 312185,UP000000405,Reference
+312306,Pseudomonas entomophila,384676,bacterium,384676; 312306,UP000000658,Other
 313589,Janibacter sp. HTCC2649,313589,bacterium,313589,UP000005063,Representative
-313627,Bacillus sp. NRRL B-14911,313627,bacterium,313627,UP000004554,Non-redundant
-314262,Roseobacter sp. MED193,314262,bacterium,314262,UP000005943,Non-redundant
-314275,Alteromonas mediterranea,314275,bacterium,314275,UP000182554,Non-redundant
+313627,Bacillus sp. NRRL B-14911,313627,bacterium,313627,UP000004554,Other
+314262,Roseobacter sp. MED193,314262,bacterium,314262,UP000005943,Other
+314275,Alteromonas mediterranea,314275,bacterium,314275,UP000014905,Non-redundant
 315358,Spiroplasma eriocheiris,315358,bacterium,315358,UP000035661,Representative
-316068,Leadbetterella byssophila,316068,bacterium,316068,,All-proteins
+316068,Leadbetterella byssophila,316068,bacterium,316068,UP000007435,Representative
 316287,Ceratogyrus marshalli,316287,other-eukaryote,316287,,All-proteins
-322053,Konjac mosaic virus,322053,small-virus,322053,UP000202808,Non-redundant
+322053,Konjac mosaic virus,322053,small-virus,322053,UP000202808,Other
 324057,Paenibacillus sp. JDR-2,324057,bacterium,324057,,All-proteins
 329091,Cupressus torulosa,329091,other-eukaryote,329091,,All-proteins
 329852,Enterobacteria phage MS2,12022; 329852,small-virus,329852; 12022,UP000002127,Representative
 329854,Bacteroides intestinalis,329854,bacterium,329854,UP000070319,Non-redundant
-332112,Saccharomyces cerevisiae x Saccharomyces kudriavzevii,1095631,other-eukaryote,332112; 1095631,UP000009009,Non-redundant
+332112,Saccharomyces cerevisiae x Saccharomyces kudriavzevii,1095631,other-eukaryote,332112; 1095631,UP000009009,Other
 332163,Candidatus Solibacter usitatus,234267,bacterium,332163; 234267,,All-proteins
 332937,Chimpanzee alpha-1 herpesvirus,332937,large-virus,332937,UP000143361,Representative
 333754,Alphapapillomavirus 10,10592; 31552; 10600; 10573; 10580,small-virus,31552; 333754; 10580; 10573; 10592; 10600,UP000008222,Representative
-333757,Alphapapillomavirus 8,10615; 10620,small-virus,10615; 333757; 10620,UP000008226,Non-redundant
-333766,Alphapapillomavirus 13,333766,small-virus,333766,,All-proteins
+333757,Alphapapillomavirus 8,10615; 10620,small-virus,10615; 333757; 10620,UP000118566,Other
+333766,Alphapapillomavirus 13,333766,small-virus,333766,UP000096688,Representative
 333926,Gammapapillomavirus 1,10617,small-virus,333926; 10617,UP000009253,Representative
 334203,Mupapillomavirus 1,10583; 334203,small-virus,334203; 10583,UP000006372,Reference
 334426,Angiostrongylus costaricensis (American rat lungworm),334426,other-eukaryote,334426,UP000267027,Representative
@@ -1180,37 +1180,37 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 337041,Alphapapillomavirus 9,333760; 10598; 10585; 10586; 10618; 10587,small-virus,10586; 10618; 10598; 10585; 337041; 333760; 10587,UP000009251,Representative
 337042,Alphapapillomavirus 7,10593; 333761; 337042; 45240; 37115; 10588,small-virus,10588; 337042; 45240; 37115; 10593; 333761,UP000009109,Representative
 337043,Alphapapillomavirus 4,337043; 333751,small-virus,333751; 337043,UP000120955,Representative
-337044,Alphapapillomavirus 5,37121; 333762; 10595,small-virus,37121; 10595; 333762; 337044,UP000007674,Non-redundant
+337044,Alphapapillomavirus 5,37121; 333762; 10595,small-virus,37121; 10595; 333762; 337044,UP000145193,Representative
 337048,Alphapapillomavirus 1,333763,small-virus,333763; 337048,UP000009117,Representative
 337049,Alphapapillomavirus 11,51033,small-virus,337049; 51033,UP000107742,Representative
-337050,Alphapapillomavirus 6,10596; 333765,small-virus,337050; 10596; 333765,UP000007666,Representative
+337050,Alphapapillomavirus 6,10596; 333765,small-virus,337050; 10596; 333765,UP000127544,Representative
 337051,Betapapillomavirus 1,333923,small-virus,333923; 337051,UP000009252,Representative
 337052,Deltapapillomavirus 4,10560; 337052; 10559,small-virus,10559; 337052; 10560,UP000006567,Representative
 337090,"Chlorobium chlorochromatii (epibiont of the phototrophic consortium ""Chlorochromatium aggregatum"")",337090,bacterium,337090,,All-proteins
 338188,Bacteroides finegoldii,483215,bacterium,483215; 338188,UP000095517,Representative
-339268,Mycobacterium colombiense,1041522,bacterium,339268; 1041522,UP000006455,Non-redundant
+339268,Mycobacterium colombiense,1041522,bacterium,339268; 1041522,UP000025947,Non-redundant
 342409,White spot syndrome virus,92652,large-virus,92652; 342409,UP000281246,Representative
-348604,Enterobacteria phage T4 sensu lato,10665; 857277,large-virus,348604; 10665; 857277,UP000009087,Representative
-351073,Mammalian orthoreovirus,351073,small-virus,351073,UP000097604,Non-redundant
-351745,Shewanella sp. W3-18-1,351745,bacterium,351745,UP000002597,Non-redundant
+348604,Enterobacteria phage T4 sensu lato,10665; 857277,large-virus,348604; 10665; 857277,,All-proteins
+351073,Mammalian orthoreovirus,351073,small-virus,351073,UP000007253,Representative
+351745,Shewanella sp. W3-18-1,351745,bacterium,351745,UP000002597,Other
 358400,Sangassou virus,358400,small-virus,358400,,All-proteins
-358764,Border disease virus <species>,311415,small-virus,311415; 358764,UP000106705,Non-redundant
+358764,Border disease virus <species>,311415,small-virus,311415; 358764,UP000106705,Other
 360549,Themiste hennahi,360549,other-eukaryote,360549,,All-proteins
 368445,Crocodilepox virus,368445,virus,368445,,All-proteins
-369960,Porcine type-C oncovirus,61673; 194959,large-virus,369960; 194959; 61673,UP000099691,Non-redundant
+369960,Porcine type-C oncovirus,61673; 194959,large-virus,369960; 194959; 61673,UP000099691,Other
 370405,Gallionella capsiferriformans,395494,bacterium,370405; 395494,UP000001235,Representative
-374810,Enterobacteria phage 933W sensu lato,10730,large-virus,10730; 374810,UP000002135,Representative
+374810,Enterobacteria phage 933W sensu lato,10730,large-virus,10730; 374810,,All-proteins
 374838,Reinekea blandensis,314283,bacterium,314283; 374838,UP000005953,Representative
-374840,Enterobacteria phage phiX174 sensu lato,10847,small-virus,374840; 10847,UP000252453,Non-redundant
-376805,Bacteroides salanitronis,667015,bacterium,376805; 667015,UP000007486,Non-redundant
+374840,Enterobacteria phage phiX174 sensu lato,10847,small-virus,374840; 10847,,All-proteins
+376805,Bacteroides salanitronis,667015,bacterium,376805; 667015,UP000007486,Other
 386056,Paraburkholderia ferrariae,386056,bacterium,386056,,All-proteins
 387093,Sulfurovum sp. NBC37-1,387093,bacterium,387093,UP000006378,Representative
 388634,Bombyx mandarina nuclear polyhedrosis virus,388634,small-virus,388634,,All-proteins
 389657,Corynebacterium pekinense,389657,bacterium,389657,,All-proteins
 392734,Terriglobus roseus,392734,bacterium,392734,UP000182427,Representative
 393662,Congregibacter litoralis,314285,bacterium,314285; 393662,UP000019205,Representative
-408580,Bacillus coahuilensis,441769,bacterium,408580; 441769,,All-proteins
-410072,Coprococcus comes,410072,bacterium,410072,UP000095362,Non-redundant
+408580,Bacillus coahuilensis,441769,bacterium,408580; 441769,UP000074108,Representative
+410072,Coprococcus comes,410072,bacterium,410072,UP000003793,Other
 420521,Expression vector pNIC-NHT-CF,420521,artificial,420521,,All-proteins
 425088,Tanganya virus,425088,small-virus,425088,,All-proteins
 429338,Cloning vector pD-MAL1,429338,artificial,429338,,All-proteins
@@ -1220,28 +1220,28 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 465541,Streptomyces sp. Mg1,465541,bacterium,465541,UP000035653,Representative
 469793,uncultured Chlamydophila sp.,469793,bacterium,469793,,All-proteins
 471223,Geobacillus sp. WCH70,471223,bacterium,471223,,All-proteins
-482957,Burkholderia lata,482957,bacterium,482957,UP000002705,Non-redundant
+482957,Burkholderia lata,482957,bacterium,482957,UP000494247,Non-redundant
 487797,Flavobacteria bacterium MS024-3C,487797,bacterium,487797,UP000003631,Representative
 488177,Triticum aestivum x Lophopyrum elongatum,488177,other-eukaryote,488177,,All-proteins
 493803,Merkel cell polyomavirus,493803,small-virus,493803,UP000154903,Representative
-499556,Chapare mammarenavirus,499556,small-virus,499556,UP000008449,Non-redundant
-549169,Pseudogulbenkiania ferrooxidans,549169,bacterium,549169,,All-proteins
+499556,Chapare mammarenavirus,499556,small-virus,499556,UP000008449,Other
+549169,Pseudogulbenkiania ferrooxidans,549169,bacterium,549169,UP000016426,Other
 551760,Aromatoleum aromaticum,76114,bacterium,551760; 76114,UP000006552,Representative
-565995,Bundibugyo ebolavirus,565995,small-virus,565995,UP000102471,Non-redundant
-566466,gamma proteobacterium NOR5-3,566466,bacterium,566466,UP000003977,Non-redundant
-571800,Psychrobacter sp. G,571800,bacterium,571800,UP000014806,Non-redundant
-571949,Encephalitozoon romaleae,1178016,other-eukaryote,571949; 1178016,UP000010094,Non-redundant
-573569,Francisella sp. TX077308,573569,bacterium,573569,UP000000490,Non-redundant
-580165,Bacillus cytotoxicus,315749,bacterium,580165; 315749,UP000002300,Non-redundant
+565995,Bundibugyo ebolavirus,565995,small-virus,565995,UP000102471,Other
+566466,gamma proteobacterium NOR5-3,566466,bacterium,566466,UP000003977,Other
+571800,Psychrobacter sp. G,571800,bacterium,571800,UP000014806,Other
+571949,Encephalitozoon romaleae,1178016,other-eukaryote,571949; 1178016,UP000010094,Other
+573569,Francisella sp. TX077308,573569,bacterium,573569,UP000000490,Other
+580165,Bacillus cytotoxicus,315749,bacterium,580165; 315749,UP000242229,Non-redundant
 630277,Tarsius lariang (Lariang tarsier),630277,vertebrate,630277,,All-proteins
 645161,Human bocavirus 4,645161,small-virus,645161,,All-proteins
-647221,Plasmodium gaboni,647221,other-eukaryote,647221,UP000076004,Non-redundant
+647221,Plasmodium gaboni,647221,other-eukaryote,647221,UP000076004,Other
 649188,Lujo mammarenavirus,649188,small-virus,649188,UP000201247,Representative
 651183,Aurantimonas manganoxydans,287752,bacterium,651183; 287752,UP000000321,Representative
 658655,Lachnospiraceae bacterium 1_4_56FAA,658655,bacterium,658655,UP000004289,Representative
 664662,Borreliella bavariensis,290434,bacterium,664662; 290434,UP000002276,Non-redundant
 665958,Bacillus sp. BT1B_CT2,665958,bacterium,665958,UP000003061,Other
-687340,Torque teno virus 1,687340,small-virus,687340,,All-proteins
+687340,Torque teno virus 1,687340,small-virus,687340,UP000008778,Representative
 687341,Torque teno virus 2,687341,small-virus,687341,UP000203082,Representative
 687342,Torque teno virus 3,687342,small-virus,687342,UP000008257,Representative
 687343,Torque teno virus 4,687343,small-virus,687343,UP000007553,Representative
@@ -1249,7 +1249,7 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 687346,Torque teno virus 7,687346,small-virus,687346,UP000172761,Representative
 687347,Torque teno virus 8,687347,small-virus,687347,UP000146867,Representative
 687350,Torque teno virus 11,687350,small-virus,687350,UP000232560,Representative
-687351,Torque teno virus 12,687351,small-virus,687351,UP000166604,Non-redundant
+687351,Torque teno virus 12,687351,small-virus,687351,UP000166604,Other
 687353,Torque teno virus 14,687353,small-virus,687353,UP000148310,Representative
 687354,Torque teno virus 15,687354,small-virus,687354,UP000140739,Representative
 687355,Torque teno virus 16,687355,small-virus,687355,UP000144241,Representative
@@ -1257,28 +1257,28 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 687359,Torque teno virus 20,687359,small-virus,687359,UP000232833,Representative
 687360,Torque teno virus 21,687360,small-virus,687360,UP000232847,Representative
 687362,Torque teno virus 23,687362,small-virus,687362,UP000232667,Representative
-687363,Torque teno virus 24,687363,small-virus,687363,UP000232628,Non-redundant
+687363,Torque teno virus 24,687363,small-virus,687363,UP000232628,Other
 687364,Torque teno virus 25,687364,small-virus,687364,UP000008261,Representative
 687365,Torque teno virus 26,687365,small-virus,687365,UP000170849,Representative
 687366,Torque teno virus 27,687366,small-virus,687366,UP000007551,Representative
 687367,Torque teno virus 28,687367,small-virus,687367,UP000160062,Representative
 687368,Torque teno virus 29,687368,small-virus,687368,UP000232736,Representative
-687369,Torque teno mini virus 1,687369,small-virus,687369,,All-proteins
+687369,Torque teno mini virus 1,687369,small-virus,687369,UP000008779,Representative
 687371,Torque teno mini virus 3,687371,small-virus,687371,UP000158564,Representative
 687375,Torque teno mini virus 7,687375,small-virus,687375,UP000114428,Representative
 687376,Torque teno mini virus 8,687376,small-virus,687376,UP000155130,Representative
-687382,Torque teno tamarin virus,687382,small-virus,687382,,All-proteins
-687383,Torque teno douroucouli virus,687383,small-virus,687383,,All-proteins
-687384,Torque teno felis virus,687384,small-virus,687384,UP000172369,Representative
-687385,Torque teno canis virus,687385,small-virus,687385,UP000096627,Representative
-687386,Torque teno sus virus 1a,1225860; 687386,small-virus,687386; 1225860,UP000106432,Representative
-691956,Duck hepatitis A virus,1006061; 1006063; 691956,small-virus,691956; 1006061; 1006063,UP000123556,Non-redundant
-693997,Alphacoronavirus 1,11149; 11150; 11151; 12663; 398812; 11135,small-virus,12663; 11151; 398812; 11135; 11150; 11149; 693997,UP000001440,Representative
-694003,Betacoronavirus 1,233262; 31631; 11128; 11134,small-virus,31631; 694003; 233262; 11134; 11128,UP000168103,Representative
+687382,Torque teno tamarin virus,687382,small-virus,687382,UP000008780,Representative
+687383,Torque teno douroucouli virus,687383,small-virus,687383,UP000007080,Representative
+687384,Torque teno felis virus,687384,small-virus,687384,UP000008781,Representative
+687385,Torque teno canis virus,687385,small-virus,687385,UP000001295,Representative
+687386,Torque teno sus virus 1a,1225860; 687386,small-virus,687386; 1225860,UP000007079,Representative
+691956,Duck hepatitis A virus,1006061; 1006063; 691956,small-virus,691956; 1006061; 1006063,UP000000404,Reference
+693997,Alphacoronavirus 1,11149; 11150; 11151; 12663; 398812; 11135,small-virus,12663; 11151; 398812; 11135; 11150; 11149; 693997,UP000117806,Representative
+694003,Betacoronavirus 1,233262; 31631; 11128; 11134,small-virus,31631; 694003; 233262; 11134; 11128,UP000140344,Representative
 694005,Murine coronavirus,11138; 11142; 11144; 12760; 76344,small-virus,11138; 12760; 11144; 76344; 11142; 694005,UP000007192,Representative
-694009,Severe acute respiratory syndrome-related coronavirus,284672; 349344; 421444; 511429; 235173; 511430; 260550; 299335; 511432; 229992; 228330; 442736; 235088; 742000; 227984; 627440; 347537; 255729; 273522; 627442; 264371; 227859; 228404; 633140; 233044; 742004; 742005; 228407; 264376; 722424; 694009; 304858; 312027; 285949; 344702,small-virus,227859; 627440; 742005; 235088; 421444; 694009; 260550; 742000; 228404; 299335; 344702; 511430; 347537; 255729; 742004; 722424; 312027; 304858; 442736; 228330; 228407; 235173; 227984; 627442; 264371; 633140; 285949; 511432; 233044; 229992; 511429; 264376; 284672; 349344; 273522,UP000000354,Representative
-694014,Avian coronavirus,11120; 11152,small-virus,11120; 694014; 11152,UP000106026,Representative
-712212,Capnocytophaga sp. oral taxon 326,712212,bacterium,712212,,All-proteins
+694009,Severe acute respiratory syndrome-related coronavirus,284672; 349344; 421444; 511429; 235173; 511430; 260550; 299335; 511432; 229992; 228330; 442736; 235088; 742000; 227984; 627440; 347537; 255729; 273522; 627442; 264371; 227859; 228404; 633140; 233044; 742004; 742005; 228407; 264376; 722424; 694009; 304858; 312027; 285949; 344702,small-virus,227859; 627440; 742005; 235088; 421444; 694009; 260550; 742000; 228404; 299335; 344702; 511430; 347537; 255729; 742004; 722424; 312027; 304858; 442736; 228330; 228407; 235173; 227984; 627442; 264371; 633140; 285949; 511432; 233044; 229992; 511429; 264376; 284672; 349344; 273522,UP000464024,Representative
+694014,Avian coronavirus,11120; 11152,small-virus,11120; 694014; 11152,UP000138261,Representative
+712212,Capnocytophaga sp. oral taxon 326,712212,bacterium,712212,UP000010441,Other
 742503,Tokudaia muenninki (Okinawa island spiny rat),742503,vertebrate,742503,,All-proteins
 743375,Polistes dominula (European paper wasp),743375,other-eukaryote,743375,,All-proteins
 743722,Sphingobacterium sp. 21,743722,bacterium,743722,,All-proteins
@@ -1287,15 +1287,15 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 862909,Trichodysplasia spinulosa-associated polyomavirus,862909,small-virus,862909,UP000172995,Representative
 875328,Mycobacterium sinense,875328,bacterium,875328,UP000009224,Representative
 884045,Juniperus saxicola,884045,other-eukaryote,884045,,All-proteins
-912594,Mycobacterium iranicum,912594,bacterium,912594,UP000078396,Non-redundant
-940614,Granulicella mallensis,940614,bacterium,940614,UP000584867,Non-redundant
+912594,Mycobacterium iranicum,912594,bacterium,912594,UP000078396,Other
+940614,Granulicella mallensis,940614,bacterium,940614,UP000007113,Representative
 1000585,Montano virus,1000585,large-virus,1000585,,All-proteins
-1000586,Carrizal virus,1000586,small-virus,1000586,UP000135156,Non-redundant
-1000587,Huitzilac virus,1000587,small-virus,1000587,UP000170852,Non-redundant
+1000586,Carrizal virus,1000586,small-virus,1000586,UP000135156,Other
+1000587,Huitzilac virus,1000587,small-virus,1000587,UP000170852,Other
 1004253,Cyberlindnera mrakii,1004253,other-eukaryote,1004253,,All-proteins
 1005962,Ogataea parapolymorpha,871575,other-eukaryote,1005962; 871575,UP000008673,Representative
-1035271,Rhizobium nepotum,1035271,bacterium,1035271,,All-proteins
-1100878,Hokkaido virus,1100878,large-virus,1100878,UP000102933,Non-redundant
+1035271,Rhizobium nepotum,1035271,bacterium,1035271,UP000052068,Other
+1100878,Hokkaido virus,1100878,large-virus,1100878,UP000102933,Other
 1133363,Schmallenberg virus,1133363,large-virus,1133363,UP000096935,Representative
 1137848,Clostridium arbusti,1137848,bacterium,1137848,,All-proteins
 1176145,Pipapillomavirus 2,763552,small-virus,1176145; 763552,UP000129308,Representative
@@ -1303,36 +1303,36 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa,Proteome ID,Proteome Type
 1214225,Acidocella sp. MX-AZ02,1214225,bacterium,1214225,UP000006217,Representative
 1218488,Torque teno sus virus k2,1218488,small-virus,1218488,,All-proteins
 1239565,Mamastrovirus 1,12456,small-virus,12456; 1239565,UP000001650,Reference
-1239567,Mamastrovirus 3,1239567,small-virus,1239567,UP000120357,Non-redundant
+1239567,Mamastrovirus 3,1239567,small-virus,1239567,UP000097676,Other
 1263035,Alistipes finegoldii CAG:68,1263035,bacterium,1263035,UP000018154,Representative
-1268303,Rhodococcus sp. AW25M09,1268303,bacterium,1268303,UP000011207,Non-redundant
-1287735,Achromobacter insuavis,1003200,bacterium,1287735; 1003200,UP000004853,Non-redundant
-1307800,Pegivirus A,54290,small-virus,54290; 1307800,UP000096985,Non-redundant
+1268303,Rhodococcus sp. AW25M09,1268303,bacterium,1268303,UP000011207,Other
+1287735,Achromobacter insuavis,1003200,bacterium,1287735; 1003200,UP000507979,Non-redundant
+1307800,Pegivirus A,54290,small-virus,54290; 1307800,UP000029757,Reference
 1335626,Middle East respiratory syndrome coronavirus,1263720; 1335626; 1235996,small-virus,1263720; 1235996; 1335626,UP000171868,Representative
 1338344,Ambigolimax valentianus,1338344,other-eukaryote,1338344,,All-proteins
 1346520,Human parvovirus,1346520,virus,1346520,,All-proteins
 1380386,Mycobacterium sp. URHB0044,1380386,bacterium,1380386,,All-proteins
 1463841,Streptomyces sp. NRRL F-2580,1463841,bacterium,1463841,,All-proteins
 1464048,Micromonospora parva,1464048,bacterium,1464048,,All-proteins
-1498499,Legionella norrlandica,1498499,bacterium,1498499,UP000054422,Non-redundant
+1498499,Legionella norrlandica,1498499,bacterium,1498499,UP000054422,Other
 1511862,Carnivore amdoparvovirus 1,28314; 10783,small-virus,28314; 10783; 1511862,UP000008470,Reference
 1511871,Primate bocaparvovirus 1,638313; 689403,small-virus,638313; 689403; 1511871,UP000140113,Reference
-1511872,Primate bocaparvovirus 2,573977,small-virus,1511872; 573977,UP000098880,Non-redundant
+1511872,Primate bocaparvovirus 2,573977,small-virus,1511872; 573977,UP000096678,Other
 1511891,Adeno-associated dependoparvovirus A,68558; 648242; 85106; 10804; 202812; 202813; 235455,small-virus,68558; 202813; 85106; 10804; 235455; 648242; 1511891; 202812,UP000180764,Reference
-1511892,Adeno-associated dependoparvovirus B,82300,small-virus,82300; 1511892,UP000207583,Non-redundant
-1511895,Anseriform dependoparvovirus 1,38251; 37325,small-virus,37325; 1511895; 38251,UP000097833,Non-redundant
-1511900,Primate erythroparvovirus 1,10798,small-virus,10798; 1511900,UP000096923,Non-redundant
-1511906,Carnivore protoparvovirus 1,10001760; 10786; 10788; 10791; 10792; 246878,small-virus,1511906; 10791; 10788; 10786; 10001760; 246878; 10792,UP000008295,Non-redundant
-1511910,Ungulate protoparvovirus 1,10796; 33725,small-virus,1511910; 33725; 10796,UP000098259,Non-redundant
-1511913,Primate tetraparvovirus 1,289365,small-virus,1511913; 289365,UP000121916,Non-redundant
+1511892,Adeno-associated dependoparvovirus B,82300,small-virus,82300; 1511892,UP000097825,Other
+1511895,Anseriform dependoparvovirus 1,38251; 37325,small-virus,37325; 1511895; 38251,UP000132918,Other
+1511900,Primate erythroparvovirus 1,10798,small-virus,10798; 1511900,UP000006624,Reference
+1511906,Carnivore protoparvovirus 1,10001760; 10786; 10788; 10791; 10792; 246878,small-virus,1511906; 10791; 10788; 10786; 10001760; 246878; 10792,UP000096196,Other
+1511910,Ungulate protoparvovirus 1,10796; 33725,small-virus,1511910; 33725; 10796,UP000098259,Other
+1511913,Primate tetraparvovirus 1,289365,small-virus,1511913; 289365,UP000129771,Other
 1527299,Psychromonas sp. PRT-SC03,1527299,bacterium,1527299,UP000053944,Representative
 1574408,Cervus canadensis (elk),9864,vertebrate,9864; 1574408,,All-proteins
 1681229,Blastomyces gilchristii,559298,other-eukaryote,1681229; 559298,UP000002038,Reference
-1776082,Shigella sp. SF-2015,358708,bacterium,1776082; 358708,UP000003432,Non-redundant
-1821749,Cardiovirus A,12104; 12107; 31702,small-virus,1821749; 31702; 12104; 12107,UP000008660,Non-redundant
-1821750,Cardiovirus B,204711; 12124; 12125; 12126; 12127,small-virus,1821750; 12124; 204711; 12126; 12125; 12127,UP000000283,Non-redundant
+1776082,Shigella sp. SF-2015,358708,bacterium,1776082; 358708,UP000004081,Other
+1821749,Cardiovirus A,12104; 12107; 31702,small-virus,1821749; 31702; 12104; 12107,UP000002319,Reference
+1821750,Cardiovirus B,204711; 12124; 12125; 12126; 12127,small-virus,1821750; 12124; 204711; 12126; 12125; 12127,UP000000283,Other
 1891729,Mesocricetus auratus polyomavirus 1,1891729,small-virus,1891729,UP000008477,Representative
-1891730,Mus musculus polyomavirus 1,10636; 1891730,small-virus,10636; 1891730,UP000008479,Representative
+1891730,Mus musculus polyomavirus 1,10636; 1891730,small-virus,10636; 1891730,UP000161622,Representative
 1891762,Human polyomavirus 1,1891762,small-virus,1891762,UP000145981,Representative
 1891763,Human polyomavirus 2,10632,small-virus,10632; 1891763,UP000008478,Representative
 1891767,Macaca mulatta polyomavirus 1,1891767,small-virus,1891767,UP000007705,Representative
