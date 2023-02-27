@@ -3,6 +3,7 @@
 import warnings
 warnings.filterwarnings('ignore')
 
+import io
 import re
 import argparse
 import pandas as pd
@@ -59,7 +60,7 @@ def get_all_proteins(taxon_id):
     with open(f'{taxon_id}.fasta', 'a') as f:
       f.write(batch.text)
 
-def get_proteome_fasta(proteome_id, proteome_type):
+def get_proteome_to_fasta(proteome_id, proteome_type):
   """
   Get the FASTA file for a proteome from UniProt. Either through the
   API or the FTP server. If the proteome is a reference proteome, then
@@ -72,7 +73,10 @@ def get_proteome_fasta(proteome_id, proteome_type):
     proteome_type (str): Proteome type. Either: 1. Representative, 
                          2. Reference, 3. Non-redundant, 4. Other
   """
-  pass
+  # the species without a formal proteome need to be skipped
+  # the proteins for them are extracted using get_all_proteins
+  if proteome_type == 'All-proteins':
+    return
 
 def select_proteome(taxon_id):
   """
@@ -91,30 +95,39 @@ def select_proteome(taxon_id):
 
   If yes to any of the above, get the proteome ID. 
   """
-  # get list of  proteomes for the species using the taxon ID
-  taxon_df = proteomes_df[proteomes_df['speciesTaxon'] == int(taxon_id)]
+  # URL to get proteome list for a species - use proteome_type:1 first to get reference proteomes
+  url = f'https://rest.uniprot.org/proteomes/stream?format=xml&query=(proteome_type:1)AND(taxonomy_id:{taxon_id})'
+  
+  # read in proteome list for the species from the UniProt API - try to get
+  # the proteome list with proteome_type:1, which are the reference proteomes
+  try:
+    proteome_list = pd.read_xml(requests.get(url).text)
+  except ValueError:
+    try:
+      url = url.replace('(proteome_type:1)AND', '')
+      proteome_list = pd.read_xml(requests.get(url).text)
+    except ValueError:
+      return '', 'All-proteins'
 
-  # make sure there are proteomes for the species
-  if taxon_df.empty:
-    # get_all_proteins(taxon_id)
-    return '', 'All-proteins'
-
+  # remove the namespace from the columns
+  proteome_list.columns = [x.replace('{http://uniprot.org/proteome}', '') for x in proteome_list.columns]
+  
   # TODO: check if there are any MULTIPLES of representative or reference proteomes
-  # TODO: 
+  print(proteome_list)
   # check if there are any representative proteome
-  if taxon_df['isRepresentativeProteome'].any():
-    proteome = taxon_df[taxon_df['isRepresentativeProteome']]['upid'].iloc[0]
+  if proteome_list['isRepresentativeProteome'].any():
+    proteome = proteome_list[proteome_list['isRepresentativeProteome']]['upid'].iloc[0]
     proteome_type = 'Representative'
   # check if there are any reference proteomes
-  elif taxon_df['isReferenceProteome'].any():
-    proteome = taxon_df[taxon_df['isReferenceProteome']]['upid'].iloc[0]
+  elif proteome_list['isReferenceProteome'].any():
+    proteome = proteome_list[proteome_list['isReferenceProteome']]['upid'].iloc[0]
     proteome_type = 'Reference'
   # check if there are any non-redundant proteomes
-  elif taxon_df['redundantTo'].isna().any():
-    proteome = taxon_df[taxon_df['redundantTo'].isna()]['upid'].iloc[0]
+  elif proteome_list['redundantTo'].isna().any():
+    proteome = proteome_list[proteome_list['redundantTo'].isna()]['upid'].iloc[0]
     proteome_type = 'Non-redundant'
   else:
-    proteome = taxon_df['upid'].iloc[0]
+    proteome = proteome_list['upid'].iloc[0]
     proteome_type = 'Other'
 
   return proteome, proteome_type
@@ -135,16 +148,19 @@ def main():
   valid_taxon_ids = species_df['Taxon ID'].astype(str).tolist()
 
   # do proteome selection for all IEDB species
+  # then call get_proteome_to_fasta for each species
   if taxon_id == 'all':
     proteomes = {}
     for taxon_id in species_df['Taxon ID']:
       proteome, proteome_type = select_proteome(taxon_id)
       proteomes[taxon_id] = (proteome, proteome_type)
+      get_proteome_to_fasta(proteome, proteome_type)
+      print(taxon_id, proteome, proteome_type)
     
-    # create new columns for species with proteome ID and type
-    species_df['Proteome ID'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[0])
-    species_df['Proteome Type'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[1])
-    species_df.to_csv('species.csv', index=False)
+    # create new species columns with proteome ID and type - save to file
+    # species_df['Proteome ID'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[0])
+    # species_df['Proteome Type'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[1])
+    # species_df.to_csv('species.csv', index=False)
 
   # or just one species at a time - check if its valid
   else:
