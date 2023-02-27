@@ -8,6 +8,7 @@ import re
 import os
 import argparse
 import pandas as pd
+import numpy as np
 
 import requests
 from requests.adapters import HTTPAdapter, Retry
@@ -58,7 +59,7 @@ def get_all_proteins(taxon_id):
 
   # loop through all protein batches and write proteins to FASTA file
   for batch in get_protein_batches(url):
-    with open(f'{taxon_id}.fasta', 'a') as f:
+    with open(f'species/{taxon_id}/{taxon_id}.fasta', 'a') as f:
       f.write(batch.text)
 
 def get_proteome_to_fasta(taxon_id, proteome_id, proteome_type):
@@ -77,6 +78,7 @@ def get_proteome_to_fasta(taxon_id, proteome_id, proteome_type):
   # the species without a formal proteome need to be skipped
   # the proteins for them are extracted using get_all_proteins
   if proteome_type == 'All-proteins':
+    get_all_proteins(taxon_id)
     return
 
   os.makedirs(f'species/{taxon_id}', exist_ok=True)
@@ -103,7 +105,7 @@ def select_proteome(taxon_id):
   If no to all of the above, then get every protein associated with
   the taxon using the get_all_proteins method from uniprot.org/taxonomy.
 
-  If yes to any of the above, get the proteome ID. 
+  If yes to any of the above, get the proteome ID and type. 
   """
   # URL to get proteome list for a species - use proteome_type:1 first to get reference proteomes
   url = f'https://rest.uniprot.org/proteomes/stream?format=xml&query=(proteome_type:1)AND(taxonomy_id:{taxon_id})'
@@ -122,29 +124,22 @@ def select_proteome(taxon_id):
   # remove the namespace from the columns
   proteome_list.columns = [x.replace('{http://uniprot.org/proteome}', '') for x in proteome_list.columns]
 
-  # TODO: check if there are any MULTIPLES of representative or reference proteomes
-
   # get proteome ID and proteome type based on the checks - if there are ties
   # then get the ID with most proteins
-
   if proteome_list['isRepresentativeProteome'].any():
     proteome_list = proteome_list[proteome_list['isRepresentativeProteome']]
-    proteome = get_id_with_max_proteins(proteome_list)
-    proteome_type = 'Representative'
+    return get_id_with_max_proteins(proteome_list), 'Representative'
   elif proteome_list['isReferenceProteome'].any():
     proteome_list = proteome_list[proteome_list['isReferenceProteome']]
-    proteome = get_id_with_max_proteins(proteome_list)
-    proteome_type = 'Reference'
-  else: # check if there are any non-redundant proteomes
-    try:  # sometimes the proteome_list does not have a redundantTo column so use try/except
-      proteome_list = proteome_list[proteome_list['redundantTo'].isna()]
-      proteome = get_id_with_max_proteins(proteome_list)
-      proteome_type = 'Non-redundant'
-    except (KeyError, IndexError):
-      proteome = get_id_with_max_proteins(proteome_list)
-      proteome_type = 'Other'
-
-  return proteome, proteome_type
+    return get_id_with_max_proteins(proteome_list), 'Reference'
+  
+  if 'redundantTo' not in proteome_list.columns:
+    return get_id_with_max_proteins(proteome_list), 'Other'
+  elif proteome_list['redundantTo'].isna().any():
+    proteome_list = proteome_list[proteome_list['redundantTo'].isna()]
+    return get_id_with_max_proteins(proteome_list), 'Non-redundant'
+  else:
+    return get_id_with_max_proteins(proteome_list), 'Other'
 
 def main():
   # define command line args which will take in a taxon ID
@@ -167,7 +162,7 @@ def main():
     for taxon_id in species_df['Taxon ID']:
       proteome, proteome_type = select_proteome(taxon_id)
       proteomes[taxon_id] = (proteome, proteome_type)
-      get_proteome_to_fasta(taxon_id, proteome, proteome_type)
+      # get_proteome_to_fasta(taxon_id, proteome, proteome_type)
       print(taxon_id, proteome, proteome_type)
     
     # create new species columns with proteome ID and type - save to file
@@ -179,6 +174,7 @@ def main():
   else:
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     proteome, proteome_type = select_proteome(taxon_id)
+    # get_proteome_to_fasta(taxon_id, proteome, proteome_type)
     print(taxon_id, proteome, proteome_type)
 
 if __name__ == '__main__':
