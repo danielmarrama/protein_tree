@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
 import argparse
-from select_proteome import ProteomeSelector
-from assign_genes import GeneAssigner
 
 # definite command line args which will take in a taxon ID
 # and run the select_proteome.py script as well as  the 
@@ -14,7 +12,6 @@ def main():
   args = parser.parse_args()
 
   # run select_proteome.py script
-
 
   # run assign_gene.py script
 

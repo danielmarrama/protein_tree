@@ -10,7 +10,6 @@ Mapping source antigens to their parent protein (and gene).
 
 ### Inputs
 - List of IEDB species: [species.csv](species.csv)
-- List of all UniProt proteomes: [proteomes.csv](proteomes.csv)
 - Epitopes and source antigens for each species
 
 ### Outputs
