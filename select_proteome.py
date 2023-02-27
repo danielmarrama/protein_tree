@@ -5,6 +5,7 @@ warnings.filterwarnings('ignore')
 
 import io
 import re
+import os
 import argparse
 import pandas as pd
 
@@ -60,7 +61,7 @@ def get_all_proteins(taxon_id):
     with open(f'{taxon_id}.fasta', 'a') as f:
       f.write(batch.text)
 
-def get_proteome_to_fasta(proteome_id, proteome_type):
+def get_proteome_to_fasta(taxon_id, proteome_id, proteome_type):
   """
   Get the FASTA file for a proteome from UniProt. Either through the
   API or the FTP server. If the proteome is a reference proteome, then
@@ -77,6 +78,11 @@ def get_proteome_to_fasta(proteome_id, proteome_type):
   # the proteins for them are extracted using get_all_proteins
   if proteome_type == 'All-proteins':
     return
+
+  os.makedirs(f'species/{taxon_id}', exist_ok=True)
+
+  url = f'https://rest.uniprot.org/uniprotkb/stream?query=proteome:{proteome_id}&format=fasta&compressed=false&includeIsoform=true'
+  # with open()
 
 def select_proteome(taxon_id):
   """
@@ -113,7 +119,7 @@ def select_proteome(taxon_id):
   proteome_list.columns = [x.replace('{http://uniprot.org/proteome}', '') for x in proteome_list.columns]
   
   # TODO: check if there are any MULTIPLES of representative or reference proteomes
-  print(proteome_list)
+
   # check if there are any representative proteome
   if proteome_list['isRepresentativeProteome'].any():
     proteome = proteome_list[proteome_list['isRepresentativeProteome']]['upid'].iloc[0]
@@ -122,13 +128,15 @@ def select_proteome(taxon_id):
   elif proteome_list['isReferenceProteome'].any():
     proteome = proteome_list[proteome_list['isReferenceProteome']]['upid'].iloc[0]
     proteome_type = 'Reference'
-  # check if there are any non-redundant proteomes
-  elif proteome_list['redundantTo'].isna().any():
-    proteome = proteome_list[proteome_list['redundantTo'].isna()]['upid'].iloc[0]
-    proteome_type = 'Non-redundant'
+  # check if there are any non-redundant proteomes - sometimes the 
+  # proteome_list does not have a redundantTo column so use try/except
   else:
-    proteome = proteome_list['upid'].iloc[0]
-    proteome_type = 'Other'
+    try:
+      proteome = proteome_list[proteome_list['redundantTo'].isna()]['upid'].iloc[0]
+      proteome_type = 'Non-redundant'
+    except (KeyError, IndexError):
+      proteome = proteome_list['upid'].iloc[0]
+      proteome_type = 'Other'
 
   return proteome, proteome_type
 
@@ -139,13 +147,12 @@ def main():
   args = parser.parse_args()
   taxon_id = args.taxon_id
 
-  # read in proteomes file and species file
-  global proteomes_df, species_df
-  proteomes_df = pd.read_csv('proteomes.csv')
+  # read in species file and save all taxon IDs to list for checking
   species_df = pd.read_csv('species.csv')
-
-  # save all taxon IDs to list for checking
   valid_taxon_ids = species_df['Taxon ID'].astype(str).tolist()
+
+  # make species folder to save proteome FASTA files
+  os.makedirs('species', exist_ok=True)
 
   # do proteome selection for all IEDB species
   # then call get_proteome_to_fasta for each species
@@ -154,18 +161,19 @@ def main():
     for taxon_id in species_df['Taxon ID']:
       proteome, proteome_type = select_proteome(taxon_id)
       proteomes[taxon_id] = (proteome, proteome_type)
-      get_proteome_to_fasta(proteome, proteome_type)
+      get_proteome_to_fasta(taxon_id, proteome, proteome_type)
       print(taxon_id, proteome, proteome_type)
     
     # create new species columns with proteome ID and type - save to file
-    # species_df['Proteome ID'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[0])
-    # species_df['Proteome Type'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[1])
-    # species_df.to_csv('species.csv', index=False)
+    species_df['Proteome ID'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[0])
+    species_df['Proteome Type'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[1])
+    species_df.to_csv('species.csv', index=False)
 
   # or just one species at a time - check if its valid
   else:
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     proteome, proteome_type = select_proteome(taxon_id)
+    print(taxon_id, proteome, proteome_type)
 
 if __name__ == '__main__':
   main()
