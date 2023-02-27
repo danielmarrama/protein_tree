@@ -6,6 +6,7 @@ warnings.filterwarnings('ignore')
 import io
 import re
 import os
+import gzip
 import argparse
 import pandas as pd
 import numpy as np
@@ -62,7 +63,22 @@ def get_all_proteins(taxon_id):
     with open(f'species/{taxon_id}/{taxon_id}.fasta', 'a') as f:
       f.write(batch.text)
 
-def get_proteome_to_fasta(taxon_id, proteome_id, proteome_type):
+def write_gp_proteome(ftp_url, taxon_id):
+  """
+  Write the gene priority proteome to a file.
+
+  Args:
+    ftp_url (str): URL to gene priority proteome.
+    taxon_id (int): Taxon ID of species.
+  """
+
+  print(ftp_url)
+
+  # write the gene priority proteome to a file
+  with open(f'species/{taxon_id}/{taxon_id}_gp.fasta', 'wb') as f:
+    f.write(gzip.open(requests.get(ftp_url, stream=True).raw, 'rb').read())
+
+def get_proteome_to_fasta(taxon_id, group, proteome_id, proteome_taxon, proteome_type):
   """
   Get the FASTA file for a proteome from UniProt. Either through the
   API or the FTP server. If the proteome is a reference proteome, then
@@ -70,25 +86,56 @@ def get_proteome_to_fasta(taxon_id, proteome_id, proteome_type):
   contains the best protein record for each gene. We will use this for 
   better gene assignment in the assign_genes.py script.
 
+  If the proteome is not a representative or reference proteome, then
+  we will just get the FASTA file from the API.
+
   Args:
-    proteome_id (str):   Proteome ID.
-    proteome_type (str): Proteome type. Either: 1. Representative, 
-                         2. Reference, 3. Non-redundant, 4. Other
+    taxon_id (int):       Taxon ID of species.
+    group (str):          Group of species. (e.g. bacterium)
+    proteome_id (str):    Proteome ID.
+    proteome_taxon (int): Taxon ID of proteome.
+    proteome_type (str):  Proteome type. Either: 1. Representative, 
+                          2. Reference, 3. Non-redundant, 4. Other
   """
-  # the species without a formal proteome need to be skipped
-  # the proteins for them are extracted using get_all_proteins
+  # create directory for the species if it doesn't exist
+  os.makedirs(f'species/{taxon_id}', exist_ok=True)
+
+  # the species without a formal proteome are handled by getting
+  # all proteins associated with that taxon ID
   if proteome_type == 'All-proteins':
     get_all_proteins(taxon_id)
     return
-
-  os.makedirs(f'species/{taxon_id}', exist_ok=True)
+  
+  # get gene priority proteomes for representative and reference proteomes
+  if proteome_type in ['Representative', 'Reference']:
+    ftp_url = f'https://ftp.uniprot.org/pub/databases/uniprot/knowledgebase/reference_proteomes/'
+    if group == 'archeobacterium':
+      ftp_url += f'Archaea/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
+      write_gp_proteome(ftp_url, taxon_id)
+    elif group == 'bacterium':
+      ftp_url += f'Bacteria/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
+      write_gp_proteome(ftp_url, taxon_id)
+    elif group in ['vertebrate', 'other-eukaryote']:
+      ftp_url += f'Eukaryota/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
+      write_gp_proteome(ftp_url, taxon_id)
+    elif group in ['virus', 'small-virus', 'large-virus']:
+      ftp_url += f'Viruses/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
+      write_gp_proteome(ftp_url, taxon_id)
 
   url = f'https://rest.uniprot.org/uniprotkb/stream?query=proteome:{proteome_id}&format=fasta&compressed=false&includeIsoform=true'
-  # with open()
+  with open(f'species/{taxon_id}/{taxon_id}.fasta', 'w') as f:
+    f.write(requests.get(url).text)
 
-def get_id_with_max_proteins(proteome_list):
-  """Get the proteome ID with the most proteins in case there is a tie."""
-  return proteome_list.loc[proteome_list['proteinCount'].idxmax()]['upid']
+def get_data_with_max_proteins(proteome_list):
+  """
+  Get the proteome ID and true taxon associated with
+  the proteome with the most proteins in case there is a tie.
+  We get the true taxon so we can extract the data from the FTP server.
+  """
+  proteome_list = proteome_list.loc[proteome_list['proteinCount'].idxmax()] 
+  proteome_id = proteome_list['upid']
+  proteome_taxon = proteome_list['taxonomy']
+  return proteome_id, proteome_taxon
 
 def select_proteome(taxon_id):
   """
@@ -128,18 +175,23 @@ def select_proteome(taxon_id):
   # then get the ID with most proteins
   if proteome_list['isRepresentativeProteome'].any():
     proteome_list = proteome_list[proteome_list['isRepresentativeProteome']]
-    return get_id_with_max_proteins(proteome_list), 'Representative'
+    proteome_id, proteome_taxon = get_data_with_max_proteins(proteome_list)
+    return proteome_id, proteome_taxon, 'Representative'
   elif proteome_list['isReferenceProteome'].any():
     proteome_list = proteome_list[proteome_list['isReferenceProteome']]
-    return get_id_with_max_proteins(proteome_list), 'Reference'
-  
+    proteome_id, proteome_taxon = get_data_with_max_proteins(proteome_list)
+    return proteome_id, proteome_taxon, 'Reference'
+
   if 'redundantTo' not in proteome_list.columns:
-    return get_id_with_max_proteins(proteome_list), 'Other'
+    proteome_id, proteome_taxon = get_data_with_max_proteins(proteome_list)
+    return proteome_id, proteome_taxon, 'Other'
   elif proteome_list['redundantTo'].isna().any():
     proteome_list = proteome_list[proteome_list['redundantTo'].isna()]
-    return get_id_with_max_proteins(proteome_list), 'Non-redundant'
+    proteome_id, proteome_taxon = get_data_with_max_proteins(proteome_list)
+    return proteome_id, proteome_taxon, 'Non-redundant'
   else:
-    return get_id_with_max_proteins(proteome_list), 'Other'
+    proteome_id, proteome_taxon = get_data_with_max_proteins(proteome_list)
+    return proteome_id, proteome_taxon, 'Other'
 
 def main():
   # define command line args which will take in a taxon ID
@@ -160,22 +212,24 @@ def main():
   if taxon_id == 'all':
     proteomes = {}
     for taxon_id in species_df['Taxon ID']:
-      proteome, proteome_type = select_proteome(taxon_id)
-      proteomes[taxon_id] = (proteome, proteome_type)
+      proteome_id, proteome_taxon, proteome_type = select_proteome(taxon_id)
+      proteomes[taxon_id] = (proteome_id, proteome_type)
       # get_proteome_to_fasta(taxon_id, proteome, proteome_type)
-      print(taxon_id, proteome, proteome_type)
+      print(taxon_id, proteome_id, proteome_taxon, proteome_type)
     
     # create new species columns with proteome ID and type - save to file
     species_df['Proteome ID'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[0])
     species_df['Proteome Type'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[1])
+    species_df['Proteome Taxon']
     species_df.to_csv('species.csv', index=False)
 
   # or just one species at a time - check if its valid
   else:
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
-    proteome, proteome_type = select_proteome(taxon_id)
-    # get_proteome_to_fasta(taxon_id, proteome, proteome_type)
-    print(taxon_id, proteome, proteome_type)
+    proteome_id, proteome_taxon, proteome_type = select_proteome(taxon_id)
+    group = species_df[species_df['Taxon ID'].astype(str) == taxon_id]['Group'].iloc[0]
+    get_proteome_to_fasta(taxon_id, group, proteome_id, proteome_taxon, proteome_type)
+    print(taxon_id, group, proteome_id, proteome_taxon, proteome_type)
 
 if __name__ == '__main__':
   main()
