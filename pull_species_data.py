@@ -24,16 +24,17 @@ def main():
   # define command line args which will take in a taxon ID
   parser = argparse.ArgumentParser()
   
-  parser.add_argument('-u', '--user', help='User for IEDB MySQL connection.')
-  parser.add_argument('-p', '--password', help='User for IEDB MySQL connection.')
+  parser.add_argument('-u', '--user', required=True, help='User for IEDB MySQL connection.')
+  parser.add_argument('-p', '--password', required=True, help='User for IEDB MySQL connection.')
+  parser.add_argument('-t', '--taxon_id', required=True, help='Taxon ID for the species to pull data for.')
   
   args = parser.parse_args()
   user = args.user
   password = args.password
+  taxon_id = args.taxon_id
 
   sql_engine = create_engine(f'mysql://{user}:{password}@iedb-mysql.liai.org:33306/iedb_query')
-  df = pd.DataFrame(sql_engine.connect().execute(text('SELECT * FROM source;')))
-  print(df)
+  df = pd.DataFrame(sql_engine.connect().execute(text(f'SELECT * FROM source WHERE organism_id = {taxon_id};')))
 
 if __name__ == '__main__':
   main()
