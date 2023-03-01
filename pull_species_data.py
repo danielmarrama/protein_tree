@@ -1,5 +1,8 @@
-import mysql.connector
+#!/usr/bin/env python3
+
 import argparse
+import pandas as pd
+from sqlalchemy import create_engine, text
 
 
 def get_epitopes(taxon_id):
@@ -28,17 +31,9 @@ def main():
   user = args.user
   password = args.password
 
-  connection = mysql.connector.connect(
-    host="iedb-mysql.liai.org",
-    port=33306,
-    user=user,
-    passwd=password,
-    database='iedb_query'
-  )
-
-  c = connection.cursor()
-  c.execute("SHOW TABLES;")
-  print(c.fetchall())
+  sql_engine = create_engine(f'mysql://{user}:{password}@iedb-mysql.liai.org:33306/iedb_query')
+  df = pd.DataFrame(sql_engine.connect().execute(text('SELECT * FROM source;')))
+  print(df)
 
 if __name__ == '__main__':
   main()
