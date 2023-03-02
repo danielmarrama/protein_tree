@@ -1,12 +1,15 @@
+__pycache__/
 .DS_Store
 .ipynb_checkpoints/
 9606*
 all_genes.txt
+blast.py
 blastp
 blast_output.csv
 canonical_protein_mapping.pickle
 human_proteome.csv
 makeblastdb
+protein_tree.ipynb
 protein_tree.txt
 snapshot_2022-12-20/
 species/

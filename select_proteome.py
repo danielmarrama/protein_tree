@@ -71,9 +71,6 @@ def write_gp_proteome(ftp_url, taxon_id):
     ftp_url (str): URL to gene priority proteome.
     taxon_id (int): Taxon ID of species.
   """
-
-  print(ftp_url)
-
   # write the gene priority proteome to a file
   with open(f'species/{taxon_id}/{taxon_id}_gp.fasta', 'wb') as f:
     f.write(gzip.open(requests.get(ftp_url, stream=True).raw, 'rb').read())
@@ -170,7 +167,7 @@ def select_proteome(taxon_id):
 
   # remove the namespace from the columns
   proteome_list.columns = [x.replace('{http://uniprot.org/proteome}', '') for x in proteome_list.columns]
-
+  
   # get proteome ID and proteome type based on the checks - if there are ties
   # then get the ID with most proteins
   if proteome_list['isRepresentativeProteome'].any():
@@ -195,7 +192,7 @@ def select_proteome(taxon_id):
 
 def main():
   # define command line args which will take in a taxon ID
-  parser = argparse.ArgumentParser(description='Select and get the proteome to use for a species.')
+  parser = argparse.ArgumentParser(description='Select the taxon ID to get the proteome to use for the species.')
   parser.add_argument('taxon_id', help='Taxon ID for the species.')
   args = parser.parse_args()
   taxon_id = args.taxon_id
@@ -204,9 +201,6 @@ def main():
   species_df = pd.read_csv('species.csv')
   valid_taxon_ids = species_df['Taxon ID'].astype(str).tolist()
 
-  # make species folder to save proteome FASTA files
-  os.makedirs('species', exist_ok=True)
-
   # do proteome selection for all IEDB species
   # then call get_proteome_to_fasta for each species
   if taxon_id == 'all':
@@ -214,7 +208,7 @@ def main():
     for taxon_id in species_df['Taxon ID']:
       proteome_id, proteome_taxon, proteome_type = select_proteome(taxon_id)
       proteomes[taxon_id] = (proteome_id, proteome_type)
-      # get_proteome_to_fasta(taxon_id, proteome, proteome_type)
+      get_proteome_to_fasta(taxon_id, proteome, proteome_type)
       print(taxon_id, proteome_id, proteome_taxon, proteome_type)
     
     # create new species columns with proteome ID and type - save to file
