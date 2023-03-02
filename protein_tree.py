@@ -17,8 +17,8 @@ def run_protein_tree(taxon_id):
   os.makedirs(f'species/{taxon_id}', exist_ok=True)
 
   print('Getting data from IEDB MySQL backend...')
-  get_data.get_epitopes(taxon_id)
-  get_data.get_sources(taxon_id)
+  epitopes = get_data.get_epitopes(taxon_id)
+  sources = get_data.get_sources(taxon_id)
   print('Done getting data.\n')
 
   print('Selecting the best proteome...')

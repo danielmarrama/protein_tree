@@ -200,6 +200,9 @@ def proteome_to_csv(taxon_id):
   for protein in proteins:
     uniprot_id = protein.id.split('|')[1]
     gp = 1 if uniprot_id in gp_ids else 0
+
+    # TODO: look into using HUGO to map old gene names to new ones
+
     try:
       gene = re.search('GN=(.*?) ', protein.description).group(1)
     except AttributeError:

@@ -4,25 +4,29 @@ import argparse
 import pandas as pd
 from sqlalchemy import create_engine, text
 
+
+# TODO: pull all data from the MySQL backend
+
 def get_species():
   """
-  Get all species from the MySQL backend.
+  Get all IEDB species.
   """
-  pass
+  return pd.read_csv('species.csv')
 
 def get_epitopes(taxon_id):
   """
-  Get all epitopes for a species from the MySQL backend.
+  Get all epitopes for a species.
   """
-  pass
+  all_epitopes = pd.read_csv('snapshot_2022-12-20/upstream/epitopes.tsv', sep='\t')
+  return all_epitopes[all_epitopes['Organism ID'].astype(str) == f'{taxon_id}.0']
 
 
 def get_sources(taxon_id):
   """
-  Get all source antigens for a species from the MySQL backend.
+  Get all source antigens for a species.
   """
-  pass
-
+  all_sources = pd.read_csv('snapshot_2022-12-20/upstream/sources.tsv', sep='\t')
+  return all_sources[all_sources['Organism ID'].astype(str) == f'{taxon_id}.0']
 
 def main():
   # define command line args which will take in a taxon ID
