@@ -12,6 +12,7 @@ import pandas as pd
 import requests
 from requests.adapters import HTTPAdapter, Retry
 
+from Bio import SeqIO
 
 def get_next_link(headers):
   """
@@ -55,7 +56,7 @@ def get_all_proteins(taxon_id):
 
   # loop through all protein batches and write proteins to FASTA file
   for batch in get_protein_batches(url):
-    with open(f'species/{taxon_id}/{taxon_id}.fasta', 'a') as f:
+    with open(f'species/{taxon_id}/proteome.fasta', 'a') as f:
       f.write(batch.text)
 
 def get_gp_proteome_to_fasta(ftp_url, taxon_id):
@@ -67,7 +68,7 @@ def get_gp_proteome_to_fasta(ftp_url, taxon_id):
     taxon_id (int): Taxon ID of species.
   """
   # write the gene priority proteome to a file
-  with open(f'species/{taxon_id}/{taxon_id}_gp.fasta', 'wb') as f:
+  with open(f'species/{taxon_id}/gp_proteome.fasta', 'wb') as f:
     f.write(gzip.open(requests.get(ftp_url, stream=True).raw, 'rb').read())
 
 def get_proteome_to_fasta(taxon_id, group, proteome_id, proteome_taxon, proteome_type):
@@ -115,10 +116,10 @@ def get_proteome_to_fasta(taxon_id, group, proteome_id, proteome_taxon, proteome
       get_gp_proteome_to_fasta(ftp_url, taxon_id)
 
   url = f'https://rest.uniprot.org/uniprotkb/stream?query=proteome:{proteome_id}&format=fasta&compressed=false&includeIsoform=true'
-  with open(f'species/{taxon_id}/{taxon_id}.fasta', 'w') as f:
+  with open(f'species/{taxon_id}/proteome.fasta', 'w') as f:
     f.write(requests.get(url).text)
 
-def get_data_with_max_proteins(proteome_list):
+def get_proteome_with_max_proteins(proteome_list):
   """
   Get the proteome ID and true taxon associated with
   the proteome with the most proteins in case there is a tie.
@@ -167,23 +168,53 @@ def select_proteome(taxon_id):
   # then get the ID with most proteins
   if proteome_list['isRepresentativeProteome'].any():
     proteome_list = proteome_list[proteome_list['isRepresentativeProteome']]
-    proteome_id, proteome_taxon = get_data_with_max_proteins(proteome_list)
+    proteome_id, proteome_taxon = get_proteome_with_max_proteins(proteome_list)
     return proteome_id, proteome_taxon, 'Representative'
   elif proteome_list['isReferenceProteome'].any():
     proteome_list = proteome_list[proteome_list['isReferenceProteome']]
-    proteome_id, proteome_taxon = get_data_with_max_proteins(proteome_list)
+    proteome_id, proteome_taxon = get_proteome_with_max_proteins(proteome_list)
     return proteome_id, proteome_taxon, 'Reference'
 
   if 'redundantTo' not in proteome_list.columns:
-    proteome_id, proteome_taxon = get_data_with_max_proteins(proteome_list)
+    proteome_id, proteome_taxon = get_proteome_with_max_proteins(proteome_list)
     return proteome_id, proteome_taxon, 'Other'
   elif proteome_list['redundantTo'].isna().any():
     proteome_list = proteome_list[proteome_list['redundantTo'].isna()]
-    proteome_id, proteome_taxon = get_data_with_max_proteins(proteome_list)
+    proteome_id, proteome_taxon = get_proteome_with_max_proteins(proteome_list)
     return proteome_id, proteome_taxon, 'Non-redundant'
   else:
-    proteome_id, proteome_taxon = get_data_with_max_proteins(proteome_list)
+    proteome_id, proteome_taxon = get_proteome_with_max_proteins(proteome_list)
     return proteome_id, proteome_taxon, 'Other'
+
+def proteome_to_csv(taxon_id):
+  """
+  Write the proteome data for a species to a CSV file for later use.
+  """
+  # read in the FASTA file and then get the gene priority IDs if they exist
+  proteins = list(SeqIO.parse(f'species/{taxon_id}/proteome.fasta', 'fasta'))
+  if os.path.isfile(f'species/{taxon_id}/gp_proteome.fasta'):
+    gp_ids = [str(protein.id.split('|')[1]) for protein in list(SeqIO.parse('9606_gp.fasta', 'fasta'))]
+
+  # start collecting proteome data
+  proteome_data = []
+  for protein in proteins:
+    uniprot_id = protein.id.split('|')[1]
+    gp = 1 if uniprot_id in gp_ids else 0
+    try:
+      gene = re.search('GN=(.*?) ', protein.description).group(1)
+    except AttributeError:
+      try: # some gene names are at the end of the header
+        gene = re.search('GN=(.*?)$', protein.description).group(1)
+      except AttributeError:
+        gene = ''
+    try: # protein existence level
+      pe_level = int(re.search('PE=(.*?) ', protein.description).group(1))
+    except AttributeError:
+      pe_level = 0
+    
+    proteome_data.append([protein.id.split('|')[0], gene, uniprot_id, gp, pe_level, str(protein.seq)])
+    
+  pd.DataFrame(data, columns=['db', 'gene', 'id', 'gp', 'pe_level', 'seq']).to_csv(f'species/{taxon_id}/proteome.csv', index=False)
 
 def main():
   # define command line args which will take in a taxon ID
@@ -204,6 +235,7 @@ def main():
       proteome_id, proteome_taxon, proteome_type = select_proteome(taxon_id)
       proteomes[taxon_id] = (proteome_id, proteome_taxon, proteome_type)
       # get_proteome_to_fasta(taxon_id, proteome, proteome_type)
+      # proteome_to_csv(taxon_id)
       print(f'Proteome ID: {proteome_id}')
       print(f'Proteome taxon: {proteome_taxon}')
       print(f'Proteome type: {proteome_type}')
@@ -223,6 +255,7 @@ def main():
 
     proteome_id, proteome_taxon, proteome_type = select_proteome(taxon_id)
     # get_proteome_to_fasta(taxon_id, group, proteome_id, proteome_taxon, proteome_type)
+    # proteome_to_csv(taxon_id) 
     print(f'Proteome ID: {proteome_id}')
     print(f'Proteome taxon: {proteome_taxon}')
     print(f'Proteome type: {proteome_type}')
