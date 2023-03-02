@@ -3,19 +3,14 @@
 import warnings
 warnings.filterwarnings('ignore')
 
-import io
 import re
 import os
 import gzip
 import argparse
 import pandas as pd
-import numpy as np
 
 import requests
 from requests.adapters import HTTPAdapter, Retry
-
-from Bio import SeqIO
-from pepmatch import Preprocessor, Matcher
 
 
 def get_next_link(headers):
@@ -63,7 +58,7 @@ def get_all_proteins(taxon_id):
     with open(f'species/{taxon_id}/{taxon_id}.fasta', 'a') as f:
       f.write(batch.text)
 
-def write_gp_proteome(ftp_url, taxon_id):
+def get_gp_proteome_to_fasta(ftp_url, taxon_id):
   """
   Write the gene priority proteome to a file.
 
@@ -108,16 +103,16 @@ def get_proteome_to_fasta(taxon_id, group, proteome_id, proteome_taxon, proteome
     ftp_url = f'https://ftp.uniprot.org/pub/databases/uniprot/knowledgebase/reference_proteomes/'
     if group == 'archeobacterium':
       ftp_url += f'Archaea/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
-      write_gp_proteome(ftp_url, taxon_id)
+      get_gp_proteome_to_fasta(ftp_url, taxon_id)
     elif group == 'bacterium':
       ftp_url += f'Bacteria/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
-      write_gp_proteome(ftp_url, taxon_id)
+      get_gp_proteome_to_fasta(ftp_url, taxon_id)
     elif group in ['vertebrate', 'other-eukaryote']:
       ftp_url += f'Eukaryota/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
-      write_gp_proteome(ftp_url, taxon_id)
+      get_gp_proteome_to_fasta(ftp_url, taxon_id)
     elif group in ['virus', 'small-virus', 'large-virus']:
       ftp_url += f'Viruses/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
-      write_gp_proteome(ftp_url, taxon_id)
+      get_gp_proteome_to_fasta(ftp_url, taxon_id)
 
   url = f'https://rest.uniprot.org/uniprotkb/stream?query=proteome:{proteome_id}&format=fasta&compressed=false&includeIsoform=true'
   with open(f'species/{taxon_id}/{taxon_id}.fasta', 'w') as f:
@@ -163,11 +158,11 @@ def select_proteome(taxon_id):
       url = url.replace('(proteome_type:1)AND', '')
       proteome_list = pd.read_xml(requests.get(url).text)
     except ValueError:
-      return '', 'All-proteins'
+      return 'None', taxon_id, 'All-proteins'
 
   # remove the namespace from the columns
   proteome_list.columns = [x.replace('{http://uniprot.org/proteome}', '') for x in proteome_list.columns]
-  
+
   # get proteome ID and proteome type based on the checks - if there are ties
   # then get the ID with most proteins
   if proteome_list['isRepresentativeProteome'].any():
@@ -205,25 +200,32 @@ def main():
   # then call get_proteome_to_fasta for each species
   if taxon_id == 'all':
     proteomes = {}
-    for taxon_id in species_df['Taxon ID']:
+    for taxon_id in valid_taxon_ids:
       proteome_id, proteome_taxon, proteome_type = select_proteome(taxon_id)
-      proteomes[taxon_id] = (proteome_id, proteome_type)
-      get_proteome_to_fasta(taxon_id, proteome, proteome_type)
-      print(taxon_id, proteome_id, proteome_taxon, proteome_type)
+      proteomes[taxon_id] = (proteome_id, proteome_taxon, proteome_type)
+      # get_proteome_to_fasta(taxon_id, proteome, proteome_type)
+      print(f'Proteome ID: {proteome_id}')
+      print(f'Proteome taxon: {proteome_taxon}')
+      print(f'Proteome type: {proteome_type}')
     
     # create new species columns with proteome ID and type - save to file
     species_df['Proteome ID'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[0])
-    species_df['Proteome Type'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[1])
-    species_df['Proteome Taxon']
+    species_df['Proteome Taxon'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[1])
+    species_df['Proteome Type'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[2])
+
     species_df.to_csv('species.csv', index=False)
 
   # or just one species at a time - check if its valid
   else:
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
-    proteome_id, proteome_taxon, proteome_type = select_proteome(taxon_id)
+    name = species_df[species_df['Taxon ID'].astype(str) == taxon_id]['Species Label'].iloc[0]
     group = species_df[species_df['Taxon ID'].astype(str) == taxon_id]['Group'].iloc[0]
-    get_proteome_to_fasta(taxon_id, group, proteome_id, proteome_taxon, proteome_type)
-    print(taxon_id, group, proteome_id, proteome_taxon, proteome_type)
+
+    proteome_id, proteome_taxon, proteome_type = select_proteome(taxon_id)
+    # get_proteome_to_fasta(taxon_id, group, proteome_id, proteome_taxon, proteome_type)
+    print(f'Proteome ID: {proteome_id}')
+    print(f'Proteome taxon: {proteome_taxon}')
+    print(f'Proteome type: {proteome_type}')
 
 if __name__ == '__main__':
   main()

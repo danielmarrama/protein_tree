@@ -4,18 +4,22 @@ import argparse
 import pandas as pd
 from sqlalchemy import create_engine, text
 
+def get_species():
+  """
+  Get all species from the MySQL backend.
+  """
+  pass
 
 def get_epitopes(taxon_id):
   """
-  Get all epitopes for a species from the IEDB API.
+  Get all epitopes for a species from the MySQL backend.
   """
   pass
-  # TODO: pull data from the MySQL database
 
 
 def get_sources(taxon_id):
   """
-  Get all source antigens for a species from the IEDB API.
+  Get all source antigens for a species from the MySQL backend.
   """
   pass
 
