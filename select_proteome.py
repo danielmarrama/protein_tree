@@ -19,6 +19,11 @@ from Bio import SeqIO
 #   def __init__(self, taxon_id):
 #     self.taxon_id = taxon_id
 
+# TODO:
+# 1. Be able to run this module seperate from protein_tree.py
+# 2. Use a class to store taxon, proteome_id, proteome_list, etc...
+
+
 def get_next_link(headers):
   """
   UniProt will provide a link to the next batch of proteins.
@@ -125,20 +130,29 @@ def get_proteome_with_most_matches(taxon_id, proteome_list, epitopes_df):
   match_counts = {}
   for proteome_id in list(proteome_list['upid']):
     get_proteome_to_fasta(taxon_id, proteome_id)
-    Preprocessor(f'species/{taxon_id}/{proteome_id}.fasta', 'sql', f'species/{taxon_id}').preprocess(k=5)
-    matches_df = Matcher(epitopes, proteome_id, 0, 5, f'species/{taxon_id}', output_format='dataframe').match()
-    
-    matches_df.to_csv(f'species/{taxon_id}/{proteome_id}_matches.csv', index=False)
+    Preprocessor(f'species/{taxon_id}/{proteome_id}.fasta', 'sql', f'species/{taxon_id}/').preprocess(k=5)
+    matches_df = Matcher(epitopes, proteome_id, 0, 5, f'species/{taxon_id}/', output_format='dataframe').match()
     
     matches_df.drop_duplicates(subset=['Query Sequence'], inplace=True)
     match_counts[proteome_id] = matches_df['Matched Sequence'].dropna().count()
-
-    print(matches_df)
 
   proteome_id = max(match_counts, key=match_counts.get)
   proteome_taxon = proteome_list[proteome_list['upid'] == proteome_id]['taxonomy'].iloc[0]
 
   return proteome_id, proteome_taxon
+
+def remove_other_proteomes(taxon_id, proteome_id, proteome_list):
+  """
+  Remove proteome .fasta and .db files that are not the chosen proteome for that species.
+  Also, rename the chosen proteome to proteome.fasta and proteome.db.
+  """
+  proteome_list_to_remove = proteome_list[proteome_list['upid'] != proteome_id]
+  for i in list(proteome_list_to_remove['upid']):
+    os.remove(f'species/{taxon_id}/{i}.fasta')
+    os.remove(f'species/{taxon_id}/{i}.db')
+  
+  os.rename(f'species/{taxon_id}/{proteome_id}.fasta', f'species/{taxon_id}/proteome.fasta')
+  os.rename(f'species/{taxon_id}/{proteome_id}.db', f'species/{taxon_id}/proteome.db')
 
 def select_proteome(taxon_id, epitopes_df):
   """
@@ -184,6 +198,7 @@ def select_proteome(taxon_id, epitopes_df):
       return 1, proteome_list['upid'].iloc[0], proteome_list['taxonomy'].iloc[0], 'Representative'
     else:
       proteome_id, proteome_taxon = get_proteome_with_most_matches(taxon_id, proteome_list, epitopes_df)
+      remove_other_proteomes(taxon_id, proteome_id, proteome_list)
       return len(proteome_list), proteome_id, proteome_taxon, 'Representative'
   
   elif proteome_list['isReferenceProteome'].any():
@@ -289,8 +304,8 @@ def main():
     group = species_df[species_df['Taxon ID'].astype(str) == taxon_id]['Group'].iloc[0]
 
     num_of_proteomes, proteome_id, proteome_taxon, proteome_type = select_proteome(taxon_id)
-    # get_proteome_to_fasta(taxon_id, group, proteome_id, proteome_taxon, proteome_type)
-    # proteome_to_csv(taxon_id) 
+    # proteome_to_csv(taxon_id)
+
     print(f'# of Proteomes: {num_of_proteomes}')
     print(f'Proteome ID: {proteome_id}')
     print(f'Proteome taxon: {proteome_taxon}')
