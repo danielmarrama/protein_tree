@@ -4,12 +4,12 @@ import os
 import argparse
 import pandas as pd 
 
-import get_data
+from get_data import DataFetcher
 import select_proteome
 import assign_genes
 
 
-def run_protein_tree(taxon_id):
+def run_protein_tree(user, password, taxon_id):
   """
   Build protein tree for a species.
   """
@@ -17,8 +17,9 @@ def run_protein_tree(taxon_id):
   os.makedirs(f'species/{taxon_id}', exist_ok=True)
 
   print('Getting epitopes and sources data...')
-  epitopes_df = get_data.get_epitopes(taxon_id)
-  sources_df = get_data.get_sources(taxon_id)
+  fetcher = DataFetcher(user, password, taxon_id)
+  # epitopes_df = get_data.get_epitopes(taxon_id)
+  sources_df = fetcher.get_sources()
   print('Done getting data.\n')
 
   print('Selecting the best proteome...\n')
@@ -34,30 +35,38 @@ def run_protein_tree(taxon_id):
   # assign_genes.assign_genes(taxon_id, proteome_id)
 
 def main():
-  parser = argparse.ArgumentParser(description='Build protein tree for a species.')
-  parser.add_argument('taxon_id', help='Taxon ID of species.')
+  # define command line args which will take in a taxon ID
+  parser = argparse.ArgumentParser()
+  
+  parser.add_argument('-u', '--user', required=True, help='User for IEDB MySQL connection.')
+  parser.add_argument('-p', '--password', required=True, help='User for IEDB MySQL connection.')
+  parser.add_argument('-t', '--taxon_id', required=True, help='Taxon ID for the species to pull data for.')
+  
   args = parser.parse_args()
-
+  user = args.user
+  password = args.password
   taxon_id = args.taxon_id
 
   # TODO: replace species.csv with a call to the MySQL backend
-  species_df = get_data.get_species()
+  species_df = DataFetcher(user, password, taxon_id).get_species()
   valid_taxon_ids = species_df['Taxon ID'].astype(str).tolist()
   id_to_names = dict(zip(species_df['Taxon ID'].astype(str), species_df['Species Label']))
 
   # make species folder if it doesn't exist
   os.makedirs('species', exist_ok=True)
 
+  # run protein tree for all IEDB species 
   if taxon_id == 'all':
     for taxon_id in valid_taxon_ids:
       print(f'Building protein tree for {id_to_names[taxon_id]} (ID: {taxon_id})...\n')
-      run_protein_tree(taxon_id)
+      run_protein_tree(user, password, taxon_id)
       print('Protein tree build done.')
 
+  # or one species at a time
   else:
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     print(f'Building protein tree for {id_to_names[taxon_id]} (ID: {taxon_id})...\n')
-    run_protein_tree(taxon_id)
+    run_protein_tree(user, password, taxon_id)
     print('Protein tree build done.')
 
 if __name__ == '__main__':
