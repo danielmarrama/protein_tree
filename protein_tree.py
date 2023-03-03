@@ -16,16 +16,21 @@ def run_protein_tree(taxon_id):
   # make species folder if it doesn't exist
   os.makedirs(f'species/{taxon_id}', exist_ok=True)
 
-  print('Getting data from IEDB MySQL backend...')
-  epitopes = get_data.get_epitopes(taxon_id)
-  sources = get_data.get_sources(taxon_id)
+  print('Getting epitopes and sources data...')
+  epitopes_df = get_data.get_epitopes(taxon_id)
+  sources_df = get_data.get_sources(taxon_id)
   print('Done getting data.\n')
 
-  print('Selecting the best proteome...')
-  proteome_id, proteome_taxon, proteome_type = select_proteome.select_proteome(taxon_id)
-  print(f'Got the best proteome.\n')
+  print('Selecting the best proteome...\n')
+  num_of_proteomes, proteome_id, proteome_taxon, proteome_type = select_proteome.select_proteome(taxon_id, epitopes_df)
+  
+  print(f'Number of proteomes: {num_of_proteomes}')
+  print('Got the best proteome:')
+  print(f'Proteome ID: {proteome_id}')
+  print(f'Proteome taxon: {proteome_taxon}')
+  print(f'Proteome type: {proteome_type}')
 
-  # print('Assigning genes to proteins...')
+  print('\nAssigning genes to proteins...\n')
   # assign_genes.assign_genes(taxon_id, proteome_id)
 
 def main():
@@ -36,7 +41,7 @@ def main():
   taxon_id = args.taxon_id
 
   # TODO: replace species.csv with a call to the MySQL backend
-  species_df = pd.read_csv('species.csv')
+  species_df = get_data.get_species()
   valid_taxon_ids = species_df['Taxon ID'].astype(str).tolist()
   id_to_names = dict(zip(species_df['Taxon ID'].astype(str), species_df['Species Label']))
 
