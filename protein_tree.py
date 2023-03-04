@@ -18,8 +18,9 @@ def run_protein_tree(user, password, taxon_id):
 
   print('Getting epitopes and sources data...')
   fetcher = DataFetcher(user, password, taxon_id)
-  # epitopes_df = get_data.get_epitopes(taxon_id)
+  epitopes_df = fetcher.get_epitopes()
   sources_df = fetcher.get_sources()
+  print(epitopes_df)
   print('Done getting data.\n')
 
   print('Selecting the best proteome...\n')

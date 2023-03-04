@@ -24,14 +24,20 @@ class DataFetcher:
     """
     Get all epitopes for a species.
     """
-    all_epitopes = pd.read_csv('snapshot_2022-12-20/upstream/epitopes.tsv', sep='\t')
-    return all_epitopes[all_epitopes['Organism ID'].astype(str) == f'{taxon_id}.0']
+    sql_query = f'SELECT organism2_id, organism2_name, mol1_seq, '\
+                f'mol2_name, mol2_accession '\
+                f'FROM object '\
+                f'WHERE object_sub_type = "Peptide from protein" '\
+                f'AND organism2_id = {self.taxon_id};'
+    columns = ['Organism ID', 'Organism_Name', 'Peptide', 'Source Name', 'Source Accession']
+    return pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)), columns=columns)
 
   def get_sources(self):
     """
     Get all source antigens for a species.
     """
-    return pd.DataFrame(self.sql_engine.connect().execute(text(f'SELECT * FROM source WHERE organism_id = {self.taxon_id};')))
+    sql_query = f'SELECT * FROM source WHERE organism_id = {self.taxon_id};'
+    return pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)))
 
 def main():
   # define command line args which will take in a taxon ID
