@@ -18,15 +18,15 @@ def run_protein_tree(user, password, taxon_id):
 
   print('Getting epitopes and sources data...')
 
-  fetcher = DataFetcher(user, password, taxon_id)
-  epitopes_df = fetcher.get_epitopes()
-  sources_df = fetcher.get_sources()
+  Fetcher = DataFetcher(user, password, taxon_id)
+  epitopes_df = Fetcher.get_epitopes()
+  sources_df = Fetcher.get_sources()
   
   print('Done getting data.\n')
 
   print('Selecting the best proteome...')
-  
-  num_of_proteomes, proteome_id, proteome_taxon, proteome_type = ProteomeSelector(taxon_id).select_proteome(epitopes_df)
+  Selector = ProteomeSelector(taxon_id)
+  num_of_proteomes, proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
   
   print(f'Number of proteomes: {num_of_proteomes}\n')
   print('Got the best proteome:')
@@ -42,7 +42,7 @@ def main():
   parser = argparse.ArgumentParser()
   
   parser.add_argument('-u', '--user', required=True, help='User for IEDB MySQL connection.')
-  parser.add_argument('-p', '--password', required=True, help='User for IEDB MySQL connection.')
+  parser.add_argument('-p', '--password', required=True, help='Password for IEDB MySQL connection.')
   parser.add_argument('-t', '--taxon_id', required=True, help='Taxon ID for the species to pull data for.')
   
   args = parser.parse_args()

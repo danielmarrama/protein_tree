@@ -24,6 +24,7 @@ class ProteomeSelector:
   def __init__(self, taxon_id):
     self.taxon_id = taxon_id
     self.proteome_list = self.get_proteome_list()
+    self.num_of_proteomes = len(self.proteome_list)
 
   def get_proteome_list(self):
     """
@@ -199,48 +200,48 @@ class ProteomeSelector:
     # if there is no proteome_list, get all proteins associated with that taxon ID
     if self.proteome_list.empty:
       self.get_all_proteins(self.taxon_id)
-      return 0, 'None', self.taxon_id, 'All-proteins'
+      return 'None', self.taxon_id, 'All-proteins'
 
     # get proteome ID and proteome type based on the checks - if there are ties
     # then get the ID with most proteins
     if self.proteome_list['isRepresentativeProteome'].any():
       self.proteome_list = self.proteome_list[self.proteome_list['isRepresentativeProteome']]
-      if len(self.proteome_list) < 2:
-        return 1, self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0], 'Representative'
+      if self.num_of_proteomes < 2:
+        return self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0], 'Representative'
       else:
         proteome_id, proteome_taxon = self.get_proteome_with_most_matches(epitopes_df)
         self.remove_other_proteomes(proteome_id)
-        return len(self.proteome_list), proteome_id, proteome_taxon, 'Representative'
+        return proteome_id, proteome_taxon, 'Representative'
     
     elif self.proteome_list['isReferenceProteome'].any():
       self.proteome_list = self.proteome_list[self.proteome_list['isReferenceProteome']]
-      if len(self.proteome_list) < 2:
-        return 1, self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0], 'Reference'
+      if self.num_of_proteomes < 2:
+        return self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0], 'Reference'
       else:
         proteome_id, proteome_taxon = self.get_proteome_with_most_matches(epitopes_df)
-        return len(self.proteome_list), proteome_id, proteome_taxon, 'Reference'
+        return proteome_id, proteome_taxon, 'Reference'
 
     elif 'redundantTo' not in self.proteome_list.columns:
-      if len(self.proteome_list) < 2:
-        return 1, self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0], 'Other'
+      if self.num_of_proteomes < 2:
+        return self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0], 'Other'
       else:
         proteome_id, proteome_taxon = self.get_proteome_with_most_matches(epitopes_df)
-        return len(self.proteome_list), proteome_id, proteome_taxon, 'Other'
+        return proteome_id, proteome_taxon, 'Other'
     
     elif self.proteome_list['redundantTo'].isna().any():
-      if len(self.proteome_list) < 2:
-        return 1, self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0], 'Non-Redudant'
+      if self.num_of_proteomes < 2:
+        return self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0], 'Non-Redudant'
       else:
         self.proteome_list = self.proteome_list[self.proteome_list['redundantTo'].isna()]
         proteome_id, proteome_taxon = self.get_proteome_with_most_matches(epitopes_df)
-        return len(self.proteome_list), proteome_id, proteome_taxon, 'Non-redundant'
+        return proteome_id, proteome_taxon, 'Non-redundant'
     
     else:
-      if len(self.proteome_list) < 2:
-        return 1, self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0], 'Other'
+      if self.num_of_proteomes < 2:
+        return self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0], 'Other'
       else:
         proteome_id, proteome_taxon = self.get_proteome_with_most_matches(epitopes_df)
-        return len(self.proteome_list), proteome_id, proteome_taxon, 'Other'
+        return proteome_id, proteome_taxon, 'Other'
 
   def proteome_to_csv(self):
     """
@@ -276,12 +277,16 @@ class ProteomeSelector:
     pd.DataFrame(data, columns=['db', 'gene', 'id', 'gp', 'pe_level', 'seq']).to_csv(f'species/{self.taxon_id}/proteome.csv', index=False)
 
 def main():
-  # define command line args which will take in a taxon ID
-  parser = argparse.ArgumentParser(description='Select the taxon ID to get the proteome to use for the species.')
+  # define command line args which will take in a taxon ID, user, and password (for IEDB MySQL connection)
+  parser = argparse.ArgumentParser()
   
-  parser.add_argument('taxon_id', help='Taxon ID for the species.')
+  parser.add_argument('-u', '--user', required=True, help='User for IEDB MySQL connection.')
+  parser.add_argument('-p', '--password', required=True, help='Password for IEDB MySQL connection.')
+  parser.add_argument('-t', '--taxon_id', required=True, help='Taxon ID for the species to pull data for.')
   
   args = parser.parse_args()
+  user = args.user
+  password = args.password
   taxon_id = args.taxon_id
 
   # read in species file and save all taxon IDs to list for checking
@@ -293,10 +298,18 @@ def main():
   if taxon_id == 'all':
     proteomes = {}
     for taxon_id in valid_taxon_ids:
-      num_of_proteomes, proteome_id, proteome_taxon, proteome_type = select_proteome(taxon_id)
+      # get data for taxon ID
+      Fetcher = DataFetcher(user, password, taxon_id)
+      epitopes_df = Fetcher.get_epitopes()
+      sources_df = Fetcher.get_sources()
+
+      # select proteome
+      Selector = ProteomeSelector(taxon_id)
+      num_of_proteomes, proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
+      # Selector.proteome_to_csv()
+      
       proteomes[taxon_id] = (num_of_proteomes, proteome_id, proteome_taxon, proteome_type)
-      # get_proteome_to_fasta(taxon_id, proteome, proteome_type)
-      # proteome_to_csv(taxon_id)
+      proteome_to_csv(taxon_id)
       print(f'# of Proteomes: {num_of_proteomes}')
       print(f'Proteome ID: {proteome_id}')
       print(f'Proteome taxon: {proteome_taxon}')
@@ -313,11 +326,18 @@ def main():
   # or just one species at a time - check if its valid
   else:
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
-    name = species_df[species_df['Taxon ID'].astype(str) == taxon_id]['Species Label'].iloc[0]
-    group = species_df[species_df['Taxon ID'].astype(str) == taxon_id]['Group'].iloc[0]
+    
+    # get data for taxon ID
+    Fetcher = DataFetcher(user, password, taxon_id)
+    epitopes_df = Fetcher.get_epitopes()
+    sources_df = Fetcher.get_sources()
+    
+    # name = species_df[species_df['Taxon ID'].astype(str) == taxon_id]['Species Label'].iloc[0]
+    # group = species_df[species_df['Taxon ID'].astype(str) == taxon_id]['Group'].iloc[0]
 
-    num_of_proteomes, proteome_id, proteome_taxon, proteome_type = select_proteome(taxon_id)
-    # proteome_to_csv(taxon_id)
+    Selector = ProteomeSelector(taxon_id)
+    num_of_proteomes, proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
+    # Selector.proteome_to_csv()
 
     print(f'# of Proteomes: {num_of_proteomes}')
     print(f'Proteome ID: {proteome_id}')
