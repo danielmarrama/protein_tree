@@ -4,7 +4,6 @@ import argparse
 import pandas as pd
 from sqlalchemy import create_engine, text
 
-# TODO: pull all data from the MySQL backend
 
 class DataFetcher:
   """
@@ -18,6 +17,7 @@ class DataFetcher:
     """
     Get all IEDB species.
     """
+    # TODO: replace species.csv with a call to the MySQL backend
     return pd.read_csv('species.csv')
 
   def get_epitopes(self):

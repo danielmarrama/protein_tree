@@ -9,6 +9,9 @@ from pepmatch import Preprocessor, Matcher
 from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
 
+class GeneAssigner:
+  def __init__(self):
+    pass
 
 def sources_to_fasta(taxon_id):
   # sources that are missing sequences - write to file and then drop those

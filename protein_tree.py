@@ -5,8 +5,8 @@ import argparse
 import pandas as pd 
 
 from get_data import DataFetcher
-import select_proteome
-import assign_genes
+from select_proteome import ProteomeSelector
+from assign_genes import GeneAssigner
 
 
 def run_protein_tree(user, password, taxon_id):
