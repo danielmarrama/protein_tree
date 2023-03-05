@@ -17,16 +17,18 @@ def run_protein_tree(user, password, taxon_id):
   os.makedirs(f'species/{taxon_id}', exist_ok=True)
 
   print('Getting epitopes and sources data...')
+
   fetcher = DataFetcher(user, password, taxon_id)
   epitopes_df = fetcher.get_epitopes()
   sources_df = fetcher.get_sources()
-  print(epitopes_df)
+  
   print('Done getting data.\n')
 
-  print('Selecting the best proteome...\n')
-  num_of_proteomes, proteome_id, proteome_taxon, proteome_type = select_proteome.select_proteome(taxon_id, epitopes_df)
+  print('Selecting the best proteome...')
   
-  print(f'Number of proteomes: {num_of_proteomes}')
+  num_of_proteomes, proteome_id, proteome_taxon, proteome_type = ProteomeSelector(taxon_id).select_proteome(epitopes_df)
+  
+  print(f'Number of proteomes: {num_of_proteomes}\n')
   print('Got the best proteome:')
   print(f'Proteome ID: {proteome_id}')
   print(f'Proteome taxon: {proteome_taxon}')

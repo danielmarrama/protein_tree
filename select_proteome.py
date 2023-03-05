@@ -44,7 +44,7 @@ class ProteomeSelector:
         url = url.replace('(proteome_type:1)AND', '')
         proteome_list = pd.read_xml(requests.get(url).text)
       except ValueError: # use all proteins associated with the taxon
-        return None
+        return pd.DataFrame()
 
     # remove the namespace from the columns
     proteome_list.columns = [x.replace('{http://uniprot.org/proteome}', '') for x in proteome_list.columns]
@@ -150,11 +150,11 @@ class ProteomeSelector:
     We get the true taxon so we can extract the data from the FTP server.
     """
     # TODO: be able to check for discontinuous epitopes
-    epitopes = [epitope for epitope in epitopes['Peptide'] if not any(char.isdigit() for char in epitope)]
+    epitopes = [epitope for epitope in epitopes_df['Peptide'] if not any(char.isdigit() for char in epitope)]
     
     match_counts = {}
     for proteome_id in list(self.proteome_list['upid']):
-      self.get_proteome_to_fasta(self.taxon_id, proteome_id)
+      self.get_proteome_to_fasta(proteome_id)
       Preprocessor(f'species/{self.taxon_id}/{proteome_id}.fasta', 'sql', f'species/{self.taxon_id}/').preprocess(k=5)
       matches_df = Matcher(epitopes, proteome_id, 0, 5, f'species/{self.taxon_id}/', output_format='dataframe').match()
       
@@ -176,8 +176,8 @@ class ProteomeSelector:
       os.remove(f'species/{self.taxon_id}/{i}.fasta')
       os.remove(f'species/{self.taxon_id}/{i}.db')
     
-    os.rename(f'species/{self.taxon_id}/{proteome_id}.fasta', f'species/{taxon_id}/proteome.fasta')
-    os.rename(f'species/{self.taxon_id}/{proteome_id}.db', f'species/{taxon_id}/proteome.db')
+    os.rename(f'species/{self.taxon_id}/{proteome_id}.fasta', f'species/{self.taxon_id}/proteome.fasta')
+    os.rename(f'species/{self.taxon_id}/{proteome_id}.db', f'species/{self.taxon_id}/proteome.db')
 
   def select_proteome(self, epitopes_df):
     """
@@ -197,14 +197,14 @@ class ProteomeSelector:
     If yes to any of the above, get the proteome ID and type. 
     """
     # if there is no proteome_list, get all proteins associated with that taxon ID
-    if not self.proteome_list:
+    if self.proteome_list.empty:
       self.get_all_proteins(self.taxon_id)
       return 0, 'None', self.taxon_id, 'All-proteins'
 
     # get proteome ID and proteome type based on the checks - if there are ties
     # then get the ID with most proteins
     if self.proteome_list['isRepresentativeProteome'].any():
-      self.proteome_list = self.proteome_list[proteome_list['isRepresentativeProteome']]
+      self.proteome_list = self.proteome_list[self.proteome_list['isRepresentativeProteome']]
       if len(self.proteome_list) < 2:
         return 1, self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0], 'Representative'
       else:
@@ -213,7 +213,7 @@ class ProteomeSelector:
         return len(self.proteome_list), proteome_id, proteome_taxon, 'Representative'
     
     elif self.proteome_list['isReferenceProteome'].any():
-      self.proteome_list = self.proteome_list[proteome_list['isReferenceProteome']]
+      self.proteome_list = self.proteome_list[self.proteome_list['isReferenceProteome']]
       if len(self.proteome_list) < 2:
         return 1, self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0], 'Reference'
       else:
