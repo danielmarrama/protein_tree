@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import argparse
 import pandas as pd
 from sqlalchemy import create_engine, text
@@ -46,9 +47,21 @@ def main():
   password = args.password
   taxon_id = args.taxon_id
 
-  sql_engine = create_engine(f'mysql://{user}:{password}@iedb-mysql.liai.org:33306/iedb_query')
+  # read in IEDB species data
+  species_df = pd.read_csv('species.csv')
+  all_taxa_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['All Taxa']))
 
-  sources_df = get_sources(sql_engine, taxon_id)
+  # get epitopes and source antigens
+  Fetcher = DataFetcher(user, password, taxon_id, all_taxa_map[taxon_id])
+  epitopes_df = Fetcher.get_epitopes()
+  sources_df = Fetcher.get_sources()
+
+  # create directory for species and taxon ID
+  os.makedirs(f'species/{taxon_id}', exist_ok=True)
+
+  # write epitopes and source antigens to files
+  epitopes_df.to_csv(f'species/{taxon_id}/epitopes.csv', index=False)
+  sources_df.to_csv(f'species/{taxon_id}/sources.csv', index=False)
 
 if __name__ == '__main__':
   main()
