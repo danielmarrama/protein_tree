@@ -9,7 +9,7 @@ from select_proteome import ProteomeSelector
 from assign_genes import GeneAssigner
 
 
-def run_protein_tree(user, password, taxon_id):
+def run_protein_tree(Fetcher, taxon_id):
   """
   Build protein tree for a species.
   """
@@ -18,7 +18,6 @@ def run_protein_tree(user, password, taxon_id):
 
   print('Getting epitopes and sources data...')
 
-  Fetcher = DataFetcher(user, password, taxon_id)
   epitopes_df = Fetcher.get_epitopes()
   sources_df = Fetcher.get_sources()
   
@@ -50,8 +49,8 @@ def main():
   password = args.password
   taxon_id = args.taxon_id
 
-  # TODO: replace species.csv with a call to the MySQL backend
-  species_df = DataFetcher(user, password, taxon_id).get_species()
+  Fetcher = DataFetcher(user, password, taxon_id)
+  species_df = Fetcher.get_species()
   valid_taxon_ids = species_df['Taxon ID'].astype(str).tolist()
   id_to_names = dict(zip(species_df['Taxon ID'].astype(str), species_df['Species Label']))
 
@@ -62,14 +61,14 @@ def main():
   if taxon_id == 'all':
     for taxon_id in valid_taxon_ids:
       print(f'Building protein tree for {id_to_names[taxon_id]} (ID: {taxon_id})...\n')
-      run_protein_tree(user, password, taxon_id)
+      run_protein_tree(Fetcher, taxon_id)
       print('Protein tree build done.')
 
   # or one species at a time
   else:
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     print(f'Building protein tree for {id_to_names[taxon_id]} (ID: {taxon_id})...\n')
-    run_protein_tree(user, password, taxon_id)
+    run_protein_tree(Fetcher, taxon_id)
     print('Protein tree build done.')
 
 if __name__ == '__main__':

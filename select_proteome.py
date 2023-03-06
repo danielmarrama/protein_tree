@@ -18,7 +18,6 @@ from get_data import DataFetcher
 
 class ProteomeSelector:
   def __init__(self, taxon_id):
-    # TODO: replace species.csv with a call to the MySQL backend
     self.species_df = pd.read_csv('species.csv')
     self.taxon_id = taxon_id
     self.proteome_list = self.get_proteome_list()

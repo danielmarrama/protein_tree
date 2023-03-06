@@ -17,7 +17,6 @@ class DataFetcher:
     """
     Get all IEDB species.
     """
-    # TODO: replace species.csv with a call to the MySQL backend
     return pd.read_csv('species.csv')
 
   def get_epitopes(self):
