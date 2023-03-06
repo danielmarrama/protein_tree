@@ -14,11 +14,11 @@ Mapping epitopes and source antigens to their parent protein (and gene).
 
 ### Running
 For one species:
-``` python
+``` bash
 ./protein_tree.py -u <IEDB backend username> -p <IEDB backend password> -t <taxon ID>
 ```
 or for all species:
-``` python
+``` bash
 ./protein_tree.py -u <IEDB backend username> -p <IEDB backend password> -a
 ```
 
