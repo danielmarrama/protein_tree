@@ -9,9 +9,10 @@ class DataFetcher:
   """
   Fetch data from IEDB MySQL backend.
   """
-  def __init__(self, user, password, taxon_id):
+  def __init__(self, user, password, taxon_id, all_taxa):
     self.sql_engine = create_engine(f'mysql://{user}:{password}@iedb-mysql.liai.org:33306/iedb_query')
     self.taxon_id = taxon_id
+    self.all_taxa = all_taxa.replace(';', ',')
 
   def get_epitopes(self):
     """
@@ -21,7 +22,7 @@ class DataFetcher:
                 f'mol2_name, mol2_accession '\
                 f'FROM object '\
                 f'WHERE object_sub_type = "Peptide from protein" '\
-                f'AND organism2_id = {self.taxon_id};'
+                f'AND organism2_id IN ({self.all_taxa});'
     columns = ['Organism ID', 'Organism_Name', 'Peptide', 'Source Name', 'Source Accession']
     return pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)), columns=columns)
 
@@ -29,7 +30,7 @@ class DataFetcher:
     """
     Get all source antigens for a species.
     """
-    sql_query = f'SELECT * FROM source WHERE organism_id = {self.taxon_id};'
+    sql_query = f'SELECT * FROM source WHERE organism_id IN ({self.all_taxa});'
     return pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)))
 
 def main():
