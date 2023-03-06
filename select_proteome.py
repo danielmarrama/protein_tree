@@ -183,9 +183,10 @@ class ProteomeSelector:
       os.remove(f'species/{self.taxon_id}/{i}.fasta')
       os.remove(f'species/{self.taxon_id}/{i}.db')
     
+    # rename the chosen proteome to proteome.fasta and remove the .db file
     os.rename(f'species/{self.taxon_id}/{proteome_id}.fasta', f'species/{self.taxon_id}/proteome.fasta')
     if self.num_of_proteomes > 1: # there is only a .db file if there is more than one proteome
-      os.rename(f'species/{self.taxon_id}/{proteome_id}.db', f'species/{self.taxon_id}/proteome.db')
+      os.remove(f'species/{self.taxon_id}/{proteome_id}.db')
 
   def select_proteome(self, epitopes_df):
     """
