@@ -16,12 +16,10 @@ from Bio import SeqIO
 from get_data import DataFetcher
 
 
-# TODO:
-# 1. Be able to run this module seperate from protein_tree.py
-# 2. Use a class to store taxon, proteome_id, proteome_list, etc...
-
 class ProteomeSelector:
   def __init__(self, taxon_id):
+    # TODO: replace species.csv with a call to the MySQL backend
+    self.species_df = pd.read_csv('species.csv')
     self.taxon_id = taxon_id
     self.proteome_list = self.get_proteome_list()
     self.num_of_proteomes = len(self.proteome_list)
@@ -96,7 +94,7 @@ class ProteomeSelector:
       with open(f'species/{self.taxon_id}/proteome.fasta', 'a') as f:
         f.write(batch.text)
 
-  def get_gp_proteome_to_fasta(self, group, proteome_id, proteome_taxon):
+  def get_gp_proteome_to_fasta(self, proteome_id, proteome_taxon):
     """
     Write the gene priority proteome to a file.
 
@@ -104,7 +102,9 @@ class ProteomeSelector:
       ftp_url (str): URL to gene priority proteome.
       taxon_id (int): Taxon ID of species.
     """
+    group = self.species_df[self.species_df['Taxon ID'].astype(str) == self.taxon_id]['Group'].iloc[0]
     ftp_url = f'https://ftp.uniprot.org/pub/databases/uniprot/knowledgebase/reference_proteomes/'
+    
     if group == 'archeobacterium':
       ftp_url += f'Archaea/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
     elif group == 'bacterium':
@@ -207,40 +207,53 @@ class ProteomeSelector:
     if self.proteome_list['isRepresentativeProteome'].any():
       self.proteome_list = self.proteome_list[self.proteome_list['isRepresentativeProteome']]
       if self.num_of_proteomes < 2:
+        self.get_proteome_to_fasta(self.proteome_list['upid'].iloc[0])
+        self.get_gp_proteome_to_fasta(self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0])
         return self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0], 'Representative'
       else:
         proteome_id, proteome_taxon = self.get_proteome_with_most_matches(epitopes_df)
         self.remove_other_proteomes(proteome_id)
+        self.get_gp_proteome_to_fasta(proteome_id, proteome_taxon)
         return proteome_id, proteome_taxon, 'Representative'
     
     elif self.proteome_list['isReferenceProteome'].any():
       self.proteome_list = self.proteome_list[self.proteome_list['isReferenceProteome']]
       if self.num_of_proteomes < 2:
+        self.get_proteome_to_fasta(self.proteome_list['upid'].iloc[0])
+        self.get_gp_proteome_to_fasta(self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0])
         return self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0], 'Reference'
       else:
+        self.remove_other_proteomes(proteome_id)
+        self.get_gp_proteome_to_fasta(proteome_id, proteome_taxon)
         proteome_id, proteome_taxon = self.get_proteome_with_most_matches(epitopes_df)
         return proteome_id, proteome_taxon, 'Reference'
 
     elif 'redundantTo' not in self.proteome_list.columns:
       if self.num_of_proteomes < 2:
+        self.get_proteome_to_fasta(self.proteome_list['upid'].iloc[0])
         return self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0], 'Other'
       else:
         proteome_id, proteome_taxon = self.get_proteome_with_most_matches(epitopes_df)
+        self.remove_other_proteomes(proteome_id)
         return proteome_id, proteome_taxon, 'Other'
     
     elif self.proteome_list['redundantTo'].isna().any():
       if self.num_of_proteomes < 2:
+        self.get_proteome_to_fasta(self.proteome_list['upid'].iloc[0])
         return self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0], 'Non-Redudant'
       else:
         self.proteome_list = self.proteome_list[self.proteome_list['redundantTo'].isna()]
         proteome_id, proteome_taxon = self.get_proteome_with_most_matches(epitopes_df)
+        self.remove_other_proteomes(proteome_id)
         return proteome_id, proteome_taxon, 'Non-redundant'
     
     else:
       if self.num_of_proteomes < 2:
+        self.get_proteome_to_fasta(self.proteome_list['upid'].iloc[0])
         return self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0], 'Other'
       else:
         proteome_id, proteome_taxon = self.get_proteome_with_most_matches(epitopes_df)
+        self.remove_other_proteomes(proteome_id)
         return proteome_id, proteome_taxon, 'Other'
 
   def proteome_to_csv(self):
@@ -331,9 +344,6 @@ def main():
     Fetcher = DataFetcher(user, password, taxon_id)
     epitopes_df = Fetcher.get_epitopes()
     sources_df = Fetcher.get_sources()
-    
-    # name = species_df[species_df['Taxon ID'].astype(str) == taxon_id]['Species Label'].iloc[0]
-    # group = species_df[species_df['Taxon ID'].astype(str) == taxon_id]['Group'].iloc[0]
 
     Selector = ProteomeSelector(taxon_id)
     num_of_proteomes, proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
