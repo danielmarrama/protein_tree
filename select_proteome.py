@@ -26,22 +26,21 @@ class ProteomeSelector:
   def get_proteome_list(self):
     """
     Get a list of proteomes for a species from the UniProt API.
+    Check for proteome_type:1 first, which are the representative or
+    reference proteomes.
 
-    If there are no proteomes, return None.
+    If there are no proteomes, return empty DataFrame.
     """
-    # URL to get proteome list for a species - use proteome_type:1 first to get reference proteomes
+    # URL to get proteome list for a species - use proteome_type:1 first
     url = f'https://rest.uniprot.org/proteomes/stream?format=xml&query=(proteome_type:1)AND(taxonomy_id:{self.taxon_id})'
     
-    # read in proteome list for the species from the UniProt API - try to get
-    # the proteome list with proteome_type:1, which are the reference proteomes
-    # if there are no reference proteomes, then try to get the other proteomes
     try:
       proteome_list = pd.read_xml(requests.get(url).text)
     except ValueError:
-      try:
+      try: # delete proteome_type:1 from URL and try again
         url = url.replace('(proteome_type:1)AND', '')
         proteome_list = pd.read_xml(requests.get(url).text)
-      except ValueError: # use all proteins associated with the taxon
+      except ValueError: # if there are no proteomes, return empty DataFrame
         return pd.DataFrame()
 
     # remove the namespace from the columns
@@ -50,7 +49,8 @@ class ProteomeSelector:
 
   def get_next_link(self, headers):
     """
-    UniProt will provide a link to the next batch of proteins.
+    UniProt will provide a link to the next batch of proteins when getting
+    all proteins for a species' taxon ID.
     We can use a regular expression to extract the URL from the header.
 
     Args:
@@ -64,7 +64,7 @@ class ProteomeSelector:
 
   def get_protein_batches(self, batch_url):
     """
-    Get a batches of proteins from UniProt API because it limits the
+    Get a batch of proteins from UniProt API because it limits the
     number of proteins you can get at once. Yield each batch until the 
     URL link is empty.
     
@@ -97,6 +97,7 @@ class ProteomeSelector:
     """
     Write the gene priority proteome to a file. 
     This is only for representative and reference proteomes.
+    Depending on the species group, the FTP URL will be different.
 
     Args:
       proteome_id (str): Proteome ID.
@@ -114,21 +115,25 @@ class ProteomeSelector:
     elif group in ['virus', 'small-virus', 'large-virus']:
       ftp_url += f'Viruses/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
 
-    # write the gene priority proteome to a file
+    # unzip the request and write the gene priority proteome to a file
     with open(f'species/{self.taxon_id}/gp_proteome.fasta', 'wb') as f:
       f.write(gzip.open(requests.get(ftp_url, stream=True).raw, 'rb').read())
 
   def get_proteome_to_fasta(self, proteome_id):
-    """Get the FASTA file for a proteome from UniProt API."""
+    """
+    Get the FASTA file for a proteome from UniProt API.
+    Include all isoforms and do not compress the file.
+    """
     url = f'https://rest.uniprot.org/uniprotkb/stream?query=proteome:{proteome_id}&format=fasta&compressed=false&includeIsoform=true'
     with open(f'species/{self.taxon_id}/{proteome_id}.fasta', 'w') as f:
       f.write(requests.get(url).text)
 
   def get_proteome_with_most_matches(self, epitopes_df):
     """
-    Get the proteome ID and true taxon associated with
-    the proteome with the most proteins in case there is a tie.
-    We get the true taxon so we can extract the data from the FTP server.
+    Get the proteome ID and true taxon ID associated with
+    that proteome with the most epitope matches in case there is a tie.
+    We get the true taxon so we can extract the data from the FTP server
+    if needed.
     """
     # if there is only one proteome, then we don't need to do anything else
     # just get the proteome and return the ID and taxon
@@ -139,19 +144,23 @@ class ProteomeSelector:
     # TODO: be able to check for discontinuous epitopes
     epitopes = [epitope for epitope in epitopes_df['Peptide'] if not any(char.isdigit() for char in epitope)]
     
+    # keep track of # of epitope matches for each proteome
     match_counts = {}
     for proteome_id in list(self.proteome_list['upid']):
       self.get_proteome_to_fasta(proteome_id)
       
+      # PEPMatch preprocessing and matching
       Preprocessor(f'species/{self.taxon_id}/{proteome_id}.fasta', 'sql', f'species/{self.taxon_id}/').preprocess(k=5)
       matches_df = Matcher(epitopes, proteome_id, 0, 5, f'species/{self.taxon_id}/', output_format='dataframe').match()
       
+      # remove any duplicate matches and count the number of matches
       matches_df.drop_duplicates(subset=['Query Sequence'], inplace=True)
       try: 
         match_counts[proteome_id] = matches_df['Matched Sequence'].dropna().count()
       except KeyError:
         match_counts[proteome_id] = 0 # in case there are no matches
 
+    # select the proteome ID and proteome taxon with the most matches
     proteome_id = max(match_counts, key=match_counts.get)
     proteome_taxon = self.proteome_list[self.proteome_list['upid'] == proteome_id]['taxonomy'].iloc[0]
 
@@ -159,8 +168,9 @@ class ProteomeSelector:
 
   def remove_other_proteomes(self, proteome_id):
     """
-    Remove proteome .fasta and .db files that are not the chosen proteome for that species.
-    Also, rename the chosen proteome to proteome.fasta and proteome.db.
+    Remove the proteome FASTA files that are not the chosen proteome for that
+    species. Also, remove the .db files and rename the chosen proteome to 
+    "proteome.fasta".
     """
     proteome_list_to_remove = self.proteome_list[self.proteome_list['upid'] != proteome_id]
     for i in list(proteome_list_to_remove['upid']):
@@ -174,9 +184,10 @@ class ProteomeSelector:
 
   def select_proteome(self, epitopes_df):
     """
-    Select the proteome to use for a species and its taxon ID.
+    Select the best proteome to use for a species. Return the proteome ID, 
+    proteome taxon, and proteome type.
     
-    Check UniProt proteome file for all proteomes associated with that
+    Check UniProt for all candidate proteomes associated with that
     taxon. Then do the following checks:
 
     1. Are there any representative proteomes?
@@ -184,10 +195,11 @@ class ProteomeSelector:
     3. Are there any non-redudant proteomes?
     4. Are there any other proteomes?
 
-    If no to all of the above, then get every protein associated with
-    the taxon using the get_all_proteins method from uniprot.org/taxonomy.
+    If yes to any of the above, check if there are multiples and do epitope
+    search for tie breaks.
 
-    If yes to any of the above, get the proteome ID and type. 
+    If no to all of the above, then get every protein associated with
+    the taxon ID using the get_all_proteins method.
     """
     # if there is no proteome_list, get all proteins associated with that taxon ID
     if self.proteome_list.empty:
