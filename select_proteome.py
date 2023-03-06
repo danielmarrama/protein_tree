@@ -9,7 +9,7 @@ import gzip
 import argparse
 import pandas as pd
 import requests
-from requests.adapters import HTTPAdapter, Retry
+
 from pepmatch import Preprocessor, Matcher
 from Bio import SeqIO
 
@@ -243,6 +243,8 @@ class ProteomeSelector:
     proteins = list(SeqIO.parse(f'species/{self.taxon_id}/proteome.fasta', 'fasta'))
     if os.path.isfile(f'species/{self.taxon_id}/gp_proteome.fasta'):
       gp_ids = [str(protein.id.split('|')[1]) for protein in list(SeqIO.parse('9606_gp.fasta', 'fasta'))]
+    else:
+      gp_ids = []
 
     # start collecting proteome data
     proteome_data = []
@@ -266,7 +268,7 @@ class ProteomeSelector:
       
       proteome_data.append([protein.id.split('|')[0], gene, uniprot_id, gp, pe_level, str(protein.seq)])
       
-    pd.DataFrame(data, columns=['db', 'gene', 'id', 'gp', 'pe_level', 'seq']).to_csv(f'species/{self.taxon_id}/proteome.csv', index=False)
+    pd.DataFrame(proteome_data, columns=['db', 'gene', 'id', 'gp', 'pe_level', 'seq']).to_csv(f'species/{self.taxon_id}/proteome.csv', index=False)
 
 def main():
   # define command line args which will take in a taxon ID, user, and password (for IEDB MySQL connection)
@@ -298,10 +300,9 @@ def main():
       # select proteome
       Selector = ProteomeSelector(taxon_id)
       num_of_proteomes, proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
-      # Selector.proteome_to_csv()
+      Selector.proteome_to_csv()
       
       proteomes[taxon_id] = (num_of_proteomes, proteome_id, proteome_taxon, proteome_type)
-      proteome_to_csv(taxon_id)
       print(f'# of Proteomes: {num_of_proteomes}')
       print(f'Proteome ID: {proteome_id}')
       print(f'Proteome taxon: {proteome_taxon}')
@@ -326,7 +327,7 @@ def main():
 
     Selector = ProteomeSelector(taxon_id)
     num_of_proteomes, proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
-    # Selector.proteome_to_csv()
+    Selector.proteome_to_csv()
 
     print(f'# of Proteomes: {num_of_proteomes}')
     print(f'Proteome ID: {proteome_id}')

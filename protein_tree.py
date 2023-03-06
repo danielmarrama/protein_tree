@@ -8,6 +8,9 @@ from get_data import DataFetcher
 from select_proteome import ProteomeSelector
 from assign_genes import GeneAssigner
 
+# TODO:
+# - when running all species, update species.csv with proteome ID, proteome taxon, and proteome type
+#
 
 def run_protein_tree(user, password, taxon_id, all_taxa):
   """
@@ -27,15 +30,18 @@ def run_protein_tree(user, password, taxon_id, all_taxa):
   print('Getting the best proteome...')
   Selector = ProteomeSelector(taxon_id)
   proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
+  Selector.proteome_to_csv()
   
-  print(f'Number of proteomes: {Selector.num_of_proteomes}\n')
+  print(f'Number of candidate proteomes: {Selector.num_of_proteomes}\n')
   print('Got the best proteome:')
   print(f'Proteome ID: {proteome_id}')
   print(f'Proteome taxon: {proteome_taxon}')
   print(f'Proteome type: {proteome_type}')
 
-  print('\nAssigning genes to proteins...\n')
-  # assign_genes.assign_genes(taxon_id, proteome_id)
+  print('\nAssigning genes to source antigens...\n')
+  Assigner = GeneAssigner(taxon_id, sources_df, epitopes_df)
+  # Assigner.assign_genes()
+  # Assigner.assign_parents()
 
 def main():
   parser = argparse.ArgumentParser()
