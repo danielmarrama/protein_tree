@@ -31,8 +31,10 @@ class DataFetcher:
     """
     Get all source antigens for a species.
     """
-    sql_query = f'SELECT * FROM source WHERE organism_id IN ({self.all_taxa});'
-    return pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)))
+    sql_query = f'SELECT accession, name, sequence, organism_id, organism_name '\
+                f'FROM source WHERE organism_id IN ({self.all_taxa});'
+    columns = ['Accession', 'Name', 'Sequence', 'Organism ID', 'Organism Name']
+    return pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)), columns=columns)
 
 def main():
   # define command line args which will take in a taxon ID
