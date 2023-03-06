@@ -24,7 +24,7 @@ def run_protein_tree(user, password, taxon_id):
   
   print('Done getting data.\n')
 
-  print('Selecting the best proteome...')
+  print('Getting the best proteome...')
   Selector = ProteomeSelector(taxon_id)
   proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
   
