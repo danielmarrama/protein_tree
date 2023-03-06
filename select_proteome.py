@@ -142,16 +142,15 @@ class ProteomeSelector:
     match_counts = {}
     for proteome_id in list(self.proteome_list['upid']):
       self.get_proteome_to_fasta(proteome_id)
+      
       Preprocessor(f'species/{self.taxon_id}/{proteome_id}.fasta', 'sql', f'species/{self.taxon_id}/').preprocess(k=5)
       matches_df = Matcher(epitopes, proteome_id, 0, 5, f'species/{self.taxon_id}/', output_format='dataframe').match()
-
+      
       matches_df.drop_duplicates(subset=['Query Sequence'], inplace=True)
-      try:
+      try: 
         match_counts[proteome_id] = matches_df['Matched Sequence'].dropna().count()
       except KeyError:
-        match_counts[proteome_id] = 0
-      
-    print(match_counts)
+        match_counts[proteome_id] = 0 # in case there are no matches
 
     proteome_id = max(match_counts, key=match_counts.get)
     proteome_taxon = self.proteome_list[self.proteome_list['upid'] == proteome_id]['taxonomy'].iloc[0]

@@ -38,7 +38,6 @@ def run_protein_tree(user, password, taxon_id, all_taxa):
   # assign_genes.assign_genes(taxon_id, proteome_id)
 
 def main():
-  # define command line args which will take in a taxon ID
   parser = argparse.ArgumentParser()
   
   parser.add_argument('-u', '--user', required=True, help='User for IEDB MySQL connection.')
@@ -52,8 +51,11 @@ def main():
   all_species = args.all_species
   taxon_id = args.taxon_id
 
+  # read in IEDB species data
   species_df = pd.read_csv('species.csv')
   valid_taxon_ids = species_df['Taxon ID'].astype(str).tolist()
+
+  # dicts for mapping taxon IDs to all their taxa and their names
   all_taxa_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['All Taxa']))
   id_to_names = dict(zip(species_df['Taxon ID'].astype(str), species_df['Species Label']))
 
