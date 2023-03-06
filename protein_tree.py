@@ -9,7 +9,7 @@ from select_proteome import ProteomeSelector
 from assign_genes import GeneAssigner
 
 
-def run_protein_tree(Fetcher, taxon_id):
+def run_protein_tree(user, password, taxon_id):
   """
   Build protein tree for a species.
   """
@@ -18,6 +18,7 @@ def run_protein_tree(Fetcher, taxon_id):
 
   print('Getting epitopes and sources data...')
 
+  Fetcher = DataFetcher(user, password, taxon_id)
   epitopes_df = Fetcher.get_epitopes()
   sources_df = Fetcher.get_sources()
   
@@ -42,15 +43,16 @@ def main():
   
   parser.add_argument('-u', '--user', required=True, help='User for IEDB MySQL connection.')
   parser.add_argument('-p', '--password', required=True, help='Password for IEDB MySQL connection.')
-  parser.add_argument('-t', '--taxon_id', required=True, help='Taxon ID for the species to pull data for.')
+  parser.add_argument('-a', '--all_species', action='store_true', help='Build protein tree for all IEDB species.')
+  parser.add_argument('-t', '--taxon_id', help='Taxon ID for the species to run protein tree.')
   
   args = parser.parse_args()
   user = args.user
   password = args.password
+  all_species = args.all_species
   taxon_id = args.taxon_id
 
-  Fetcher = DataFetcher(user, password, taxon_id)
-  species_df = Fetcher.get_species()
+  species_df = pd.read_csv('species.csv')
   valid_taxon_ids = species_df['Taxon ID'].astype(str).tolist()
   id_to_names = dict(zip(species_df['Taxon ID'].astype(str), species_df['Species Label']))
 
@@ -58,17 +60,19 @@ def main():
   os.makedirs('species', exist_ok=True)
 
   # run protein tree for all IEDB species 
-  if taxon_id == 'all':
-    for taxon_id in valid_taxon_ids:
-      print(f'Building protein tree for {id_to_names[taxon_id]} (ID: {taxon_id})...\n')
-      run_protein_tree(Fetcher, taxon_id)
+  if all_species:
+    for t_id in valid_taxon_ids:
+      print(f'Building protein tree for {id_to_names[t_id]} (ID: {t_id})...\n')
+      os.makedirs(f'species/{t_id}', exist_ok=True)
+      run_protein_tree(user, password, t_id)
       print('Protein tree build done.')
 
   # or one species at a time
   else:
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     print(f'Building protein tree for {id_to_names[taxon_id]} (ID: {taxon_id})...\n')
-    run_protein_tree(Fetcher, taxon_id)
+    os.makedirs(f'species/{taxon_id}', exist_ok=True)
+    run_protein_tree(user, password, taxon_id)
     print('Protein tree build done.')
 
 if __name__ == '__main__':

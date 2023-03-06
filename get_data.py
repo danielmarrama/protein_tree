@@ -13,12 +13,6 @@ class DataFetcher:
     self.sql_engine = create_engine(f'mysql://{user}:{password}@iedb-mysql.liai.org:33306/iedb_query')
     self.taxon_id = taxon_id
 
-  def get_species(self):
-    """
-    Get all IEDB species.
-    """
-    return pd.read_csv('species.csv')
-
   def get_epitopes(self):
     """
     Get all epitopes for a species.

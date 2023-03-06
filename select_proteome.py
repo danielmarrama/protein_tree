@@ -119,27 +119,7 @@ class ProteomeSelector:
       f.write(gzip.open(requests.get(ftp_url, stream=True).raw, 'rb').read())
 
   def get_proteome_to_fasta(self, proteome_id):
-    """
-    Get the FASTA file for a proteome from UniProt. Either through the
-    API or the FTP server. If the proteome is a reference proteome, then
-    we also need to get the gene priority proteome, which is a file that 
-    contains the best protein record for each gene. We will use this for 
-    better gene assignment in the assign_genes.py script.
-
-    If the proteome is not a representative or reference proteome, then
-    we will just get the FASTA file from the API.
-
-    Args:
-      taxon_id (int):       Taxon ID of species.
-      group (str):          Group of species. (e.g. bacterium)
-      proteome_id (str):    Proteome ID.
-      proteome_taxon (int): Taxon ID of proteome.
-      proteome_type (str):  Proteome type. Either: 1. Representative, 
-                            2. Reference, 3. Non-redundant, 4. Other
-    """
-    # create directory for the species if it doesn't exist
-    os.makedirs(f'species/{self.taxon_id}', exist_ok=True)
-
+    """Get the FASTA file for a proteome from UniProt API."""
     url = f'https://rest.uniprot.org/uniprotkb/stream?query=proteome:{proteome_id}&format=fasta&compressed=false&includeIsoform=true'
     with open(f'species/{self.taxon_id}/{proteome_id}.fasta', 'w') as f:
       f.write(requests.get(url).text)
@@ -164,9 +144,14 @@ class ProteomeSelector:
       self.get_proteome_to_fasta(proteome_id)
       Preprocessor(f'species/{self.taxon_id}/{proteome_id}.fasta', 'sql', f'species/{self.taxon_id}/').preprocess(k=5)
       matches_df = Matcher(epitopes, proteome_id, 0, 5, f'species/{self.taxon_id}/', output_format='dataframe').match()
-      
+
       matches_df.drop_duplicates(subset=['Query Sequence'], inplace=True)
-      match_counts[proteome_id] = matches_df['Matched Sequence'].dropna().count()
+      try:
+        match_counts[proteome_id] = matches_df['Matched Sequence'].dropna().count()
+      except KeyError:
+        match_counts[proteome_id] = 0
+      
+    print(match_counts)
 
     proteome_id = max(match_counts, key=match_counts.get)
     proteome_taxon = self.proteome_list[self.proteome_list['upid'] == proteome_id]['taxonomy'].iloc[0]
