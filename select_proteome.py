@@ -96,11 +96,12 @@ class ProteomeSelector:
 
   def get_gp_proteome_to_fasta(self, proteome_id, proteome_taxon):
     """
-    Write the gene priority proteome to a file.
+    Write the gene priority proteome to a file. 
+    This is only for representative and reference proteomes.
 
     Args:
-      ftp_url (str): URL to gene priority proteome.
-      taxon_id (int): Taxon ID of species.
+      proteome_id (str): Proteome ID.
+      proteome_taxon (str): Taxon ID for the proteome.
     """
     group = self.species_df[self.species_df['Taxon ID'].astype(str) == self.taxon_id]['Group'].iloc[0]
     ftp_url = f'https://ftp.uniprot.org/pub/databases/uniprot/knowledgebase/reference_proteomes/'
@@ -154,7 +155,7 @@ class ProteomeSelector:
     # just get the proteome and return the ID and taxon
     if self.num_of_proteomes == 1:
       self.get_proteome_to_fasta(self.proteome_list['upid'].iloc[0])
-      return self.proteome_list['upid'].iloc[0], self.proteome_list['taxon'].iloc[0]
+      return self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0]
 
     # TODO: be able to check for discontinuous epitopes
     epitopes = [epitope for epitope in epitopes_df['Peptide'] if not any(char.isdigit() for char in epitope)]
@@ -184,7 +185,8 @@ class ProteomeSelector:
       os.remove(f'species/{self.taxon_id}/{i}.db')
     
     os.rename(f'species/{self.taxon_id}/{proteome_id}.fasta', f'species/{self.taxon_id}/proteome.fasta')
-    os.rename(f'species/{self.taxon_id}/{proteome_id}.db', f'species/{self.taxon_id}/proteome.db')
+    if self.num_of_proteomes > 1: # there is only a .db file if there is more than one proteome
+      os.rename(f'species/{self.taxon_id}/{proteome_id}.db', f'species/{self.taxon_id}/proteome.db')
 
   def select_proteome(self, epitopes_df):
     """
