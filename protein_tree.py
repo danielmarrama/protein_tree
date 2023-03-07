@@ -12,12 +12,12 @@ from assign_genes import GeneAssigner
 # - when running all species, update species.csv with proteome ID, proteome taxon, and proteome type
 #
 
-def run_protein_tree(user, password, taxon_id, all_taxa):
+def run_protein_tree(user, password, taxon_id, species_name, all_taxa):
   """
   Build protein tree for a species.
   """
   # make species folder if it doesn't exist
-  os.makedirs(f'species/{taxon_id}', exist_ok=True)
+  os.makedirs(f'species/{taxon_id}-{species_name.replace(" ", "_")}', exist_ok=True)
 
   print('Getting epitopes and sources data...')
 
@@ -28,15 +28,15 @@ def run_protein_tree(user, password, taxon_id, all_taxa):
   print('Done getting data.\n')
 
   print('Getting the best proteome...')
-  # Selector = ProteomeSelector(taxon_id)
-  # proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
-  # Selector.proteome_to_csv()
+  Selector = ProteomeSelector(taxon_id)
+  proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
+  Selector.proteome_to_csv()
   
-  # print(f'Number of candidate proteomes: {Selector.num_of_proteomes}\n')
-  # print('Got the best proteome:')
-  # print(f'Proteome ID: {proteome_id}')
-  # print(f'Proteome taxon: {proteome_taxon}')
-  # print(f'Proteome type: {proteome_type}')
+  print(f'Number of candidate proteomes: {Selector.num_of_proteomes}\n')
+  print('Got the best proteome:')
+  print(f'Proteome ID: {proteome_id}')
+  print(f'Proteome taxon: {proteome_taxon}')
+  print(f'Proteome type: {proteome_type}')
 
   print('\nAssigning genes to source antigens...\n')
   Assigner = GeneAssigner(taxon_id)
@@ -64,7 +64,7 @@ def main():
 
   # dicts for mapping taxon IDs to all their taxa and their names
   all_taxa_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['All Taxa']))
-  id_to_names = dict(zip(species_df['Taxon ID'].astype(str), species_df['Species Label']))
+  species_id_to_name_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['Species Label']))
 
   # make species folder if it doesn't exist
   os.makedirs('species', exist_ok=True)
@@ -72,15 +72,15 @@ def main():
   # run protein tree for all IEDB species 
   if all_species:
     for t_id in valid_taxon_ids:
-      print(f'Building protein tree for {id_to_names[t_id]} (ID: {t_id})...\n')
-      run_protein_tree(user, password, t_id, all_taxa_map[t_id])
+      print(f'Building protein tree for {species_id_to_name_map[t_id]} (ID: {t_id})...\n')
+      run_protein_tree(user, password, t_id, species_id_to_name_map[t_id], all_taxa_map[t_id])
       print('Protein tree build done.')
 
   # or one species at a time
   else:
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
-    print(f'Building protein tree for {id_to_names[taxon_id]} (ID: {taxon_id})...\n')
-    run_protein_tree(user, password, taxon_id, all_taxa_map[taxon_id])
+    print(f'Building protein tree for {species_id_to_name_map[taxon_id]} (ID: {taxon_id})...\n')
+    run_protein_tree(user, password, taxon_id, species_id_to_name_map[taxon_id], all_taxa_map[taxon_id])
     print('Protein tree build done.')
 
 if __name__ == '__main__':

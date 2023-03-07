@@ -16,6 +16,10 @@ class GeneAssigner:
     self.species_df = pd.read_csv('species.csv')
     self.taxon_id = taxon_id
 
+    # create species path with species taxon and name; example: "24-Shewanella putrefaciens"
+    species_id_to_name_map = dict(zip(self.species_df['Taxon ID'].astype(str), self.species_df['Species Label']))
+    self.species_path = f'species/{taxon_id}-{species_id_to_name_map[taxon_id].replace(" ", "_")}'
+
   def assign_genes(self, sources_df, epitopes_df):
     """
     Assign a gene to the source antigens of a species.
@@ -69,7 +73,7 @@ class GeneAssigner:
     """
     # write sources that are missing sequences to file and then drop those
     if not sources_df[sources_df['Sequence'].isna()].empty:
-      sources_df[sources_df['Sequence'].isna()].to_csv(f'species/{self.taxon_id}/sources_missing_seqs.csv', index=False)
+      sources_df[sources_df['Sequence'].isna()].to_csv(f'{self.species_path}/sources_missing_seqs.csv', index=False)
    
     sources_df.dropna(subset=['Sequence'], inplace=True)
 
@@ -84,22 +88,21 @@ class GeneAssigner:
           description='')
       )
 
-    with open(f'species/{self.taxon_id}/sources.fasta', 'w') as f:
+    with open(f'{self.species_path}/sources.fasta', 'w') as f:
       SeqIO.write(seq_records, f, 'fasta')
 
   def _create_blast_db(self):
-    os.system(f'./makeblastdb -in species/{self.taxon_id}/proteome.fasta -dbtype prot')
+    os.system(f'./makeblastdb -in {self.species_path}/proteome.fasta -dbtype prot')
 
   def _run_blast(self):
     '''
     BLAST source antigens against the selected proteome, then read in with
     pandas and assign column names. By default, blastp doesn't return header.
     '''
-    results_path = f'species/{self.taxon_id}/blast_results.csv'
-    os.system(f'./blastp -query species/{self.taxon_id}/sources.fasta '\
-              f'-db species/{self.taxon_id}/proteome.fasta '\
+    os.system(f'./blastp -query {self.species_path}/sources.fasta '\
+              f'-db {self.species_path}/proteome.fasta '\
               f'-evalue 0.0001 -num_threads 1 -outfmt 10 '\
-              f'-out {results_path}'
+              f'-out {self.species_path}/blast_results.csv'
     )
     
     result_columns = ['query', 'subject', '%_identity', 'alignment_length', 
@@ -107,7 +110,7 @@ class GeneAssigner:
                       's_start', 's_end', 'evalue', 'bit_score']
 
     # read in results that were just written and rewrite with column headers
-    pd.read_csv(results_path, names=result_columns).to_csv(results_path, index=False)
+    pd.read_csv(f'{self.species_path}/blast_results.csv', names=result_columns).to_csv(f'{self.species_path}/blast_results.csv', index=False)
 
 
   def _no_blast_match(self):
@@ -115,11 +118,11 @@ class GeneAssigner:
 
     # get all source ids
     source_ids = []
-    for record in list(SeqIO.parse(f'{self.taxon_id}/sources.fasta', 'fasta')):
+    for record in list(SeqIO.parse(f'{self.species_path}/sources.fasta', 'fasta')):
       source_ids.append(str(record.id))
     
     # get BLAST results and then get ids that are not in results
-    blast_results = pd.read_csv(f'{self.taxon_id}/blast_results.csv')
+    blast_results = pd.read_csv(f'{self.species_path}/blast_results.csv')
     blast_result_ids = list(blast_results['query'].unique())
 
   def _pepmatch_tiebreak():

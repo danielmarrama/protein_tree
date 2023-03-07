@@ -51,6 +51,7 @@ def main():
 
   # read in IEDB species data
   species_df = pd.read_csv('species.csv')
+  species_id_to_name_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['Species Label']))
   all_taxa_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['All Taxa']))
 
   # get epitopes and source antigens
@@ -59,11 +60,12 @@ def main():
   sources_df = Fetcher.get_sources()
 
   # create directory for species and taxon ID
-  os.makedirs(f'species/{taxon_id}', exist_ok=True)
+  species_path = f'species/{taxon_id}-{species_id_to_name_map[taxon_id].replace(" ", "_")}'
+  os.makedirs(species_path, exist_ok=True)
 
   # write epitopes and source antigens to files
-  epitopes_df.to_csv(f'species/{taxon_id}/epitopes.csv', index=False)
-  sources_df.to_csv(f'species/{taxon_id}/sources.csv', index=False)
+  epitopes_df.to_csv(f'{species_path}/epitopes.csv', index=False)
+  sources_df.to_csv(f'{species_path}/sources.csv', index=False)
 
 if __name__ == '__main__':
   main()

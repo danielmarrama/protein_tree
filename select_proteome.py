@@ -23,6 +23,10 @@ class ProteomeSelector:
     self.proteome_list = self._get_proteome_list()
     self.num_of_proteomes = len(self.proteome_list)
 
+    # create species path with species taxon and name; example: "24-Shewanella putrefaciens"
+    species_id_to_name_map = dict(zip(self.species_df['Taxon ID'].astype(str), self.species_df['Species Label']))
+    self.species_path = f'species/{taxon_id}-{species_id_to_name_map[taxon_id].replace(" ", "_")}'
+
   def select_proteome(self, epitopes_df):
     """
     Select the best proteome to use for a species. Return the proteome ID, 
@@ -81,9 +85,9 @@ class ProteomeSelector:
     Write the proteome data for a species to a CSV file for later use.
     """
     # read in the FASTA file and then get the gene priority IDs if they exist
-    proteins = list(SeqIO.parse(f'species/{self.taxon_id}/proteome.fasta', 'fasta'))
+    proteins = list(SeqIO.parse(f'{self.species_path}/proteome.fasta', 'fasta'))
 
-    gp_proteome_path = f'species/{self.taxon_id}/gp_proteome.fasta'
+    gp_proteome_path = f'{self.species_path}/gp_proteome.fasta'
     if os.path.isfile(gp_proteome_path):
       gp_ids = [str(protein.id.split('|')[1]) for protein in list(SeqIO.parse(gp_proteome_path, 'fasta'))]
     else:
@@ -111,7 +115,7 @@ class ProteomeSelector:
       
       proteome_data.append([protein.id.split('|')[0], gene, uniprot_id, gp, pe_level, str(protein.seq)])
       
-    pd.DataFrame(proteome_data, columns=['db', 'gene', 'id', 'gp', 'pe_level', 'seq']).to_csv(f'species/{self.taxon_id}/proteome.csv', index=False)
+    pd.DataFrame(proteome_data, columns=['db', 'gene', 'id', 'gp', 'pe_level', 'seq']).to_csv(f'{self.species_path}/proteome.csv', index=False)
 
   def _get_proteome_list(self):
     """
@@ -150,7 +154,7 @@ class ProteomeSelector:
 
     # loop through all protein batches and write proteins to FASTA file
     for batch in self._get_protein_batches(url):
-      with open(f'species/{self.taxon_id}/proteome.fasta', 'a') as f:
+      with open(f'{self.species_path}/proteome.fasta', 'a') as f:
         f.write(batch.text)
 
   def _get_protein_batches(self, batch_url):
@@ -206,7 +210,7 @@ class ProteomeSelector:
       ftp_url += f'Viruses/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
 
     # unzip the request and write the gene priority proteome to a file
-    with open(f'species/{self.taxon_id}/gp_proteome.fasta', 'wb') as f:
+    with open(f'{self.species_path}/gp_proteome.fasta', 'wb') as f:
       f.write(gzip.open(requests.get(ftp_url, stream=True).raw, 'rb').read())
 
   def _get_proteome_to_fasta(self, proteome_id):
@@ -215,7 +219,7 @@ class ProteomeSelector:
     Include all isoforms and do not compress the file.
     """
     url = f'https://rest.uniprot.org/uniprotkb/stream?query=proteome:{proteome_id}&format=fasta&compressed=false&includeIsoform=true'
-    with open(f'species/{self.taxon_id}/{proteome_id}.fasta', 'w') as f:
+    with open(f'{self.species_path}/{proteome_id}.fasta', 'w') as f:
       f.write(requests.get(url).text)
 
   def _get_proteome_with_most_matches(self, epitopes_df):
@@ -240,8 +244,8 @@ class ProteomeSelector:
       self._get_proteome_to_fasta(proteome_id)
       
       # PEPMatch preprocessing and matching
-      Preprocessor(f'species/{self.taxon_id}/{proteome_id}.fasta', 'sql', f'species/{self.taxon_id}/').preprocess(k=5)
-      matches_df = Matcher(epitopes, proteome_id, 0, 5, f'species/{self.taxon_id}/', output_format='dataframe').match()
+      Preprocessor(f'{self.species_path}/{proteome_id}.fasta', 'sql', f'{self.species_path}').preprocess(k=5)
+      matches_df = Matcher(epitopes, proteome_id, 0, 5, f'{self.species_path}', output_format='dataframe').match()
       
       # remove any duplicate matches and count the number of matches
       matches_df.drop_duplicates(subset=['Query Sequence'], inplace=True)
@@ -264,13 +268,13 @@ class ProteomeSelector:
     """
     proteome_list_to_remove = self.proteome_list[self.proteome_list['upid'] != proteome_id]
     for i in list(proteome_list_to_remove['upid']):
-      os.remove(f'species/{self.taxon_id}/{i}.fasta')
-      os.remove(f'species/{self.taxon_id}/{i}.db')
+      os.remove(f'{self.species_path}/{i}.fasta')
+      os.remove(f'{self.species_path}/{i}.db')
     
     # rename the chosen proteome to proteome.fasta and remove the .db file
-    os.rename(f'species/{self.taxon_id}/{proteome_id}.fasta', f'species/{self.taxon_id}/proteome.fasta')
+    os.rename(f'{self.species_path}/{proteome_id}.fasta', f'{self.species_path}/proteome.fasta')
     if self.num_of_proteomes > 1: # there is only a .db file if there is more than one proteome
-      os.remove(f'species/{self.taxon_id}/{proteome_id}.db')
+      os.remove(f'{self.species_path}/{proteome_id}.db')
 
 
 def main():
