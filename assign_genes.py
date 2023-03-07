@@ -37,8 +37,8 @@ class GeneAssigner:
     # create blast database
     self._create_blast_db()
 
-    # # run blast
-    # self.run_blast()
+    # run blast
+    self._run_blast()
 
     # # read in blast results
     # self.blast_results = self.read_blast_results()
@@ -92,18 +92,22 @@ class GeneAssigner:
 
   def _run_blast(self):
     '''
-    Run blastp with source antigens to the proteome.
-    Then read in with pandas and assign column names.
+    BLAST source antigens against the selected proteome, then read in with
+    pandas and assign column names. By default, blastp doesn't return header.
     '''
-    path = f'{self.taxon_id}/blast_results.csv'
-    os.system(f'./blastp -query test.fasta -db {self.taxon_id}/proteome.fasta'\
-              f' -evalue 0.0001 -num_threads 14 -outfmt 10 -out {path}'
+    results_path = f'species/{self.taxon_id}/blast_results.csv'
+    os.system(f'./blastp -query species/{self.taxon_id}/sources.fasta '\
+              f'-db species/{self.taxon_id}/proteome.fasta '\
+              f'-evalue 0.0001 -num_threads 1 -outfmt 10 '\
+              f'-out {results_path}'
     )
     
-    blast_columns = ['query', 'subject', '%_identity', 'alignment_length', 
+    result_columns = ['query', 'subject', '%_identity', 'alignment_length', 
                       'mismatches', 'gap_opens', 'q_start', 'q_end', 
                       's_start', 's_end', 'evalue', 'bit_score']
-    pd.read_csv(path, names=blast_columns).to_csv(path, index=False)
+
+    # read in results that were just written and rewrite with column headers
+    pd.read_csv(results_path, names=result_columns).to_csv(results_path, index=False)
 
 
   def _no_blast_match(self):
