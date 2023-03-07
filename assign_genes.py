@@ -34,8 +34,8 @@ class GeneAssigner:
     # write sources to fasta
     self._sources_to_fasta(sources_df)
 
-    # # create blast database
-    # self._create_blast_db()
+    # create blast database
+    self._create_blast_db()
 
     # # run blast
     # self.run_blast()
