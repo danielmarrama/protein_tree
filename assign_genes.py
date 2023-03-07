@@ -107,14 +107,14 @@ class GeneAssigner:
               f'-out {self.species_path}/blast_results.csv'
     )
     
-    result_columns = ['query', 'subject', '%_identity', 'alignment_length', 
-                      'mismatches', 'gap_opens', 'q_start', 'q_end', 
-                      's_start', 's_end', 'evalue', 'bit_score']
+    result_columns = ['Query', 'Subject', 'Percentage Identity', 'Alignment Length', 
+                      'Mismatches', 'Gap Opens', 'Query Start', 'Query End', 
+                      'Subject Start', 'Subject End', 'e-Value', 'Bit Score']
 
     # read in results that were just written and map subject UniProt IDs to gene symbols
     blast_results_df = pd.read_csv(f'{self.species_path}/blast_results.csv', names=result_columns)
-    blast_results_df['subject'] = blast_results_df['subject'].str.split('|').str[1]
-    blast_results_df['subject_gene_symbol'] = blast_results_df['subject'].map(self.uniprot_id_to_gene_symbol_map)
+    blast_results_df['Subject'] = blast_results_df['Subject'].str.split('|').str[1]
+    blast_results_df['Subject Gene Symbol'] = blast_results_df['Subject'].map(self.uniprot_id_to_gene_symbol_map)
     
     # write results with column header and gene symbols to file
     blast_results_df.to_csv(f'{self.species_path}/blast_results.csv', index=False)
