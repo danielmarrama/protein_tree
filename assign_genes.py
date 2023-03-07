@@ -32,20 +32,18 @@ class GeneAssigner:
     If there are ties, use PEPMatch to search the epitopes within
     the protein sequences and select the protein with the most matches.
     """
-    # create source to epitope map
+    # create source to epitope map and write sources to FASTA file
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
-
-    # write sources to fasta
     self._sources_to_fasta(sources_df)
 
-    # create blast database
+    # create BLAST database and run blastp
     self._create_blast_db()
-
-    # run blast
     self._run_blast()
 
-    # # read in blast results
-    # self.blast_results = self.read_blast_results()
+    # write source antigens that did not get a BLAST match to a file
+    # and store the percentage of them
+    self.perc_no_blast_matches = self._no_blast_matches
+    
 
     # # assign genes to sources
     # self.assign_genes_to_sources()
@@ -113,10 +111,9 @@ class GeneAssigner:
     pd.read_csv(f'{self.species_path}/blast_results.csv', names=result_columns).to_csv(f'{self.species_path}/blast_results.csv', index=False)
 
 
-  def _no_blast_match(self):
+  def _no_blast_matches(self):
     '''Write sources that have no BLAST match to a file.'''
-
-    # get all source ids
+    # get all source antigen ids
     source_ids = []
     for record in list(SeqIO.parse(f'{self.species_path}/sources.fasta', 'fasta')):
       source_ids.append(str(record.id))
@@ -124,6 +121,15 @@ class GeneAssigner:
     # get BLAST results and then get ids that are not in results
     blast_results = pd.read_csv(f'{self.species_path}/blast_results.csv')
     blast_result_ids = list(blast_results['query'].unique())
+
+    no_blast_match_ids = list(set(source_ids) - set(blast_result_ids))
+
+    # write no BLAST match ids to a file
+    with open(f'{self.species_path}/no_blast_match_ids.txt', 'w') as f:
+      for id in no_blast_match_ids:
+        f.write(f'{id}\n')
+    
+    return len(no_blast_match_ids) // len(source_ids)
 
   def _pepmatch_tiebreak():
     pass
