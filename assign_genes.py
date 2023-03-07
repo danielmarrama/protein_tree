@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import os
-
+import glob
 import pandas as pd
 
 from pepmatch import Preprocessor, Matcher
@@ -36,14 +36,15 @@ class GeneAssigner:
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
     self._sources_to_fasta(sources_df)
 
-    # create BLAST database and run blastp
+    # create BLAST database, run blastp, and remove db files
     self._create_blast_db()
     self._run_blast()
+    self._remove_blast_db_files()
 
     # write source antigens that did not get a BLAST match to a file
     # and store the percentage of them
     self.perc_no_blast_matches = self._no_blast_matches
-    
+
 
     # # assign genes to sources
     # self.assign_genes_to_sources()
@@ -110,6 +111,10 @@ class GeneAssigner:
     # read in results that were just written and rewrite with column headers
     pd.read_csv(f'{self.species_path}/blast_results.csv', names=result_columns).to_csv(f'{self.species_path}/blast_results.csv', index=False)
 
+  def _remove_blast_db_files(self):
+    """Delete all the files that were created when making the BLAST database."""
+    for extension in ['pdb', 'phr', 'pin', 'pjs', 'pot', 'psq', 'ptf', 'pto']:
+      os.remove(glob.glob(f'{self.species_path}/*.{extension}')[0])
 
   def _no_blast_matches(self):
     '''Write sources that have no BLAST match to a file.'''
