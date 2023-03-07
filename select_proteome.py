@@ -114,8 +114,9 @@ class ProteomeSelector:
         pe_level = 0
       
       proteome_data.append([protein.id.split('|')[0], gene, uniprot_id, gp, pe_level, str(protein.seq)])
-      
-    pd.DataFrame(proteome_data, columns=['db', 'gene', 'id', 'gp', 'pe_level', 'seq']).to_csv(f'{self.species_path}/proteome.csv', index=False)
+    
+    columns = ['Database', 'Gene Symbol', 'UniProt ID', 'Gene Priority', 'Protein Existence Level', 'Sequence']
+    pd.DataFrame(proteome_data, columns=columns).to_csv(f'{self.species_path}/proteome.csv', index=False)
 
   def _get_proteome_list(self):
     """

@@ -9,8 +9,10 @@ from select_proteome import ProteomeSelector
 from assign_genes import GeneAssigner
 
 # TODO:
+# - create UniProt ID to gene symbol map using proteome.csv
 # - when running all species, update species.csv with proteome ID, proteome taxon, and proteome type
-#
+# - create a .txt file with the tree structure of gene --> relevant isoforms
+# - either update PEPMatch to search discontinous epitopes or write a new function to do it
 
 def run_protein_tree(user, password, taxon_id, species_name, all_taxa):
   """
@@ -36,12 +38,11 @@ def run_protein_tree(user, password, taxon_id, species_name, all_taxa):
   # print('Got the best proteome:')
   # print(f'Proteome ID: {proteome_id}')
   # print(f'Proteome taxon: {proteome_taxon}')
-  # print(f'Proteome type: {proteome_type}')
+  # print(f'Proteome type: {proteome_type}\n')
 
-  print('\nAssigning genes to source antigens...\n')
+  print('Assigning genes to source antigens...')
   Assigner = GeneAssigner(taxon_id)
   Assigner.assign_genes(sources_df, epitopes_df)
-  
   # Assigner.assign_parents()
 
 def main():

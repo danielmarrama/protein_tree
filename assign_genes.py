@@ -20,6 +20,10 @@ class GeneAssigner:
     species_id_to_name_map = dict(zip(self.species_df['Taxon ID'].astype(str), self.species_df['Species Label']))
     self.species_path = f'species/{taxon_id}-{species_id_to_name_map[taxon_id].replace(" ", "_")}'
 
+    # create UniProt ID to gene symbol map from proteome.csv file
+    proteome = pd.read_csv(f'{self.species_path}/proteome.csv')
+    self.uniprot_id_to_gene_symbol_map = dict(zip(proteome['UniProt ID'], proteome['Gene Symbol']))
+
   def assign_genes(self, sources_df, epitopes_df):
     """
     Assign a gene to the source antigens of a species.
@@ -43,8 +47,7 @@ class GeneAssigner:
 
     # write source antigens that did not get a BLAST match to a file
     # and store the percentage of them
-    self.perc_no_blast_matches = self._no_blast_matches
-
+    self.perc_no_blast_matches = self._no_blast_matches()
 
     # # assign genes to sources
     # self.assign_genes_to_sources()
@@ -108,8 +111,13 @@ class GeneAssigner:
                       'mismatches', 'gap_opens', 'q_start', 'q_end', 
                       's_start', 's_end', 'evalue', 'bit_score']
 
-    # read in results that were just written and rewrite with column headers
-    pd.read_csv(f'{self.species_path}/blast_results.csv', names=result_columns).to_csv(f'{self.species_path}/blast_results.csv', index=False)
+    # read in results that were just written and map subject UniProt IDs to gene symbols
+    blast_results_df = pd.read_csv(f'{self.species_path}/blast_results.csv', names=result_columns)
+    blast_results_df['subject'] = blast_results_df['subject'].str.split('|').str[1]
+    blast_results_df['subject_gene_symbol'] = blast_results_df['subject'].map(self.uniprot_id_to_gene_symbol_map)
+    
+    # write results with column header and gene symbols to file
+    blast_results_df.to_csv(f'{self.species_path}/blast_results.csv', index=False)
 
   def _remove_blast_db_files(self):
     """Delete all the files that were created when making the BLAST database."""
@@ -129,10 +137,11 @@ class GeneAssigner:
 
     no_blast_match_ids = list(set(source_ids) - set(blast_result_ids))
 
-    # write no BLAST match ids to a file
-    with open(f'{self.species_path}/no_blast_match_ids.txt', 'w') as f:
-      for id in no_blast_match_ids:
-        f.write(f'{id}\n')
+    # write no BLAST match ids to a file if there are any 
+    if len(no_blast_match_ids) > 0:
+      with open(f'{self.species_path}/no_blast_match_ids.txt', 'w') as f:
+        for id in no_blast_match_ids:
+          f.write(f'{id}\n')
     
     return len(no_blast_match_ids) // len(source_ids)
 
