@@ -42,12 +42,17 @@ class GeneAssigner:
 
     # create BLAST database, run blastp, and remove db files
     self._create_blast_db()
-    self._run_blast()
+    blast_results_df = self._run_blast()
     self._remove_blast_db_files()
 
     # write source antigens that did not get a BLAST match to a file
     # and store the percentage of them
     self.perc_no_blast_matches = self._no_blast_matches()
+
+    best_blast_matches, blast_match_ties = self._get_best_blast_match(blast_results_df)
+
+
+    print(blast_results_df)
 
     # # assign genes to sources
     # self.assign_genes_to_sources()
@@ -119,6 +124,8 @@ class GeneAssigner:
     # write results with column header and gene symbols to file
     blast_results_df.to_csv(f'{self.species_path}/blast_results.csv', index=False)
 
+    return blast_results_df
+
   def _remove_blast_db_files(self):
     """Delete all the files that were created when making the BLAST database."""
     for extension in ['pdb', 'phr', 'pin', 'pjs', 'pot', 'psq', 'ptf', 'pto']:
@@ -133,7 +140,7 @@ class GeneAssigner:
     
     # get BLAST results and then get ids that are not in results
     blast_results = pd.read_csv(f'{self.species_path}/blast_results.csv')
-    blast_result_ids = list(blast_results['query'].unique())
+    blast_result_ids = list(blast_results['Query'].unique())
 
     no_blast_match_ids = list(set(source_ids) - set(blast_result_ids))
 
@@ -144,6 +151,22 @@ class GeneAssigner:
           f.write(f'{id}\n')
     
     return len(no_blast_match_ids) // len(source_ids)
+
+  def _get_best_blast_match(self, blast_results_df):
+    """
+    Get the best BLAST match for each source antigen by sequence identity and 
+    alignment length. If there are multiple matches with the same % identity 
+    and alignment length, then use _pepmatch_tiebreak to determine the best match.
+    """
+    # get the best match for each source antigen by % identity
+    index = blast_results_df.groupby(['Query'])['Percentage Identity'].transform(max) == blast_results_df['Percentage Identity']
+    blast_results_df = blast_results_df[index]
+
+    # and alingment length
+    index = blast_results_df.groupby(['Query'])['Alignment Length'].transform(max) == blast_results_df['Alignment Length']
+    blast_results_df = blast_results_df[index]
+
+    return blast_results_df, pd.DataFrame()
 
   def _pepmatch_tiebreak():
     pass
