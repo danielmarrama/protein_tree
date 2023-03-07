@@ -82,8 +82,10 @@ class ProteomeSelector:
     """
     # read in the FASTA file and then get the gene priority IDs if they exist
     proteins = list(SeqIO.parse(f'species/{self.taxon_id}/proteome.fasta', 'fasta'))
-    if os.path.isfile(f'species/{self.taxon_id}/gp_proteome.fasta'):
-      gp_ids = [str(protein.id.split('|')[1]) for protein in list(SeqIO.parse('9606_gp.fasta', 'fasta'))]
+
+    gp_proteome_path = f'species/{self.taxon_id}/gp_proteome.fasta'
+    if os.path.isfile(gp_proteome_path):
+      gp_ids = [str(protein.id.split('|')[1]) for protein in list(SeqIO.parse(gp_proteome_path, 'fasta'))]
     else:
       gp_ids = []
 

@@ -7,90 +7,119 @@ import pandas as pd
 from pepmatch import Preprocessor, Matcher
 
 from Bio import SeqIO
+from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 
+
 class GeneAssigner:
-  def __init__(self):
+  def __init__(self, taxon_id):
+    self.species_df = pd.read_csv('species.csv')
+    self.taxon_id = taxon_id
+
+  def assign_genes(self, sources_df, epitopes_df):
+    """
+    Assign a gene to the source antigens of a species.
+
+    First, make a BLAST database of the selected proteome.
+    Then, run blastp with the source antigens against the proteome.
+    Based on the BLAST results, select the best protein match by
+    sequence identity and the highest alignment length.
+
+    If there are ties, use PEPMatch to search the epitopes within
+    the protein sequences and select the protein with the most matches.
+    """
+    # create source to epitope map
+    self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
+
+    # write sources to fasta
+    self._sources_to_fasta(sources_df)
+
+    # # create blast database
+    # self._create_blast_db()
+
+    # # run blast
+    # self.run_blast()
+
+    # # read in blast results
+    # self.blast_results = self.read_blast_results()
+
+    # # assign genes to sources
+    # self.assign_genes_to_sources()
+
+    # # assign parents to sources
+    # self.assign_parents()
+
+  def assign_parents(self, epitopes_df):
     pass
 
-def sources_to_fasta(taxon_id):
-  # sources that are missing sequences - write to file and then drop those
-  sources[self.sources['Source Sequence'].isna()].to_csv(f'species/{taxon_id}/sources_missing_seqs.csv', index=False)
-  sources.dropna(subset=['Source Sequence'], inplace=True)
+  def _create_source_to_epitopes_map(self, epitopes_df):
+    source_to_epitopes_map = {}
+    for i, row in epitopes_df.iterrows():
+      if row['Source Accession'] in source_to_epitopes_map.keys():
+        source_to_epitopes_map[row['Source Accession']].append(row['Peptide'])
+      else:
+        source_to_epitopes_map[row['Source Accession']] = [row['Peptide']]
+    
+    return source_to_epitopes_map 
 
-  # create seq records of sources with ID and sequence
-  # TEST: use 1,000 sources for testing
-  seq_records = []
-  for i, row in self.sources.iloc[0:1000, :].iterrows():
-    seq_records.append(
-      SeqRecord(
-        row['Source Sequence'], 
-        id=row['Source Accession'], 
-        description='')
+  def _sources_to_fasta(self, sources_df):
+    """
+    Write source antigens to FASTA file. If a source antigen is missing
+    a sequence, write it to a separate file for logging.
+    """
+    # write sources that are missing sequences to file and then drop those
+    if not sources_df[sources_df['Sequence'].isna()].empty:
+      sources_df[sources_df['Sequence'].isna()].to_csv(f'species/{self.taxon_id}/sources_missing_seqs.csv', index=False)
+   
+    sources_df.dropna(subset=['Sequence'], inplace=True)
+
+    # create seq records of sources with ID and sequence
+    # TEST: use 1,000 sources for testing
+    seq_records = []
+    for i, row in sources_df.iloc[0:1000, :].iterrows():
+      seq_records.append(
+        SeqRecord(
+          Seq(row['Sequence']),
+          id=row['Accession'],
+          description='')
+      )
+
+    with open(f'species/{self.taxon_id}/sources.fasta', 'w') as f:
+      SeqIO.write(seq_records, f, 'fasta')
+
+  def _create_blast_db(self):
+    os.system(f'./makeblastdb -in species/{self.taxon_id}/proteome.fasta -dbtype prot')
+
+  def _run_blast(self):
+    '''
+    Run blastp with source antigens to the proteome.
+    Then read in with pandas and assign column names.
+    '''
+    path = f'{self.taxon_id}/blast_results.csv'
+    os.system(f'./blastp -query test.fasta -db {self.taxon_id}/proteome.fasta'\
+              f' -evalue 0.0001 -num_threads 14 -outfmt 10 -out {path}'
     )
-
-  with open(f'species/{self.taxon_id}/sources.fasta', 'w') as f:
-    SeqIO.write(seq_records, f, 'fasta')
-
-def create_source_epitope_map(self):
-  source_epitope_map = {}
-  for i, row in self.epitopes.iterrows():
-    if row['Source Accession'] in source_epitope_map.keys():
-      source_epitope_map[row['Source Accession']].append(row['Peptide'])
-    else:
-      source_epitope_map[row['Source Accession']] = [row['Peptide']]
-  
-  return source_epitope_map 
-
-def create_blast_db(self):
-  os.system(f'./makeblastdb -in {self.taxon_id}/proteome.fasta -dbtype prot')
-
-def run_blast(self):
-  '''
-  Run blastp with source antigens to the proteome.
-  Then read in with pandas and assign column names.
-  '''
-  path = f'{self.taxon_id}/blast_results.csv'
-  os.system(f'./blastp -query test.fasta -db {self.taxon_id}/proteome.fasta'\
-            f' -evalue 0.0001 -num_threads 14 -outfmt 10 -out {path}'
-  )
-  
-  blast_columns = ['query', 'subject', '%_identity', 'alignment_length', 
-                    'mismatches', 'gap_opens', 'q_start', 'q_end', 
-                    's_start', 's_end', 'evalue', 'bit_score']
-  pd.read_csv(path, names=blast_columns).to_csv(path, index=False)
+    
+    blast_columns = ['query', 'subject', '%_identity', 'alignment_length', 
+                      'mismatches', 'gap_opens', 'q_start', 'q_end', 
+                      's_start', 's_end', 'evalue', 'bit_score']
+    pd.read_csv(path, names=blast_columns).to_csv(path, index=False)
 
 
-def no_blast_match(self):
-  '''Write sources that have no BLAST match to a file.'''
+  def _no_blast_match(self):
+    '''Write sources that have no BLAST match to a file.'''
 
-  # get all source ids
-  source_ids = []
-  for record in list(SeqIO.parse(f'{self.taxon_id}/sources.fasta', 'fasta')):
-    source_ids.append(str(record.id))
-  
-  # get BLAST results and then get ids that are not in results
-  blast_results = pd.read_csv(f'{self.taxon_id}/blast_results.csv')
-  blast_result_ids = list(blast_results['query'].unique())
+    # get all source ids
+    source_ids = []
+    for record in list(SeqIO.parse(f'{self.taxon_id}/sources.fasta', 'fasta')):
+      source_ids.append(str(record.id))
+    
+    # get BLAST results and then get ids that are not in results
+    blast_results = pd.read_csv(f'{self.taxon_id}/blast_results.csv')
+    blast_result_ids = list(blast_results['query'].unique())
 
-def pepmatch_tiebreak():
-  pass
-
-def assign_genes(taxon_id):
-  '''
-  Assign gene to sources based on BLAST results.
-  '''
-
-  # read in proteome and create a map of id to gene
-  proteome = pd.read_csv(f'{self.taxon_id}/proteome.csv')
-  id_to_gene_map = dict(zip(proteome['id'], hproteomep['gene']))
-
-  # read in BLAST results
-  df = pd.read_csv(f'{self.taxon_id}/blast_results.csv')
-
-  # df['subject_gene'] = df['subject'].str.split('|').str[1].map(gene_id_map)
-
-  # df.drop_duplicates(subset=['query', 'subject_gene'], inplace=True)
+  def _pepmatch_tiebreak():
+    pass
 
 
 def main():
