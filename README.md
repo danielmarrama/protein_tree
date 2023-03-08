@@ -13,6 +13,7 @@ Mapping epitopes and source antigens to their parent protein (and gene).
 - List of manual parents: [manual_parents.csv](manual_parents.csv)
     - This is the list of sources that have been manually assigned for their parents.
 - IEDB MySQL Backend username and password
+- `blastp` and `makeblastdb` executables from [NCBI](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
 - Taxon ID for species to build or `-a`(all) to build all species.
 
 ### Running
