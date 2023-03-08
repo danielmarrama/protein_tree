@@ -26,7 +26,6 @@ class ProteomeSelector:
     # create species path with species taxon and name; example: "24-Shewanella putrefaciens"
     species_id_to_name_map = dict(zip(self.species_df['Taxon ID'].astype(str), self.species_df['Species Label']))
     self.species_path = f'species/{taxon_id}-{species_id_to_name_map[taxon_id].replace(" ", "_")}'
-    os.makedirs(self.species_path, exist_ok=True)
 
   def select_proteome(self, epitopes_df):
     """
@@ -47,9 +46,17 @@ class ProteomeSelector:
     If no to all of the above, then get every protein associated with
     the taxon ID using the get_all_proteins method.
     """
+    # if species_dir already exists then return the already selected proteome, else create dir
+    if os.path.isdir(self.species_path):
+      proteome_id = self.species_df[self.species_df['Taxon ID'].astype(str) == self.taxon_id]['Proteome ID'].iloc[0]
+      proteome_type = self.species_df[self.species_df['Taxon ID'].astype(str) == self.taxon_id]['Proteome Type'].iloc[0]
+      return proteome_id, self.taxon_id, proteome_type
+    else:
+      os.makedirs(self.species_path, exist_ok=True)
+
     # if there is no proteome_list, get all proteins associated with that taxon ID
     if self.proteome_list.empty:
-      self._get_all_proteins(self.taxon_id)
+      self._get_all_proteins()
       return 'None', self.taxon_id, 'All-proteins'
 
     if self.proteome_list['isRepresentativeProteome'].any():
@@ -171,8 +178,8 @@ class ProteomeSelector:
     while batch_url:
       r = requests.get(batch_url)
       r.raise_for_status()
-      yield response
-      batch_url = self._get_next_link(response.headers)
+      yield r
+      batch_url = self._get_next_link(r.headers)
 
   def _get_next_link(self, headers):
     """
