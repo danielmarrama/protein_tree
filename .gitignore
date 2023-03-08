@@ -9,6 +9,7 @@ blast_output.csv
 canonical_protein_mapping.pickle
 hugo_symbol_map.csv
 human_proteome.csv
+id_to_gene_name.tsv
 makeblastdb
 protein_tree.ipynb
 protein_tree.txt
