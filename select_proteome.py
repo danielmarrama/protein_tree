@@ -220,6 +220,7 @@ class ProteomeSelector:
     Include all isoforms and do not compress the file.
     """
     url = f'https://rest.uniprot.org/uniprotkb/stream?query=proteome:{proteome_id}&format=fasta&compressed=false&includeIsoform=true'
+    requests.get(url).raise_for_status()
     with open(f'{self.species_path}/{proteome_id}.fasta', 'w') as f:
       f.write(requests.get(url).text)
 
