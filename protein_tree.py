@@ -29,16 +29,16 @@ def run_protein_tree(user, password, taxon_id, species_name, all_taxa):
   
   print('Done getting data.\n')
 
-  # print('Getting the best proteome...')
-  # Selector = ProteomeSelector(taxon_id)
-  # proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
-  # Selector.proteome_to_csv()
+  print('Getting the best proteome...')
+  Selector = ProteomeSelector(taxon_id)
+  proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
+  Selector.proteome_to_csv()
   
-  # print(f'Number of candidate proteomes: {Selector.num_of_proteomes}\n')
-  # print('Got the best proteome:')
-  # print(f'Proteome ID: {proteome_id}')
-  # print(f'Proteome taxon: {proteome_taxon}')
-  # print(f'Proteome type: {proteome_type}\n')
+  print(f'Number of candidate proteomes: {Selector.num_of_proteomes}\n')
+  print('Got the best proteome:')
+  print(f'Proteome ID: {proteome_id}')
+  print(f'Proteome taxon: {proteome_taxon}')
+  print(f'Proteome type: {proteome_type}\n')
 
   print('Assigning genes to source antigens...')
   Assigner = GeneAssigner(taxon_id)
