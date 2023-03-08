@@ -26,6 +26,7 @@ class ProteomeSelector:
     # create species path with species taxon and name; example: "24-Shewanella putrefaciens"
     species_id_to_name_map = dict(zip(self.species_df['Taxon ID'].astype(str), self.species_df['Species Label']))
     self.species_path = f'species/{taxon_id}-{species_id_to_name_map[taxon_id].replace(" ", "_")}'
+    os.makedirs(self.species_path, exist_ok=True)
 
   def select_proteome(self, epitopes_df):
     """
@@ -222,7 +223,7 @@ class ProteomeSelector:
     Get the FASTA file for a proteome from UniProt API.
     Include all isoforms and do not compress the file.
     """
-    url = f'https://rest.uniprot.org/uniprotkb/stream?query=(proteome:{proteome_id})&format=fasta&compressed=false&includeIsoform=true'
+    url = f'https://rest.uniprot.org/uniprotkb/stream?compressed=false&format=fasta&includeIsoform=true&query=(proteome:{proteome_id})'
     r = requests.get(url)
     r.raise_for_status()
     with open(f'{self.species_path}/{proteome_id}.fasta', 'w') as f:
