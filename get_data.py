@@ -11,7 +11,7 @@ class DataFetcher:
   Fetch data from IEDB MySQL backend.
   """
   def __init__(self, user, password, taxon_id, all_taxa):
-    self.sql_engine = create_engine(f'mysql://{user}:{password}@iedb-mysql.liai.org:33306/iedb_query')
+    self.sql_engine = create_engine(f'mysql+mysqlconnector://{user}:{password}@iedb-mysql.liai.org:33306/iedb_query')
     self.taxon_id = taxon_id
     self.all_taxa = all_taxa.replace(';', ',')
 
