@@ -168,8 +168,8 @@ class ProteomeSelector:
       batch_url (str): URL to get all proteins for a species.
     """
     while batch_url:
-      response = requests.get(batch_url)
-      response.raise_for_status()
+      r = requests.get(batch_url)
+      r.raise_for_status()
       yield response
       batch_url = self._get_next_link(response.headers)
 
@@ -209,20 +209,24 @@ class ProteomeSelector:
       ftp_url += f'Eukaryota/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
     elif group in ['virus', 'small-virus', 'large-virus']:
       ftp_url += f'Viruses/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
+    
+    r = requests.get(ftp_url, stream=True)
+    r.raise_for_status()
 
     # unzip the request and write the gene priority proteome to a file
     with open(f'{self.species_path}/gp_proteome.fasta', 'wb') as f:
-      f.write(gzip.open(requests.get(ftp_url, stream=True).raw, 'rb').read())
+      f.write(gzip.open(r.raw, 'rb').read())
 
   def _get_proteome_to_fasta(self, proteome_id):
     """
     Get the FASTA file for a proteome from UniProt API.
     Include all isoforms and do not compress the file.
     """
-    url = f'https://rest.uniprot.org/uniprotkb/stream?query=proteome:{proteome_id}&format=fasta&compressed=false&includeIsoform=true'
-    requests.get(url).raise_for_status()
+    url = f'https://rest.uniprot.org/uniprotkb/stream?query=(proteome:{proteome_id})&format=fasta&compressed=false&includeIsoform=true'
+    r = requests.get(url)
+    r.raise_for_status()
     with open(f'{self.species_path}/{proteome_id}.fasta', 'w') as f:
-      f.write(requests.get(url).text)
+      f.write(r.text)
 
   def _get_proteome_with_most_matches(self, epitopes_df):
     """
@@ -295,13 +299,14 @@ def main():
   # read in species file and save all taxon IDs to list for checking
   species_df = pd.read_csv('species.csv')
   valid_taxon_ids = species_df['Taxon ID'].astype(str).tolist()
+  all_taxa_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['All Taxa']))
 
   # do proteome selection for all IEDB species
   if taxon_id == 'all':
     proteomes = {}
     for taxon_id in valid_taxon_ids:
       # get data for taxon ID
-      Fetcher = DataFetcher(user, password, taxon_id)
+      Fetcher = DataFetcher(user, password, taxon_id, all_taxa_map[taxon_id])
       epitopes_df = Fetcher.get_epitopes()
       sources_df = Fetcher.get_sources()
 
@@ -329,7 +334,7 @@ def main():
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     
     # get data for taxon ID
-    Fetcher = DataFetcher(user, password, taxon_id)
+    Fetcher = DataFetcher(user, password, taxon_id, all_taxa_map[taxon_id])
     epitopes_df = Fetcher.get_epitopes()
     sources_df = Fetcher.get_sources()
 
