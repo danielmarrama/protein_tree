@@ -28,8 +28,9 @@ or for all species:
 
 ### Outputs
 
-Mappings:
-- Epitope --> Source Antigen
-- Source Antigen --> Gene
-- Gene --> Isoforms (Proteins)
-- Epitope --> Parent Protein
+For each species:
+- proteome.fasta - selected proteome in FASTA
+- proteome.csv   - selected proteome with data in CSV
+- sources.csv    - each source antigen with assigned gene
+- epitopes.csv   - each epitope with its source antigen and assigned parent
+- metrics.csv    - the metadata: # of source antigens, # of epitopes, % of sources assigned a gene, % of epitopes assigned a parent
