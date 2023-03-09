@@ -309,10 +309,13 @@ def main():
   password = args.password
   taxon_id = args.taxon_id
 
-  # read in species file and save all taxon IDs to list for checking
+  # read in IEDB species data
   species_df = pd.read_csv('species.csv')
   valid_taxon_ids = species_df['Taxon ID'].astype(str).tolist()
+
+  # dicts for mapping taxon IDs to all their taxa and their names
   all_taxa_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['All Taxa']))
+  species_id_to_name_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['Species Label']))
 
   # do proteome selection for all IEDB species
   if taxon_id == 'all':

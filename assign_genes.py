@@ -46,19 +46,10 @@ class GeneAssigner:
     self._remove_blast_db_files()
 
     # write source antigens that did not get a BLAST match to a file
-    # and store the percentage of them
-    self.perc_no_blast_matches = self._no_blast_matches()
+    # and get percentage of sources with a blast match (1 - % no blast matches)
+    self.perc_with_blast_matches = 1 - self._no_blast_matches()
 
-    best_blast_matches, blast_match_ties = self._get_best_blast_match(blast_results_df)
-
-
-    print(blast_results_df)
-
-    # # assign genes to sources
-    # self.assign_genes_to_sources()
-
-    # # assign parents to sources
-    # self.assign_parents()
+    return self._get_best_blast_matches(blast_results_df)
 
   def assign_parents(self, epitopes_df):
     pass
@@ -86,6 +77,7 @@ class GeneAssigner:
 
     # create seq records of sources with ID and sequence
     # TEST: use 1,000 sources for testing
+    # TODO: REMOVE THIS 
     seq_records = []
     for i, row in sources_df.iloc[0:1000, :].iterrows():
       seq_records.append(
@@ -152,7 +144,7 @@ class GeneAssigner:
     
     return len(no_blast_match_ids) // len(source_ids)
 
-  def _get_best_blast_match(self, blast_results_df):
+  def _get_best_blast_matches(self, blast_results_df):
     """
     Get the best BLAST match for each source antigen by sequence identity and 
     alignment length. If there are multiple matches with the same % identity 
@@ -162,51 +154,71 @@ class GeneAssigner:
     index = blast_results_df.groupby(['Query'])['Percentage Identity'].transform(max) == blast_results_df['Percentage Identity']
     blast_results_df = blast_results_df[index]
 
-    # and alingment length
+    # and alignment length
     index = blast_results_df.groupby(['Query'])['Alignment Length'].transform(max) == blast_results_df['Alignment Length']
     blast_results_df = blast_results_df[index]
 
-    return blast_results_df, pd.DataFrame()
+    # check if there are any query duplicates still
+    if blast_results_df.duplicated(subset=['Query']).any():
+      blast_results_df = _pepmatch_tiebreak(blast_results_df) # tiebreak with PEPMatch  
 
-  def _pepmatch_tiebreak():
-    pass
+    # create a map of source antigen to best match with the UniProt ID and the Gene Symbol
+    source_to_best_match_map = {}
+    for i, row in blast_results_df.iterrows():
+      source_to_best_match_map[row['Query']] = (row['Subject'], row['Subject Gene Symbol'])
+
+    return source_to_best_match_map
+
+  def _pepmatch_tiebreak(self, blast_results_df):
+    return blast_results_df
 
 
 def main():
-  # define command line args which will take in a taxon ID
-  parser = argparse.ArgumentParser(description='Select the taxon ID to assign the source antigen to genes.')
-  parser.add_argument('taxon_id', help='Taxon ID for the species.')
+  parser = argparse.ArgumentParser()
+
+  parser.add_argument('-u', '--user', required=True, help='User for IEDB MySQL connection.')
+  parser.add_argument('-p', '--password', required=True, help='Password for IEDB MySQL connection.')
+  parser.add_argument('-a', '--all_species', action='store_true', help='Build protein tree for all IEDB species.')
+  parser.add_argument('-t', '--taxon_id', help='Taxon ID for the species to run protein tree.')
+  
   args = parser.parse_args()
+  user = args.user
+  password = args.password
+  all_species = args.all_species
   taxon_id = args.taxon_id
 
-  # TODO: 
-  # limit results to highest % identity / alignment length
-  # tiebreak the tied results with PEPMatch epitope search
+  # read in IEDB species data
+  species_df = pd.read_csv('species.csv')
+  valid_taxon_ids = species_df['Taxon ID'].astype(str).tolist()
 
-  # write source antigens to FASTA with their IDs
-  print('Writing sources to FASTA file...')
-  sources_to_fasta(taxon_id)
-  print('Done.')
+  # dicts for mapping taxon IDs to all their taxa and their names
+  all_taxa_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['All Taxa']))
+  species_id_to_name_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['Species Label']))
 
-  # create dict of source antigens to their list of epitopes
-  print('Creating source to epitopes mapping...')
-  source_epitope_map = self.create_source_epitope_map()
-  print('Done.')
+  # do proteome selection for all IEDB species
+  if taxon_id == 'all':
+    proteomes = {}
+    for taxon_id in valid_taxon_ids:
+      # get data for taxon ID
+      Fetcher = DataFetcher(user, password, taxon_id, all_taxa_map[taxon_id])
+      epitopes_df = Fetcher.get_epitopes()
+      sources_df = Fetcher.get_sources()
 
-  # create a BLAST database of the species proteome
-  print('Creating BLAST database of proteome...')
-  self.create_blast_db()
-  print('Done.')
-  
-  # BLAST sources against proteome  
-  print('BLASTing sources against proteome database...')
-  self.run_blast()
-  print('Done.')
+      Assigner = GeneAssigner(taxon_id)
+      Assigner.assign_genes(sources_df, epitopes_df)
+      # Assigner.assign_parents()
 
-  # bucket sources that did not get a BLAST match
-  print('Writing sources that did not BLAST match to file...')
-  self.no_blast_match()
-  print('Done.')
+  # or just one species at a time - check if its valid
+  else:
+    assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
+    # get data for taxon ID
+    Fetcher = DataFetcher(user, password, taxon_id, all_taxa_map[taxon_id])
+    epitopes_df = Fetcher.get_epitopes()
+    sources_df = Fetcher.get_sources()
+
+    Assigner = GeneAssigner(taxon_id)
+    Assigner.assign_genes(sources_df, epitopes_df)
+    # Assigner.assign_parents()
 
 if __name__ == '__main__':  
   main()

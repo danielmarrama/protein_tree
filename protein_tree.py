@@ -28,7 +28,7 @@ def run_protein_tree(user, password, taxon_id, species_name, all_taxa):
 
   print('Getting the best proteome...')
   Selector = ProteomeSelector(taxon_id)
-  print(f'Number of candidate proteomes: {Selector.num_of_proteomes + 1}\n') # +1 because "all proteins" is also a candidate proteome
+  print(f'Number of candidate proteomes: {Selector.num_of_proteomes}\n')
 
   proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
   Selector.proteome_to_csv()
@@ -65,12 +65,9 @@ def main():
   all_taxa_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['All Taxa']))
   species_id_to_name_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['Species Label']))
 
-  # make species folder if it doesn't exist
-  os.makedirs('species', exist_ok=True)
-
   # run protein tree for all IEDB species 
   if all_species:
-    for t_id in valid_taxon_ids:
+    for t_id in valid_taxon_ids[320:]:
       print(f'Building protein tree for {species_id_to_name_map[t_id]} (ID: {t_id})...\n')
       run_protein_tree(user, password, t_id, species_id_to_name_map[t_id], all_taxa_map[t_id])
       print('Protein tree build done.')
