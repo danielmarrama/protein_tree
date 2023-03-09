@@ -21,7 +21,7 @@ class ProteomeSelector:
     self.species_df = pd.read_csv('species.csv')
     self.taxon_id = taxon_id
     self.proteome_list = self._get_proteome_list()
-    self.num_of_proteomes = len(self.proteome_list)
+    self.num_of_proteomes = len(self.proteome_list) + 1 # +1 because "all proteins" is also a candidate proteome
 
     # create species path with species taxon and name; example: "24-Shewanella putrefaciens"
     species_id_to_name_map = dict(zip(self.species_df['Taxon ID'].astype(str), self.species_df['Species Label']))
@@ -219,7 +219,10 @@ class ProteomeSelector:
       ftp_url += f'Viruses/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
     
     r = requests.get(ftp_url, stream=True)
-    r.raise_for_status()
+    try:
+      r.raise_for_status()
+    except:
+      return
 
     # unzip the request and write the gene priority proteome to a file
     with open(f'{self.species_path}/gp_proteome.fasta', 'wb') as f:
@@ -249,6 +252,8 @@ class ProteomeSelector:
       self._get_proteome_to_fasta(self.proteome_list['upid'].iloc[0])
       return self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0]
 
+    # drop any epitopes that do not have a peptide sequence - this is rare but needs to be checked
+    epitopes_df = epitopes_df[epitopes_df['Peptide'].notna()]
     # TODO: be able to check for discontinuous epitopes
     epitopes = [epitope for epitope in epitopes_df['Peptide'] if not any(char.isdigit() for char in epitope)]
     
