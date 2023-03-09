@@ -47,7 +47,7 @@ class ProteomeSelector:
     the taxon ID using the get_all_proteins method.
     """
     # if species_dir already exists then return the already selected proteome, else create dir
-    if os.path.isdir(self.species_path):
+    if os.path.exists(f'{self.species_path}/proteome.fasta'):
       proteome_id = self.species_df[self.species_df['Taxon ID'].astype(str) == self.taxon_id]['Proteome ID'].iloc[0]
       proteome_type = self.species_df[self.species_df['Taxon ID'].astype(str) == self.taxon_id]['Proteome Type'].iloc[0]
       return proteome_id, self.taxon_id, proteome_type
