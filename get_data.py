@@ -17,21 +17,20 @@ class DataFetcher:
     """
     Get all epitopes for a species.
     """
-    sql_query = f'SELECT organism2_id, organism2_name, mol1_seq, '\
-                f'mol2_name, mol2_accession '\
+    sql_query = f'SELECT mol1_seq, mol2_name, mol2_accession '\
                 f'FROM object '\
                 f'WHERE object_sub_type = "Peptide from protein" '\
                 f'AND organism2_id IN ({self.all_taxa});'
-    columns = ['Organism ID', 'Organism_Name', 'Peptide', 'Source Name', 'Source Accession']
+    columns = ['Peptide', 'Source Name', 'Source Accession']
     return pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)), columns=columns)
 
   def get_sources(self):
     """
     Get all source antigens for a species.
     """
-    sql_query = f'SELECT accession, name, sequence, organism_id, organism_name '\
+    sql_query = f'SELECT source_id, accession, name, sequence '\
                 f'FROM source WHERE organism_id IN ({self.all_taxa});'
-    columns = ['Accession', 'Name', 'Sequence', 'Organism ID', 'Organism Name']
+    columns = ['Source ID', 'Accession', 'Name', 'Sequence']
     return pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)), columns=columns)
 
 def main():

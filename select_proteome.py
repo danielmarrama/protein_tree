@@ -329,7 +329,6 @@ def main():
       # get data for taxon ID
       Fetcher = DataFetcher(user, password, taxon_id, all_taxa_map[taxon_id])
       epitopes_df = Fetcher.get_epitopes()
-      sources_df = Fetcher.get_sources()
 
       # select proteome
       Selector = ProteomeSelector(taxon_id)
@@ -357,7 +356,6 @@ def main():
     # get data for taxon ID
     Fetcher = DataFetcher(user, password, taxon_id, all_taxa_map[taxon_id])
     epitopes_df = Fetcher.get_epitopes()
-    sources_df = Fetcher.get_sources()
 
     Selector = ProteomeSelector(taxon_id)
     print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')

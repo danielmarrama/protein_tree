@@ -41,6 +41,15 @@ def run_protein_tree(user, password, taxon_id, species_name, all_taxa):
   print('Assigning genes to source antigens...')
   Assigner = GeneAssigner(taxon_id)
   num_sources, num_sources_missing_seqs, num_no_blast_matches, num_with_blast_matches = Assigner.assign_genes(sources_df, epitopes_df)
+  print('Done assigning genes.\n')
+
+  print(f'Number of sources: {num_sources}')
+  print(f'Number of sources missing sequences: {num_sources_missing_seqs}')
+  print(f'Number of sources with no BLAST matches: {num_no_blast_matches}')
+  print(f'Number of sources with BLAST matches: {num_with_blast_matches}')
+  print(f'Successful gene assignments: {(num_with_blast_matches / num_sources)*100}%\n')
+
+  print('Assigning parents to epitopes...')
   # Assigner.assign_parents()
 
 def main():

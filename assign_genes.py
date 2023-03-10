@@ -54,6 +54,9 @@ class GeneAssigner:
     sources_df['Assigned Gene'] = sources_df['Accession'].map(self.best_blatch_match_gene_map)
     sources_df['Assigned UniProt ID'] = sources_df['Accession'].map(self.best_blatch_match_id_map)
     
+    # drop sequence from sources_df
+    sources_df.drop(columns=['Sequence'], inplace=True)
+
     # write sources with assigned genes to file
     sources_df.to_csv(f'{self.species_path}/sources.csv', index=False)
 
@@ -260,8 +263,17 @@ def main():
       epitopes_df = Fetcher.get_epitopes()
       sources_df = Fetcher.get_sources()
       
+      print(f'Assigning genes for {species_id_to_name_map[taxon_id]} ({taxon_id})...')
       Assigner = GeneAssigner(taxon_id)
       num_sources, num_sources_missing_seqs, num_no_blast_matches, num_with_blast_matches = Assigner.assign_genes(sources_df, epitopes_df)
+      print('Done assigning genes.\n')
+
+      print(f'Number of sources: {num_sources}')
+      print(f'Number of sources missing sequences: {num_sources_missing_seqs}')
+      print(f'Number of sources with no BLAST matches: {num_no_blast_matches}')
+      print(f'Number of sources with BLAST matches: {num_with_blast_matches}')
+      print(f'Successful gene assignments: {(num_with_blast_matches / num_sources)*100}%\n')
+        
       # Assigner.assign_parents()
 
   # or just one species at a time - check if its valid
@@ -274,8 +286,17 @@ def main():
 
     assert not sources_df.empty, 'This species has no source antigens.'
 
+    print(f'Assigning genes for {species_id_to_name_map[taxon_id]} ({taxon_id})...\n')
     Assigner = GeneAssigner(taxon_id)
     num_sources, num_sources_missing_seqs, num_no_blast_matches, num_with_blast_matches = Assigner.assign_genes(sources_df, epitopes_df)
+    print('Done assigning genes.\n')
+
+    print(f'Number of sources: {num_sources}')
+    print(f'Number of sources missing sequences: {num_sources_missing_seqs}')
+    print(f'Number of sources with no BLAST matches: {num_no_blast_matches}')
+    print(f'Number of sources with BLAST matches: {num_with_blast_matches}')
+    print(f'Successful gene assignments: {(num_with_blast_matches / num_sources)*100:.1f}%\n')
+    
     # Assigner.assign_parents()
 
 if __name__ == '__main__':  
