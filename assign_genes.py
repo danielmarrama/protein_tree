@@ -105,17 +105,21 @@ class GeneAssigner:
     return len(sources_df), num_sources_missing_seqs
 
   def _create_blast_db(self):
-    os.system(f'./makeblastdb -in {self.species_path}/proteome.fasta -dbtype prot')
+    # escape parentheses in species path
+    species_path = self.species_path.replace('(', '\(').replace(')', '\)')
+    os.system(f'./makeblastdb -in {species_path}/proteome.fasta -dbtype prot')
 
   def _run_blast(self):
     '''
     BLAST source antigens against the selected proteome, then read in with
     pandas and assign column names. By default, blastp doesn't return header.
     '''
-    os.system(f'./blastp -query {self.species_path}/sources.fasta '\
-              f'-db {self.species_path}/proteome.fasta '\
+    # escape parentheses in species path
+    species_path = self.species_path.replace('(', '\(').replace(')', '\)')  
+    os.system(f'./blastp -query {species_path}/sources.fasta '\
+              f'-db {species_path}/proteome.fasta '\
               f'-evalue 0.0001 -num_threads 1 -outfmt 10 '\
-              f'-out {self.species_path}/blast_results.csv'
+              f'-out {species_path}/blast_results.csv'
     )
     
     result_columns = ['Query', 'Subject', 'Percentage Identity', 'Alignment Length', 
