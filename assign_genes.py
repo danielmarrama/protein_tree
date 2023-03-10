@@ -34,6 +34,9 @@ class GeneAssigner:
     If there are ties, use PEPMatch to search the epitopes within
     the protein sequences and select the protein with the most matches.
     """
+    if sources_df.empty:
+      return
+
     # create source to epitope map and write sources to FASTA file
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
     self._sources_to_fasta(sources_df)
@@ -43,12 +46,14 @@ class GeneAssigner:
     blast_results_df = self._run_blast()
 
     # get percentage of sources with a blast match (1 - % no blast matches)
-    self.perc_with_blast_matches = 1 - self._no_blast_matches()
+    self.perc_with_blast_matches = (1 - self._no_blast_matches())*100
     
     # remove blast DB and result files
     self._remove_blast_files()
 
-    return self._get_best_blast_matches(blast_results_df)
+    best_blast_matches_df = self._get_best_blast_matches(blast_results_df)
+
+    print(best_blast_matches_df)
 
   def assign_parents(self, epitopes_df):
     pass
@@ -209,7 +214,7 @@ def main():
       Fetcher = DataFetcher(user, password, taxon_id, all_taxa_map[taxon_id])
       epitopes_df = Fetcher.get_epitopes()
       sources_df = Fetcher.get_sources()
-
+      
       Assigner = GeneAssigner(taxon_id)
       Assigner.assign_genes(sources_df, epitopes_df)
       # Assigner.assign_parents()
@@ -221,6 +226,8 @@ def main():
     Fetcher = DataFetcher(user, password, taxon_id, all_taxa_map[taxon_id])
     epitopes_df = Fetcher.get_epitopes()
     sources_df = Fetcher.get_sources()
+
+    assert not sources_df.empty, 'This species has no source antigens.'
 
     Assigner = GeneAssigner(taxon_id)
     Assigner.assign_genes(sources_df, epitopes_df)

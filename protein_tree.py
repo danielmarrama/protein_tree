@@ -67,7 +67,7 @@ def main():
 
   # run protein tree for all IEDB species 
   if all_species:
-    for t_id in valid_taxon_ids[:547]:
+    for t_id in valid_taxon_ids:
       print(f'Building protein tree for {species_id_to_name_map[t_id]} (ID: {t_id})...\n')
       run_protein_tree(user, password, t_id, species_id_to_name_map[t_id], all_taxa_map[t_id])
       print('Protein tree build done.')
