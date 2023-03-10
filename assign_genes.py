@@ -1,18 +1,13 @@
 #!/usr/bin/env python3
 
-import argparse
 import os
 import glob
 import pandas as pd
 
 from pepmatch import Preprocessor, Matcher
-
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
-
-from get_data import DataFetcher
-
 
 class GeneAssigner:
   def __init__(self, taxon_id):
@@ -72,7 +67,7 @@ class GeneAssigner:
     """
     Write source antigens to FASTA file. If a source antigen is missing
     a sequence, write it to a separate file for logging.
-    """
+    """  
     # write sources that are missing sequences to file and then drop those
     if not sources_df[sources_df['Sequence'].isna()].empty:
       sources_df[sources_df['Sequence'].isna()].to_csv(f'{self.species_path}/sources_missing_seqs.csv', index=False)
@@ -182,6 +177,9 @@ class GeneAssigner:
 
 
 def main():
+  import argparse
+  from get_data import DataFetcher
+
   parser = argparse.ArgumentParser()
 
   parser.add_argument('-u', '--user', required=True, help='User for IEDB MySQL connection.')

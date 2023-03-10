@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-import os
-import argparse
 import pandas as pd
 from sqlalchemy import create_engine, text
 
@@ -37,7 +35,9 @@ class DataFetcher:
     return pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)), columns=columns)
 
 def main():
-  # define command line args which will take in a taxon ID
+  import argparse
+  import os
+
   parser = argparse.ArgumentParser()
   
   parser.add_argument('-u', '--user', required=True, help='User for IEDB MySQL connection.')

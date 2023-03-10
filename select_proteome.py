@@ -5,15 +5,10 @@ warnings.filterwarnings('ignore')
 
 import re
 import os
-import gzip
-import argparse
 import pandas as pd
 import requests
 
 from pepmatch import Preprocessor, Matcher
-from Bio import SeqIO
-
-from get_data import DataFetcher
 
 
 class ProteomeSelector:
@@ -93,6 +88,8 @@ class ProteomeSelector:
     """
     Write the proteome data for a species to a CSV file for later use.
     """
+    from Bio import SeqIO
+
     # read in the FASTA file and then get the gene priority IDs if they exist
     proteins = list(SeqIO.parse(f'{self.species_path}/proteome.fasta', 'fasta'))
 
@@ -207,6 +204,8 @@ class ProteomeSelector:
       proteome_id (str): Proteome ID.
       proteome_taxon (str): Taxon ID for the proteome.
     """
+    import gzip
+    
     group = self.species_df[self.species_df['Taxon ID'].astype(str) == self.taxon_id]['Group'].iloc[0]
     ftp_url = f'https://ftp.uniprot.org/pub/databases/uniprot/knowledgebase/reference_proteomes/'
     
@@ -298,6 +297,9 @@ class ProteomeSelector:
 
 
 def main():
+  import argparse
+  from get_data import DataFetcher
+
   # define command line args which will take in a taxon ID, user, and password (for IEDB MySQL connection)
   parser = argparse.ArgumentParser()
   
