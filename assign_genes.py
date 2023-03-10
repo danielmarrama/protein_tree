@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import argparse
 import os
 import glob
 import pandas as pd
@@ -10,13 +11,15 @@ from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 
+from get_data import DataFetcher
+
 
 class GeneAssigner:
   def __init__(self, taxon_id):
     self.species_df = pd.read_csv('species.csv')
     self.taxon_id = taxon_id
 
-    # create species path with species taxon and name; example: "24-Shewanella putrefaciens"
+    # create species path with species taxon and name; example: "24-Shewanella_putrefaciens"
     species_id_to_name_map = dict(zip(self.species_df['Taxon ID'].astype(str), self.species_df['Species Label']))
     self.species_path = f'species/{taxon_id}-{species_id_to_name_map[taxon_id].replace(" ", "_")}'
 
@@ -43,11 +46,12 @@ class GeneAssigner:
     # create BLAST database, run blastp, and remove db files
     self._create_blast_db()
     blast_results_df = self._run_blast()
-    self._remove_blast_db_files()
 
-    # write source antigens that did not get a BLAST match to a file
-    # and get percentage of sources with a blast match (1 - % no blast matches)
+    # get percentage of sources with a blast match (1 - % no blast matches)
     self.perc_with_blast_matches = 1 - self._no_blast_matches()
+    
+    # remove blast DB and result files
+    self._remove_blast_files()
 
     return self._get_best_blast_matches(blast_results_df)
 
@@ -118,10 +122,14 @@ class GeneAssigner:
 
     return blast_results_df
 
-  def _remove_blast_db_files(self):
+  def _remove_blast_files(self):
     """Delete all the files that were created when making the BLAST database."""
     for extension in ['pdb', 'phr', 'pin', 'pjs', 'pot', 'psq', 'ptf', 'pto']:
       os.remove(glob.glob(f'{self.species_path}/*.{extension}')[0])
+    
+    # remove BLAST results and sources.fasta
+    os.remove(f'{self.species_path}/blast_results.csv')
+    os.remove(f'{self.species_path}/sources.fasta')
 
   def _no_blast_matches(self):
     '''Write sources that have no BLAST match to a file.'''

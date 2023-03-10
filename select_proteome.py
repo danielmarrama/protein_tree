@@ -20,8 +20,6 @@ class ProteomeSelector:
   def __init__(self, taxon_id):
     self.species_df = pd.read_csv('species.csv')
     self.taxon_id = taxon_id
-    self.proteome_list = self._get_proteome_list()
-    self.num_of_proteomes = len(self.proteome_list) + 1 # +1 because "all proteins" is also a candidate proteome
 
     # create species path with species taxon and name; example: "24-Shewanella putrefaciens"
     species_id_to_name_map = dict(zip(self.species_df['Taxon ID'].astype(str), self.species_df['Species Label']))
@@ -53,6 +51,9 @@ class ProteomeSelector:
       return proteome_id, self.taxon_id, proteome_type
     else:
       os.makedirs(self.species_path, exist_ok=True)
+
+    self.proteome_list = self._get_proteome_list()
+    self.num_of_proteomes = len(self.proteome_list) + 1 # +1 because "all proteins" is also a candidate proteome
 
     # if there is no proteome_list, get all proteins associated with that taxon ID
     if self.proteome_list.empty:
@@ -248,7 +249,7 @@ class ProteomeSelector:
     """
     # if there is only one proteome, then we don't need to do anything else
     # just get the proteome and return the ID and taxon
-    if self.num_of_proteomes == 1:
+    if self.num_of_proteomes <= 2:
       self._get_proteome_to_fasta(self.proteome_list['upid'].iloc[0])
       return self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0]
 
@@ -292,7 +293,7 @@ class ProteomeSelector:
     
     # rename the chosen proteome to proteome.fasta and remove the .db file
     os.rename(f'{self.species_path}/{proteome_id}.fasta', f'{self.species_path}/proteome.fasta')
-    if self.num_of_proteomes > 1: # there is only a .db file if there is more than one proteome
+    if self.num_of_proteomes > 2: # there is only a .db file if there is more than one proteome
       os.remove(f'{self.species_path}/{proteome_id}.db')
 
 
