@@ -4,7 +4,6 @@ import os
 import glob
 import pandas as pd
 
-from pepmatch import Preprocessor, Matcher
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
@@ -51,9 +50,15 @@ class GeneAssigner:
     # remove blast DB and result files
     self._remove_blast_files()
 
-    best_blast_matches_df = self._get_best_blast_matches(blast_results_df)
+    # get best blast matches for each source antigen
+    self._get_best_blast_matches(blast_results_df)
 
-    print(best_blast_matches_df)
+    # map source antigens to their best blast matches (UniProt ID and gene)
+    sources_df['Assigned UniProt ID'] = sources_df['Accession'].map(self.best_blatch_match_map).map(lambda x: x[0])
+    sources_df['Assigned Gene'] = sources_df['Accession'].map(self.best_blatch_match_map).map(lambda x: x[1])
+    
+    # write sources with assigned genes to file
+    sources_df.to_csv(f'{self.species_path}/sources.csv', index=False)
 
   def assign_parents(self, epitopes_df):
     pass
@@ -166,20 +171,40 @@ class GeneAssigner:
     index = blast_results_df.groupby(['Query'])['Alignment Length'].transform(max) == blast_results_df['Alignment Length']
     blast_results_df = blast_results_df[index]
 
-    # check if there are any query duplicates still
-    if blast_results_df.duplicated(subset=['Query']).any():
-      blast_results_df = _pepmatch_tiebreak(blast_results_df) # tiebreak with PEPMatch  
-
-    # create a map of source antigen to best match with the UniProt ID and the Gene Symbol
-    source_to_best_match_map = {}
+    self.best_blatch_match_map = {}
     for i, row in blast_results_df.iterrows():
-      source_to_best_match_map[row['Query']] = (row['Subject'], row['Subject Gene Symbol'])
+      self.best_blatch_match_map[row['Query']] = (row['Subject'], row['Subject Gene Symbol'])
 
-    return source_to_best_match_map
+    # check if there are any query duplicates - update map within _pepmatch_tiebreak
+    if blast_results_df.duplicated(subset=['Query']).any():
+      self._pepmatch_tiebreak(blast_results_df)
 
   def _pepmatch_tiebreak(self, blast_results_df):
-    return blast_results_df
+    """
+    First, get any source antigens that have ties for the best match. Then,
+    using the epitopes associated with the source antigen, search them in 
+    the selected proteome and find the gene that has the most matches.
+    """
+    from pepmatch import Preprocessor, Matcher
+    from collections import Counter
 
+    # get any source antigens that have ties for the best match
+    source_antigens_with_ties = blast_results_df[blast_results_df.duplicated(subset=['Query'])]['Query'].unique()
+
+    for source_antigen in source_antigens_with_ties:
+      # get the epitopes associated with the source antigen
+      epitopes = self.source_to_epitopes_map[source_antigen]
+
+      # search the epitopes in the selected proteome
+      Preprocessor(f'{self.species_path}/proteome.fasta', 'sql', f'{self.species_path}').preprocess(k=5)
+      matches_df = Matcher(epitopes, 'proteome', 0, 5, f'{self.species_path}', output_format='dataframe').match()
+      
+      # get the uniprot id and gene symbol that has the most matches
+      uniprot_id = Counter(matches_df['Protein ID']).most_common()[0][0]
+      gene = Counter(matches_df['Gene']).most_common()[0][0]
+
+      # update best_blatch_match_map with the gene that has the most matches
+      self.best_blatch_match_map[source_antigen] = (uniprot_id, gene)
 
 def main():
   import argparse

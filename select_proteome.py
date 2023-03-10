@@ -15,10 +15,15 @@ class ProteomeSelector:
   def __init__(self, taxon_id):
     self.species_df = pd.read_csv('species.csv')
     self.taxon_id = taxon_id
-
+    
     # create species path with species taxon and name; example: "24-Shewanella putrefaciens"
     species_id_to_name_map = dict(zip(self.species_df['Taxon ID'].astype(str), self.species_df['Species Label']))
     self.species_path = f'species/{taxon_id}-{species_id_to_name_map[taxon_id].replace(" ", "_")}'
+
+    # get proteome list for species and count number of proteomes
+    self.proteome_list = self._get_proteome_list()
+    self.num_of_proteomes = len(self.proteome_list) + 1 # +1 because "all proteins" is also a candidate proteome
+
 
   def select_proteome(self, epitopes_df):
     """
@@ -46,9 +51,6 @@ class ProteomeSelector:
       return proteome_id, self.taxon_id, proteome_type
     else:
       os.makedirs(self.species_path, exist_ok=True)
-
-    self.proteome_list = self._get_proteome_list()
-    self.num_of_proteomes = len(self.proteome_list) + 1 # +1 because "all proteins" is also a candidate proteome
 
     # if there is no proteome_list, get all proteins associated with that taxon ID
     if self.proteome_list.empty:
@@ -358,10 +360,10 @@ def main():
     sources_df = Fetcher.get_sources()
 
     Selector = ProteomeSelector(taxon_id)
-    num_of_proteomes, proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
+    print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')
+    proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
     Selector.proteome_to_csv()
 
-    print(f'# of Proteomes: {num_of_proteomes}')
     print(f'Proteome ID: {proteome_id}')
     print(f'Proteome taxon: {proteome_taxon}')
     print(f'Proteome type: {proteome_type}')
