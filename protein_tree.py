@@ -38,9 +38,9 @@ def run_protein_tree(user, password, taxon_id, species_name, all_taxa):
   print(f'Proteome taxon: {proteome_taxon}')
   print(f'Proteome type: {proteome_type}\n')
 
-  # print('Assigning genes to source antigens...')
-  # Assigner = GeneAssigner(taxon_id)
-  # Assigner.assign_genes(sources_df, epitopes_df)
+  print('Assigning genes to source antigens...')
+  Assigner = GeneAssigner(taxon_id)
+  num_sources, num_sources_missing_seqs, num_no_blast_matches, num_with_blast_matches = Assigner.assign_genes(sources_df, epitopes_df)
   # Assigner.assign_parents()
 
 def main():

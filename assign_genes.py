@@ -38,14 +38,14 @@ class GeneAssigner:
 
     # create source to epitope map and write sources to FASTA file
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
-    self._sources_to_fasta(sources_df)
+    num_sources, num_sources_missing_seqs = self._sources_to_fasta(sources_df)
 
     # create BLAST database, run blastp, and remove db files
     self._create_blast_db()
     blast_results_df = self._run_blast()
 
     # get percentage of sources with a blast match (1 - % no blast matches)
-    self.perc_with_blast_matches = (1 - self._no_blast_matches())*100
+    num_no_blast_matches, num_with_blast_matches = self._no_blast_matches()
     
     # remove blast DB and result files
     self._remove_blast_files()
@@ -59,6 +59,8 @@ class GeneAssigner:
     
     # write sources with assigned genes to file
     sources_df.to_csv(f'{self.species_path}/sources.csv', index=False)
+
+    return num_sources, num_sources_missing_seqs, num_no_blast_matches, num_with_blast_matches
 
   def assign_parents(self, epitopes_df):
     pass
@@ -80,8 +82,9 @@ class GeneAssigner:
     """  
     # write sources that are missing sequences to file and then drop those
     if not sources_df[sources_df['Sequence'].isna()].empty:
+      num_sources_missing_seqs = len(sources_df[sources_df['Sequence'].isna()])
       sources_df[sources_df['Sequence'].isna()].to_csv(f'{self.species_path}/sources_missing_seqs.csv', index=False)
-   
+
     sources_df.dropna(subset=['Sequence'], inplace=True)
 
     # create seq records of sources with ID and sequence
@@ -98,6 +101,8 @@ class GeneAssigner:
 
     with open(f'{self.species_path}/sources.fasta', 'w') as f:
       SeqIO.write(seq_records, f, 'fasta')
+
+    return len(sources_df), num_sources_missing_seqs
 
   def _create_blast_db(self):
     os.system(f'./makeblastdb -in {self.species_path}/proteome.fasta -dbtype prot')
@@ -155,7 +160,8 @@ class GeneAssigner:
         for id in no_blast_match_ids:
           f.write(f'{id}\n')
     
-    return len(no_blast_match_ids) // len(source_ids)
+    # return the number of sources that have BLAST matches and no BLAST matches
+    return len(no_blast_match_ids), len(blast_result_ids)
 
   def _get_best_blast_matches(self, blast_results_df):
     """
@@ -241,7 +247,7 @@ def main():
       sources_df = Fetcher.get_sources()
       
       Assigner = GeneAssigner(taxon_id)
-      Assigner.assign_genes(sources_df, epitopes_df)
+      num_sources, num_sources_missing_seqs, num_no_blast_matches, num_with_blast_matches = Assigner.assign_genes(sources_df, epitopes_df)
       # Assigner.assign_parents()
 
   # or just one species at a time - check if its valid
@@ -255,7 +261,7 @@ def main():
     assert not sources_df.empty, 'This species has no source antigens.'
 
     Assigner = GeneAssigner(taxon_id)
-    Assigner.assign_genes(sources_df, epitopes_df)
+    num_sources, num_sources_missing_seqs, num_no_blast_matches, num_with_blast_matches = Assigner.assign_genes(sources_df, epitopes_df)
     # Assigner.assign_parents()
 
 if __name__ == '__main__':  
