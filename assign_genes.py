@@ -44,21 +44,21 @@ class GeneAssigner:
     self._create_blast_db()
     blast_results_df = self._run_blast()
 
-    # get percentage of sources with a blast match (1 - % no blast matches)
+    # remove sources that don't have any BLAST matches and get the counts
     num_no_blast_matches, num_with_blast_matches = self._no_blast_matches()
-    
-    # remove blast DB and result files
-    self._remove_blast_files()
 
     # get best blast matches for each source antigen
     self._get_best_blast_matches(blast_results_df)
 
     # map source antigens to their best blast matches (UniProt ID and gene)
-    sources_df['Assigned UniProt ID'] = sources_df['Accession'].map(self.best_blatch_match_map).map(lambda x: x[0])
-    sources_df['Assigned Gene'] = sources_df['Accession'].map(self.best_blatch_match_map).map(lambda x: x[1])
+    sources_df['Assigned Gene'] = sources_df['Accession'].map(self.best_blatch_match_gene_map)
+    sources_df['Assigned UniProt ID'] = sources_df['Accession'].map(self.best_blatch_match_id_map)
     
     # write sources with assigned genes to file
     sources_df.to_csv(f'{self.species_path}/sources.csv', index=False)
+
+    # remove blast DB and result files
+    self._remove_files()
 
     return num_sources, num_sources_missing_seqs, num_no_blast_matches, num_with_blast_matches
 
@@ -84,9 +84,11 @@ class GeneAssigner:
     if not sources_df[sources_df['Sequence'].isna()].empty:
       num_sources_missing_seqs = len(sources_df[sources_df['Sequence'].isna()])
       sources_df[sources_df['Sequence'].isna()].to_csv(f'{self.species_path}/sources_missing_seqs.csv', index=False)
+    else:
+      num_sources_missing_seqs = 0
 
     sources_df.dropna(subset=['Sequence'], inplace=True)
-
+        
     # create seq records of sources with ID and sequence
     # TEST: use 1,000 sources for testing
     # TODO: REMOVE THIS 
@@ -136,7 +138,7 @@ class GeneAssigner:
 
     return blast_results_df
 
-  def _remove_blast_files(self):
+  def _remove_files(self):
     """Delete all the files that were created when making the BLAST database."""
     for extension in ['pdb', 'phr', 'pin', 'pjs', 'pot', 'psq', 'ptf', 'pto']:
       os.remove(glob.glob(f'{self.species_path}/*.{extension}')[0])
@@ -144,6 +146,12 @@ class GeneAssigner:
     # remove BLAST results and sources.fasta
     os.remove(f'{self.species_path}/blast_results.csv')
     os.remove(f'{self.species_path}/sources.fasta')
+
+    # if proteome.db exists, remove it
+    try:
+      os.remove(f'{self.species_path}/proteome.db')
+    except OSError:
+      pass
 
   def _no_blast_matches(self):
     '''Write sources that have no BLAST match to a file.'''
@@ -163,7 +171,7 @@ class GeneAssigner:
       with open(f'{self.species_path}/no_blast_match_ids.txt', 'w') as f:
         for id in no_blast_match_ids:
           f.write(f'{id}\n')
-    
+
     # return the number of sources that have BLAST matches and no BLAST matches
     return len(no_blast_match_ids), len(blast_result_ids)
 
@@ -181,9 +189,10 @@ class GeneAssigner:
     index = blast_results_df.groupby(['Query'])['Alignment Length'].transform(max) == blast_results_df['Alignment Length']
     blast_results_df = blast_results_df[index]
 
-    self.best_blatch_match_map = {}
+    self.best_blatch_match_gene_map, self.best_blatch_match_id_map = {}, {}
     for i, row in blast_results_df.iterrows():
-      self.best_blatch_match_map[row['Query']] = (row['Subject'], row['Subject Gene Symbol'])
+      self.best_blatch_match_gene_map[row['Query']] = row['Subject Gene Symbol']
+      self.best_blatch_match_id_map[row['Query']] = row['Subject']
 
     # check if there are any query duplicates - update map within _pepmatch_tiebreak
     if blast_results_df.duplicated(subset=['Query']).any():
@@ -213,8 +222,9 @@ class GeneAssigner:
       uniprot_id = Counter(matches_df['Protein ID']).most_common()[0][0]
       gene = Counter(matches_df['Gene']).most_common()[0][0]
 
-      # update best_blatch_match_map with the gene that has the most matches
-      self.best_blatch_match_map[source_antigen] = (uniprot_id, gene)
+      # update maps with the gene and id that has the most matches
+      self.best_blatch_match_gene_map[source_antigen] = gene
+      self.best_blatch_match_id_map[source_antigen] = uniprot_id
 
 def main():
   import argparse
