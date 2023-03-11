@@ -58,7 +58,7 @@ class GeneAssigner:
 
     # map source antigens to their best blast matches (UniProt ID and gene) for sources
     sources_df['Assigned Gene'] = sources_df['Accession'].map(self.best_blast_match_gene_map)
-    sources_df['Assigned Protein ID'] = sources_df['Accession'].map(self.best_blast_match_gene_map)
+    sources_df['Assigned Protein ID'] = sources_df['Accession'].map(self.best_blast_match_id_map)
     
     # map source antigens to their best blast matches (gene) for epitopes
     epitopes_df['Assigned Gene'] = epitopes_df['Source Accession'].map(self.best_blast_match_gene_map)
