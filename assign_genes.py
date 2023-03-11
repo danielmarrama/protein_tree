@@ -9,6 +9,7 @@ from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from pepmatch import Preprocessor, Matcher
 
+# TODO: save source accessions from epitopes_df that are not in sources_df
 
 class GeneAssigner:
   def __init__(self, taxon_id):
@@ -46,11 +47,11 @@ class GeneAssigner:
     self._create_blast_db()
     blast_results_df = self._run_blast()
 
-    # remove sources that don't have any BLAST matches and get the counts
-    num_no_blast_matches, num_with_blast_matches = self._no_blast_matches()
-
     # get best blast matches for each source antigen
     self._get_best_blast_matches(blast_results_df)
+
+    # remove sources that don't have any BLAST matches and get the counts
+    num_no_blast_matches, num_with_blast_matches = self._no_blast_matches()
 
     # now assign parents to epitopes
     num_epitopes, num_epitopes_with_matches = self._assign_parents(epitopes_df)
@@ -98,7 +99,11 @@ class GeneAssigner:
     all_matches_df = pd.DataFrame()
     for antigen, epitopes in self.source_to_epitopes_map.items():
       matches_df = Matcher(epitopes, 'proteome', 0, 5, f'{self.species_path}', output_format='dataframe').match()
-      matches_df = matches_df[matches_df['Gene'] == self.best_blast_match_gene_map[antigen]]
+
+      try: # isolate the matches for the assigned gene - if no source gene, skip
+        matches_df = matches_df[matches_df['Gene'] == self.best_blast_match_gene_map[antigen]]
+      except KeyError:
+        pass
 
       # if there are ties, select the protein with the best protein existence level
       index = matches_df.groupby(['Query Sequence'])['Protein Existence Level'].transform(min) == matches_df['Protein Existence Level']
@@ -213,6 +218,11 @@ class GeneAssigner:
 
     no_blast_match_ids = list(set(source_ids) - set(blast_result_ids))
 
+    # write no BLAST match ids to mappings as empty string
+    for id in no_blast_match_ids:
+      self.best_blast_match_gene_map[id] = ''
+      self.best_blast_match_id_map[id] = ''
+
     # write no BLAST match ids to a file if there are any 
     if len(no_blast_match_ids) > 0:
       with open(f'{self.species_path}/no_blast_match_ids.txt', 'w') as f:
@@ -317,8 +327,8 @@ def main():
       print(f'Number of sources with no BLAST matches: {assigner_data[2]}')
       print(f'Number of sources with BLAST matches: {assigner_data[3]}')
       print(f'Number of epitopes with a match: {assigner_data[5]}')
-      print(f'Successful gene assignments: {(assigner_data[3] / assigner_data[0])*100}%')
-      print(f'Successful parent assignments: {(assigner_data[5] / assigner_datas[4])*100}%\n')
+      print(f'Successful gene assignments: {(assigner_data[3] / assigner_data[0])*100:.1f}%')
+      print(f'Successful parent assignments: {(assigner_data[5] / assigner_datas[4])*100:.1f}%\n')
 
   # or just one species at a time - check if its valid
   else:
@@ -342,8 +352,8 @@ def main():
     print(f'Number of sources with no BLAST matches: {assigner_data[2]}')
     print(f'Number of sources with BLAST matches: {assigner_data[3]}')
     print(f'Number of epitopes with a match: {assigner_data[5]}')
-    print(f'Successful gene assignments: {(assigner_data[3] / assigner_data[0])*100}%')
-    print(f'Successful parent assignments: {(assigner_data[5] / assigner_data[4])*100}%\n')
+    print(f'Successful gene assignments: {(assigner_data[3] / assigner_data[0])*100:.1f}%')
+    print(f'Successful parent assignments: {(assigner_data[5] / assigner_data[4])*100:.1f}%\n')
 
 if __name__ == '__main__':  
   main()
