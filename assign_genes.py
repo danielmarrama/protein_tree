@@ -7,6 +7,8 @@ import pandas as pd
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
+from pepmatch import Preprocessor, Matcher
+
 
 class GeneAssigner:
   def __init__(self, taxon_id):
@@ -33,8 +35,8 @@ class GeneAssigner:
     If there are ties, use PEPMatch to search the epitopes within
     the protein sequences and select the protein with the most matches.
     """
-    if sources_df.empty:
-      return
+    if sources_df.empty or epitopes_df.empty:
+      raise Exception('Sources or epitopes data is empty.')
 
     # create source to epitope map and write sources to FASTA file
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
@@ -50,32 +52,75 @@ class GeneAssigner:
     # get best blast matches for each source antigen
     self._get_best_blast_matches(blast_results_df)
 
-    # map source antigens to their best blast matches (UniProt ID and gene)
-    sources_df['Assigned Gene'] = sources_df['Accession'].map(self.best_blatch_match_gene_map)
-    sources_df['Assigned UniProt ID'] = sources_df['Accession'].map(self.best_blatch_match_id_map)
+    # now assign parents to epitopes
+    num_epitopes, num_epitopes_with_matches = self._assign_parents(epitopes_df)
+
+    # map source antigens to their best blast matches (UniProt ID and gene) for sources
+    sources_df['Assigned Gene'] = sources_df['Accession'].map(self.best_blast_match_gene_map)
+    sources_df['Assigned Protein ID'] = sources_df['Accession'].map(self.best_blast_match_gene_map)
     
-    # drop sequence from sources_df
+    # map source antigens to their best blast matches (gene) for epitopes
+    epitopes_df['Assigned Gene'] = epitopes_df['Source Accession'].map(self.best_blast_match_gene_map)
+    epitopes_df['Assigned Parent Protein ID'] = epitopes_df['Sequence'].map(self.best_epitope_isoform_map)
+
+    # drop sequence column for output
     sources_df.drop(columns=['Sequence'], inplace=True)
 
-    # write sources with assigned genes to file
+    # write sources and epitopes with assigned genes and parents to file
     sources_df.to_csv(f'{self.species_path}/sources.csv', index=False)
+    epitopes_df.to_csv(f'{self.species_path}/epitopes.csv', index=False)
 
     # remove blast DB and result files
     self._remove_files()
 
-    source_counts = [num_sources, num_sources_missing_seqs, num_no_blast_matches, num_with_blast_matches]
-    return source_counts
+    counts = [num_sources, num_sources_missing_seqs, num_no_blast_matches, 
+              num_with_blast_matches, num_epitopes, num_epitopes_with_matches]
+    return counts
 
-  def assign_parents(self, epitopes_df):
-    pass
+  def _assign_parents(self, epitopes_df):
+    """
+    Assign a parent protein to each epitope.
+    
+    Preprocess the proteome and then search all the epitopes within
+    the proteome using PEPMatch. Then, assign the parent protein
+    to each epitope by selecting the best isoform of the assigned gene for
+    its source antigen.
+    """
+    # drop epitopes with no sequence
+    epitopes_df.dropna(subset=['Sequence'], inplace=True)
+    num_epitopes = len(epitopes_df)
+
+    # preprocess the proteome once
+    Preprocessor(f'{self.species_path}/proteome.fasta', 'sql', f'{self.species_path}').preprocess(k=5)
+    
+    # loop through the source antigens so we can limit the epitope matches
+    # to the assigned gene for each source antigen
+    all_matches_df = pd.DataFrame()
+    for antigen, epitopes in self.source_to_epitopes_map.items():
+      matches_df = Matcher(epitopes, 'proteome', 0, 5, f'{self.species_path}', output_format='dataframe').match()
+      matches_df = matches_df[matches_df['Gene'] == self.best_blast_match_gene_map[antigen]]
+
+      # if there are ties, select the protein with the best protein existence level
+      index = matches_df.groupby(['Query Sequence'])['Protein Existence Level'].transform(min) == matches_df['Protein Existence Level']
+      matches_df = matches_df[index]
+      
+      # concatenate the matches to the all_matches_df
+      all_matches_df = pd.concat([all_matches_df, matches_df])
+
+    self.best_epitope_isoform_map = dict(zip(all_matches_df['Query Sequence'], all_matches_df['Protein ID']))
+
+    # count the number of epitopes with matches
+    num_epitopes_with_matches = len(all_matches_df.dropna(subset=['Matched Sequence'])['Query Sequence'].unique())
+
+    return num_epitopes, num_epitopes_with_matches
 
   def _create_source_to_epitopes_map(self, epitopes_df):
     source_to_epitopes_map = {}
     for i, row in epitopes_df.iterrows():
       if row['Source Accession'] in source_to_epitopes_map.keys():
-        source_to_epitopes_map[row['Source Accession']].append(row['Peptide'])
+        source_to_epitopes_map[row['Source Accession']].append(row['Sequence'])
       else:
-        source_to_epitopes_map[row['Source Accession']] = [row['Peptide']]
+        source_to_epitopes_map[row['Source Accession']] = [row['Sequence']]
     
     return source_to_epitopes_map 
 
@@ -84,13 +129,11 @@ class GeneAssigner:
     Write source antigens to FASTA file. If a source antigen is missing
     a sequence, write it to a separate file for logging.
     """  
-    # write sources that are missing sequences to file and then drop those
-    if not sources_df[sources_df['Sequence'].isna()].empty:
-      num_sources_missing_seqs = len(sources_df[sources_df['Sequence'].isna()])
-      sources_df[sources_df['Sequence'].isna()].to_csv(f'{self.species_path}/sources_missing_seqs.csv', index=False)
-    else:
-      num_sources_missing_seqs = 0
 
+    # write sources that are missing sequences to file and then drop those
+    num_sources_missing_seqs = len(sources_df[sources_df['Sequence'].isna()])
+    if num_sources_missing_seqs:
+      sources_df[sources_df['Sequence'].isna()].to_csv(f'{self.species_path}/sources_missing_seqs.csv', index=False)
     sources_df.dropna(subset=['Sequence'], inplace=True)
         
     # create seq records of sources with ID and sequence
@@ -193,10 +236,10 @@ class GeneAssigner:
     index = blast_results_df.groupby(['Query'])['Alignment Length'].transform(max) == blast_results_df['Alignment Length']
     blast_results_df = blast_results_df[index]
 
-    self.best_blatch_match_gene_map, self.best_blatch_match_id_map = {}, {}
+    self.best_blast_match_gene_map, self.best_blast_match_id_map = {}, {}
     for i, row in blast_results_df.iterrows():
-      self.best_blatch_match_gene_map[row['Query']] = row['Subject Gene Symbol']
-      self.best_blatch_match_id_map[row['Query']] = row['Subject']
+      self.best_blast_match_gene_map[row['Query']] = row['Subject Gene Symbol']
+      self.best_blast_match_id_map[row['Query']] = row['Subject']
 
     # check if there are any query duplicates - update map within _pepmatch_tiebreak
     if blast_results_df.duplicated(subset=['Query']).any():
@@ -208,7 +251,6 @@ class GeneAssigner:
     using the epitopes associated with the source antigen, search them in 
     the selected proteome and find the gene that has the most matches.
     """
-    from pepmatch import Preprocessor, Matcher
     from collections import Counter
 
     # get any source antigens that have ties for the best match
@@ -227,8 +269,8 @@ class GeneAssigner:
       gene = Counter(matches_df['Gene']).most_common()[0][0]
 
       # update maps with the gene and id that has the most matches
-      self.best_blatch_match_gene_map[source_antigen] = gene
-      self.best_blatch_match_id_map[source_antigen] = uniprot_id
+      self.best_blast_match_gene_map[source_antigen] = gene
+      self.best_blast_match_id_map[source_antigen] = uniprot_id
 
 def main():
   import argparse
@@ -266,39 +308,42 @@ def main():
       
       print(f'Assigning genes for {species_id_to_name_map[taxon_id]} ({taxon_id})...')
       Assigner = GeneAssigner(taxon_id)
-      source_counts = Assigner.assign_genes(sources_df, epitopes_df)
+      counts = Assigner.assign_genes(sources_df, epitopes_df)
       print('Done assigning genes.\n')
 
-      print(f'Number of sources: {source_counts[0]}')
-      print(f'Number of sources missing sequences: {source_counts[1]}')
-      print(f'Number of sources with no BLAST matches: {source_counts[2]}')
-      print(f'Number of sources with BLAST matches: {source_counts[3]}')
-      print(f'Successful gene assignments: {(source_counts[3] / source_counts[0])*100}%\n')
-        
-      # Assigner.assign_parents()
+      print(f'Number of sources: {counts[0]}')
+      print(f'Number of epitopes: {counts[4]}')
+      print(f'Number of sources missing sequences: {counts[1]}')
+      print(f'Number of sources with no BLAST matches: {counts[2]}')
+      print(f'Number of sources with BLAST matches: {counts[3]}')
+      print(f'Number of epitopes with a match: {counts[5]}')
+      print(f'Successful gene assignments: {(counts[3] / counts[0])*100}%')
+      print(f'Successful parent assignments: {(counts[5] / counts[4])*100}%\n')
 
   # or just one species at a time - check if its valid
   else:
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
-    # get data for taxon ID
+
     Fetcher = DataFetcher(user, password, taxon_id, all_taxa_map[taxon_id])
     epitopes_df = Fetcher.get_epitopes()
     sources_df = Fetcher.get_sources()
 
     assert not sources_df.empty, 'This species has no source antigens.'
+    assert not epitopes_df.empty, 'This species has no epitopes.'
 
     print(f'Assigning genes for {species_id_to_name_map[taxon_id]} ({taxon_id})...\n')
     Assigner = GeneAssigner(taxon_id)
-    source_counts = Assigner.assign_genes(sources_df, epitopes_df)
+    counts = Assigner.assign_genes(sources_df, epitopes_df)
     print('Done assigning genes.\n')
 
-    print(f'Number of sources: {source_counts[0]}')
-    print(f'Number of sources missing sequences: {source_counts[1]}')
-    print(f'Number of sources with no BLAST matches: {source_counts[2]}')
-    print(f'Number of sources with BLAST matches: {source_counts[3]}')
-    print(f'Successful gene assignments: {(source_counts[3] / source_counts[0])*100}%\n')
-    
-    # Assigner.assign_parents()
+    print(f'Number of sources: {counts[0]}')
+    print(f'Number of epitopes: {counts[4]}')
+    print(f'Number of sources missing sequences: {counts[1]}')
+    print(f'Number of sources with no BLAST matches: {counts[2]}')
+    print(f'Number of sources with BLAST matches: {counts[3]}')
+    print(f'Number of epitopes with a match: {counts[5]}')
+    print(f'Successful gene assignments: {(counts[3] / counts[0])*100}%')
+    print(f'Successful parent assignments: {(counts[5] / counts[4])*100}%\n')
 
 if __name__ == '__main__':  
   main()

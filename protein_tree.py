@@ -49,8 +49,6 @@ def run_protein_tree(user, password, taxon_id, species_name, all_taxa):
   print(f'Number of sources with BLAST matches: {source_counts[3]}')
   print(f'Successful gene assignments: {(source_counts[3] / source_counts[0])*100}%\n')
 
-  print('Assigning parents to epitopes...')
-  # Assigner.assign_parents()
 
 def main():
   parser = argparse.ArgumentParser()

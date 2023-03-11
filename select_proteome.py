@@ -255,9 +255,9 @@ class ProteomeSelector:
       return self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0]
 
     # drop any epitopes that do not have a peptide sequence - this is rare but needs to be checked
-    epitopes_df = epitopes_df[epitopes_df['Peptide'].notna()]
+    epitopes_df = epitopes_df[epitopes_df['Sequence'].notna()]
     # TODO: be able to check for discontinuous epitopes
-    epitopes = [epitope for epitope in epitopes_df['Peptide'] if not any(char.isdigit() for char in epitope)]
+    epitopes = [epitope for epitope in epitopes_df['Sequence'] if not any(char.isdigit() for char in epitope)]
     
     # keep track of # of epitope matches for each proteome
     match_counts = {}

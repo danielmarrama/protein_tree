@@ -21,7 +21,7 @@ class DataFetcher:
                 f'FROM object '\
                 f'WHERE object_sub_type = "Peptide from protein" '\
                 f'AND organism2_id IN ({self.all_taxa});'
-    columns = ['Peptide', 'Source Name', 'Source Accession']
+    columns = ['Sequence', 'Source Name', 'Source Accession']
     return pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)), columns=columns)
 
   def get_sources(self):
