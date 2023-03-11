@@ -142,10 +142,8 @@ class GeneAssigner:
     sources_df.dropna(subset=['Sequence'], inplace=True)
         
     # create seq records of sources with ID and sequence
-    # TEST: use 1,000 sources for testing
-    # TODO: REMOVE THIS 
     seq_records = []
-    for i, row in sources_df.iloc[0:1000, :].iterrows():
+    for i, row in sources_df.iterrows():
       seq_records.append(
         SeqRecord(
           Seq(row['Sequence']),
