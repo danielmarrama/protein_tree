@@ -30,7 +30,7 @@ def run_protein_tree(user, password, taxon_id, species_name, all_taxa):
   Selector = ProteomeSelector(taxon_id)
   print(f'Number of candidate proteomes: {Selector.num_of_proteomes}\n')
 
-  proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
+  proteome_data = Selector.select_proteome(epitopes_df)
   Selector.proteome_to_csv()
   
   print('Got the best proteome:')
@@ -40,14 +40,17 @@ def run_protein_tree(user, password, taxon_id, species_name, all_taxa):
 
   print('Assigning genes to source antigens...')
   Assigner = GeneAssigner(taxon_id)
-  source_counts = Assigner.assign_genes(sources_df, epitopes_df)
+  assigner_data = Assigner.assign_genes(sources_df, epitopes_df)
   print('Done assigning genes.\n')
 
-  print(f'Number of sources: {source_counts[0]}')
-  print(f'Number of sources missing sequences: {source_counts[1]}')
-  print(f'Number of sources with no BLAST matches: {source_counts[2]}')
-  print(f'Number of sources with BLAST matches: {source_counts[3]}')
-  print(f'Successful gene assignments: {(source_counts[3] / source_counts[0])*100}%\n')
+  print(f'Number of sources: {assigner_data[0]}')
+  print(f'Number of epitopes: {assigner_data[4]}')
+  print(f'Number of sources missing sequences: {assigner_data[1]}')
+  print(f'Number of sources with no BLAST matches: {assigner_data[2]}')
+  print(f'Number of sources with BLAST matches: {assigner_data[3]}')
+  print(f'Number of epitopes with a match: {assigner_data[5]}')
+  print(f'Successful gene assignments: {(assigner_data[3] / assigner_data[0])*100}%')
+  print(f'Successful parent assignments: {(assigner_data[5] / assigner_data[4])*100}%\n')
 
 
 def main():

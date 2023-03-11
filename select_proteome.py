@@ -84,7 +84,8 @@ class ProteomeSelector:
     
     self._remove_other_proteomes(proteome_id)
 
-    return proteome_id, proteome_taxon, proteome_type
+    proteome_data = [proteome_id, proteome_taxon, proteome_type]
+    return proteome_data
 
   def proteome_to_csv(self):
     """
@@ -307,11 +308,13 @@ def main():
   
   parser.add_argument('-u', '--user', required=True, help='User for IEDB MySQL connection.')
   parser.add_argument('-p', '--password', required=True, help='Password for IEDB MySQL connection.')
+  parser.add_argument('-a', '--all_species', action='store_true', help='Build protein tree for all IEDB species.')
   parser.add_argument('-t', '--taxon_id', required=True, help='Taxon ID for the species to pull data for.')
   
   args = parser.parse_args()
   user = args.user
   password = args.password
+  all_species = args.all_species
   taxon_id = args.taxon_id
 
   # read in IEDB species data
@@ -323,7 +326,7 @@ def main():
   species_id_to_name_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['Species Label']))
 
   # do proteome selection for all IEDB species
-  if taxon_id == 'all':
+  if all_species:
     proteomes = {}
     for taxon_id in valid_taxon_ids:
       # get data for taxon ID
@@ -332,11 +335,11 @@ def main():
 
       # select proteome
       Selector = ProteomeSelector(taxon_id)
-      num_of_proteomes, proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
+      proteome_data = Selector.select_proteome(epitopes_df)
       Selector.proteome_to_csv()
       
-      proteomes[taxon_id] = (num_of_proteomes, proteome_id, proteome_taxon, proteome_type)
-      print(f'# of Proteomes: {num_of_proteomes}')
+      proteomes[taxon_id] = (Selector.num_of_proteomes, proteome_data[0], proteome_data[1], proteome_data[2])
+      print(f'# of Proteomes: {Selector.num_of_proteomes}')
       print(f'Proteome ID: {proteome_id}')
       print(f'Proteome taxon: {proteome_taxon}')
       print(f'Proteome type: {proteome_type}')
@@ -359,12 +362,12 @@ def main():
 
     Selector = ProteomeSelector(taxon_id)
     print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')
-    proteome_id, proteome_taxon, proteome_type = Selector.select_proteome(epitopes_df)
+    proteome_data = Selector.select_proteome(epitopes_df)
     Selector.proteome_to_csv()
 
-    print(f'Proteome ID: {proteome_id}')
-    print(f'Proteome taxon: {proteome_taxon}')
-    print(f'Proteome type: {proteome_type}')
+    print(f'Proteome ID: {proteome_data[0]}')
+    print(f'Proteome taxon: {proteome_data[1]}')
+    print(f'Proteome type: {proteome_data[2]}')
 
 if __name__ == '__main__':
   main()

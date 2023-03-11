@@ -73,9 +73,9 @@ class GeneAssigner:
     # remove blast DB and result files
     self._remove_files()
 
-    counts = [num_sources, num_sources_missing_seqs, num_no_blast_matches, 
-              num_with_blast_matches, num_epitopes, num_epitopes_with_matches]
-    return counts
+    assigner_data = [num_sources, num_sources_missing_seqs, num_no_blast_matches, 
+                     num_with_blast_matches, num_epitopes, num_epitopes_with_matches]
+    return assigner_data
 
   def _assign_parents(self, epitopes_df):
     """
@@ -298,7 +298,7 @@ def main():
   species_id_to_name_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['Species Label']))
 
   # do proteome selection for all IEDB species
-  if taxon_id == 'all':
+  if all_species:
     proteomes = {}
     for taxon_id in valid_taxon_ids:
       # get data for taxon ID
@@ -308,17 +308,17 @@ def main():
       
       print(f'Assigning genes for {species_id_to_name_map[taxon_id]} ({taxon_id})...')
       Assigner = GeneAssigner(taxon_id)
-      counts = Assigner.assign_genes(sources_df, epitopes_df)
+      assigner_data = Assigner.assign_genes(sources_df, epitopes_df)
       print('Done assigning genes.\n')
 
-      print(f'Number of sources: {counts[0]}')
-      print(f'Number of epitopes: {counts[4]}')
-      print(f'Number of sources missing sequences: {counts[1]}')
-      print(f'Number of sources with no BLAST matches: {counts[2]}')
-      print(f'Number of sources with BLAST matches: {counts[3]}')
-      print(f'Number of epitopes with a match: {counts[5]}')
-      print(f'Successful gene assignments: {(counts[3] / counts[0])*100}%')
-      print(f'Successful parent assignments: {(counts[5] / counts[4])*100}%\n')
+      print(f'Number of sources: {assigner_data[0]}')
+      print(f'Number of epitopes: {assigner_data[4]}')
+      print(f'Number of sources missing sequences: {assigner_data[1]}')
+      print(f'Number of sources with no BLAST matches: {assigner_data[2]}')
+      print(f'Number of sources with BLAST matches: {assigner_data[3]}')
+      print(f'Number of epitopes with a match: {assigner_data[5]}')
+      print(f'Successful gene assignments: {(assigner_data[3] / assigner_data[0])*100}%')
+      print(f'Successful parent assignments: {(assigner_data[5] / assigner_datas[4])*100}%\n')
 
   # or just one species at a time - check if its valid
   else:
@@ -333,17 +333,17 @@ def main():
 
     print(f'Assigning genes for {species_id_to_name_map[taxon_id]} ({taxon_id})...\n')
     Assigner = GeneAssigner(taxon_id)
-    counts = Assigner.assign_genes(sources_df, epitopes_df)
+    assigner_data = Assigner.assign_genes(sources_df, epitopes_df)
     print('Done assigning genes.\n')
 
-    print(f'Number of sources: {counts[0]}')
-    print(f'Number of epitopes: {counts[4]}')
-    print(f'Number of sources missing sequences: {counts[1]}')
-    print(f'Number of sources with no BLAST matches: {counts[2]}')
-    print(f'Number of sources with BLAST matches: {counts[3]}')
-    print(f'Number of epitopes with a match: {counts[5]}')
-    print(f'Successful gene assignments: {(counts[3] / counts[0])*100}%')
-    print(f'Successful parent assignments: {(counts[5] / counts[4])*100}%\n')
+    print(f'Number of sources: {assigner_data[0]}')
+    print(f'Number of epitopes: {assigner_data[4]}')
+    print(f'Number of sources missing sequences: {assigner_data[1]}')
+    print(f'Number of sources with no BLAST matches: {assigner_data[2]}')
+    print(f'Number of sources with BLAST matches: {assigner_data[3]}')
+    print(f'Number of epitopes with a match: {assigner_data[5]}')
+    print(f'Successful gene assignments: {(assigner_data[3] / assigner_data[0])*100}%')
+    print(f'Successful parent assignments: {(assigner_data[5] / assigner_data[4])*100}%\n')
 
 if __name__ == '__main__':  
   main()
