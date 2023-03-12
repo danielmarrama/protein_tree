@@ -3,15 +3,15 @@ Taxon ID,Species Label,Proteome ID,Proteome Taxon,Proteome Type,Number of Source
 34,Myxococcus xanthus,UP000002402,246197.0,Representative,,,,,,,,
 106,Runella slithyformis,UP000000493,761193.0,Representative,1.0,0.0,0.0,1.0,4.0,1.0,100.0,25.0
 108,Spirosoma linguale,UP000002028,504472.0,Other,1.0,0.0,0.0,1.0,1.0,1.0,100.0,100.0
-139,Borreliella burgdorferi (Lyme disease spirochete),UP000001807,,Representative,,,,,,,,
-158,Treponema denticola,UP000008212,,Representative,,,,,,,,
-160,Treponema pallidum,UP000000811,,Representative,,,,,,,,
-162,Treponema phagedenis,UP000004157,,Representative,,,,,,,,
-173,Leptospira interrogans,UP000012139,,Representative,,,,,,,,
-188,Magnetospirillum magnetotacticum,UP000031971,,Other,,,,,,,,
-195,Campylobacter coli,UP000411654,,Non-redundant,,,,,,,,
-196,Campylobacter fetus,UP000052237,,Non-redundant,,,,,,,,
-197,Campylobacter jejuni,UP000000799,,Representative,,,,,,,,
+139,Borreliella burgdorferi (Lyme disease spirochete),UP000001807,224326.0,Representative,74.0,5.0,1.0,73.0,869.0,4.0,98.64864864864865,0.4602991944764096
+158,Treponema denticola,UP000008212,,Representative,2.0,0.0,0.0,2.0,2.0,2.0,100.0,100.0
+160,Treponema pallidum,UP000000811,,Representative,18.0,1.0,0.0,18.0,602.0,435.0,100.0,72.25913621262458
+162,Treponema phagedenis,UP000004157,,Representative,1.0,0.0,0.0,1.0,2.0,1.0,100.0,50.0
+173,Leptospira interrogans,UP000012139,,Representative,32.0,1.0,4.0,28.0,285.0,235.0,87.5,82.45614035087719
+188,Magnetospirillum magnetotacticum,UP000031971,,Other,5.0,0.0,0.0,5.0,7.0,4.0,100.0,57.14285714285714
+195,Campylobacter coli,UP000411654,,Non-redundant,4.0,0.0,0.0,4.0,8.0,4.0,100.0,50.0
+196,Campylobacter fetus,UP000052237,,Non-redundant,3.0,0.0,0.0,3.0,17.0,15.0,100.0,88.23529411764706
+197,Campylobacter jejuni,UP000000799,,Representative,127.0,2.0,13.0,114.0,673.0,1.0,89.76377952755905,0.1485884101040119
 201,Campylobacter lari,UP000842245,,Non-redundant,,,,,,,,
 210,Helicobacter pylori,UP000000429,,Representative,,,,,,,,
 214,Helicobacter felis,UP000007934,,Other,,,,,,,,

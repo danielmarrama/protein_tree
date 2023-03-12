@@ -107,12 +107,12 @@ def main():
       metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Number of Epitopes with a Match'] = tree_data[t_id][1][5]
 
       # calculate percentages of gene and parent assignment success
-      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Successful Gene Assignments'] = (tree_data[t_id][1][3] / tree_data[t_id][1][0])*100
-      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Successful Parent Assignments'] = (tree_data[t_id][1][5] / tree_data[t_id][1][4])*100
+      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Successful Gene Assignments (%)'] = (tree_data[t_id][1][3] / tree_data[t_id][1][0])*100
+      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Successful Parent Assignments (%)'] = (tree_data[t_id][1][5] / tree_data[t_id][1][4])*100
 
+      metrics_df.to_csv('metrics.csv', index=False)
+      
       print('Done.\n')
-
-    metrics_df.to_csv('metrics.csv', index=False)
 
     print('All protein trees built.')
 

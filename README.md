@@ -30,9 +30,10 @@ or for all species:
 
 For each species:
 - proteome.fasta - selected proteome in FASTA
+- [optional] gp_proteome.fasta - the gene priority proteome in FASTA if it exists
 - proteome.csv   - selected proteome with data in CSV
 - sources.csv    - each source antigen with assigned gene
-- epitopes.csv   - each epitope with its source antigen and assigned parent
+- epitopes.csv   - each epitope with its source antigen and assigned parent protein
 
 For all species:
 - metrics.csv    - the metadata: # of source antigens, # of epitopes, % of sources assigned a gene, % of epitopes assigned a parent, etc.

@@ -117,6 +117,10 @@ class GeneAssigner:
     return num_epitopes, num_epitopes_with_matches
 
   def _create_source_to_epitopes_map(self, epitopes_df):
+    """Create a map from source antigens to their epitopes."""
+    # drop epitopes with no sequence
+    epitopes_df.dropna(subset=['Sequence'], inplace=True)
+    
     source_to_epitopes_map = {}
     for i, row in epitopes_df.iterrows():
       if row['Source Accession'] in source_to_epitopes_map.keys():
