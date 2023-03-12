@@ -81,9 +81,9 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa
 714,Aggregatibacter actinomycetemcomitans,714,bacterium,714
 715,Actinobacillus pleuropneumoniae,715; 416269; 228399; 537457,bacterium,537457; 228399; 416269; 715
 727,Haemophilus influenzae,456482; 262727; 262728; 375432; 375177; 521004; 521005; 374927; 374928; 656913; 374931; 374932; 374933; 727; 71421,bacterium,262728; 71421; 262727; 374933; 456482; 521004; 375177; 521005; 374927; 656913; 374932; 374931; 374928; 727; 375432
-730,[Haemophilus] ducreyi,730,bacterium,730
+730,Haemophilus ducreyi,730,bacterium,730
 731,Histophilus somni,205914,bacterium,731; 205914
-738,[Haemophilus] parasuis,738,bacterium,738
+738,Haemophilus parasuis,738,bacterium,738
 747,Pasteurella multocida,272843; 747; 44283,bacterium,272843; 747; 44283
 769,Anaplasma centrale,769; 574556,bacterium,574556; 769
 770,Anaplasma marginale,770; 320483; 234826,bacterium,770; 320483; 234826
@@ -135,7 +135,7 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa
 1313,Streptococcus pneumoniae,406560; 1313; 373153; 170187; 453366; 171101,bacterium,171101; 1313; 406560; 170187; 453366; 373153
 1314,Streptococcus pyogenes,562017; 1314; 1115815; 301449; 301450; 160490; 160491; 286636; 1115822; 1115825; 561522; 370553; 370554,bacterium,160490; 370553; 1115825; 286636; 1115822; 561522; 1115815; 370554; 301450; 562017; 1314; 301449; 160491
 1317,Streptococcus downei (Streptococcus downensis),1317,bacterium,1317
-1320,Streptococcus sp. 'group G',1320,bacterium,1320
+1320,Streptococcus sp. group G,1320,bacterium,1320
 1323,Faecalicoccus pleomorphus,1323,bacterium,1323
 1325,Streptococcus sp. GX7805,1325,bacterium,1325
 1329,Streptococcus canis,1329,bacterium,1329
@@ -164,7 +164,7 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa
 1513,Clostridium tetani,1513; 212717,bacterium,212717; 1513
 1515,Ruminiclostridium thermocellum,203119,bacterium,203119; 1515
 1520,Clostridium beijerinckii,290402,bacterium,290402; 1520
-1521,[Clostridium] cellulolyticum (Clostridium cellulosilyticum),1521,bacterium,1521
+1521,Clostridium cellulolyticum (Clostridium cellulosilyticum),1521,bacterium,1521
 1525,Moorella thermoacetica,264732,bacterium,264732; 1525
 1542,Clostridium novyi,386415,bacterium,386415; 1542
 1584,Lactobacillus delbrueckii,1585,bacterium,1584; 1585
@@ -758,8 +758,8 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa
 29271,Dasheen mosaic virus,29271,small-virus,29271
 29292,Pyrococcus abyssi,272844,archeobacterium,29292; 272844
 29320,Paenarthrobacter nicotinovorans (Arthrobacter nicotinivorans),29320,bacterium,29320
-29362,[Clostridium] papyrosolvens,588581; 29362,bacterium,588581; 29362
-29371,[Clostridium] termitidis,29371,bacterium,29371
+29362,Clostridium papyrosolvens,588581; 29362,bacterium,588581; 29362
+29371,Clostridium termitidis,29371,bacterium,29371
 29388,Staphylococcus capitis,29388,bacterium,29388
 29438,Pseudomonas savastanoi,264730,bacterium,264730; 29438
 29442,Pseudomonas tolaasii,29442,bacterium,29442
@@ -1061,7 +1061,7 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa
 152794,Corynebacterium efficiens,196164; 152794,bacterium,196164; 152794
 154334,Macacine herpesvirus 5 (Rhesus rhadinovirus),169974,large-virus,169974; 154334
 156586,Flavobacteria bacterium BBFL7,156586,bacterium,156586
-157673,[Mannheimia] succiniciproducens,221988,bacterium,221988; 157673
+157673,Mannheimia succiniciproducens,221988,bacterium,221988; 157673
 157914,Ziziphus mauritiana (Indian-plum),157914,other-eukaryote,157914
 158899,Collimonas fungivorans,1005048,bacterium,158899; 1005048
 159091,Pseudomonas sp. KIE171,159091,bacterium,159091
@@ -1133,7 +1133,7 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa
 263511,Crocosphaera watsonii,165597,bacterium,263511; 165597
 263815,Pneumocystis murina,263815,other-eukaryote,263815
 265619,Ornithodoros erraticus,265619,other-eukaryote,265619
-266779,Chelativorans sp. BNC1 ([Mesorhizobium] sp. BNC1),266779,bacterium,266779
+266779,Chelativorans sp. BNC1 (Mesorhizobium sp. BNC1),266779,bacterium,266779
 270478,Zantedeschia mild mosaic virus,270478,small-virus,270478
 271108,Bombyx mori nucleopolyhedrovirus,271108,large-virus,271108
 272131,Nostoc punctiforme,63737,bacterium,63737; 272131
