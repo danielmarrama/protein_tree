@@ -14,6 +14,7 @@ from pepmatch import Preprocessor, Matcher
 class ProteomeSelector:
   def __init__(self, taxon_id):
     self.species_df = pd.read_csv('species.csv')
+    self.metrics_df = pd.read_csv('metrics.csv')
     self.taxon_id = taxon_id
     
     # create species path with species taxon and name; example: "24-Shewanella putrefaciens"
@@ -46,9 +47,10 @@ class ProteomeSelector:
     """
     # if species_dir already exists then return the already selected proteome, else create dir
     if os.path.exists(f'{self.species_path}/proteome.fasta'):
-      proteome_id = self.species_df[self.species_df['Taxon ID'].astype(str) == self.taxon_id]['Proteome ID'].iloc[0]
-      proteome_type = self.species_df[self.species_df['Taxon ID'].astype(str) == self.taxon_id]['Proteome Type'].iloc[0]
-      return proteome_id, self.taxon_id, proteome_type
+      proteome_id = self.metrics_df[self.metrics_df['Taxon ID'].astype(str) == self.taxon_id]['Proteome ID'].iloc[0]
+      proteome_taxon = self.metrics_df[self.metrics_df['Taxon ID'].astype(str) == self.taxon_id]['Proteome Taxon'].iloc[0]
+      proteome_type = self.metrics_df[self.metrics_df['Taxon ID'].astype(str) == self.taxon_id]['Proteome Type'].iloc[0]
+      return proteome_id, proteome_taxon, proteome_type
     else:
       os.makedirs(self.species_path, exist_ok=True)
 
@@ -317,8 +319,9 @@ def main():
   all_species = args.all_species
   taxon_id = args.taxon_id
 
-  # read in IEDB species data
+  # read in IEDB species data and read in metrics data to write into
   species_df = pd.read_csv('species.csv')
+  metrics_df = pd.read_csv('metrics.csv')
   valid_taxon_ids = species_df['Taxon ID'].astype(str).tolist()
 
   # dicts for mapping taxon IDs to all their taxa and their names
@@ -338,19 +341,17 @@ def main():
       proteome_data = Selector.select_proteome(epitopes_df)
       Selector.proteome_to_csv()
       
-      proteomes[taxon_id] = (Selector.num_of_proteomes, proteome_data[0], proteome_data[1], proteome_data[2])
       print(f'# of Proteomes: {Selector.num_of_proteomes}')
-      print(f'Proteome ID: {proteome_id}')
-      print(f'Proteome taxon: {proteome_taxon}')
-      print(f'Proteome type: {proteome_type}')
+      print(f'Proteome ID: {proteome_data[0]}')
+      print(f'Proteome taxon: {proteome_data[1]}')
+      print(f'Proteome type: {proteome_data[2]}')
     
-    # create new species columns with proteome ID and type - save to file
-    species_df['# of Proteomes'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[0])
-    species_df['Proteome ID'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[1])
-    species_df['Proteome Taxon'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[2])
-    species_df['Proteome Type'] = species_df['Taxon ID'].map(proteomes).map(lambda x: x[3])
+      # update metrics data
+      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Proteome ID'] = proteome_data[0]
+      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Proteome Taxon'] = proteome_data[1]
+      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Proteome Type'] = proteome_data[2]
 
-    species_df.to_csv('species.csv', index=False)
+      metrics_df.to_csv('metrics.csv', index=False)
 
   # or just one species at a time - check if its valid
   else:
@@ -366,8 +367,15 @@ def main():
     Selector.proteome_to_csv()
 
     print(f'Proteome ID: {proteome_data[0]}')
-    print(f'Proteome taxon: {proteome_data[1]}')
+    print(f'Proteome taxon: {int(proteome_data[1])}')
     print(f'Proteome type: {proteome_data[2]}')
+
+    # update metrics data
+    metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), 'Proteome ID'] = proteome_data[0]
+    metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), 'Proteome Taxon'] = int(proteome_data[1])
+    metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), 'Proteome Type'] = proteome_data[2]
+
+    metrics_df.to_csv('metrics.csv', index=False)
 
 if __name__ == '__main__':
   main()
