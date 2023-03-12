@@ -33,4 +33,8 @@ For each species:
 - proteome.csv   - selected proteome with data in CSV
 - sources.csv    - each source antigen with assigned gene
 - epitopes.csv   - each epitope with its source antigen and assigned parent
-- metrics.csv    - the metadata: # of source antigens, # of epitopes, % of sources assigned a gene, % of epitopes assigned a parent
+
+For all species:
+- metrics.csv    - the metadata: # of source antigens, # of epitopes, % of sources assigned a gene, % of epitopes assigned a parent, etc.
+
+Use [combine_data.py](combine_data.py) to merge all epitopes.csv and all sources.csv into one file for every species.
