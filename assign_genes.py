@@ -10,6 +10,7 @@ from Bio.SeqRecord import SeqRecord
 from pepmatch import Preprocessor, Matcher
 
 # TODO: save source accessions from epitopes_df that are not in sources_df
+# TODO: use manual_parents.csv to override assigned genes
 
 class GeneAssigner:
   def __init__(self, taxon_id):
@@ -266,8 +267,15 @@ class GeneAssigner:
     source_antigens_with_ties = blast_results_df[blast_results_df.duplicated(subset=['Query'])]['Query'].unique()
 
     for source_antigen in source_antigens_with_ties:
-      # get the epitopes associated with the source antigen
-      epitopes = self.source_to_epitopes_map[source_antigen]
+      try:
+        # get the epitopes associated with the source antigen
+        epitopes = self.source_to_epitopes_map[source_antigen]
+      # if there are no epitopes, then assign the gene and id to the first
+      # blast match in blast_results_df of that source_antigen
+      except KeyError:
+        self.best_blast_match_gene_map[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Subject Gene Symbol'].iloc[0]
+        self.best_blast_match_id_map[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Subject'].iloc[0]
+        continue
 
       # search the epitopes in the selected proteome
       Preprocessor(f'{self.species_path}/proteome.fasta', 'sql', f'{self.species_path}').preprocess(k=5)
