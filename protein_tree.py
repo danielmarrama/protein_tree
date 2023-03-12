@@ -11,14 +11,15 @@ from assign_genes import GeneAssigner
 
 # TODO:
 # - create UniProt ID to gene symbol map using proteome.csv
-# - when running all species, update species.csv with proteome ID, proteome taxon, and proteome type
 # - create a .txt file with the tree structure of gene --> relevant isoforms
 # - either update PEPMatch to search discontinous epitopes or write a new function to do it
 
-def run_protein_tree(user, password, taxon_id, species_name, all_taxa):
+def run_protein_tree(user, password, all_species, taxon_id, species_name, all_taxa):
   """
-  Build protein tree for a species.
+  Build protein tree for an IEDB species.
   """
+
+  # get epitopes and sources data from MySQL backend
   print('Getting epitopes and sources data...')
 
   Fetcher = DataFetcher(user, password, taxon_id, all_taxa)
@@ -27,10 +28,11 @@ def run_protein_tree(user, password, taxon_id, species_name, all_taxa):
 
   # if there are no epitopes or sources, return the proteome data that exists in metrics.csv and then zeros for the other tuple
   if epitopes_df.empty or sources_df.empty:
-    return None 
+    return None
   
   print('Done getting data.\n')
 
+  # select best proteome for the species
   print('Getting the best proteome...')
   Selector = ProteomeSelector(taxon_id)
   print(f'Number of candidate proteomes: {Selector.num_of_proteomes}\n')
@@ -43,6 +45,7 @@ def run_protein_tree(user, password, taxon_id, species_name, all_taxa):
   print(f'Proteome taxon: {proteome_data[1]}')
   print(f'Proteome type: {proteome_data[2]}\n')
 
+  # assign genes to source antigens and parent proteins to epitopes
   print('Assigning genes to source antigens...')
   Assigner = GeneAssigner(taxon_id)
   assigner_data = Assigner.assign_genes(sources_df, epitopes_df)
@@ -56,6 +59,26 @@ def run_protein_tree(user, password, taxon_id, species_name, all_taxa):
   print(f'Number of epitopes with a match: {assigner_data[5]}')
   print(f'Successful gene assignments: {(assigner_data[3] / assigner_data[0])*100:.1f}%')
   print(f'Successful parent assignments: {(assigner_data[5] / assigner_data[4])*100:.1f}%\n')
+
+  # write data to metrics.csv
+  print('Recording metrics...') 
+  metrics_df = pd.read_csv('metrics.csv')
+  metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), 'Proteome ID'] = proteome_data[0]
+  metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), 'Proteome Taxon'] = proteome_data[1]
+  metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), 'Proteome Type'] = proteome_data[2]
+  metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), '# of Sources'] = assigner_data[0]
+  metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), '# of Epitopes'] = assigner_data[4]
+  metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), '# of Sources Missing Sequences'] = assigner_data[1]
+  metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), '# of Sources with No BLAST Matches'] = assigner_data[2]
+  metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), '# of Sources with BLAST Matches'] = assigner_data[3]
+  metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), '# of Epitopes with a Match'] = assigner_data[5]
+  
+  # calculate percentages of gene and parent assignment success
+  metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), '% Successful Gene Assignments'] = (assigner_data[3] / assigner_data[0])*100
+  metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), '% Successful Parent Assignments'] = (assigner_data[5] / assigner_data[4])*100
+
+  metrics_df.to_csv('metrics.csv', index=False)
+  print('Done recording metrics.\n')
 
   return (proteome_data, assigner_data)
 
@@ -73,6 +96,8 @@ def main():
   all_species = args.all_species
   taxon_id = args.taxon_id
 
+  run_protein_tree(user, password, all_species, taxon_id)
+
   # read in IEDB species data and read in metrics data to write into
   species_df = pd.read_csv('species.csv')
   metrics_df = pd.read_csv('metrics.csv')
@@ -84,35 +109,15 @@ def main():
 
   # run protein tree for all IEDB species 
   if all_species:
-    tree_data = {}
     for t_id in valid_taxon_ids:
       print(f'Building protein tree for {species_id_to_name_map[t_id]} (ID: {t_id})...\n')
-      tree_data[t_id] = run_protein_tree(user, password, t_id, species_id_to_name_map[t_id], all_taxa_map[t_id])
-      print('Protein tree build done.')
+      tree_data = run_protein_tree(user, password, t_id, species_id_to_name_map[t_id], all_taxa_map[t_id])
 
-      if tree_data[t_id] is None:
+      if tree_data is None:
         print('No epitopes or sources found for this species. Skipping.')
         continue
 
-      print('Recording metrics...')
-
-      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Proteome ID'] = tree_data[t_id][0][0]
-      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Proteome Taxon'] = tree_data[t_id][0][1]
-      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Proteome Type'] = tree_data[t_id][0][2]
-      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Number of Sources'] = tree_data[t_id][1][0]
-      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Number of Sources Missing Sequences'] = tree_data[t_id][1][1]
-      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Number of Sources with No BLAST Matches'] = tree_data[t_id][1][2]
-      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Number of Sources with BLAST Matches'] = tree_data[t_id][1][3]
-      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Number of Epitopes'] = tree_data[t_id][1][4]
-      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Number of Epitopes with a Match'] = tree_data[t_id][1][5]
-
-      # calculate percentages of gene and parent assignment success
-      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Successful Gene Assignments (%)'] = (tree_data[t_id][1][3] / tree_data[t_id][1][0])*100
-      metrics_df.loc[metrics_df['Taxon ID'] == int(t_id), 'Successful Parent Assignments (%)'] = (tree_data[t_id][1][5] / tree_data[t_id][1][4])*100
-
-      metrics_df.to_csv('metrics.csv', index=False)
-      
-      print('Done.\n')
+      print('Protein tree build done.')
 
     print('All protein trees built.')
 
@@ -121,30 +126,12 @@ def main():
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     print(f'Building protein tree for {species_id_to_name_map[taxon_id]} (ID: {taxon_id})...\n')
     tree_data = run_protein_tree(user, password, taxon_id, species_id_to_name_map[taxon_id], all_taxa_map[taxon_id])
-    print(f'Protein tree built for {species_id_to_name_map[taxon_id]} (ID: {taxon_id}).\n')
-
-    if tree_data is None:
-      print('No epitopes or sources found for this species. Skipping.')
-      return
-
-    print('Recording metrics...')
-    metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), 'Proteome ID'] = tree_data[0][0]
-    metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), 'Proteome Taxon'] = tree_data[0][1]
-    metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), 'Proteome Type'] = tree_data[0][2]
-    metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), 'Number of Sources'] = tree_data[1][0]
-    metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), 'Number of Sources Missing Sequences'] = tree_data[1][1]
-    metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), 'Number of Sources with No BLAST Matches'] = tree_data[1][2]
-    metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), 'Number of Sources with BLAST Matches'] = tree_data[1][3]
-    metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), 'Number of Epitopes'] = tree_data[1][4]
-    metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), 'Number of Epitopes with a Match'] = tree_data[1][5]
     
-    # calculate percentages of gene and parent assignment success
-    metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), 'Successful Gene Assignments (%)'] = (tree_data[1][3] / tree_data[1][0])*100
-    metrics_df.loc[metrics_df['Taxon ID'] == int(taxon_id), 'Successful Parent Assignments (%)'] = (tree_data[1][5] / tree_data[1][4])*100
-
-    metrics_df.to_csv('metrics.csv', index=False)
-
-    print('Done.')
+    if tree_data == None:
+      print('No epitopes or sources found for this species.')
+      return
+    
+    print(f'Protein tree built for {species_id_to_name_map[taxon_id]} (ID: {taxon_id}).\n')
 
 if __name__ == '__main__':
   main()
