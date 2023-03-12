@@ -2,7 +2,8 @@ __pycache__/
 .DS_Store
 .ipynb_checkpoints/
 9606*
-all_genes.txt
+all_epitopes.csv
+all_sources.csv
 blast.py
 blastp
 blast_output.csv
