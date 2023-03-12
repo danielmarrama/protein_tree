@@ -51,7 +51,7 @@ class GeneAssigner:
     # remove sources that don't have any BLAST matches and get the counts
     num_no_blast_matches, num_with_blast_matches = self._no_blast_matches()
 
-    # now assign parents to epitopes
+    # now assign parent proteins to epitopes
     num_epitopes, num_epitopes_with_matches = self._assign_parents(epitopes_df)
 
     # map source antigens to their best blast matches (UniProt ID and gene) for sources
@@ -89,9 +89,10 @@ class GeneAssigner:
     epitopes_df.dropna(subset=['Sequence'], inplace=True)
     num_epitopes = len(epitopes_df)
 
-    # preprocess the proteome once
-    Preprocessor(f'{self.species_path}/proteome.fasta', 'sql', f'{self.species_path}').preprocess(k=5)
-    
+    # preprocess the proteome if it hasn't been done yet
+    if not os.path.exists(f'{self.species_path}/proteome.db'):
+      Preprocessor(f'{self.species_path}/proteome.fasta', 'sql', f'{self.species_path}').preprocess(k=5)
+
     # loop through the source antigens so we can limit the epitope matches
     # to the assigned gene for each source antigen
     all_matches_df = pd.DataFrame()
@@ -172,7 +173,7 @@ class GeneAssigner:
     species_path = self.species_path.replace('(', '\(').replace(')', '\)')  
     os.system(f'./blastp -query {species_path}/sources.fasta '\
               f'-db {species_path}/proteome.fasta '\
-              f'-evalue 0.0001 -num_threads 1 -outfmt 10 '\
+              f'-evalue 1 -num_threads 12 -outfmt 10 '\
               f'-out {species_path}/blast_results.csv'
     )
     
@@ -266,21 +267,23 @@ class GeneAssigner:
     # get any source antigens that have ties for the best match
     source_antigens_with_ties = blast_results_df[blast_results_df.duplicated(subset=['Query'])]['Query'].unique()
 
+    # preprocess with PEPMatch
+    Preprocessor(f'{self.species_path}/proteome.fasta', 'sql', f'{self.species_path}').preprocess(k=5)
+
     for source_antigen in source_antigens_with_ties:
       try:
         # get the epitopes associated with the source antigen
         epitopes = self.source_to_epitopes_map[source_antigen]
-      # if there are no epitopes, then assign the gene and id to the first
-      # blast match in blast_results_df of that source_antigen
       except KeyError:
+        # if there are no epitopes, then assign the gene and id to the first
+        # blast match in blast_results_df of that source_antigen
         self.best_blast_match_gene_map[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Subject Gene Symbol'].iloc[0]
         self.best_blast_match_id_map[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Subject'].iloc[0]
         continue
 
       # search the epitopes in the selected proteome
-      Preprocessor(f'{self.species_path}/proteome.fasta', 'sql', f'{self.species_path}').preprocess(k=5)
       matches_df = Matcher(epitopes, 'proteome', 0, 5, f'{self.species_path}', output_format='dataframe').match()
-      
+
       # get the uniprot id and gene symbol that has the most matches
       uniprot_id = Counter(matches_df['Protein ID']).most_common()[0][0]
       gene = Counter(matches_df['Gene']).most_common()[0][0]
