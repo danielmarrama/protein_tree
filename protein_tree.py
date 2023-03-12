@@ -9,10 +9,14 @@ from get_data import DataFetcher
 from select_proteome import ProteomeSelector
 from assign_genes import GeneAssigner
 
-# TODO:
-# - create UniProt ID to gene symbol map using proteome.csv
-# - create a .txt file with the tree structure of gene --> relevant isoforms
-# - either update PEPMatch to search discontinous epitopes or write a new function to do it
+# MAIN TODO:
+# * add step to override gene and parent assignments with manual assignments
+# * add step to handle allergens differntly by assigning label from IUIS
+# * add step to handle MHC molecules differently
+
+# smaller TODO:
+# * create a .txt file with the tree structure of gene --> relevant isoforms
+# * either update PEPMatch to search discontinous epitopes or write a new function to do it
 
 def run_protein_tree(user, password, taxon_id, all_taxa):
   """
