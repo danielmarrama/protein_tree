@@ -14,7 +14,7 @@ from assign_genes import GeneAssigner
 # - create a .txt file with the tree structure of gene --> relevant isoforms
 # - either update PEPMatch to search discontinous epitopes or write a new function to do it
 
-def run_protein_tree(user, password, all_species, taxon_id, species_name, all_taxa):
+def run_protein_tree(user, password, taxon_id, all_taxa):
   """
   Build protein tree for an IEDB species.
   """
@@ -96,8 +96,6 @@ def main():
   all_species = args.all_species
   taxon_id = args.taxon_id
 
-  run_protein_tree(user, password, all_species, taxon_id)
-
   # read in IEDB species data and read in metrics data to write into
   species_df = pd.read_csv('species.csv')
   metrics_df = pd.read_csv('metrics.csv')
@@ -111,7 +109,7 @@ def main():
   if all_species:
     for t_id in valid_taxon_ids:
       print(f'Building protein tree for {species_id_to_name_map[t_id]} (ID: {t_id})...\n')
-      tree_data = run_protein_tree(user, password, t_id, species_id_to_name_map[t_id], all_taxa_map[t_id])
+      tree_data = run_protein_tree(user, password, t_id, all_taxa_map[t_id])
 
       if tree_data is None:
         print('No epitopes or sources found for this species. Skipping.')
@@ -125,7 +123,7 @@ def main():
   else:
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     print(f'Building protein tree for {species_id_to_name_map[taxon_id]} (ID: {taxon_id})...\n')
-    tree_data = run_protein_tree(user, password, taxon_id, species_id_to_name_map[taxon_id], all_taxa_map[taxon_id])
+    tree_data = run_protein_tree(user, password, taxon_id, all_taxa_map[taxon_id])
     
     if tree_data == None:
       print('No epitopes or sources found for this species.')
