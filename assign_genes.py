@@ -36,9 +36,6 @@ class GeneAssigner:
     If there are ties, use PEPMatch to search the epitopes within
     the protein sequences and select the protein with the most matches.
     """
-    if sources_df.empty or epitopes_df.empty:
-      raise Exception('Sources or epitopes data is empty.')
-
     # create source to epitope map and write sources to FASTA file
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
     num_sources, num_sources_missing_seqs = self._sources_to_fasta(sources_df)
@@ -313,6 +310,9 @@ def main():
       Fetcher = DataFetcher(user, password, taxon_id, all_taxa_map[taxon_id])
       epitopes_df = Fetcher.get_epitopes()
       sources_df = Fetcher.get_sources()
+
+      if epitopes_df.empty or sources_df.empty:
+        continue
       
       print(f'Assigning genes for {species_id_to_name_map[taxon_id]} ({taxon_id})...')
       Assigner = GeneAssigner(taxon_id)
@@ -326,7 +326,7 @@ def main():
       print(f'Number of sources with BLAST matches: {assigner_data[3]}')
       print(f'Number of epitopes with a match: {assigner_data[5]}')
       print(f'Successful gene assignments: {(assigner_data[3] / assigner_data[0])*100:.1f}%')
-      print(f'Successful parent assignments: {(assigner_data[5] / assigner_datas[4])*100:.1f}%\n')
+      print(f'Successful parent assignments: {(assigner_data[5] / assigner_data[4])*100:.1f}%\n')
 
   # or just one species at a time - check if its valid
   else:
