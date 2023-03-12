@@ -25,7 +25,6 @@ class ProteomeSelector:
     self.proteome_list = self._get_proteome_list()
     self.num_of_proteomes = len(self.proteome_list) + 1 # +1 because "all proteins" is also a candidate proteome
 
-
   def select_proteome(self, epitopes_df):
     """
     Select the best proteome to use for a species. Return the proteome ID, 
@@ -85,6 +84,13 @@ class ProteomeSelector:
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
     
     self._remove_other_proteomes(proteome_id)
+    
+    # sanity check to make sure proteome.fasta is not empty
+    if os.stat(f'{self.species_path}/proteome.fasta').st_size == 0:
+      proteome_id = 'None'
+      proteome_taxon = self.taxon_id
+      proteome_type = 'All-proteins'
+      self._get_all_proteins()
 
     proteome_data = [proteome_id, proteome_taxon, proteome_type]
     return proteome_data
