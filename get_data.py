@@ -22,7 +22,8 @@ class DataFetcher:
                 f'WHERE object_sub_type = "Peptide from protein" '\
                 f'AND organism2_id IN ({self.all_taxa});'
     columns = ['Sequence', 'Source Name', 'Source Accession']
-    return pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)), columns=columns)
+    epitopes_df = pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)), columns=columns)
+    return epitopes_df.drop_duplicates(subset=['Sequence', 'Source Name', 'Source Accession'])
 
   def get_sources(self):
     """
