@@ -184,9 +184,17 @@ class GeneAssigner:
                       'Mismatches', 'Gap Opens', 'Query Start', 'Query End', 
                       'Subject Start', 'Subject End', 'e-Value', 'Bit Score']
 
-    # read in results that were just written and map subject UniProt IDs to gene symbols
+    # read in results that were just written
     blast_results_df = pd.read_csv(f'{self.species_path}/blast_results.csv', names=result_columns)
+
+    # extract the UniProt ID from the subject column
     blast_results_df['Subject'] = blast_results_df['Subject'].str.split('|').str[1]
+
+    # take out "-#" portion of the subject UniProt ID because these are isoforms and 
+    # won't be mapped properly to gene symbols
+    blast_results_df['Subject'] = blast_results_df['Subject'].str.split('-').str[0]
+    
+    # map subject UniProt IDs to gene symbols
     blast_results_df['Subject Gene Symbol'] = blast_results_df['Subject'].map(self.uniprot_id_to_gene_symbol_map)
     
     # write results with column header and gene symbols to file
@@ -283,10 +291,10 @@ class GeneAssigner:
   def _remove_files(self):
     """Delete all the files that were created when making the BLAST database."""
     for extension in ['pdb', 'phr', 'pin', 'pjs', 'pot', 'psq', 'ptf', 'pto']:
-      try:
+      try: # if DB wasn't create this will fail, so just pass
         os.remove(glob.glob(f'{self.species_path}/*.{extension}')[0])
       except IndexError:
-        pass
+        pass # the species will get all 0s for results
     
     # remove BLAST results and sources.fasta
     os.remove(f'{self.species_path}/blast_results.csv')
