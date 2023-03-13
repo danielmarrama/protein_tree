@@ -41,8 +41,10 @@ class GeneAssigner:
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
     num_sources, num_sources_missing_seqs = self._sources_to_fasta(sources_df)
 
-    # create BLAST database, run blastp, and remove db files
+    # create BLAST database, if proteome file is still empty, return
     self._create_blast_db()
+
+    # run BLAST and get all matches
     blast_results_df = self._run_blast()
 
     # get best blast matches for each source antigen
@@ -160,6 +162,7 @@ class GeneAssigner:
     return len(sources_df), num_sources_missing_seqs
 
   def _create_blast_db(self):
+    '''Create BLAST database from the selected proteome.'''
     # escape parentheses in species path
     species_path = self.species_path.replace('(', '\(').replace(')', '\)')
     os.system(f'./makeblastdb -in {species_path}/proteome.fasta -dbtype prot')
@@ -190,21 +193,6 @@ class GeneAssigner:
     blast_results_df.to_csv(f'{self.species_path}/blast_results.csv', index=False)
 
     return blast_results_df
-
-  def _remove_files(self):
-    """Delete all the files that were created when making the BLAST database."""
-    for extension in ['pdb', 'phr', 'pin', 'pjs', 'pot', 'psq', 'ptf', 'pto']:
-      os.remove(glob.glob(f'{self.species_path}/*.{extension}')[0])
-    
-    # remove BLAST results and sources.fasta
-    os.remove(f'{self.species_path}/blast_results.csv')
-    os.remove(f'{self.species_path}/sources.fasta')
-
-    # if proteome.db exists, remove it
-    try:
-      os.remove(f'{self.species_path}/proteome.db')
-    except OSError:
-      pass
 
   def _no_blast_matches(self):
     '''Write sources that have no BLAST match to a file.'''
@@ -291,6 +279,25 @@ class GeneAssigner:
       # update maps with the gene and id that has the most matches
       self.best_blast_match_gene_map[source_antigen] = gene
       self.best_blast_match_id_map[source_antigen] = uniprot_id
+
+  def _remove_files(self):
+    """Delete all the files that were created when making the BLAST database."""
+    for extension in ['pdb', 'phr', 'pin', 'pjs', 'pot', 'psq', 'ptf', 'pto']:
+      try:
+        os.remove(glob.glob(f'{self.species_path}/*.{extension}')[0])
+      except IndexError:
+        pass
+    
+    # remove BLAST results and sources.fasta
+    os.remove(f'{self.species_path}/blast_results.csv')
+    os.remove(f'{self.species_path}/sources.fasta')
+
+    # if proteome.db exists, remove it
+    try:
+      os.remove(f'{self.species_path}/proteome.db')
+    except OSError:
+      pass
+
 
 def main():
   import argparse
