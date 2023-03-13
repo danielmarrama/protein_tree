@@ -247,7 +247,7 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa
 3755,Prunus dulcis (sweet almond),3755,other-eukaryote,3755
 3758,Prunus domestica (plum),3758,other-eukaryote,3758
 3760,Prunus persica (peach),3760,other-eukaryote,3760
-3816,Abrus precatorius (crab's-eye),3816,other-eukaryote,3816
+3816,Abrus precatorius (crabs-eye),3816,other-eukaryote,3816
 3818,Arachis hypogaea (peanut),3818,other-eukaryote,3818
 3823,Canavalia ensiformis (horse bean),3823,other-eukaryote,3823
 3847,Glycine max (soybeans),3847,other-eukaryote,3847
@@ -294,7 +294,7 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa
 4754,Pneumocystis carinii,4754,other-eukaryote,4754
 4768,Achlya ambisexualis,4768,other-eukaryote,4768
 4896,Schizosaccharomyces pombe (fission yeast),284812,other-eukaryote,4896; 284812
-4932,Saccharomyces cerevisiae (baker's yeast),643680; 545124; 4932; 285006; 559292,other-eukaryote,545124; 559292; 643680; 285006; 4932
+4932,Saccharomyces cerevisiae (bakers yeast),643680; 545124; 4932; 285006; 559292,other-eukaryote,545124; 559292; 643680; 285006; 4932
 5037,Histoplasma capsulatum,447093,other-eukaryote,5037; 447093
 5039,Blastomyces dermatitidis,559297; 5039; 447095,other-eukaryote,559297; 447095; 5039
 5061,Aspergillus niger,425011,other-eukaryote,425011; 5061
@@ -486,7 +486,7 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa
 9091,Coturnix coturnix (common quail),9091,vertebrate,9091
 9103,Meleagris gallopavo (common turkey),9103,vertebrate,9103
 9135,Serinus canaria (canary),9135,vertebrate,9135
-9244,Calypte anna (Anna's hummingbird),9244,vertebrate,9244
+9244,Calypte anna (Annas hummingbird),9244,vertebrate,9244
 9258,Ornithorhynchus anatinus (duckbill platypus),9258,vertebrate,9258
 9315,Macropus eugenii (tammar wallaby),9315,vertebrate,9315
 9337,Trichosurus vulpecula (common brush-tailed possum),9337,vertebrate,9337

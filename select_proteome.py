@@ -49,7 +49,7 @@ class ProteomeSelector:
       proteome_id = self.metrics_df[self.metrics_df['Taxon ID'].astype(str) == self.taxon_id]['Proteome ID'].iloc[0]
       proteome_taxon = self.metrics_df[self.metrics_df['Taxon ID'].astype(str) == self.taxon_id]['Proteome Taxon'].iloc[0]
       proteome_type = self.metrics_df[self.metrics_df['Taxon ID'].astype(str) == self.taxon_id]['Proteome Type'].iloc[0]
-      return proteome_id, proteome_taxon, proteome_type
+      return [proteome_id, proteome_taxon, proteome_type]
     else:
       os.makedirs(self.species_path, exist_ok=True)
 

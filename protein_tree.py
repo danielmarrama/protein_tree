@@ -10,12 +10,12 @@ from select_proteome import ProteomeSelector
 from assign_genes import GeneAssigner
 
 # MAIN TODO:
-# * add step to override gene and parent assignments with manual assignments
 # * add step to handle allergens differntly by assigning label from IUIS
 # * add step to handle MHC molecules differently
+# * add step to override gene and parent assignments with manual assignments
 
 # smaller TODO:
-# * create a .txt file with the tree structure of gene --> relevant isoforms
+# * create a .txt file with the tree structure of source and gene --> relevant isoforms --> epitopes
 # * either update PEPMatch to search discontinous epitopes or write a new function to do it
 
 def run_protein_tree(user, password, taxon_id, all_taxa):
@@ -30,8 +30,12 @@ def run_protein_tree(user, password, taxon_id, all_taxa):
   epitopes_df = Fetcher.get_epitopes()
   sources_df = Fetcher.get_sources()
 
-  # if there are no epitopes or sources, return the proteome data that exists in metrics.csv and then zeros for the other tuple
+  # if there are no epitopes or sources, return None
   if epitopes_df.empty or sources_df.empty:
+    return None
+
+  # or if the sources data is empty, return None
+  if sources_df.dropna(subset=['Sequence']).empty:
     return None
   
   print('Done getting data.\n')

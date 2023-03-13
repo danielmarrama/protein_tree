@@ -99,16 +99,16 @@ class GeneAssigner:
     # to the assigned gene for each source antigen
     all_matches_df = pd.DataFrame()
     for antigen, epitopes in self.source_to_epitopes_map.items():
-      matches_df = Matcher(epitopes, 'proteome', 0, 5, f'{self.species_path}', output_format='dataframe').match()
+      matches_df = Matcher(epitopes, 'proteome', 0, 5, f'{self.species_path}', best_match=True, output_format='dataframe').match()
 
-      try: # isolate the matches for the assigned gene - if no source gene, skip
+      try: # isolate the matches for the assigned gene
         matches_df = matches_df[matches_df['Gene'] == self.best_blast_match_gene_map[antigen]]
-      except KeyError:
-        pass
+      except KeyError: # if gene isn't in best match, run again without best match
+        matches_df = Matcher(epitopes, 'proteome', 0, 5, f'{self.species_path}', output_format='dataframe').match()
 
-      # if there are ties, select the protein with the best protein existence level
-      index = matches_df.groupby(['Query Sequence'])['Protein Existence Level'].transform(min) == matches_df['Protein Existence Level']
-      matches_df = matches_df[index]
+        # if there are ties, select the protein with the best protein existence level
+        index = matches_df.groupby(['Query Sequence'])['Protein Existence Level'].transform(min) == matches_df['Protein Existence Level']
+        matches_df = matches_df[index]
       
       # concatenate the matches to the all_matches_df
       all_matches_df = pd.concat([all_matches_df, matches_df])
@@ -279,6 +279,13 @@ class GeneAssigner:
 
       # search the epitopes in the selected proteome
       matches_df = Matcher(epitopes, 'proteome', 0, 5, f'{self.species_path}', output_format='dataframe').match()
+
+      if matches_df.empty:
+        # if there are no matches, then assign the gene and id to the first
+        # blast match in blast_results_df of that source_antigen
+        self.best_blast_match_gene_map[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Subject Gene Symbol'].iloc[0]
+        self.best_blast_match_id_map[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Subject'].iloc[0]
+        continue
 
       # get the uniprot id and gene symbol that has the most matches
       uniprot_id = Counter(matches_df['Protein ID']).most_common()[0][0]
