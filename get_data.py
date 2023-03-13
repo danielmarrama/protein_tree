@@ -34,7 +34,7 @@ class DataFetcher:
                 f'FROM source WHERE organism_id IN ({self.all_taxa});'
     columns = ['Source ID', 'Accession', 'Name', 'Sequence']
     sources_df = pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)), columns=columns) 
-    sources_df.stack().str.decode('utf-8').unstack()
+    sources_df = sources_df.stack().str.decode('utf-8').unstack()
     return sources_df
 
 def main():
