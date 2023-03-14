@@ -93,7 +93,8 @@ class GeneAssigner:
 
     # preprocess the proteome if it hasn't been done yet
     if not os.path.exists(f'{self.species_path}/proteome.db'):
-      Preprocessor(f'{self.species_path}/proteome.fasta', 'sql', f'{self.species_path}').preprocess(k=5)
+      gp_proteome = f'{self.species_path}/gp_proteome.fasta' if os.path.exists(f'{self.species_path}/gp_proteome.fasta') else ''
+      Preprocessor(f'{self.species_path}/proteome.fasta', 'sql', f'{self.species_path}', gene_priority_proteome=gp_proteome).preprocess(k=5)
 
     # loop through the source antigens so we can limit the epitope matches
     # to the assigned gene for each source antigen
@@ -101,9 +102,12 @@ class GeneAssigner:
     for antigen, epitopes in self.source_to_epitopes_map.items():
       matches_df = Matcher(epitopes, 'proteome', 0, 5, f'{self.species_path}', best_match=True, output_format='dataframe').match()
 
-      try: # isolate the matches for the assigned gene
+      # try to isolate matches to the assigned gene for the source antigen
+      if antigen in self.best_blast_match_gene_map.keys():
         matches_df = matches_df[matches_df['Gene'] == self.best_blast_match_gene_map[antigen]]
-      except KeyError: # if gene isn't in best match, run again without best match
+
+      # if there aren't best matches that match the assigned gene, search again without best match
+      if matches_df.empty:
         matches_df = Matcher(epitopes, 'proteome', 0, 5, f'{self.species_path}', output_format='dataframe').match()
 
         # if there are ties, select the protein with the best protein existence level
@@ -173,19 +177,19 @@ class GeneAssigner:
     pandas and assign column names. By default, blastp doesn't return header.
     '''
     # escape parentheses in species path
-    species_path = self.species_path.replace('(', '\(').replace(')', '\)')  
-    os.system(f'./blastp -query {species_path}/sources.fasta '\
-              f'-db {species_path}/proteome.fasta '\
-              f'-evalue 1 -num_threads 12 -outfmt 10 '\
-              f'-out {species_path}/blast_results.csv'
-    )
+    # species_path = self.species_path.replace('(', '\(').replace(')', '\)')  
+    # os.system(f'./blastp -query {species_path}/sources.fasta '\
+    #           f'-db {species_path}/proteome.fasta '\
+    #           f'-evalue 1 -num_threads 12 -outfmt 10 '\
+    #           f'-out {species_path}/blast_results.csv'
+    # )
     
-    result_columns = ['Query', 'Subject', 'Percentage Identity', 'Alignment Length', 
-                      'Mismatches', 'Gap Opens', 'Query Start', 'Query End', 
-                      'Subject Start', 'Subject End', 'e-Value', 'Bit Score']
+    # result_columns = ['Query', 'Subject', 'Percentage Identity', 'Alignment Length', 
+    #                   'Mismatches', 'Gap Opens', 'Query Start', 'Query End', 
+    #                   'Subject Start', 'Subject End', 'e-Value', 'Bit Score']
 
     # read in results that were just written
-    blast_results_df = pd.read_csv(f'{self.species_path}/blast_results.csv', names=result_columns)
+    blast_results_df = pd.read_csv(f'{self.species_path}/blast_results.csv')
 
     # extract the UniProt ID from the subject column
     blast_results_df['Subject'] = blast_results_df['Subject'].str.split('|').str[1]
@@ -196,9 +200,6 @@ class GeneAssigner:
     
     # map subject UniProt IDs to gene symbols
     blast_results_df['Subject Gene Symbol'] = blast_results_df['Subject'].map(self.uniprot_id_to_gene_symbol_map)
-    
-    # write results with column header and gene symbols to file
-    blast_results_df.to_csv(f'{self.species_path}/blast_results.csv', index=False)
 
     return blast_results_df
 
@@ -264,7 +265,8 @@ class GeneAssigner:
     source_antigens_with_ties = blast_results_df[blast_results_df.duplicated(subset=['Query'])]['Query'].unique()
 
     # preprocess with PEPMatch
-    Preprocessor(f'{self.species_path}/proteome.fasta', 'sql', f'{self.species_path}').preprocess(k=5)
+    gp_proteome = f'{self.species_path}/gp_proteome.fasta' if os.path.exists(f'{self.species_path}/gp_proteome.fasta') else ''
+    Preprocessor(f'{self.species_path}/proteome.fasta', 'sql', f'{self.species_path}', gene_priority_proteome=gp_proteome).preprocess(k=5)
 
     for source_antigen in source_antigens_with_ties:
       try:
