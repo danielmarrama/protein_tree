@@ -11,6 +11,8 @@ from pepmatch import Preprocessor, Matcher
 
 # TODO: save source accessions from epitopes_df that are not in sources_df
 # TODO: use manual_parents.csv to override assigned genes
+# TODO: investigate a way to search all epitopes at once and make sure the 
+#       assigned isoform is from the proper gene
 
 class GeneAssigner:
   def __init__(self, taxon_id):
@@ -51,7 +53,7 @@ class GeneAssigner:
     self._get_best_blast_matches(blast_results_df)
 
     # remove sources that don't have any BLAST matches and get the counts
-    num_no_blast_matches, num_with_blast_matches = self._no_blast_matches()
+    num_no_blast_matches, num_with_blast_matches = self._no_blast_matches(blast_results_df)
 
     # now assign parent proteins to epitopes
     num_epitopes, num_epitopes_with_matches = self._assign_parents(epitopes_df)
@@ -177,19 +179,19 @@ class GeneAssigner:
     pandas and assign column names. By default, blastp doesn't return header.
     '''
     # escape parentheses in species path
-    # species_path = self.species_path.replace('(', '\(').replace(')', '\)')  
-    # os.system(f'./blastp -query {species_path}/sources.fasta '\
-    #           f'-db {species_path}/proteome.fasta '\
-    #           f'-evalue 1 -num_threads 12 -outfmt 10 '\
-    #           f'-out {species_path}/blast_results.csv'
-    # )
+    species_path = self.species_path.replace('(', '\(').replace(')', '\)')  
+    os.system(f'./blastp -query {species_path}/sources.fasta '\
+              f'-db {species_path}/proteome.fasta '\
+              f'-evalue 1 -num_threads 12 -outfmt 10 '\
+              f'-out {species_path}/blast_results.csv'
+    )
     
-    # result_columns = ['Query', 'Subject', 'Percentage Identity', 'Alignment Length', 
-    #                   'Mismatches', 'Gap Opens', 'Query Start', 'Query End', 
-    #                   'Subject Start', 'Subject End', 'e-Value', 'Bit Score']
+    result_columns = ['Query', 'Subject', 'Percentage Identity', 'Alignment Length', 
+                      'Mismatches', 'Gap Opens', 'Query Start', 'Query End', 
+                      'Subject Start', 'Subject End', 'e-Value', 'Bit Score']
 
     # read in results that were just written
-    blast_results_df = pd.read_csv(f'{self.species_path}/blast_results.csv')
+    blast_results_df = pd.read_csv(f'{self.species_path}/blast_results.csv', names=result_columns)
 
     # extract the UniProt ID from the subject column
     blast_results_df['Subject'] = blast_results_df['Subject'].str.split('|').str[1]
@@ -203,16 +205,15 @@ class GeneAssigner:
 
     return blast_results_df
 
-  def _no_blast_matches(self):
+  def _no_blast_matches(self, blast_results_df):
     '''Write sources that have no BLAST match to a file.'''
     # get all source antigen ids
     source_ids = []
     for record in list(SeqIO.parse(f'{self.species_path}/sources.fasta', 'fasta')):
       source_ids.append(str(record.id))
     
-    # get BLAST results and then get ids that are not in results
-    blast_results = pd.read_csv(f'{self.species_path}/blast_results.csv')
-    blast_result_ids = list(blast_results['Query'].unique())
+    # get BLAST results ids
+    blast_result_ids = list(blast_results_df['Query'].unique())
 
     no_blast_match_ids = list(set(source_ids) - set(blast_result_ids))
 
