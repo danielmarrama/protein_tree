@@ -978,7 +978,7 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa
 82508,Trichosporon asahii,1186058,other-eukaryote,1186058; 82508
 83192,Topografov virus,83192,small-virus,83192
 83455,Myxococcus stipitatus,1278073,bacterium,83455; 1278073
-83554,Chlamydia psittaci <Chlamydophila psittaci>,83554,bacterium,83554
+83554,Chlamydia psittaci (Chlamydophila psittaci),83554,bacterium,83554
 83555,Chlamydia abortus,218497; 83555,bacterium,83555; 218497
 83558,Chlamydia pneumoniae,115713; 182082; 83558; 406984,bacterium,115713; 83558; 406984; 182082
 83560,Chlamydia muridarum (agent of mouse pneumonitis),243161,bacterium,83560; 243161
@@ -1186,7 +1186,7 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa
 337050,Alphapapillomavirus 6,10596; 333765,small-virus,337050; 10596; 333765
 337051,Betapapillomavirus 1,333923,small-virus,333923; 337051
 337052,Deltapapillomavirus 4,10560; 337052; 10559,small-virus,10559; 337052; 10560
-337090,"Chlorobium chlorochromatii (epibiont of the phototrophic consortium ""Chlorochromatium aggregatum"")",337090,bacterium,337090
+337090,Chlorobium chlorochromatii (epibiont of the phototrophic consortium - Chlorochromatium aggregatum),337090,bacterium,337090
 338188,Bacteroides finegoldii,483215,bacterium,483215; 338188
 339268,Mycobacterium colombiense,1041522,bacterium,339268; 1041522
 342409,White spot syndrome virus,92652,large-virus,92652; 342409
@@ -1194,7 +1194,7 @@ Taxon ID,Species Label,Active Taxa,Group,All Taxa
 351073,Mammalian orthoreovirus,351073,small-virus,351073
 351745,Shewanella sp. W3-18-1,351745,bacterium,351745
 358400,Sangassou virus,358400,small-virus,358400
-358764,Border disease virus <species>,311415,small-virus,311415; 358764
+358764,Border disease virus,311415,small-virus,311415; 358764
 360549,Themiste hennahi,360549,other-eukaryote,360549
 368445,Crocodilepox virus,368445,virus,368445
 369960,Porcine type-C oncovirus,61673; 194959,large-virus,369960; 194959; 61673
