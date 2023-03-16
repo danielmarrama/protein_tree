@@ -10,6 +10,7 @@ from select_proteome import ProteomeSelector
 from assign_genes import GeneAssigner
 
 # MAIN TODO:
+# * test MMseqs2 and DIAMOND as an alternative for speed - do a comparison of results
 # * add step to handle allergens differntly by assigning label from IUIS
 # * add step to handle MHC molecules differently
 # * add step to override gene and parent assignments with manual assignments
@@ -17,6 +18,10 @@ from assign_genes import GeneAssigner
 # smaller TODO:
 # * create a .txt file with the tree structure of source and gene --> relevant isoforms --> epitopes
 # * either update PEPMatch to search discontinous epitopes or write a new function to do it
+# * save source accessions from epitopes_df that are not in sources_df
+# * use manual_parents.csv to override assigned genes
+# * investigate a way to search all epitopes at once and make sure the 
+#   assigned isoform is from the proper gene
 
 def run_protein_tree(user, password, taxon_id, all_taxa):
   """

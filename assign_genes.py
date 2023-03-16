@@ -9,10 +9,6 @@ from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from pepmatch import Preprocessor, Matcher
 
-# TODO: save source accessions from epitopes_df that are not in sources_df
-# TODO: use manual_parents.csv to override assigned genes
-# TODO: investigate a way to search all epitopes at once and make sure the 
-#       assigned isoform is from the proper gene
 
 class GeneAssigner:
   def __init__(self, taxon_id):
