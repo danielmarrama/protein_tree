@@ -76,6 +76,18 @@ class GeneAssigner:
                      num_with_blast_matches, num_epitopes, num_epitopes_with_matches]
     return assigner_data
 
+  def _drop_epitopes_without_sequence(self, epitopes_df):
+      epitopes_df.dropna(subset=['Sequence'], inplace=True)
+      return len(epitopes_df)
+
+  def _preprocess_proteome_if_needed(self):
+      if not os.path.exists(f'{self.species_path}/proteome.db'):
+          gp_proteome = f'{self.species_path}/gp_proteome.fasta' if os.path.exists(f'{self.species_path}/gp_proteome.fasta') else ''
+          Preprocessor(f'{self.species_path}/proteome.fasta', 'sql', f'{self.species_path}', gene_priority_proteome=gp_proteome).preprocess(k=5)
+
+  def _search_epitopes(self, epitopes, best_match=True):
+    return Matcher(epitopes, 'proteome', 0, 5, f'{self.species_path}', best_match=best_match, output_format='dataframe').match()
+
   def _assign_parents(self, epitopes_df):
     """
     Assign a parent protein to each epitope.
@@ -85,20 +97,14 @@ class GeneAssigner:
     to each epitope by selecting the best isoform of the assigned gene for
     its source antigen.
     """
-    # drop epitopes with no sequence
-    epitopes_df.dropna(subset=['Sequence'], inplace=True)
-    num_epitopes = len(epitopes_df)
-
-    # preprocess the proteome if it hasn't been done yet
-    if not os.path.exists(f'{self.species_path}/proteome.db'):
-      gp_proteome = f'{self.species_path}/gp_proteome.fasta' if os.path.exists(f'{self.species_path}/gp_proteome.fasta') else ''
-      Preprocessor(f'{self.species_path}/proteome.fasta', 'sql', f'{self.species_path}', gene_priority_proteome=gp_proteome).preprocess(k=5)
+    num_epitopes = self._drop_epitopes_without_sequence(epitopes_df)
+    self._preprocess_proteome_if_needed()
 
     # loop through the source antigens so we can limit the epitope matches
     # to the assigned gene for each source antigen
     all_matches_df = pd.DataFrame()
     for antigen, epitopes in self.source_to_epitopes_map.items():
-      matches_df = Matcher(epitopes, 'proteome', 0, 5, f'{self.species_path}', best_match=True, output_format='dataframe').match()
+      matches_df = self._search_epitopes(epitopes, best_match=True)
 
       # try to isolate matches to the assigned gene for the source antigen
       if antigen in self.best_blast_match_gene_map.keys():
@@ -106,7 +112,7 @@ class GeneAssigner:
 
       # if there aren't best matches that match the assigned gene, search again without best match
       if matches_df.empty:
-        matches_df = Matcher(epitopes, 'proteome', 0, 5, f'{self.species_path}', output_format='dataframe').match()
+          matches_df = self._search_epitopes(epitopes, best_match=False)
 
         # if there are ties, select the protein with the best protein existence level
         index = matches_df.groupby(['Query Sequence'])['Protein Existence Level'].transform(min) == matches_df['Protein Existence Level']
