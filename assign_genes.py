@@ -349,9 +349,9 @@ def main():
     proteomes = {}
     for taxon_id in valid_taxon_ids:
       # get data for taxon ID
-      Fetcher = DataFetcher(user, password, taxon_id, all_taxa_map[taxon_id])
-      epitopes_df = Fetcher.get_epitopes()
-      sources_df = Fetcher.get_sources()
+      Fetcher = DataFetcher(user, password)
+      epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
+      sources_df = Fetcher.get_sources(all_taxa_map[taxon_id])
 
       if epitopes_df.empty or sources_df.empty:
         continue
@@ -374,9 +374,9 @@ def main():
   else:
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
 
-    Fetcher = DataFetcher(user, password, taxon_id, all_taxa_map[taxon_id])
-    epitopes_df = Fetcher.get_epitopes()
-    sources_df = Fetcher.get_sources()
+    Fetcher = DataFetcher(user, password)
+    epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
+    sources_df = Fetcher.get_sources(all_taxa_map[taxon_id])
 
     assert not sources_df.empty, 'This species has no source antigens.'
     assert not epitopes_df.empty, 'This species has no epitopes.'

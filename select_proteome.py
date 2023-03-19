@@ -339,8 +339,8 @@ def main():
     proteomes = {}
     for taxon_id in valid_taxon_ids:
       # get data for taxon ID
-      Fetcher = DataFetcher(user, password, taxon_id, all_taxa_map[taxon_id])
-      epitopes_df = Fetcher.get_epitopes()
+      Fetcher = DataFetcher(user, password)
+      epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
 
       # select proteome
       Selector = ProteomeSelector(taxon_id)
@@ -364,8 +364,8 @@ def main():
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     
     # get data for taxon ID
-    Fetcher = DataFetcher(user, password, taxon_id, all_taxa_map[taxon_id])
-    epitopes_df = Fetcher.get_epitopes()
+    Fetcher = DataFetcher(user, password)
+    epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
 
     Selector = ProteomeSelector(taxon_id)
     print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')

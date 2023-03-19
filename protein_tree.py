@@ -17,7 +17,6 @@ from assign_genes import GeneAssigner
 
 # smaller TODO:
 # * create a .txt file with the tree structure of source and gene --> relevant isoforms --> epitopes
-# * either update PEPMatch to search discontinous epitopes or write a new function to do it
 # * save source accessions from epitopes_df that are not in sources_df
 # * use manual_parents.csv to override assigned genes
 # * investigate a way to search all epitopes at once and make sure the 
@@ -31,9 +30,9 @@ def run_protein_tree(user, password, taxon_id, all_taxa):
   # get epitopes and sources data from MySQL backend
   print('Getting epitopes and sources data...')
 
-  Fetcher = DataFetcher(user, password, taxon_id, all_taxa)
-  epitopes_df = Fetcher.get_epitopes()
-  sources_df = Fetcher.get_sources()
+  Fetcher = DataFetcher(user, password)
+  epitopes_df = Fetcher.get_epitopes(all_taxa)
+  sources_df = Fetcher.get_sources(all_taxa)
 
   # if there are no epitopes or sources, return None
   if epitopes_df.empty or sources_df.empty:
