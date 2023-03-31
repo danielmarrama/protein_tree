@@ -16,4 +16,6 @@ protein_tree.ipynb
 protein_tree.txt
 snapshot_2022-12-20/
 species/
+species2.csv
+sql_engine.py
 test.fasta

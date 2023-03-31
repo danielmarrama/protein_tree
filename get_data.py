@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 
 import pandas as pd
-from sqlalchemy import create_engine, text
-
+from sql_engine import create_sql_engine
 
 class DataFetcher:
   """
   Fetch data from IEDB MySQL backend.
   """
   def __init__(self, user, password):
-    self.sql_engine = create_engine(f'mysql+mysqlconnector://{user}:{password}@iedb-mysql.liai.org:33306/iedb_query')
+    self.sql_engine = create_sql_engine(user, password) # private so there's no exposure to the backend
 
   def get_species(self):
     sql_query = """
