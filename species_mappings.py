@@ -86,7 +86,7 @@ def create_mappings(user, password):
   with open('mappings/lower_rank_to_species_mapping.pickle', 'wb') as f:
     pickle.dump(lower_rank_to_species_mapping, f)
 
-  with open('mappings/species_to_lower_rank_mapping.pickle', 'wb') as f:
+  with open('mappings/species_to_lower_ranks_mapping.pickle', 'wb') as f:
     pickle.dump(species_to_lower_ranks_mapping, f)
 
 
