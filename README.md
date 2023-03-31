@@ -1,6 +1,6 @@
 # IEDB Protein Tree 
 
-Mapping epitopes and source antigens to their parent protein (and gene).
+Mapping source antigens to genes and epitopes to parent proteins.
 
 ### Process
 1. Fetch epitopes and source antigens for species in the IEDB.
@@ -54,7 +54,8 @@ For all species:
 Use [combine_data.py](combine_data.py) to merge all epitopes.csv and all sources.csv into one file for every species.
 
 ### TODO
-- Fix epitope data pull by using Randi's query
+- Make a mapping of all children to parent species
+- Fix epitope data pull
 - Use manual_assignments.csv to override parent and gene assignments
 - Add step to handle allergens using labels from IUIS
 - Add step to handle MHC molecules from MRO
