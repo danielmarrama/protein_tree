@@ -53,7 +53,7 @@ For all species:
 
 Use [combine_data.py](combine_data.py) to merge all epitopes.csv and all sources.csv into one file for every species.
 
-### Creating Speciess Mappings
+### Creating Species Mappings
 
 Mapping from all lower ranks to parent species and species to all lower ranks is not done in the IEDB. The script [species_mappings.py](create_species_mappings.py) will create these mappings by pulling all taxonomy data from the IEDB organism table and will store the mappings in pickle files.
 

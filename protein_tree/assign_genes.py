@@ -12,7 +12,7 @@ from pepmatch import Preprocessor, Matcher
 
 class GeneAssigner:
   def __init__(self, taxon_id):
-    self.species_df = pd.read_csv('species.csv')
+    self.species_df = pd.read_csv('../species.csv')
     self.taxon_id = taxon_id
 
     # create species path with species taxon and name; example: "24-Shewanella_putrefaciens"
