@@ -74,7 +74,7 @@ def main():
   Fetcher = DataFetcher(user, password)
   if all_species:
     species_mapping = Fetcher.get_species()
-    print(pd.DataFrame.from_dict(species_mapping, orient='index', columns=['Taxon ID', 'Species Name']))
+    print(pd.DataFrame.from_dict(species_mapping, orient='index', columns=['Taxon Rank', 'Species Taxon ID', 'Species Name']))
 
   # # read in IEDB species data
   # species_df = pd.read_csv('species.csv')
