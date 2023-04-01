@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
 import pandas as pd
+from sqlalchemy import text
 from sql_engine import create_sql_engine
+from taxonomy_mappings import create_species_mapping
 
 class DataFetcher:
   """
@@ -22,11 +24,11 @@ class DataFetcher:
                 WHERE epitope.related_object_id = object.object_id
                 AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
                 """
-    # read in all epitope data from IEDB
-    df = pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)))
-    
-    # zip species IDs and names into a dictionary and save to .csv file using dataframe
-    pd.DataFrame.from_dict(dict(zip(df['organism2_id'].astype(int), df['organism2_name'])), 'index').reset_index().to_csv('species2.csv')
+    # read in all epitope data from IEDB and map the taxon IDs to species IDs
+    epitopes_df = pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)))
+    species_mapping = create_species_mapping(list(epitopes_df['organism2_id'].astype(str).unique()))
+
+    return species_mapping
 
   def get_epitopes(self, all_taxa):
     """
@@ -60,30 +62,37 @@ def main():
   
   parser.add_argument('-u', '--user', required=True, help='User for IEDB MySQL connection.')
   parser.add_argument('-p', '--password', required=True, help='User for IEDB MySQL connection.')
-  parser.add_argument('-t', '--taxon_id', required=True, help='Taxon ID for the species to pull data for.')
+  parser.add_argument('-a', '--all_species', action='store_true', help='Build protein tree for all IEDB species.')
+  parser.add_argument('-t', '--taxon_id', help='Taxon ID for the species to pull data for.')
   
   args = parser.parse_args()
   user = args.user
   password = args.password
+  all_species = args.all_species
   taxon_id = args.taxon_id
 
-  # read in IEDB species data
-  species_df = pd.read_csv('species.csv')
-  species_id_to_name_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['Species Label']))
-  all_taxa_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['All Taxa']))
-
-  # get epitopes and source antigens
   Fetcher = DataFetcher(user, password)
-  epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
-  sources_df = Fetcher.get_sources(all_taxa_map[taxon_id])
+  if all_species:
+    species_mapping = Fetcher.get_species()
+    print(pd.DataFrame.from_dict(species_mapping, orient='index', columns=['Taxon ID', 'Species Name']))
 
-  # create directory for species and taxon ID
-  species_path = f'species/{taxon_id}-{species_id_to_name_map[taxon_id].replace(" ", "_")}'
-  os.makedirs(species_path, exist_ok=True)
+  # # read in IEDB species data
+  # species_df = pd.read_csv('species.csv')
+  # species_id_to_name_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['Species Label']))
+  # all_taxa_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['All Taxa']))
 
-  # write epitopes and source antigens to files
-  epitopes_df.to_csv(f'{species_path}/epitopes.csv', index=False)
-  sources_df.to_csv(f'{species_path}/sources.csv', index=False)
+  # # get epitopes and source antigens
+  # Fetcher = DataFetcher(user, password)
+  # epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
+  # sources_df = Fetcher.get_sources(all_taxa_map[taxon_id])
+
+  # # create directory for species and taxon ID
+  # species_path = f'species/{taxon_id}-{species_id_to_name_map[taxon_id].replace(" ", "_")}'
+  # os.makedirs(species_path, exist_ok=True)
+
+  # # write epitopes and source antigens to files
+  # epitopes_df.to_csv(f'{species_path}/epitopes.csv', index=False)
+  # sources_df.to_csv(f'{species_path}/sources.csv', index=False)
 
 if __name__ == '__main__':
   main()

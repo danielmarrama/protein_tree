@@ -12,10 +12,10 @@ hugo_symbol_map.csv
 human_proteome.csv
 id_to_gene_name.tsv
 makeblastdb
+protein_tree/sql_engine.py
 protein_tree.ipynb
 protein_tree.txt
 snapshot_2022-12-20/
 species/
 species2.csv
-sql_engine.py
 test.fasta
