@@ -35,8 +35,30 @@ def create_species_mapping(taxon_ids):
     taxon_rank, species_id, species_name = get_species_data(taxon_id, taxonomy_data)
     species_mapping[taxon_id] = (taxon_rank, species_id, species_name)
 
+  return species_mapping
+
+def create_reverse_species_mapping(taxon_ids):
+  reverse_species_mapping = {}
+
+  for taxon_id in taxon_ids:
+    taxonomy_data = get_taxonomy_information(taxon_id)
+    taxon_rank, species_id, species_name = get_species_data(taxon_id, taxonomy_data)
+
+    if species_id not in reverse_species_mapping:
+      reverse_species_mapping[species_id] = []
+
+    reverse_species_mapping[species_id].append((taxon_rank, taxon_id, species_name))
+
+  return reverse_species_mapping
+
+def write_mappings(taxon_ids):
+  species_mapping = create_species_mapping(taxon_ids)
+  reverse_species_mapping = create_reverse_species_mapping(taxon_ids)
+
+  path = os.path.join(os.path.dirname(__file__), '../mappings/reverse_species_mapping.pickle')
+  with open(path, 'wb') as f:
+    pickle.dump(reverse_species_mapping, f)
+
   path = os.path.join(os.path.dirname(__file__), '../mappings/species_mapping.pickle')
   with open(path, 'wb') as f:
     pickle.dump(species_mapping, f)
-
-  return species_mapping

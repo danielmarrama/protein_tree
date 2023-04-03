@@ -3,7 +3,7 @@
 import pandas as pd
 from sqlalchemy import text
 from sql_engine import create_sql_engine
-from taxonomy_mappings import create_species_mapping
+from taxonomy_mappings import write_mappings
 
 class DataFetcher:
   """
@@ -12,7 +12,7 @@ class DataFetcher:
   def __init__(self, user, password):
     self.sql_engine = create_sql_engine(user, password) # private so there's no exposure to the backend
 
-  def get_species(self):
+  def get_species_data(self):
     sql_query = """
                 SELECT object.*
                 FROM iedb_curation.epitope epitope, iedb_curation.object object
@@ -26,9 +26,8 @@ class DataFetcher:
                 """
     # read in all epitope data from IEDB and map the taxon IDs to species IDs
     epitopes_df = pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)))
-    species_mapping = create_species_mapping(list(epitopes_df['organism2_id'].astype(str).unique()))
-
-    return species_mapping
+    write_mappings(list(epitopes_df['organism2_id'].astype(str).unique()))
+    
 
   def get_epitopes(self, all_taxa):
     """
@@ -73,7 +72,7 @@ def main():
 
   Fetcher = DataFetcher(user, password)
   if all_species:
-    species_mapping = Fetcher.get_species()
+    species_mapping = Fetcher.get_species_data()
     print(pd.DataFrame.from_dict(species_mapping, orient='index', columns=['Taxon Rank', 'Species Taxon ID', 'Species Name']))
 
   # # read in IEDB species data
