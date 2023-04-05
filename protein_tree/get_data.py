@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import pandas as pd
 from sqlalchemy import text
 from sql_engine import create_sql_engine
@@ -8,25 +9,25 @@ from taxonomy_mappings import create_species_mapping
 
 class DataFetcher:
   def __init__(self, user, password):
+    self.path = os.path.dirname(os.path.realpath(__file__))
     self.sql_engine = create_sql_engine(user, password) # private so there's no exposure to the backend
-    self.sql_query = """
-                     SELECT object.*
-                     FROM iedb_curation.epitope epitope, iedb_curation.object object
-                     WHERE epitope.epitope_id = object.object_id
-                     AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
-                     UNION
-                     SELECT object.*
-                     FROM iedb_curation.epitope epitope, iedb_curation.object object
-                     WHERE epitope.related_object_id = object.object_id
-                     AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
-                     """
-
 
   def get_species_data(self):
     """Get all necessary species data and update species.csv."""
+    sql_query = """
+                SELECT object.organism2_id
+                FROM epitope, object
+                WHERE epitope.e_object_id = object.object_id
+                AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
+                UNION
+                SELECT object.organism2_id
+                FROM epitope, object
+                WHERE epitope.related_object_id = object.object_id
+                AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
+                """
     # get all epitope data - map all IDs to species rank
-    epitopes_df = pd.DataFrame(self.sql_engine.connect().execute(text(self.sql_query)))
-    species_mapping = create_species_mapping(list(epitopes_df['organism2_id'].astype(str).unique()))
+    organism_df = pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)))
+    species_mapping = create_species_mapping(list(organism_df['organism2_id'].astype(str).unique()))
 
     # create dataframe with species ID, species name, and all taxa
     data = [(key, *value) for key, value in species_mapping.items()]
@@ -35,7 +36,7 @@ class DataFetcher:
     # group by Species Taxon ID and Species Name, aggregating the lower ranks
     grouped_df = df.groupby(['Species Taxon ID', 'Species Name'])['Lower Rank Taxon ID'].apply(lambda x: '; '.join(map(str, x))).reset_index()
     grouped_df = grouped_df.rename(columns={'Species Taxon ID': 'Taxon ID', 'Lower Rank Taxon ID': 'All Taxa'})
-    grouped_df.to_csv('../new_species_data.csv', index=False)
+    grouped_df.to_csv(f'{self.path}/../new_species_data.csv', index=False)
 
   def get_epitopes(self, all_taxa):
     """
@@ -78,12 +79,15 @@ def main():
   all_species = args.all_species
   taxon_id = args.taxon_id
 
-  path = os.path.dirname(os.path.realpath(__file__))
   Fetcher = DataFetcher(user, password)
   if all_species:
     Fetcher.get_species_data()
   else:
     assert taxon_id is not None, 'Must provide a taxon ID for the species to pull data for or pass -a to update species data.'
+    
+    # path of this script
+    path = os.path.dirname(os.path.realpath(__file__))
+
     # read in IEDB species data
     species_df = pd.read_csv(f'{path}/../species.csv')
     species_id_to_name_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['Species Name']))
