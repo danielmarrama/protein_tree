@@ -4,7 +4,6 @@ import os
 import pandas as pd
 from sqlalchemy import text
 from sql_engine import create_sql_engine
-from taxonomy_mappings import create_species_mapping
 
 
 class DataFetcher:
