@@ -46,15 +46,13 @@ def create_species_mapping(taxon_ids):
 
     if species_data is None:
       continue
-
-    print(species_data)
     
     print(f'Taxon ID: {taxon_id}')
     print(f'Taxon Rank: {species_data["taxon_rank"]}')
     print(f'Species ID: {species_data["species_taxon_id"]}')
     print(f'Species Name: {species_data["species_name"]}')
     print(f'Group: {species_data["group"]}')
-    print(f'Vertebrate: {species_data["vertebrate"]}')
+    print(f'Vertebrate: {species_data["vertebrate"]}\n')
 
     species_mapping[taxon_id] = (species_data['taxon_rank'], species_data['species_taxon_id'], species_data['species_name'], species_data['group'], species_data['vertebrate'])
   
@@ -87,12 +85,13 @@ def get_species_data(taxon_id):
   for lineage_item in taxonomy_data["lineage"]:
     if lineage_item["rank"] == "superkingdom":
       group = lineage_item["scientificName"]
-    if lineage_item["rank"] in ["class", "subclass", "no rank"]:
-      if "Vertebrata" in lineage_item["scientificName"] or (
-          "commonName" in lineage_item and "vertebrates" in lineage_item["commonName"]
-      ):
-        is_vertebrate = 1
-        break
+    
+    # check if vertebrate
+    if "Vertebrata" in lineage_item["scientificName"] or ("commonName" in lineage_item and "vertebrates" in lineage_item["commonName"]):
+      is_vertebrate = 1
+    
+    if group and is_vertebrate:
+      break
 
   # if the taxon is a species, species group, genus, or family, then the species data is the taxon data
   if taxonomy_data['rank'] in ['species', 'species group', 'genus', 'family']:
