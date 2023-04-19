@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
-import os
 import requests
 import _pickle as pickle
 import pandas as pd
+
+from pathlib import Path
 from sqlalchemy import text
 from protein_tree.sql_engine import create_sql_engine
 
@@ -68,7 +69,7 @@ def create_species_mapping(taxon_ids):
 
     species_mapping[taxon_id] = (species_data['taxon_rank'], species_data['species_taxon_id'], species_data['species_name'], species_data['group'], species_data['vertebrate'])
 
-  path = os.path.join(os.path.dirname(__file__), '../mappings/species_mapping.pickle')
+  path = Path(__file__).parent / '../mappings/unknown_taxons.pickle'
   with open(path, 'wb') as f:
     pickle.dump(species_mapping, f)
   
@@ -86,20 +87,20 @@ def get_species_data(taxon_id):
   taxonomy_data = get_taxonomy_information(taxon_id)
 
   if 'lineage' not in taxonomy_data:
-    print(f"Taxon ID {taxon_id} not found in UniProt. Skipping.")
+    print(f'Taxon ID {taxon_id} not found in UniProt. Skipping.\n')
     return None
   
-  group = ""
+  group = ''
   is_vertebrate = 0
   species_data = {}
 
   # get group and vertebrate status
-  for lineage_item in taxonomy_data["lineage"]:
-    if lineage_item["rank"] == "superkingdom":
-      group = lineage_item["scientificName"]
+  for lineage_item in taxonomy_data['lineage']:
+    if lineage_item['rank'] == 'superkingdom':
+      group = lineage_item['scientificName']
     
     # check if vertebrate
-    if "Vertebrata" in lineage_item["scientificName"] or ("commonName" in lineage_item and "vertebrates" in lineage_item["commonName"]):
+    if 'Vertebrata' in lineage_item['scientificName'] or ('commonName' in lineage_item and 'vertebrates' in lineage_item['commonName']):
       is_vertebrate = 1
     
     if group and is_vertebrate:
@@ -118,11 +119,11 @@ def get_species_data(taxon_id):
     for lineage_item in taxonomy_data['lineage']:
       if lineage_item['rank'] == 'species':
         species_data = {
-            'taxon_rank': taxonomy_data['rank'],
-            'species_taxon_id': lineage_item['taxonId'],
-            'species_name': lineage_item['scientificName'],
-            'group': group,
-            'vertebrate': is_vertebrate,
+          'taxon_rank': taxonomy_data['rank'],
+          'species_taxon_id': lineage_item['taxonId'],
+          'species_name': lineage_item['scientificName'],
+          'group': group,
+          'vertebrate': is_vertebrate,
         }
         break
 
