@@ -36,7 +36,7 @@ def update_species_data(user, password):
   grouped_df = grouped_df.rename(columns={'Species Taxon ID': 'Taxon ID', 'Lower Rank Taxon ID': 'All Taxa'})
   
   # add unknown taxa
-  grouped_df = group_df.append({
+  grouped_df = grouped_df.append({
     'Taxon ID': '',
     'Species Name': 'Unknown',
     'All Taxa': '; '.join(unknown_taxons),
@@ -69,7 +69,7 @@ def create_species_mapping(taxon_ids):
 
     species_mapping[taxon_id] = (species_data['taxon_rank'], species_data['species_taxon_id'], species_data['species_name'], species_data['group'], species_data['vertebrate'])
 
-  path = Path(__file__).parent / '../mappings/unknown_taxons.pickle'
+  path = Path(__file__).parent / 'mappings' / 'species_mapping.pickle'
   with open(path, 'wb') as f:
     pickle.dump(species_mapping, f)
   
