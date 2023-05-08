@@ -1,19 +1,21 @@
 # IEDB Protein Tree 
 
-Mapping source antigens to genes and epitopes to parent proteins.
+Mapping IEDB source antigens to genes and epitopes parent proteins. 
 
 ### Process
-1. Fetch epitopes and source antigens for species in the IEDB.
-2. Select the best proteome for that species.
-3. Assign genes to source antigens using BLAST and epitopes to their parent protein using PEPMatch.
+1. Fetch the species source antigens and epitopes from the IEDB MySQL backend.
+2. Select the best proteome for that species from UniProt.
+3. Assign genes to source antigens using MMseqs2/BLAST and epitopes to their parent protein using PEPMatch.
 
 ### Inputs
-- List of IEDB species: [species.csv](species.csv)
 - IEDB MySQL Backend username and password
-- `blastp` and `makeblastdb` executables from [NCBI](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
-- Taxon ID for species to build for with `-t` flag or `-a` flag to build all species.
+- List of IEDB species: [species.csv](species.csv)
+    - This is updated with the [update_species.py](update_species.py) script
+- `mmseqs2` binary from [MMseqs2](https://github.com/soedinglab/MMseqs2/releases)
+- `blastp` and `makeblastdb` binaries from [NCBI](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
+- Taxon ID for species to build for with `-t` flag or `-a` flag to build all species
 - List of manual parents: [manual_assignments.csv](manual_assignments.csv)
-    - This is the list of sources that have been manually assigned for their parents.
+    - This is the list of sources that have been manually assigned for their parents
 
 ### Running
 For one species:
@@ -53,18 +55,10 @@ For all species:
 
 Use [combine_data.py](combine_data.py) to merge all epitopes.csv and all sources.csv into one file for every species.
 
-### Creating Species Mappings
-
-Mapping from all lower ranks to parent species and species to all lower ranks is not done in the IEDB. The script [species_mappings.py](create_species_mappings.py) will create these mappings by pulling all taxonomy data from the IEDB organism table and will store the mappings in pickle files.
-
-```bash
-./species_mappings.py -u <username> -p <password>
-```
-
 ### TODO
-- Fix epitope data pull
+- Use GP proteome for gene assignment first if it exists, then the larger proteome
+- Use MMseqs2 for assigning majority of gene assignments because of speed
+- Use ARC to assign MHC/TCR/immunoglobulin genes
+- Use IUIS nomenclature for allergen names
 - Use manual_assignments.csv to override parent and gene assignments
-- Add step to handle allergens using labels from IUIS
-- Add step to handle MHC molecules from MRO
 - Use PEPMatch to search discontinuous epitopes
-- Test other alignment tools (MMseqs2 or DIAMOND) for accuracy
