@@ -9,8 +9,13 @@ from sqlalchemy import text
 from protein_tree.sql_engine import create_sql_engine
 
 
-def update_species_data(user, password):
-  """Get all necessary species data and update species.csv."""
+def update_species_data(user, password) -> None:
+  """
+  Get all organism IDs for all epitope data we need for protein tree. Then,
+  get the species taxon ID for each organism and update the species data file.
+
+  :return: None.
+  """
   sql_query = """
               SELECT object.organism2_id
               FROM epitope, object
@@ -22,9 +27,48 @@ def update_species_data(user, password):
               WHERE epitope.related_object_id = object.object_id
               AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
               """
-  # get all epitope data - map all IDs to species rank
   sql_engine = create_sql_engine(user, password)
-  organism_df = pd.DataFrame(sql_engine.connect().execute(text(sql_query)))
+  with sql_engine.connect() as connection:
+    result = connection.execute(text(sql_query))
+    organism_ids = pd.DataFrame(result.fetchall(), columns=['organism_id'])
+
+    species_data = []
+    for organism_id in organism_ids['organism_id']:
+      species_taxon_id = get_species_taxon_id(connection, organism_id)
+      species_data.append((organism_id, species_taxon_id))
+
+
+def get_species_taxon_id(connection, organism_id) -> str:
+  """
+  Get the parent species taxon ID for an organism ID from the organism table.
+
+  Args:
+    connection: IEDB MySQL backend connection.
+    organism_id: Organism ID.
+  """
+  path_query = """
+              SELECT path
+              FROM organism
+              WHERE tax_id = :organism_id
+              """
+  result = connection.execute(text(path_query), {"organism_id": organism_id})
+  path = result.fetchone()
+  tax_ids = path.split(':')
+
+  for tax_id in reversed(tax_ids):
+    rank_query = """
+                  SELECT rank
+                  FROM organism
+                  WHERE tax_id = :tax_id
+                  """
+    rank_result = connection.execute(text(rank_query), {"tax_id": tax_id})
+    rank = rank_result.fetchone()[0]
+    if rank == 'species':
+      return tax_id
+  return organism_id
+
+
+
   species_mapping, unknown_taxons = create_species_mapping(list(organism_df['organism2_id'].astype(str).unique()))
 
   # create dataframe with species ID, species name, and all taxa

@@ -1,41 +1,14 @@
 #!/usr/bin/env python3
 
-import os
 import pandas as pd
+from pathlib import Path
 from sqlalchemy import text
 from sql_engine import create_sql_engine
 
 
 class DataFetcher:
   def __init__(self, user, password):
-    self.path = os.path.dirname(os.path.realpath(__file__))
     self.sql_engine = create_sql_engine(user, password) # private so there's no exposure to the backend
-
-  def get_species_data(self):
-    """Get all necessary species data and update species.csv."""
-    sql_query = """
-                SELECT object.organism2_id
-                FROM epitope, object
-                WHERE epitope.e_object_id = object.object_id
-                AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
-                UNION
-                SELECT object.organism2_id
-                FROM epitope, object
-                WHERE epitope.related_object_id = object.object_id
-                AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
-                """
-    # get all epitope data - map all IDs to species rank
-    organism_df = pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)))
-    species_mapping = create_species_mapping(list(organism_df['organism2_id'].astype(str).unique()))
-
-    # create dataframe with species ID, species name, and all taxa
-    data = [(key, *value) for key, value in species_mapping.items()]
-    df = pd.DataFrame(data, columns=['Lower Rank Taxon ID', 'Taxon Rank', 'Species Taxon ID', 'Species Name'])
-    
-    # group by Species Taxon ID and Species Name, aggregating the lower ranks
-    grouped_df = df.groupby(['Species Taxon ID', 'Species Name'])['Lower Rank Taxon ID'].apply(lambda x: '; '.join(map(str, x))).reset_index()
-    grouped_df = grouped_df.rename(columns={'Species Taxon ID': 'Taxon ID', 'Lower Rank Taxon ID': 'All Taxa'})
-    grouped_df.to_csv(f'{self.path}/../new_species_data.csv', index=False)
 
   def get_epitopes(self, all_taxa):
     """
