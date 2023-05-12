@@ -5,15 +5,18 @@ import _pickle as pickle
 import pandas as pd
 from pathlib import Path
 from sqlalchemy import text
+from sqlalchemy.engine import Connection
 from protein_tree.sql_engine import create_sql_engine
 
 
-def update_species_data(user, password) -> None:
+def update_species_data(user: str, password: str) -> None:
   """
   Get all organism IDs for all epitope data we need for protein tree. Then,
   get the species taxon ID for each organism and update the species data file.
 
-  :return: None.
+  Args:
+    user: IEDB MySQL backend username.
+    password: IEDB MySQL backend password.
   """
   sql_query = """
               SELECT object.organism2_id
@@ -29,12 +32,12 @@ def update_species_data(user, password) -> None:
   sql_engine = create_sql_engine(user, password)
   with sql_engine.connect() as connection:
     result = connection.execute(text(sql_query))
-    organism_ids = pd.DataFrame(result.fetchall(), columns=['organism_id'])
+    organism_ids = pd.DataFrame(result.fetchall(), columns=['organism_id']).astype(str)
 
     species = {}
-    for organism_tax_id in organism_tax_ids['organism_tax_id']:
+    for organism_id in organism_ids['organism_id']:
       species_id = get_species_taxon_id(connection, organism_id)
-      if species_id not in species_data:
+      if species_id not in species:
         species[species_id] = []
       species[species_id].append(organism_id)
     
@@ -43,7 +46,7 @@ def update_species_data(user, password) -> None:
     species_df.to_csv('species_test.csv', index=False)
 
 
-def get_species_taxon_id(connection, organism_id) -> str:
+def get_species_taxon_id(connection: Connection, organism_id: str) -> str:
   """
   Get the parent species taxon ID for an organism ID from the organism table.
 
@@ -58,8 +61,11 @@ def get_species_taxon_id(connection, organism_id) -> str:
               """
   result = connection.execute(text(path_query), {"organism_id": organism_id})
   path = result.fetchone()
-  tax_ids = path.split(':')
-
+  
+  if path is None:
+    return organism_id
+  
+  tax_ids = path[0].split(':')
   for tax_id in reversed(tax_ids):
     rank_query = """
                   SELECT rank
