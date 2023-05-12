@@ -34,15 +34,15 @@ def update_species_data(user: str, password: str) -> None:
     result = connection.execute(text(sql_query))
     organism_ids = pd.DataFrame(result.fetchall(), columns=['organism_id']).astype(str)
 
-    species = {}
+    species = {} # map species taxon to all children organism IDs
     for organism_id in organism_ids['organism_id']:
       species_id = get_species_taxon_id(connection, organism_id)
       if species_id not in species:
         species[species_id] = []
       species[species_id].append(organism_id)
     
-    species_list = [(species_id, organism_ids) for species_id, organism_ids in species.items()]
-    species_df = pd.DataFrame(species_data_list, columns=['species_taxon_id', 'organism_ids'])
+    species_list = [(species_id, '; '.join(organism_ids)) for species_id, organism_ids in species.items()]
+    species_df = pd.DataFrame(species_list, columns=['species_taxon_id', 'organism_ids'])
     species_df.to_csv('species_test.csv', index=False)
 
 
