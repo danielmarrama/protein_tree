@@ -42,8 +42,8 @@ def update_species_data(user: str, password: str) -> None:
       species[species_id].append(organism_id)
     
     species_list = [(species_id, '; '.join(organism_ids)) for species_id, organism_ids in species.items()]
-    species_df = pd.DataFrame(species_list, columns=['species_taxon_id', 'organism_ids'])
-    species_df.to_csv('species_test.csv', index=False)
+    species_df = pd.DataFrame(species_list, columns=['Species Taxon ID', 'All Taxa'])
+    species_df.to_csv('species.csv', index=False)
 
 
 def get_species_taxon_id(connection: Connection, organism_id: str) -> str:

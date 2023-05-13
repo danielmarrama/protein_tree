@@ -1,1585 +1,2164 @@
-Taxon ID,Species Name,Group,Vertebrate,All Taxa
-24,Shewanella putrefaciens,Bacteria,0,319224
-106,Runella slithyformis,Bacteria,0,761193; 106
-108,Spirosoma linguale,Bacteria,0,108
-139,Borreliella burgdorferi,Bacteria,0,224326; 139; 521007; 445985; 445983; 521009
-158,Treponema denticola,Bacteria,0,158
-160,Treponema pallidum,Bacteria,0,160; 243276
-162,Treponema phagedenis,Bacteria,0,754027
-171,Leptospira,Bacteria,0,171
-173,Leptospira interrogans,Bacteria,0,267671; 173; 189518; 214675; 44275; 44276; 57678; 211882; 1279460
-174,Leptospira borgpetersenii,Bacteria,0,338220; 280504
-188,Magnetospirillum magnetotacticum,Bacteria,0,272627
-195,Campylobacter coli,Bacteria,0,195; 306254
-196,Campylobacter fetus,Bacteria,0,32019
-197,Campylobacter jejuni,Bacteria,0,197; 195099; 360112; 354242; 192222; 407148; 398000; 482628; 567106
-199,Campylobacter concisus,Bacteria,0,199
-200,Campylobacter curvus,Bacteria,0,200
-201,Campylobacter lari,Bacteria,0,306263
-203,Campylobacter rectus,Bacteria,0,203
-210,Helicobacter pylori,Bacteria,0,85962; 210; 102617; 85963; 637383; 992121; 1352357; 1337393; 866344; 102618; 290847
-234,Brucella,Bacteria,0,234
-235,Brucella abortus,Bacteria,0,235; 359391; 430066; 641140; 575591; 520450; 262698
-236,Brucella ovis,Bacteria,0,444178; 236
-263,Francisella tularensis,Bacteria,0,376619; 177416; 263; 119856; 393115; 393011; 418136; 430557; 458234; 351581
-266,Paracoccus denitrificans,Bacteria,0,266; 318586
-271,Thermus aquaticus,Bacteria,0,271
-274,Thermus thermophilus,Bacteria,0,274; 300852; 262724
-280,Xanthobacter autotrophicus,Bacteria,0,280; 78245
-285,Comamonas testosteroni,Bacteria,0,285
-286,Pseudomonas,Bacteria,0,286
-287,Pseudomonas aeruginosa,Bacteria,0,287; 208963; 1009714; 208964; 388272; 350704; 350703; 1081927
-288,Pseudoalteromonas atlantica,Bacteria,0,342610
-292,Burkholderia cepacia,Bacteria,0,292
-294,Pseudomonas fluorescens,Bacteria,0,294
-298,Pseudomonas marginalis,Bacteria,0,298
-300,Pseudomonas mendocina,Bacteria,0,300
-303,Pseudomonas putida,Bacteria,0,303; 351746
-306,Pseudomonas sp.,Bacteria,0,306
-312,Pseudomonas sp. (strain RS-16),Bacteria,0,312
-316,Stutzerimonas stutzeri,Bacteria,0,316
-329,Ralstonia pickettii,Bacteria,0,1366050
-346,Xanthomonas citri,Bacteria,0,346
-354,Azotobacter vinelandii,Bacteria,0,354; 322710
-358,Rhizobium radiobacter,Bacteria,0,358
-382,Rhizobium meliloti,Bacteria,0,382; 266834
-384,Rhizobium leguminosarum,Bacteria,0,384
-446,Legionella pneumophila,Bacteria,0,446; 66976
-450,Legionella longbeachae,Bacteria,0,661367
-469,Acinetobacter,Bacteria,0,469
-470,Acinetobacter baumannii,Bacteria,0,470; 400667; 509173
-471,Acinetobacter calcoaceticus,Bacteria,0,471
-480,Moraxella catarrhalis,Bacteria,0,480; 857571
-485,Neisseria gonorrhoeae,Bacteria,0,485; 242231; 528354
-487,Neisseria meningitidis,Bacteria,0,487; 65699; 122586; 491; 272831; 1172206; 909420
-502,Kingella denitrificans,Bacteria,0,502
-511,Alcaligenes faecalis,Bacteria,0,511
-520,Bordetella pertussis,Bacteria,0,520; 257313
-521,Bordetella avium,Bacteria,0,521
-524,Acidiphilium cryptum,Bacteria,0,349163; 524
-539,Eikenella corrodens,Bacteria,0,539
-543,Enterobacteriaceae,Bacteria,0,543
-548,Klebsiella aerogenes,Bacteria,0,548
-550,Enterobacter cloacae,Bacteria,0,550; 336306
-554,Pectobacterium carotovorum,Bacteria,0,561230; 554
-556,Dickeya chrysanthemi,Bacteria,0,556
-562,Escherichia coli,Bacteria,0,316401; 562; 83333; 217992; 83334; 37762; 362663; 364106; 168807; 155864; 585034; 478005; 478006; 478008; 525281; 331111; 344601; 386585; 511145; 340197; 340184; 358709; 405955; 340185; 316407; 199310; 331112; 481805; 244320; 316385; 340186; 679206; 344610; 1432555; 439184; 1045010; 595496; 511693
-573,Klebsiella pneumoniae,Bacteria,0,573; 484021; 272620
-584,Proteus mirabilis,Bacteria,0,584; 529507
-615,Serratia marcescens,Bacteria,0,615
-621,Shigella boydii,Bacteria,0,621; 344609; 300268
-622,Shigella dysenteriae,Bacteria,0,622; 300267
-623,Shigella flexneri,Bacteria,0,623; 42897; 373384; 198214; 198215; 591020; 424717; 766147; 766154
-624,Shigella sonnei,Bacteria,0,624; 300269
-630,Yersinia enterocolitica,Bacteria,0,630; 393305; 34054; 913028
-632,Yersinia pestis,Bacteria,0,632; 214092; 377628; 360102; 386656; 412420; 187410; 349746; 375450; 373665
-633,Yersinia pseudotuberculosis,Bacteria,0,633; 349747; 273123
-634,Yersinia bercovieri,Bacteria,0,349968
-636,Edwardsiella tarda,Bacteria,0,636
-644,Aeromonas hydrophila,Bacteria,0,644
-645,Aeromonas salmonicida,Bacteria,0,645; 29491
-659,Photobacterium phosphoreum,Bacteria,0,659
-661,Photobacterium angustum,Bacteria,0,314292
-663,Vibrio alginolyticus,Bacteria,0,314288
-666,Vibrio cholerae,Bacteria,0,666; 44104; 686; 127906; 345073; 345076; 345075; 345074; 45888; 243277; 412614; 412967; 412966; 417400; 417399; 404974; 345072; 592313; 417398; 412883
-670,Vibrio parahaemolyticus,Bacteria,0,223926; 670; 419109; 627611; 563773
-671,Vibrio proteolyticus,Bacteria,0,671
-672,Vibrio vulnificus,Bacteria,0,672; 196600; 216895
-674,Vibrio mimicus,Bacteria,0,674
-703,Plesiomonas shigelloides,Bacteria,0,703
-714,Aggregatibacter actinomycetemcomitans,Bacteria,0,714
-715,Actinobacillus pleuropneumoniae,Bacteria,0,228399; 209841; 715
-727,Haemophilus influenzae,Bacteria,0,727; 281310; 374932; 521004; 71421; 262727; 262728; 374931; 375432; 374928; 375177; 374927; 521005; 374933
-730,Haemophilus ducreyi,Bacteria,0,730
-731,Histophilus somni,Bacteria,0,731; 205914
-738,Glaesserella parasuis,Bacteria,0,738; 1117322; 557723
-747,Pasteurella multocida,Bacteria,0,747; 272843
-769,Anaplasma centrale,Bacteria,0,769; 574556
-770,Anaplasma marginale,Bacteria,0,320483; 770; 234826
-774,Bartonella bacilliformis,Bacteria,0,360095; 774
-777,Coxiella burnetii,Bacteria,0,777; 360117; 227377; 360116; 434922; 360115; 434923; 434924
-779,Ehrlichia ruminantium,Bacteria,0,779
-781,Rickettsia conorii,Bacteria,0,272944; 781
-782,Rickettsia prowazekii,Bacteria,0,782; 272947
-783,Rickettsia rickettsii,Bacteria,0,783; 452659; 392021
-784,Orientia tsutsugamushi,Bacteria,0,357244; 784; 334380
-785,Rickettsia typhi,Bacteria,0,785; 257363
-786,Rickettsia akari,Bacteria,0,293614
-787,Rickettsia australis,Bacteria,0,787
-788,Rickettsia canadensis,Bacteria,0,788
-813,Chlamydia trachomatis,Bacteria,0,813; 315277; 272561; 580047; 634464; 672161; 759363
-817,Bacteroides fragilis,Bacteria,0,817
-818,Bacteroides thetaiotaomicron,Bacteria,0,226186; 818
-820,Bacteroides uniformis,Bacteria,0,820
-821,Phocaeicola vulgatus,Bacteria,0,821
-823,Parabacteroides distasonis,Bacteria,0,823
-837,Porphyromonas gingivalis,Bacteria,0,837; 1403335; 242619; 1125722; 431947
-851,Fusobacterium nucleatum,Bacteria,0,209882; 851; 469601
-853,Faecalibacterium prausnitzii,Bacteria,0,853
-891,Desulfuromonas acetoxidans,Bacteria,0,281689
-907,Megasphaera elsdenii,Bacteria,0,907
-920,Acidithiobacillus ferrooxidans,Bacteria,0,920
-944,Ehrlichia canis,Bacteria,0,944; 269484
-945,Ehrlichia chaffeensis,Bacteria,0,945; 205920
-947,Ehrlichia ewingii,Bacteria,0,947
-948,Anaplasma phagocytophilum,Bacteria,0,212042; 948
-955,Wolbachia pipientis,Bacteria,0,955
-985,Cytophaga hutchinsonii,Bacteria,0,269798
-1006,Marivirga tractuosa,Bacteria,0,1006
-1018,Capnocytophaga ochracea,Bacteria,0,1018
-1019,Capnocytophaga sputigena,Bacteria,0,1019
-1022,Beggiatoa alba,Bacteria,0,1022
-1027,Microscilla marina,Bacteria,0,313606
-1063,Cereibacter sphaeroides,Bacteria,0,1063; 272943; 349101
-1076,Rhodopseudomonas palustris,Bacteria,0,316056; 1076
-1102,Prosthecochloris aestuarii,Bacteria,0,290512
-1108,Chloroflexus aurantiacus,Bacteria,0,324602
-1206,Trichodesmium erythraeum,Bacteria,0,203124
-1254,Pediococcus acidilactici,Bacteria,0,1254
-1260,Finegoldia magna,Bacteria,0,1260
-1265,Ruminococcus flavefaciens,Bacteria,0,1265
-1270,Micrococcus luteus,Bacteria,0,1270
-1280,Staphylococcus aureus,Bacteria,0,1280; 196620; 93062; 548470; 282458; 158879; 93061; 553583; 426430; 367830; 1458279; 451516; 867914; 359787; 451515; 1193576; 548473
-1282,Staphylococcus epidermidis,Bacteria,0,525374; 176279
-1292,Staphylococcus warneri,Bacteria,0,1292
-1299,Deinococcus radiodurans,Bacteria,0,1299; 243230
-1302,Streptococcus gordonii,Bacteria,0,1302
-1303,Streptococcus oralis,Bacteria,0,1303
-1305,Streptococcus sanguinis,Bacteria,0,1305
-1307,Streptococcus suis,Bacteria,0,1307
-1309,Streptococcus mutans,Bacteria,0,1309; 1198676; 857099; 210007
-1310,Streptococcus sobrinus,Bacteria,0,246202; 1310
-1311,Streptococcus agalactiae,Bacteria,0,1311; 211110; 208435; 342614
-1313,Streptococcus pneumoniae,Bacteria,0,1313; 170187; 373153; 171101; 914129
-1314,Streptococcus pyogenes,Bacteria,0,1314; 160491; 160490; 301449; 301450; 286636; 342023; 301452; 301451; 404330; 404331; 410069; 301448; 1207470; 186103; 301447
-1317,Streptococcus downei,Bacteria,0,1317
-1320,Streptococcus sp. group G,Bacteria,0,1320
-1334,Streptococcus dysgalactiae,Bacteria,0,119602; 1334
-1336,Streptococcus equi,Bacteria,0,1336
-1349,Streptococcus uberis,Bacteria,0,1349
-1351,Enterococcus faecalis,Bacteria,0,1351
-1352,Enterococcus faecium,Bacteria,0,1352; 333849
-1358,Lactococcus lactis,Bacteria,0,1358
-1359,Lactococcus lactis subsp. cremoris,Bacteria,0,272622
-1386,Bacillus,Bacteria,0,1386
-1390,Bacillus amyloliquefaciens,Bacteria,0,1390; 692420
-1392,Bacillus anthracis,Bacteria,0,260799; 1392; 486624; 486623; 486620; 261594; 486619; 191218; 405536; 198094; 486621; 568206; 592021; 212045
-1396,Bacillus cereus,Bacteria,0,1396; 405533; 451709; 451708; 405532; 405917; 451707; 405531; 269801; 226900; 526977; 572264; 526979; 347495; 526974
-1402,Bacillus licheniformis,Bacteria,0,1402
-1404,Priestia megaterium,Bacteria,0,1404
-1405,Bacillus mycoides,Bacteria,0,1405; 315730
-1408,Bacillus pumilus,Bacteria,0,1408
-1422,Geobacillus stearothermophilus,Bacteria,0,1422
-1423,Bacillus subtilis,Bacteria,0,1423; 224308; 535026
-1428,Bacillus thuringiensis,Bacteria,0,1435; 1428; 29339; 339854; 412694; 527024; 527026
-1454,Schinkia azotoformans,Bacteria,0,1454
-1467,Lederbergia lenta,Bacteria,0,1467
-1488,Clostridium acetobutylicum,Bacteria,0,272562
-1491,Clostridium botulinum,Bacteria,0,441771; 1491; 36831; 36830; 36829; 445338; 36826; 36827; 935198; 445335; 413999; 508767
-1492,Clostridium butyricum,Bacteria,0,1492
-1496,Clostridioides difficile,Bacteria,0,1496; 1169127; 645463
-1502,Clostridium perfringens,Bacteria,0,1502; 195102; 107819
-1513,Clostridium tetani,Bacteria,0,1513; 212717
-1515,Acetivibrio thermocellus,Bacteria,0,203119
-1520,Clostridium beijerinckii,Bacteria,0,290402; 1520
-1525,Moorella thermoacetica,Bacteria,0,264732
-1531,Enterocloster clostridioformis,Bacteria,0,1531
-1542,Clostridium novyi,Bacteria,0,386415
-1584,Lactobacillus delbrueckii,Bacteria,0,1585
-1590,Lactiplantibacillus plantarum,Bacteria,0,1590
-1599,Latilactobacillus sakei,Bacteria,0,1599
-1604,Lactobacillus amylovorus,Bacteria,0,1604
-1605,Ligilactobacillus animalis,Bacteria,0,1605
-1613,Limosilactobacillus fermentum,Bacteria,0,1613
-1622,Ligilactobacillus murinus,Bacteria,0,1235801
-1638,Listeria ivanovii,Bacteria,0,1638
-1639,Listeria monocytogenes,Bacteria,0,169963; 1639; 393133; 265669; 267409; 267410; 393124; 568819; 393117; 401650; 552536; 393130; 393126; 393128; 393125; 1334565
-1641,Listeria grayi,Bacteria,0,1641
-1642,Listeria innocua,Bacteria,0,1642
-1643,Listeria welshimeri,Bacteria,0,386043
-1646,Renibacterium salmoninarum,Bacteria,0,1646
-1660,Schaalia odontolytica,Bacteria,0,1660
-1661,Trueperella pyogenes,Bacteria,0,1661
-1664,Arthrobacter glacialis,Bacteria,0,1664
-1681,Bifidobacterium bifidum,Bacteria,0,1681
-1685,Bifidobacterium breve,Bacteria,0,1685
-1716,Corynebacterium,Bacteria,0,1716
-1717,Corynebacterium diphtheriae,Bacteria,0,1717; 257309
-1718,Corynebacterium glutamicum,Bacteria,0,1718; 196627; 340322
-1719,Corynebacterium pseudotuberculosis,Bacteria,0,1719
-1744,Propionibacterium freudenreichii,Bacteria,0,1752
-1747,Cutibacterium acnes,Bacteria,0,1747; 1091045
-1764,Mycobacterium avium,Bacteria,0,1764; 1770; 243243; 262316; 1391998
-1767,Mycobacterium intracellulare,Bacteria,0,487521; 1767
-1768,Mycobacterium kansasii,Bacteria,0,1768
-1769,Mycobacterium leprae,Bacteria,0,1769; 272631
-1772,Mycolicibacterium smegmatis,Bacteria,0,246196; 1772
-1773,Mycobacterium tuberculosis,Bacteria,0,1773; 83332; 652616; 419947; 1765; 33892; 83331; 561275; 233413; 410289; 395095; 348776; 336982; 1389959; 182785; 520141; 515617; 443149; 515616
-1778,Mycobacterium gordonae,Bacteria,0,1778
-1781,Mycobacterium marinum,Bacteria,0,216594; 1781
-1783,Mycobacterium scrofulaceum,Bacteria,0,1783
-1795,Mycolicibacterium neoaurum,Bacteria,0,1795
-1804,Mycolicibacterium gilvum,Bacteria,0,350054; 1804; 278137
-1809,Mycobacterium ulcerans,Bacteria,0,1809; 362242
-1828,Rhodococcus fascians,Bacteria,0,1828
-1833,Rhodococcus erythropolis,Bacteria,0,1833
-1836,Saccharopolyspora erythraea,Bacteria,0,1836
-1895,Streptomyces avidinii,Bacteria,0,1895
-1902,Streptomyces coelicolor,Bacteria,0,1902; 100226
-1916,Streptomyces lividans,Bacteria,0,1916
-1943,Streptomyces griseoruber,Bacteria,0,1943
-1946,Streptomyces kasugaensis,Bacteria,0,1946
-2021,Thermobifida fusca,Bacteria,0,269800
-2039,Tropheryma whipplei,Bacteria,0,2039
-2066,Kitasatospora setae,Bacteria,0,452652
-2096,Mycoplasmoides gallisepticum,Bacteria,0,1006581
-2097,Mycoplasmoides genitalium,Bacteria,0,2097; 243273
-2099,Mesomycoplasma hyopneumoniae,Bacteria,0,2099; 295358; 262722; 754503
-2100,Mesomycoplasma hyorhinis,Bacteria,0,2100
-2104,Mycoplasmoides pneumoniae,Bacteria,0,722438; 2104; 272634
-2110,Mycoplasmopsis agalactiae,Bacteria,0,347257
-2111,Metamycoplasma arthritidis,Bacteria,0,2111
-2133,Spiroplasma citri,Bacteria,0,2133
-2148,Acholeplasma laidlawii,Bacteria,0,2148
-2173,Methanobrevibacter smithii,Archaea,0,2173
-2190,Methanocaldococcus jannaschii,Archaea,0,2190; 243232
-2234,Archaeoglobus fulgidus,Archaea,0,2234
-2238,Haloarcula marismortui,Archaea,0,272569
-2242,Halobacterium salinarum,Archaea,0,2242
-2261,Pyrococcus furiosus,Archaea,0,2261
-2277,Pyrobaculum islandicum,Archaea,0,2277
-2287,Saccharolobus solfataricus,Archaea,0,2287
-2336,Thermotoga maritima,Bacteria,0,243274
-2439,Plasmid ColB2,,0,2439
-2465,Plasmid F,,0,2465
-2702,Gardnerella vaginalis,Bacteria,0,2702
-2736,Verrucomicrobium spinosum,Bacteria,0,2736
-2903,Emiliania huxleyi,Eukaryota,0,280463; 2903
-3055,Chlamydomonas reinhardtii,Eukaryota,0,3055
-3067,Volvox carteri,Eukaryota,0,3068
-3346,Pinus pinea,Eukaryota,0,3346
-3352,Pinus taeda,Eukaryota,0,3352
-3369,Cryptomeria japonica,Eukaryota,0,3369
-3505,Betula pendula,Eukaryota,0,3505
-3513,Quercus alba,Eukaryota,0,3513
-3517,Alnus glutinosa,Eukaryota,0,3517
-3559,Chenopodium album,Eukaryota,0,3559
-3562,Spinacia oleracea,Eukaryota,0,3562
-3567,Amaranthus caudatus,Eukaryota,0,3567
-3617,Fagopyrum esculentum,Eukaryota,0,3617
-3625,Actinidia chinensis,Eukaryota,0,3625
-3645,Bertholletia excelsa,Eukaryota,0,3645
-3656,Cucumis melo,Eukaryota,0,3656
-3677,Trichosanthes kirilowii,Eukaryota,0,3677
-3702,Arabidopsis thaliana,Eukaryota,0,3702
-3707,Brassica juncea,Eukaryota,0,3707
-3708,Brassica napus,Eukaryota,0,3708
-3711,Brassica campestris,Eukaryota,0,3711
-3728,Sinapis alba,Eukaryota,0,3728
-3750,Malus domestica,Eukaryota,0,3750
-3755,Prunus dulcis,Eukaryota,0,3755
-3758,Prunus domestica,Eukaryota,0,3758
-3760,Prunus persica,Eukaryota,0,3760
-3816,Abrus precatorius,Eukaryota,0,3816
-3818,Arachis hypogaea,Eukaryota,0,3818
-3847,Glycine max,Eukaryota,0,3847
-3864,Lens culinaris,Eukaryota,0,3864
-3885,Phaseolus vulgaris,Eukaryota,0,3885
-3888,Pisum sativum,Eukaryota,0,3888
-3972,Viscum album,Eukaryota,0,3972
-3981,Hevea brasiliensis,Eukaryota,0,3981
-3988,Ricinus communis,Eukaryota,0,3988
-4039,Daucus carota,Eukaryota,0,4039
-4045,Apium graveolens,Eukaryota,0,4045
-4081,Solanum lycopersicum,Eukaryota,0,4081
-4097,Nicotiana tabacum,Eukaryota,0,4097
-4113,Solanum tuberosum,Eukaryota,0,4113
-4120,Ipomoea batatas,Eukaryota,0,4120
-4146,Olea europaea,Eukaryota,0,4146
-4182,Sesamum indicum,Eukaryota,0,4182
-4212,Ambrosia artemisiifolia,Eukaryota,0,4215; 4212
-4214,Ambrosia trifida,Eukaryota,0,4214
-4220,Artemisia vulgaris,Eukaryota,0,4220
-4232,Helianthus annuus,Eukaryota,0,4232
-4498,Avena sativa,Eukaryota,0,4498
-4509,Dactylis glomerata,Eukaryota,0,4509
-4513,Hordeum vulgare,Eukaryota,0,4513; 112509; 77009
-4522,Lolium perenne,Eukaryota,0,4522
-4530,Oryza sativa,Eukaryota,0,39947; 4530
-4545,Poa pratensis,Eukaryota,0,4545
-4550,Secale cereale,Eukaryota,0,4550; 155091
-4558,Sorghum bicolor,Eukaryota,0,4558
-4565,Triticum aestivum,Eukaryota,0,4565
-4568,Triticum monococcum,Eukaryota,0,4568
-4571,Triticum turgidum,Eukaryota,0,4567
-4573,Aegilops speltoides,Eukaryota,0,4573
-4577,Zea mays,Eukaryota,0,4577; 76912
-4606,Festuca arundinacea,Eukaryota,0,4606
-4641,Musa acuminata,Eukaryota,0,4641; 214697
-4754,Pneumocystis carinii,Eukaryota,0,4754
-4784,Phytophthora capsici,Eukaryota,0,4784
-4792,Phytophthora parasitica,Eukaryota,0,4792
-4920,Millerozyma farinosa,Eukaryota,0,4920
-4932,Saccharomyces cerevisiae,Eukaryota,0,4932; 285006; 559292; 643680
-4954,Zygosaccharomyces bailii,Eukaryota,0,4954
-5037,Ajellomyces capsulatus,Eukaryota,0,447093; 5037
-5039,Ajellomyces dermatitidis,Eukaryota,0,5039; 447095; 653446
-5057,Aspergillus clavatus,Eukaryota,0,5057
-5059,Aspergillus flavus,Eukaryota,0,5059
-5060,Aspergillus giganteus,Eukaryota,0,5060
-5061,Aspergillus niger,Eukaryota,0,5061
-5064,Aspergillus restrictus,Eukaryota,0,5064
-5067,Aspergillus parasiticus,Eukaryota,0,5067
-5076,Penicillium chrysogenum,Eukaryota,0,5076
-5077,Penicillium citrinum,Eukaryota,0,5077
-5116,Cryphonectria parasitica,Eukaryota,0,660469
-5141,Neurospora crassa,Eukaryota,0,5141
-5207,Cryptococcus neoformans,Eukaryota,0,5207; 283643; 235443
-5270,Ustilago maydis,Eukaryota,0,237631
-5325,Trametes versicolor,Eukaryota,0,5325
-5334,Schizophyllum commune,Eukaryota,0,5334
-5346,Coprinopsis cinerea,Eukaryota,0,5346
-5476,Candida albicans,Eukaryota,0,5476; 237561
-5482,Candida tropicalis,Eukaryota,0,5482
-5501,Coccidioides immitis,Eukaryota,0,5501
-5503,Cochliobolus lunatus,Eukaryota,0,5503
-5507,Fusarium oxysporum,Eukaryota,0,5507
-5551,Trichophyton rubrum,Eukaryota,0,5551
-5580,Aureobasidium pullulans,Eukaryota,0,5580
-5599,Alternaria alternata,Eukaryota,0,5599
-5659,Leishmania amazonensis,Eukaryota,0,5659
-5660,Leishmania braziliensis,Eukaryota,0,5660; 420245
-5661,Leishmania donovani,Eukaryota,0,5661; 981087
-5664,Leishmania major,Eukaryota,0,5664; 347515
-5665,Leishmania mexicana,Eukaryota,0,5665; 929439
-5667,Leishmania aethiopica,Eukaryota,0,5667
-5671,Leishmania infantum,Eukaryota,0,5671; 435258
-5679,Leishmania panamensis,Eukaryota,0,5679
-5682,Leishmania pifanoi,Eukaryota,0,5682
-5691,Trypanosoma brucei,Eukaryota,0,5691; 31286; 31285; 679716; 185431; 5702
-5692,Trypanosoma congolense,Eukaryota,0,5692
-5693,Trypanosoma cruzi,Eukaryota,0,5693; 353153; 85057
-5699,Trypanosoma vivax,Eukaryota,0,1055687
-5722,Trichomonas vaginalis,Eukaryota,0,5722
-5741,Giardia intestinalis,Eukaryota,0,5741; 184922; 598745; 658858
-5755,Acanthamoeba castellanii,Eukaryota,0,5755
-5759,Entamoeba histolytica,Eukaryota,0,5759; 294381; 885311
-5762,Naegleria gruberi,Eukaryota,0,5762
-5801,Eimeria acervulina,Eukaryota,0,5801
-5802,Eimeria tenella,Eukaryota,0,5802
-5807,Cryptosporidium parvum,Eukaryota,0,5807; 353152
-5811,Toxoplasma gondii,Eukaryota,0,383379; 5811; 508771; 507601; 432359; 1209523; 1209525; 398031
-5821,Plasmodium berghei,Eukaryota,0,5821; 5823
-5824,Plasmodium brasilianum,Eukaryota,0,5824
-5825,Plasmodium chabaudi,Eukaryota,0,5825; 31271
-5827,Plasmodium cynomolgi,Eukaryota,0,5827; 5828
-5833,Plasmodium falciparum,Eukaryota,0,5833; 5843; 5835; 36329; 5846; 5836; 5839; 5837; 57266; 5848; 5840; 5842; 5841; 5834; 57270; 5838; 1036723; 1036727
-5850,Plasmodium knowlesi,Eukaryota,0,5850; 5851; 5852
-5855,Plasmodium vivax,Eukaryota,0,5855; 31273; 126793; 1035514
-5857,Plasmodium fragile,Eukaryota,0,5857
-5858,Plasmodium malariae,Eukaryota,0,5858
-5861,Plasmodium yoelii,Eukaryota,0,73239; 5861; 352914
-5865,Babesia bovis,Eukaryota,0,5865
-5866,Babesia bigemina,Eukaryota,0,5866
-5868,Babesia microti,Eukaryota,0,5868; 1133968
-5872,Theileria equi,Eukaryota,0,5872
-5874,Theileria annulata,Eukaryota,0,5874; 353154
-5875,Theileria parva,Eukaryota,0,333668; 5875
-5877,Theileria sergenti,Eukaryota,0,5877
-5970,Exophiala dermatitidis,Eukaryota,0,5970
-6035,Encephalitozoon cuniculi,Eukaryota,0,6035; 284813
-6100,Aequorea victoria,Eukaryota,0,6100
-6182,Schistosoma japonicum,Eukaryota,0,6182
-6183,Schistosoma mansoni,Eukaryota,0,6183
-6184,Schistosoma bovis,Eukaryota,0,6184
-6192,Fasciola hepatica,Eukaryota,0,6192
-6198,Opisthorchis viverrini,Eukaryota,0,6198
-6203,Taenia ovis,Eukaryota,0,6203
-6204,Taenia solium,Eukaryota,0,6204
-6206,Taenia saginata,Eukaryota,0,6206
-6207,Taenia crassiceps,Eukaryota,0,6207
-6210,Echinococcus granulosus,Eukaryota,0,6210
-6211,Echinococcus multilocularis,Eukaryota,0,6211
-6238,Caenorhabditis briggsae,Eukaryota,0,6238
-6239,Caenorhabditis elegans,Eukaryota,0,6239
-6248,Strongyloides stercoralis,Eukaryota,0,6248
-6252,Ascaris lumbricoides,Eukaryota,0,6252
-6253,Ascaris suum,Eukaryota,0,6253
-6269,Anisakis simplex,Eukaryota,0,6269
-6279,Brugia malayi,Eukaryota,0,6279
-6282,Onchocerca volvulus,Eukaryota,0,6282
-6293,Wuchereria bancrofti,Eukaryota,0,6293
-6299,Litomosoides carinii,Eukaryota,0,6299
-6313,Angiostrongylus cantonensis,Eukaryota,0,6313
-6334,Trichinella spiralis,Eukaryota,0,6334
-6339,Heligmosomoides polygyrus,Eukaryota,0,6339
-6421,Hirudo medicinalis,Eukaryota,0,6421
-6454,Haliotis rufescens,Eukaryota,0,6454
-6491,Conus geographus,Eukaryota,0,6491
-6492,Conus magus,Eukaryota,0,6492
-6493,Conus striatus,Eukaryota,0,6493
-6495,Conus tulipa,Eukaryota,0,6495
-6594,Macrocallista nimbosa,Eukaryota,0,6594
-6661,Artemia franciscana,Eukaryota,0,6661
-6687,Penaeus monodon,Eukaryota,0,6687
-6689,Penaeus vannamei,Eukaryota,0,6689
-6690,Penaeus aztecus,Eukaryota,0,6690
-6728,Procambarus clarkii,Eukaryota,0,6728
-6761,Scylla serrata,Eukaryota,0,6761
-6850,Limulus polyphemus,Eukaryota,0,6850
-6853,Tachypleus tridentatus,Eukaryota,0,6853
-6858,Androctonus australis,Eukaryota,0,70175; 6858
-6859,Androctonus mauritanicus,Eukaryota,0,6860
-6878,Centruroides noxius,Eukaryota,0,6878
-6887,Tityus serrulatus,Eukaryota,0,6887
-6925,Latrodectus tredecimguttatus,Eukaryota,0,6925
-6938,Ornithodoros moubata,Eukaryota,0,6938
-6941,Rhipicephalus microplus,Eukaryota,0,6941
-6945,Ixodes scapularis,Eukaryota,0,6945
-6954,Dermatophagoides farinae,Eukaryota,0,6954
-6956,Dermatophagoides pteronyssinus,Eukaryota,0,6956
-6958,Euroglyphus maynei,Eukaryota,0,6958
-6973,Blattella germanica,Eukaryota,0,6973
-6978,Periplaneta americana,Eukaryota,0,6978
-7004,Locusta migratoria,Eukaryota,0,7004
-7108,Spodoptera frugiperda,Eukaryota,0,7108
-7130,Manduca sexta,Eukaryota,0,7130
-7137,Galleria mellonella,Eukaryota,0,7137
-7154,Chironomus thummi,Eukaryota,0,7155; 7154
-7160,Aedes albopictus,Eukaryota,0,7160
-7165,Anopheles gambiae,Eukaryota,0,7165; 180454
-7227,Drosophila melanogaster,Eukaryota,0,7227
-7234,Drosophila persimilis,Eukaryota,0,7234
-7237,Drosophila pseudoobscura,Eukaryota,0,46245
-7386,Sarcophaga peregrina,Eukaryota,0,7386
-7394,Glossina morsitans,Eukaryota,0,37546
-7441,Dolichovespula maculata,Eukaryota,0,7441
-7444,Vespa basalis,Eukaryota,0,7444
-7453,Vespula maculifrons,Eukaryota,0,7453
-7454,Vespula vulgaris,Eukaryota,0,7454
-7460,Apis mellifera,Eukaryota,0,7460; 7469
-7515,Ctenocephalides felis,Eukaryota,0,7515
-7719,Ciona intestinalis,Eukaryota,0,7719
-7741,Branchiostoma belcheri,Eukaryota,0,7741
-7787,Tetronarce californica,Eukaryota,1,7787
-7788,Torpedo marmorata,Eukaryota,1,7788
-7955,Danio rerio,Eukaryota,1,7955
-7957,Carassius auratus,Eukaryota,1,7957
-7959,Ctenopharyngodon idella,Eukaryota,1,7959
-7962,Cyprinus carpio,Eukaryota,1,7962
-8005,Electrophorus electricus,Eukaryota,1,8005
-8018,Oncorhynchus keta,Eukaryota,1,8018
-8022,Oncorhynchus mykiss,Eukaryota,1,8022
-8030,Salmo salar,Eukaryota,1,8030
-8049,Gadus morhua,Eukaryota,1,8053; 8049
-8090,Oryzias latipes,Eukaryota,1,8090
-8255,Paralichthys olivaceus,Eukaryota,1,8255
-8355,Xenopus laevis,Eukaryota,1,8355
-8364,Xenopus tropicalis,Eukaryota,1,8364
-8554,Heloderma suspectum,Eukaryota,1,8554
-8613,Bungarus fasciatus,Eukaryota,1,8613
-8616,Bungarus multicinctus,Eukaryota,1,8616
-8624,Dendroaspis polylepis,Eukaryota,1,8620
-8654,Naja nigricollis,Eukaryota,1,8654
-8655,Naja nivea,Eukaryota,1,8655
-8656,Naja atra,Eukaryota,1,8656
-8657,Naja oxiana,Eukaryota,1,8657
-8658,Naja pallida,Eukaryota,1,8658
-8663,Notechis scutatus,Eukaryota,1,8663
-8668,Oxyuranus scutellatus,Eukaryota,1,8667
-8671,Pseudechis porphyriacus,Eukaryota,1,8671
-8704,Vipera ammodytes,Eukaryota,1,8704
-8706,Vipera aspis,Eukaryota,1,194601
-8722,Bothrops asper,Eukaryota,1,8722
-8724,Bothrops jararaca,Eukaryota,1,8724
-8725,Bothrops atrox,Eukaryota,1,8725
-8726,Bothrops jararacussu,Eukaryota,1,8726
-8731,Crotalus durissus,Eukaryota,1,8732
-8752,Lachesis muta,Eukaryota,1,8753
-8839,Anas platyrhynchos,Eukaryota,1,8839
-8845,Anser cygnoides,Eukaryota,1,8845
-8855,Cairina moschata,Eukaryota,1,8855
-8932,Columba livia,Eukaryota,1,8932
-8996,Numida meleagris,Eukaryota,1,8996
-9014,Colinus virginianus,Eukaryota,1,9014
-9031,Gallus gallus,Eukaryota,1,9031
-9054,Phasianus colchicus,Eukaryota,1,9057
-9085,Catreus wallichii,Eukaryota,1,9085
-9103,Meleagris gallopavo,Eukaryota,1,9103
-9258,Ornithorhynchus anatinus,Eukaryota,1,9258
-9305,Sarcophilus harrisii,Eukaryota,1,9305
-9337,Trichosurus vulpecula,Eukaryota,1,9337
-9402,Pteropus alecto,Eukaryota,1,9402
-9483,Callithrix jacchus,Eukaryota,1,9483
-9509,Ateles geoffroyi,Eukaryota,1,9509
-9534,Chlorocebus aethiops,Eukaryota,1,9534
-9538,Erythrocebus patas,Eukaryota,1,9538
-9541,Macaca fascicularis,Eukaryota,1,9541
-9544,Macaca mulatta,Eukaryota,1,9544
-9545,Macaca nemestrina,Eukaryota,1,9545
-9548,Macaca radiata,Eukaryota,1,9548
-9556,Papio cynocephalus,Eukaryota,1,9556
-9580,Hylobates lar,Eukaryota,1,9580
-9593,Gorilla gorilla,Eukaryota,1,9595; 9593
-9597,Pan paniscus,Eukaryota,1,9597
-9598,Pan troglodytes,Eukaryota,1,9598
-9600,Pongo pygmaeus,Eukaryota,1,9600
-9601,Pongo abelii,Eukaryota,1,9601
-9606,Homo sapiens,Eukaryota,1,9606
-9612,Canis lupus,Eukaryota,1,9615
-9627,Vulpes vulpes,Eukaryota,1,9627
-9685,Felis catus,Eukaryota,1,9685
-9755,Physeter macrocephalus,Eukaryota,1,9755
-9796,Equus caballus,Eukaryota,1,9796
-9798,Equus przewalskii,Eukaryota,1,9798
-9823,Sus scrofa,Eukaryota,1,9823; 9825
-9844,Lama glama,Eukaryota,1,9844
-9860,Cervus elaphus,Eukaryota,1,9860
-9874,Odocoileus virginianus,Eukaryota,1,9874
-9913,Bos taurus,Eukaryota,1,9913
-9925,Capra hircus,Eukaryota,1,9925
-9940,Ovis aries,Eukaryota,1,9940
-9978,Ochotona princeps,Eukaryota,1,9978
-9986,Oryctolagus cuniculus,Eukaryota,1,9986
-10029,Cricetulus griseus,Eukaryota,1,10029
-10036,Mesocricetus auratus,Eukaryota,1,10036
-10042,Peromyscus maniculatus,Eukaryota,1,10042
-10090,Mus musculus,Eukaryota,1,10090; 10092; 57486; 39442
-10114,Rattus,Eukaryota,1,10114
-10116,Rattus norvegicus,Eukaryota,1,10116
-10141,Cavia porcellus,Eukaryota,1,10141
-10224,Saccoglossus kowalevskii,Eukaryota,0,10224
-10243,Cowpox virus,Viruses,0,10243; 265872
-10244,Monkeypox virus,Viruses,0,10244
-10245,Vaccinia virus,Viruses,0,10254; 10245; 467144; 126794; 10249; 10248; 332193; 10253; 32605; 201444; 10251; 31531; 10247; 32606; 397342; 502057; 696871
-10255,Variola virus,Viruses,0,12870; 10255; 53258; 587200
-10258,Orf virus,Viruses,0,10258; 75325
-10261,Fowlpox virus,Viruses,0,10261; 928301
-10273,Myxoma virus,Viruses,0,10273
-10276,Swinepox virus,Viruses,0,10276
-10298,Human herpesvirus 1,Viruses,0,10298; 10301; 10306; 10304; 10299; 10309; 10308; 10303; 37107
-10310,Human herpesvirus 2,Viruses,0,10310; 10315; 10313; 10312
-10317,Cercopithecine alphaherpesvirus 2,Viruses,0,10317
-10320,Bovine alphaherpesvirus 1,Viruses,0,10323; 10320; 79889; 10324
-10325,Cercopithecine herpesvirus 1,Viruses,0,10325; 260965
-10326,Equid alphaherpesvirus 1,Viruses,0,10326
-10331,Equid alphaherpesvirus 4,Viruses,0,10331
-10335,Human herpesvirus 3,Viruses,0,10335; 10338; 341980
-10345,Suid alphaherpesvirus 1,Viruses,0,10349; 10345; 33703
-10359,Human cytomegalovirus,Viruses,0,10359; 10363; 10360; 295027; 311339
-10366,Murid herpesvirus 1,Viruses,0,10367; 10366; 69156; 524651
-10368,Human betaherpesvirus 6,Viruses,0,10368
-10372,Human betaherpesvirus 7,Viruses,0,57278; 10372
-10373,Macaca mulatta cytomegalovirus,Viruses,0,10373
-10376,Epstein-Barr virus (strain GD1),Viruses,0,10376; 10377; 82830; 36352; 12509; 10378; 31525
-10381,Saimiriine herpesvirus 2,Viruses,0,10381
-10390,Gallid alphaherpesvirus 2,Viruses,0,10390; 33707
-10407,Hepatitis B virus,Viruses,0,10407; 10418; 10408; 106820; 106821; 10419; 2847137; 489460; 2764122; 391647; 490133; 10409; 10415; 10410; 10412; 10414; 489455; 391650; 45410; 10411; 391646; 489469; 482134; 480116
-10493,Frog virus 3,Viruses,0,160691
-10497,African swine fever virus,Viruses,0,10497; 10498; 874269
-10537,Canine mastadenovirus A,Viruses,0,10514
-10561,Bovine papillomavirus type 3,Viruses,0,10562
-10566,Human papillomavirus,Viruses,0,10566
-10623,Kappapapillomavirus 2,Viruses,0,10623
-10665,Enterobacteria phage T4,Viruses,0,10665
-10678,Escherichia virus P1,Viruses,0,10678
-10703,Corynephage beta,Viruses,0,10703
-10710,Escherichia phage lambda,Viruses,0,10710
-10754,Salmonella phage P22,Viruses,0,10754
-10847,Escherichia phage phiX174,Viruses,0,10847
-10864,Enterobacteria phage fd,Viruses,0,10864
-10879,Pseudomonas phage phi6,Viruses,0,10879
-10891,Reovirus sp.,Viruses,0,10891
-10995,Avian infectious bursal disease virus,Viruses,0,10995; 31560; 10997; 10996
-11002,Infectious pancreatic necrosis virus,Viruses,0,11002
-11021,Eastern equine encephalitis virus,Viruses,0,11022; 11021
-11029,Ross River virus,Viruses,0,11032; 11029
-11033,Semliki forest virus,Viruses,0,11033
-11034,Sindbis virus,Viruses,0,11034
-11036,Venezuelan equine encephalitis virus,Viruses,0,11037; 11036; 11038
-11039,Western equine encephalitis virus,Viruses,0,11039
-11072,Japanese encephalitis virus,Viruses,0,11076; 11075; 11072; 11073
-11079,Murray Valley encephalitis virus,Viruses,0,11079; 301478
-11080,Saint Louis encephalitis virus,Viruses,0,11081; 11080
-11082,West Nile virus,Viruses,0,307044; 11082; 11078; 11077; 449278; 406269
-11083,Powassan virus,Viruses,0,11083
-11084,Tick-borne encephalitis virus,Viruses,0,11084; 11087; 11092
-11085,Langat virus,Viruses,0,11085
-11086,Louping ill virus,Viruses,0,36386; 11086
-11089,Yellow fever virus,Viruses,0,11090; 11089; 407141; 407134; 31641; 617102
-11103,Hepacivirus C,Viruses,0,31647; 11116; 41856; 11103; 2847144; 63746; 31645; 11104; 11105; 356417; 11108; 421877; 356426; 31653; 333284; 356114; 11113; 31650; 31649; 329389; 356386; 356410; 356418; 356424; 42182; 11115; 356416; 356421; 31644; 356415; 11110; 31654; 356411; 42792; 356413; 356391; 356419; 357355; 420174; 40271; 33745; 33746; 31655; 1053141; 595609
-11137,Human coronavirus 229E,Viruses,0,11137; 1739614
-11191,Murine respirovirus,Viruses,0,11194; 11191; 11198; 11196; 302272; 11195
-11215,Bovine parainfluenza 3 virus,Viruses,0,11215
-11216,Human respirovirus 3,Viruses,0,11217; 11216
-11232,Canine morbillivirus,Viruses,0,11232; 11233
-11234,Measles morbillivirus,Viruses,0,11234; 70146; 11235; 132487; 11236; 70149; 262307; 171264; 170529; 170525
-11241,Rinderpest morbillivirus,Viruses,0,36409; 11241; 11243
-11246,Bovine orthopneumovirus,Viruses,0,11246; 82824; 11249; 31611; 82823
-11250,Human respiratory syncytial virus,Viruses,0,11260; 208893; 11250; 11259; 11251; 11256; 11255; 11253; 11252; 410078; 79692; 208895; 253182
-11263,Murine orthopneumovirus,Viruses,0,270473; 11263
-11269,Marburg marburgvirus,Viruses,0,11269; 33727; 33728; 378809; 378830
-11276,Vesicular stomatitis virus,Viruses,0,11276
-11292,Lyssavirus rabies,Viruses,0,11295; 11292; 103929; 11296; 37132; 11293; 11294; 11298
-11318,Thogotovirus dhoriense,Viruses,0,11318
-11320,Influenza A virus,Viruses,0,11320; 211044; 384505; 392809; 506350; 387161; 264513; 387191; 223935; 132504; 383586; 444318; 385624; 137578; 385630; 382835; 387139; 385640; 119210; 114727; 382781; 392810; 383571; 183764; 380964; 63106; 380301; 41857; 380905; 317652; 381517; 385576; 384502; 381518; 380950; 132734; 132841; 381516; 384498; 385605; 384500; 387207; 382832; 11375; 130760; 88104; 380340; 380282; 488241; 385587; 353253; 79695; 130763; 387156; 352520; 384495; 380985; 393557; 221012; 383602; 382842; 351277; 383604; 11408; 62503; 382848; 82372; 107558; 62564; 62488; 62596; 62541; 62446; 62512; 107493; 62496; 644788; 11384; 260806; 384487; 169169; 384484; 135658; 385586; 1086859; 387147; 311710; 311695; 311169; 342221; 307819; 306061; 304883; 300748; 299733; 299730; 299390; 298716; 298713; 284195; 282124; 279797; 432070; 273361; 270490; 270484; 264510; 59375; 256045; 253682; 62575; 185794; 182781; 177188; 177131; 177128; 177117; 216877; 215864; 215862; 210663; 210656; 210655; 207401; 173477; 173473; 170342; 165420; 164326; 205954; 205946; 155227; 155226; 155225; 155222; 147095; 382828; 132884; 436004; 405050; 404163; 404155; 404152; 404150; 404138; 404137; 402194; 426738; 441962; 395842; 395841; 393697; 393548; 393486; 389259; 385583; 384527; 384493; 383566; 383561; 383558; 381512; 380978; 95234; 380842; 380836; 380330; 380210; 192720; 480019; 192549; 373145; 366524; 365078; 365074; 357205; 355624; 354235; 344598; 342396; 1093545; 342210; 342207; 402489; 342145; 342137; 336800; 336794; 336207; 336205; 334590; 334589; 327311; 327310; 322566; 322564; 192535; 97348; 383550; 387208; 1342434; 210659; 198059; 158306; 197589; 274829; 680692; 384946; 279798; 380979; 380833; 214826; 370813; 284168; 365129; 380332; 132783; 36418; 385644; 293054; 381513; 1144025; 155917; 384509; 518968; 95888; 228928; 145307; 385580; 385617; 11484; 170500; 62559; 186460; 480024; 284218; 203126; 387223; 197585; 102793; 352963; 393902; 400830; 1163697; 370127; 165512; 291592; 367120; 427773; 145306; 417758; 447133; 461772; 249372; 400828; 357208; 335337; 335358; 332733; 365417; 371082; 415167; 415172; 415169; 415176; 415166; 415177; 573797; 435359; 576142; 578079; 566260; 191090; 142948; 176672; 197579; 400788; 553345; 385599; 370810; 384499; 462695; 680789; 392811; 380285; 378139; 161502; 380217; 383531; 329593; 93838; 187164; 137885; 154540; 128982; 137886; 514193; 183778; 1727172; 229051; 387239; 383121; 55532; 680799; 402464; 136474; 169166; 168278; 641501; 411167; 172149; 475493; 522740; 225071; 255681; 515581; 83206; 402527; 88103; 533026; 223947; 135661; 538555; 383152; 383231; 383568; 203129; 680803; 380299; 223932; 370128; 225089; 223931; 231851; 225088; 11448; 499286; 196462; 432094; 303316; 385616; 680690; 183783; 1176042; 680739; 354228; 286239; 336238; 335333; 518922; 270945; 327205; 342508; 364132; 320306; 380213; 384483; 383577; 155218; 365080; 407418; 300750; 88776; 488233; 378131; 425557; 383578; 293090; 383281; 504910; 642794; 383603; 648856; 560463; 658578; 742305; 401372; 762400; 506355; 383574; 400810; 62549; 587884; 430417; 936115; 991335; 768646; 768647; 385600; 380951; 380346; 236235; 336092; 577543; 647096; 1068705; 464623; 446023; 383028; 155220; 402518; 183741; 404573; 89172; 89169; 332747; 284202; 506282; 292039; 292045; 1041990; 311775; 504904; 641809; 421901; 657165; 468968; 754366; 680729; 472511; 427890; 418868; 357210; 370811; 414044; 562988; 562992; 464314; 421472; 411157; 641812; 402938; 352764; 162326; 385585; 384510; 380284; 352564; 359921; 504697; 416730; 62478; 380339; 380343; 496036; 97353; 947939; 444793; 655288; 387213; 387243; 293055; 352034; 376721; 449656; 371214; 388041; 932622; 404408; 511839; 382813; 300749; 645724; 643212; 1081253; 36420; 447188; 654811; 119211; 102796; 644289; 761251; 535852; 887118; 333278; 476294; 114729; 342546; 157642; 647923; 1391655; 251297; 680693; 715091; 680689; 153969; 119218; 1470614; 1171336; 1403514; 1268360; 915014; 387203; 352348; 697610; 382825; 224819; 908203; 996581; 1330339; 255682; 986174; 682728; 1332244; 1342397; 715494; 1413188; 266827; 1122279; 284190; 100835; 292590; 614035; 510222; 475478; 159471; 1663996; 680785; 1082519; 1481964; 642261; 425551; 632134; 464622; 380342; 529058; 616922; 762378; 353466; 448058; 274828; 680767; 411662; 220977; 400331; 38973; 1346336; 253686; 1310532; 453057; 383537; 380337; 380960; 1663934; 1663864; 673446; 690988; 1507381; 1289562; 352561; 558177; 270510; 476303; 266093; 1420840; 1321009; 380984; 380982; 1447813; 1451093; 2070132; 645771; 1395982; 119220; 1481966; 556277; 760591; 1285028; 1129345; 225085; 479022; 683780; 1129347; 1395524; 2026033; 311596; 514118; 119215; 1184593; 568833; 445027; 383570; 762377; 1314758; 1481987; 476261; 2019386; 1458555; 1507390; 1968303; 1968304; 2026007; 1331831; 2019571; 1507384; 243678; 1654135; 1184594; 760063; 1777792; 329606; 387165; 1933916; 187166
-11520,Influenza B virus,Viruses,0,11520; 518987; 11521; 427826; 150127; 1077587; 184816; 11541; 256080; 206203; 504666; 335812; 224964; 171425; 503386; 504662; 504660; 504664; 107404; 107406; 461739; 464417; 289338; 604436; 416674; 11550; 279329
-11552,Influenza C virus,Viruses,0,11553; 11552; 224197; 374405
-11620,Lassa virus,Viruses,0,11622; 11620; 11621
-11623,Lymphocytic choriomeningitis mammarenavirus,Viruses,0,11623; 11627; 11624; 11625; 11626
-11628,Machupo virus,Viruses,0,11628
-11629,Mopeia virus,Viruses,0,11629
-11631,Tacaribe virus,Viruses,0,11631; 31616; 928313; 31615
-11636,Avian reticuloendotheliosis virus,Viruses,0,11636
-11642,Simian foamy virus,Viruses,0,11963; 298339; 41858; 288118; 11642
-11660,Caprine arthritis encephalitis virus,Viruses,0,11662; 11660; 11661; 254355
-11665,Equine infectious anemia virus,Viruses,0,11671; 11665; 11670
-11673,Feline immunodeficiency virus,Viruses,0,11673; 11674; 45409; 36372; 11675
-11676,Human immunodeficiency virus 1,Viruses,0,11685; 11676; 11678; 11686; 11701; 11696; 82834; 362651; 11695; 11704; 11689; 11688; 31678; 11698; 11679; 11690; 11687; 11703; 11706; 11697; 11705; 11683; 11694; 11708; 11699; 36375; 11684; 327105; 388799; 11682; 11681; 505186; 505184; 505185; 11691; 471721; 401671; 505228; 1345266
-11709,Human immunodeficiency virus 2,Viruses,0,11716; 11709; 11714; 73484; 11715; 31681; 11718; 11717; 11713; 11720
-11723,Simian immunodeficiency virus,Viruses,0,11723; 31683; 11735; 11711; 11738; 11733; 11736; 31682; 11737; 31684; 11731; 160753; 11730; 11732; 11734; 224206
-11746,Sheep pulmonary adenomatosis virus,Viruses,0,11746
-11757,Mouse mammary tumor virus,Viruses,0,11757
-11768,Feline leukemia virus,Viruses,0,11824; 11769
-11780,Feline sarcoma virus (strain Snyder-Theilen),Viruses,0,11780
-11786,Murine leukemia virus,Viruses,0,11795; 11801; 11791; 44561; 11786; 31687; 65690; 11790
-11809,Moloney murine sarcoma virus,Viruses,0,11812
-11827,Human endogenous retrovirus,Viruses,0,11827
-11855,Mason-Pfizer monkey virus,Viruses,0,11942; 39068
-11864,Avian leukosis virus,Viruses,0,11861; 363020; 1401444; 11864
-11886,Rous sarcoma virus,Viruses,0,11886
-11901,Bovine leukemia virus,Viruses,0,11901; 11902
-11966,Aids-associated retrovirus,Viruses,0,11966
-11976,Rabbit hemorrhagic disease virus,Viruses,0,11976
-11978,Feline calicivirus,Viruses,0,11978; 11981; 11980; 292349
-11983,Norwalk virus,Viruses,0,122929; 122928; 11984; 150080; 223997; 489821; 11983; 588533; 647514; 647515; 647519; 499191; 490039; 647521; 520963; 520964; 524364; 1156983; 747305; 1182144; 158465; 508775; 647516; 463722; 1286616; 1241973; 546980; 489822; 1665645; 416035; 1634342; 490041; 178773; 1972699; 1406148; 1182143; 332884; 1046049; 707488; 1472713; 660659; 1260941; 1498657; 1070539; 707477; 82658; 1350216; 660658; 707424; 1254407; 1291870; 1792260; 1291821; 647343; 1321999; 552592; 392172; 479063; 416039; 1320096; 1577715
-12064,Enterovirus E,Viruses,0,12064; 12065
-12092,Hepatovirus A,Viruses,0,12092; 208726; 12098
-12110,Foot-and-mouth disease virus,Viruses,0,12114; 12118; 12110; 161727; 73482; 244367; 46290; 12112; 12121; 12116; 12117; 12113; 12115; 12120; 110195; 35292; 12123; 12111
-12145,Tomato bushy stunt virus,Viruses,0,12146
-12161,Beet yellows virus,Viruses,0,12161
-12162,Citrus tristeza virus,Viruses,0,12162
-12211,Plum pox virus,Viruses,0,12211; 12213
-12216,Potato virus Y,Viruses,0,12216; 12220; 12219
-12232,Zucchini yellow mosaic virus,Viruses,0,12232
-12242,Tobacco mosaic virus,Viruses,0,12242; 12246; 12243
-12260,Bean pod mottle virus,Viruses,0,31715; 12260
-12264,Cowpea mosaic virus,Viruses,0,12264
-12274,Grapevine fanleaf virus,Viruses,0,12274
-12305,Cucumber mosaic virus,Viruses,0,12305; 117125
-12455,Borna disease virus,Viruses,0,12455
-12475,Hepatitis delta virus,Viruses,0,12475; 510670
-12480,African green monkey polyomavirus,Viruses,0,10574
-12618,Chicken anemia virus,Viruses,0,12618
-12637,Dengue virus,Viruses,0,11064; 11060; 11070; 31634; 11069; 11053; 12637; 33741; 11066; 11065; 408871; 31635; 408688; 11059; 11062; 408870; 408686; 408685; 408694; 408691; 408693; 408692; 408690; 408687; 11067; 408689; 11057; 31637; 31636
-12639,Duck hepatitis B virus,Viruses,0,12639
-12643,Ectromelia virus,Viruses,0,12643
-12657,Equid gammaherpesvirus 2,Viruses,0,82831
-12721,Human immunodeficiency virus,Viruses,0,12721
-12730,Human respirovirus 1,Viruses,0,36412; 188538
-12814,Respiratory syncytial virus,Viruses,0,12814
-13101,Juniperus ashei,Eukaryota,0,13101
-13187,Parietaria officinalis,Eukaryota,0,13187
-13286,Theromyzon tessulatum,Eukaryota,0,13286
-13373,Burkholderia mallei,Bacteria,0,13373; 243160; 320388; 412022; 334802; 334803; 320390
-13415,Chamaecyparis obtusa,Eukaryota,0,13415
-13451,Corylus avellana,Eukaryota,0,13451
-13469,Cupressus sempervirens,Eukaryota,0,13469
-13557,Hapalemur griseus,Eukaryota,1,13557
-13616,Monodelphis domestica,Eukaryota,1,13616
-13618,Myrmecia pilosula,Eukaryota,0,13618
-13677,Scomber scombrus,Eukaryota,1,13677
-13684,Phaeosphaeria nodorum,Eukaryota,0,13684
-13818,Adiantum capillus-veneris,Eukaryota,0,13818
-15368,Brachypodium distachyon,Eukaryota,0,15368
-15957,Phleum pratense,Eukaryota,0,15957
-16719,Juglans nigra,Eukaryota,0,16719
-27990,Plasmodium vivax-like sp.,Eukaryota,0,27990
-28035,Staphylococcus lugdunensis,Bacteria,0,28035
-28037,Streptococcus mitis,Bacteria,0,28037
-28038,Latilactobacillus curvatus,Bacteria,0,28038
-28049,Acidothermus cellulolyticus,Bacteria,0,351607
-28080,Campylobacter upsaliensis,Bacteria,0,306264
-28108,Alteromonas macleodii,Bacteria,0,28108
-28116,Bacteroides ovatus,Bacteria,0,28116
-28130,Prevotella disiens,Bacteria,0,28130
-28131,Prevotella intermedia,Bacteria,0,28131
-28132,Prevotella melaninogenica,Bacteria,0,28132
-28137,Prevotella veroralis,Bacteria,0,28137
-28151,Serratia proteamaculans,Bacteria,0,28151
-28172,Vibrio metschnikovii,Bacteria,0,28172
-28197,Aliarcobacter butzleri,Bacteria,0,367737
-28227,Malacoplasma penetrans,Bacteria,0,28227
-28295,Porcine epidemic diarrhea virus,Viruses,0,28295; 229032
-28300,Heron hepatitis B virus,Viruses,0,28300
-28327,Murine rotavirus,Viruses,0,28327; 70865
-28344,Porcine reproductive and respiratory syndrome virus,Viruses,0,28344; 300559; 300563
-28375,Soil-borne wheat mosaic virus,Viruses,0,28375
-28446,Anaerotignum propionicum,Bacteria,0,28446
-28448,Komagataeibacter xylinus,Bacteria,0,28448
-28450,Burkholderia pseudomallei,Bacteria,0,28450; 272560; 320373; 425067; 357348; 360118; 320374; 441158; 441159; 441160; 331978; 320372
-28479,Phalaris aquatica,Eukaryota,0,28479
-28869,Ovine respiratory syncytial virus,Viruses,0,28869
-28871,Taterapox virus,Viruses,0,28871
-28873,Camelpox virus,Viruses,0,203173; 203174; 203172; 28873
-28875,Rotavirus A,Viruses,0,35336; 195700; 10960; 10927; 72132; 10962; 10941; 37137; 10933; 10919; 10923; 10950; 444185; 408599; 10952; 10934; 374507; 31569; 10957; 10958; 10917; 36439; 1835656; 94432; 73036; 444186; 10915; 28875; 697298; 578831
-28901,Salmonella enterica,Bacteria,0,54388; 99287; 90371; 90370; 28901; 605; 149539; 596; 48409; 41514; 98360; 220341; 28142; 209261; 295319; 321314; 59202; 497977; 59205; 286783; 1016998; 119912; 59203; 554290; 423368; 439847; 216597; 497976; 439843; 440534; 59201; 611; 272989
-28903,Mycoplasmopsis bovis,Bacteria,0,28903
-28909,Cynodon dactylon,Eukaryota,0,28909
-29073,Ursus maritimus,Eukaryota,1,29073
-29159,Crassostrea gigas,Eukaryota,0,29159
-29170,Ancylostoma caninum,Eukaryota,0,29170
-29176,Neospora caninum,Eukaryota,0,29176; 572307
-29271,Dasheen mosaic virus,Viruses,0,29271
-29292,Pyrococcus abyssi,Archaea,0,29292
-29320,Paenarthrobacter nicotinovorans,Bacteria,0,29320
-29355,Ruminiclostridium cellobioparum,Bacteria,0,29355
-29362,Ruminiclostridium papyrosolvens,Bacteria,0,29362
-29380,Staphylococcus caprae,Bacteria,0,29380
-29388,Staphylococcus capitis,Bacteria,0,29388
-29430,Acinetobacter haemolyticus,Bacteria,0,707232
-29438,Pseudomonas savastanoi,Bacteria,0,29438
-29442,Pseudomonas tolaasii,Bacteria,0,29442
-29447,Xanthomonas albilineans,Bacteria,0,29447
-29459,Brucella melitensis,Bacteria,0,29459; 224914; 520464; 703352
-29461,Brucella suis,Bacteria,0,29461; 470137; 204722
-29466,Veillonella parvula,Bacteria,0,29466
-29484,Yersinia frederiksenii,Bacteria,0,349966
-29497,Vibrio splendidus,Bacteria,0,314291
-29507,Leptospira kirschneri,Bacteria,0,29507
-29518,Borreliella afzelii,Bacteria,0,29518; 390236
-29519,Borrelia garinii,Bacteria,0,29519; 664662
-29523,Bacteroides sp.,Bacteria,0,29523
-29543,Pelobacter propionicus,Bacteria,0,338966
-29661,Anthoxanthum odoratum,Eukaryota,0,29661
-29679,Holcus lanatus,Eukaryota,0,29679
-29715,Ambrosia psilostachya,Eukaryota,0,29715
-29760,Vitis vinifera,Eukaryota,0,29760
-29780,Mangifera indica,Eukaryota,0,29780
-29908,Sporothrix schenckii,Eukaryota,0,29908
-29918,Davidiella tassiana,Eukaryota,0,29918
-29960,Penaeus indicus,Eukaryota,0,29960
-30011,Pyrophorus plagiophthalamus,Eukaryota,0,30011
-30069,Anopheles stephensi,Eukaryota,0,30069
-30215,Vespula vidua,Eukaryota,0,30215
-30522,Bos indicus x Bos taurus,Eukaryota,1,30522
-30538,Vicugna pacos,Eukaryota,1,30538
-31276,Perkinsus marinus,Eukaryota,0,31276
-31330,Ephydatia fluviatilis,Eukaryota,0,31330
-31604,Peste-des-petits-ruminants virus,Viruses,0,31604; 2593991
-31721,Beet necrotic yellow vein virus,Viruses,0,31721
-32025,Helicobacter hepaticus,Bacteria,0,32025; 235279
-32049,Synechococcus sp. (strain ATCC 27264 / PCC 7002 / PR-6),Bacteria,0,32049
-32201,Carya illinoinensis,Eukaryota,0,32201
-32278,Metapenaeus ensis,Eukaryota,0,32278
-32603,Human betaherpesvirus 6A,Viruses,0,10370; 32603; 10369
-32604,Human herpesvirus 6B,Viruses,0,32604; 36351
-32630,synthetic construct,,0,32630
-32644,unidentified,,0,32644
-33025,Phascolarctobacterium faecium,Bacteria,0,33025
-33038,Ruminococcus gnavus,Bacteria,0,33038
-33039,[Ruminococcus] torques,Bacteria,0,33039
-33060,Yersinia mollaretii,Bacteria,0,349967
-33069,Pseudomonas viridiflava,Bacteria,0,33069
-33075,Acidobacterium capsulatum,Bacteria,0,33075
-33127,Parietaria judaica,Eukaryota,0,33127
-33178,Aspergillus terreus,Eukaryota,0,33178; 341663
-33706,Caviid betaherpesvirus 2,Viruses,0,33706; 103920
-33708,Murid herpesvirus 4,Viruses,0,33708; 1440122
-33743,Kyasanur forest disease virus,Viruses,0,172148
-33934,Anoxybacillus flavithermus,Bacteria,0,33934
-33940,Geobacillus thermodenitrificans,Bacteria,0,420246
-33959,Lactobacillus johnsonii,Bacteria,0,33959
-33989,Rickettsia amblyommatis,Bacteria,0,33989
-33990,Rickettsia bellii,Bacteria,0,33990; 336407; 391896
-34245,Zinnia violacea,Eukaryota,0,34245
-34610,Amblyomma variegatum,Eukaryota,0,34610
-34631,Rhipicephalus appendiculatus,Eukaryota,0,34631
-34632,Rhipicephalus sanguineus,Eukaryota,0,34632
-34862,Otospermophilus beecheyi,Eukaryota,1,34862
-35244,Bovine alphaherpesvirus 5,Viruses,0,263683
-35258,Canine oral papillomavirus,Viruses,0,35258
-35269,Woodchuck hepatitis virus,Viruses,0,35269; 341946; 10430; 10433
-35275,Murine endogenous retrovirus,Viruses,0,35275
-35288,Grapevine virus A,Viruses,0,35288
-35297,Striped jack nervous necrosis virus,Viruses,0,35297
-35345,Lactococcus phage TP901-1,Viruses,0,35345
-35670,Naja naja,Eukaryota,1,35670
-35725,Macrophomina phaseolina,Eukaryota,0,1126212; 35725
-35788,Rickettsia africae,Bacteria,0,35788
-35791,Rickettsia massiliae,Bacteria,0,35791; 416276
-35792,Rickettsia parkeri,Bacteria,0,35792
-35793,Rickettsia sibirica,Bacteria,0,35793; 272951
-35795,Ehrlichia muris,Bacteria,0,35795
-35797,Nitrococcus mobilis,Bacteria,0,314278
-35818,Helicobacter pullorum,Bacteria,0,35818
-36080,Mucor circinelloides,Eukaryota,0,36080
-36087,Trichuris trichiura,Eukaryota,0,36087
-36427,Rotavirus C,Viruses,0,101350
-36596,Prunus armeniaca,Eukaryota,0,36596
-36809,Mycobacteroides abscessus,Bacteria,0,1198627; 36809
-36845,Clostridium intestinale,Bacteria,0,36845
-36855,Brucella canis,Bacteria,0,483179; 36855
-36911,Clavispora lusitaniae,Eukaryota,0,36911
-36914,Lodderomyces elongisporus,Eukaryota,0,36914
-36936,Lepidoglyphus destructor,Eukaryota,0,36936
-37124,Chikungunya virus,Viruses,0,37124; 371094
-37128,Potato mop-top virus,Viruses,0,37128
-37207,Rio Segundo hantavirus,Viruses,0,37207
-37296,Human herpesvirus 8,Viruses,0,37296
-37326,Nocardia brasiliensis,Bacteria,0,37326
-37332,Nocardia seriolae,Bacteria,0,37332
-37347,Tupaia belangeri,Eukaryota,1,37347
-37682,Aegilops tauschii,Eukaryota,0,37682
-37734,Enterococcus casseliflavus,Bacteria,0,37734
-37769,Cryptococcus gattii VGI,Eukaryota,0,37769
-38020,marmosets,Eukaryota,1,38020
-38033,Chaetomium globosum,Eukaryota,0,38033
-38170,Avian orthoreovirus,Viruses,0,38171; 253446; 77153
-38289,Corynebacterium jeikeium,Bacteria,0,38289
-38323,Bartonella henselae,Bacteria,0,283166; 38323
-38873,Fraxinus excelsior,Eukaryota,0,38873
-39152,Methanococcus maripaludis,Archaea,0,39152; 267377
-39414,Plantago lanceolata,Eukaryota,0,39414
-39483,Faecalitalea cylindroides,Bacteria,0,39483
-39584,Juniperus virginiana,Eukaryota,0,39584
-39778,Veillonella dispar,Bacteria,0,39778
-39803,Escherichia virus Qbeta,Viruses,0,39803
-39950,Dialister pneumosintes,Bacteria,0,39950
-40050,African horse sickness virus,Viruses,0,117204; 36421
-40051,Bluetongue virus,Viruses,0,10906; 10904; 33717; 40051; 33718; 35327; 94967; 35330; 10900; 10903; 35329; 197780; 45029; 94966; 35331
-40214,Acinetobacter johnsonii,Bacteria,0,40214
-40324,Stenotrophomonas maltophilia,Bacteria,0,40324
-40697,Blomia tropicalis,Eukaryota,0,40697
-40834,Borrelia duttonii,Bacteria,0,412419
-41997,Enterococcus saccharolyticus,Bacteria,0,41997
-42097,Isla Vista hantavirus,Viruses,0,42097
-42229,Prunus avium,Eukaryota,0,42229
-42345,Phoenix dactylifera,Eukaryota,0,42345
-42358,Hantavirus Monongahela-3,Viruses,0,42358
-42374,Candida dubliniensis,Eukaryota,0,42374
-42764,Oliveros mammarenavirus (isolate Mouse/Argentina/RIID 3229/1990),Viruses,0,42764
-42862,Rickettsia felis,Bacteria,0,42862; 315456
-43335,Populus alba,Eukaryota,0,43335
-43763,Redspotted grouper nervous necrosis virus,Viruses,0,292633; 43763
-43765,Corynebacterium amycolatum,Bacteria,0,43765
-43767,Rhodococcus hoagii,Bacteria,0,43767
-44001,Caldicellulosiruptor saccharolyticus,Bacteria,0,351627
-44026,Sepik virus,Viruses,0,44026
-44088,Canarypox virus,Viruses,0,44088
-44271,Leishmania chagasi,Eukaryota,0,44271
-44386,Haemaphysalis longicornis,Eukaryota,0,44386
-44689,Dictyostelium discoideum,Eukaryota,0,44689
-44755,New York virus,Viruses,0,44755
-45219,Guanarito mammarenavirus (isolate Human/Venezuela/NH-95551/1990),Viruses,0,45219
-45235,Tolypocladium capitatum,Eukaryota,0,45235
-45455,Macacine gammaherpesvirus 4,Viruses,0,45455
-45617,Human endogenous retrovirus K,Viruses,0,45617; 64382
-46221,Porcine circovirus,Viruses,0,46221
-46242,Spodoptera litura multicapsid nucleopolyhedrovirus,Viruses,0,46242
-46457,Cycloclasticus oligotrophus,Bacteria,0,46457
-46503,Parabacteroides merdae,Bacteria,0,46503
-46506,Bacteroides stercoris,Bacteria,0,46506
-46681,Entamoeba dispar,Eukaryota,0,370354
-46771,Simian virus 12,Viruses,0,46771
-46835,Fasciola gigantica,Eukaryota,0,46835
-46919,Whitewater Arroyo mammarenavirus (isolate Rat/United States/AV 9310135/1995),Viruses,0,46919
-46920,Rio Mamore hantavirus,Viruses,0,46920; 379963
-47000,Equine rhinitis A virus,Viruses,0,47000
-47466,Borrelia miyamotoi,Bacteria,0,47466
-47770,Lactobacillus crispatus,Bacteria,0,47770
-47845,Brachybacterium alimentarium,Bacteria,0,47845
-47929,Macacine betaherpesvirus 3,Viruses,0,47929; 103930
-48483,Reclinomonas americana,Eukaryota,0,48483
-49011,Hesperocyparis arizonica,Eukaryota,0,49011
-49338,Desulfitobacterium hafniense,Bacteria,0,272564
-50292,Simian cytomegalovirus (strain Colburn),Viruses,0,50292
-51022,Ancylostoma duodenale,Eukaryota,0,51022
-51031,Necator americanus,Eukaryota,0,51031
-51240,Juglans regia,Eukaryota,0,51240
-51313,Helicoverpa armigera nucleopolyhedrovirus,Viruses,0,148363
-53182,Feline foamy virus,Viruses,0,53182
-53326,Ancylostoma ceylanicum,Eukaryota,0,53326
-53432,Nocardia uniformis,Bacteria,0,96045
-54390,Micrurus corallinus,Eukaryota,1,54390
-54736,Salmonella bongori,Bacteria,0,54736
-55097,Mobala mammarenavirus (isolate Rat/Central African Republic/Acar 3080/1983),Viruses,0,55097
-55194,Malassezia furfur,Eukaryota,0,55194
-55513,Pistacia vera,Eukaryota,0,55513
-55518,Magnetospirillum gryphiswaldense,Bacteria,0,431944
-55601,Vibrio anguillarum,Bacteria,0,55601
-55951,Grapevine leafroll-associated virus 3,Viruses,0,55951
-56636,Aeropyrum pernix,Archaea,0,56636
-57068,Acanthisitta chloris,Eukaryota,1,57068
-57282,Human endogenous retrovirus H,Viruses,0,57282
-57372,Mycoplasma suis,Bacteria,0,57372
-57667,Simian-Human immunodeficiency virus,Viruses,0,57667
-57975,Burkholderia thailandensis,Bacteria,0,57975
-58216,Loxosceles gaucho,Eukaryota,0,58216
-58217,Loxosceles laeta,Eukaryota,0,58217
-58218,Loxosceles intermedia,Eukaryota,0,58218
-58291,Rhizopus microsporus,Eukaryota,0,58291
-58866,Secale strictum,Eukaryota,0,37731
-58933,Triticum spelta,Eukaryota,0,279889
-59300,Getah virus,Viruses,0,59300
-59301,Mayaro virus,Viruses,0,59301
-59538,Pantholops hodgsonii,Eukaryota,1,59538
-59729,Taeniopygia guttata,Eukaryota,1,59729
-59779,Paracoccus marcusii,Bacteria,0,59779
-59799,Angomonas deanei,Eukaryota,0,59799
-60189,Rhipicephalus decoloratus,Eukaryota,0,60189
-60217,Shewanella violacea,Bacteria,0,60217
-60552,Burkholderia vietnamiensis,Bacteria,0,269482; 60552
-60876,Pixuna virus,Viruses,0,60876
-60879,Cabassou virus,Viruses,0,60879
-60893,Desulfobacca acetoxidans,Bacteria,0,60893
-61435,Dehalococcoides mccartyi,Bacteria,0,243164
-61466,Gnathostoma binucleatum,Eukaryota,0,61466
-62319,Halococcus saccharolyticus,Archaea,0,62319
-62322,Shewanella baltica,Bacteria,0,325240; 62322
-62330,Fagopyrum tataricum,Eukaryota,0,62330
-63330,Hendra henipavirus,Viruses,0,63330; 928303
-63363,Aquifex aeolicus,Bacteria,0,63363; 224324
-63673,Turbo cornutus,Eukaryota,0,63673
-64284,Saboya virus,Viruses,0,64284
-64289,Carey Island virus,Viruses,0,64289
-64293,Tembusu virus,Viruses,0,1399582; 64293; 1002900
-64320,Zika virus,Viruses,0,64320; 2043570; 2316109
-64495,Rhizopus oryzae,Eukaryota,0,64495
-65743,Blackcurrant reversion association virus,Viruses,0,65743
-67351,Streptomyces californicus,Bacteria,0,67351
-68825,Talaromyces emersonii,Eukaryota,0,68825
-68887,Torque teno virus,Viruses,0,68887; 167758; 487067; 486280
-68909,Deinococcus geothermalis,Bacteria,0,68909
-69008,Juniperus oxycedrus,Eukaryota,0,69008
-69218,Enterobacter cancerogenus,Bacteria,0,69218
-69820,Spodoptera litura,Eukaryota,0,69820
-70203,Fibrovirus fs1,Viruses,0,70203
-71238,Pseudomonas sp. G-179,Bacteria,0,71238
-71647,Pinus pinaster,Eukaryota,0,71647
-72004,Bos mutus,Eukaryota,1,72004
-72539,Physalis mottle virus,Viruses,0,72539
-72556,Achromobacter piechaudii,Bacteria,0,72556
-72558,Sporisorium reilianum,Eukaryota,0,999809
-72664,Eutrema salsugineum,Eukaryota,0,72664
-74437,Alectryonella plicatula,Eukaryota,0,74437
-74722,Stachybotrys chartarum,Eukaryota,0,74722
-75658,Campylobacter lanienae,Bacteria,0,75658
-75922,Mycolicibacterium tusciae,Bacteria,0,75922
-75985,Mannheimia haemolytica,Bacteria,0,45201
-76777,Malassezia sympodialis,Eukaryota,0,76777
-76832,Myroides odoratimimus,Bacteria,0,76832
-77044,Rosellinia necatrix,Eukaryota,0,77044
-77095,Prevotella bryantii,Bacteria,0,77095
-77643,Mycobacterium tuberculosis complex,Bacteria,0,77643
-78579,Thermothelomyces thermophilus,Eukaryota,0,573729
-79327,Schmidtea mediterranea,Eukaryota,0,79327
-79698,Merluccius bilinearis,Eukaryota,1,79698
-79880,Alkalihalobacillus clausii,Bacteria,0,66692
-79923,Clonorchis sinensis,Eukaryota,0,79923
-80859,Streptomyces ribosidificus,Bacteria,0,80859
-80956,Pomacentrus moluccensis,Eukaryota,1,80956
-81032,Hyphomonas neptunium,Bacteria,0,81032
-81475,Frateuria aurantia,Bacteria,0,81475
-81985,Capsella rubella,Eukaryota,0,81985
-82348,Streptococcus pluranimalium,Bacteria,0,82348
-82508,Trichosporon asahii,Eukaryota,0,1186058
-83192,Topografov hantavirus,Viruses,0,83192
-83262,Mycobacteroides immunogenum,Bacteria,0,83262
-83455,Myxococcus stipitatus,Bacteria,0,1278073; 83455
-83554,Chlamydia psittaci,Bacteria,0,83554; 1112258; 1112253; 1112262; 1050221; 1112244; 1112269; 1112254
-83555,Chlamydia abortus,Bacteria,0,83555; 218497
-83556,Chlamydia felis,Bacteria,0,83556; 264202
-83557,Chlamydia caviae,Bacteria,0,83557; 227941
-83558,Chlamydia pneumoniae,Bacteria,0,83558; 115713; 182082; 115711
-83559,Chlamydia suis,Bacteria,0,83559; 1405296
-83560,Chlamydia muridarum,Bacteria,0,243161; 83560
-83810,Thosea asigna virus,Viruses,0,83810
-83816,Methanobrevibacter ruminantium,Archaea,0,83816
-85552,Scylla paramamosain,Eukaryota,0,85552
-85698,Alcaligenes xylosoxydans xylosoxydans,Bacteria,0,85698
-85708,Porcine circovirus 2,Viruses,0,85708; 85709; 86385
-85831,Bacteroides acidifaciens,Bacteria,0,85831
-85929,Sphaerulina musiva,Eukaryota,0,85929
-85991,Chlamydia pecorum,Bacteria,0,1427371; 85991; 331635
-86049,Cladophialophora carrionii,Eukaryota,0,86049
-86600,Discosoma sp.,Eukaryota,0,86600
-86782,Amur virus,Viruses,0,86782; 170955
-87786,Human endogenous retrovirus W,Viruses,0,62805; 89382; 87786
-87883,Burkholderia multivorans,Bacteria,0,87883
-88036,Selaginella moellendorffii,Eukaryota,0,88036
-88085,Lachesis stenophrys,Eukaryota,1,88085
-88086,Protobothrops elegans,Eukaryota,1,88086
-88087,Protobothrops flavoviridis,Eukaryota,1,88087
-88431,Dorea longicatena,Bacteria,0,88431
-89059,Ligilactobacillus acidipiscis,Bacteria,0,89059
-89462,Bubalus bubalis,Eukaryota,1,89462
-89586,Neoehrlichia mikurensis,Bacteria,0,89586
-89946,Merluccius australis,Eukaryota,1,307685
-91465,Pseudomonas sp. MIS38,Bacteria,0,91465
-91626,Mucor ambiguus,Eukaryota,0,91626
-92050,Macruronus magellanicus,Eukaryota,1,92050
-92438,Bungarus candidus,Eukaryota,1,92438
-92637,Metarhizium acridum,Eukaryota,0,655827; 92637
-93621,Heteropneustes fossilis,Eukaryota,1,93621
-93678,TTV-like mini virus,Viruses,0,93678
-95342,Sapporo virus,Viruses,0,82659; 234603
-95486,Burkholderia cenocepacia,Bacteria,0,350702; 331272; 95486
-95602,Eriocheir sinensis,Eukaryota,0,95602
-95648,Bothrops neuwiedi,Eukaryota,1,95648
-97138,Clostridium sp. MD294,Bacteria,0,97138
-97253,Eubacterium plexicaudatum,Bacteria,0,1235802; 97253
-97477,Acetomicrobium mobile,Bacteria,0,97477
-99000,Tanapox virus,Viruses,0,132475
-99586,Echis ocellatus,Eukaryota,1,99586
-99806,Taxus cuspidata,Eukaryota,0,99806
-99883,Tetraodon nigroviridis,Eukaryota,1,99883
-103448,Pleistophora sp. LS,Eukaryota,0,103448
-104102,Acetobacter tropicalis,Bacteria,0,104102
-104355,Gloeophyllum trabeum,Eukaryota,0,104355
-105560,Methylibium petroleiphilum,Bacteria,0,420662
-105751,Aeromonas bestiarum,Bacteria,0,105751
-106276,Mimachlamys nobilis,Eukaryota,0,106276
-106590,Cupriavidus necator,Bacteria,0,381666
-106654,Acinetobacter nosocomialis,Bacteria,0,106654
-108098,Human mastadenovirus B,Viruses,0,45659; 343462; 10541; 10519; 108098; 714978; 10521; 343463
-110321,Sinorhizobium medicae,Bacteria,0,110321
-110539,Mycolicibacterium vanbaalenii,Bacteria,0,350058
-114497,Cordyceps fumosorosea,Eukaryota,0,114497
-114742,Pythium insidiosum,Eukaryota,0,114742
-117207,Sphingopyxis alaskensis,Bacteria,0,317655
-117260,Rosa acicularis,Eukaryota,0,117260
-118161,Pleurocapsa sp. PCC 7319,Bacteria,0,118161
-119219,Cupriavidus metallidurans,Bacteria,0,266264
-120505,Baboon cytomegalovirus,Viruses,0,120505
-121225,Pediculus humanus,Eukaryota,0,121224
-121723,Photobacterium sp. SKA34,Bacteria,0,121723
-121759,Paracoccidioides brasiliensis,Eukaryota,0,121759; 502780
-121791,Nipah virus,Viruses,0,121791
-122291,Kappapapillomavirus 1,Viruses,0,122291
-122355,Pseudomonas psychrophila,Bacteria,0,122355
-123734,Hypoderma bovis,Eukaryota,0,123734
-123841,Helicobacter canadensis,Bacteria,0,123841
-127886,Alkalihalobacillus hemicellulosilyticus,Bacteria,0,127886
-129052,Catelliglobosispora koreensis,Bacteria,0,129052
-129470,Micrurus surinamensis,Eukaryota,1,129470
-129727,Bovine papular stomatitis virus,Viruses,0,129727
-129788,Ruditapes philippinarum,Eukaryota,0,129788
-129875,Human mastadenovirus A,Viruses,0,28282; 129875; 10529
-129951,Human mastadenovirus C,Viruses,0,28285; 10515; 129951; 10533
-129956,Murine mastadenovirus A,Viruses,0,10530
-130308,Human mastadenovirus E,Viruses,0,28280
-130309,Human mastadenovirus F,Viruses,0,28284; 10524
-130310,Human mastadenovirus D,Viruses,0,31545; 28276; 46921; 46941
-131110,Schaalia radingae,Bacteria,0,131110
-131568,Kineococcus radiotolerans,Bacteria,0,266940
-133704,Porcine circovirus 1,Viruses,0,133704
-133926,Olsenella uli,Bacteria,0,133926
-134537,Paraburkholderia fungorum,Bacteria,0,134537
-136966,SEN virus,Viruses,0,136966
-138072,Candidatus Hamiltonella defensa,Bacteria,0,138072
-138336,Blastococcus saxobsidens,Bacteria,0,1146883
-138948,Enterovirus A,Viruses,0,39054; 150846; 69153; 31704; 138948; 86107; 42769; 103922
-138949,Enterovirus B,Viruses,0,103903; 12072; 103906; 12077; 12073; 12067; 12071; 103905; 12076; 12075; 82639; 12078; 35293; 12060; 138949; 41846
-138950,Enterovirus C,Viruses,0,12082; 138950; 12081; 12086; 12080; 12088; 270338; 42782
-138951,Enterovirus D,Viruses,0,42789; 138951
-139445,Limestone Canyon virus,Viruses,0,139445
-145262,Methanothermobacter thermautotrophicus,Archaea,0,145262; 187420
-146500,Watermelon mosaic virus,Viruses,0,148360
-147272,Paspalum notatum,Eukaryota,0,147272
-147711,Rhinovirus A,Viruses,0,12130; 12134; 12132; 185905; 31708; 185907; 185894; 147711; 650130
-147712,Rhinovirus B,Viruses,0,12131
-150340,Vibrio antiquarius (strain Ex25),Bacteria,0,150340
-151250,Kali turgidum,Eukaryota,0,151250
-152480,Burkholderia ambifaria,Bacteria,0,339670
-152682,Sphingomonas melonis,Bacteria,0,152682
-152794,Corynebacterium efficiens,Bacteria,0,152794; 196164
-153496,Kozakia baliensis,Bacteria,0,153496
-154334,Macacine gammaherpesvirus 5,Viruses,0,169974
-157914,Ziziphus mauritiana,Eukaryota,0,157914
-158836,Enterobacter hormaechei,Bacteria,0,158836
-158899,Collimonas fungivorans,Bacteria,0,158899; 1005048
-159091,Pseudomonas sp. KIE171,Bacteria,0,159091
-159449,Embleya scabrispora,Bacteria,0,159449
-159479,Saaremaa hantavirus,Viruses,0,159479
-160808,Acidithiobacillus ferrivorans,Bacteria,0,160808
-161600,Yellow grouper nervous necrosis virus,Viruses,0,161600
-162145,Human metapneumovirus,Viruses,0,162145
-162425,Emericella nidulans,Eukaryota,0,162425; 227321
-163164,Wolbachia pipientis wMel,Bacteria,0,163164
-164756,Mycobacterium sp. (strain MCS),Bacteria,0,164756
-164757,Mycobacterium sp. (strain JLS),Bacteria,0,164757
-165179,Prevotella copri,Bacteria,0,165179
-166486,Roseburia intestinalis,Bacteria,0,166486
-169174,Calabazo virus,Viruses,0,169174
-170325,Canid alphaherpesvirus 1,Viruses,0,170325
-171929,Anacardium occidentale,Eukaryota,0,171929
-176275,Beauveria bassiana,Eukaryota,0,176275
-180498,Jatropha curcas,Eukaryota,0,180498
-185782,Aquareovirus C,Viruses,0,128987
-185949,Sphingomonas aurantiaca,Bacteria,0,185949
-186538,Zaire ebolavirus,Viruses,0,186538; 128952; 129000; 128951; 128947; 1891187; 1570291
-186539,Reston ebolavirus,Viruses,0,186539; 129003; 386032
-186540,Sudan ebolavirus,Viruses,0,186540; 128949; 128948; 386033; 428693
-186541,Tai Forest ebolavirus,Viruses,0,128999; 186541
-188763,Panine betaherpesvirus 2,Viruses,0,188763
-189918,Mycobacterium sp. (strain KMS),Bacteria,0,189918
-190063,Fowl aviadenovirus C,Viruses,0,130663; 190063
-190065,Fowl aviadenovirus E,Viruses,0,586029
-190898,Desulfotignum phosphitoxidans,Bacteria,0,1286635
-194326,Companilactobacillus versmoldensis,Bacteria,0,194326
-194440,Primate T-lymphotropic virus 1,Viruses,0,11908; 11926; 11927; 11928; 33747; 39015
-194441,Primate T-lymphotropic virus 2,Viruses,0,11909
-196403,Baboon endogenous virus,Viruses,0,196403; 11764
-199306,Coccidioides posadasii,Eukaryota,0,199306; 222929
-199738,uncultured Chlamydia sp.,Bacteria,0,199738
-200454,Pseudomonas tremae,Bacteria,0,200454
-202950,Acinetobacter baylyi,Bacteria,0,202950
-203192,Stutzerimonas chloritidismutans,Bacteria,0,203192
-204038,Dickeya dadantii,Bacteria,0,204038
-205075,Candidatus Rickettsia tarasevichiae,Bacteria,0,205075
-205488,Ebola virus sp.,Viruses,0,205488
-208226,Alkaliphilus metalliredigens,Bacteria,0,208226
-208899,Cupixi mammarenavirus (isolate Rat/Brasil/BeAn 119303/1970),Viruses,0,208899
-209285,Thermochaetoides thermophila,Eukaryota,0,209285
-214856,Alistipes finegoldii,Bacteria,0,214856
-215243,Exophiala oligosperma,Eukaryota,0,215243
-215358,Larimichthys crocea,Eukaryota,1,215358
-216465,Polaromonas naphthalenivorans,Bacteria,0,365044
-216816,Bifidobacterium longum,Bacteria,0,205913
-217686,Little cherry virus 1,Viruses,0,217686
-218538,Dialister invisus,Bacteria,0,218538
-220837,Cryptosporidium sp. MNJ-1,Eukaryota,0,220837
-223337,Tobacco leaf curl Zimbabwe virus,Viruses,0,223337
-226899,Grosmannia clavigera,Eukaryota,0,655863
-231455,Dyella japonica,Bacteria,0,231455
-237609,Pseudomonas alkylphenolica,Bacteria,0,237609
-237895,Cryptosporidium hominis,Eukaryota,0,237895
-239935,Akkermansia muciniphila,Bacteria,0,349741; 239935
-240125,Mycobacterium parascrofulaceum,Bacteria,0,525368
-240426,Squirrelpox virus,Viruses,0,240426
-246437,Tupaia chinensis,Eukaryota,1,246437
-246618,Bifidobacterium thermacidophilum,Bacteria,0,246618
-246787,Bacteroides cellulosilyticus,Bacteria,0,246787
-252307,Robiginitalea biformata,Bacteria,0,313596
-256839,Shewanella decolorationis,Bacteria,0,256839
-257758,Streptococcus pseudopneumoniae,Bacteria,0,257758
-259354,Desulfatibacillum alkenivorans,Bacteria,0,439235
-261202,Alto Paraguay hantavirus,Viruses,0,261202
-261204,Itapua hantavirus,Viruses,0,261204
-261658,Cavenderia fasciculata,Eukaryota,0,261658
-263511,Crocosphaera watsonii,Bacteria,0,165597
-263815,Pneumocystis murina,Eukaryota,0,263815
-265606,Rhodopirellula baltica,Bacteria,0,243090
-265619,Ornithodoros erraticus,Eukaryota,0,265619
-266779,Chelativorans sp. (strain BNC1),Bacteria,0,266779
-267212,Neisseria bacilliformis,Bacteria,0,267212
-270478,Zantedeschia mild mosaic virus,Viruses,0,270478
-271108,Bombyx mori nuclear polyhedrosis virus,Viruses,0,271108
-272131,Nostoc punctiforme,Bacteria,0,63737
-272636,Adeno-associated virus,Viruses,0,272636
-273371,Candida orthopsilosis,Eukaryota,0,273371
-277944,Human coronavirus NL63,Viruses,0,277944
-280240,Nocardiopsis baichengensis,Bacteria,0,280240
-283877,Leucobacter chromiireducens,Bacteria,0,283877
-284581,Priestia koreensis,Bacteria,0,284581
-286540,Soochong virus,Viruses,0,286542
-290028,Human coronavirus HKU1,Viruses,0,290028; 443240; 443239; 443241
-296587,Micromonas commoda (strain RCC299 / NOUM17 / CCMP2709),Eukaryota,0,296587
-298653,Frankia sp. (strain EAN1pec),Bacteria,0,298653
-300180,Mopeia Lassa virus reassortant 29,Viruses,0,300180
-301964,CY1014 virus,Viruses,0,301964
-304399,Mule deerpox virus,Viruses,0,305674
-304895,Catenulispora acidiphila,Bacteria,0,304895
-307456,Autographa californica multiple nucleopolyhedrovirus,Viruses,0,46015
-308159,Araucaria virus,Viruses,0,308159; 308061
-310542,Chimpanzee adenovirus,Viruses,0,310542
-311410,Roseibium album,Bacteria,0,311410
-312185,Erbovirus A,Viruses,0,650131
-312306,Pseudomonas entomophila,Bacteria,0,384676
-313589,Janibacter sp. HTCC2649,Bacteria,0,313589
-313627,Bacillus sp. NRRL B-14911,Bacteria,0,313627
-314262,Roseobacter sp. MED193,Bacteria,0,314262
-314275,Alteromonas mediterranea,Bacteria,0,314275
-316068,Leadbetterella byssophila,Bacteria,0,316068
-316287,Ceratogyrus marshalli,Eukaryota,0,316287
-320667,Trichosanthes dioica,Eukaryota,0,320667
-322053,Konjac mosaic virus,Viruses,0,322053
-328670,Banana streak GF virus,Viruses,0,328670
-328671,Banana streak OL virus,Viruses,0,328671
-328812,Parabacteroides goldsteinii,Bacteria,0,328812
-328814,Alistipes shahii,Bacteria,0,328814
-329091,Cupressus torulosa,Eukaryota,0,329091
-329852,Escherichia phage MS2,Viruses,0,12022
-329854,Bacteroides intestinalis,Bacteria,0,329854
-332162,Candidatus Solibacter,Bacteria,0,332162
-332163,Solibacter usitatus,Bacteria,0,234267
-333367,Enterocloster asparagiformis,Bacteria,0,333367
-333754,Alphapapillomavirus 10,Viruses,0,10580; 10592; 10600; 31552; 10573; 333754
-333757,Alphapapillomavirus 8,Viruses,0,10620; 10615
-333766,Alphapapillomavirus 13,Viruses,0,1671798
-333767,Alphapapillomavirus 3,Viruses,0,171370
-333926,Gammapapillomavirus 1,Viruses,0,10617
-333990,Carnobacterium sp. AT7,Bacteria,0,333990
-334203,Mupapillomavirus 1,Viruses,0,334203; 10583
-334205,Nupapillomavirus 1,Viruses,0,10589
-334426,Angiostrongylus costaricensis,Eukaryota,0,334426
-337039,Alphapapillomavirus 2,Viruses,0,37112; 10614; 37111
-337041,Alphapapillomavirus 9,Viruses,0,333760; 10618; 10585; 10586; 10598; 10587; 37120
-337042,Alphapapillomavirus 7,Viruses,0,333761; 10593; 37115; 45240; 10588; 337042; 39457
-337043,Alphapapillomavirus 4,Viruses,0,337043; 333751
-337044,Alphapapillomavirus 5,Viruses,0,10595; 333762; 37121
-337048,Alphapapillomavirus 1,Viruses,0,333763
-337049,Alphapapillomavirus 11,Viruses,0,51033
-337050,Alphapapillomavirus 6,Viruses,0,10596; 333765; 10611
-337051,Betapapillomavirus 1,Viruses,0,333923
-337052,Bovine papillomavirus type 1,Viruses,0,337052; 2758382
-337090,Chlorobium chlorochromatii,Bacteria,0,337090; 340177
-338079,African green monkey simian foamy virus,Viruses,0,338079
-338188,Bacteroides finegoldii,Bacteria,0,338188
-338478,Simian foamy virus type 1,Viruses,0,338478
-339268,Mycobacterium colombiense,Bacteria,0,1041522
-342409,White spot syndrome virus,Viruses,0,92652; 342409
-344880,Sphingomonas dokdonensis,Bacteria,0,344880
-345840,Palaemon modestus,Eukaryota,0,345840
-351073,Mammalian orthoreovirus,Viruses,0,351073; 10884
-351091,Oscillibacter valericigenes,Bacteria,0,351091
-351745,Shewanella sp. (strain W3-18-1),Bacteria,0,351745
-357276,Phocaeicola dorei,Bacteria,0,357276
-360549,Themiste hennahi,Eukaryota,0,360549
-363265,Prevotella stercorea,Bacteria,0,363265
-368445,Crocodilepox virus,Viruses,0,368445
-369960,Porcine type-C oncovirus,Viruses,0,194958; 61673; 194959
-370405,Gallionella capsiferriformans,Bacteria,0,395494
-371601,Bacteroides xylanisolvens,Bacteria,0,371601
-374838,Reinekea blandensis,Bacteria,0,314283
-376805,Phocaeicola salanitronis,Bacteria,0,667015
-386056,Paraburkholderia ferrariae,Bacteria,0,386056
-387090,Phocaeicola coprophilus,Bacteria,0,387090
-387093,Sulfurovum sp. (strain NBC37-1),Bacteria,0,387093
-387661,Parabacteroides johnsonii,Bacteria,0,387661
-388634,Bombyx mandarina nuclear polyhedrosis virus,Viruses,0,388634
-390157,Senecavirus A,Viruses,0,390157
-392734,Terriglobus roseus,Bacteria,0,392734
-393662,Congregibacter litoralis,Bacteria,0,314285
-402648,Streptomyces hainanensis,Bacteria,0,402648
-408580,Bacillus coahuilensis,Bacteria,0,441769
-408657,Dyadobacter koreensis,Bacteria,0,408657
-410072,Coprococcus comes,Bacteria,0,410072
-413502,Cronobacter turicensis,Bacteria,0,413502
-419612,Camelus ferus,Eukaryota,1,419612
-420521,Expression vector pNIC-NHT-CF,,0,420521
-425088,Tanganya virus,Viruses,0,425088
-430511,Juquitiba virus,Viruses,0,430511
-439220,Streptococcus caballi,Bacteria,0,439220
-444922,Psychromonas ossibalaenae,Bacteria,0,444922
-446679,Nostoc sphaeroides,Bacteria,0,446679
-447106,Leptospira licerasiae,Bacteria,0,447106
-452646,Neovison vison,Eukaryota,1,452646
-453927,Juniperus formosana,Eukaryota,0,453927
-456999,Rhizoctonia solani,Eukaryota,0,456999
-463676,Rhinovirus C,Viruses,0,1219377; 463676
-465541,Streptomyces sp. Mg1,Bacteria,0,465541
-469009,'Brassica napus' phytoplasma,Bacteria,0,469009
-469613,Enterobacteriaceae bacterium 9_2_54FAA,Bacteria,0,469613
-471223,Geobacillus sp. (strain WCH70),Bacteria,0,471223
-472390,Prunus dulcis x Prunus persica,Eukaryota,0,472390
-479935,Gluconobacter morbifer,Bacteria,0,479935
-482957,Burkholderia lata (strain ATCC 17760 / DSM 23089 / LMG 22485 / NCIMB 9086 / R18194 / 383),Bacteria,0,482957
-487316,Acinetobacter soli,Bacteria,0,487316
-487317,Aequorivita capsosiphonis,Bacteria,0,487317
-502049,Thalassospira profundimaris,Bacteria,0,502049
-502790,Aeromonas diversa,Bacteria,0,502790
-507750,Peptoniphilus duerdenii,Bacteria,0,507750
-515817,Amphioctopus fangsiao,Eukaryota,0,515817
-519424,Alkalihalobacillus trypoxylicola,Bacteria,0,519424
-543824,Synechocystis aquatilis,Bacteria,0,543824
-545501,Oceanobacillus oncorhynchi,Bacteria,0,545501
-545650,Sporothrix brasiliensis,Eukaryota,0,1398154
-549169,Pseudogulbenkiania ferrooxidans,Bacteria,0,549169
-551760,Aromatoleum aromaticum,Bacteria,0,551760
-558553,Crassostrea angulata,Eukaryota,0,558553
-559561,Aureobasidium namibiae,Eukaryota,0,559561
-563466,Pseudallescheria apiosperma,Eukaryota,0,563466
-565995,Bundibugyo ebolavirus,Viruses,0,565995
-566466,gamma proteobacterium NOR5-3,Bacteria,0,566466
-571800,Psychrobacter sp. G,Bacteria,0,571800
-571949,Encephalitozoon romaleae,Eukaryota,0,1178016
-580165,Bacillus cytotoxicus,Bacteria,0,580165; 315749
-588596,Rhizophagus irregularis,Eukaryota,0,588596
-593106,Pyrophorus angustus,Eukaryota,0,593107
-626940,Phascolarctobacterium succinatutens,Bacteria,0,626940
-630277,Tarsius lariang,Eukaryota,1,630277
-632955,Acinetobacter rudis,Bacteria,0,632955
-649756,Anaerostipes hadrus,Bacteria,0,649756
-651183,Aurantimonas manganoxydans,Bacteria,0,651183
-655809,Prevotella sp. oral taxon 472,Bacteria,0,619693
-658655,Lachnospiraceae bacterium 1_4_56FAA,Bacteria,0,658655
-674529,Bacteroides faecis,Bacteria,0,674529
-686984,Sapelovirus A,Viruses,0,686984; 1002921
-687340,Torque teno virus 1,Viruses,0,687340
-687341,Torque teno virus 2,Viruses,0,687341
-687342,Torque teno virus (isolate Human/Finland/Hel32/2002),Viruses,0,687342
-687343,Torque teno virus (isolate Chimpanzee/Japan/Pt-TTV6/2000),Viruses,0,687343
-687345,Torque teno virus (isolate Human/Germany/KAV/2001),Viruses,0,687345
-687346,Torque teno virus 7,Viruses,0,687346
-687347,Torque teno virus 8,Viruses,0,687347
-687350,Torque teno virus 11,Viruses,0,687350
-687353,Torque teno virus 14,Viruses,0,687353
-687354,Torque teno virus 15,Viruses,0,687354
-687355,Torque teno virus 16,Viruses,0,687355
-687358,Torque teno virus 19,Viruses,0,687358
-687359,Torque teno virus 20,Viruses,0,687359
-687360,Torque teno virus 21,Viruses,0,687360
-687362,Torque teno virus 23,Viruses,0,687362
-687363,Torque teno virus 24,Viruses,0,687363
-687364,Torque teno virus (isolate Japanese macaque/Japan/Mf-TTV9/2000),Viruses,0,687364
-687365,Torque teno virus 26,Viruses,0,687365
-687366,Torque teno virus (isolate Human/China/CT23F/2001),Viruses,0,687366
-687367,Torque teno virus 28,Viruses,0,687367
-687368,Torque teno virus 29,Viruses,0,687368
-687369,Torque teno mini virus 1,Viruses,0,687369
-687371,Torque teno mini virus 3,Viruses,0,687371
-687375,Torque teno mini virus 7,Viruses,0,687375
-687376,Torque teno mini virus 8,Viruses,0,687376
-687382,Torque teno tamarin virus,Viruses,0,687382
-687383,Torque teno douroucouli virus,Viruses,0,687383
-687386,Torque teno sus virus 1a,Viruses,0,687386; 1225860
-691956,Avihepatovirus A,Viruses,0,1006061
-693153,Vibrio atlanticus,Bacteria,0,575788
-693997,Alphacoronavirus 1,Viruses,0,11151; 11149; 33734; 11150; 12663; 398812; 11153; 11135; 502101; 454951
-693998,Rhinolophus bat coronavirus HKU2,Viruses,0,693998
-693999,Bat coronavirus 512/2005,Viruses,0,693999
-694003,Betacoronavirus 1,Viruses,0,11128; 31631; 233262; 2501420; 694003; 215681
-694005,Murine coronavirus,Viruses,0,11144; 11142; 11138; 12760; 76344
-694006,Bat coronavirus HKU9,Viruses,0,694006
-694007,Bat coronavirus HKU4,Viruses,0,424362; 694007
-694008,Bat coronavirus HKU5,Viruses,0,694008
-694009,Severe acute respiratory syndrome coronavirus,Viruses,0,227984; 228330; 228407; 229992; 627442; 344702; 284672; 2697049; 633137; 228415; 1508227; 2709072; 1415851; 1415852
-694014,Avian coronavirus,Viruses,0,11127; 11120; 231428; 633557; 11152
-696859,Murine mastadenovirus C,Viruses,0,573199
-696863,Spring viremia of carp virus,Viruses,0,696863
-708187,Colletotrichum chlorophyti,Eukaryota,0,708187
-742503,Tokudaia muenninki,Eukaryota,1,742503
-743722,Sphingobacterium sp. (strain 21),Bacteria,0,743722
-746128,Neosartorya fumigata,Eukaryota,0,746128; 330879; 451804
-759851,Sporosarcina newyorkensis,Bacteria,0,759851
-765414,Paraburkholderia bannensis,Bacteria,0,765414
-863370,Meiothermus granaticius,Bacteria,0,863370
-868131,Methanobacterium paludis (strain DSM 25820 / JCM 18151 / SWAN1),Archaea,0,868131
-870484,Nonlabens agnitus,Bacteria,0,870484
-871325,Bacteroides faecichinchillae,Bacteria,0,871325
-875328,Mycolicibacter sinensis (strain JDM601),Bacteria,0,875328
-884045,Juniperus saxicola,Eukaryota,0,884045
-905828,Duck astrovirus GII.A,Viruses,0,707882
-940614,Granulicella mallensis,Bacteria,0,940614
-945780,Synechocystis salina,Bacteria,0,945782
-983924,Eidolon bat coronavirus/Kenya/KY24/2006,Viruses,0,983924
-983929,Chaerephon bat coronavirus/Kenya/KY22/2006,Viruses,0,983929
-1004253,Cyberlindnera mrakii,Eukaryota,0,1004253
-1005962,Ogataea parapolymorpha,Eukaryota,0,871575; 1005962
-1016852,Banana streak CA virus,Viruses,0,1016852
-1016853,Banana streak IM virus,Viruses,0,1016853
-1045775,Paenibacillus catalpae,Bacteria,0,1045775
-1047168,Zymoseptoria brevis,Eukaryota,0,1047168
-1071379,Tetrapisispora blattae,Eukaryota,0,1071379
-1133319,Bacteroides reticulotermitis,Bacteria,0,1133319
-1134687,Klebsiella michiganensis,Bacteria,0,1134687
-1159904,Night heron coronavirus HKU19,Viruses,0,1159904
-1159907,White-eye coronavirus HKU16,Viruses,0,1159907
-1159908,Wigeon coronavirus HKU20,Viruses,0,1159908
-1160968,Rabbit coronavirus HKU14,Viruses,0,1160968
-1173018,Phlebovirus WCH/97/HN/China/2011,Viruses,0,1173018
-1173701,Colletotrichum sublineola,Eukaryota,0,1173701
-1176145,Pipapillomavirus 2,Viruses,0,763552
-1176484,Canine vesivirus,Viruses,0,292348
-1179777,Mycoplasma feriruminatoris,Bacteria,0,1179777
-1193095,Paucilactobacillus hokkaidonensis,Bacteria,0,1193095
-1209926,Colletotrichum orchidophilum,Eukaryota,0,1209926
-1214225,Acidocella sp. MX-AZ02,Bacteria,0,1214225
-1218488,Torque teno sus virus k2,Viruses,0,1218488
-1223514,Corynebacterium humireducens,Bacteria,0,1223514
-1236180,Halopelagius longus,Archaea,0,1236180
-1239565,Mamastrovirus 1,Viruses,0,12701; 43358
-1239567,Porcine astrovirus 1,Viruses,0,1239567
-1263102,Prevotella copri CAG:164,Bacteria,0,1263102
-1268303,Rhodococcus sp. AW25M09,Bacteria,0,1268303
-1281454,Rodent hepacivirus,Viruses,0,1281454
-1285902,Artificial vector pGEX-2T,,0,1285902
-1330520,Enterovirus F,Viruses,0,269638; 1330520
-1335626,Middle East respiratory syndrome-related coronavirus,Viruses,0,1235996; 1335626; 1263720
-1337054,Paenibacillus sp. A3,Bacteria,0,1337054
-1349999,Goose astrovirus,Viruses,0,1349999
-1355477,Bradyrhizobium diazoefficiens,Bacteria,0,1355477
-1380362,Ralstonia sp. UNC404CL21Col,Bacteria,0,1380362
-1380386,Mycobacterium sp. URHB0044,Bacteria,0,1380386
-1380865,Rana catesbeiana virus,Viruses,0,1380865
-1432052,Eisenbergiella tayi,Bacteria,0,1432052
-1449063,Paenibacillus sp. UNC451MF,Bacteria,0,1449063
-1457141,Chlamydia avium,Bacteria,0,1229831; 1457141
-1457153,Chlamydia gallinacea,Bacteria,0,1457153
-1463841,Streptomyces sp. NRRL F-2580,Bacteria,0,1463841
-1464048,Micromonospora parva,Bacteria,0,1464048
-1472417,Butyricimonas paravirosa,Bacteria,0,1472417
-1476909,Banana streak MY virus,Viruses,0,1476909
-1498499,Legionella norrlandica,Bacteria,0,1498499
-1501332,Oribacterium asaccharolyticum,Bacteria,0,1501332
-1508220,Bat coronavirus,Viruses,0,1508220
-1511862,Carnivore amdoparvovirus 1,Viruses,0,28314; 10783
-1511871,Primate bocaparvovirus 1,Viruses,0,689403; 638313
-1511872,Primate bocaparvovirus 2,Viruses,0,573977
-1511891,Adeno-associated dependoparvovirus A,Viruses,0,10804; 202813; 235455; 202812; 85106; 57579; 68558
-1511892,Adeno-associated dependoparvovirus B,Viruses,0,82300
-1511895,Anseriform dependoparvovirus 1,Viruses,0,38251; 37325
-1511900,Primate erythroparvovirus 1,Viruses,0,10798
-1511906,Carnivore protoparvovirus 1,Viruses,0,10788; 10793; 10790; 246878; 10786; 10791
-1511910,Ungulate protoparvovirus 1,Viruses,0,10796
-1511913,Primate tetraparvovirus 1,Viruses,0,289365
-1527299,Psychromonas sp. PRT-SC03,Bacteria,0,1527299
-1534553,Duck aviadenovirus B,Viruses,0,2233538
-1564681,Carnobacterium sp. CP1,Bacteria,0,1564681
-1566201,Pseudomonas sp. NFACC45,Bacteria,0,1566201
-1566298,Paraiso Escondido virus,Viruses,0,1566298
-1574408,Cervus canadensis,Eukaryota,1,9864
-1631247,Mesorhizobium delmotii,Bacteria,0,1631247
-1678143,Hepatitis E virus,Viruses,0,31767; 1678143; 31768; 185579; 63421; 509628
-1678144,Avihepevirus magniiecur,Viruses,0,1678144
-1737357,Rhizobium wenxiniae,Bacteria,0,1737357
-1776082,Shigella genomosp. SF-2015,Bacteria,0,358708
-1783360,Comamonas sediminis,Bacteria,0,1783360
-1796646,Muribaculum intestinale,Bacteria,0,1796646
-1803956,Parechovirus A,Viruses,0,12063; 195055; 1803956
-1812858,Anaerosacchariphilus polymeriproducens,Bacteria,0,1812858
-1821749,Cardiovirus A,Viruses,0,12107; 12104
-1821750,Cardiovirus B,Viruses,0,12125; 12124; 12126; 204711
-1849603,Enterobacteriaceae bacterium,Bacteria,0,1849603
-1855372,bacterium JGI 053,Bacteria,0,1855372
-1868221,Porcine circovirus 3,Viruses,0,1868221
-1868482,Carlito syrichta,Eukaryota,1,1868482
-1891726,Alphapolyomavirus quintihominis,Viruses,0,493803; 1891726
-1891727,Alphapolyomavirus octihominis,Viruses,0,862909
-1891729,Hamster polyomavirus,Viruses,0,1891729
-1891730,Mus musculus polyomavirus 1,Viruses,0,1891730; 10636; 157703
-1891762,BK polyomavirus,Viruses,0,1891762; 10631
-1891763,Betapolyomavirus secuhominis,Viruses,0,10632
-1891767,Simian virus 40,Viruses,0,1891767
-1891770,Betapolyomavirus secumuris,Viruses,0,10638
-1895866,Verrucomicrobia bacterium 61-8,Bacteria,0,1895866
-1897087,Orthobornavirus sciuri,Viruses,0,1885248
-1898104,Bacteroidetes bacterium,Bacteria,0,1898104
-1898112,Rhodospirillaceae bacterium,Bacteria,0,1898112
-1898203,Lachnospiraceae bacterium,Bacteria,0,1898203
-1913988,Alphaproteobacteria bacterium,Bacteria,0,1913988
-1933187,Rift Valley fever phlebovirus,Viruses,0,11588
-1933264,California encephalitis orthobunyavirus,Viruses,0,35305
-1933298,Tomato spotted wilt virus,Viruses,0,1933298
-1933300,Watermelon silver mottle virus,Viruses,0,1933300
-1965089,Coronavirus HKU15,Viruses,0,1586324
-1965093,Hedgehog coronavirus 1,Viruses,0,1385427
-1972577,Vesiculovirus indiana,Viruses,0,11284; 11285; 11277; 11278; 11279
-1977402,Enterobacteria phage M13,Viruses,0,1977402; 10863
-1978231,Acidobacteria bacterium,Bacteria,0,1978231
-1980442,Orthohantavirus,Viruses,0,1980442
-1980456,Andes orthohantavirus,Viruses,0,1980456; 69248; 367400; 69247; 69245; 69246
-1980459,Bayou orthohantavirus,Viruses,0,1980459
-1980463,Cano Delgadito orthohantavirus,Viruses,0,1980463
-1980465,Choclo orthohantavirus,Viruses,0,169173
-1980467,Dobrava-Belgrade orthohantavirus,Viruses,0,1980467
-1980468,El Moro Canyon orthohantavirus,Viruses,0,1980468
-1980471,Hantaan orthohantavirus,Viruses,0,11602; 1980471; 74943; 74942; 370830; 458678; 11583
-1980475,Khabarovsk orthohantavirus,Viruses,0,74537; 1980475
-1980476,Laguna Negra orthohantavirus,Viruses,0,1980476
-1980480,Maporal orthohantavirus,Viruses,0,238817
-1980481,Montano orthohantavirus,Viruses,0,1980481
-1980485,Prospect Hill virus,Viruses,0,1980485
-1980486,Puumala orthohantavirus,Viruses,0,39002; 1980486; 11605; 1337063
-1980489,Sangassou orthohantavirus,Viruses,0,1980489
-1980490,Seoul orthohantavirus,Viruses,0,12557; 1980490; 11607; 11610; 280855
-1980491,Sin Nombre orthohantavirus,Viruses,0,1980491; 31621; 32614
-1980494,Tula orthohantavirus,Viruses,0,1980494
-1980519,Crimean-Congo hemorrhagic fever orthonairovirus,Viruses,0,1980519; 652961
-1980916,Novirhabdovirus piscine,Viruses,0,11288
-1980917,Novirhabdovirus salmonid,Viruses,0,11290
-1982365,Predatorvirus predator,Viruses,0,543153
-1985356,Pegivirus C,Viruses,0,54290
-1985738,Teseptimavirus T7,Viruses,0,10760
-2008762,Hepacivirus B,Viruses,0,2847087
-2008766,Hepacivirus G,Viruses,0,1562038
-2015173,Ooceraea biroi,Eukaryota,0,2015173
-2015376,Bat mastadenovirus G,Viruses,0,2015376
-2016460,Giant panda anellovirus,Viruses,0,2016460
-2016461,Giant panda associated gemycircularvirus,Viruses,0,2016461
-2024894,Acidimicrobiaceae bacterium,Bacteria,0,2024894
-2026800,Verrucomicrobiaceae bacterium,Bacteria,0,2026800
-2029108,Bacillus sp. UMB0899,Bacteria,0,2029108
-2030927,Bacteroidales bacterium,Bacteria,0,2030927
-2032731,Swine acute diarrhea syndrome coronavirus,Viruses,0,2032731
-2044587,Schaedlerella arabinosiphila,Bacteria,0,2044587
-2044939,Clostridia bacterium,Bacteria,0,2044939
-2049047,Prevotellaceae bacterium,Bacteria,0,2049047
-2050018,Rodent coronavirus,Viruses,0,2050018
-2066070,Mesorhizobium japonicum,Bacteria,0,2066070
-2115988,Swine acute diarrhea syndrome related coronavirus,Viruses,0,2115988
-2116544,Synechococcus lacustris,Bacteria,0,2116544
-2136182,Acinetobacter cumulans,Bacteria,0,2136182
-2169971,Visna-maedi virus,Viruses,0,2169971; 12750; 11742; 11743; 36374
-2169986,Barley yellow dwarf virus (isolate PAV),Viruses,0,2169986
-2169991,Junin mammarenavirus,Viruses,0,2169991
-2169992,Sabia mammarenavirus (isolate Human/Brasil/SPH114202/1990),Viruses,0,2169992
-2169993,Pichinde mammarenavirus,Viruses,0,2169993
-2169994,Parana mammarenavirus (isolate Rat/Paraguay/12056/1965),Viruses,0,2169994
-2169996,Amapari mammarenavirus (isolate Mouse/Brazil/BeAn 70563/1965),Viruses,0,2169996
-2170080,Pestivirus A,Viruses,0,11100; 158474; 82470; 11099; 221918; 981676
-2170081,Pestivirus B,Viruses,0,54315
-2170082,Pestivirus C,Viruses,0,11096; 11098; 358769; 358805; 279150; 358812; 68621
-2170083,Pestivirus D,Viruses,0,56950
-2170090,Pestivirus K,Viruses,0,1914447
-2170193,Bornean orangutan simian foamy virus,Viruses,0,221703
-2170197,Guenon simian foamy virus,Viruses,0,2170197
-2170200,Spider monkey simian foamy virus,Viruses,0,2170200
-2170201,Squirrel monkey simian foamy virus,Viruses,0,2170201
-2170206,Yellow-breasted capuchin simian foamy virus,Viruses,0,2170206
-2212467,Bacteroidaceae bacterium,Bacteria,0,2212467
-2282107,Pyrrhoderma noxium,Eukaryota,0,2282107
-2478486,Holophagales bacterium,Bacteria,0,2478486
-2485925,Oscillospiraceae bacterium,Bacteria,0,2485925
-2487134,Clostridium sp. E02,Bacteria,0,2487134
-2492960,Bacillus yapensis,Bacteria,0,2492960
-2499620,Alphaarterivirus equid,Viruses,0,11047; 299386
-2499677,Kappaarterivirus wobum,Viruses,0,1118369
-2499678,Gammaarterivirus lacdeh,Viruses,0,11048; 300016; 300015
-2499680,Betaarterivirus suid 1,Viruses,0,11049
-2499685,Betaarterivirus suid 2,Viruses,0,1965067
-2501929,NL63-related bat coronavirus strain BtKYNL63-9b,Viruses,0,1920748
-2501960,China Rattus coronavirus HKU24,Viruses,0,1590370
-2502994,Fusarium oxysporum f. sp. cubense (strain race 4),Eukaryota,0,2502994
-2560288,Deltapolyomavirus ailuropodae,Viruses,0,2016463
-2560319,Avian orthoavulavirus 1,Viruses,0,2560319; 11178; 11180; 11177; 11186; 351071
-2560525,Human parainfluenza 2 virus,Viruses,0,11214; 2560525
-2560547,La Crosse orthobunyavirus,Viruses,0,11577; 11578
-2560580,Mammalian orthorubulavirus 5,Viruses,0,2560580; 31608
-2560586,Menangle pararubulavirus,Viruses,0,152219
-2560602,Mumps orthorubulavirus,Viruses,0,2560602; 11169; 11173; 1384672
-2560645,La Piedad-Michoacan-Mexico virus,Viruses,0,2560645
-2560743,Schmallenberg orthobunyavirus,Viruses,0,1133363; 1318464
-2584949,Enterobacter sp. DE0047,Bacteria,0,2584949
-2594813,Fusarium fasciculatum,Eukaryota,0,2594813
-2599941,Oligoflexia bacterium,Bacteria,0,2599941
-2678873,Trimerodytes annularis,Eukaryota,1,2678873
-2707005,Paenibacillus lutimineralis,Bacteria,0,2707005
-2708335,Pangolin coronavirus,Viruses,0,2708335
-2734478,Toscana phlebovirus,Viruses,0,11590
-2747316,Guertu bandavirus,Viruses,0,1763596
-2748958,Dabie bandavirus,Viruses,0,1003835
-2770637,Aestuariibaculum sediminum,Bacteria,0,2770637
-2843841,Betatristromavirus TTV1,Viruses,0,10479
-2846071,Rubivirus rubellae,Viruses,0,11043; 11041; 11044; 11045
-2846271,Peeveelvirus PVL,Viruses,0,71366
-2846472,Torque teno canid virus 1,Viruses,0,687385
-2846480,Torque teno felid virus 1,Viruses,0,687384
-2851130,Dermatophagoides pteronyssinus virus 3,Viruses,0,2851130
-2900548,Actinobacteria bacterium,Bacteria,0,2900548
-2951618,Lyssavirus hamburg,Viruses,0,57482
-2951978,Betanucleorhabdovirus retesonchi,Viruses,0,11307
-2978683,Burkholderia orbicola,Bacteria,0,2978683
-0,Unknown,,,10000306; 10002316; 10000383; 10000309; 10000303; 10000487; 10000497; 10000323; 10000296; 10000304; 10000501; 10001156; 10000299; 10000302; 10000495; 10000494; 10000491; 10000356; 10000496; 10000301; 10000456; 10000305; 10000295; 10000858; 10000373; 10000358; 10000297; 10000465; 10000723; 10000761; 10000385; 10000500; 10000307; 10000353; 10000388; 10000490; 10000499; 10000319; 10000523; 10000740; 10000354; 10000537; 10000442; 10000455; 10000458; 10000470; 10000485; 10000483; 10000507; 10000471; 10000513; 10000804; 10000553; 10001884; 10000472; 10000000; 10000530; 10000451; 10000789; 10000857; 10000474; 10000352; 10000462; 10000559; 10000780; 10000566; 10000861; 10000560; 10000505; 10001157; 10000756; 10000757; 10000506; 10000502; 10000503; 10000504; 10000488; 10000765; 10000766; 10000767; 10000769; 10000763; 10000815; 10000817; 10000818; 10000386; 10000390; 10001316; 10000411; 10001315; 10000329; 10000308; 10000571; 10000345; 10000453; 10000438; 10000675; 10000436; 10000420; 10000516; 10000760; 10000764; 10000542; 10000328; 10000520; 10000519; 10000375; 10000363; 10000457; 10000855; 10000440; 10000759; 10000381; 10000743; 10000357; 10000371; 10000555; 10000366; 10000370; 10000361; 10000360; 10000362; 10000437; 10000807; 10000406; 10000337; 10000550; 10000482; 10000429; 10000424; 10000396; 10000525; 10000404; 10000527; 10000391; 10000524; 10000526; 10000427; 10000398; 10000449; 10000378; 10000421; 10000414; 10000412; 10000413; 10001318; 10001317; 10000536; 10000376; 10000802; 10001886; 10000529; 10000850; 10000853; 10000824; 10000851; 10000848; 10000849; 10000835; 10000843; 10000859; 10000864; 10000828; 10000801; 10000405; 10000865; 10000833; 10000829; 10000836; 10000814; 10000794; 10000795; 10000797; 10000777; 10000781; 10000793; 10000798; 10000790; 10000782; 10000786; 10000779; 10000783; 10000796; 10000788; 10000778; 10000787; 10000791; 10000792; 10000784; 10000785; 10000775; 10000776; 10000856; 10000852; 10000293; 10000467; 10000447; 10000444; 10000445; 10000439; 10000535; 10000294; 10000809; 10000842; 10000394; 10000840; 10000825; 10000971; 10000820; 10000382; 10000960; 10000515; 10000965; 10000968; 10000768; 10000969; 10000987; 10000773; 10000972; 10000979; 10000980; 10000514; 10000556; 10000991; 10000989; 10000986; 10000992; 10000993; 10000994; 10000995; 10001000; 10001003; 10001004; 10000888; 10000816; 10000860; 10001002; 10000484; 10000964; 10001006; 10001025; 10001020; 10001021; 10001027; 10001040; 10001028; 10001039; 10001049; 10001050; 10001051; 10001078; 10001077; 10001044; 10001047; 10001042; 10001085; 10000544; 10001053; 10001055; 10001057; 10001058; 10001121; 10000845; 10001081; 10001091; 10001100; 10001116; 10001118; 10001130; 10001138; 10001140; 10001032; 10000460; 10001141; 10001154; 10002289; 10001149; 10001145; 10001155; 10001162; 10001056; 10001209; 10001210; 10001207; 10001213; 10001216; 10001215; 10001225; 10001223; 10001008; 10001238; None; 10001307; 10001308; 10001335; 10001392; 10001396; 10001439; 10000518; 10001456; 10001459; 10001431; 10001412; 10001573; 10001578; 10001586; 10001587; 10001019; 10001133; 10001606; 10000961; 10001615; 10001614; 10001616; 10001617; 10001618; 10001624; 10001583; 10000477; 10001635; 10001642; 10001648; 10001649; 10001150; 10000662; 10000055; 10001798; 10001800; 10001761; 10001762; 10001763; 10001764; 10001582; 10001771; 10000728; 10000548; 10001619; 10000862; 10000463; 10001879; 10001887; 10001888; 10001894; 10001895; 10001902; 10001918; 10001243; 10000832; 10001929; 10001930; 10001934; 10001768; 10001944; 10001943; 10001945; 10001946; 10001964; 10001967; 10001973; 10000355; 10001997; 10001999; 10002000; 10002007; 10002008; 10002009; 10002011; 10000369; 10002010; 10000549; 10000806; 10002015; 10002020; 10002018; 10001102; 10002022; 10002026; 10002006; 10002027; 10002028; 10001881; 10001705; 10001965; 10002052; 10002056; 10000408; 10002069; 10002079; 10002082; 10002112; 10002111; 10002129; 10001636; 10002123; 10002089; 10002132; 10002148; 10002151; 10002152; 10002165; 10002169; 10001161; 10002178; 10002183; 10002195; 10002196; 10002197; 10000890; 10002238; 10002090; 10000528; 10000547; 10001627; 10002190; 10002273; 10002285; 10002287; 10002188; 10000067; 10002144; 10002301; 10002308; 10002310; 10002309; 10002313; 10002317; 10002329; 10002345; 10002359; 10002321; 10002360; 10002361; 10002365; 10002370; 10002371; 10002380; 10002244; 10002384; 10000632; 10000532; 10002270; 10002414; 10001662; 10001680; 10002408; 10002444; 10002180; 10002332; 10000431; 10000432; 10002442; 10002484; 10002330; 10002394; 10000225; 10002407; 10002120; 10002450; 10002131; 10002508; 10002534; 10002530; 10002525; 10002533; 10002561; 10002558; 10002524; 10002570; 2787823; 10002579; 10002580; 10002528; 10002583; 10002598; 10002603; 10002600; 10002633; 10002653; 10002655; 10002652; 10002654; 10001235; 10002657; 10002667; 10002661; 10002532; 10002644; 10002672; 10002686; 10002687; 10002665; 10002682; 10002683; 10002382; 10002694; 10002695; 10002696; 10002691; 10002697; 10002526; 10002707; 10002709; 10000996; 10002410; 10002611; 10002766; 10002774; 10002775; 10002723; 10002721; 10002731; 10002742; 10002725; 10002730; 10002738; 10002732; 10002741; 10002726; 10002717; 10002729; 10002739; 10002756; 10002720; 10002750; 10002748; 10002760; 10002757; 10002745; 10002733; 10002718; 10002724; 10002758; 10002754; 10002755; 10002746; 10002719; 10002722; 10002562; 10002751; 10002626; 10002752; 10002749; 10002735; 10002747; 10002740; 10002728; 10002753; 10002759; 10002734; 10002737; 10002744; 10002727; 10002736; 10002325; 10002715; 10002716; 10002785; 10002597; 10002794; 10002676; 10002181; 10002324; 10002567; 10002802; 10002455; 10002376; 10002807; 10002809; 10002810; 10002502; 10002677; 10002334; 10002614; 10002815; 10002816; 10002065
+Species Taxon ID,All Taxa
+11320,11320; 211044; 384505; 392809; 506350; 387161; 264513; 387191; 223935; 132504; 383586; 444318; 385624; 137578; 385630; 382835; 387139; 385640; 119210; 114727; 382781; 392810; 383571; 183764; 380964; 63106; 380301; 41857; 380905; 317652; 381517; 385576; 384502; 381518; 380950; 132734; 132841; 381516; 384498; 385605; 384500; 387207; 382832; 11375; 130760; 88104; 380340; 380282; 488241; 385587; 353253; 79695; 130763; 387156; 352520; 384495; 380985; 393557; 221012; 383602; 382842; 351277; 383604; 11408; 62503; 382848; 82372; 107558; 62564; 62488; 62596; 62541; 62446; 62512; 107493; 62496; 644788; 11384; 260806; 384487; 169169; 384484; 135658; 385586; 1086859; 387147; 311710; 311695; 311169; 342221; 307819; 306061; 304883; 300748; 299733; 299730; 299390; 298716; 298713; 284195; 282124; 279797; 432070; 273361; 270490; 270484; 264510; 59375; 256045; 253682; 62575; 185794; 182781; 177188; 177131; 177128; 177117; 216877; 215864; 215862; 210663; 210656; 210655; 207401; 173477; 173473; 170342; 165420; 164326; 205954; 205946; 155227; 155226; 155225; 155222; 147095; 382828; 132884; 436004; 405050; 404163; 404155; 404152; 404150; 404138; 404137; 402194; 426738; 441962; 395842; 395841; 393697; 393548; 393486; 389259; 385583; 384527; 384493; 383566; 383561; 383558; 381512; 380978; 95234; 380842; 380836; 380330; 380210; 192720; 480019; 192549; 373145; 366524; 365078; 365074; 357205; 355624; 354235; 344598; 342396; 1093545; 342210; 342207; 402489; 342145; 342137; 336800; 336794; 336207; 336205; 334590; 334589; 327311; 327310; 322566; 322564; 192535; 97348; 383550; 387208; 1342434; 210659; 198059; 158306; 197589; 274829; 680692; 384946; 279798; 380979; 380833; 214826; 370813; 284168; 365129; 380332; 132783; 36418; 385644; 293054; 381513; 1144025; 155917; 384509; 518968; 95888; 228928; 145307; 385580; 385617; 11484; 170500; 62559; 186460; 480024; 284218; 203126; 387223; 197585; 102793; 352963; 393902; 400830; 1163697; 370127; 165512; 291592; 367120; 427773; 145306; 417758; 447133; 461772; 249372; 400828; 357208; 335337; 335358; 332733; 365417; 371082; 415167; 415172; 415169; 415176; 415166; 415177; 573797; 435359; 576142; 578079; 566260; 191090; 142948; 176672; 197579; 400788; 553345; 385599; 370810; 384499; 462695; 680789; 392811; 380285; 378139; 161502; 380217; 383531; 329593; 93838; 187164; 137885; 154540; 128982; 137886; 514193; 183778; 1727172; 229051; 387239; 383121; 55532; 680799; 402464; 136474; 169166; 168278; 641501; 411167; 172149; 475493; 522740; 225071; 255681; 515581; 83206; 402527; 88103; 533026; 223947; 135661; 538555; 383152; 383231; 383568; 203129; 680803; 380299; 223932; 370128; 225089; 223931; 231851; 225088; 11448; 499286; 196462; 432094; 303316; 385616; 680690; 183783; 1176042; 680739; 354228; 286239; 336238; 335333; 518922; 270945; 327205; 342508; 364132; 320306; 380213; 384483; 383577; 155218; 365080; 407418; 300750; 88776; 488233; 378131; 425557; 383578; 293090; 383281; 504910; 642794; 383603; 648856; 560463; 658578; 742305; 401372; 762400; 506355; 383574; 400810; 62549; 587884; 430417; 936115; 991335; 768646; 768647; 385600; 380951; 380346; 236235; 336092; 577543; 647096; 1068705; 464623; 446023; 383028; 155220; 402518; 183741; 404573; 89172; 89169; 332747; 284202; 506282; 292039; 292045; 1041990; 311775; 504904; 641809; 421901; 657165; 468968; 754366; 680729; 472511; 427890; 418868; 357210; 370811; 414044; 562988; 562992; 464314; 421472; 411157; 641812; 402938; 352764; 162326; 385585; 384510; 380284; 352564; 359921; 504697; 416730; 62478; 380339; 380343; 496036; 97353; 947939; 444793; 655288; 387213; 387243; 293055; 352034; 376721; 449656; 371214; 388041; 932622; 404408; 511839; 382813; 300749; 645724; 643212; 1081253; 36420; 447188; 654811; 119211; 102796; 644289; 761251; 535852; 887118; 333278; 476294; 114729; 342546; 157642; 647923; 1391655; 251297; 680693; 715091; 680689; 153969; 119218; 1470614; 1171336; 1403514; 1268360; 915014; 387203; 352348; 697610; 382825; 224819; 908203; 996581; 1330339; 255682; 986174; 682728; 1332244; 1342397; 715494; 1413188; 266827; 1122279; 284190; 100835; 292590; 614035; 510222; 475478; 159471; 1663996; 680785; 1082519; 1481964; 642261; 425551; 632134; 464622; 380342; 529058; 616922; 762378; 353466; 448058; 274828; 680767; 411662; 220977; 400331; 38973; 1346336; 253686; 1310532; 453057; 383537; 380337; 380960; 1663934; 1663864; 673446; 690988; 1507381; 1289562; 352561; 558177; 270510; 476303; 266093; 1420840; 1321009; 380984; 380982; 1447813; 1451093; 2070132; 645771; 1395982; 119220; 1481966; 556277; 760591; 1285028; 1129345; 225085; 479022; 683780; 1129347; 1395524; 2026033; 311596; 514118; 119215; 1184593; 568833; 445027; 383570; 762377; 1314758; 1481987; 476261; 2019386; 1458555; 1507390; 1968303; 1968304; 2026007; 1331831; 2019571; 1507384; 243678; 1654135; 1184594; 760063; 1777792; 329606; 387165; 1933916; 187166
+5833,5833; 5843; 5835; 36329; 5846; 5836; 5839; 5837; 57266; 5848; 5840; 5842; 5841; 5834; 57270; 5838; 1036723; 1036727
+10000306,10000306
+11082,307044; 11082; 11078; 11077; 449278; 406269
+37296,37296
+10002316,10002316
+10407,10407; 10418; 10408; 106820; 106821; 10419; 2847137; 489460; 2764122; 391647; 490133; 10409; 10415; 10410; 10412; 10414; 489455; 391650; 45410; 10411; 391646; 489469; 482134; 480116
+9606,9606
+10090,10090; 10092; 57486; 39442
+10376,10376; 10377; 82830; 36352; 12509; 10378; 31525
+1980486,39002; 1980486; 11605; 1337063
+781,272944; 781
+630,630; 393305; 34054; 913028
+33708,33708; 1440122
+1773,1773; 83332; 652616; 419947; 1765; 33892; 83331; 561275; 233413; 410289; 395095; 348776; 336982; 1389959; 182785; 520141; 515617; 443149; 515616
+11103,31647; 11116; 41856; 11103; 2847144; 63746; 31645; 11104; 11105; 356417; 11108; 421877; 356426; 31653; 333284; 356114; 11113; 31650; 31649; 329389; 356386; 356410; 356418; 356424; 42182; 11115; 356416; 356421; 31644; 356415; 11110; 31654; 356411; 42792; 356413; 356391; 356419; 357355; 420174; 40271; 33745; 33746; 31655; 1053141; 595609
+337041,333760; 10618; 10585; 10586; 10598; 10587; 37120
+1980494,1980494
+46920,46920; 379963
+3707,3707
+11623,11623; 11627; 11624; 11625; 11626
+11665,11671; 11665; 11670
+10000383,10000383
+11292,11295; 11292; 103929; 11296; 37132; 11293; 11294; 11298
+12637,11064; 11060; 11070; 31634; 11069; 11053; 12637; 33741; 11066; 11065; 408871; 31635; 408688; 11059; 11062; 408870; 408686; 408685; 408694; 408691; 408693; 408692; 408690; 408687; 11067; 408689; 11057; 31637; 31636
+715,228399; 209841; 715
+1639,169963; 1639; 393133; 265669; 267409; 267410; 393124; 568819; 393117; 401650; 552536; 393130; 393126; 393128; 393125; 1334565
+12092,12092; 208726; 12098
+10000309,10000309
+666,666; 44104; 686; 127906; 345073; 345076; 345075; 345074; 45888; 243277; 412614; 412967; 412966; 417400; 417399; 404974; 345072; 592313; 417398; 412883
+10000303,10000303
+9913,9913
+10298,10298; 10301; 10306; 10304; 10299; 10309; 10308; 10303; 37107
+4182,4182
+1491,441771; 1491; 36831; 36830; 36829; 445338; 36826; 36827; 935198; 445335; 413999; 508767
+11250,11260; 208893; 11250; 11259; 11251; 11256; 11255; 11253; 11252; 410078; 79692; 208895; 253182
+11676,11685; 11676; 11678; 11686; 11701; 11696; 82834; 362651; 11695; 11704; 11689; 11688; 31678; 11698; 11679; 11690; 11687; 11703; 11706; 11697; 11705; 11683; 11694; 11708; 11699; 36375; 11684; 327105; 388799; 11682; 11681; 505186; 505184; 505185; 11691; 471721; 401671; 505228; 1345266
+10000487,10000487
+10000497,10000497
+1314,1314; 160491; 160490; 301449; 301450; 286636; 342023; 301452; 301451; 404330; 404331; 410069; 301448; 1207470; 186103; 301447
+10000323,10000323
+9755,9755
+9031,9031
+10000296,10000296
+2499680,11049
+1980471,11602; 1980471; 74943; 74942; 370830; 458678; 11583
+83554,83554; 1112258; 1112253; 1112262; 1050221; 1112244; 1112269; 1112254
+4565,4565
+11673,11673; 11674; 45409; 36372; 11675
+210,85962; 210; 102617; 85963; 637383; 992121; 1352357; 1337393; 866344; 102618; 290847
+32025,32025; 235279
+10000304,10000304
+139,224326; 139; 521007; 445985; 445983; 521009
+562,316401; 562; 83333; 217992; 83334; 37762; 362663; 364106; 168807; 155864; 585034; 478005; 478006; 478008; 525281; 331111; 344601; 386585; 511145; 340197; 340184; 358709; 405955; 340185; 316407; 199310; 331112; 481805; 244320; 316385; 340186; 679206; 344610; 1432555; 439184; 1045010; 595496; 511693
+196,32019
+10359,10359; 10363; 10360; 295027; 311339
+31604,31604; 2593991
+5811,383379; 5811; 508771; 507601; 432359; 1209523; 1209525; 398031
+10000501,10000501
+11723,11723; 31683; 11735; 11711; 11738; 11733; 11736; 31682; 11737; 31684; 11731; 160753; 11730; 11732; 11734; 224206
+5855,5855; 31273; 126793; 1035514
+1769,1769; 272631
+10001156,10001156
+10310,10310; 10315; 10313; 10312
+694009,227984; 228330; 228407; 229992; 627442; 344702; 284672; 2697049; 633137; 228415; 1508227; 2709072; 1415851; 1415852
+28875,35336; 195700; 10960; 10927; 72132; 10962; 10941; 37137; 10933; 10919; 10923; 10950; 444185; 408599; 10952; 10934; 374507; 31569; 10957; 10958; 10917; 36439; 1835656; 94432; 73036; 444186; 10915; 28875; 697298; 578831
+5861,73239; 5861; 352914
+10000299,10000299
+10000302,10000302
+138949,103903; 12072; 103906; 12077; 12073; 12067; 12071; 103905; 12076; 12075; 82639; 12078; 35293; 12060; 138949; 41846
+11089,11090; 11089; 407141; 407134; 31641; 617102
+10245,10254; 10245; 467144; 126794; 10249; 10248; 332193; 10253; 32605; 201444; 10251; 31531; 10247; 32606; 397342; 502057; 696871
+6183,6183
+632,632; 214092; 377628; 360102; 386656; 412420; 187410; 349746; 375450; 373665
+10000495,10000495
+10000494,10000494
+10000491,10000491
+10000356,10000356
+10000496,10000496
+11036,11037; 11036; 11038
+287,287; 208963; 1009714; 208964; 388272; 350704; 350703; 1081927
+1280,1280; 196620; 93062; 548470; 282458; 158879; 93061; 553583; 426430; 367830; 1458279; 451516; 867914; 359787; 451515; 1193576; 548473
+4522,4522
+10000301,10000301
+1392,260799; 1392; 486624; 486623; 486620; 261594; 486619; 191218; 405536; 198094; 486621; 568206; 592021; 212045
+9940,9940
+770,320483; 770; 234826
+10000456,10000456
+1717,1717; 257309
+5850,5850; 5851; 5852
+1985356,54290
+1678143,31767; 1678143; 31768; 185579; 63421; 509628
+10000305,10000305
+10000295,10000295
+12639,12639
+11072,11076; 11075; 11072; 11073
+10000858,10000858
+5821,5821; 5823
+8932,8932
+5693,5693; 353153; 85057
+10000373,10000373
+10000358,10000358
+1513,1513; 212717
+5664,5664; 347515
+10000297,10000297
+35797,314278
+1980456,1980456; 69248; 367400; 69247; 69245; 69246
+186539,186539; 129003; 386032
+300,300
+746128,746128; 330879; 451804
+4530,39947; 4530
+28450,28450; 272560; 320373; 425067; 357348; 360118; 320374; 441158; 441159; 441160; 331978; 320372
+28901,54388; 99287; 90371; 90370; 28901; 605; 149539; 596; 48409; 41514; 98360; 220341; 28142; 209261; 295319; 321314; 59202; 497977; 59205; 286783; 1016998; 119912; 59203; 554290; 423368; 439847; 216597; 497976; 439843; 440534; 59201; 611; 272989
+332162,332162
+223337,223337
+7955,7955
+11978,11978; 11981; 11980; 292349
+4212,4215; 4212
+186538,186538; 128952; 129000; 128951; 128947; 1891187; 1570291
+2846071,11043; 11041; 11044; 11045
+10000465,10000465
+3972,3972
+11552,11553; 11552; 224197; 374405
+10000723,10000723
+263,376619; 177416; 263; 119856; 393115; 393011; 418136; 430557; 458234; 351581
+10000761,10000761
+693997,11151; 11149; 33734; 11150; 12663; 398812; 11153; 11135; 502101; 454951
+2560645,2560645
+1467,1467
+1309,1309; 1198676; 857099; 210007
+32603,10370; 32603; 10369
+130309,28284; 10524
+10372,57278; 10372
+784,357244; 784; 334380
+7788,7788
+75985,45201
+10000385,10000385
+11269,11269; 33727; 33728; 378809; 378830
+13373,13373; 243160; 320388; 412022; 334802; 334803; 320390
+1980916,11288; 11287
+1502,1502; 195102; 107819
+1764,1764; 1770; 243243; 262316; 1391998
+6956,6956
+7154,7155; 7154
+29518,29518; 390236
+5476,5476; 237561
+33127,33127
+573,573; 484021; 272620
+1891767,1891767
+7130,7130
+11620,11622; 11620; 11621
+10366,10367; 10366; 69156; 524651
+6954,6954
+15957,15957
+3617,3617
+3505,3505
+694005,11144; 11142; 11138; 12760; 76344
+9685,9685
+7460,7460; 7469
+813,813; 315277; 272561; 580047; 634464; 672161; 759363
+10000500,10000500
+1768,1768
+623,623; 42897; 373384; 198214; 198215; 591020; 424717; 766147; 766154
+12455,12455
+10000307,10000307
+29459,29459; 224914; 520464; 703352
+11137,11137; 1739614
+194440,11908; 11926; 11927; 11928; 33747; 39015
+2499685,28344; 300559; 300563; 1965067
+12475,12475; 510670
+1511900,10798
+3645,3645
+1428,1435; 1428; 29339; 339854; 412694; 527024; 527026
+948,212042; 948
+9556,9556
+1821750,12125; 12124; 12126; 204711
+4545,4545
+63330,63330; 928303
+196403,196403; 11764
+10000353,10000353
+138950,12082; 138950; 12081; 12086; 12080; 12088; 270338; 42782
+10000388,10000388
+11079,11079; 301478
+10116,10116
+333754,10580; 10592; 10600; 31552; 10573; 333754
+11520,11520; 518987; 11521; 427826; 150127; 1077587; 184816; 11541; 256080; 206203; 504666; 335812; 224964; 171425; 503386; 504662; 504660; 504664; 107404; 107406; 461739; 464417; 289338; 604436; 416674; 11550; 279329
+13451,13451
+2169993,2169993
+83192,83192
+1980485,1980485
+1980475,74537; 1980475
+1980491,1980491; 31621; 32614
+37207,37207
+42097,42097
+1980459,1980459
+10000490,10000490
+10000499,10000499
+10000319,10000319
+12110,12114; 12118; 12110; 161727; 73482; 244367; 46290; 12112; 12121; 12116; 12117; 12113; 12115; 12120; 110195; 35292; 12123; 12111
+10000523,10000523
+11786,11795; 11801; 11791; 44561; 11786; 31687; 65690; 11790
+10000740,10000740
+10000354,10000354
+10000537,10000537
+10000442,10000442
+334203,334203; 10583
+10000455,10000455
+10000458,10000458
+11234,11234; 70146; 11235; 132487; 11236; 70149; 262307; 171264; 170529; 170525
+5679,5679
+5671,5671; 435258
+2951618,57482
+10000470,10000470
+520,520; 257313
+3988,3988
+11276,11276
+10000485,10000485
+10000483,10000483
+1642,1642
+10000507,10000507
+83555,83555; 218497
+10000471,10000471
+10000513,10000513
+11983,122929; 122928; 11984; 150080; 223997; 489821; 11983; 588533; 647514; 647515; 647519; 499191; 490039; 647521; 520963; 520964; 524364; 1156983; 747305; 1182144; 158465; 508775; 647516; 463722; 1286616; 1241973; 546980; 489822; 1665645; 416035; 1634342; 490041; 178773; 1972699; 1406148; 1182143; 332884; 1046049; 707488; 1472713; 660659; 1260941; 1498657; 1070539; 707477; 82658; 1350216; 660658; 707424; 1254407; 1291870; 1792260; 1291821; 647343; 1321999; 552592; 392172; 479063; 416039; 1320096; 1577715
+11191,11194; 11191; 11198; 11196; 302272; 11195
+10000804,10000804
+10000553,10000553
+10001884,10001884
+1767,487521; 1767
+5868,5868; 1133968
+10000472,10000472
+837,837; 1403335; 242619; 1125722; 431947
+10000000,10000000
+2560602,2560602; 11169; 11173; 1384672
+10335,10335; 10338; 341980
+29519,29519; 664662
+10000530,10000530
+35269,35269; 341946; 10430; 10433
+2170082,11096; 11098; 358769; 358805; 279150; 358812; 68621
+129951,28285; 10515; 129951; 10533
+3677,3677
+10000451,10000451
+10036,10036
+10000789,10000789
+2170080,11100; 158474; 82470; 11099; 221918; 981676
+10000857,10000857
+779,779; 254945
+10000474,10000474
+10000352,10000352
+121791,121791
+6210,6210
+10000462,10000462
+10244,10244
+5755,5755
+9598,9598
+4097,4097
+1402,1402
+10000559,10000559
+1396,1396; 405533; 451709; 451708; 405532; 405917; 451707; 405531; 269801; 226900; 526977; 572264; 526979; 347495; 526974
+11033,11033
+4932,4932; 285006; 559292; 643680
+199306,199306; 222929
+10000780,10000780
+188763,188763
+47929,47929; 103930
+120505,120505
+3847,3847
+6206,6206
+2560580,2560580; 31608
+485,485; 242231; 528354
+28327,28327; 70865
+3818,3818
+194441,11909
+27990,27990
+584,584; 529507
+45219,45219
+2169991,2169991
+2169992,2169992
+42764,42764
+46919,46919
+11629,11629
+11628,11628
+300180,300180
+10000566,10000566
+10000861,10000861
+10000560,10000560
+337042,333761; 10593; 37115; 45240; 10588; 337042; 39457
+1933187,11588
+29679,29679
+10710,10710
+10320,10323; 10320; 79889; 10324
+40834,412419
+10000505,10000505
+163164,163164
+782,782; 272947
+303,303; 351746
+1718,1718; 196627; 340322
+747,747; 272843
+197,197; 195099; 360112; 354242; 192222; 407148; 398000; 482628; 567106
+1737357,1737357
+672,672; 196600; 216895
+29461,29461; 470137; 204722
+8364,8364
+1313,1313; 170187; 373153; 171101; 914129
+10001157,10001157
+3369,3369
+10000756,10000756
+6334,6334
+10255,12870; 10255; 53258; 587200
+3656,3656
+11631,11631; 31616; 928313; 31615
+29960,29960
+10000757,10000757
+3750,3750
+3760,3760
+5599,5599
+10000506,10000506
+10000502,10000502
+10000503,10000503
+10000504,10000504
+1821749,12107; 12104
+235,235; 359391; 430066; 641140; 575591; 520450; 262698
+10000488,10000488
+10000765,10000765
+10000766,10000766
+10000767,10000767
+10000769,10000769
+10000763,10000763
+1972577,11284; 11285; 11277; 11278; 11279
+10665,10665
+10000815,10000815
+10000817,10000817
+10000818,10000818
+11263,270473; 11263
+10000386,10000386
+10000390,10000390
+10001316,10001316
+670,223926; 670; 419109; 627611; 563773
+7227,7227
+160,160; 243276
+11709,11716; 11709; 11714; 73484; 11715; 31681; 11718; 11717; 11713; 11720
+727,727; 281310; 374932; 521004; 71421; 262727; 262728; 374931; 375432; 374928; 375177; 374927; 521005; 374933
+5741,5741; 184922; 598745; 658858
+2097,2097; 243273
+32604,32604; 36351
+294,294
+785,785; 257363
+33069,33069
+550,550; 336306
+105751,105751
+5807,5807; 353152
+10243,10243; 265872
+777,777; 360117; 227377; 360116; 434922; 360115; 434923; 434924
+624,624; 300269
+2560547,11577; 11578
+306,306
+35793,35793; 272951
+615,615
+714,714
+10000411,10000411
+1334,119602; 1334
+158899,158899; 1005048
+159091,159091
+633,633; 349747; 273123
+783,783; 452659; 392021; 1105104
+1783360,1783360
+237609,237609
+1977402,1977402; 10863
+10001315,10001315
+487,487; 65699; 122586; 491; 272831; 1172206; 909420
+5759,5759; 294381; 885311
+10000329,10000329
+10000308,10000308
+337039,37112; 10614; 37111
+10381,10381
+28300,28300
+217686,217686
+10000571,10000571
+28903,28903
+1496,1496; 1169127; 645463
+8355,8355
+10000345,10000345
+2104,722438; 2104; 272634
+9544,9544
+10000453,10000453
+5660,5660; 420245
+32644,32644
+10000438,10000438
+11232,11232; 11233
+6958,6958
+337052,337052; 2758382
+1678144,1678144
+10000675,10000675
+5501,5501
+10000436,10000436
+10000420,10000420
+10000516,10000516
+8658,8658
+10000760,10000760
+10000764,10000764
+10000542,10000542
+186540,186540; 128949; 128948; 386033; 428693
+316,316
+10000328,10000328
+11084,11084; 11087; 11092
+10000520,10000520
+10000519,10000519
+10000375,10000375
+10000363,10000363
+10000457,10000457
+11660,11662; 11660; 11661; 254355
+10000855,10000855
+5825,5825; 31271
+1511862,28314; 10783
+9612,9615
+10000440,10000440
+10000759,10000759
+10561,10562
+3981,3981
+43767,43767
+5865,5865
+10000381,10000381
+6182,6182
+10000743,10000743
+60189,60189
+5858,5858
+12643,12643
+4550,4550; 155091
+10000357,10000357
+10000371,10000371
+10000555,10000555
+10000366,10000366
+10000370,10000370
+5866,5866
+10000361,10000361
+10000360,10000360
+10000362,10000362
+5827,5827; 5828
+4045,4045
+2133,2133
+1310,246202; 1310
+6204,6204
+1783,1783
+10000437,10000437
+6239,6239
+10000807,10000807
+5661,5661; 981087
+95486,350702; 331272; 95486
+12730,36412; 188538
+5682,5682
+10331,10331
+138948,39054; 150846; 69153; 31704; 138948; 86107; 42769; 103922
+44271,44271
+10000406,10000406
+10345,10349; 10345; 33703
+11864,11861; 363020; 1401444; 11864
+5659,5659
+1422,1422
+10000337,10000337
+10000550,10000550
+10326,10326
+5691,5691; 31286; 31285; 679716; 185431; 5702
+10000482,10000482
+12064,12064; 12065
+5824,5824
+3885,3885
+5667,5667
+35244,263683
+10000429,10000429
+10000424,10000424
+9823,9823; 9825
+28909,28909
+10000396,10000396
+10000525,10000525
+10000404,10000404
+10000527,10000527
+10000391,10000391
+10000524,10000524
+12657,82831
+10000526,10000526
+36936,36936
+6973,6973
+4606,4606
+10000427,10000427
+1511906,10788; 10793; 10790; 246878; 10786; 10791
+10000398,10000398
+10000449,10000449
+7787,7787
+10000378,10000378
+10000421,10000421
+10000414,10000414
+10000412,10000412
+10000413,10000413
+5064,5064
+314262,314262
+301964,301964
+10001318,10001318
+10001317,10001317
+1525,264732
+261204,261204
+10325,10325; 260965
+28873,203173; 203174; 203172; 28873
+261202,261202
+1980476,1980476
+10000536,10000536
+63673,63673
+10373,10373
+5857,5857
+9534,9534
+186541,128999; 186541
+1833,1833
+208899,208899
+33743,172148
+45455,45455
+2169994,2169994
+2169996,2169996
+44026,44026
+42358,42358
+430511,430511
+425088,425088
+8049,8053; 8049
+1980468,1980468
+86782,86782; 170955
+1980490,12557; 1980490; 11607; 11610; 280855
+1980467,1980467
+1980489,1980489
+1804,350054; 1804; 278137
+64289,64289
+64284,64284
+9593,9595; 9593
+337050,10596; 333765; 10611
+50292,50292
+53432,96045
+11215,11215
+89462,89462
+13557,13557
+1520,290402; 1520
+9014,9014
+9085,9085
+8839,8839
+188,272627
+9541,9541
+61435,243164
+12260,31715; 12260
+152794,152794; 196164
+4232,4232
+9986,9986
+4146,4146
+13415,13415
+271108,271108
+11780,11780
+4039,4039
+42229,42229
+9796,9796
+129875,28282; 129875; 10529
+10000376,10000376
+35258,35258
+7454,7454
+6192,6192
+4214,4214
+1891762,1891762; 10631
+58933,279889
+4641,4641; 214697
+3702,3702
+34245,34245
+11246,11246; 82824; 11249; 31611; 82823; 12814
+46835,46835
+4220,4220
+152480,339670
+33990,33990; 336407; 391896
+580165,580165; 315749
+1405,1405; 315730
+663,314288
+452646,452646
+6035,6035; 284813
+95342,82659; 234603
+551760,551760
+44088,44088
+42862,42862; 315456
+35791,35791; 416276
+1933264,35305
+11083,11083
+12211,12211; 12213
+622,622; 300267
+11021,11022; 11021
+10261,10261; 928301
+482957,482957
+60217,60217
+46457,46457
+731,731; 205914
+35788,35788
+29438,29438
+29442,29442
+636,636
+621,621; 344609; 300268
+154334,169974
+237895,237895
+81032,81032
+38289,38289
+2599941,2599941
+99883,99883
+28151,28151
+788,788
+787,787
+110321,110321
+1809,1809; 362242
+521,521
+651183,651183
+195,195; 306254
+57975,57975
+158,158
+292,292
+280,280; 78245
+11241,36409; 11241; 11243
+10000802,10000802
+83558,83558; 115713; 182082; 115711
+35670,35670
+80956,80956
+9600,9600
+10001886,10001886
+10000529,10000529
+10000850,10000850
+5877,5877
+1390,1390; 692420
+694014,11127; 11120; 231428; 633557; 11152
+10000853,10000853
+6207,6207
+10000824,10000824
+11809,11812
+11901,11901; 11902
+10000851,10000851
+10000848,10000848
+10000849,10000849
+11886,11886
+10000835,10000835
+171929,171929
+173,267671; 173; 189518; 214675; 44275; 44276; 57678; 211882; 1279460
+10000843,10000843
+40697,40697
+10000859,10000859
+10000864,10000864
+5722,5722
+10000828,10000828
+5802,5802
+121759,121759; 502780
+10000801,10000801
+5076,5076
+10000405,10000405
+7957,7957
+5551,5551
+1891763,10632
+10000865,10000865
+10000833,10000833
+1349,1349
+10000829,10000829
+6978,6978
+13187,13187
+51240,51240
+10000836,10000836
+10000814,10000814
+10000794,10000794
+10000795,10000795
+10000797,10000797
+10000777,10000777
+10000781,10000781
+10000793,10000793
+10000798,10000798
+10000790,10000790
+10000782,10000782
+10000786,10000786
+10000779,10000779
+10000783,10000783
+10000796,10000796
+10000788,10000788
+10000778,10000778
+10000787,10000787
+10000791,10000791
+10000792,10000792
+10000784,10000784
+10000785,10000785
+10000775,10000775
+10000776,10000776
+10000856,10000856
+10000852,10000852
+10000293,10000293
+10000467,10000467
+10000447,10000447
+10000444,10000444
+10000445,10000445
+1176484,292348
+271,271
+11086,36386; 11086
+8996,8996
+11029,11032; 11029
+10000439,10000439
+2499620,11047; 299386
+10000535,10000535
+10000294,10000294
+10000809,10000809
+11080,11081; 11080
+10000842,10000842
+1980917,11290
+10000394,10000394
+3728,3728
+6454,6454
+40051,10906; 10904; 33717; 40051; 33718; 35327; 94967; 35330; 10900; 10903; 35329; 197780; 45029; 94966; 35331
+10000840,10000840
+11216,11217; 11216
+10000825,10000825
+10000971,10000971
+10000820,10000820
+10000382,10000382
+2008762,2847087
+83560,243161; 83560
+1004253,1004253
+10000960,10000960
+1891730,1891730; 10636; 157703
+28295,28295; 229032
+28869,28869
+2169971,2169971; 12750; 11742; 11743; 36374
+10000515,10000515
+12618,12618
+10000965,10000965
+10995,10995; 31560; 10997; 10996
+5875,333668; 5875
+1307,1307
+6282,6282
+88087,88087
+10000968,10000968
+310542,310542
+1646,1646
+10000768,10000768
+162145,162145
+10000969,10000969
+147711,12130; 12134; 12132; 185905; 31708; 185907; 185894; 147711; 650130
+10000987,10000987
+694003,11128; 31631; 233262; 2501420; 694003; 215681
+12162,12162
+2110,347257
+1317,1317
+480,480; 857571
+10000773,10000773
+2560319,2560319; 11178; 11180; 11177; 11186; 351071
+10000972,10000972
+1254,1254
+8616,8616
+6878,6878
+329852,12022
+11768,11824; 11769
+11827,11827
+10000979,10000979
+10000980,10000980
+10000514,10000514
+10000556,10000556
+10000991,10000991
+10000989,10000989
+11034,11034
+10000986,10000986
+10000992,10000992
+10000993,10000993
+10000994,10000994
+10000995,10000995
+12242,12242; 12246; 12243
+10001000,10001000
+185782,128987
+10001003,10001003
+10001004,10001004
+10000888,10000888
+10000816,10000816
+12216,12216; 12220; 12219
+5874,5874; 353154
+12264,12264
+6858,70175; 6858
+10000860,10000860
+1404,1404
+6887,6887
+10001002,10001002
+147712,12131
+10000484,10000484
+6269,6269
+10000964,10000964
+10754,10754
+72539,72539
+43763,292633; 43763
+10001006,10001006
+13618,13618
+2170081,54315
+157914,157914
+4571,4567
+13101,13101
+10001025,10001025
+10001020,10001020
+38170,38171; 253446; 77153
+7444,7444
+10001021,10001021
+99586,99586
+108098,45659; 343462; 10541; 10519; 108098; 714978; 10521; 343463
+10001027,10001027
+769,769; 574556
+55951,55951
+2843841,10479
+10001040,10001040
+10001028,10001028
+263815,263815
+4754,4754
+2499678,11048; 300016; 300015
+1803956,12063; 195055; 1803956
+11855,11942; 39068
+3758,3758
+36596,36596
+10001039,10001039
+8752,8753
+29176,29176; 572307
+342409,92652; 342409
+1511891,10804; 202813; 235455; 202812; 85106; 57579; 68558
+10001049,10001049
+10001050,10001050
+10001051,10001051
+10001078,10001078
+10001077,10001077
+46221,46221
+10001044,10001044
+266,266; 318586
+10001047,10001047
+10001042,10001042
+10001085,10001085
+10000544,10000544
+5039,5039; 447095; 653446
+10001053,10001053
+5141,5141
+8654,8654
+10001055,10001055
+10001057,10001057
+10001058,10001058
+88086,88086
+8030,8030
+10001121,10001121
+10000845,10000845
+1336,1336
+8722,8722
+31721,31721
+11757,11757
+35288,35288
+10001081,10001081
+36427,101350
+2096,1006581
+10864,10864
+369960,194958; 61673; 194959
+10001091,10001091
+65743,65743
+35275,35275
+40050,117204; 36421
+10001100,10001100
+12161,12161
+85708,85708; 85709; 86385
+133704,133704
+1933300,1933300
+10001116,10001116
+10001118,10001118
+6690,6690
+6248,6248
+8731,8732
+3567,3567
+2169986,2169986
+6184,6184
+35297,35297
+10001130,10001130
+2560525,11214; 2560525
+10001138,10001138
+10001140,10001140
+10001032,10001032
+37128,37128
+6299,6299
+8656,8656
+12305,12305; 117125
+10000460,10000460
+2111,2111
+10001141,10001141
+8657,8657
+28375,28375
+146500,148360
+1303,1303
+10001154,10001154
+8671,8671
+8663,8663
+8704,8704
+8706,194601
+8668,8667
+10002289,10002289
+1985738,10760
+10879,10879
+10497,10497; 10498; 874269
+10001149,10001149
+10001145,10001145
+10001155,10001155
+10001162,10001162
+5872,5872
+10001056,10001056
+7441,7441
+6491,6491
+6492,6492
+6493,6493
+6495,6495
+12145,12146
+10001209,10001209
+10001210,10001210
+37124,37124; 371094
+10001207,10001207
+4498,4498
+2439,2439
+2465,2465
+8655,8655
+10566,10566
+10001213,10001213
+2099,2099; 295358; 262722; 754503
+10001216,10001216
+10273,10273
+130310,31545; 28276; 46921; 46941
+6279,6279
+10001215,10001215
+645,645; 29491
+1352,1352; 333849
+10001225,10001225
+1351,1351
+10001223,10001223
+10001008,10001008
+76777,76777
+5801,5801
+205075,205075
+1980465,169173
+240426,240426
+304399,305674
+368445,368445
+236,444178; 236
+159479,159479
+32049,32049
+471223,471223
+465541,465541
+408580,441769
+1980519,1980519; 652961
+1980463,1980463
+139445,139445
+169174,169174
+10276,10276
+1980480,238817
+308159,308159; 308061
+10001238,10001238
+28227,28227
+None,None
+1511910,10796
+360549,360549
+9798,9798
+10029,10029
+10141,10141
+884045,884045
+329091,329091
+16719,16719
+3352,3352
+4113,4113
+4577,4577; 76912
+4081,4081
+29780,29780
+3708,3708
+2021,269800
+55194,55194
+29760,29760
+298,298
+1423,1423; 224308; 535026
+69008,69008
+39584,39584
+453927,453927
+49011,49011
+71647,71647
+30215,30215
+556,556
+145262,145262; 187420
+11085,11085
+2951978,11307
+2234,2234
+6253,6253
+388634,388634
+6925,6925
+382,382; 266834
+945780,945782
+2190,2190; 243232
+7386,7386
+56636,56636
+63363,63363; 224324
+29292,29292
+7165,7165; 180454
+80859,80859
+5503,5503
+10001307,10001307
+10001308,10001308
+945,945; 205920
+944,944; 269484
+10623,10623
+13286,13286
+122291,122291
+337049,51033
+337044,10595; 333762; 37121
+1891729,1891729
+511,511
+337043,337043; 333751
+333926,10617
+10001335,10001335
+333757,10620; 10615
+337048,333763
+11318,11318
+1311,1311; 211110; 208435; 342614
+55601,55601
+7453,7453
+35795,35795
+10001392,10001392
+10001396,10001396
+1891770,10638
+351073,351073; 10884
+6661,6661
+272636,272636
+45617,45617; 64382
+87786,62805; 89382; 87786
+659,659
+543824,543824
+1744,1752
+5061,5061
+9548,9548
+1320,1320
+5334,5334
+1946,1946
+471,471
+28448,28448
+10001439,10001439
+9337,9337
+38020,38020
+10000518,10000518
+5665,5665; 929439
+1902,1902; 100226
+10891,10891
+358,358
+5067,5067
+185949,185949
+48483,48483
+106590,381666
+1063,1063; 272943; 349101
+1778,1778
+554,561230; 554
+2148,2148
+354,354; 322710
+11039,11039
+1828,1828
+5207,5207; 283643; 235443
+1584,1585
+1358,1358
+10001456,10001456
+2560586,152219
+58218,58218
+274,274; 300852; 262724
+49338,272564
+2978683,2978683
+1643,386043
+150340,150340
+634,349968
+33060,349967
+1980442,1980442
+29484,349966
+10001459,10001459
+1527299,1527299
+205488,205488
+44755,44755
+202950,202950
+60876,60876
+99000,132475
+703,703
+37347,37347
+103448,103448
+70203,70203
+44689,44689
+31330,31330
+155615,209882
+91465,91465
+5270,237631
+38323,283166; 38323
+117207,317655
+29497,314291
+1076,316056; 1076
+891,281689
+286540,286542
+661,314292
+263511,165597
+119219,266264
+393662,314285
+1206,203124
+266779,266779
+985,269798
+288,342610
+1542,386415
+28871,28871
+332163,234267
+351745,351745
+1359,272622
+216465,365044
+28049,351607
+105560,420662
+62322,325240; 62322
+60552,269482; 60552
+24,319224
+1515,203119
+1355477,1355477
+1108,324602
+36855,483179; 36855
+786,293614
+298653,298653
+216816,205913
+46681,370354
+470,470; 400667; 509173
+272131,63737
+314275,314275
+693153,575788
+259354,439235
+252307,313596
+1776082,358708
+201,306263
+9601,9601
+129956,10530
+68887,68887; 167758; 487067; 486280
+11002,11002
+29320,29320
+446,446; 66976
+240125,525368
+9054,9057
+12480,10574
+7137,7137
+1638,1638
+6859,6860
+9103,9103
+6594,6594
+1305,1305
+10001431,10001431
+51031,51031
+9627,9627
+3517,3517
+134537,134537
+62330,62330
+10001412,10001412
+10001573,10001573
+10001578,10001578
+10001586,10001586
+10001587,10001587
+334426,334426
+1916,1916
+10001019,10001019
+4509,4509
+29661,29661
+10001133,10001133
+10001606,10001606
+110539,350058
+1747,1747; 1091045
+164756,164756
+13616,13616
+9509,9509
+9483,9483
+630277,630277
+59729,59729
+9258,9258
+8855,8855
+8022,8022
+8255,8255
+10000961,10000961
+10001615,10001615
+10001614,10001614
+10001616,10001616
+10001617,10001617
+10001618,10001618
+6293,6293
+10001624,10001624
+114742,114742
+10001583,10001583
+8845,8845
+10000477,10000477
+10001635,10001635
+6945,6945
+7160,7160
+10001642,10001642
+10001648,10001648
+10001649,10001649
+10001150,10001150
+6203,6203
+3864,3864
+1260,1260
+6850,6850
+10000662,10000662
+10000055,10000055
+10001798,10001798
+10001800,10001800
+10001761,10001761
+10001762,10001762
+10001763,10001763
+10001764,10001764
+10001582,10001582
+2116544,2116544
+1511913,289365
+10001771,10001771
+10000728,10000728
+10000548,10000548
+10001619,10001619
+6100,6100
+8018,8018
+10000862,10000862
+10000463,10000463
+10001879,10001879
+10001887,10001887
+10001888,10001888
+6687,6687
+3755,3755
+32201,32201
+313627,313627
+55518,431944
+10001894,10001894
+10001895,10001895
+10001902,10001902
+29918,29918
+13469,13469
+28479,28479
+39414,39414
+3513,3513
+151250,151250
+10001918,10001918
+1511895,38251; 37325
+34632,34632
+10001243,10001243
+33178,33178; 341663
+10000832,10000832
+312,312
+312185,650131
+10001929,10001929
+10001930,10001930
+42345,42345
+38873,38873
+29715,29715
+74722,74722
+5077,5077
+1980481,1980481
+1239567,1239567
+10001934,10001934
+1891726,493803; 1891726
+10001768,10001768
+10001944,10001944
+10001943,10001943
+10001945,10001945
+10001946,10001946
+10001964,10001964
+10001967,10001967
+10001973,10001973
+6941,6941
+34631,34631
+6339,6339
+10000355,10000355
+37682,37682
+4573,4573
+4568,4568
+1574408,9864
+10001997,10001997
+147272,147272
+10001999,10001999
+10002000,10002000
+86600,86600
+6689,6689
+61466,61466
+10114,10114
+57282,57282
+10002007,10002007
+10002008,10002008
+10002009,10002009
+10002011,10002011
+10000369,10000369
+307456,46015
+10002010,10002010
+10000549,10000549
+10000806,10000806
+104102,104102
+31276,31276
+658655,658655
+1265,1265
+1681,1681
+296587,296587
+10002015,10002015
+10847,10847
+10002020,10002020
+10002018,10002018
+10001102,10001102
+36809,1198627; 36809
+10002022,10002022
+687386,687386; 1225860
+1218488,1218488
+10002026,10002026
+9860,9860
+10002006,10002006
+10002027,10002027
+10002028,10002028
+10001881,10001881
+10001705,10001705
+10001965,10001965
+3816,3816
+8726,8726
+565995,565995
+83810,83810
+47000,47000
+337051,333923
+35345,35345
+58217,58217
+58216,58216
+85552,85552
+333766,1671798
+687347,687347
+687343,687343
+687383,687383
+687353,687353
+687366,687366
+687365,687365
+687358,687358
+687367,687367
+687342,687342
+136966,136966
+687341,687341
+687355,687355
+687368,687368
+687364,687364
+687346,687346
+687363,687363
+687340,687340
+687354,687354
+7394,37546
+687345,687345
+687359,687359
+687382,687382
+687360,687360
+687362,687362
+2846472,687385
+2846480,687384
+687350,687350
+93678,93678
+687369,687369
+687375,687375
+687371,687371
+687376,687376
+1511892,82300
+2560743,1133363; 1318464
+8005,8005
+10002052,10002052
+51313,148363
+39152,39152; 267377
+10002056,10002056
+11636,11636
+738,738; 1117322; 557723
+1511871,689403; 638313
+1511872,573977
+10000408,10000408
+7515,7515
+170325,170325
+28130,28130
+338188,338188
+329854,329854
+1018,1018
+1898104,1898104
+1019,1019
+817,817
+870484,870484
+214856,214856
+43765,43765
+40214,40214
+1641,1641
+10002069,10002069
+1408,1408
+9925,9925
+33706,33706; 103920
+387093,387093
+337090,337090; 340177
+1268303,1268303
+88036,88036
+450,661367
+571949,1178016
+8090,8090
+2066,452652
+190898,1286635
+3067,3068
+29362,29362
+33934,33934
+35725,1126212; 35725
+2903,280463; 2903
+384,384
+106,761193; 106
+138336,1146883
+261658,261658
+1005962,871575; 1005962
+83455,1278073; 83455
+79880,66692
+82508,1186058
+4513,4513; 112509; 77009
+10002079,10002079
+1335626,1235996; 1335626; 1263720
+10002082,10002082
+12232,12232
+57372,57372
+1772,246196; 1772
+339268,1041522
+189918,189918
+164757,164757
+875328,875328
+1781,216594; 1781
+1463841,1463841
+742503,742503
+28080,306264
+3888,3888
+57068,57068
+9580,9580
+131568,266940
+566466,566466
+71238,71238
+34862,34862
+313589,313589
+93621,93621
+1380386,1380386
+9978,9978
+370405,395494
+121723,121723
+59538,59538
+312306,384676
+59799,59799
+44001,351627
+60879,60879
+29543,338966
+226899,655863
+374838,314283
+10317,10317
+11966,11966
+9538,9538
+9597,9597
+1282,525374; 176279
+1102,290512
+524,349163; 524
+774,360095; 774
+220837,220837
+392734,392734
+10002112,10002112
+10002111,10002111
+29388,29388
+376805,667015
+1488,272562
+162,754027
+1027,313606
+87883,87883
+2039,2039
+955,955
+89586,89586
+10002129,10002129
+10001636,10001636
+10002123,10002123
+10002089,10002089
+54390,54390
+38033,38033
+8613,8613
+46771,46771
+571800,571800
+410072,410072
+29355,29355
+671,671
+85698,85698
+72556,72556
+280240,280240
+231455,231455
+81475,81475
+1270,1270
+122355,122355
+203192,203192
+743722,743722
+1214225,1214225
+1045775,1045775
+108,108
+1022,1022
+29507,29507
+6238,6238
+7237,46245
+7234,7234
+246437,246437
+5762,5762
+15368,15368
+6938,6938
+265619,265619
+10002132,10002132
+76832,76832
+97477,97477
+316068,316068
+29447,29447
+1604,1604
+60893,60893
+730,730
+1006,1006
+920,920
+549169,549169
+548,548
+1176145,763552
+5037,447093; 5037
+1498499,1498499
+161600,161600
+28108,28108
+304895,304895
+502790,502790
+940614,940614
+75922,75922
+62319,62319
+1464048,1464048
+386056,386056
+129052,129052
+1795,1795
+644,644
+1599,1599
+28038,28038
+10002148,10002148
+234,234
+68909,68909
+9874,9874
+10002151,10002151
+10002152,10002152
+10002165,10002165
+818,226186; 818
+10002169,10002169
+10001161,10001161
+322053,322053
+270478,270478
+29271,29271
+11976,11976
+32278,32278
+8725,8725
+33940,420246
+180498,180498
+316287,316287
+64320,64320; 2043570; 2316109
+55097,55097
+95602,95602
+333367,333367
+10002178,10002178
+1299,1299; 243230
+10390,10390; 33707
+1982365,543153
+4558,4558
+69820,69820
+7108,7108
+46242,46242
+129727,129727
+334205,10589
+6853,6853
+3562,3562
+10002183,10002183
+2242,2242
+55513,55513
+10002195,10002195
+10002196,10002196
+64495,64495
+10002197,10002197
+2851130,2851130
+674,674
+10000890,10000890
+64293,1399582; 64293; 1002900
+463676,1219377; 463676
+1239565,12701; 43358
+1476909,1476909
+328671,328671
+328670,328670
+1016853,1016853
+1016852,1016852
+83262,83262
+655809,619693
+2287,2287
+11746,11746
+6728,6728
+121225,121224
+79923,79923
+1285902,1285902
+420521,420521
+7719,7719
+10002238,10002238
+39803,39803
+30069,30069
+515817,515817
+1263102,1263102
+371601,371601
+820,820
+246618,246618
+1292,1292
+40324,40324
+6421,6421
+53182,53182
+7962,7962
+10002090,10002090
+10000528,10000528
+9844,9844
+57667,57667
+2678873,2678873
+5692,5692
+10000547,10000547
+1661,1661
+333767,171370
+2748958,1003835
+88085,88085
+85991,1427371; 85991; 331635
+130308,28280
+10001627,10001627
+10002190,10002190
+545650,1398154
+46506,46506
+83557,83557; 227941
+83556,83556; 264202
+1457141,1229831; 1457141
+1457153,1457153
+83559,83559; 1405296
+72004,72004
+320667,320667
+72664,72664
+81985,81985
+159449,159449
+3711,3711
+10002273,10002273
+8624,8620
+1836,1836
+8554,8554
+1895,1895
+543,543
+37326,37326
+92637,655827; 92637
+199738,199738
+6761,6761
+30538,30538
+190063,130663; 190063
+138951,42789; 138951
+947,947
+2029108,2029108
+8724,8724
+1891727,862909
+1564681,1564681
+10002285,10002285
+10703,10703
+28197,367737
+77643,77643
+267212,267212
+1613,1613
+413502,413502
+67351,67351
+28172,28172
+691956,1006061
+29159,29159
+2487134,2487134
+1855372,1855372
+286,286
+1897087,1885248
+1432052,1432052
+1898203,1898203
+28131,28131
+77095,77095
+444922,444922
+78579,573729
+10678,10678
+11642,11963; 298339; 41858; 288118; 11642
+2170193,221703
+2170197,2170197
+338079,338079
+2170200,2170200
+2170206,2170206
+2170201,2170201
+79698,79698
+92050,92050
+89946,307685
+13677,13677
+5699,1055687
+2336,243274
+333990,333990
+1566298,1566298
+10002287,10002287
+1664,1664
+338478,338478
+10042,10042
+10002188,10002188
+2736,2736
+1330520,269638; 1330520
+9402,9402
+10000067,10000067
+5060,5060
+190065,586029
+2115988,2115988
+2100,2100
+2747316,1763596
+10258,10258; 75325
+905828,707882
+47466,47466
+33959,33959
+345840,345840
+10002144,10002144
+402648,402648
+131110,131110
+1965089,1586324
+59300,59300
+29073,29073
+33075,33075
+1380865,1380865
+10493,160691
+851,851
+204038,204038
+1236180,1236180
+1566201,1566201
+469,469
+387090,387090
+171,171
+10002301,10002301
+694007,424362; 694007
+694008,694008
+694006,694006
+693999,693999
+10002308,10002308
+10002310,10002310
+10002309,10002309
+10002313,10002313
+9545,9545
+419612,419612
+10002317,10002317
+2846271,71366
+1685,1685
+2008766,1562038
+1281454,1281454
+5970,5970
+36914,36914
+176275,176275
+5325,5325
+37769,37769
+13684,13684
+588596,588596
+5059,5059
+1209926,1209926
+215243,215243
+91626,91626
+4954,4954
+563466,563466
+68825,68825
+1047168,1047168
+4920,4920
+42374,42374
+86049,86049
+456999,456999
+114497,114497
+162425,162425; 227321
+708187,708187
+559561,559561
+5580,5580
+2282107,2282107
+2502994,2502994
+36911,36911
+77044,77044
+1071379,1071379
+58291,58291
+2594813,2594813
+1173701,1173701
+104355,104355
+85929,85929
+5346,5346
+1631247,1631247
+446679,446679
+632955,632955
+863370,863370
+479935,479935
+1133319,1133319
+487317,487317
+2478486,2478486
+447106,447106
+1179777,1179777
+1501332,1501332
+1193095,1193095
+153496,153496
+208226,208226
+283877,283877
+1898112,1898112
+106654,106654
+54736,54736
+311410,311410
+138072,138072
+89059,89059
+1943,1943
+346,346
+2707005,2707005
+1978231,1978231
+2066070,2066070
+2024894,2024894
+37734,37734
+200454,200454
+5057,5057
+5482,5482
+5507,5507
+36080,36080
+29908,29908
+1492,1492
+439220,439220
+28037,28037
+12274,12274
+58866,37731
+1622,1235801
+34610,34610
+44386,44386
+30011,30011
+593106,593107
+1868221,1868221
+28446,28446
+97253,1235802; 97253
+239935,349741; 239935
+6211,6211
+3559,3559
+129788,129788
+215358,215358
+759851,759851
+273371,273371
+133926,133926
+1454,1454
+284581,284581
+118161,118161
+545501,545501
+127886,127886
+1386,1386
+2492960,2492960
+519424,519424
+41997,41997
+390157,390157
+12721,12721
+290028,290028; 443240; 443239; 443241
+277944,277944
+2501960,1590370
+1160968,1160968
+3346,3346
+6198,6198
+59301,59301
+10002329,10002329
+10002345,10002345
+2261,2261
+696863,696863
+2560288,2016463
+2016461,2016461
+2016460,2016460
+10002359,10002359
+1868482,1868482
+10002321,10002321
+10002360,10002360
+10002361,10002361
+10002365,10002365
+649756,649756
+203,203
+200,200
+39483,39483
+123841,123841
+35818,35818
+47770,47770
+194326,194326
+907,907
+868131,868131
+2173,2173
+507750,507750
+626940,626940
+363265,363265
+28137,28137
+166486,166486
+33039,33039
+10002370,10002370
+10002371,10002371
+10002380,10002380
+10002244,10002244
+10537,10514
+10002384,10002384
+1173018,1173018
+10000632,10000632
+2170090,1914447
+106276,106276
+6252,6252
+10000532,10000532
+51022,51022
+36087,36087
+53326,53326
+29170,29170
+10002270,10002270
+10002414,10002414
+328812,328812
+2044587,2044587
+2030927,2030927
+2044939,2044939
+2049047,2049047
+97138,97138
+10001662,10001662
+10001680,10001680
+123734,123734
+2015376,2015376
+10002408,10002408
+10368,10368
+10002444,10002444
+558553,558553
+2708335,2708335
+1508220,1508220
+2734478,11590
+10002180,10002180
+209285,209285
+265606,243090
+2277,2277
+10002332,10002332
+2170083,56950
+10000431,10000431
+1933298,1933298
+10000432,10000432
+10002442,10002442
+10002484,10002484
+10002330,10002330
+10002394,10002394
+2499677,1118369
+165179,165179
+2238,272569
+10000225,10000225
+10002407,10002407
+10002120,10002120
+1719,1719
+10002450,10002450
+2026800,2026800
+2584949,2584949
+2900548,2900548
+1913988,1913988
+1716,1716
+1849603,1849603
+10002131,10002131
+10002508,10002508
+10002534,10002534
+10002530,10002530
+1349999,1349999
+10002525,10002525
+199,199
+75658,75658
+1134687,1134687
+59779,59779
+256839,256839
+69218,69218
+152682,152682
+1660,1660
+539,539
+47845,47845
+502,502
+1302,1302
+1531,1531
+218538,218538
+39950,39950
+158836,158836
+39778,39778
+29466,29466
+2702,2702
+344880,344880
+29380,29380
+1223514,1223514
+28035,28035
+2136182,2136182
+821,821
+357276,357276
+28116,28116
+36845,36845
+1590,1590
+1605,1605
+33038,33038
+983929,983929
+2501929,1920748
+10002533,10002533
+7004,7004
+10224,10224
+79327,79327
+30522,30522
+7741,7741
+5116,660469
+696859,573199
+13818,13818
+117260,117260
+99806,99806
+7959,7959
+4792,4792
+4784,4784
+502049,502049
+2015173,2015173
+469009,469009
+3625,3625
+43335,43335
+4120,4120
+3055,3055
+10002561,10002561
+10002558,10002558
+10002524,10002524
+6313,6313
+10002570,10002570
+2032731,2032731
+2787823,2787823
+10002579,10002579
+10002580,10002580
+10002528,10002528
+10002583,10002583
+10002598,10002598
+10002603,10002603
+10002600,10002600
+10002633,10002633
+32630,32630
+10002653,10002653
+10002655,10002655
+10002652,10002652
+10002654,10002654
+10001235,10001235
+83816,83816
+10002657,10002657
+10002667,10002667
+10002661,10002661
+10002532,10002532
+10002644,10002644
+82348,82348
+10002672,10002672
+10002686,10002686
+10002687,10002687
+10002665,10002665
+10002682,10002682
+10002683,10002683
+74437,74437
+10002382,10002382
+10002694,10002694
+10002695,10002695
+10002696,10002696
+10002691,10002691
+10002697,10002697
+37332,37332
+10002526,10002526
+10002707,10002707
+10002709,10002709
+10000996,10000996
+1159908,1159908
+1159907,1159907
+1159904,1159904
+10002410,10002410
+10002611,10002611
+246787,246787
+2212467,2212467
+85831,85831
+46503,46503
+674529,674529
+871325,871325
+328814,328814
+823,823
+853,853
+408657,408657
+88431,88431
+33025,33025
+351091,351091
+2485925,2485925
+160808,160808
+387661,387661
+2770637,2770637
+1812858,1812858
+1472417,1472417
+10002766,10002766
+1796646,1796646
+29523,29523
+1534553,2233538
+10002774,10002774
+10002775,10002775
+174,338220; 280504
+686984,686984; 1002921
+10002723,10002723
+10002721,10002721
+10002731,10002731
+10002742,10002742
+10002725,10002725
+10002730,10002730
+10002738,10002738
+10002732,10002732
+10002741,10002741
+10002726,10002726
+10002717,10002717
+10002729,10002729
+10002739,10002739
+10002756,10002756
+10002720,10002720
+10002750,10002750
+10002748,10002748
+10002760,10002760
+10002757,10002757
+10002745,10002745
+10002733,10002733
+10002718,10002718
+10002724,10002724
+10002758,10002758
+10002754,10002754
+10002755,10002755
+10002746,10002746
+10002719,10002719
+10002722,10002722
+10002562,10002562
+10002751,10002751
+10002626,10002626
+10002752,10002752
+10002749,10002749
+10002735,10002735
+10002747,10002747
+10002740,10002740
+10002728,10002728
+10002753,10002753
+10002759,10002759
+10002734,10002734
+10002737,10002737
+10002744,10002744
+10002727,10002727
+10002736,10002736
+10002325,10002325
+10002715,10002715
+10002716,10002716
+10002785,10002785
+10002597,10002597
+10002794,10002794
+10002676,10002676
+10002181,10002181
+10002324,10002324
+469613,469613
+10002567,10002567
+10002802,10002802
+10002455,10002455
+10002376,10002376
+10002807,10002807
+10002809,10002809
+10002810,10002810
+10002502,10002502
+10002677,10002677
+693998,693998
+2050018,2050018
+1965093,1385427
+983924,983924
+10002334,10002334
+9305,9305
+472390,472390
+10002815,10002815
+10002816,10002816
+129470,129470
+35792,35792
+33989,33989
+2034996,1549864
+10002854,10002854
+10002853,10002853
+2834876,2834876
+6819,6819
+257758,257758
+76859,469601
+95648,95648
+92438,92438
+72558,999809
+1895866,1895866
+765414,765414
+45235,45235
+285,285
+329,1366050
+1380362,1380362
+1337054,1337054
+29430,707232
+1449063,1449063
+487316,487316
+28132,28132
+10002065,10002065

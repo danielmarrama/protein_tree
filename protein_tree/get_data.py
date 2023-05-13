@@ -18,24 +18,29 @@ class DataFetcher:
       all_taxa: List of all children taxa for a species from the IEDB.
     """
     all_taxa = all_taxa.replace(';', ',')
-    sql_query = f"""
-                SELECT object.mol1_seq, object.mol2_name, object.mol2_accession
-                FROM epitope, object
-                WHERE epitope.e_object_id = object.object_id
-                AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
-                AND object.organism2_id IN ({all_taxa});
-                UNION
-                SELECT object.mol1_seq, object.mol2_name, object.mol2_accession
-                FROM epitope, object
-                WHERE epitope.related_object_id = object.object_id
-                AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
-                AND object.organism2_id IN ({all_taxa});
-                """
+    sql_query1 = f"""
+                  SELECT object.mol1_seq, object.mol2_name, object.mol2_accession
+                  FROM epitope, object
+                  WHERE epitope.e_object_id = object.object_id
+                  AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
+                  AND object.organism2_id IN ({all_taxa});
+                  """
+    sql_query2 = f"""
+                  SELECT object.mol1_seq, object.mol2_name, object.mol2_accession
+                  FROM epitope, object
+                  WHERE epitope.related_object_id = object.object_id
+                  AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
+                  AND object.organism2_id IN ({all_taxa});
+                  """
     
     with self.sql_engine.connect() as connection:
-      result = connection.execute(text(sql_query))
-      epitopes_df = pd.DataFrame(result.fetchall(), columns=['Sequence', 'Source Name', 'Source Accession'])
-      epitopes_df.drop_duplicates(subset=['Sequence', 'Source Name', 'Source Accession'])
+      print('Fetching epitopes...')
+      result1 = connection.execute(text(sql_query1))
+      result2 = connection.execute(text(sql_query2))
+
+      df1 = pd.DataFrame(result1.fetchall(), columns=['Sequence', 'Source Name', 'Source Accession'])
+      df2 = pd.DataFrame(result2.fetchall(), columns=['Sequence', 'Source Name', 'Source Accession'])
+      epitopes_df = pd.concat([df1, df2], ignore_index=True)
     
     return epitopes_df
 
@@ -49,8 +54,11 @@ class DataFetcher:
     all_taxa = all_taxa.replace(';', ',')
     sql_query = f'SELECT source_id, accession, name, sequence '\
                 f'FROM source WHERE organism_id IN ({all_taxa});'
-    columns = ['Source ID', 'Accession', 'Name', 'Sequence']
-    sources_df = pd.DataFrame(self.sql_engine.connect().execute(text(sql_query)), columns=columns) 
+
+    with self.sql_engine.connect() as connection:
+      print('Fetching source antigens...')
+      result = connection.execute(text(sql_query))
+      sources_df = pd.DataFrame(result.fetchall(), columns=['Source ID', 'Accession', 'Name', 'Sequence'])
     
     return sources_df
 
@@ -82,8 +90,7 @@ def main():
 
     # get epitopes and source antigens
     epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
-    print(epitopes_df)
-    # sources_df = Fetcher.get_sources(all_taxa_map[taxon_id])
+    sources_df = Fetcher.get_sources(all_taxa_map[taxon_id])
 
     # create directory for species and taxon ID
     species_path = parent_dir / '..' / 'species' / f'{taxon_id}-{species_name_map[taxon_id].replace(" ", "_")}'

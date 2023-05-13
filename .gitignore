@@ -12,6 +12,7 @@ hugo_symbol_map.csv
 human_proteome.csv
 id_to_gene_name.tsv
 makeblastdb
+mmseqs
 protein_tree/sql_engine.py
 protein_tree.ipynb
 protein_tree.txt
