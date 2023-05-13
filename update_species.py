@@ -32,10 +32,11 @@ def update_species_data(user: str, password: str) -> None:
   sql_engine = create_sql_engine(user, password)
   with sql_engine.connect() as connection:
     result = connection.execute(text(sql_query))
-    organism_ids = pd.DataFrame(result.fetchall(), columns=['organism_id']).astype(str)
+    organism_ids = pd.DataFrame(result.fetchall(), columns=['organism_id'])
+    organism_ids = organism_ids[organism_ids['organism_id'].notna()] # remove null organism IDs
 
     species = {} # map species taxon to all children organism IDs
-    for organism_id in organism_ids['organism_id']:
+    for organism_id in sorted(organism_ids['organism_id'].astype(int)):
       species_id = get_species_taxon_id(connection, organism_id)
       if species_id not in species:
         species[species_id] = []
@@ -46,7 +47,7 @@ def update_species_data(user: str, password: str) -> None:
     species_df.to_csv('species.csv', index=False)
 
 
-def get_species_taxon_id(connection: Connection, organism_id: str) -> str:
+def get_species_taxon_id(connection: Connection, organism_id: int) -> str:
   """
   Get the parent species taxon ID for an organism ID from the organism table.
 
