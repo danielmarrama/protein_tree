@@ -37,6 +37,7 @@ def update_species_data(user: str, password: str) -> None:
 
     species = {} # map species taxon to all children organism IDs, is_vertebrate, and group
     for organism_id in organism_ids['organism_id']:
+      print(organism_id)
       species_data = get_species_data(connection, organism_id)
       
       if species_data[0] not in species:
@@ -53,28 +54,39 @@ def update_species_data(user: str, password: str) -> None:
 
 def get_species_data(connection: Connection, organism_id: str) -> tuple:
   """
-  Get the parent species taxon ID for an organism ID from the organism table.
+  Using the organism taxon ID from the IEDB backend, get the parent species
+  taxon ID, the superkingdom, and whether or not the species is a vertebrate. 
 
   Args:
     connection: IEDB MySQL backend connection.
-    organism_id: Organism ID.
+    organism_id: Organism taxon ID.
   """
-  groups = {'2': 'Bacteria', '2157': 'Archaea', '2759': 'Eukaryota', '10239': 'Viruses'} 
   path_query = """
               SELECT path
               FROM organism
               WHERE tax_id = :organism_id
               """
-  result = connection.execute(text(path_query), {"organism_id": organism_id})
+  result = connection.execute(text(path_query), {"organism_id": str(organism_id)})
   path = result.fetchone()
   
   if path is None:
-      return (organism_id, False, 'Other')
+    return (organism_id, False, 'Other')
   
   tax_ids = path[0].split(':')
-  species_id = organism_id
-  is_vertebrate = False
+
+  # assign is_vertebrate
+  is_vertebrate = True if '7742' in tax_ids else False # Vertebrata taxon ID
+  
+  # assign superkingdom
+  groups = {'2': 'Bacteria', '2157': 'Archaea', '2759': 'Eukaryota', '10239': 'Viruses'} 
   group = 'Other'
+  for key in groups.keys(): 
+    if key in tax_ids:
+      group = groups[key]
+      break
+
+  # assign species taxon ID
+  species_id = organism_id
   for tax_id in reversed(tax_ids):
     rank_query = """
                   SELECT rank
@@ -86,12 +98,7 @@ def get_species_data(connection: Connection, organism_id: str) -> tuple:
 
     if rank == 'species':
       species_id = tax_id
-
-    if tax_id == '7742':  # Vertebrata taxon ID
-      is_vertebrate = True
-
-    if tax_id in groups.keys():
-      group = groups[tax_id]
+      break
 
   return (species_id, is_vertebrate, group)
 
