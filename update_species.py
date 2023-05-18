@@ -34,19 +34,23 @@ def update_species_data(user: str, password: str) -> None:
     result = connection.execute(text(sql_query))
     organism_ids = pd.DataFrame(result.fetchall(), columns=['organism_id']).astype(str)
 
-    species = {} # map species taxon to all children organism IDs
+    species = {} # map species taxon to all children organism IDs, is_vertebrate, and group
     for organism_id in organism_ids['organism_id']:
-      species_id = get_species_taxon_id(connection, organism_id)
-      if species_id not in species:
-        species[species_id] = []
-      species[species_id].append(organism_id)
+      species_data = get_species_data(connection, organism_id)
+      
+      if species_data[0] not in species:
+        species[species_data[0]] = {'organism_ids': [], 'is_vertebrate': species_data[1], 'group': species_data[2]}
+      
+      species[species_data[0]]['organism_ids'].append(organism_id)
     
-    species_list = [(species_id, '; '.join(organism_ids)) for species_id, organism_ids in species.items()]
-    species_df = pd.DataFrame(species_list, columns=['Species Taxon ID', 'All Taxa'])
+    species_list = [(species_id, '; '.join(data["organism_ids"]), data["is_vertebrate"], data["group"]) 
+                    for species_id, data in species.items()] # convert dict to tuples for dataframe
+    
+    species_df = pd.DataFrame(species_list, columns=['Species Taxon ID', 'All Taxa', 'Is Vertebrate', 'Group'])
     species_df.to_csv('species.csv', index=False)
 
 
-def get_species_taxon_id(connection: Connection, organism_id: str) -> str:
+def get_species_data(connection: Connection, organism_id: str) -> tuple:
   """
   Get the parent species taxon ID for an organism ID from the organism table.
 
@@ -54,6 +58,7 @@ def get_species_taxon_id(connection: Connection, organism_id: str) -> str:
     connection: IEDB MySQL backend connection.
     organism_id: Organism ID.
   """
+  groups = {'2': 'Bacteria', '2157': 'Archaea', '2759': 'Eukaryota', '10239': 'Viruses'} 
   path_query = """
               SELECT path
               FROM organism
@@ -63,9 +68,12 @@ def get_species_taxon_id(connection: Connection, organism_id: str) -> str:
   path = result.fetchone()
   
   if path is None:
-    return organism_id
+      return (organism_id, False, 'Other')
   
   tax_ids = path[0].split(':')
+  species_id = organism_id
+  is_vertebrate = False
+  group = 'Other'
   for tax_id in reversed(tax_ids):
     rank_query = """
                   SELECT rank
@@ -74,10 +82,17 @@ def get_species_taxon_id(connection: Connection, organism_id: str) -> str:
                   """
     rank_result = connection.execute(text(rank_query), {"tax_id": tax_id})
     rank = rank_result.fetchone()[0]
-    if rank == 'species':
-      return tax_id
 
-  return organism_id
+    if rank == 'species':
+      species_id = tax_id
+
+    if tax_id == '7742':  # Vertebrata taxon ID
+      is_vertebrate = True
+
+    if tax_id in groups.keys():
+      group = groups[tax_id]
+
+  return (species_id, is_vertebrate, group)
 
 
 if __name__ == '__main__':
