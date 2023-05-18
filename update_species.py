@@ -32,7 +32,8 @@ def update_species_data(user: str, password: str) -> None:
   sql_engine = create_sql_engine(user, password)
   with sql_engine.connect() as connection:
     result = connection.execute(text(sql_query))
-    organism_ids = pd.DataFrame(result.fetchall(), columns=['organism_id']).astype(str)
+    organism_ids = pd.DataFrame(result.fetchall(), columns=['organism_id'])
+    organism_ids = organism_ids[organism_ids['organism_id'].notna()] # remove null organism IDs
 
     species = {} # map species taxon to all children organism IDs, is_vertebrate, and group
     for organism_id in organism_ids['organism_id']:
