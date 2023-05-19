@@ -84,9 +84,9 @@ def main():
     parent_dir = Path(__file__).parent
     species_df = pd.read_csv(parent_dir / '..' / 'species.csv')
     
-    # create 
-    species_name_map = dict(zip(species_df['Taxon ID'], species_df['Species Name']))
-    all_taxa_map = dict(zip(species_df['Taxon ID'], species_df['All Taxa']))
+    # create maps for taxon ID to species name and all taxa
+    species_name_map = dict(zip(species_df['species_taxon_id'], species_df['species_name']))
+    all_taxa_map = dict(zip(species_df['species_taxon_id'], species_df['all_taxa']))
 
     # get epitopes and source antigens
     epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
