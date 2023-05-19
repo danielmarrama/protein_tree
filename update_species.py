@@ -40,6 +40,8 @@ def update_species_data(user: str, password: str) -> None:
     species = {} # map species taxon to all children organism IDs, is_vertebrate, and group
     for organism in organisms.itertuples():
 
+      print(organism)
+
       species_data = get_species_data(connection, str(organism.organism_id), organism.organism_name)
 
       if species_data[0] not in species: # add new species
@@ -92,8 +94,9 @@ def get_species_data(connection: Connection, organism_id: str, organism_name: st
       group = groups[key]
       break
 
-  # assign species taxon ID
+  # assign species taxon ID and species name
   species_id = organism_id
+  species_name = organism_name
   for tax_id in reversed(tax_ids):
     rank_query = """
                   SELECT rank, organism_name
@@ -101,11 +104,11 @@ def get_species_data(connection: Connection, organism_id: str, organism_name: st
                   WHERE tax_id = :tax_id
                   """
     rank_result = connection.execute(text(rank_query), {"tax_id": tax_id})
-    rank, organism_name = rank_result.fetchone()
+    rank, name = rank_result.fetchone()
 
     if rank == 'species':
       species_id = tax_id
-      species_name = organism_name
+      species_name = name
       break
   
   return (species_id, species_name, is_vertebrate, group)
