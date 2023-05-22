@@ -40,8 +40,6 @@ def update_species_data(user: str, password: str) -> None:
     species = {} # map species taxon to all children organism IDs, is_vertebrate, and group
     for organism in organisms.itertuples():
 
-      print(organism)
-
       species_data = get_species_data(connection, str(organism.organism_id), organism.organism_name)
 
       if species_data[0] not in species: # add new species
