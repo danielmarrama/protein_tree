@@ -52,13 +52,13 @@ class DataFetcher:
       all_taxa: List of all children taxa for a species from the IEDB.
     """
     all_taxa = all_taxa.replace(';', ',')
-    sql_query = f'SELECT source_id, accession, name, sequence '\
+    sql_query = f'SELECT accession, name, sequence '\
                 f'FROM source WHERE organism_id IN ({all_taxa});'
 
     with self.sql_engine.connect() as connection:
       print('Fetching source antigens...')
       result = connection.execute(text(sql_query))
-      sources_df = pd.DataFrame(result.fetchall(), columns=['Source ID', 'Accession', 'Name', 'Sequence'])
+      sources_df = pd.DataFrame(result.fetchall(), columns=['Accession', 'Name', 'Sequence'])
     
     return sources_df
 
@@ -74,6 +74,10 @@ def main():
   parser.add_argument('-t', '--taxon_id', type=int, help='Taxon ID for species to pull data for.')
   
   args = parser.parse_args()
+  
+  if not args.all_species and not args.taxon_id:
+    print("Error: Please provide either --all_species or --taxon_id.")
+    return
 
   Fetcher = DataFetcher(args.user, args.password)
   if args.all_species:
