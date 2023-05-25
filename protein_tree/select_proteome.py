@@ -13,7 +13,7 @@ class ProteomeSelector:
   def __init__(self, taxon_id, species_name, species_df):
     self.taxon_id = taxon_id
     self.species_df = species_df
-    self.species_path = Path(f'../species/{taxon_id}-{species_name.replace(" ", "_")}')
+    self.species_path = Path(f'species/{taxon_id}-{species_name.replace(" ", "_")}')
 
     self.proteome_list = self._get_proteome_list()      # all possible proteomes for a species
     self.num_of_proteomes = len(self.proteome_list) + 1 # +1 because "all proteins" is also a candidate proteome
@@ -36,7 +36,12 @@ class ProteomeSelector:
 
     If no to all of the above, then get every protein associated with
     the taxon ID using the get_all_proteins method.
+
+    Args:
+      epitopes_df (pd.DataFrame): DataFrame of epitopes for the species to use for tie breaks.
     """
+
+    # TODO: handle this better. Shouldn't be using metrics_df here exactly.
     # if species_dir already exists then return the already selected proteome, else create dir
     if os.path.exists(f'{self.species_path}/proteome.fasta'):
       proteome_id = self.metrics_df[self.metrics_df['Taxon ID'].astype(str) == self.taxon_id]['Proteome ID'].iloc[0]
@@ -44,7 +49,7 @@ class ProteomeSelector:
       proteome_type = self.metrics_df[self.metrics_df['Taxon ID'].astype(str) == self.taxon_id]['Proteome Type'].iloc[0]
       return [proteome_id, proteome_taxon, proteome_type]
     else:
-      os.makedirs(self.species_path, exist_ok=True)
+      self.species_path.mkdir(parents=True, exist_ok=True)
 
     # if there is no proteome_list, get all proteins associated with that taxon ID
     if self.proteome_list.empty:
@@ -75,7 +80,7 @@ class ProteomeSelector:
     else:
       proteome_type = 'Other'
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
-    
+
     self._remove_other_proteomes(proteome_id)
     
     # sanity check to make sure proteome.fasta is not empty
@@ -236,6 +241,9 @@ class ProteomeSelector:
     """
     Get the FASTA file for a proteome from UniProt API.
     Include all isoforms and do not compress the file.
+
+    Args:
+      proteome_id (str): UniProt Proteome ID.
     """
     url = f'https://rest.uniprot.org/uniprotkb/stream?compressed=false&format=fasta&includeIsoform=true&query=(proteome:{proteome_id})'
     r = requests.get(url)
@@ -249,33 +257,31 @@ class ProteomeSelector:
     that proteome with the most epitope matches in case there is a tie.
     We get the true taxon so we can extract the data from the FTP server
     if needed.
+
+    Args:
+      epitopes_df (pd.DataFrame): DataFrame of epitopes for the species.
     """
-    # if there is only one proteome, then we don't need to do anything else
-    # just get the proteome and return the ID and taxon
     if self.num_of_proteomes <= 2:
       self._get_proteome_to_fasta(self.proteome_list['upid'].iloc[0])
       return self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0]
 
-    # drop any epitopes that do not have a peptide sequence - this is rare but needs to be checked
-    epitopes_df = epitopes_df[epitopes_df['Sequence'].notna()]
+    epitopes_df = epitopes_df[epitopes_df['Sequence'].notna()] 
+    
     # TODO: be able to check for discontinuous epitopes
     epitopes = [epitope for epitope in epitopes_df['Sequence'] if not any(char.isdigit() for char in epitope)]
     
-    # keep track of # of epitope matches for each proteome
-    match_counts = {}
+    match_counts = {} # keep track of # of epitope matches for each proteome
     for proteome_id in list(self.proteome_list['upid']):
       self._get_proteome_to_fasta(proteome_id)
       
-      # PEPMatch preprocessing and matching
-      Preprocessor(f'{self.species_path}/{proteome_id}.fasta', 'sql', f'{self.species_path}').preprocess(k=5)
-      matches_df = Matcher(epitopes, proteome_id, 0, 5, f'{self.species_path}', output_format='dataframe').match()
-      
-      # remove any duplicate matches and count the number of matches
+      Preprocessor(f'{str(self.species_path)}/{proteome_id}.fasta').sql_proteome(k=5)
+      matches_df = Matcher(epitopes, f'{str(self.species_path)}/{proteome_id}.fasta', 0, 5, output_format='dataframe').match()
       matches_df.drop_duplicates(subset=['Query Sequence'], inplace=True)
-      try: 
+      
+      try:
         match_counts[proteome_id] = matches_df['Matched Sequence'].dropna().count()
-      except KeyError:
-        match_counts[proteome_id] = 0 # in case there are no matches
+      except KeyError: # in case there are no matches
+        match_counts[proteome_id] = 0 
 
     # select the proteome ID and proteome taxon with the most matches
     proteome_id = max(match_counts, key=match_counts.get)
@@ -288,11 +294,13 @@ class ProteomeSelector:
     Remove the proteome FASTA files that are not the chosen proteome for that
     species. Also, remove the .db files and rename the chosen proteome to 
     "proteome.fasta".
+
+    Args:
+      proteome_id (str): Proteome ID of the chosen proteome.
     """
     proteome_list_to_remove = self.proteome_list[self.proteome_list['upid'] != proteome_id]
     for i in list(proteome_list_to_remove['upid']):
-      os.remove(f'{self.species_path}/{i}.fasta')
-      os.remove(f'{self.species_path}/{i}.db')
+      self.species_path / f'{i}.fasta'.unlink()
     
     # rename the chosen proteome to proteome.fasta and remove the .db file
     os.rename(f'{self.species_path}/{proteome_id}.fasta', f'{self.species_path}/proteome.fasta')

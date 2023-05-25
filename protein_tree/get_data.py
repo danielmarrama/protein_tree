@@ -34,7 +34,6 @@ class DataFetcher:
                   """
     
     with self.sql_engine.connect() as connection:
-      print('Fetching epitopes...')
       result1 = connection.execute(text(sql_query1))
       result2 = connection.execute(text(sql_query2))
 
@@ -56,7 +55,6 @@ class DataFetcher:
                 f'FROM source WHERE organism_id IN ({all_taxa});'
 
     with self.sql_engine.connect() as connection:
-      print('Fetching source antigens...')
       result = connection.execute(text(sql_query))
       sources_df = pd.DataFrame(result.fetchall(), columns=['Accession', 'Name', 'Sequence'])
     
