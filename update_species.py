@@ -44,17 +44,17 @@ def update_species_data(user: str, password: str) -> None:
 
       if species_data[0] not in species: # add new species
         species[species_data[0]] = {
-          'species_name': species_data[1], 
-          'all_taxa': [], 
-          'is_vertebrate': species_data[2], 
-          'group': species_data[3]
+          'Species Name': species_data[1], 
+          'All Taxa': [], 
+          'Is Vertebrate': species_data[2], 
+          'Group': species_data[3]
         }
-      species[species_data[0]]['all_taxa'].append(str(organism.organism_id))
+      species[species_data[0]]['All Taxa'].append(str(organism.organism_id))
 
     species_df = pd.DataFrame.from_dict(species, orient='index')
-    species_df.index.name = 'species_taxon_id'
+    species_df.index.name = 'Species Taxon ID'
     species_df.reset_index(inplace=True)
-    species_df['all_taxa'] = species_df['all_taxa'].apply(lambda x: ';'.join(x))
+    species_df['All Taxa'] = species_df['All Taxa'].apply(lambda x: ';'.join(x))
     species_df.to_csv('species.csv', index=False)
 
 
