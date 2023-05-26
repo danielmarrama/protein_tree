@@ -41,18 +41,17 @@ class ProteomeSelector:
     Args:
       epitopes_df (pd.DataFrame): DataFrame of epitopes for the species to use for tie breaks.
     """
-
-    # TODO: handle this better. Shouldn't be using metrics_df here exactly.
-    # if species_dir already exists then return the already selected proteome, else create dir
-    if os.path.exists(f'{self.species_path}/proteome.fasta'):
+    if (self.species_path / 'proteome.fasta').exists():
+      
       proteome_id = self.metrics_df[self.metrics_df['Species Taxon ID'].astype(str) == self.taxon_id]['Proteome ID'].iloc[0]
       proteome_taxon = self.metrics_df[self.metrics_df['Species Taxon ID'].astype(str) == self.taxon_id]['Proteome Taxon'].iloc[0]
       proteome_type = self.metrics_df[self.metrics_df['Species Taxon ID'].astype(str) == self.taxon_id]['Proteome Type'].iloc[0]
-      return [proteome_id, proteome_taxon, proteome_type]
+      
+      return proteome_id, proteome_taxon, proteome_type
+    
     else:
       self.species_path.mkdir(parents=True, exist_ok=True)
 
-    # if there is no proteome_list, get all proteins associated with that taxon ID
     if self.proteome_list.empty:
       print('No proteomes found. Fetching orphan proteins.')
       self._get_all_proteins()
@@ -91,14 +90,13 @@ class ProteomeSelector:
     self._remove_other_proteomes(proteome_id)
     
     # sanity check to make sure proteome.fasta is not empty
-    if os.stat(f'{self.species_path}/proteome.fasta').st_size == 0:
+    if (self.species_path / 'proteome.fasta').stat().st_size == 0:
       proteome_id = 'None'
       proteome_taxon = self.taxon_id
       proteome_type = 'All-proteins'
-      self._get_all_proteins()
+      self._get_all_proteins() # get all orphan proteins if proteome.fasta is empty
 
-    proteome_data = [proteome_id, proteome_taxon, proteome_type]
-    return proteome_data
+    return proteome_id, proteome_taxon, proteome_type
 
   def proteome_to_csv(self) -> None:
     """
@@ -109,8 +107,7 @@ class ProteomeSelector:
     # read in the FASTA file and then get the gene priority IDs if they exist
     proteins = list(SeqIO.parse(f'{self.species_path}/proteome.fasta', 'fasta'))
 
-    gp_proteome_path = f'{self.species_path}/gp_proteome.fasta'
-    if os.path.isfile(gp_proteome_path):
+    if (self.species_path / 'gp_proteome.fasta').exists():
       gp_ids = [str(protein.id.split('|')[1]) for protein in list(SeqIO.parse(gp_proteome_path, 'fasta'))]
     else:
       gp_ids = []
@@ -282,16 +279,16 @@ class ProteomeSelector:
       self._get_proteome_to_fasta(proteome_id)
       
       Preprocessor(
-        proteome = f'{str(self.species_path)}/{proteome_id}.fasta',
-        preprocessed_files_path = f'{str(self.species_path)}',
+        proteome = f'{self.species_path}/{proteome_id}.fasta',
+        preprocessed_files_path = f'{self.species_path}',
       ).sql_proteome(k=5)
       
       matches_df = Matcher(
         query = epitopes, 
-        proteome_file = f'{str(self.species_path)}/{proteome_id}.fasta', 
+        proteome_file = f'{self.species_path}/{proteome_id}.fasta', 
         max_mismatches = 0, 
         k = 5,
-        preprocessed_files_path = f'{str(self.species_path)}',
+        preprocessed_files_path = f'{self.species_path}',
         output_format='dataframe'
       ).match()
       
