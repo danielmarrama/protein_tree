@@ -1,4 +1,4 @@
-species_taxon_id,species_name,all_taxa,is_vertebrate,group
+Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 24,Shewanella putrefaciens,319224,False,Bacteria
 106,Runella slithyformis,761193;106,False,Bacteria
 108,Spirosoma linguale,108,False,Bacteria

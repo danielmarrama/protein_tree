@@ -10,9 +10,10 @@ from pepmatch import Preprocessor, Matcher
 
 
 class ProteomeSelector:
-  def __init__(self, taxon_id, species_name, species_df):
+  def __init__(self, taxon_id, species_name, species_df, metrics_df):
     self.taxon_id = taxon_id
     self.species_df = species_df
+    self.metrics_df = metrics_df
     self.species_path = Path(f'species/{taxon_id}-{species_name.replace(" ", "_")}')
 
     self.proteome_list = self._get_proteome_list()      # all possible proteomes for a species
@@ -44,40 +45,46 @@ class ProteomeSelector:
     # TODO: handle this better. Shouldn't be using metrics_df here exactly.
     # if species_dir already exists then return the already selected proteome, else create dir
     if os.path.exists(f'{self.species_path}/proteome.fasta'):
-      proteome_id = self.metrics_df[self.metrics_df['Taxon ID'].astype(str) == self.taxon_id]['Proteome ID'].iloc[0]
-      proteome_taxon = self.metrics_df[self.metrics_df['Taxon ID'].astype(str) == self.taxon_id]['Proteome Taxon'].iloc[0]
-      proteome_type = self.metrics_df[self.metrics_df['Taxon ID'].astype(str) == self.taxon_id]['Proteome Type'].iloc[0]
+      proteome_id = self.metrics_df[self.metrics_df['Species Taxon ID'].astype(str) == self.taxon_id]['Proteome ID'].iloc[0]
+      proteome_taxon = self.metrics_df[self.metrics_df['Species Taxon ID'].astype(str) == self.taxon_id]['Proteome Taxon'].iloc[0]
+      proteome_type = self.metrics_df[self.metrics_df['Species Taxon ID'].astype(str) == self.taxon_id]['Proteome Type'].iloc[0]
       return [proteome_id, proteome_taxon, proteome_type]
     else:
       self.species_path.mkdir(parents=True, exist_ok=True)
 
     # if there is no proteome_list, get all proteins associated with that taxon ID
     if self.proteome_list.empty:
+      print('No proteomes found. Fetching orphan proteins.')
       self._get_all_proteins()
       return 'None', self.taxon_id, 'All-proteins'
 
     if self.proteome_list['isRepresentativeProteome'].any():
+      print('Found representative proteome(s).')
       proteome_type = 'Representative'
       self.proteome_list = self.proteome_list[self.proteome_list['isRepresentativeProteome']]
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
       self._get_gp_proteome_to_fasta(proteome_id, proteome_taxon)
     
     elif self.proteome_list['isReferenceProteome'].any():
+      print('Found reference proteome(s).')
       proteome_type = 'Reference'
       self.proteome_list = self.proteome_list[self.proteome_list['isReferenceProteome']]
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
       self._get_gp_proteome_to_fasta(proteome_id, proteome_taxon)
 
     elif 'redundantTo' not in self.proteome_list.columns:
+      print('Found other proteome(s).')
       proteome_type = 'Other'
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
     
     elif self.proteome_list['redundantTo'].isna().any():
+      print('Found non-redundant proteome(s).')
       proteome_type = 'Non-redundant'
       self.proteome_list = self.proteome_list[self.proteome_list['redundantTo'].isna()]
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
     
     else:
+      print('Found other proteome(s).')
       proteome_type = 'Other'
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
 
@@ -274,8 +281,20 @@ class ProteomeSelector:
     for proteome_id in list(self.proteome_list['upid']):
       self._get_proteome_to_fasta(proteome_id)
       
-      Preprocessor(f'{str(self.species_path)}/{proteome_id}.fasta').sql_proteome(k=5)
-      matches_df = Matcher(epitopes, f'{str(self.species_path)}/{proteome_id}.fasta', 0, 5, output_format='dataframe').match()
+      Preprocessor(
+        proteome = f'{str(self.species_path)}/{proteome_id}.fasta',
+        preprocessed_files_path = f'{str(self.species_path)}',
+      ).sql_proteome(k=5)
+      
+      matches_df = Matcher(
+        query = epitopes, 
+        proteome_file = f'{str(self.species_path)}/{proteome_id}.fasta', 
+        max_mismatches = 0, 
+        k = 5,
+        preprocessed_files_path = f'{str(self.species_path)}',
+        output_format='dataframe'
+      ).match()
+      
       matches_df.drop_duplicates(subset=['Query Sequence'], inplace=True)
       
       try:
@@ -300,7 +319,8 @@ class ProteomeSelector:
     """
     proteome_list_to_remove = self.proteome_list[self.proteome_list['upid'] != proteome_id]
     for i in list(proteome_list_to_remove['upid']):
-      self.species_path / f'{i}.fasta'.unlink()
+      os.remove(self.species_path / f'{i}.fasta')
+      os.remove(self.species_path / f'{i}.db')
     
     # rename the chosen proteome to proteome.fasta and remove the .db file
     os.rename(f'{self.species_path}/{proteome_id}.fasta', f'{self.species_path}/proteome.fasta')
@@ -312,7 +332,6 @@ def main():
   import argparse
   from get_data import DataFetcher
 
-  # define command line args which will take in a taxon ID, user, and password (for IEDB MySQL connection)
   parser = argparse.ArgumentParser()
   
   parser.add_argument('-u', '--user', required=True, help='User for IEDB MySQL connection.')
@@ -326,50 +345,48 @@ def main():
   all_species = args.all_species
   taxon_id = args.taxon_id
 
-  # read in IEDB species data and read in metrics data to write into
-  species_df = pd.read_csv('species.csv')
-  metrics_df = pd.read_csv('metrics.csv')
-  valid_taxon_ids = species_df['species_taxon_id'].astype(str).tolist()
+  species_df = pd.read_csv('species.csv') # IEDB species data
+  metrics_df = pd.read_csv('metrics.csv') # protein tree metrics data
+  valid_taxon_ids = species_df['Species Taxon ID'].astype(str).tolist()
 
-  # dicts for mapping taxon IDs to all their taxa and their names
-  all_taxa_map = dict(zip(species_df['species_taxon_id'].astype(str), species_df['all_taxa']))
-  species_id_to_name_map = dict(zip(species_df['species_taxon_id'].astype(str), species_df['species_name']))
+  # taxa and name mapppings
+  all_taxa_map = dict(zip(species_df['Species Taxon ID'].astype(str), species_df['All Taxa']))
+  species_id_to_name_map = dict(zip(species_df['Species Taxon ID'].astype(str), species_df['Species Name']))
 
-  # do proteome selection for all IEDB species
   if all_species:
     proteomes = {}
     for taxon_id in valid_taxon_ids:
-      # get data for taxon ID
       Fetcher = DataFetcher(user, password)
       epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
 
-      # select proteome
-      Selector = ProteomeSelector(taxon_id)
+      print(f'Selecting best proteome for {species_id_to_name_map[taxon_id]} (Taxon ID: {taxon_id}).')
+      Selector = ProteomeSelector(taxon_id, species_id_to_name_map[taxon_id], species_df, metrics_df)
+      print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')
+
       proteome_data = Selector.select_best_proteome(epitopes_df)
       Selector.proteome_to_csv()
       
-      print(f'# of Proteomes: {Selector.num_of_proteomes}')
       print(f'Proteome ID: {proteome_data[0]}')
       print(f'Proteome taxon: {proteome_data[1]}')
       print(f'Proteome type: {proteome_data[2]}')
     
       # update metrics data
-      metrics_df.loc[metrics_df['species_taxon_id'] == int(t_id), 'Proteome ID'] = proteome_data[0]
-      metrics_df.loc[metrics_df['species_taxon_id'] == int(t_id), 'Proteome Taxon'] = proteome_data[1]
-      metrics_df.loc[metrics_df['species_taxon_id'] == int(t_id), 'Proteome Type'] = proteome_data[2]
+      metrics_df.loc[metrics_df['Species Taxon ID'] == int(t_id), 'Proteome ID'] = proteome_data[0]
+      metrics_df.loc[metrics_df['Species Taxon ID'] == int(t_id), 'Proteome Taxon'] = proteome_data[1]
+      metrics_df.loc[metrics_df['Species Taxon ID'] == int(t_id), 'Proteome Type'] = proteome_data[2]
 
       metrics_df.to_csv('metrics.csv', index=False)
 
-  else: # or just one species at a time - check if its valid
+  else: # one species at a time
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     
-    # get data for taxon ID
     Fetcher = DataFetcher(user, password)
     epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
 
-    # pass in taxon ID, species name, and species_df to ProteomeSelector
-    Selector = ProteomeSelector(taxon_id, species_id_to_name_map[taxon_id], species_df)
+    print(f'Selecting best proteome for {species_id_to_name_map[taxon_id]} (Taxon ID: {taxon_id}).')
+    Selector = ProteomeSelector(taxon_id, species_id_to_name_map[taxon_id], species_df, metrics_df)
     print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')
+
     proteome_data = Selector.select_best_proteome(epitopes_df)
     Selector.proteome_to_csv()
 
@@ -378,9 +395,9 @@ def main():
     print(f'Proteome type: {proteome_data[2]}')
 
     # update metrics data
-    metrics_df.loc[metrics_df['species_taxon_id'] == int(taxon_id), 'Proteome ID'] = proteome_data[0]
-    metrics_df.loc[metrics_df['species_taxon_id'] == int(taxon_id), 'Proteome Taxon'] = int(proteome_data[1])
-    metrics_df.loc[metrics_df['species_taxon_id'] == int(taxon_id), 'Proteome Type'] = proteome_data[2]
+    metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome ID'] = proteome_data[0]
+    metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Taxon'] = int(proteome_data[1])
+    metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Type'] = proteome_data[2]
 
     metrics_df.to_csv('metrics.csv', index=False)
 
