@@ -2,9 +2,9 @@
 
 import re
 import os
+import requests
 import pandas as pd
 from pathlib import Path
-import requests
 
 from pepmatch import Preprocessor, Matcher
 
@@ -280,7 +280,7 @@ class ProteomeSelector:
       Preprocessor(
         proteome = f'{self.species_path}/{proteome_id}.fasta',
         preprocessed_files_path = f'{self.species_path}',
-      ).sql_proteome(k=5)
+      ).sql_proteome(k = 5)
       
       matches_df = Matcher(
         query = epitopes, 

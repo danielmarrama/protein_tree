@@ -4,6 +4,7 @@ import os
 import glob
 import pandas as pd
 
+from pathlib import Path
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
@@ -11,19 +12,15 @@ from pepmatch import Preprocessor, Matcher
 
 
 class GeneAssigner:
-  def __init__(self, taxon_id):
-    self.species_df = pd.read_csv('../species.csv')
+  def __init__(self, taxon_id, species_name):
     self.taxon_id = taxon_id
-
-    # create species path with species taxon and name; example: "24-Shewanella_putrefaciens"
-    species_id_to_name_map = dict(zip(self.species_df['Taxon ID'].astype(str), self.species_df['Species Label']))
-    self.species_path = f'species/{taxon_id}-{species_id_to_name_map[taxon_id].replace(" ", "_")}'
+    self.species_path = Path(f'species/{taxon_id}-{species_name.replace(" ", "_")}')
 
     # create UniProt ID to gene symbol map from proteome.csv file
     proteome = pd.read_csv(f'{self.species_path}/proteome.csv')
     self.uniprot_id_to_gene_symbol_map = dict(zip(proteome['UniProt ID'], proteome['Gene Symbol']))
 
-  def assign_genes(self, sources_df, epitopes_df):
+  def assign_genes(self, sources_df: pd.DataFrame, epitopes_df: pd.DataFrame) -> None:
     """
     Assign a gene to the source antigens of a species.
 
@@ -34,6 +31,10 @@ class GeneAssigner:
 
     If there are ties, use PEPMatch to search the epitopes within
     the protein sequences and select the protein with the most matches.
+
+    Args:
+      sources_df: DataFrame of source antigens for a species.
+      epitopes_df: DataFrame of epitopes for a species.
     """
     # create source to epitope map and write sources to FASTA file
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
@@ -76,19 +77,32 @@ class GeneAssigner:
                      num_with_blast_matches, num_epitopes, num_epitopes_with_matches]
     return assigner_data
 
-  def _drop_epitopes_without_sequence(self, epitopes_df):
+  def _drop_epitopes_without_sequence(self, epitopes_df: pd.DataFrame) -> int:
       epitopes_df.dropna(subset=['Sequence'], inplace=True)
       return len(epitopes_df)
 
-  def _preprocess_proteome_if_needed(self):
+  def _preprocess_proteome_if_needed(self) -> None:
       if not os.path.exists(f'{self.species_path}/proteome.db'):
           gp_proteome = f'{self.species_path}/gp_proteome.fasta' if os.path.exists(f'{self.species_path}/gp_proteome.fasta') else ''
-          Preprocessor(f'{self.species_path}/proteome.fasta', 'sql', f'{self.species_path}', gene_priority_proteome=gp_proteome).preprocess(k=5)
+          Preprocessor(
+            proteome = f'{self.species_path}/proteome.fasta',
+            preprocessed_files_path = f'{self.species_path}',
+            gene_priority_proteome=gp_proteome
+          ).sql_proteome(k = 5)
 
-  def _search_epitopes(self, epitopes, best_match=True):
-    return Matcher(epitopes, 'proteome', 0, 5, f'{self.species_path}', best_match=best_match, output_format='dataframe').match()
+  def _search_epitopes(self, epitopes: list, best_match: bool = True) -> pd.DataFrame:
+    df = Matcher(
+      query = epitopes,
+      proteome_file = 'proteome', 
+      max_mismatches = 0, 
+      k = 5, 
+      preprocessed_files_path = f'{self.species_path}', 
+      best_match=best_match, 
+      output_format='dataframe'
+    ).match()
+    return df
 
-  def _assign_parents(self, epitopes_df):
+  def _assign_parents(self, epitopes_df: pd.DataFrame) -> tuple:
     """
     Assign a parent protein to each epitope.
     
@@ -112,7 +126,7 @@ class GeneAssigner:
 
       # if there aren't best matches that match the assigned gene, search again without best match
       if matches_df.empty:
-          matches_df = self._search_epitopes(epitopes, best_match=False)
+        matches_df = self._search_epitopes(epitopes, best_match=False)
 
         # if there are ties, select the protein with the best protein existence level
         index = matches_df.groupby(['Query Sequence'])['Protein Existence Level'].transform(min) == matches_df['Protein Existence Level']
@@ -128,7 +142,7 @@ class GeneAssigner:
 
     return num_epitopes, num_epitopes_with_matches
 
-  def _create_source_to_epitopes_map(self, epitopes_df):
+  def _create_source_to_epitopes_map(self, epitopes_df: pd.DataFrame) -> dict:
     """Create a map from source antigens to their epitopes."""
     # drop epitopes with no sequence
     epitopes_df.dropna(subset=['Sequence'], inplace=True)
@@ -142,7 +156,7 @@ class GeneAssigner:
     
     return source_to_epitopes_map 
 
-  def _sources_to_fasta(self, sources_df):
+  def _sources_to_fasta(self, sources_df: pd.DataFrame) -> None:
     """
     Write source antigens to FASTA file. If a source antigen is missing
     a sequence, write it to a separate file for logging.
@@ -169,19 +183,19 @@ class GeneAssigner:
 
     return len(sources_df), num_sources_missing_seqs
 
-  def _create_blast_db(self):
+  def _create_blast_db(self) -> None:
     '''Create BLAST database from the selected proteome.'''
     # escape parentheses in species path
-    species_path = self.species_path.replace('(', '\(').replace(')', '\)')
+    species_path = str(self.species_path).replace('(', '\(').replace(')', '\)')
     os.system(f'./makeblastdb -in {species_path}/proteome.fasta -dbtype prot')
 
-  def _run_blast(self):
+  def _run_blast(self) -> None:
     '''
     BLAST source antigens against the selected proteome, then read in with
     pandas and assign column names. By default, blastp doesn't return header.
     '''
     # escape parentheses in species path
-    species_path = self.species_path.replace('(', '\(').replace(')', '\)')  
+    species_path = str(self.species_path).replace('(', '\(').replace(')', '\)')  
     os.system(f'./blastp -query {species_path}/sources.fasta '\
               f'-db {species_path}/proteome.fasta '\
               f'-evalue 1 -num_threads 12 -outfmt 10 '\
@@ -207,7 +221,7 @@ class GeneAssigner:
 
     return blast_results_df
 
-  def _no_blast_matches(self, blast_results_df):
+  def _no_blast_matches(self, blast_results_df: pd.DataFrame) -> None:
     '''Write sources that have no BLAST match to a file.'''
     # get all source antigen ids
     source_ids = []
@@ -233,7 +247,7 @@ class GeneAssigner:
     # return the number of sources that have BLAST matches and no BLAST matches
     return len(no_blast_match_ids), len(blast_result_ids)
 
-  def _get_best_blast_matches(self, blast_results_df):
+  def _get_best_blast_matches(self, blast_results_df: pd.DataFrame) -> None:
     """
     Get the best BLAST match for each source antigen by sequence identity and 
     alignment length. If there are multiple matches with the same % identity 
@@ -256,7 +270,7 @@ class GeneAssigner:
     if blast_results_df.duplicated(subset=['Query']).any():
       self._pepmatch_tiebreak(blast_results_df)
 
-  def _pepmatch_tiebreak(self, blast_results_df):
+  def _pepmatch_tiebreak(self, blast_results_df: pd.DataFrame) -> None:
     """
     First, get any source antigens that have ties for the best match. Then,
     using the epitopes associated with the source antigen, search them in 
@@ -269,7 +283,11 @@ class GeneAssigner:
 
     # preprocess with PEPMatch
     gp_proteome = f'{self.species_path}/gp_proteome.fasta' if os.path.exists(f'{self.species_path}/gp_proteome.fasta') else ''
-    Preprocessor(f'{self.species_path}/proteome.fasta', 'sql', f'{self.species_path}', gene_priority_proteome=gp_proteome).preprocess(k=5)
+    Preprocessor(
+      proteome = f'{self.species_path}/proteome.fasta',
+      preprocessed_files_path = f'{self.species_path}', 
+      gene_priority_proteome = gp_proteome
+    ).sql_proteome(k = 5)
 
     for source_antigen in source_antigens_with_ties:
       try:
@@ -283,7 +301,14 @@ class GeneAssigner:
         continue
 
       # search the epitopes in the selected proteome
-      matches_df = Matcher(epitopes, 'proteome', 0, 5, f'{self.species_path}', output_format='dataframe').match()
+      matches_df = Matcher(
+        query = epitopes, 
+        proteome_file = 'proteome', 
+        max_mismatches = 0, 
+        k = 5, 
+        preprocessed_files_path = f'{self.species_path}',
+        output_format='dataframe'
+      ).match()
 
       if matches_df.empty:
         # if there are no matches, then assign the gene and id to the first
@@ -300,7 +325,7 @@ class GeneAssigner:
       self.best_blast_match_gene_map[source_antigen] = gene
       self.best_blast_match_id_map[source_antigen] = uniprot_id
 
-  def _remove_files(self):
+  def _remove_files(self) -> None:
     """Delete all the files that were created when making the BLAST database."""
     for extension in ['pdb', 'phr', 'pin', 'pjs', 'pot', 'psq', 'ptf', 'pto']:
       try: # if DB wasn't create this will fail, so just pass
@@ -336,28 +361,27 @@ def main():
   all_species = args.all_species
   taxon_id = args.taxon_id
 
-  # read in IEDB species data
   species_df = pd.read_csv('species.csv')
-  valid_taxon_ids = species_df['Taxon ID'].astype(str).tolist()
+  valid_taxon_ids = species_df['Species Taxon ID'].astype(str).tolist()
 
-  # dicts for mapping taxon IDs to all their taxa and their names
-  all_taxa_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['All Taxa']))
-  species_id_to_name_map = dict(zip(species_df['Taxon ID'].astype(str), species_df['Species Label']))
+  # taxa and name mapppings
+  all_taxa_map = dict(zip(species_df['Species Taxon ID'].astype(str), species_df['All Taxa']))
+  species_id_to_name_map = dict(zip(species_df['Species Taxon ID'].astype(str), species_df['Species Name']))
 
-  # do proteome selection for all IEDB species
   if all_species:
     proteomes = {}
     for taxon_id in valid_taxon_ids:
-      # get data for taxon ID
+
       Fetcher = DataFetcher(user, password)
       epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
       sources_df = Fetcher.get_sources(all_taxa_map[taxon_id])
 
       if epitopes_df.empty or sources_df.empty:
+        print(f'No epitopes for {species_id_to_name_map[taxon_id]} ({taxon_id}). Skipping...\n')
         continue
       
       print(f'Assigning genes for {species_id_to_name_map[taxon_id]} ({taxon_id})...')
-      Assigner = GeneAssigner(taxon_id)
+      Assigner = GeneAssigner(taxon_id, species_id_to_name_map[taxon_id])
       assigner_data = Assigner.assign_genes(sources_df, epitopes_df)
       print('Done assigning genes.\n')
 
@@ -370,8 +394,7 @@ def main():
       print(f'Successful gene assignments: {(assigner_data[3] / assigner_data[0])*100:.1f}%')
       print(f'Successful parent assignments: {(assigner_data[5] / assigner_data[4])*100:.1f}%\n')
 
-  # or just one species at a time - check if its valid
-  else:
+  else: # one species at a time
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
 
     Fetcher = DataFetcher(user, password)
@@ -382,7 +405,7 @@ def main():
     assert not epitopes_df.empty, 'This species has no epitopes.'
 
     print(f'Assigning genes for {species_id_to_name_map[taxon_id]} ({taxon_id})...\n')
-    Assigner = GeneAssigner(taxon_id)
+    Assigner = GeneAssigner(taxon_id, species_id_to_name_map[taxon_id])
     assigner_data = Assigner.assign_genes(sources_df, epitopes_df)
     print('Done assigning genes.\n')
 
