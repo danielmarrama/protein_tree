@@ -103,23 +103,22 @@ class ProteomeSelector:
     Write the proteome data for a species to a CSV file for later use.
     """
     from Bio import SeqIO
+    
+    if not (self.species_path / 'proteome.fasta').exists():
+      return
 
-    # read in the FASTA file and then get the gene priority IDs if they exist
     proteins = list(SeqIO.parse(f'{self.species_path}/proteome.fasta', 'fasta'))
-
     if (self.species_path / 'gp_proteome.fasta').exists():
       gp_ids = [str(protein.id.split('|')[1]) for protein in list(SeqIO.parse(gp_proteome_path, 'fasta'))]
     else:
       gp_ids = []
 
-    # start collecting proteome data
-    proteome_data = []
+    proteome_data = [] # collect proteome data
     for protein in proteins:
       uniprot_id = protein.id.split('|')[1]
       gp = 1 if uniprot_id in gp_ids else 0
 
       # TODO: look into using HUGO to map old gene names to new ones
-
       try:
         gene = re.search('GN=(.*?) ', protein.description).group(1)
       except AttributeError:
@@ -146,7 +145,10 @@ class ProteomeSelector:
     If there are no proteomes, return empty DataFrame.
     """
     # URL to get proteome list for a species - use proteome_type:1 first
-    url = f'https://rest.uniprot.org/proteomes/stream?format=xml&query=(proteome_type:1)AND(taxonomy_id:{self.taxon_id})'
+    url = f"""
+           https://rest.uniprot.org/proteomes/stream?format=xml&
+           query=(proteome_type:1)AND(taxonomy_id:{self.taxon_id})
+           """
     
     try:
       proteome_list = pd.read_xml(requests.get(url).text)
@@ -169,8 +171,10 @@ class ProteomeSelector:
     using the taxonomy part of UniProt. 
     """
     # URL link to all proteins for a species - size = 500 proteins at a time
-    url = f'https://rest.uniprot.org/uniprotkb/search?format=fasta&'\
-          f'query=taxonomy_id:{self.taxon_id}&size=500' 
+    url = f"""
+           https://rest.uniprot.org/uniprotkb/search?format=fasta&
+           query=taxonomy_id:{self.taxon_id}&size=500
+           """
 
     # loop through all protein batches and write proteins to FASTA file
     for batch in self._get_protein_batches(url):
@@ -219,16 +223,16 @@ class ProteomeSelector:
     """
     import gzip
     
-    group = self.species_df[self.species_df['species_taxon_id'].astype(str) == self.taxon_id]['group'].iloc[0]
+    group = self.species_df[self.species_df['Species Taxon ID'].astype(str) == self.taxon_id]['Group'].iloc[0]
     ftp_url = f'https://ftp.uniprot.org/pub/databases/uniprot/knowledgebase/reference_proteomes/'
     
-    if group == 'archeobacterium':
+    if group == 'Archaea':
       ftp_url += f'Archaea/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
-    elif group == 'bacterium':
+    elif group == 'Bacteria':
       ftp_url += f'Bacteria/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
-    elif group in ['vertebrate', 'other-eukaryote']:
+    elif group == 'Eukaryota':
       ftp_url += f'Eukaryota/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
-    elif group in ['virus', 'small-virus', 'large-virus']:
+    elif group == 'Viruses':
       ftp_url += f'Viruses/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
     
     r = requests.get(ftp_url, stream=True)
@@ -249,7 +253,10 @@ class ProteomeSelector:
     Args:
       proteome_id (str): UniProt Proteome ID.
     """
-    url = f'https://rest.uniprot.org/uniprotkb/stream?compressed=false&format=fasta&includeIsoform=true&query=(proteome:{proteome_id})'
+    url = f"""
+           https://rest.uniprot.org/uniprotkb/stream?compressed=false&
+           format=fasta&includeIsoform=true&query=(proteome:{proteome_id})
+           """
     r = requests.get(url)
     r.raise_for_status()
     with open(f'{self.species_path}/{proteome_id}.fasta', 'w') as f:
