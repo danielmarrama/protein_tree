@@ -145,10 +145,8 @@ class ProteomeSelector:
     If there are no proteomes, return empty DataFrame.
     """
     # URL to get proteome list for a species - use proteome_type:1 first
-    url = f"""
-           https://rest.uniprot.org/proteomes/stream?format=xml&
-           query=(proteome_type:1)AND(taxonomy_id:{self.taxon_id})
-           """
+    url = f'https://rest.uniprot.org/proteomes/stream?format=xml&query=(proteome_type:1)AND(taxonomy_id:{self.taxon_id})'
+    print(url)
     
     try:
       proteome_list = pd.read_xml(requests.get(url).text)
@@ -171,10 +169,7 @@ class ProteomeSelector:
     using the taxonomy part of UniProt. 
     """
     # URL link to all proteins for a species - size = 500 proteins at a time
-    url = f"""
-           https://rest.uniprot.org/uniprotkb/search?format=fasta&
-           query=taxonomy_id:{self.taxon_id}&size=500
-           """
+    url = f'https://rest.uniprot.org/uniprotkb/search?format=fasta&query=taxonomy_id:{self.taxon_id}&size=500'
 
     # loop through all protein batches and write proteins to FASTA file
     for batch in self._get_protein_batches(url):
@@ -253,10 +248,7 @@ class ProteomeSelector:
     Args:
       proteome_id (str): UniProt Proteome ID.
     """
-    url = f"""
-           https://rest.uniprot.org/uniprotkb/stream?compressed=false&
-           format=fasta&includeIsoform=true&query=(proteome:{proteome_id})
-           """
+    url = f'https://rest.uniprot.org/uniprotkb/stream?compressed=false&format=fasta&includeIsoform=true&query=(proteome:{proteome_id})'
     r = requests.get(url)
     r.raise_for_status()
     with open(f'{self.species_path}/{proteome_id}.fasta', 'w') as f:
