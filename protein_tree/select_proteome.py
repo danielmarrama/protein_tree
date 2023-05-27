@@ -108,7 +108,8 @@ class ProteomeSelector:
       return
 
     proteins = list(SeqIO.parse(f'{self.species_path}/proteome.fasta', 'fasta'))
-    if (self.species_path / 'gp_proteome.fasta').exists():
+    gp_proteome_path = self.species_path / 'gp_proteome.fasta'
+    if gp_proteome_path.exists():
       gp_ids = [str(protein.id.split('|')[1]) for protein in list(SeqIO.parse(gp_proteome_path, 'fasta'))]
     else:
       gp_ids = []
@@ -146,7 +147,6 @@ class ProteomeSelector:
     """
     # URL to get proteome list for a species - use proteome_type:1 first
     url = f'https://rest.uniprot.org/proteomes/stream?format=xml&query=(proteome_type:1)AND(taxonomy_id:{self.taxon_id})'
-    print(url)
     
     try:
       proteome_list = pd.read_xml(requests.get(url).text)
