@@ -19,14 +19,14 @@ class DataFetcher:
     """
     all_taxa = all_taxa.replace(';', ',')
     sql_query1 = f"""
-                  SELECT object.mol1_seq, object.mol2_name, object.mol2_accession
+                  SELECT object.mol1_seq, object.region, object.mol2_name, object.mol2_accession
                   FROM epitope, object
                   WHERE epitope.e_object_id = object.object_id
                   AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
                   AND object.organism2_id IN ({all_taxa});
                   """
     sql_query2 = f"""
-                  SELECT object.mol1_seq, object.mol2_name, object.mol2_accession
+                  SELECT object.mol1_seq, object.region, object.mol2_name, object.mol2_accession
                   FROM epitope, object
                   WHERE epitope.related_object_id = object.object_id
                   AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
@@ -37,13 +37,17 @@ class DataFetcher:
       result1 = connection.execute(text(sql_query1))
       result2 = connection.execute(text(sql_query2))
 
-      df1 = pd.DataFrame(result1.fetchall(), columns=['Sequence', 'Source Name', 'Source Accession'])
-      df2 = pd.DataFrame(result2.fetchall(), columns=['Sequence', 'Source Name', 'Source Accession'])
-      epitopes_df = pd.concat([df1, df2], ignore_index=True)
+      columns=['Linear Sequence', 'Discontinuous Sequence', 'Source Name', 'Source Accession']
+      df1 = pd.DataFrame(result1.fetchall(), columns=columns)
+      df2 = pd.DataFrame(result2.fetchall(), columns=columns)
+      
+    epitopes_df = pd.concat([df1, df2], ignore_index=True)
+    epitopes_df['Sequence'] = epitopes_df['Linear Sequence'].fillna(epitopes_df['Discontinuous Sequence'])
     
+    epitopes_df.drop(columns=['Linear Sequence', 'Discontinuous Sequence'], inplace=True)
     epitopes_df.drop_duplicates(inplace=True)
     
-    return epitopes_df
+    return epitopes_df[['Sequence', 'Source Name', 'Source Accession']]
 
   def get_sources(self, all_taxa: list) -> pd.DataFrame:
     """
