@@ -260,7 +260,7 @@ class GeneAssigner:
     # and alignment length
     index = blast_results_df.groupby(['Query'])['Alignment Length'].transform(max) == blast_results_df['Alignment Length']
     blast_results_df = blast_results_df[index]
-
+    
     self.best_blast_match_gene_map, self.best_blast_match_id_map = {}, {}
     for i, row in blast_results_df.iterrows():
       self.best_blast_match_gene_map[row['Query']] = row['Subject Gene Symbol']
@@ -300,7 +300,6 @@ class GeneAssigner:
         self.best_blast_match_id_map[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Subject'].iloc[0]
         continue
 
-      # search the epitopes in the selected proteome
       matches_df = Matcher(
         query = epitopes, 
         proteome_file = 'proteome', 
@@ -310,9 +309,8 @@ class GeneAssigner:
         output_format='dataframe'
       ).match()
 
-      if matches_df.empty:
-        # if there are no matches, then assign the gene and id to the first
-        # blast match in blast_results_df of that source_antigen
+      if matches_df['Matched Sequence'].isna().all():
+        # if there are no matches, then assign the gene and id to the first blast match
         self.best_blast_match_gene_map[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Subject Gene Symbol'].iloc[0]
         self.best_blast_match_id_map[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Subject'].iloc[0]
         continue
