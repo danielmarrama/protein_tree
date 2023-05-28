@@ -61,4 +61,3 @@ Use [combine_data.py](combine_data.py) to merge all epitopes.csv and all sources
 - Use ARC to assign MHC/TCR/immunoglobulin genes
 - Use IUIS nomenclature for allergen names
 - Use manual_assignments.csv to override parent and gene assignments
-- Use PEPMatch to search discontinuous epitopes

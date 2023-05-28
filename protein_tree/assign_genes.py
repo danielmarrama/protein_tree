@@ -93,7 +93,7 @@ class GeneAssigner:
   def _search_epitopes(self, epitopes: list, best_match: bool = True) -> pd.DataFrame:
     df = Matcher(
       query = epitopes,
-      proteome_file = 'proteome', 
+      proteome_file = f'{self.species_path}/proteome.fasta',
       max_mismatches = 0, 
       k = 5, 
       preprocessed_files_path = f'{self.species_path}', 
@@ -302,7 +302,7 @@ class GeneAssigner:
 
       matches_df = Matcher(
         query = epitopes, 
-        proteome_file = 'proteome', 
+        proteome_file = f'{self.species_path}/proteome.fasta',
         max_mismatches = 0, 
         k = 5, 
         preprocessed_files_path = f'{self.species_path}',
