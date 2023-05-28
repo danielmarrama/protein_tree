@@ -41,6 +41,8 @@ class DataFetcher:
       df2 = pd.DataFrame(result2.fetchall(), columns=['Sequence', 'Source Name', 'Source Accession'])
       epitopes_df = pd.concat([df1, df2], ignore_index=True)
     
+    epitopes_df.drop_duplicates(inplace=True)
+    
     return epitopes_df
 
   def get_sources(self, all_taxa: list) -> pd.DataFrame:
@@ -57,6 +59,8 @@ class DataFetcher:
     with self.sql_engine.connect() as connection:
       result = connection.execute(text(sql_query))
       sources_df = pd.DataFrame(result.fetchall(), columns=['Accession', 'Name', 'Sequence'])
+
+    sources_df.drop_duplicates(inplace=True)
     
     return sources_df
 
