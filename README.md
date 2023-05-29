@@ -56,8 +56,10 @@ For all species:
 Use [combine_data.py](combine_data.py) to merge all epitopes.csv and all sources.csv into one file for every species.
 
 ### TODO
-- Use GP proteome for gene assignment first if it exists, then the larger proteome
-- Use MMseqs2 for assigning majority of gene assignments because of speed
-- Use ARC to assign MHC/TCR/immunoglobulin genes
+- Determine MMseqs2 cutoff by comparing BLAST result agreements
+- Use gene priority for epitope parent assignment first if it exists
+- Use ARC to assign MHC/TCR/immunoglobulin genes to vertebrate species
 - Use IUIS nomenclature for allergen names
 - Use manual_assignments.csv to override parent and gene assignments
+- Create a tree for visualization
+- Add higher taxon ranks for the final tree
