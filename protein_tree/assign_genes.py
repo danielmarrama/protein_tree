@@ -21,8 +21,7 @@ class GeneAssigner:
     self.uniprot_id_to_gene_symbol_map = dict(zip(proteome['UniProt ID'], proteome['Gene Symbol']))
 
   def assign_genes(self, sources_df: pd.DataFrame, epitopes_df: pd.DataFrame) -> None:
-    """
-    Assign a gene to the source antigens of a species.
+    """Assign a gene to the source antigens of a species.
 
     First, make a BLAST database of the selected proteome.
     Then, run blastp with the source antigens against the proteome.
@@ -40,19 +39,13 @@ class GeneAssigner:
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
     num_sources, num_sources_missing_seqs = self._sources_to_fasta(sources_df)
 
-    # create BLAST database, if proteome file is still empty, return
+    # source antigen gene assignment
     self._create_blast_db()
-
-    # run BLAST and get all matches
     blast_results_df = self._run_blast()
-
-    # get best blast matches for each source antigen
     self._get_best_blast_matches(blast_results_df)
-
-    # remove sources that don't have any BLAST matches and get the counts
     num_no_blast_matches, num_with_blast_matches = self._no_blast_matches(blast_results_df)
 
-    # now assign parent proteins to epitopes
+    # epitope parent protein assignment
     num_epitopes, num_epitopes_with_matches = self._assign_parents(epitopes_df)
 
     # map source antigens to their best blast matches (UniProt ID and gene) for sources
@@ -63,14 +56,10 @@ class GeneAssigner:
     epitopes_df['Assigned Gene'] = epitopes_df['Source Accession'].map(self.best_blast_match_gene_map)
     epitopes_df['Assigned Parent Protein ID'] = epitopes_df['Sequence'].map(self.best_epitope_isoform_map)
 
-    # drop sequence column for output
-    sources_df.drop(columns=['Sequence'], inplace=True)
-
-    # write sources and epitopes with assigned genes and parents to file
+    sources_df.drop(columns=['Sequence'], inplace=True) # drop sequence column for output
     sources_df.to_csv(f'{self.species_path}/sources.csv', index=False)
     epitopes_df.to_csv(f'{self.species_path}/epitopes.csv', index=False)
 
-    # remove blast DB and result files
     self._remove_files()
 
     assigner_data = [num_sources, num_sources_missing_seqs, num_no_blast_matches, 
@@ -78,19 +67,25 @@ class GeneAssigner:
     return assigner_data
 
   def _drop_epitopes_without_sequence(self, epitopes_df: pd.DataFrame) -> int:
-      epitopes_df.dropna(subset=['Sequence'], inplace=True)
-      return len(epitopes_df)
+    """Drop epitopes without a sequence from the epitopes DataFrame.
+    Args:
+      epitopes_df: DataFrame of epitopes for a species.
+    """
+    epitopes_df.dropna(subset=['Sequence'], inplace=True)
+    return len(epitopes_df)
 
   def _preprocess_proteome_if_needed(self) -> None:
-      if not os.path.exists(f'{self.species_path}/proteome.db'):
-          gp_proteome = f'{self.species_path}/gp_proteome.fasta' if os.path.exists(f'{self.species_path}/gp_proteome.fasta') else ''
-          Preprocessor(
-            proteome = f'{self.species_path}/proteome.fasta',
-            preprocessed_files_path = f'{self.species_path}',
-            gene_priority_proteome=gp_proteome
-          ).sql_proteome(k = 5)
+    """Preprocess the proteome if the preprocessed files don't exist."""
+    if not os.path.exists(f'{self.species_path}/proteome.db'):
+        gp_proteome = f'{self.species_path}/gp_proteome.fasta' if os.path.exists(f'{self.species_path}/gp_proteome.fasta') else ''
+        Preprocessor(
+          proteome = f'{self.species_path}/proteome.fasta',
+          preprocessed_files_path = f'{self.species_path}',
+          gene_priority_proteome=gp_proteome
+        ).sql_proteome(k = 5)
 
   def _search_epitopes(self, epitopes: list, best_match: bool = True) -> pd.DataFrame:
+    """Search epitopes within the proteome using PEPMatch."""
     df = Matcher(
       query = epitopes,
       proteome_file = f'{self.species_path}/proteome.fasta',
@@ -103,13 +98,14 @@ class GeneAssigner:
     return df
 
   def _assign_parents(self, epitopes_df: pd.DataFrame) -> tuple:
-    """
-    Assign a parent protein to each epitope.
-    
+    """Assign a parent protein to each epitope.
     Preprocess the proteome and then search all the epitopes within
     the proteome using PEPMatch. Then, assign the parent protein
     to each epitope by selecting the best isoform of the assigned gene for
     its source antigen.
+
+    Args:
+      epitopes_df: DataFrame of epitopes for a species.
     """
     num_epitopes = self._drop_epitopes_without_sequence(epitopes_df)
     self._preprocess_proteome_if_needed()
@@ -143,7 +139,10 @@ class GeneAssigner:
     return num_epitopes, num_epitopes_with_matches
 
   def _create_source_to_epitopes_map(self, epitopes_df: pd.DataFrame) -> dict:
-    """Create a map from source antigens to their epitopes."""
+    """Create a map from source antigens to their epitopes.
+    Args:
+      epitopes_df: DataFrame of epitopes for a species.
+    """
     # drop epitopes with no sequence
     epitopes_df.dropna(subset=['Sequence'], inplace=True)
     
@@ -157,9 +156,10 @@ class GeneAssigner:
     return source_to_epitopes_map 
 
   def _sources_to_fasta(self, sources_df: pd.DataFrame) -> None:
-    """
-    Write source antigens to FASTA file. If a source antigen is missing
+    """Write source antigens to FASTA file. If a source antigen is missing
     a sequence, write it to a separate file for logging.
+    Args:
+      sources_df: DataFrame of source antigens for a species.
     """  
 
     # write sources that are missing sequences to file and then drop those
@@ -184,16 +184,15 @@ class GeneAssigner:
     return len(sources_df), num_sources_missing_seqs
 
   def _create_blast_db(self) -> None:
-    '''Create BLAST database from the selected proteome.'''
+    """Create BLAST database from the selected proteome."""
     # escape parentheses in species path
     species_path = str(self.species_path).replace('(', '\(').replace(')', '\)')
     os.system(f'./makeblastdb -in {species_path}/proteome.fasta -dbtype prot')
 
   def _run_blast(self) -> None:
-    '''
-    BLAST source antigens against the selected proteome, then read in with
+    """BLAST source antigens against the selected proteome, then read in with
     pandas and assign column names. By default, blastp doesn't return header.
-    '''
+    """
     # escape parentheses in species path
     species_path = str(self.species_path).replace('(', '\(').replace(')', '\)')  
     os.system(f'./blastp -query {species_path}/sources.fasta '\
@@ -222,7 +221,7 @@ class GeneAssigner:
     return blast_results_df
 
   def _no_blast_matches(self, blast_results_df: pd.DataFrame) -> None:
-    '''Write sources that have no BLAST match to a file.'''
+    """Write sources that have no BLAST match to a file."""
     # get all source antigen ids
     source_ids = []
     for record in list(SeqIO.parse(f'{self.species_path}/sources.fasta', 'fasta')):
@@ -248,10 +247,12 @@ class GeneAssigner:
     return len(no_blast_match_ids), len(blast_result_ids)
 
   def _get_best_blast_matches(self, blast_results_df: pd.DataFrame) -> None:
-    """
-    Get the best BLAST match for each source antigen by sequence identity and 
+    """Get the best BLAST match for each source antigen by sequence identity and 
     alignment length. If there are multiple matches with the same % identity 
     and alignment length, then use _pepmatch_tiebreak to determine the best match.
+    
+    Args:
+      blast_results_df: DataFrame of source antigen BLAST results.
     """
     # TODO: create a quality score of % identity and alignment length divided by the length of the source antigen
     # get the best match for each source antigen by % identity
@@ -275,10 +276,12 @@ class GeneAssigner:
       self._pepmatch_tiebreak(blast_results_df)
 
   def _pepmatch_tiebreak(self, blast_results_df: pd.DataFrame) -> None:
-    """
-    First, get any source antigens that have ties for the best match. Then,
+    """First, get any source antigens that have ties for the best match. Then,
     using the epitopes associated with the source antigen, search them in 
     the selected proteome and find the gene that has the most matches.
+    
+    Args:
+      blast_results_df: DataFrame of source antigen BLAST results.
     """
     from collections import Counter
 
