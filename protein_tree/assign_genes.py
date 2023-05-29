@@ -253,7 +253,11 @@ class GeneAssigner:
     alignment length. If there are multiple matches with the same % identity 
     and alignment length, then use _pepmatch_tiebreak to determine the best match.
     """
+    # TODO: create a quality score of % identity and alignment length divided by the length of the source antigen
     # get the best match for each source antigen by % identity
+
+    # blast_results_df['Quality Score'] = blast_results_df['Percentage Identity'] * (blast_results_df['Alignment Length'] / blast_results_df['Query Length'])
+
     index = blast_results_df.groupby(['Query'])['Percentage Identity'].transform(max) == blast_results_df['Percentage Identity']
     blast_results_df = blast_results_df[index]
 
