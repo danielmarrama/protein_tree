@@ -65,6 +65,7 @@ class DataFetcher:
       sources_df = pd.DataFrame(result.fetchall(), columns=['Accession', 'Name', 'Sequence'])
 
     sources_df.drop_duplicates(inplace=True)
+    sources_df['Length'] = sources_df['Sequence'].str.len()
     
     return sources_df
 
