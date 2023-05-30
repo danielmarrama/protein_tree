@@ -49,11 +49,13 @@ class GeneAssigner:
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
     num_sources = self._sources_to_fasta(sources_df) # write sources to FASTA file
 
-    # if self.is_vertebrate:
-    #   self._run_arc()
+    if self.is_vertebrate:
+      self._run_arc()
 
-    # self._run_mmseqs2()
-    # self._run_blast()
+    if num_sources > 1000:
+      self._run_mmseqs2()
+    else:
+      self._run_blast()
 
     self._create_blast_db()
     blast_results_df = self._run_blast()
@@ -118,14 +120,15 @@ class GeneAssigner:
     return len(sources_df)
 
 
-  def _drop_epitopes_without_sequence(self, epitopes_df: pd.DataFrame) -> int:
-    """Drop epitopes without a sequence from the epitopes DataFrame.
-    Args:
-      epitopes_df: DataFrame of epitopes for a species.
-    """
-    epitopes_df.dropna(subset=['Sequence'], inplace=True)
-    return len(epitopes_df)
-
+  def _run_arc(self) -> None:
+    """Run ARC to assign MHC/TCR/Ig to source antigens."""
+    # pass sources.fasta to ARC
+    SeqClassifier(
+      outfile=f'{self.species_path}/ARC_results.tsv',
+      blast_path = './' 
+    ).classify_seqfile(f'{self.species_path}/sources.fasta')
+    arc_results = pd.read_csv(f'{self.species_path}/ARC_results.tsv', sep='\t')
+    
 
   def _preprocess_proteome_if_needed(self) -> None:
     """Preprocess the proteome if the preprocessed files don't exist."""
