@@ -21,8 +21,7 @@ class GeneAssigner:
     self.uniprot_id_to_gene_symbol_map = dict(zip(proteome['UniProt ID'], proteome['Gene Symbol']))
 
   def assign_genes(self, sources_df: pd.DataFrame, epitopes_df: pd.DataFrame) -> None:
-    """
-    Assign a gene to the source antigens of a species.
+    """Assign a gene to the source antigens of a species.
 
     First, make a BLAST database of the selected proteome.
     Then, run blastp with the source antigens against the proteome.
@@ -38,7 +37,7 @@ class GeneAssigner:
     """
     # create source to epitope map and write sources to FASTA file
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
-    num_sources, num_sources_missing_seqs = self._sources_to_fasta(sources_df)
+    num_sources = self._sources_to_fasta(sources_df)
 
     # create BLAST database, if proteome file is still empty, return
     self._create_blast_db()
@@ -73,8 +72,10 @@ class GeneAssigner:
     # remove blast DB and result files
     self._remove_files()
 
-    assigner_data = [num_sources, num_sources_missing_seqs, num_no_blast_matches, 
-                     num_with_blast_matches, num_epitopes, num_epitopes_with_matches]
+    assigner_data = [
+      num_sources, num_no_blast_matches, num_with_blast_matches, num_epitopes, 
+      num_epitopes_with_matches
+    ]
     return assigner_data
 
   def _drop_epitopes_without_sequence(self, epitopes_df: pd.DataFrame) -> int:
@@ -103,8 +104,7 @@ class GeneAssigner:
     return df
 
   def _assign_parents(self, epitopes_df: pd.DataFrame) -> tuple:
-    """
-    Assign a parent protein to each epitope.
+    """Assign a parent protein to each epitope.
     
     Preprocess the proteome and then search all the epitopes within
     the proteome using PEPMatch. Then, assign the parent protein
@@ -156,20 +156,9 @@ class GeneAssigner:
     
     return source_to_epitopes_map 
 
-  def _sources_to_fasta(self, sources_df: pd.DataFrame) -> None:
-    """
-    Write source antigens to FASTA file. If a source antigen is missing
-    a sequence, write it to a separate file for logging.
-    """  
-
-    # write sources that are missing sequences to file and then drop those
-    num_sources_missing_seqs = len(sources_df[sources_df['Sequence'].isna()])
-    if num_sources_missing_seqs:
-      sources_df[sources_df['Sequence'].isna()].to_csv(f'{self.species_path}/sources_missing_seqs.csv', index=False)
-    sources_df.dropna(subset=['Sequence'], inplace=True)
-        
-    # create seq records of sources with ID and sequence
-    seq_records = []
+  def _sources_to_fasta(self, sources_df: pd.DataFrame) -> int:
+    """Write source antigens to FASTA file."""          
+    seq_records = [] # create seq records of sources with ID and sequence
     for i, row in sources_df.iterrows():
       seq_records.append(
         SeqRecord(
@@ -181,19 +170,18 @@ class GeneAssigner:
     with open(f'{self.species_path}/sources.fasta', 'w') as f:
       SeqIO.write(seq_records, f, 'fasta')
 
-    return len(sources_df), num_sources_missing_seqs
+    return len(sources_df)
 
   def _create_blast_db(self) -> None:
-    '''Create BLAST database from the selected proteome.'''
+    """Create BLAST database from the selected proteome."""
     # escape parentheses in species path
     species_path = str(self.species_path).replace('(', '\(').replace(')', '\)')
     os.system(f'./makeblastdb -in {species_path}/proteome.fasta -dbtype prot')
 
   def _run_blast(self) -> None:
-    '''
-    BLAST source antigens against the selected proteome, then read in with
+    """BLAST source antigens against the selected proteome, then read in with
     pandas and assign column names. By default, blastp doesn't return header.
-    '''
+    """
     # escape parentheses in species path
     species_path = str(self.species_path).replace('(', '\(').replace(')', '\)')  
     os.system(f'./blastp -query {species_path}/sources.fasta '\
@@ -222,7 +210,7 @@ class GeneAssigner:
     return blast_results_df
 
   def _no_blast_matches(self, blast_results_df: pd.DataFrame) -> None:
-    '''Write sources that have no BLAST match to a file.'''
+    """Write sources that have no BLAST match to a file."""
     # get all source antigen ids
     source_ids = []
     for record in list(SeqIO.parse(f'{self.species_path}/sources.fasta', 'fasta')):
@@ -248,8 +236,7 @@ class GeneAssigner:
     return len(no_blast_match_ids), len(blast_result_ids)
 
   def _get_best_blast_matches(self, blast_results_df: pd.DataFrame) -> None:
-    """
-    Get the best BLAST match for each source antigen by sequence identity and 
+    """Get the best BLAST match for each source antigen by sequence identity and 
     alignment length. If there are multiple matches with the same % identity 
     and alignment length, then use _pepmatch_tiebreak to determine the best match.
     """
@@ -275,8 +262,7 @@ class GeneAssigner:
       self._pepmatch_tiebreak(blast_results_df)
 
   def _pepmatch_tiebreak(self, blast_results_df: pd.DataFrame) -> None:
-    """
-    First, get any source antigens that have ties for the best match. Then,
+    """First, get any source antigens that have ties for the best match. Then,
     using the epitopes associated with the source antigen, search them in 
     the selected proteome and find the gene that has the most matches.
     """
@@ -389,7 +375,6 @@ def main():
 
       print(f'Number of sources: {assigner_data[0]}')
       print(f'Number of epitopes: {assigner_data[4]}')
-      print(f'Number of sources missing sequences: {assigner_data[1]}')
       print(f'Number of sources with no BLAST matches: {assigner_data[2]}')
       print(f'Number of sources with BLAST matches: {assigner_data[3]}')
       print(f'Number of epitopes with a match: {assigner_data[5]}')
@@ -413,7 +398,6 @@ def main():
 
     print(f'Number of sources: {assigner_data[0]}')
     print(f'Number of epitopes: {assigner_data[4]}')
-    print(f'Number of sources missing sequences: {assigner_data[1]}')
     print(f'Number of sources with no BLAST matches: {assigner_data[2]}')
     print(f'Number of sources with BLAST matches: {assigner_data[3]}')
     print(f'Number of epitopes with a match: {assigner_data[5]}')

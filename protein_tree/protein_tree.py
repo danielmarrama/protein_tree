@@ -72,7 +72,6 @@ def run_protein_tree(
 
   print(f'Number of sources: {assigner_data[0]}')
   print(f'Number of epitopes: {assigner_data[4]}')
-  print(f'Number of sources missing sequences: {assigner_data[1]}')
   print(f'Number of sources with no BLAST matches: {assigner_data[2]}')
   print(f'Number of sources with BLAST matches: {assigner_data[3]}')
   print(f'Number of epitopes with a match: {assigner_data[5]}')
@@ -87,7 +86,6 @@ def run_protein_tree(
   metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Type'] = proteome_data[2]
   metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), '# of Sources'] = assigner_data[0]
   metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), '# of Epitopes'] = assigner_data[4]
-  metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), '# of Sources Missing Sequences'] = assigner_data[1]
   metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), '# of Sources with No BLAST Matches'] = assigner_data[2]
   metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), '# of Sources with BLAST Matches'] = assigner_data[3]
   metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), '# of Epitopes with a Match'] = assigner_data[5]

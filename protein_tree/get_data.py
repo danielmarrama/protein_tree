@@ -11,8 +11,7 @@ class DataFetcher:
     self.sql_engine = create_sql_engine(user, password) # private so there's no exposure to the backend
 
   def get_epitopes(self, all_taxa: list) -> pd.DataFrame:
-    """
-    Get all epitopes for a species including all children taxa.
+    """Get all epitopes for a species including all children taxa.
 
     Args:
       all_taxa: List of all children taxa for a species from the IEDB.
@@ -50,8 +49,7 @@ class DataFetcher:
     return epitopes_df[['Sequence', 'Source Name', 'Source Accession']]
 
   def get_sources(self, all_taxa: list) -> pd.DataFrame:
-    """
-    Get all source antigens for a species including all children taxa.
+    """Get all source antigens for a species including all children taxa.
 
     Args:
       all_taxa: List of all children taxa for a species from the IEDB.
@@ -64,6 +62,7 @@ class DataFetcher:
       result = connection.execute(text(sql_query))
       sources_df = pd.DataFrame(result.fetchall(), columns=['Accession', 'Name', 'Sequence'])
 
+    sources_df.dropna(subset=['Sequence'], inplace=True) # remove sources with no sequence
     sources_df.drop_duplicates(inplace=True)
     
     return sources_df
