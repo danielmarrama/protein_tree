@@ -10,25 +10,29 @@ class DataFetcher:
   def __init__(self, user: str, password: str) -> None:
     self.sql_engine = create_sql_engine(user, password) # private so there's no exposure to the backend
 
-  def get_epitopes(self, all_taxa: list) -> pd.DataFrame:
+  def get_epitopes(self, all_taxa: str) -> pd.DataFrame:
     """Get all epitopes for a species including all children taxa.
 
     Args:
-      all_taxa: List of all children taxa for a species from the IEDB.
+      all_taxa: All children taxa for a species from the IEDB separated by ';'.
     """
     all_taxa = all_taxa.replace(';', ',')
     sql_query1 = f"""
-                  SELECT object.mol1_seq, object.region, object.mol2_name, object.mol2_accession
+                  SELECT object.mol1_seq, object.region, object.mol2_name, 
+                         object.mol2_accession
                   FROM epitope, object
                   WHERE epitope.e_object_id = object.object_id
-                  AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
+                  AND object.object_sub_type IN 
+                      ("Peptide from protein", "Discontinuous protein residues")
                   AND object.organism2_id IN ({all_taxa});
                   """
     sql_query2 = f"""
-                  SELECT object.mol1_seq, object.region, object.mol2_name, object.mol2_accession
+                  SELECT object.mol1_seq, object.region, object.mol2_name, 
+                         object.mol2_accession
                   FROM epitope, object
                   WHERE epitope.related_object_id = object.object_id
-                  AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
+                  AND object.object_sub_type IN 
+                      ("Peptide from protein", "Discontinuous protein residues")
                   AND object.organism2_id IN ({all_taxa});
                   """
     
@@ -54,7 +58,6 @@ class DataFetcher:
     )
     # remove epitopes with no sequence
     epitopes_df.dropna(subset=['Sequence'], inplace=True)
-
     epitopes_df.drop_duplicates(inplace=True)
     
     return epitopes_df[['Sequence', 'Source Name', 'Source Accession']]
@@ -73,7 +76,8 @@ class DataFetcher:
       result = connection.execute(text(sql_query))
       sources_df = pd.DataFrame(result.fetchall(), columns=['Accession', 'Name', 'Sequence'])
 
-    sources_df.dropna(subset=['Sequence'], inplace=True) # remove sources with no sequence
+    # remove sources with no sequence
+    sources_df.dropna(subset=['Sequence'], inplace=True) 
     sources_df.drop_duplicates(inplace=True)
     sources_df['Length'] = sources_df['Sequence'].str.len()
     
@@ -85,10 +89,22 @@ def main():
 
   parser = argparse.ArgumentParser()
   
-  parser.add_argument('-u', '--user', required=True, help='User for IEDB MySQL connection.')
-  parser.add_argument('-p', '--password', required=True, help='User for IEDB MySQL connection.')
-  parser.add_argument('-a', '--all_species', action='store_true', help='Build protein tree for all IEDB species.')
-  parser.add_argument('-t', '--taxon_id', type=int, help='Taxon ID for species to pull data for.')
+  parser.add_argument(
+    '-u', '--user',
+    required=True,
+    help='User for IEDB MySQL connection.')
+  parser.add_argument(
+    '-p', '--password',
+    required=True,
+    help='User for IEDB MySQL connection.')
+  parser.add_argument(
+    '-a', '--all_species',
+    action='store_true',
+    help='Build protein tree for all IEDB species.')
+  parser.add_argument(
+    '-t', '--taxon_id',
+    type=int, 
+    help='Taxon ID for species to pull data for.')
   
   args = parser.parse_args()
   

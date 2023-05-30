@@ -13,16 +13,20 @@ from pepmatch import Preprocessor, Matcher
 
 
 class GeneAssigner:
-  def __init__(self, taxon_id, species_name):
+  def __init__(self, taxon_id, species_name, is_vertebrate):
     self.taxon_id = taxon_id
     self.species_path = Path(f'species/{taxon_id}-{species_name.replace(" ", "_")}')
-    self.allergen_map = _get_allergen_data() # pull from IUIS
-    self.manual_map = _get_manual_data() # use manual_assignments.csv
+    self.is_vertebrate = is_vertebrate
+    self.allergen_map = self._get_allergen_data() # pull from IUIS
+    self.manual_map = self._get_manual_data() # use manual_assignments.csv
 
     # create UniProt ID to gene symbol map from proteome.csv file
     proteome = pd.read_csv(f'{self.species_path}/proteome.csv')
     self.uniprot_id_to_gene_symbol_map = dict(
-      zip(proteome['UniProt ID'], proteome['Gene Symbol'])
+      zip(
+        proteome['UniProt ID'], 
+        proteome['Gene Symbol']
+      )
     )   
 
 
@@ -41,11 +45,12 @@ class GeneAssigner:
       sources_df: DataFrame of source antigens for a species.
       epitopes_df: DataFrame of epitopes for a species.
     """
-    # create source to epitope map and write sources to FASTA file
+    # create source to epitope map
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
-    num_sources = self._sources_to_fasta(sources_df)
+    num_sources = self._sources_to_fasta(sources_df) # write sources to FASTA file
 
-    # source antigen gene assignment
+    # if self.is_vertebrate:
+    #   self._run_arc()
 
     # self._run_mmseqs2()
     # self._run_blast()
@@ -94,6 +99,23 @@ class GeneAssigner:
         source_to_epitopes_map[row['Source Accession']] = [row['Sequence']]
     
     return source_to_epitopes_map 
+
+
+  def _sources_to_fasta(self, sources_df: pd.DataFrame) -> int:
+    """Write source antigens to FASTA file."""          
+    seq_records = [] # create seq records of sources with ID and sequence
+    for i, row in sources_df.iterrows():
+      seq_records.append(
+        SeqRecord(
+          Seq(row['Sequence']),
+          id=row['Accession'],
+          description='')
+      )
+
+    with open(f'{self.species_path}/sources.fasta', 'w') as f:
+      SeqIO.write(seq_records, f, 'fasta')
+
+    return len(sources_df)
 
 
   def _drop_epitopes_without_sequence(self, epitopes_df: pd.DataFrame) -> int:
@@ -176,23 +198,6 @@ class GeneAssigner:
     )
 
     return num_epitopes, num_epitopes_with_matches
-
-
-  def _sources_to_fasta(self, sources_df: pd.DataFrame) -> int:
-    """Write source antigens to FASTA file."""          
-    seq_records = [] # create seq records of sources with ID and sequence
-    for i, row in sources_df.iterrows():
-      seq_records.append(
-        SeqRecord(
-          Seq(row['Sequence']),
-          id=row['Accession'],
-          description='')
-      )
-
-    with open(f'{self.species_path}/sources.fasta', 'w') as f:
-      SeqIO.write(seq_records, f, 'fasta')
-
-    return len(sources_df)
 
 
   def _create_blast_db(self) -> None:
@@ -370,7 +375,13 @@ class GeneAssigner:
     """Get allergen data from IUIS and create map."""
     url = 'http://www.allergen.org/csv.php?table=joint'
     allergen_df = pd.read_csv(url)
-    return dict(zip(allergen_df['AccProtein'], allergen_df['Name']))
+    allergen_map = dict(
+      zip(
+        allergen_df['AccProtein'],
+        allergen_df['Name']
+      )
+    )
+    return allergen_map
 
 
   def _get_manual_data(self) -> dict:
@@ -378,7 +389,13 @@ class GeneAssigner:
     # manual_assignments.csv should be in the directory above this one
     directory = Path(__file__).resolve().parent.parent
     manual_df = pd.read_csv(directory / 'manual_assignments.csv')
-    return dict(zip(manual_df['Accession'], manual_df['Parent Accession']))
+    manual_map = dict(
+      zip(
+        manual_df['Accession'],
+        manual_df['Parent Accession']
+      )
+    )
+    return manual_map
 
 
 def main():
@@ -387,10 +404,21 @@ def main():
 
   parser = argparse.ArgumentParser()
 
-  parser.add_argument('-u', '--user', required=True, help='User for IEDB MySQL connection.')
-  parser.add_argument('-p', '--password', required=True, help='Password for IEDB MySQL connection.')
-  parser.add_argument('-a', '--all_species', action='store_true', help='Build protein tree for all IEDB species.')
-  parser.add_argument('-t', '--taxon_id', help='Taxon ID for the species to run protein tree.')
+  parser.add_argument(
+    '-u', '--user',
+    required=True,
+    help='User for IEDB MySQL connection.')
+  parser.add_argument(
+    '-p', '--password',
+    required=True,
+    help='Password for IEDB MySQL connection.')
+  parser.add_argument(
+    '-a', '--all_species',
+    action='store_true',
+    help='Build protein tree for all IEDB species.')
+  parser.add_argument(
+    '-t', '--taxon_id',
+    help='Taxon ID for the species to run protein tree.')
   
   args = parser.parse_args()
   user = args.user
@@ -401,24 +429,45 @@ def main():
   species_df = pd.read_csv('species.csv')
   valid_taxon_ids = species_df['Species Taxon ID'].astype(str).tolist()
 
-  # taxa and name mapppings
-  all_taxa_map = dict(zip(species_df['Species Taxon ID'].astype(str), species_df['All Taxa']))
-  species_id_to_name_map = dict(zip(species_df['Species Taxon ID'].astype(str), species_df['Species Name']))
+  # taxa, species name, and is_vertebrate mapppings
+  all_taxa_map = dict(
+    zip(
+      species_df['Species Taxon ID'].astype(str),
+      species_df['All Taxa']
+    )
+  )
+  
+  species_name_map = dict(
+    zip(
+      species_df['Species Taxon ID'].astype(str),
+      species_df['Species Name']
+    )
+  )
+  
+  is_vertebrate_map = dict(
+    zip(
+      species_df['Species Taxon ID'].astype(str), 
+      species_df['Is Vertebrate']
+    )
+  )
 
   if all_species:
     proteomes = {}
     for taxon_id in valid_taxon_ids:
+      all_taxa = all_taxa_map[taxon_id]
+      species_name = species_name_map[taxon_id]
+      is_vertebrate = is_vertebrate_map[taxon_id]
 
       Fetcher = DataFetcher(user, password)
-      epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
-      sources_df = Fetcher.get_sources(all_taxa_map[taxon_id])
+      epitopes_df = Fetcher.get_epitopes(all_taxa)
+      sources_df = Fetcher.get_sources(all_taxa)
 
       if epitopes_df.empty or sources_df.empty:
-        print(f'No epitopes for {species_id_to_name_map[taxon_id]} ({taxon_id}). Skipping...\n')
+        print(f'No epitopes for {species_name} ({taxon_id}). Skipping...\n')
         continue
       
-      print(f'Assigning genes for {species_id_to_name_map[taxon_id]} ({taxon_id})...')
-      Assigner = GeneAssigner(taxon_id, species_id_to_name_map[taxon_id])
+      print(f'Assigning genes for {species_name} ({taxon_id})...')
+      Assigner = GeneAssigner(taxon_id, species_name, is_vertebrate)
       assigner_data = Assigner.assign_genes(sources_df, epitopes_df)
       print('Done assigning genes.\n')
 
@@ -431,16 +480,20 @@ def main():
 
   else: # one species at a time
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
-
+    
+    all_taxa = all_taxa_map[taxon_id]
+    species_name = species_name_map[taxon_id]
+    is_vertebrate = is_vertebrate_map[taxon_id]
+    
     Fetcher = DataFetcher(user, password)
-    epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
-    sources_df = Fetcher.get_sources(all_taxa_map[taxon_id])
+    epitopes_df = Fetcher.get_epitopes(all_taxa)
+    sources_df = Fetcher.get_sources(all_taxa)
 
     assert not sources_df.empty, 'This species has no source antigens.'
     assert not epitopes_df.empty, 'This species has no epitopes.'
 
-    print(f'Assigning genes for {species_id_to_name_map[taxon_id]} ({taxon_id})...\n')
-    Assigner = GeneAssigner(taxon_id, species_id_to_name_map[taxon_id])
+    print(f'Assigning genes for {species_name} ({taxon_id})...\n')
+    Assigner = GeneAssigner(taxon_id, species_name, is_vertebrate)
     assigner_data = Assigner.assign_genes(sources_df, epitopes_df)
     print('Done assigning genes.\n')
     

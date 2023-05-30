@@ -42,10 +42,10 @@ class ProteomeSelector:
       epitopes_df (pd.DataFrame): DataFrame of epitopes for the species to use for tie breaks.
     """
     if (self.species_path / 'proteome.fasta').exists():
-      
-      proteome_id = self.metrics_df[self.metrics_df['Species Taxon ID'].astype(str) == self.taxon_id]['Proteome ID'].iloc[0]
-      proteome_taxon = self.metrics_df[self.metrics_df['Species Taxon ID'].astype(str) == self.taxon_id]['Proteome Taxon'].iloc[0]
-      proteome_type = self.metrics_df[self.metrics_df['Species Taxon ID'].astype(str) == self.taxon_id]['Proteome Type'].iloc[0]
+      idx = self.metrics_df['Species Taxon ID'] == self.taxon_id
+      proteome_id = self.metrics_df[idx]['Proteome ID'].iloc[0]
+      proteome_taxon = self.metrics_df[idx]['Proteome Taxon'].iloc[0]
+      proteome_type = self.metrics_df[idx]['Proteome Type'].iloc[0]
       
       return proteome_id, proteome_taxon, proteome_type
     
@@ -218,7 +218,8 @@ class ProteomeSelector:
     """
     import gzip
     
-    group = self.species_df[self.species_df['Species Taxon ID'].astype(str) == self.taxon_id]['Group'].iloc[0]
+    idx = self.species_df['Species Taxon ID'] == self.taxon_id
+    group = self.species_df[idx]['Group'].iloc[0]
     ftp_url = f'https://ftp.uniprot.org/pub/databases/uniprot/knowledgebase/reference_proteomes/'
     
     if group == 'Archaea':
@@ -330,10 +331,22 @@ def main():
 
   parser = argparse.ArgumentParser()
   
-  parser.add_argument('-u', '--user', required=True, help='User for IEDB MySQL connection.')
-  parser.add_argument('-p', '--password', required=True, help='Password for IEDB MySQL connection.')
-  parser.add_argument('-a', '--all_species', action='store_true', help='Build protein tree for all IEDB species.')
-  parser.add_argument('-t', '--taxon_id', required=True, help='Taxon ID for the species to pull data for.')
+  parser.add_argument(
+    '-u', '--user', 
+    required=True, 
+    help='User for IEDB MySQL connection.')
+  parser.add_argument(
+    '-p', '--password', 
+    required=True, 
+    help='Password for IEDB MySQL connection.')
+  parser.add_argument(
+    '-a', '--all_species', 
+    action='store_true', 
+    help='Build protein tree for all IEDB species.')
+  parser.add_argument(
+    '-t', '--taxon_id', 
+    required=True, 
+    help='Taxon ID for the species to pull data for.')
   
   args = parser.parse_args()
   user = args.user
@@ -343,7 +356,7 @@ def main():
 
   species_df = pd.read_csv('species.csv') # IEDB species data
   metrics_df = pd.read_csv('metrics.csv') # protein tree metrics data
-  valid_taxon_ids = species_df['Species Taxon ID'].astype(str).tolist()
+  valid_taxon_ids = species_df['Species Taxon ID'].tolist()
 
   # taxa and name mapppings
   all_taxa_map = dict(zip(species_df['Species Taxon ID'].astype(str), species_df['All Taxa']))
