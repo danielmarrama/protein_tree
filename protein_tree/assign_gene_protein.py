@@ -17,8 +17,6 @@ class GeneAndProteinAssigner:
     self.taxon_id = taxon_id
     self.species_path = Path(f'species/{taxon_id}-{species_name.replace(" ", "_")}')
     self.is_vertebrate = is_vertebrate
-    self.allergen_map = self._get_allergen_data() # pull from IUIS
-    self.manual_map = self._get_manual_data() # use manual_assignments.csv
 
     # create UniProt ID to gene symbol map from proteome.csv file
     proteome = pd.read_csv(f'{self.species_path}/proteome.csv')
@@ -52,6 +50,9 @@ class GeneAndProteinAssigner:
 
     num_matched_sources = self._assign_genes(sources_df, epitopes_df, num_sources)
     num_matched_epitopes = self._assign_parents(epitopes_df)
+
+    self._assign_allergens()
+    self._assign_manuals()
 
     # map source antigens to their best blast matches (UniProt ID and gene) for sources
     sources_df['Assigned Gene'] = sources_df['Accession'].map(self.source_gene_assignment)
@@ -364,17 +365,15 @@ class GeneAndProteinAssigner:
       pass
 
 
-  def _get_allergen_data(self) -> dict:
+  def _assign_allergens(self) -> dict:
     """Get allergen data from IUIS and create map."""
     url = 'http://www.allergen.org/csv.php?table=joint'
     allergen_df = pd.read_csv(url)
-    allergen_map = dict(
-      zip(
-        allergen_df['AccProtein'],
-        allergen_df['Name']
-      )
-    )
-    return allergen_map
+    allergen_map = allergen_df.set_index('AccProtein')['Name'].to_dict()
+
+    for k, v in self.source_protein_assignment.items():
+      if v in allergen_map.keys():
+        self.source_protein_assignment[k] = allergen_map[v]
 
 
   def _get_manual_data(self) -> dict:

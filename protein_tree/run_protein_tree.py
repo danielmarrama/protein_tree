@@ -11,7 +11,6 @@ from assign_gene_protein import GeneAndProteinAssigner
 
 # MAIN TODO:
 # * add step to handle allergens differntly by assigning label from IUIS
-# * run ARC before BLAST
 # * add step to override gene and parent assignments with manual assignments
 
 # smaller TODO:
