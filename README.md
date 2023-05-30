@@ -51,5 +51,6 @@ Use [combine_data.py](combine_data.py) to merge all epitopes.csv and all sources
 
 ### TODO
 - Determine MMseqs2 cutoff by comparing BLAST result agreements
+- Assign allergens and manuals in the final tree only
 - Create a tree for visualization
 - Add higher taxon ranks for the final tree

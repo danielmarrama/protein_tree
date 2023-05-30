@@ -48,7 +48,7 @@ def run_protein_tree(
   
   print('Got the best proteome:')
   print(f'Proteome ID: {proteome_data[0]}')
-  print(f'Proteome taxon: {proteome_data[1]}')
+  print(f'Proteome taxon: {proteome_data[1]:.0f}')
   print(f'Proteome type: {proteome_data[2]}\n')
 
   # assign genes to source antigens and parent proteins to epitopes

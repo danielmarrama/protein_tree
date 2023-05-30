@@ -111,6 +111,13 @@ class ProteomeSelector:
     if not (self.species_path / 'proteome.fasta').exists():
       return
 
+    regexes = {
+      'protein_id': re.compile(r"\|([^|]*)\|"),     # between | and |
+      'protein_name': re.compile(r"\s(.+?)\sOS"),   # between space and space before OS
+      'gene': re.compile(r"GN=(.+?)\s"),            # between GN= and space
+      'pe_level': re.compile(r"PE=(.+?)\s"),        # between PE= and space
+    }
+
     proteins = list(SeqIO.parse(f'{self.species_path}/proteome.fasta', 'fasta'))
     gp_proteome_path = self.species_path / 'gp_proteome.fasta'
     if gp_proteome_path.exists():
@@ -118,28 +125,34 @@ class ProteomeSelector:
     else:
       gp_ids = []
 
-    proteome_data = [] # collect proteome data
+    proteome_data = []
     for protein in proteins:
-      uniprot_id = protein.id.split('|')[1]
-      gp = 1 if uniprot_id in gp_ids else 0
+      metadata = []
+      for key in regexes:
+        match = regexes[key].search(str(protein.description))
 
-      # TODO: look into using HUGO to map old gene names to new ones
-      try:
-        gene = re.search('GN=(.*?) ', protein.description).group(1)
-      except AttributeError:
-        try: # some gene names are at the end of the header
-          gene = re.search('GN=(.*?)$', protein.description).group(1)
-        except AttributeError:
-          gene = ''
-      try: # protein existence level
-        pe_level = int(re.search('PE=(.*?) ', protein.description).group(1))
-      except AttributeError:
-        pe_level = 0
+        if match:
+          metadata.append(match.group(1))
+        else:
+          if key == 'protein_id':
+            metadata.append(str(protein.id))
+          elif key == 'pe_level':
+            metadata.append(0)
+          else:
+            metadata.append('')
       
-      proteome_data.append([protein.id.split('|')[0], gene, uniprot_id, gp, pe_level, str(protein.seq)])
+      gp = 1 if protein.id.split('|')[1] in gp_ids else 0
+      metadata.append(gp)
+      metadata.append(str(protein.seq))
+      metadata.append(protein.id.split('|')[0])
+      
+      proteome_data.append(metadata)
     
-    columns = ['Database', 'Gene Symbol', 'UniProt ID', 'Gene Priority', 'Protein Existence Level', 'Sequence']
-    pd.DataFrame(proteome_data, columns=columns).to_csv(f'{self.species_path}/proteome.csv', index=False)
+    columns = ['Protein ID', 'Protein Name', 'Gene', 'Protein Existence Level', 'Gene Priority', 'Sequence', 'Database']
+    proteome = pd.DataFrame(proteome_data, columns=columns)
+    proteome = proteome[['Database', 'Gene', 'Protein ID', 'Protein Name', 'Protein Existence Level', 'Gene Priority', 'Sequence']]
+    proteome.to_csv(f'{self.species_path}/proteome.csv', index=False)
+
 
   def _get_proteome_list(self) -> pd.DataFrame:
     """

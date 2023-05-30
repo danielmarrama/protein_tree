@@ -17,16 +17,24 @@ class GeneAndProteinAssigner:
     self.taxon_id = taxon_id
     self.species_path = Path(f'species/{taxon_id}-{species_name.replace(" ", "_")}')
     self.is_vertebrate = is_vertebrate
-
-    # create UniProt ID to gene symbol map from proteome.csv file
-    proteome = pd.read_csv(f'{self.species_path}/proteome.csv')
-    self.uniprot_id_to_gene_symbol_map = dict(
-      zip(
-        proteome['UniProt ID'], 
-        proteome['Gene Symbol']
-    ))
     self.source_gene_assignment = {}
     self.source_protein_assignment = {}
+
+    # create UniProt ID -> gene map
+    proteome = pd.read_csv(f'{self.species_path}/proteome.csv')
+    self.uniprot_id_to_gene_map = dict(
+      zip(
+        proteome['Protein ID'], 
+        proteome['Gene']
+      )
+    )
+    # create UniProt ID -> protein name map
+    self.uniprot_id_to_name_map = dict(
+      zip(
+        proteome['Protein ID'], 
+        proteome['Protein Name']
+      )
+    )
 
 
   def assign(self, sources_df: pd.DataFrame, epitopes_df: pd.DataFrame) -> None:
@@ -47,16 +55,17 @@ class GeneAndProteinAssigner:
         sources_df['Length']
       )
     )
-
     num_matched_sources = self._assign_genes(sources_df, epitopes_df, num_sources)
     num_matched_epitopes = self._assign_parents(epitopes_df)
 
+    # TODO: move this to the final tree building script
     self._assign_allergens()
-    self._assign_manuals()
+    # self._assign_manuals()
 
     # map source antigens to their best blast matches (UniProt ID and gene) for sources
     sources_df['Assigned Gene'] = sources_df['Accession'].map(self.source_gene_assignment)
     sources_df['Assigned Protein ID'] = sources_df['Accession'].map(self.source_protein_assignment)
+    sources_df['Assigned Protein Name'] = sources_df['Assigned Protein ID'].map(self.uniprot_id_to_name_map)
     
     # map source antigens to their best blast matches (gene) for epitopes
     epitopes_df['Assigned Gene'] = epitopes_df['Source Accession'].map(self.source_gene_assignment)
@@ -227,7 +236,6 @@ class GeneAndProteinAssigner:
     num_matched_epitopes = len(
       all_matches_df.dropna(subset=['Matched Sequence'])['Query Sequence'].unique()
     )
-
     return num_matched_epitopes
 
 
@@ -272,7 +280,7 @@ class GeneAndProteinAssigner:
     blast_results_df['Subject'] = blast_results_df['Subject'].str.split('-').str[0]
     
     # map subject UniProt IDs to gene symbols
-    blast_results_df['Subject Gene Symbol'] = blast_results_df['Subject'].map(self.uniprot_id_to_gene_symbol_map)
+    blast_results_df['Subject Gene Symbol'] = blast_results_df['Subject'].map(self.uniprot_id_to_gene_map)
     
     # create a quality score based on % identity, alignment length, and query length
     blast_results_df['Query Length'] = blast_results_df['Query'].map(self.source_length_map)
@@ -281,13 +289,13 @@ class GeneAndProteinAssigner:
     best_scores = blast_results_df.groupby('Query')['Quality Score'].transform(max) == blast_results_df['Quality Score']
     blast_results_df = blast_results_df[best_scores]
 
-    for i, row in blast_results_df.iterrows():
-      self.source_gene_assignment[row['Query']] = row['Subject Gene Symbol']
-      self.source_protein_assignment[row['Query']] = row['Subject']
-
     # check if there are any query duplicates - update map within _pepmatch_tiebreak
     if blast_results_df.duplicated(subset=['Query']).any():
       self._pepmatch_tiebreak(blast_results_df)
+    else:
+      for i, row in blast_results_df.iterrows():
+        self.source_gene_assignment[row['Query']] = row['Subject Gene Symbol']
+        self.source_protein_assignment[row['Query']] = row['Subject']
 
 
   def _pepmatch_tiebreak(self, blast_results_df: pd.DataFrame) -> None:
@@ -331,7 +339,9 @@ class GeneAndProteinAssigner:
         output_format='dataframe'
       ).match()
 
-      if matches_df['Matched Sequence'].isna().all():
+      matches_df.dropna(subset=['Matched Sequence'], inplace=True)
+
+      if matches_df.empty:
         # if there are no matches, then assign the gene and id to the first blast match
         self.source_gene_assignment[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Subject Gene Symbol'].iloc[0]
         self.source_protein_assignment[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Subject'].iloc[0]
@@ -343,20 +353,22 @@ class GeneAndProteinAssigner:
 
       # update maps with the gene and id that has the most matches
       self.source_gene_assignment[source_antigen] = gene
-      self.source_protein_assignment[source_antigen] = uniprot_id
+      self.source_protein_assignment[source_antigen] = uniprot_id.split('.')[0]
 
 
   def _remove_files(self) -> None:
     """Delete all the files that were created when making the BLAST database."""
     for extension in ['pdb', 'phr', 'pin', 'pjs', 'pot', 'psq', 'ptf', 'pto']:
-      try: # if DB wasn't create this will fail, so just pass
+      try: # if DB wasn't created this will throw an error
         os.remove(glob.glob(f'{self.species_path}/*.{extension}')[0])
       except IndexError:
-        pass # the species will get all 0s for results
+        pass 
     
-    # remove BLAST results and sources.fasta
     os.remove(f'{self.species_path}/blast_results.csv')
     os.remove(f'{self.species_path}/sources.fasta')
+
+    # if self.is_vertebrate:
+    #   os.remove(f'{self.species_path}/ARC_results.tsv')
 
     # if proteome.db exists, remove it
     try:
@@ -366,31 +378,32 @@ class GeneAndProteinAssigner:
 
 
   def _assign_allergens(self) -> None:
-    """Get allergen data from IUIS and create map."""
+    """Get allergen data from allergen.org and then assign allergens to sources."""
     url = 'http://www.allergen.org/csv.php?table=joint'
     allergen_df = pd.read_csv(url)
     allergen_map = allergen_df.set_index('AccProtein')['Name'].to_dict()
 
     for k, v in self.source_protein_assignment.items():
       if v in allergen_map.keys():
-        self.source_protein_assignment[k] = allergen_map[v]
+        self.uniprot_id_to_name_map[v] = allergen_map[v]
 
 
   def _assign_manuals(self) -> None:
-    """Get manual assignments from manual_assignments.csv and create map."""
+    """Get manual assignments from manual_assignments.csv and then assign
+    genes and proteins to sources.
+    """
     # manual_assignments.csv should be in the directory above this one
     directory = Path(__file__).resolve().parent.parent
     manual_df = pd.read_csv(directory / 'manual_assignments.csv')
     manual_gene_map = manual_df.set_index('Accession')['Accession Gene'].to_dict()
-    manual_protein_map = manual_df.set_index('Accession')['Accession Parent'].to_dict()
+    manual_protein_id_map = manual_df.set_index('Accession')['Parent Accession'].to_dict()
+    manual_protein_name_map = manual_df.set_index('Accession')['Parent Name'].to_dict()
 
     for k, v in self.source_gene_assignment.items():
       if k in manual_gene_map.keys():
         self.source_gene_assignment[k] = manual_gene_map[k]
-
-    for k, v in self.source_protein_assignment.items():
-      if k in manual_protein_map.keys():
-        self.source_protein_assignment[k] = manual_protein_map[k]
+        self.source_protein_assignment[k] = manual_protein_id_map[k]
+        self.uniprot_id_to_name_map[k] = manual_protein_name_map[k]
 
 
 def main():

@@ -443,7 +443,7 @@ Species Taxon ID,Species Name,Proteome ID,Proteome Taxon,Proteome Type,Source Co
 8018,Oncorhynchus keta (chum salmon),None,8018.0,All-proteins,1.0,6.0,100.0,0.0
 8022,Oncorhynchus mykiss (rainbow trout),UP000193380,8022.0,Representative,4.0,1.0,100.0,0.0
 8030,Salmo salar (Atlantic salmon),UP000087266,8030.0,Representative,3.0,67.0,100.0,40.29850746
-8049,Gadus morhua (Atlantic cod),UP000694546,8049.0,Representative,5.0,107.0,100.0,0.0
+8049,Gadus morhua (Atlantic cod),UP000694546,8049.0,Representative,5.0,99.0,100.0,77.77777777777779
 8090,Oryzias latipes (medaka),UP000001038,8090.0,Representative,3.0,1.0,100.0,100.0
 8255,Paralichthys olivaceus (false halibut),None,8255.0,All-proteins,1.0,1.0,100.0,100.0
 8355,Xenopus laevis (common platanna),UP000186698,8355.0,Representative,13.0,10.0,100.0,70.0
