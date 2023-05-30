@@ -64,6 +64,7 @@ class DataFetcher:
 
     sources_df.dropna(subset=['Sequence'], inplace=True) # remove sources with no sequence
     sources_df.drop_duplicates(inplace=True)
+    sources_df['Length'] = sources_df['Sequence'].str.len()
     
     return sources_df
 
