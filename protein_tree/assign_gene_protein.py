@@ -365,7 +365,7 @@ class GeneAndProteinAssigner:
       pass
 
 
-  def _assign_allergens(self) -> dict:
+  def _assign_allergens(self) -> None:
     """Get allergen data from IUIS and create map."""
     url = 'http://www.allergen.org/csv.php?table=joint'
     allergen_df = pd.read_csv(url)
@@ -376,18 +376,21 @@ class GeneAndProteinAssigner:
         self.source_protein_assignment[k] = allergen_map[v]
 
 
-  def _get_manual_data(self) -> dict:
+  def _assign_manuals(self) -> None:
     """Get manual assignments from manual_assignments.csv and create map."""
     # manual_assignments.csv should be in the directory above this one
     directory = Path(__file__).resolve().parent.parent
     manual_df = pd.read_csv(directory / 'manual_assignments.csv')
-    manual_map = dict(
-      zip(
-        manual_df['Accession'],
-        manual_df['Parent Accession']
-      )
-    )
-    return manual_map
+    manual_gene_map = manual_df.set_index('Accession')['Accession Gene'].to_dict()
+    manual_protein_map = manual_df.set_index('Accession')['Accession Parent'].to_dict()
+
+    for k, v in self.source_gene_assignment.items():
+      if k in manual_gene_map.keys():
+        self.source_gene_assignment[k] = manual_gene_map[k]
+
+    for k, v in self.source_protein_assignment.items():
+      if k in manual_protein_map.keys():
+        self.source_protein_assignment[k] = manual_protein_map[k]
 
 
 def main():

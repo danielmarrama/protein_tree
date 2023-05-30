@@ -51,8 +51,5 @@ Use [combine_data.py](combine_data.py) to merge all epitopes.csv and all sources
 
 ### TODO
 - Determine MMseqs2 cutoff by comparing BLAST result agreements
-- Use ARC to assign MHC/TCR/immunoglobulin genes to vertebrate species
-- Use IUIS nomenclature for allergen names
-- Use manual_assignments.csv to override parent and gene assignments
 - Create a tree for visualization
 - Add higher taxon ranks for the final tree
