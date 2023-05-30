@@ -4,10 +4,11 @@ import os
 import glob
 import pandas as pd
 
-from pathlib import Path
+from ARC.classifier import SeqClassifier
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
+from pathlib import Path
 from pepmatch import Preprocessor, Matcher
 
 
@@ -16,6 +17,7 @@ class GeneAssigner:
     self.taxon_id = taxon_id
     self.species_path = Path(f'species/{taxon_id}-{species_name.replace(" ", "_")}')
     self.allergen_map = _get_allergen_data() # pull from IUIS
+    self.manual_map = _get_manual_data() # use manual_assignments.csv
 
     # create UniProt ID to gene symbol map from proteome.csv file
     proteome = pd.read_csv(f'{self.species_path}/proteome.csv')
@@ -77,6 +79,21 @@ class GeneAssigner:
       num_epitopes_with_matches
     )
     return assigner_data
+
+
+  def _create_source_to_epitopes_map(self, epitopes_df: pd.DataFrame) -> dict:
+    """Create a map from source antigens to their epitopes.
+    Args:
+      epitopes_df: DataFrame of epitopes for a species.
+    """    
+    source_to_epitopes_map = {}
+    for i, row in epitopes_df.iterrows():
+      if row['Source Accession'] in source_to_epitopes_map.keys():
+        source_to_epitopes_map[row['Source Accession']].append(row['Sequence'])
+      else:
+        source_to_epitopes_map[row['Source Accession']] = [row['Sequence']]
+    
+    return source_to_epitopes_map 
 
 
   def _drop_epitopes_without_sequence(self, epitopes_df: pd.DataFrame) -> int:
@@ -159,21 +176,6 @@ class GeneAssigner:
     )
 
     return num_epitopes, num_epitopes_with_matches
-
-
-  def _create_source_to_epitopes_map(self, epitopes_df: pd.DataFrame) -> dict:
-    """Create a map from source antigens to their epitopes.
-    Args:
-      epitopes_df: DataFrame of epitopes for a species.
-    """    
-    source_to_epitopes_map = {}
-    for i, row in epitopes_df.iterrows():
-      if row['Source Accession'] in source_to_epitopes_map.keys():
-        source_to_epitopes_map[row['Source Accession']].append(row['Sequence'])
-      else:
-        source_to_epitopes_map[row['Source Accession']] = [row['Sequence']]
-    
-    return source_to_epitopes_map 
 
 
   def _sources_to_fasta(self, sources_df: pd.DataFrame) -> int:
@@ -364,11 +366,19 @@ class GeneAssigner:
       pass
 
 
-  def _get_allergen_data(self) -> pd.DataFrame:
+  def _get_allergen_data(self) -> dict:
     """Get allergen data from IUIS and create map."""
     url = 'http://www.allergen.org/csv.php?table=joint'
     allergen_df = pd.read_csv(url)
     return dict(zip(allergen_df['AccProtein'], allergen_df['Name']))
+
+
+  def _get_manual_data(self) -> dict:
+    """Get manual assignments from manual_assignments.csv and create map."""
+    # manual_assignments.csv should be in the directory above this one
+    directory = Path(__file__).resolve().parent.parent
+    manual_df = pd.read_csv(directory / 'manual_assignments.csv')
+    return dict(zip(manual_df['Accession'], manual_df['Parent Accession']))
 
 
 def main():

@@ -23,8 +23,7 @@ def run_protein_tree(
   user: str, password: str, taxon_id: str, species_name: str, 
   species_df: pd.DataFrame, metrics_df: pd.DataFrame, all_taxa: str
 ) -> tuple:
-  """
-  Build protein tree for an IEDB species.
+  """Build protein tree for an IEDB species.
   
   Args:
     user: Username for IEDB MySQL connection.
@@ -97,6 +96,9 @@ def run_protein_tree(
 
 
 def build_tree():
+  """Create a text file with the protein tree. All species are included and each
+  assigned gene is listed followed by the relevant isoforms where the epitopes
+  are found."""
   pass
 
 
