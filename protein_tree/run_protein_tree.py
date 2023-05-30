@@ -7,7 +7,7 @@ import numpy as np
 
 from get_data import DataFetcher
 from select_proteome import ProteomeSelector
-from assign_genes import GeneAssigner
+from assign_gene_protein import GeneAndProteinAssigner
 
 # MAIN TODO:
 # * add step to handle allergens differntly by assigning label from IUIS
@@ -59,7 +59,7 @@ def run_protein_tree(
 
   # assign genes to source antigens and parent proteins to epitopes
   print('Assigning genes to source antigens...')
-  Assigner = GeneAssigner(taxon_id, species_name, is_vertebrate)
+  Assigner = GeneAndProteinAssigner(taxon_id, species_name, is_vertebrate)
   assigner_data = Assigner.assign_genes(sources_df, epitopes_df)
   print('Done assigning genes.\n')
 

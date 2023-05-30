@@ -12,7 +12,7 @@ from pathlib import Path
 from pepmatch import Preprocessor, Matcher
 
 
-class GeneAssigner:
+class GeneAndProteinAssigner:
   def __init__(self, taxon_id, species_name, is_vertebrate):
     self.taxon_id = taxon_id
     self.species_path = Path(f'species/{taxon_id}-{species_name.replace(" ", "_")}')
@@ -26,8 +26,14 @@ class GeneAssigner:
       zip(
         proteome['UniProt ID'], 
         proteome['Gene Symbol']
-      )
-    )   
+    ))
+    self.source_gene_assignment = {}
+    self.source_protein_assignment = {}
+    self.epitope_parent_assignment = {}
+
+
+  def assign(self):
+    pass
 
 
   def assign_genes(self, sources_df: pd.DataFrame, epitopes_df: pd.DataFrame) -> None:
@@ -45,9 +51,12 @@ class GeneAssigner:
       sources_df: DataFrame of source antigens for a species.
       epitopes_df: DataFrame of epitopes for a species.
     """
+    num_sources = len(sources_df['Accession'].unique())
+    num_epitopes = len(epitopes_df['Sequence'].unique())
+
     # create source to epitope map
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
-    num_sources = self._sources_to_fasta(sources_df) # write sources to FASTA file
+    self._sources_to_fasta(sources_df) # write sources to FASTA file
 
     if self.is_vertebrate:
       self._run_arc()
@@ -60,10 +69,10 @@ class GeneAssigner:
     self._create_blast_db()
     blast_results_df = self._run_blast()
     self._get_best_blast_matches(blast_results_df)
-    num_sources_with_matches = self._no_blast_matches(blast_results_df)
+    num_matched_sources = self._no_blast_matches(blast_results_df)
 
     # epitope parent protein assignment
-    num_epitopes, num_epitopes_with_matches = self._assign_parents(epitopes_df)
+    num_matched_epitopes = self._assign_parents(epitopes_df)
 
     # map source antigens to their best blast matches (UniProt ID and gene) for sources
     sources_df['Assigned Gene'] = sources_df['Accession'].map(self.best_blast_match_gene_map)
@@ -82,8 +91,8 @@ class GeneAssigner:
     assigner_data = (
       num_sources,
       num_epitopes,
-      num_sources_with_matches,
-      num_epitopes_with_matches
+      num_matched_sources,
+      num_matched_epitopes
     )
     return assigner_data
 
@@ -103,7 +112,7 @@ class GeneAssigner:
     return source_to_epitopes_map 
 
 
-  def _sources_to_fasta(self, sources_df: pd.DataFrame) -> int:
+  def _sources_to_fasta(self, sources_df: pd.DataFrame) -> None:
     """Write source antigens to FASTA file."""          
     seq_records = [] # create seq records of sources with ID and sequence
     for i, row in sources_df.iterrows():
@@ -113,11 +122,8 @@ class GeneAssigner:
           id=row['Accession'],
           description='')
       )
-
     with open(f'{self.species_path}/sources.fasta', 'w') as f:
       SeqIO.write(seq_records, f, 'fasta')
-
-    return len(sources_df)
 
 
   def _run_arc(self) -> None:
@@ -128,7 +134,15 @@ class GeneAssigner:
       blast_path = './' 
     ).classify_seqfile(f'{self.species_path}/sources.fasta')
     arc_results = pd.read_csv(f'{self.species_path}/ARC_results.tsv', sep='\t')
-    
+
+
+  def _run_mmseqs2(self) -> None:
+    pass
+
+
+  def _run_blast(self) -> None:
+    pass
+
 
   def _preprocess_proteome_if_needed(self) -> None:
     """Preprocess the proteome if the preprocessed files don't exist."""
@@ -166,7 +180,6 @@ class GeneAssigner:
     Args:
       epitopes_df: DataFrame of epitopes for a species.
     """
-    num_epitopes = self._drop_epitopes_without_sequence(epitopes_df)
     self._preprocess_proteome_if_needed()
 
     # loop through the source antigens so we can limit the epitope matches
@@ -196,11 +209,11 @@ class GeneAssigner:
     )
 
     # count the number of epitopes with matches
-    num_epitopes_with_matches = len(
+    num_matched_epitopes = len(
       all_matches_df.dropna(subset=['Matched Sequence'])['Query Sequence'].unique()
     )
 
-    return num_epitopes, num_epitopes_with_matches
+    return num_matched_epitopes
 
 
   def _create_blast_db(self) -> None:

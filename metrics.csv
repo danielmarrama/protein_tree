@@ -430,7 +430,7 @@ Species Taxon ID,Species Name,Proteome ID,Proteome Taxon,Proteome Type,Source Co
 7515,Ctenocephalides felis (cat flea),None,7515.0,All-proteins,1.0,2.0,100.0,0.0
 7726,Styela plicata,,,,,,,
 7757,Petromyzon marinus (marine lamprey),,,,,,,
-7787,Tetronarce californica (Pacific electric ray),None,7787.0,All-proteins,9.0,304.0,100.0,75.32894737
+7787,Tetronarce californica (Pacific electric ray),None,7787.0,All-proteins,9.0,240.0,100.0,93.75
 7788,Torpedo marmorata (spotted torpedo),None,7788.0,All-proteins,2.0,6.0,100.0,100.0
 7792,Heterodontus francisci (horn shark),,,,,,,
 7797,Squalus acanthias (spiny dogfish),,,,,,,
