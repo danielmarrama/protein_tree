@@ -34,7 +34,6 @@ For each species:
 - sources.csv - each source antigen with assigned gene
 - epitopes.csv - each epitope with its source antigen and assigned parent protein
 - [optional] gp_proteome.fasta - the gene priority proteome in FASTA if it exists
-- [optional] no_blast_match_ids.txt - list of source IDs that did not get any BLAST matches
 
 For all species:
 - metrics.csv - the metadata from the build
