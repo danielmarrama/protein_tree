@@ -25,7 +25,7 @@ def run_protein_tree(
   species_name: str,
   all_taxa: str,
   is_vertebrate: bool
-) -> int:
+) -> None:
   """Run all steps for the protein tree.
   
   Args:
@@ -35,8 +35,6 @@ def run_protein_tree(
     species_name: Name of the species to run protein tree.
     all_taxa: List of all children taxa for a species from the IEDB.
   """
-  species_df = pd.read_csv('species.csv') # all species and their taxon IDs
-
   print('Getting epitopes and sources data...')
   Fetcher = DataFetcher(user, password)
   epitopes_df = Fetcher.get_epitopes(all_taxa)
@@ -45,7 +43,7 @@ def run_protein_tree(
   
   # if there are no epitopes or sources, return None
   if epitopes_df.empty or sources_df.empty:
-    return None
+    return
 
   print('Getting the best proteome...')
   Selector = ProteomeSelector(taxon_id, species_name)
@@ -91,7 +89,7 @@ def run_protein_tree(
   metrics_df.to_csv('metrics.csv', index=False)
   print('Done recording metrics.\n')
 
-  return 1
+  return
 
 
 def build_tree_for_species(

@@ -12,12 +12,16 @@ from pepmatch import Preprocessor, Matcher
 class ProteomeSelector:
   def __init__(self, taxon_id, species_name):
     self.taxon_id = taxon_id
-    self.species_df = pd.read_csv('species.csv') # IEDB species data
-    self.metrics_df = pd.read_csv('metrics.csv') # protein tree metrics data
-    self.species_path = Path(f'species/{taxon_id}-{species_name.replace(" ", "_")}')
 
-    self.proteome_list = self._get_proteome_list()      # all possible proteomes for a species
-    self.num_of_proteomes = len(self.proteome_list) + 1 # +1 because "all proteins" is also a candidate proteome
+    parent_dir = Path(__file__).resolve().parent.parent
+    species_dir = f'{taxon_id}-{species_name.replace(" ", "_")}'
+    self.species_path = parent_dir / 'species' / species_dir
+
+    self.species_df = pd.read_csv(f'{parent_dir}/species.csv') # IEBD species data
+    self.metrics_df = pd.read_csv(f'{parent_dir}/metrics.csv') # protein tree metrics
+
+    self.proteome_list = self._get_proteome_list() # get all candidate proteomes
+    self.num_of_proteomes = len(self.proteome_list) + 1 # +1 for all proteins option
 
   def select_best_proteome(self, epitopes_df: pd.DataFrame) -> list:
     """
