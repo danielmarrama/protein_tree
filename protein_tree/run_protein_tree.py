@@ -28,7 +28,7 @@ def run_protein_tree(
 ) -> None:
   """Run all steps for the protein tree.
   
-  Args:
+  Args:f
     user: Username for IEDB MySQL connection.
     password: Password for IEDB MySQL connection.
     taxon_id: Taxon ID for the species to run protein tree.
@@ -60,7 +60,7 @@ def run_protein_tree(
   # assign genes to source antigens and parent proteins to epitopes
   print('Assigning genes to source antigens...')
   Assigner = GeneAndProteinAssigner(taxon_id, species_name, is_vertebrate)
-  assigner_data = Assigner.assign_genes(sources_df, epitopes_df)
+  assigner_data = Assigner.assign(sources_df, epitopes_df)
   print('Done assigning genes.\n')
 
   successful_source_assignment = (assigner_data[2] / assigner_data[0])*100

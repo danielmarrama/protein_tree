@@ -32,20 +32,8 @@ class GeneAndProteinAssigner:
     self.epitope_parent_assignment = {}
 
 
-  def assign(self):
-    pass
-
-
-  def assign_genes(self, sources_df: pd.DataFrame, epitopes_df: pd.DataFrame) -> None:
-    """Assign a gene to the source antigens of a species.
-
-    First, make a BLAST database of the selected proteome.
-    Then, run blastp with the source antigens against the proteome.
-    Based on the BLAST results, select the best protein match by
-    sequence identity and the highest alignment length.
-
-    If there are ties, use PEPMatch to search the epitopes within
-    the protein sequences and select the protein with the most matches.
+  def assign(self, sources_df: pd.DataFrame, epitopes_df: pd.DataFrame) -> None:
+    """Overall function to assign genes and parent proteins to sources and epitopes.
 
     Args:
       sources_df: DataFrame of source antigens for a species.
@@ -53,25 +41,11 @@ class GeneAndProteinAssigner:
     """
     num_sources = len(sources_df['Accession'].unique())
     num_epitopes = len(epitopes_df['Sequence'].unique())
-
+    
     # create source to epitope map
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
-    self._sources_to_fasta(sources_df) # write sources to FASTA file
 
-    if self.is_vertebrate:
-      self._run_arc()
-
-    if num_sources > 1000:
-      self._run_mmseqs2()
-    else:
-      self._run_blast()
-
-    self._create_blast_db()
-    blast_results_df = self._run_blast()
-    self._get_best_blast_matches(blast_results_df)
-    num_matched_sources = self._no_blast_matches(blast_results_df)
-
-    # epitope parent protein assignment
+    num_matched_sources = self._assign_genes(sources_df, epitopes_df, num_sources)
     num_matched_epitopes = self._assign_parents(epitopes_df)
 
     # map source antigens to their best blast matches (UniProt ID and gene) for sources
@@ -87,7 +61,7 @@ class GeneAndProteinAssigner:
     epitopes_df.to_csv(f'{self.species_path}/epitopes.csv', index=False)
 
     self._remove_files()
-
+    
     assigner_data = (
       num_sources,
       num_epitopes,
@@ -95,6 +69,42 @@ class GeneAndProteinAssigner:
       num_matched_epitopes
     )
     return assigner_data
+
+
+  def _assign_genes(
+    self, sources_df: pd.DataFrame, epitopes_df: pd.DataFrame, num_sources: int
+  ) -> None:
+    """Assign a gene to the source antigens of a species.
+
+    Run ARC for vertebrates to assign MHC/TCR/Ig to source antigens first.
+
+    Then, run MMseqs2 if there are more than 1000 source antigens, for speed.
+    Run BLAST for the remaining ones that don't have a match below e-value 10^-100.
+
+    Otherwise, run BLAST to assign a gene to each source antigen. If there are
+    ties, use PEPMatch to search the epitopes within the protein sequences and
+    select the protein with the most matches.
+
+    Args:
+      sources_df: DataFrame of source antigens for a species.
+      epitopes_df: DataFrame of epitopes for a species.
+    """    
+    self._sources_to_fasta(sources_df) # write sources to FASTA file
+
+    if self.is_vertebrate:
+      self._run_arc()
+
+    if num_sources > 1000:
+      self._run_mmseqs2()
+    else:
+      self._run_blast()
+
+    self._create_blast_db()
+    blast_results_df = self._run_blast()
+    self._get_best_blast_matches(blast_results_df)
+    num_matched_sources = self._no_blast_matches(blast_results_df)
+
+    return num_matched_sources   
 
 
   def _create_source_to_epitopes_map(self, epitopes_df: pd.DataFrame) -> dict:
@@ -483,8 +493,8 @@ def main():
         continue
       
       print(f'Assigning genes for {species_name} ({taxon_id})...')
-      Assigner = GeneAssigner(taxon_id, species_name, is_vertebrate)
-      assigner_data = Assigner.assign_genes(sources_df, epitopes_df)
+      Assigner = GeneAndProteinAssigner(taxon_id, species_name, is_vertebrate)
+      assigner_data = Assigner.assign(sources_df, epitopes_df)
       print('Done assigning genes.\n')
 
       print(f'Number of sources: {assigner_data[0]}')
@@ -509,8 +519,8 @@ def main():
     assert not epitopes_df.empty, 'This species has no epitopes.'
 
     print(f'Assigning genes for {species_name} ({taxon_id})...\n')
-    Assigner = GeneAssigner(taxon_id, species_name, is_vertebrate)
-    assigner_data = Assigner.assign_genes(sources_df, epitopes_df)
+    Assigner = GeneAndProteinAssigner(taxon_id, species_name, is_vertebrate)
+    assigner_data = Assigner.assign(sources_df, epitopes_df)
     print('Done assigning genes.\n')
     
     print(f'Number of sources: {assigner_data[0]}')
