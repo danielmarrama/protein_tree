@@ -18,7 +18,9 @@ class GeneAssigner:
 
     # create UniProt ID to gene symbol map from proteome.csv file
     proteome = pd.read_csv(f'{self.species_path}/proteome.csv')
-    self.uniprot_id_to_gene_symbol_map = dict(zip(proteome['UniProt ID'], proteome['Gene Symbol']))
+    self.uniprot_id_to_gene_symbol_map = dict(
+      zip(proteome['UniProt ID'], proteome['Gene Symbol'])
+    )
 
   def assign_genes(self, sources_df: pd.DataFrame, epitopes_df: pd.DataFrame) -> None:
     """Assign a gene to the source antigens of a species.
@@ -40,10 +42,14 @@ class GeneAssigner:
     num_sources = self._sources_to_fasta(sources_df)
 
     # source antigen gene assignment
+
+    # self._run_mmseqs2()
+    # self._run_blast()
+
     self._create_blast_db()
     blast_results_df = self._run_blast()
     self._get_best_blast_matches(blast_results_df)
-    num_no_blast_matches, num_with_blast_matches = self._no_blast_matches(blast_results_df)
+    num_sources_with_matches = self._no_blast_matches(blast_results_df)
 
     # epitope parent protein assignment
     num_epitopes, num_epitopes_with_matches = self._assign_parents(epitopes_df)
@@ -62,10 +68,12 @@ class GeneAssigner:
 
     self._remove_files()
 
-    assigner_data = [
-      num_sources, num_no_blast_matches, num_with_blast_matches, num_epitopes, 
+    assigner_data = (
+      num_sources,
+      num_epitopes,
+      num_sources_with_matches,
       num_epitopes_with_matches
-    ]
+    )
     return assigner_data
 
   def _drop_epitopes_without_sequence(self, epitopes_df: pd.DataFrame) -> int:
@@ -134,10 +142,15 @@ class GeneAssigner:
       # concatenate the matches to the all_matches_df
       all_matches_df = pd.concat([all_matches_df, matches_df])
 
-    self.best_epitope_isoform_map = dict(zip(all_matches_df['Query Sequence'], all_matches_df['Protein ID']))
+    self.best_epitope_isoform_map = dict(
+      zip(all_matches_df['Query Sequence'], 
+      all_matches_df['Protein ID'])
+    )
 
     # count the number of epitopes with matches
-    num_epitopes_with_matches = len(all_matches_df.dropna(subset=['Matched Sequence'])['Query Sequence'].unique())
+    num_epitopes_with_matches = len(
+      all_matches_df.dropna(subset=['Matched Sequence'])['Query Sequence'].unique()
+    )
 
     return num_epitopes, num_epitopes_with_matches
 
@@ -235,7 +248,7 @@ class GeneAssigner:
           f.write(f'{id}\n')
 
     # return the number of sources that have BLAST matches and no BLAST matches
-    return len(no_blast_match_ids), len(blast_result_ids)
+    return len(blast_result_ids)
 
   def _get_best_blast_matches(self, blast_results_df: pd.DataFrame) -> None:
     """Get the best BLAST match for each source antigen by sequence identity and 
@@ -382,12 +395,11 @@ def main():
       print('Done assigning genes.\n')
 
       print(f'Number of sources: {assigner_data[0]}')
-      print(f'Number of epitopes: {assigner_data[4]}')
-      print(f'Number of sources with no BLAST matches: {assigner_data[2]}')
-      print(f'Number of sources with BLAST matches: {assigner_data[3]}')
-      print(f'Number of epitopes with a match: {assigner_data[5]}')
-      print(f'Successful gene assignments: {(assigner_data[3] / assigner_data[0])*100:.1f}%')
-      print(f'Successful parent assignments: {(assigner_data[5] / assigner_data[4])*100:.1f}%\n')
+      print(f'Number of epitopes: {assigner_data[1]}')
+      print(f'Number of sources with BLAST matches: {assigner_data[2]}')
+      print(f'Number of epitopes with a match: {assigner_data[3]}')
+      print(f'Successful gene assignments: {(assigner_data[2] / assigner_data[0])*100:.1f}%')
+      print(f'Successful parent assignments: {(assigner_data[3] / assigner_data[1])*100:.1f}%\n')
 
   else: # one species at a time
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
@@ -403,14 +415,13 @@ def main():
     Assigner = GeneAssigner(taxon_id, species_id_to_name_map[taxon_id])
     assigner_data = Assigner.assign_genes(sources_df, epitopes_df)
     print('Done assigning genes.\n')
-
+    
     print(f'Number of sources: {assigner_data[0]}')
-    print(f'Number of epitopes: {assigner_data[4]}')
-    print(f'Number of sources with no BLAST matches: {assigner_data[2]}')
-    print(f'Number of sources with BLAST matches: {assigner_data[3]}')
-    print(f'Number of epitopes with a match: {assigner_data[5]}')
-    print(f'Successful gene assignments: {(assigner_data[3] / assigner_data[0])*100:.1f}%')
-    print(f'Successful parent assignments: {(assigner_data[5] / assigner_data[4])*100:.1f}%\n')
+    print(f'Number of epitopes: {assigner_data[1]}')
+    print(f'Number of sources with BLAST matches: {assigner_data[2]}')
+    print(f'Number of epitopes with a match: {assigner_data[3]}')
+    print(f'Successful gene assignments: {(assigner_data[2] / assigner_data[0])*100:.1f}%')
+    print(f'Successful parent assignments: {(assigner_data[3] / assigner_data[1])*100:.1f}%\n')
 
 if __name__ == '__main__':  
   main()

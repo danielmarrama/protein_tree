@@ -67,35 +67,33 @@ def run_protein_tree(
   assigner_data = Assigner.assign_genes(sources_df, epitopes_df)
   print('Done assigning genes.\n')
 
+  successful_source_assignment = (assigner_data[2] / assigner_data[0])*100
+  successful_epitope_assignment = (assigner_data[3] / assigner_data[1])*100
+
   print(f'Number of sources: {assigner_data[0]}')
-  print(f'Number of epitopes: {assigner_data[4]}')
-  print(f'Number of sources with no BLAST matches: {assigner_data[2]}')
-  print(f'Number of sources with BLAST matches: {assigner_data[3]}')
-  print(f'Number of epitopes with a match: {assigner_data[5]}')
-  print(f'Successful gene assignments: {(assigner_data[3] / assigner_data[0])*100:.1f}%')
-  print(f'Successful parent assignments: {(assigner_data[5] / assigner_data[4])*100:.1f}%\n')
+  print(f'Number of epitopes: {assigner_data[1]}')
+  print(f'Number of sources with a match: {assigner_data[2]}')
+  print(f'Number of epitopes with a match: {assigner_data[3]}')
+  print(f'Successful source antigen assignments: {successful_source_assignment:.1f}%')
+  print(f'Successful epitope assignments: {successful_epitope_assignment:.1f}%\n')
 
   # write data to metrics.csv
   print('Recording metrics...') 
   metrics_df = pd.read_csv('metrics.csv')
-  metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome ID'] = proteome_data[0]
-  metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Taxon'] = proteome_data[1]
-  metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Type'] = proteome_data[2]
-  metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), '# of Sources'] = assigner_data[0]
-  metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), '# of Epitopes'] = assigner_data[4]
-  metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), '# of Sources with No BLAST Matches'] = assigner_data[2]
-  metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), '# of Sources with BLAST Matches'] = assigner_data[3]
-  metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), '# of Epitopes with a Match'] = assigner_data[5]
+  idx = metrics_df['Species Taxon ID'] == int(taxon_id)
   
-  # calculate percentages of gene and parent assignment success
-  metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), '% Successful Gene Assignments'] = (assigner_data[3] / assigner_data[0])*100
-  metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), '% Successful Parent Assignments'] = (assigner_data[5] / assigner_data[4])*100
-
+  metrics_df.loc[idx, 'Proteome ID'] = proteome_data[0]
+  metrics_df.loc[idx, 'Proteome Taxon'] = proteome_data[1]
+  metrics_df.loc[idx, 'Proteome Type'] = proteome_data[2]
+  metrics_df.loc[idx, 'Source Count'] = assigner_data[0]
+  metrics_df.loc[idx, 'Epitope Count'] = assigner_data[1]
+  metrics_df.loc[idx, 'Successful Source Assignment'] = successful_source_assignment
+  metrics_df.loc[idx, 'Successful Epitope Assignment'] = successful_epitope_assignment
+  
   metrics_df.to_csv('metrics.csv', index=False)
   print('Done recording metrics.\n')
 
   return proteome_data, assigner_data
-
 
 
 def build_tree():
