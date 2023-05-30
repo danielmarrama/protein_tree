@@ -10,10 +10,10 @@ from pepmatch import Preprocessor, Matcher
 
 
 class ProteomeSelector:
-  def __init__(self, taxon_id, species_name, species_df, metrics_df):
+  def __init__(self, taxon_id, species_name):
     self.taxon_id = taxon_id
-    self.species_df = species_df
-    self.metrics_df = metrics_df
+    self.species_df = pd.read_csv('species.csv') # IEDB species data
+    self.metrics_df = pd.read_csv('metrics.csv') # protein tree metrics data
     self.species_path = Path(f'species/{taxon_id}-{species_name.replace(" ", "_")}')
 
     self.proteome_list = self._get_proteome_list()      # all possible proteomes for a species

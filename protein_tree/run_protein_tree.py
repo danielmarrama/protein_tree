@@ -15,7 +15,6 @@ from assign_genes import GeneAssigner
 # * add step to override gene and parent assignments with manual assignments
 
 # smaller TODO:
-# * save source accessions from epitopes_df that are not in sources_df
 # * use manual_parents.csv to override assigned genes
 # * investigate a way to search all epitopes at once and make sure the assigned isoform is from the proper gene
 
@@ -24,22 +23,20 @@ def run_protein_tree(
   password: str,
   taxon_id: int,
   species_name: str,
-  species_df: pd.DataFrame,
-  metrics_df: pd.DataFrame,
   all_taxa: str,
   is_vertebrate: bool
-) -> tuple:
-  """Run protein tree for an IEDB species.
+) -> int:
+  """Run all steps for the protein tree.
   
   Args:
     user: Username for IEDB MySQL connection.
     password: Password for IEDB MySQL connection.
     taxon_id: Taxon ID for the species to run protein tree.
     species_name: Name of the species to run protein tree.
-    species_df: DataFrame of all species and their taxon IDs.
-    metrics_df: DataFrame of metrics for recording data.
     all_taxa: List of all children taxa for a species from the IEDB.
   """
+  species_df = pd.read_csv('species.csv') # all species and their taxon IDs
+
   print('Getting epitopes and sources data...')
   Fetcher = DataFetcher(user, password)
   epitopes_df = Fetcher.get_epitopes(all_taxa)
@@ -51,7 +48,7 @@ def run_protein_tree(
     return None
 
   print('Getting the best proteome...')
-  Selector = ProteomeSelector(taxon_id, species_name, species_df, metrics_df)
+  Selector = ProteomeSelector(taxon_id, species_name)
   print(f'Number of candidate proteomes: {Selector.num_of_proteomes}\n')
 
   proteome_data = Selector.select_best_proteome(epitopes_df)
@@ -94,14 +91,35 @@ def run_protein_tree(
   metrics_df.to_csv('metrics.csv', index=False)
   print('Done recording metrics.\n')
 
-  return proteome_data, assigner_data
+  return 1
 
 
-def build_tree():
-  """Create a text file with the protein tree. All species are included and each
-  assigned gene is listed followed by the relevant isoforms where the epitopes
-  are found."""
-  pass
+def build_tree_for_species(
+  user: str,
+  password: str,
+  taxon_id: int,
+  all_taxa_map: dict,
+  species_name_map: dict,
+  is_vertebrate_map: dict
+) -> None:
+  """Build protein tree for a species.
+  
+  Args:
+    user: Username for IEDB MySQL connection.
+    password: Password for IEDB MySQL connection.
+    taxon_id: Taxon ID for the species to run protein tree.
+    all_taxa_map: Mapping of taxon ID to all children taxa.
+    species_name_map: Mapping of taxon ID to species name.
+    is_vertebrate_map: Mapping of taxon ID to is_vertebrate.
+  """
+  all_taxa = all_taxa_map[taxon_id]
+  species_name = species_name_map[taxon_id]
+  is_vertebrate = is_vertebrate_map[taxon_id]
+
+  run_protein_tree(
+    user, password, taxon_id, species_name, all_taxa, is_vertebrate
+  )
+  print(f'Protein tree built for {species_name} (ID: {taxon_id}).\n')
 
 
 def main():
@@ -131,11 +149,8 @@ def main():
   args = parser.parse_args()
   user = args.user
   password = args.password
-  all_species = args.all_species
-  taxon_id = args.taxon_id
 
   species_df = pd.read_csv('species.csv') # all species and their taxon IDs
-  metrics_df = pd.read_csv('metrics.csv') # metrics for recording data
   valid_taxon_ids = species_df['Species Taxon ID'].tolist()
 
   # taxa, species name, and is_vertebrate mapppings
@@ -158,44 +173,19 @@ def main():
     )
   )
 
-  if all_species:
+  if args.all_species:
     for taxon_id in valid_taxon_ids:
-      all_taxa = all_taxa_map[taxon_id]
-      species_name = species_name_map[taxon_id]
-      is_vertebrate = is_vertebrate_map[taxon_id]
-
-      print(f'Building protein tree for {species_name} (ID: {taxon_id})...\n')
-      tree_data = run_protein_tree(
-        user, password, taxon_id, species_name, 
-        species_df, metrics_df, all_taxa, is_vertebrate
+      build_tree_for_species(
+        user, password, taxon_id, all_taxa_map, species_name_map, is_vertebrate_map
       )
-
-      if tree_data is None:
-        print('No epitopes or sources found for this species. Skipping.')
-        continue
-
-      print('Protein tree build done.')
-
     print('All protein trees built.')
 
   else: # one species at a time
+    taxon_id = args.taxon_id
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
-
-    all_taxa = all_taxa_map[taxon_id]
-    species_name = species_name_map[taxon_id]
-    is_vertebrate = is_vertebrate_map[taxon_id]
-
-    print(f'Building protein tree for {species_name} (ID: {taxon_id})...\n')
-    tree_data = run_protein_tree(
-      user, password, taxon_id, species_name, 
-      species_df, metrics_df, all_taxa, is_vertebrate
-    )    
-    
-    if tree_data == None:
-      print('No epitopes or sources found for this species.')
-      return
-    
-    print(f'Protein tree built for {species_name} (ID: {taxon_id}).\n')
+    build_tree_for_species(
+      user, password, taxon_id, all_taxa_map, species_name_map, is_vertebrate_map
+    )
 
 if __name__ == '__main__':
   main()
