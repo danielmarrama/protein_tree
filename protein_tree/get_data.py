@@ -36,14 +36,25 @@ class DataFetcher:
       result1 = connection.execute(text(sql_query1))
       result2 = connection.execute(text(sql_query2))
 
-      columns=['Linear Sequence', 'Discontinuous Sequence', 'Source Name', 'Source Accession']
+      columns=[
+        'Linear Sequence', 'Discontinuous Sequence', 'Source Name', 'Source Accession'
+      ]
       df1 = pd.DataFrame(result1.fetchall(), columns=columns)
       df2 = pd.DataFrame(result2.fetchall(), columns=columns)
       
     epitopes_df = pd.concat([df1, df2], ignore_index=True)
-    epitopes_df['Sequence'] = epitopes_df['Linear Sequence'].fillna(epitopes_df['Discontinuous Sequence'])
     
-    epitopes_df.drop(columns=['Linear Sequence', 'Discontinuous Sequence'], inplace=True)
+    # combine linear and discontinuous sequences
+    epitopes_df['Sequence'] = epitopes_df['Linear Sequence'].fillna(
+      epitopes_df['Discontinuous Sequence']
+    )
+    epitopes_df.drop( # remove sequence
+      columns=['Linear Sequence', 'Discontinuous Sequence'], 
+      inplace=True
+    )
+    # remove epitopes with no sequence
+    epitopes_df.dropna(subset=['Sequence'], inplace=True)
+
     epitopes_df.drop_duplicates(inplace=True)
     
     return epitopes_df[['Sequence', 'Source Name', 'Source Accession']]

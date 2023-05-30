@@ -15,12 +15,14 @@ class GeneAssigner:
   def __init__(self, taxon_id, species_name):
     self.taxon_id = taxon_id
     self.species_path = Path(f'species/{taxon_id}-{species_name.replace(" ", "_")}')
+    self.allergen_map = _get_allergen_data() # pull from IUIS
 
     # create UniProt ID to gene symbol map from proteome.csv file
     proteome = pd.read_csv(f'{self.species_path}/proteome.csv')
     self.uniprot_id_to_gene_symbol_map = dict(
       zip(proteome['UniProt ID'], proteome['Gene Symbol'])
-    )
+    )   
+
 
   def assign_genes(self, sources_df: pd.DataFrame, epitopes_df: pd.DataFrame) -> None:
     """Assign a gene to the source antigens of a species.
@@ -76,6 +78,7 @@ class GeneAssigner:
     )
     return assigner_data
 
+
   def _drop_epitopes_without_sequence(self, epitopes_df: pd.DataFrame) -> int:
     """Drop epitopes without a sequence from the epitopes DataFrame.
     Args:
@@ -83,6 +86,7 @@ class GeneAssigner:
     """
     epitopes_df.dropna(subset=['Sequence'], inplace=True)
     return len(epitopes_df)
+
 
   def _preprocess_proteome_if_needed(self) -> None:
     """Preprocess the proteome if the preprocessed files don't exist."""
@@ -93,6 +97,7 @@ class GeneAssigner:
           preprocessed_files_path = f'{self.species_path}',
           gene_priority_proteome=gp_proteome
         ).sql_proteome(k = 5)
+
 
   def _search_epitopes(self, epitopes: list, best_match: bool = True) -> pd.DataFrame:
     """Search epitopes within the proteome using PEPMatch."""
@@ -106,6 +111,7 @@ class GeneAssigner:
       output_format='dataframe'
     ).match()
     return df
+
 
   def _assign_parents(self, epitopes_df: pd.DataFrame) -> tuple:
     """Assign a parent protein to each epitope.
@@ -154,14 +160,12 @@ class GeneAssigner:
 
     return num_epitopes, num_epitopes_with_matches
 
+
   def _create_source_to_epitopes_map(self, epitopes_df: pd.DataFrame) -> dict:
     """Create a map from source antigens to their epitopes.
     Args:
       epitopes_df: DataFrame of epitopes for a species.
-    """
-    # drop epitopes with no sequence
-    epitopes_df.dropna(subset=['Sequence'], inplace=True)
-    
+    """    
     source_to_epitopes_map = {}
     for i, row in epitopes_df.iterrows():
       if row['Source Accession'] in source_to_epitopes_map.keys():
@@ -170,6 +174,7 @@ class GeneAssigner:
         source_to_epitopes_map[row['Source Accession']] = [row['Sequence']]
     
     return source_to_epitopes_map 
+
 
   def _sources_to_fasta(self, sources_df: pd.DataFrame) -> int:
     """Write source antigens to FASTA file."""          
@@ -187,11 +192,13 @@ class GeneAssigner:
 
     return len(sources_df)
 
+
   def _create_blast_db(self) -> None:
     """Create BLAST database from the selected proteome."""
     # escape parentheses in species path
     species_path = str(self.species_path).replace('(', '\(').replace(')', '\)')
     os.system(f'./makeblastdb -in {species_path}/proteome.fasta -dbtype prot')
+
 
   def _run_blast(self) -> None:
     """BLAST source antigens against the selected proteome, then read in with
@@ -224,6 +231,7 @@ class GeneAssigner:
 
     return blast_results_df
 
+
   def _no_blast_matches(self, blast_results_df: pd.DataFrame) -> None:
     """Write sources that have no BLAST match to a file."""
     # get all source antigen ids
@@ -249,6 +257,7 @@ class GeneAssigner:
 
     # return the number of sources that have BLAST matches and no BLAST matches
     return len(blast_result_ids)
+
 
   def _get_best_blast_matches(self, blast_results_df: pd.DataFrame) -> None:
     """Get the best BLAST match for each source antigen by sequence identity and 
@@ -278,6 +287,7 @@ class GeneAssigner:
     # check if there are any query duplicates - update map within _pepmatch_tiebreak
     if blast_results_df.duplicated(subset=['Query']).any():
       self._pepmatch_tiebreak(blast_results_df)
+
 
   def _pepmatch_tiebreak(self, blast_results_df: pd.DataFrame) -> None:
     """First, get any source antigens that have ties for the best match. Then,
@@ -334,6 +344,7 @@ class GeneAssigner:
       self.best_blast_match_gene_map[source_antigen] = gene
       self.best_blast_match_id_map[source_antigen] = uniprot_id
 
+
   def _remove_files(self) -> None:
     """Delete all the files that were created when making the BLAST database."""
     for extension in ['pdb', 'phr', 'pin', 'pjs', 'pot', 'psq', 'ptf', 'pto']:
@@ -351,6 +362,13 @@ class GeneAssigner:
       os.remove(f'{self.species_path}/proteome.db')
     except OSError:
       pass
+
+
+  def _get_allergen_data(self) -> pd.DataFrame:
+    """Get allergen data from IUIS and create map."""
+    url = 'http://www.allergen.org/csv.php?table=joint'
+    allergen_df = pd.read_csv(url)
+    return dict(zip(allergen_df['AccProtein'], allergen_df['Name']))
 
 
 def main():
