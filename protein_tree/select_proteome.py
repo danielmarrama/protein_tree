@@ -354,7 +354,7 @@ def main():
     help='Build protein tree for all IEDB species.')
   parser.add_argument(
     '-t', '--taxon_id', 
-    required=True, 
+    type=int,
     help='Taxon ID for the species to pull data for.')
   
   args = parser.parse_args()
@@ -366,8 +366,18 @@ def main():
   valid_taxon_ids = species_df['Species Taxon ID'].tolist()
 
   # taxa and name mapppings
-  all_taxa_map = dict(zip(species_df['Species Taxon ID'].astype(str), species_df['All Taxa']))
-  species_id_to_name_map = dict(zip(species_df['Species Taxon ID'].astype(str), species_df['Species Name']))
+  all_taxa_map = dict(
+    zip(
+      species_df['Species Taxon ID'],
+      species_df['All Taxa']
+    )
+  )
+  species_id_to_name_map = dict(
+    zip(
+      species_df['Species Taxon ID'],
+      species_df['Species Name']
+    )
+  )
 
   if all_species:
     proteomes = {}
@@ -376,7 +386,7 @@ def main():
       epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
 
       print(f'Selecting best proteome for {species_id_to_name_map[taxon_id]} (Taxon ID: {taxon_id}).')
-      Selector = ProteomeSelector(taxon_id, species_id_to_name_map[taxon_id], species_df, metrics_df)
+      Selector = ProteomeSelector(taxon_id, species_id_to_name_map[taxon_id])
       print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')
 
       proteome_data = Selector.select_best_proteome(epitopes_df)
@@ -400,7 +410,7 @@ def main():
     epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
 
     print(f'Selecting best proteome for {species_id_to_name_map[taxon_id]} (Taxon ID: {taxon_id}).')
-    Selector = ProteomeSelector(taxon_id, species_id_to_name_map[taxon_id], species_df, metrics_df)
+    Selector = ProteomeSelector(taxon_id, species_id_to_name_map[taxon_id])
     print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')
 
     proteome_data = Selector.select_best_proteome(epitopes_df)
