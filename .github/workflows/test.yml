@@ -9,8 +9,8 @@ on:
       - master
 
 jobs:
-  datafetcher:
-    name: Data Fetcher
+  pytest:
+    name: PyTest All Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -31,4 +31,4 @@ jobs:
         MYSQL_HOST: ${{ secrets.MYSQL_HOST }}
         MYSQL_PORT: ${{ secrets.MYSQL_PORT }}
         MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
-      run: pytest test/test_data_fetcher.py
+      run: pytest
