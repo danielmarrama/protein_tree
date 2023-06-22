@@ -7,3 +7,4 @@ pepmatch>=0.8.2
 sqlalchemy>=2.0.4
 bio-arc>=0.1.1
 pytest>=7.3.2
+requests>=2.31.0
