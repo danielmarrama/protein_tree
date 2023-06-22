@@ -349,14 +349,6 @@ def main():
   parser = argparse.ArgumentParser()
   
   parser.add_argument(
-    '-u', '--user', 
-    required=True, 
-    help='User for IEDB MySQL connection.')
-  parser.add_argument(
-    '-p', '--password', 
-    required=True, 
-    help='Password for IEDB MySQL connection.')
-  parser.add_argument(
     '-a', '--all_species', 
     action='store_true', 
     help='Build protein tree for all IEDB species.')
@@ -366,8 +358,6 @@ def main():
     help='Taxon ID for the species to pull data for.')
   
   args = parser.parse_args()
-  user = args.user
-  password = args.password
   all_species = args.all_species
   taxon_id = args.taxon_id
 
@@ -382,7 +372,7 @@ def main():
   if all_species:
     proteomes = {}
     for taxon_id in valid_taxon_ids:
-      Fetcher = DataFetcher(user, password)
+      Fetcher = DataFetcher()
       epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
 
       print(f'Selecting best proteome for {species_id_to_name_map[taxon_id]} (Taxon ID: {taxon_id}).')
@@ -406,7 +396,7 @@ def main():
   else: # one species at a time
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     
-    Fetcher = DataFetcher(user, password)
+    Fetcher = DataFetcher()
     epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
 
     print(f'Selecting best proteome for {species_id_to_name_map[taxon_id]} (Taxon ID: {taxon_id}).')

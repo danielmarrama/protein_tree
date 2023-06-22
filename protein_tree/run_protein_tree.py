@@ -13,8 +13,6 @@ from assign_gene_protein import GeneAndProteinAssigner
 # * investigate a way to search all epitopes at once and make sure the assigned isoform is from the proper gene
 
 def run_protein_tree(
-  user: str,
-  password: str,
   taxon_id: int,
   species_name: str,
   all_taxa: str,
@@ -22,15 +20,13 @@ def run_protein_tree(
 ) -> None:
   """Run all steps for the protein tree.
   
-  Args:f
-    user: Username for IEDB MySQL connection.
-    password: Password for IEDB MySQL connection.
+  Args:
     taxon_id: Taxon ID for the species to run protein tree.
     species_name: Name of the species to run protein tree.
     all_taxa: List of all children taxa for a species from the IEDB.
   """
   print('Getting epitopes and sources data...')
-  Fetcher = DataFetcher(user, password)
+  Fetcher = DataFetcher()
   epitopes_df = Fetcher.get_epitopes(all_taxa)
   sources_df = Fetcher.get_sources(all_taxa)
   print('Done getting data.\n')
@@ -87,8 +83,6 @@ def run_protein_tree(
 
 
 def build_tree_for_species(
-  user: str,
-  password: str,
   taxon_id: int,
   all_taxa_map: dict,
   species_name_map: dict,
@@ -97,8 +91,6 @@ def build_tree_for_species(
   """Build protein tree for a species.
   
   Args:
-    user: Username for IEDB MySQL connection.
-    password: Password for IEDB MySQL connection.
     taxon_id: Taxon ID for the species to run protein tree.
     all_taxa_map: Mapping of taxon ID to all children taxa.
     species_name_map: Mapping of taxon ID to species name.
@@ -108,25 +100,13 @@ def build_tree_for_species(
   species_name = species_name_map[taxon_id]
   is_vertebrate = is_vertebrate_map[taxon_id]
 
-  run_protein_tree(
-    user, password, taxon_id, species_name, all_taxa, is_vertebrate
-  )
+  run_protein_tree(taxon_id, species_name, all_taxa, is_vertebrate)
   print(f'Protein tree built for {species_name} (ID: {taxon_id}).\n')
 
 
 def main():
   parser = argparse.ArgumentParser()
   
-  parser.add_argument(
-    '-u', '--user',
-    required=True,
-    help='User for IEDB MySQL connection.'
-  )
-  parser.add_argument(
-    '-p', '--password',
-    required=True,
-    help='Password for IEDB MySQL connection.'
-  )
   parser.add_argument(
     '-a', '--all_species', 
     action='store_true',
@@ -139,8 +119,6 @@ def main():
   )
   
   args = parser.parse_args()
-  user = args.user
-  password = args.password
 
   species_df = pd.read_csv('species.csv') # all species and their taxon IDs
   valid_taxon_ids = species_df['Species Taxon ID'].tolist()
@@ -168,7 +146,7 @@ def main():
   if args.all_species:
     for taxon_id in valid_taxon_ids:
       build_tree_for_species(
-        user, password, taxon_id, all_taxa_map, species_name_map, is_vertebrate_map
+        taxon_id, all_taxa_map, species_name_map, is_vertebrate_map
       )
     print('All protein trees built.')
 
@@ -176,7 +154,7 @@ def main():
     taxon_id = args.taxon_id
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     build_tree_for_species(
-      user, password, taxon_id, all_taxa_map, species_name_map, is_vertebrate_map
+      taxon_id, all_taxa_map, species_name_map, is_vertebrate_map
     )
 
 if __name__ == '__main__':

@@ -7,8 +7,8 @@ from sql_engine import create_sql_engine
 
 
 class DataFetcher:
-  def __init__(self, user: str, password: str) -> None:
-    self.sql_engine = create_sql_engine(user, password) # private so there's no exposure to the backend
+  def __init__(self) -> None:
+    self.sql_engine = create_sql_engine() # private so there's no exposure to the backend
 
   def get_epitopes(self, all_taxa: str) -> pd.DataFrame:
     """Get all epitopes for a species including all children taxa.
@@ -90,14 +90,6 @@ def main():
   parser = argparse.ArgumentParser()
   
   parser.add_argument(
-    '-u', '--user',
-    required=True,
-    help='User for IEDB MySQL connection.')
-  parser.add_argument(
-    '-p', '--password',
-    required=True,
-    help='User for IEDB MySQL connection.')
-  parser.add_argument(
     '-a', '--all_species',
     action='store_true',
     help='Build protein tree for all IEDB species.')
@@ -112,7 +104,7 @@ def main():
     print("Error: Please provide either --all_species or --taxon_id.")
     return
 
-  Fetcher = DataFetcher(args.user, args.password)
+  Fetcher = DataFetcher()
   if args.all_species:
     Fetcher.get_species_data()
   else:

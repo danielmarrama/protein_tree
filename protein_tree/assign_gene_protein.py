@@ -413,14 +413,6 @@ def main():
   parser = argparse.ArgumentParser()
 
   parser.add_argument(
-    '-u', '--user',
-    required=True,
-    help='User for IEDB MySQL connection.')
-  parser.add_argument(
-    '-p', '--password',
-    required=True,
-    help='Password for IEDB MySQL connection.')
-  parser.add_argument(
     '-a', '--all_species',
     action='store_true',
     help='Build protein tree for all IEDB species.')
@@ -429,8 +421,6 @@ def main():
     help='Taxon ID for the species to run protein tree.')
   
   args = parser.parse_args()
-  user = args.user
-  password = args.password
   all_species = args.all_species
   taxon_id = args.taxon_id
 
@@ -466,7 +456,7 @@ def main():
       species_name = species_name_map[taxon_id]
       is_vertebrate = is_vertebrate_map[taxon_id]
 
-      Fetcher = DataFetcher(user, password)
+      Fetcher = DataFetcher()
       epitopes_df = Fetcher.get_epitopes(all_taxa)
       sources_df = Fetcher.get_sources(all_taxa)
 
@@ -493,7 +483,7 @@ def main():
     species_name = species_name_map[taxon_id]
     is_vertebrate = is_vertebrate_map[taxon_id]
     
-    Fetcher = DataFetcher(user, password)
+    Fetcher = DataFetcher()
     epitopes_df = Fetcher.get_epitopes(all_taxa)
     sources_df = Fetcher.get_sources(all_taxa)
 

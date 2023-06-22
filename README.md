@@ -8,7 +8,7 @@ Mapping IEDB source antigens to genes and epitopes parent proteins.
 3. Assign genes to source antigens using MMseqs2/BLAST and epitopes to their parent protein using PEPMatch.
 
 ### Inputs
-- IEDB MySQL Backend username and password
+- IEDB MySQL Backend access
 - List of IEDB species: [species.csv](species.csv)
     - This is updated with the [update_species.py](update_species.py) script
 - `mmseqs2` binary from [MMseqs2](https://github.com/soedinglab/MMseqs2/releases)
