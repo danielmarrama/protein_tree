@@ -3,7 +3,8 @@
 import pandas as pd
 from pathlib import Path
 from sqlalchemy import text
-from sql_engine import create_sql_engine
+
+from protein_tree.sql_engine import create_sql_engine
 
 
 class DataFetcher:
@@ -114,8 +115,18 @@ def main():
     species_df = pd.read_csv(parent_dir / '..' / 'species.csv')
     
     # create maps for taxon ID to species name and all taxa
-    species_name_map = dict(zip(species_df['Species Taxon ID'], species_df['Species Name']))
-    all_taxa_map = dict(zip(species_df['Species Taxon ID'], species_df['All Taxa']))
+    species_name_map = dict(
+      zip(
+        species_df['Species Taxon ID'], 
+        species_df['Species Name']
+      )
+    )
+    all_taxa_map = dict(
+      zip(
+        species_df['Species Taxon ID'],
+        species_df['All Taxa']
+      )
+    )
 
     # get epitopes and source antigens
     epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
