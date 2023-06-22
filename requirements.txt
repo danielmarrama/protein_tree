@@ -6,3 +6,4 @@ pandas>=1.3.0
 pepmatch>=0.8.2
 sqlalchemy>=2.0.4
 bio-arc>=0.1.1
+pytest>=7.3.2
