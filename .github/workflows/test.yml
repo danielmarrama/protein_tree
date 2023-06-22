@@ -31,4 +31,5 @@ jobs:
         MYSQL_HOST: ${{ secrets.MYSQL_HOST }}
         MYSQL_PORT: ${{ secrets.MYSQL_PORT }}
         MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+        PYTHONPATH: "."
       run: pytest
