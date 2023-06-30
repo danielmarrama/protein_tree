@@ -58,8 +58,6 @@ def run_protein_tree(
 
   print(f'Number of sources: {assigner_data[0]}')
   print(f'Number of epitopes: {assigner_data[1]}')
-  print(f'Number of sources with a match: {assigner_data[2]}')
-  print(f'Number of epitopes with a match: {assigner_data[3]}')
   print(f'Successful source antigen assignments: {successful_source_assignment:.1f}%')
   print(f'Successful epitope assignments: {successful_epitope_assignment:.1f}%\n')
 

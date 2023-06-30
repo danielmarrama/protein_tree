@@ -397,9 +397,9 @@ def main():
       print(f'Proteome type: {proteome_data[2]}')
     
       # update metrics data
-      metrics_df.loc[metrics_df['Species Taxon ID'] == int(t_id), 'Proteome ID'] = proteome_data[0]
-      metrics_df.loc[metrics_df['Species Taxon ID'] == int(t_id), 'Proteome Taxon'] = proteome_data[1]
-      metrics_df.loc[metrics_df['Species Taxon ID'] == int(t_id), 'Proteome Type'] = proteome_data[2]
+      metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome ID'] = proteome_data[0]
+      metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Taxon'] = proteome_data[1]
+      metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Type'] = proteome_data[2]
 
       metrics_df.to_csv('metrics.csv', index=False)
 

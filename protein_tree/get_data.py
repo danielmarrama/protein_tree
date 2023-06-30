@@ -4,12 +4,12 @@ import pandas as pd
 from pathlib import Path
 from sqlalchemy import text
 
-from protein_tree.sql_engine import create_sql_engine
+from sql_engine import create_sql_engine
 
 
 class DataFetcher:
   def __init__(self) -> None:
-    self.sql_engine = create_sql_engine() # private so there's no exposure to the backend
+    self.sql_engine = create_sql_engine()
 
   def get_epitopes(self, all_taxa: str) -> pd.DataFrame:
     """Get all epitopes for a species including all children taxa.
@@ -53,7 +53,7 @@ class DataFetcher:
     epitopes_df['Sequence'] = epitopes_df['Linear Sequence'].fillna(
       epitopes_df['Discontinuous Sequence']
     )
-    epitopes_df.drop( # remove sequence
+    epitopes_df.drop( # remove original sequence
       columns=['Linear Sequence', 'Discontinuous Sequence'], 
       inplace=True
     )
