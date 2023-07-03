@@ -92,13 +92,9 @@ class GeneAndProteinAssigner:
     """Assign a gene to the source antigens of a species.
 
     Run ARC for vertebrates to assign MHC/TCR/Ig to source antigens first.
-
-    Then, run MMseqs2 if there are more than 1000 source antigens, for speed.
-    Run BLAST for the remaining ones that don't have a match below e-value 10^-100.
-
-    Otherwise, run BLAST to assign a gene to each source antigen. If there are
-    ties, use PEPMatch to search the epitopes within the protein sequences and
-    select the protein with the most matches.
+    Run BLAST for all other source antigens to assign a gene and protein. 
+    If there are ties, use PEPMatch to search the epitopes within the protein 
+    sequences andselect the protein with the most matches.
 
     Args:
       sources_df: DataFrame of source antigens for a species.
@@ -109,12 +105,7 @@ class GeneAndProteinAssigner:
     if self.is_vertebrate:
       self._run_arc()
 
-    if num_sources > 1000:
-      self._run_mmseqs2()
-      if self.source_gene_assignment.keys() != sources_df['Accession'].tolist():
-        self._run_blast()
-    else:
-      self._run_blast()
+    self._run_blast()
 
     num_matched_sources = len(self.source_gene_assignment.keys())
 
@@ -162,10 +153,6 @@ class GeneAndProteinAssigner:
     if not arc_results.dropna(subset=['class']).empty:
       arc_assignments = arc_results.set_index('id')['class'].to_dict()
       self.source_gene_assignment.update(arc_assignments)
-
-
-  def _run_mmseqs2(self) -> None:
-    pass
 
 
   def _preprocess_proteome_if_needed(self) -> None:
