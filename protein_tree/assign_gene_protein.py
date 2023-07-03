@@ -175,7 +175,8 @@ class GeneAndProteinAssigner:
       k = 5, 
       preprocessed_files_path = f'{self.species_path}', 
       best_match=best_match, 
-      output_format='dataframe'
+      output_format='dataframe',
+      sequence_version=False
     ).match()
     return df
 
@@ -323,7 +324,8 @@ class GeneAndProteinAssigner:
         max_mismatches = 0, 
         k = 5, 
         preprocessed_files_path = f'{self.species_path}',
-        output_format='dataframe'
+        output_format='dataframe',
+        sequence_version=False
       ).match()
 
       matches_df.dropna(subset=['Matched Sequence'], inplace=True)
