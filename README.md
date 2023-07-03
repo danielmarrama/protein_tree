@@ -49,6 +49,7 @@ For all species:
 Use [combine_data.py](combine_data.py) to merge all epitopes.csv and all sources.csv into one file for every species.
 
 ### TODO
-- Assign allergens and manuals in the final tree only
+- Improve BLAST assignments with protein existence levels / gene priority
+- Isolate epitope matches to source protein assignment, not gene
 - Create a tree for visualization
 - Add higher taxon ranks for the final tree

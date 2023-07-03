@@ -17,7 +17,7 @@ Species Taxon ID,Species Name,Proteome ID,Proteome Taxon,Proteome Type,Source Co
 235,Brucella abortus (Brucella melitensis bv. Abortus),UP000002719,359391.0,Representative,316.0,348.0,100.0,93.10344828
 236,Brucella ovis (Brucella melitensis bv. Ovis),UP000006383,444178.0,Non-redundant,14.0,11.0,100.0,100.0
 263,Francisella tularensis,UP000001174,177416.0,Representative,878.0,2887.0,99.43052392,83.89331486
-266,Paracoccus denitrificans,UP000000361,318586.0,Representative,3.0,2.0,100.0,100.0
+266,Paracoccus denitrificans,UP000000361,318586.0,Representative,3.0,5.0,100.0,100.0
 271,Thermus aquaticus,UP000037685,271.0,Other,2.0,1.0,100.0,100.0
 274,Thermus thermophilus,UP000000532,300852.0,Representative,2.0,1.0,100.0,100.0
 280,Xanthobacter autotrophicus,UP000002417,78245.0,Representative,2.0,2.0,100.0,50.0
