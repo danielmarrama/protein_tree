@@ -21,18 +21,18 @@ class GeneAndProteinAssigner:
     self.source_protein_assignment = {}
 
     # create UniProt ID -> gene map
-    proteome = pd.read_csv(f'{self.species_path}/proteome.csv')
+    self.proteome = pd.read_csv(f'{self.species_path}/proteome.csv')
     self.uniprot_id_to_gene_map = dict(
       zip(
-        proteome['Protein ID'], 
-        proteome['Gene']
+        self.proteome['Protein ID'], 
+        self.proteome['Gene']
       )
     )
     # create UniProt ID -> protein name map
     self.uniprot_id_to_name_map = dict(
       zip(
-        proteome['Protein ID'], 
-        proteome['Protein Name']
+        self.proteome['Protein ID'], 
+        self.proteome['Protein Name']
       )
     )
 
@@ -56,7 +56,7 @@ class GeneAndProteinAssigner:
       )
     )
     num_matched_sources = self._assign_genes(sources_df, epitopes_df, num_sources)
-    num_matched_epitopes = self._assign_parents(epitopes_df)
+    num_matched_epitopes = self._assign_parents()
 
     # TODO: move this to the final tree building script
     self._assign_allergens()
@@ -181,16 +181,13 @@ class GeneAndProteinAssigner:
     return df
 
 
-  def _assign_parents(self, epitopes_df: pd.DataFrame) -> tuple:
+  def _assign_parents(self) -> tuple:
     """Assign a parent protein to each epitope.
     
     Preprocess the proteome and then search all the epitopes within
     the proteome using PEPMatch. Then, assign the parent protein
     to each epitope by selecting the best isoform of the assigned gene for
     its source antigen.
-
-    Args:
-      epitopes_df: DataFrame of epitopes for a species.
     """
     self._preprocess_proteome_if_needed()
 
@@ -200,9 +197,12 @@ class GeneAndProteinAssigner:
     for antigen, epitopes in self.source_to_epitopes_map.items():
       matches_df = self._search_epitopes(epitopes, best_match=True)
 
-      # try to isolate matches to the assigned gene for the source antigen
+      # try to isolate matches to the assigned protein for the source antigen
       if antigen in self.source_gene_assignment.keys():
-        matches_df = matches_df[matches_df['Gene'] == self.source_gene_assignment[antigen]]
+        matches_df = matches_df[matches_df['Protein ID'] == self.source_protein_assignment[antigen]]
+        if not matches_df.empty: 
+          # if no match to assigned protein, try any isoform of the assigned gene
+          matches_df = matches_df[matches_df['Gene'] == self.source_gene_assignment[antigen]]
 
       # if there aren't best matches that match the assigned gene, search again without best match
       if matches_df.empty:
@@ -252,38 +252,49 @@ class GeneAndProteinAssigner:
       f'-out {species_path}/blast_results.csv'
     ) 
     result_columns = [
-      'Query', 'Subject', 'Percentage Identity', 'Alignment Length', 
+      'Query', 'Target', 'Percentage Identity', 'Alignment Length', 
       'Mismatches', 'Gap Opens', 'Query Start', 'Query End', 
-      'Subject Start', 'Subject End', 'e-Value', 'Bit Score'
+      'Target Start', 'Target End', 'e-Value', 'Bit Score'
     ]
     blast_results_df = pd.read_csv( # read in BLAST results
       f'{self.species_path}/blast_results.csv', names=result_columns
     )
 
-    # extract the UniProt ID from the subject column
-    blast_results_df['Subject'] = blast_results_df['Subject'].str.split('|').str[1]
+    # extract the UniProt ID from the target column
+    blast_results_df['Target'] = blast_results_df['Target'].str.split('|').str[1]
 
-    # take out "-#" portion of the subject UniProt ID because these are isoforms and 
+    # take out "-#" portion of the target UniProt ID because these are isoforms and 
     # won't be mapped properly to gene symbols
-    blast_results_df['Subject'] = blast_results_df['Subject'].str.split('-').str[0]
+    blast_results_df['Target'] = blast_results_df['Target'].str.split('-').str[0]
     
-    # map subject UniProt IDs to gene symbols
-    blast_results_df['Subject Gene Symbol'] = blast_results_df['Subject'].map(self.uniprot_id_to_gene_map)
+    # map target UniProt IDs to gene symbols
+    blast_results_df['Target Gene Symbol'] = blast_results_df['Target'].map(self.uniprot_id_to_gene_map)
     
     # create a quality score based on % identity, alignment length, and query length
     blast_results_df['Query Length'] = blast_results_df['Query'].map(self.source_length_map)
     blast_results_df['Quality Score'] = blast_results_df['Percentage Identity'] * (blast_results_df['Alignment Length'] / blast_results_df['Query Length'])
 
-    best_scores = blast_results_df.groupby('Query')['Quality Score'].transform(max) == blast_results_df['Quality Score']
-    blast_results_df = blast_results_df[best_scores]
+    # join proteome metadata to select the best match for each source antigen
+    blast_results_df = blast_results_df.merge(
+      self.proteome[['Protein ID', 'Protein Existence Level', 'Gene Priority']], 
+      left_on='Target', 
+      right_on='Protein ID', 
+      how='left'
+    )
+    # sort by quality score (descending), gene priority (descending), and
+    # protein existence level (ascending)
+    blast_results_df.sort_values(
+        by=['Quality Score', 'Gene Priority', 'Protein Existence Level'],
+        ascending=[False, False, True],
+        inplace=True
+    )
+    # after sorting, drop duplicates based on 'Query', keeping only the first (i.e., best) match.
+    blast_results_df.drop_duplicates(subset='Query', keep='first', inplace=True)
 
-    # check if there are any query duplicates - update map within _pepmatch_tiebreak
-    if blast_results_df.duplicated(subset=['Query']).any():
-      self._pepmatch_tiebreak(blast_results_df)
-    else:
-      for i, row in blast_results_df.iterrows():
-        self.source_gene_assignment[row['Query']] = row['Subject Gene Symbol']
-        self.source_protein_assignment[row['Query']] = row['Subject']
+    # Assign gene symbols and protein IDs.
+    for i, row in blast_results_df.iterrows():
+        self.source_gene_assignment[row['Query']] = row['Target Gene Symbol']
+        self.source_protein_assignment[row['Query']] = row['Target']
 
 
   def _pepmatch_tiebreak(self, blast_results_df: pd.DataFrame) -> None:
@@ -314,8 +325,8 @@ class GeneAndProteinAssigner:
       except KeyError:
         # if there are no epitopes, then assign the gene and id to the first
         # blast match in blast_results_df of that source_antigen
-        self.source_gene_assignment[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Subject Gene Symbol'].iloc[0]
-        self.source_protein_assignment[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Subject'].iloc[0]
+        self.source_gene_assignment[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Target Gene Symbol'].iloc[0]
+        self.source_protein_assignment[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Target'].iloc[0]
         continue
 
       matches_df = Matcher(
@@ -332,8 +343,8 @@ class GeneAndProteinAssigner:
 
       if matches_df.empty:
         # if there are no matches, then assign the gene and id to the first blast match
-        self.source_gene_assignment[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Subject Gene Symbol'].iloc[0]
-        self.source_protein_assignment[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Subject'].iloc[0]
+        self.source_gene_assignment[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Target Gene Symbol'].iloc[0]
+        self.source_protein_assignment[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Target'].iloc[0]
         continue
 
       # get the uniprot id and gene symbol that has the most matches

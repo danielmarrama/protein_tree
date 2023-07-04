@@ -287,10 +287,8 @@ class ProteomeSelector:
       return self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0]
 
     epitopes_df = epitopes_df[epitopes_df['Sequence'].notna()] 
-    
-    # TODO: be able to check for discontinuous epitopes
-    epitopes = [epitope for epitope in epitopes_df['Sequence'] if not any(char.isdigit() for char in epitope)]
-    
+    epitopes = epitopes_df['Sequence'].tolist()
+
     match_counts = {} # keep track of # of epitope matches for each proteome
     for proteome_id in list(self.proteome_list['upid']):
       self._get_proteome_to_fasta(proteome_id)
@@ -299,7 +297,7 @@ class ProteomeSelector:
         proteome = f'{self.species_path}/{proteome_id}.fasta',
         preprocessed_files_path = f'{self.species_path}',
       ).sql_proteome(k = 5)
-      
+
       matches_df = Matcher(
         query = epitopes, 
         proteome_file = f'{self.species_path}/{proteome_id}.fasta', 
