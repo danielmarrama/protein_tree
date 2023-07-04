@@ -153,7 +153,7 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 1313,Streptococcus pneumoniae,1313;170187;373153;171101;914129,False,Bacteria
 1314,Streptococcus pyogenes,1314;160491;160490;301449;301450;286636;342023;301452;301451;404330;404331;410069;301448;1207470;186103;301447,False,Bacteria
 1317,Streptococcus downei,1317,False,Bacteria
-1320,Streptococcus sp. 'group G',1320,False,Bacteria
+1320,Streptococcus sp. group G,1320,False,Bacteria
 1334,Streptococcus dysgalactiae,119602;1334,False,Bacteria
 1336,Streptococcus equi,1336,False,Bacteria
 1349,Streptococcus uberis,1349,False,Bacteria
@@ -1281,7 +1281,7 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 456999,Rhizoctonia solani,456999,False,Eukaryota
 463676,Rhinovirus C,1219377;463676,False,Viruses
 465541,Streptomyces sp. Mg1,465541,False,Bacteria
-469009,'Brassica napus' phytoplasma,469009,False,Bacteria
+469009,Brassica napus phytoplasma,469009,False,Bacteria
 469613,Enterobacteriaceae bacterium 9_2_54FAA,469613,False,Bacteria
 471223,Geobacillus sp. WCH70,471223,False,Bacteria
 472390,Prunus dulcis x Prunus persica,472390,False,Eukaryota
@@ -1601,7 +1601,7 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 10000304,Clostridium botulinum F NCTC 10281,10000304,False,Other
 10000305,Clostridium botulinum B Okra,10000305,False,Other
 10000306,Clostridium botulinum C Stockholm,10000306,False,Other
-10000307,Clostridium difficile BART'S W1,10000307,False,Other
+10000307,Clostridium difficile BARTS W1,10000307,False,Other
 10000308,Listeria monocytogenes ATCC 35967,10000308,False,Other
 10000309,Listeria monocytogenes ATCC 43251,10000309,False,Other
 10000319,Mycobacterium avium serovar 8,10000319,False,Other
@@ -1808,7 +1808,7 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 10000851,Theileria sergenti Type I,10000851,False,Other
 10000852,Chlamydophila pneumoniae Kajaani 6,10000852,False,Other
 10000853,Chlamydia trachomatis Serovar L1,10000853,False,Other
-10000855,Theiler's murine encephalomyelitis virus (strain BeAn 8386) (variant M2),10000855,False,Other
+10000855,Theilers murine encephalomyelitis virus (strain BeAn 8386) (variant M2),10000855,False,Other
 10000856,Foot-and-mouth disease virus - type O isolate O/UKG/35/2001,10000856,False,Other
 10000857,Bovine viral diarrhea virus 1 Pe515ncp,10000857,False,Other
 10000858,Chlamydia trachomatis B/Jali-20/OT,10000858,False,Other
