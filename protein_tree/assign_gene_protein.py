@@ -154,6 +154,8 @@ class GeneAndProteinAssigner:
       arc_assignments = arc_results.set_index('id')['class'].to_dict()
       self.source_gene_assignment.update(arc_assignments)
 
+    os.remove(f'{self.species_path}/ARC_results.tsv')
+
 
   def _preprocess_proteome_if_needed(self) -> None:
     """Preprocess the proteome if the preprocessed files don't exist."""
