@@ -25,6 +25,7 @@ def run_protein_tree(
     species_name: Name of the species to run protein tree.
     all_taxa: List of all children taxa for a species from the IEDB.
   """
+  print(f'Building tree for {species_name} (ID: {taxon_id})...\n')
   print('Getting epitopes and sources data...')
   Fetcher = DataFetcher()
   epitopes_df = Fetcher.get_epitopes(all_taxa)

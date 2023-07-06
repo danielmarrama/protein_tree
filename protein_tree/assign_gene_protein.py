@@ -195,7 +195,7 @@ class GeneAndProteinAssigner:
     # to the assigned gene for each source antigen
     all_matches_df = pd.DataFrame()
     for antigen, epitopes in self.source_to_epitopes_map.items():
-      matches_df = self._search_epitopes(epitopes, best_match=True)
+      matches_df = self._search_epitopes(epitopes, best_match=False)
 
       # try to isolate matches to the assigned protein for the source antigen
       if antigen in self.source_gene_assignment.keys():
