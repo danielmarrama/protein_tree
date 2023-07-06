@@ -9,8 +9,6 @@ from get_data import DataFetcher
 from select_proteome import ProteomeSelector
 from assign_gene_protein import GeneAndProteinAssigner
 
-# TODO:
-# * investigate a way to search all epitopes at once and make sure the assigned isoform is from the proper gene
 
 def run_protein_tree(
   taxon_id: int,

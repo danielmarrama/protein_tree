@@ -12,6 +12,7 @@ Mapping IEDB source antigens to genes and epitopes parent proteins.
 - List of IEDB species: [species.csv](species.csv)
     - This is updated with the [update_species.py](update_species.py) script
 - `blastp` and `makeblastdb` binaries from [NCBI](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
+- `hmmscan` built from [HMMER](http://hmmer.org/)
 - Taxon ID for species to build for with `-t` flag or `-a` flag to build all species
 - List of manual parents: [manual_assignments.csv](manual_assignments.csv)
     - This is the list of sources that have been manually assigned for their parents
@@ -49,7 +50,8 @@ For all species:
 Use [combine_data.py](combine_data.py) to merge all epitopes.csv and all sources.csv into one file for every species.
 
 ### TODO
-- Improve BLAST assignments with protein existence levels / gene priority
 - Isolate epitope matches to source protein assignment, not gene
+- Add flag to skip proteome selection step
+- Implement skipping a species if the data is the same as the last build
+- Create manual assignments at the end of the all-species build
 - Create a tree for visualization
-- Add higher taxon ranks for the final tree
