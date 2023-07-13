@@ -23,9 +23,9 @@ class ProteomeSelector:
     self.proteome_list = self._get_proteome_list() # get all candidate proteomes
     self.num_of_proteomes = len(self.proteome_list) + 1 # +1 for all proteins option
 
+
   def select_best_proteome(self, epitopes_df: pd.DataFrame) -> list:
-    """
-    Select the best proteome to use for a species. Return the proteome ID, 
+    """Select the best proteome to use for a species. Return the proteome ID,
     proteome taxon, and proteome type.
     
     Check UniProt for all candidate proteomes associated with that
@@ -102,10 +102,9 @@ class ProteomeSelector:
 
     return proteome_id, proteome_taxon, proteome_type
 
+
   def proteome_to_csv(self) -> None:
-    """
-    Write the proteome data for a species to a CSV file for later use.
-    """
+    """Write the proteome data for a species to a CSV file for later use."""
     from Bio import SeqIO
     
     if not (self.species_path / 'proteome.fasta').exists():
@@ -155,8 +154,7 @@ class ProteomeSelector:
 
 
   def _get_proteome_list(self) -> pd.DataFrame:
-    """
-    Get a list of proteomes for a species from the UniProt API.
+    """Get a list of proteomes for a species from the UniProt API.
     Check for proteome_type:1 first, which are the representative or
     reference proteomes.
 
@@ -178,9 +176,9 @@ class ProteomeSelector:
     proteome_list.columns = [x.replace('{http://uniprot.org/proteome}', '') for x in proteome_list.columns]
     return proteome_list
 
+
   def _get_all_proteins(self) -> None:
-    """
-    Get every protein associated with a taxon ID on UniProt.
+    """Get every protein associated with a taxon ID on UniProt.
     Species on UniProt will have a proteome, but not every protein is
     stored within those proteomes. There is a way to get every protein
     using the taxonomy part of UniProt. 
@@ -193,9 +191,9 @@ class ProteomeSelector:
       with open(f'{self.species_path}/proteome.fasta', 'a') as f:
         f.write(batch.text)
 
+
   def _get_protein_batches(self, batch_url: str) -> requests.Response:
-    """
-    Get a batch of proteins from UniProt API because it limits the
+    """Get a batch of proteins from UniProt API because it limits the
     number of proteins you can get at once. Yield each batch until the 
     URL link is empty.
     
@@ -208,9 +206,9 @@ class ProteomeSelector:
       yield r
       batch_url = self._get_next_link(r.headers)
 
+
   def _get_next_link(self, headers: dict) -> str:
-    """
-    UniProt will provide a link to the next batch of proteins when getting
+    """UniProt will provide a link to the next batch of proteins when getting
     all proteins for a species' taxon ID.
     We can use a regular expression to extract the URL from the header.
 
@@ -223,9 +221,9 @@ class ProteomeSelector:
       if match:
         return match.group(1)
 
+
   def _get_gp_proteome_to_fasta(self, proteome_id: str, proteome_taxon: str) -> None:
-    """
-    Write the gene priority proteome to a file. 
+    """Write the gene priority proteome to a file. 
     This is only for representative and reference proteomes.
     Depending on the species group, the FTP URL will be different.
 
@@ -258,9 +256,9 @@ class ProteomeSelector:
     with open(f'{self.species_path}/gp_proteome.fasta', 'wb') as f:
       f.write(gzip.open(r.raw, 'rb').read())
 
+
   def _get_proteome_to_fasta(self, proteome_id: str) -> None:
-    """
-    Get the FASTA file for a proteome from UniProt API.
+    """Get the FASTA file for a proteome from UniProt API.
     Include all isoforms and do not compress the file.
 
     Args:
@@ -272,9 +270,9 @@ class ProteomeSelector:
     with open(f'{self.species_path}/{proteome_id}.fasta', 'w') as f:
       f.write(r.text)
 
+
   def _get_proteome_with_most_matches(self, epitopes_df: pd.DataFrame) -> tuple:
-    """
-    Get the proteome ID and true taxon ID associated with
+    """Get the proteome ID and true taxon ID associated with
     that proteome with the most epitope matches in case there is a tie.
     We get the true taxon so we can extract the data from the FTP server
     if needed.
@@ -320,9 +318,9 @@ class ProteomeSelector:
 
     return proteome_id, proteome_taxon
 
+
   def _remove_other_proteomes(self, proteome_id: str) -> None:
-    """
-    Remove the proteome FASTA files that are not the chosen proteome for that
+    """Remove the proteome FASTA files that are not the chosen proteome for that
     species. Also, remove the .db files and rename the chosen proteome to 
     "proteome.fasta".
 
@@ -340,20 +338,66 @@ class ProteomeSelector:
       os.remove(f'{self.species_path}/{proteome_id}.db')
 
 
+def run(
+  taxon_id: int, all_taxa: list, species_name: str, metrics_df: pd.DataFrame
+) -> None:
+    """Run the proteome selection process for a species.
+    
+    Args:
+      taxon_id (int): Taxon ID for the species.
+      all_taxa (list): List of all children taxa for the species.
+      species_name (str): Name of the species.
+      metrics_df (pd.DataFrame): DataFrame of metrics data.
+    """
+    from get_data import DataFetcher
+
+    Fetcher = DataFetcher()
+    epitopes_df = Fetcher.get_epitopes(all_taxa)
+
+    print(f'Selecting best proteome for {species_name} (Taxon ID: {taxon_id}).')
+    Selector = ProteomeSelector(taxon_id, species_name)
+    print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')
+
+    proteome_data = Selector.select_best_proteome(epitopes_df)
+    Selector.proteome_to_csv()
+    
+    print(f'Proteome ID: {proteome_data[0]}')
+    print(f'Proteome taxon: {proteome_data[1]}')
+    print(f'Proteome type: {proteome_data[2]}')
+  
+    # update metrics data to metrics.csv file
+    if taxon_id not in metrics_df['Species Taxon ID'].tolist():
+      new_row = {
+        'Species Taxon ID': taxon_id,
+        'Species Name': species_name,
+        'Proteome ID': proteome_data[0],
+        'Proteome Taxon': proteome_data[1],
+        'Proteome Type': proteome_data[2]
+      }
+      metrics_df = pd.concat([metrics_df, pd.DataFrame([new_row])], ignore_index=True)
+    else:
+      metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome ID'] = proteome_data[0]
+      metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Taxon'] = proteome_data[1]
+      metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Type'] = proteome_data[2]
+
+    metrics_df.to_csv('metrics.csv', index=False)
+
+
 def main():
   import argparse
-  from get_data import DataFetcher
 
   parser = argparse.ArgumentParser()
   
   parser.add_argument(
     '-a', '--all_species', 
     action='store_true', 
-    help='Build protein tree for all IEDB species.')
+    help='Build protein tree for all IEDB species.'
+  )
   parser.add_argument(
     '-t', '--taxon_id', 
     type=int,
-    help='Taxon ID for the species to pull data for.')
+    help='Taxon ID for the species to pull data for.'
+  )
   
   args = parser.parse_args()
   all_species = args.all_species
@@ -363,67 +407,30 @@ def main():
   metrics_df = pd.read_csv('metrics.csv') # protein tree metrics data
   valid_taxon_ids = species_df['Species Taxon ID'].tolist()
 
-  # taxa and name mapppings
-  all_taxa_map = dict(
+  all_taxa_map = dict( # map taxon ID to list of all children taxa
     zip(
       species_df['Species Taxon ID'],
       species_df['All Taxa']
     )
   )
-  species_id_to_name_map = dict(
+  species_id_to_name_map = dict( # map taxon ID to species name
     zip(
       species_df['Species Taxon ID'],
       species_df['Species Name']
     )
   )
 
-  if all_species:
-    proteomes = {}
+  if all_species: # run all species at once
     for taxon_id in valid_taxon_ids:
-      Fetcher = DataFetcher()
-      epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
-
-      print(f'Selecting best proteome for {species_id_to_name_map[taxon_id]} (Taxon ID: {taxon_id}).')
-      Selector = ProteomeSelector(taxon_id, species_id_to_name_map[taxon_id])
-      print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')
-
-      proteome_data = Selector.select_best_proteome(epitopes_df)
-      Selector.proteome_to_csv()
-      
-      print(f'Proteome ID: {proteome_data[0]}')
-      print(f'Proteome taxon: {proteome_data[1]}')
-      print(f'Proteome type: {proteome_data[2]}')
-    
-      # update metrics data
-      metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome ID'] = proteome_data[0]
-      metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Taxon'] = proteome_data[1]
-      metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Type'] = proteome_data[2]
-
-      metrics_df.to_csv('metrics.csv', index=False)
+      run(
+        taxon_id, all_taxa_map[taxon_id], species_id_to_name_map[taxon_id], metrics_df
+      )
 
   else: # one species at a time
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
-    
-    Fetcher = DataFetcher()
-    epitopes_df = Fetcher.get_epitopes(all_taxa_map[taxon_id])
-
-    print(f'Selecting best proteome for {species_id_to_name_map[taxon_id]} (Taxon ID: {taxon_id}).')
-    Selector = ProteomeSelector(taxon_id, species_id_to_name_map[taxon_id])
-    print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')
-
-    proteome_data = Selector.select_best_proteome(epitopes_df)
-    Selector.proteome_to_csv()
-
-    print(f'Proteome ID: {proteome_data[0]}')
-    print(f'Proteome taxon: {int(proteome_data[1])}')
-    print(f'Proteome type: {proteome_data[2]}')
-
-    # update metrics data
-    metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome ID'] = proteome_data[0]
-    metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Taxon'] = int(proteome_data[1])
-    metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Type'] = proteome_data[2]
-
-    metrics_df.to_csv('metrics.csv', index=False)
+    run(
+      taxon_id, all_taxa_map[taxon_id], species_id_to_name_map[taxon_id], metrics_df
+    )
 
 if __name__ == '__main__':
   main()
