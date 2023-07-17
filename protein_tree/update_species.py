@@ -1,17 +1,14 @@
 #!/usr/bin/env python3
 
-import requests
-import _pickle as pickle
 import pandas as pd
 from pathlib import Path
 from sqlalchemy import text
 from sqlalchemy.engine import Connection
-from protein_tree.sql_engine import create_sql_engine
+from sql_engine import create_sql_engine
 
 
-def update_species_data(user: str, password: str) -> None:
-  """
-  Get all organism IDs for all epitope data we need for protein tree. Then,
+def update_species_data() -> None:
+  """Get all organism IDs for all epitope data we need for protein tree. Then,
   get the species taxon ID for each organism and update the species data file.
 
   Args:
@@ -29,7 +26,7 @@ def update_species_data(user: str, password: str) -> None:
               WHERE epitope.related_object_id = object.object_id
               AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
               """
-  sql_engine = create_sql_engine(user, password)
+  sql_engine = create_sql_engine()
   with sql_engine.connect() as connection:
     
     result = connection.execute(text(sql_query))
@@ -55,12 +52,15 @@ def update_species_data(user: str, password: str) -> None:
     species_df.index.name = 'Species Taxon ID'
     species_df.reset_index(inplace=True)
     species_df['All Taxa'] = species_df['All Taxa'].apply(lambda x: ';'.join(x))
-    species_df.to_csv('species.csv', index=False)
+    
+    # update species.csv which is in the directory above this script
+    species_df.to_csv(Path(__file__).parent.parent / 'species.csv', index=False)
 
 
-def get_species_data(connection: Connection, organism_id: str, organism_name: str) -> tuple:
-  """
-  Using the organism taxon ID from the IEDB backend, get the parent species
+def get_species_data(
+  connection: Connection, organism_id: str, organism_name: str
+) -> tuple:
+  """Using the organism taxon ID from the IEDB backend, get the parent species
   taxon ID, the superkingdom, and whether or not the species is a vertebrate. 
 
   Args:
@@ -113,11 +113,4 @@ def get_species_data(connection: Connection, organism_id: str, organism_name: st
 
 
 if __name__ == '__main__':
-  import argparse 
-
-  parser = argparse.ArgumentParser(description='Update species data for protein tree.')
-  parser.add_argument('-u', '--user', required=True, type=str, help='MySQL username.')
-  parser.add_argument('-p', '--password', required=True, type=str, help='MySQL password.')
-
-  args = parser.parse_args()
-  update_species_data(args.user, args.password)
+  update_species_data()
