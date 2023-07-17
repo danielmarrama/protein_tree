@@ -183,52 +183,6 @@ class GeneAndProteinAssigner:
     return df
 
 
-  def _assign_parents(self) -> tuple:
-    """Assign a parent protein to each epitope.
-    
-    Preprocess the proteome and then search all the epitopes within
-    the proteome using PEPMatch. Then, assign the parent protein
-    to each epitope by selecting the best isoform of the assigned gene for
-    its source antigen.
-    """
-    self._preprocess_proteome_if_needed()
-
-    # loop through the source antigens so we can limit the epitope matches
-    # to the assigned gene for each source antigen
-    all_matches_df = pd.DataFrame()
-    for antigen, epitopes in self.source_to_epitopes_map.items():
-      matches_df = self._search_epitopes(epitopes, best_match=False)
-
-      # try to isolate matches to the assigned protein for the source antigen
-      if antigen in self.source_gene_assignment.keys():
-        matches_df = matches_df[matches_df['Protein ID'] == self.source_protein_assignment[antigen]]
-        if not matches_df.empty: 
-          # if no match to assigned protein, try any isoform of the assigned gene
-          matches_df = matches_df[matches_df['Gene'] == self.source_gene_assignment[antigen]]
-
-      # if there aren't best matches that match the assigned gene, search again without best match
-      if matches_df.empty:
-        matches_df = self._search_epitopes(epitopes, best_match=False)
-
-        # if there are ties, select the protein with the best protein existence level
-        index = matches_df.groupby(['Query Sequence'])['Protein Existence Level'].transform(min) == matches_df['Protein Existence Level']
-        matches_df = matches_df[index]
-      
-      # concatenate the matches to the all_matches_df
-      all_matches_df = pd.concat([all_matches_df, matches_df])
-
-    self.epitope_parent_assignment = dict(
-      zip(all_matches_df['Query Sequence'], 
-      all_matches_df['Protein ID'])
-    )
-
-    # count the number of epitopes with matches
-    num_matched_epitopes = len(
-      all_matches_df.dropna(subset=['Matched Sequence'])['Query Sequence'].unique()
-    )
-    return num_matched_epitopes
-
-
   def _run_blast(self) -> None:
     """BLAST source antigens against the selected proteome, then read in with
     pandas and assign column names. By default, blastp doesn't return header.
@@ -286,76 +240,56 @@ class GeneAndProteinAssigner:
     # sort by quality score (descending), gene priority (descending), and
     # protein existence level (ascending)
     blast_results_df.sort_values(
-        by=['Quality Score', 'Gene Priority', 'Protein Existence Level'],
-        ascending=[False, False, True],
-        inplace=True
+      by=['Quality Score', 'Gene Priority', 'Protein Existence Level'],
+      ascending=[False, False, True],
+      inplace=True
     )
     # after sorting, drop duplicates based on 'Query', keeping only the first (i.e., best) match.
     blast_results_df.drop_duplicates(subset='Query', keep='first', inplace=True)
 
     # Assign gene symbols and protein IDs.
     for i, row in blast_results_df.iterrows():
-        self.source_gene_assignment[row['Query']] = row['Target Gene Symbol']
-        self.source_protein_assignment[row['Query']] = row['Target']
+      self.source_gene_assignment[row['Query']] = row['Target Gene Symbol']
+      self.source_protein_assignment[row['Query']] = row['Target']
 
 
-  def _pepmatch_tiebreak(self, blast_results_df: pd.DataFrame) -> None:
-    """First, get any source antigens that have ties for the best match. Then,
-    using the epitopes associated with the source antigen, search them in 
-    the selected proteome and find the gene that has the most matches.
+  def _assign_parents(self) -> tuple:
+    """Assign a parent protein to each epitope.
     
-    Args:
-      blast_results_df: DataFrame of source antigen BLAST results.
+    Preprocess the proteome and then search all the epitopes within
+    the proteome using PEPMatch. Then, assign the parent protein
+    to each epitope by selecting the best isoform of the assigned gene for
+    its source antigen.
     """
-    from collections import Counter
+    self._preprocess_proteome_if_needed()
 
-    # get any source antigens that have ties for the best match
-    source_antigens_with_ties = blast_results_df[blast_results_df.duplicated(subset=['Query'])]['Query'].unique()
+    all_epitopes = []
+    for epitopes in self.source_to_epitopes_map.values():
+      all_epitopes.extend(epitopes)
 
-    # preprocess with PEPMatch
-    gp_proteome = f'{self.species_path}/gp_proteome.fasta' if os.path.exists(f'{self.species_path}/gp_proteome.fasta') else ''
-    Preprocessor(
-      proteome = f'{self.species_path}/proteome.fasta',
-      preprocessed_files_path = f'{self.species_path}', 
-      gene_priority_proteome = gp_proteome
-    ).sql_proteome(k = 5)
+    all_matches_df = self._search_epitopes(all_epitopes, best_match=False)
 
-    for source_antigen in source_antigens_with_ties:
-      try:
-        # get the epitopes associated with the source antigen
-        epitopes = self.source_to_epitopes_map[source_antigen]
-      except KeyError:
-        # if there are no epitopes, then assign the gene and id to the first
-        # blast match in blast_results_df of that source_antigen
-        self.source_gene_assignment[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Target Gene Symbol'].iloc[0]
-        self.source_protein_assignment[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Target'].iloc[0]
-        continue
+    self.epitope_parent_assignment = {}
+    for antigen, epitopes in self.source_to_epitopes_map.items():
+      for epitope in epitopes:
+        # check if the epitope is found in the protein the antigen is assigned to
+        matches_df = all_matches_df[all_matches_df['Query Sequence'] == epitope]
+        epitope_protein = matches_df[matches_df['Protein ID'] == self.source_protein_assignment[antigen]]
 
-      matches_df = Matcher(
-        query = epitopes, 
-        proteome_file = f'{self.species_path}/proteome.fasta',
-        max_mismatches = 0, 
-        k = 5, 
-        preprocessed_files_path = f'{self.species_path}',
-        output_format='dataframe',
-        sequence_version=False
-      ).match()
+        if epitope_protein.empty: # otherwise, get an isoform of the assigned gene
+          epitope_protein = matches_df[matches_df['Gene'] == self.source_gene_assignment[antigen]]
+          if len(epitope_protein) > 1: # if there are ties, select the protein with the best protein existence level
+            epitope_protein = epitope_protein.loc[epitope_protein['Protein Existence Level'].idxmin()]
 
-      matches_df.dropna(subset=['Matched Sequence'], inplace=True)
+        if epitope_protein.empty: # still empty, skip
+          continue
 
-      if matches_df.empty:
-        # if there are no matches, then assign the gene and id to the first blast match
-        self.source_gene_assignment[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Target Gene Symbol'].iloc[0]
-        self.source_protein_assignment[source_antigen] = blast_results_df[blast_results_df['Query'] == source_antigen]['Target'].iloc[0]
-        continue
-
-      # get the uniprot id and gene symbol that has the most matches
-      uniprot_id = Counter(matches_df['Protein ID']).most_common()[0][0]
-      gene = Counter(matches_df['Gene']).most_common()[0][0]
-
-      # update maps with the gene and id that has the most matches
-      self.source_gene_assignment[source_antigen] = gene
-      self.source_protein_assignment[source_antigen] = uniprot_id.split('.')[0]
+        self.epitope_parent_assignment[epitope] = epitope_protein['Protein ID'].values[0]
+    
+    # count the number of epitopes with matches
+    num_matched_epitopes = len(self.epitope_parent_assignment.keys())
+    
+    return num_matched_epitopes
 
 
   def _remove_files(self) -> None:
@@ -417,10 +351,12 @@ def main():
   parser.add_argument(
     '-a', '--all_species',
     action='store_true',
-    help='Build protein tree for all IEDB species.')
+    help='Build protein tree for all IEDB species.'
+  )
   parser.add_argument(
     '-t', '--taxon_id',
-    help='Taxon ID for the species to run protein tree.')
+    help='Taxon ID for the species to run protein tree.'
+  )
   
   args = parser.parse_args()
   all_species = args.all_species
@@ -452,7 +388,6 @@ def main():
   )
 
   if all_species:
-    proteomes = {}
     for taxon_id in valid_taxon_ids:
       all_taxa = all_taxa_map[taxon_id]
       species_name = species_name_map[taxon_id]
