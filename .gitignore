@@ -21,3 +21,6 @@ species2.csv
 taxon_ids.txt
 test.fasta
 tree.txt
+
+# locked files
+.~*

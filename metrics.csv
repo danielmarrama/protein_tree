@@ -2,32 +2,32 @@ Species Taxon ID,Species Name,Proteome ID,Proteome Taxon,Proteome Type,Source Co
 24,Shewanella putrefaciens,UP000008209,399804.0,Non-redundant,1.0,1.0,100.0,100.0
 106,Runella slithyformis,UP000000493,761193.0,Representative,1.0,1.0,100.0,100.0
 108,Spirosoma linguale,UP000002028,504472.0,Other,1.0,1.0,100.0,100.0
-139,Borreliella burgdorferi (Lyme disease spirochete),UP000001807,224326.0,Representative,72.0,843.0,100.0,89.32384341637011
+139,Borreliella burgdorferi (Lyme disease spirochete),UP000001807,224326.0,Representative,72.0,848.0,100.0,89.15094339622641
 158,Treponema denticola,UP000008212,243275.0,Representative,2.0,2.0,100.0,100.0
 160,Treponema pallidum,UP000000811,243276.0,Representative,13.0,474.0,100.0,91.35021097046412
 162,Treponema phagedenis,UP000042527,162.0,Representative,1.0,1.0,100.0,100.0
-173,Leptospira interrogans,UP000093180,211880.0,Representative,34.0,288.0,97.05882352941175,82.98611111111111
+173,Leptospira interrogans,UP000093180,211880.0,Representative,34.0,298.0,97.05882352941175,80.20134228187919
 188,Magnetospirillum magnetotacticum,UP000031971,272627.0,Other,5.0,5.0,100.0,80.0
 195,Campylobacter coli,UP000255069,195.0,Non-redundant,4.0,4.0,100.0,100.0
 196,Campylobacter fetus,UP000000760,360106.0,Representative,1.0,12.0,100.0,100.0
-197,Campylobacter jejuni,UP000000799,192222.0,Representative,124.0,517.0,93.54838709677419,92.26305609284333
+197,Campylobacter jejuni,UP000000799,192222.0,Representative,124.0,517.0,93.5483870967742,92.26305609284331
 201,Campylobacter lari,UP000007727,306263.0,Non-redundant,1.0,1.0,100.0,100.0
-210,Helicobacter pylori,UP000000429,85962.0,Representative,208.0,1232.0,100.0,87.5
+210,Helicobacter pylori,UP000000429,85962.0,Representative,208.0,1225.0,100.0,87.59183673469387
 214,Helicobacter felis,,,,,,,
-235,Brucella abortus (Brucella melitensis bv. Abortus),UP000002719,359391.0,Representative,316.0,336.0,100.0,96.42857142857144
+235,Brucella abortus (Brucella melitensis bv. Abortus),UP000002719,359391.0,Representative,316.0,333.0,100.0,97.2972972972973
 236,Brucella ovis (Brucella melitensis bv. Ovis),UP000006383,444178.0,Non-redundant,14.0,11.0,100.0,100.0
-263,Francisella tularensis,UP000001174,177416.0,Representative,864.0,2749.0,99.42129629629628,88.21389596216807
+263,Francisella tularensis,UP000001174,177416.0,Representative,864.0,2721.0,99.42129629629628,88.12936420433664
 266,Paracoccus denitrificans,UP000000361,318586.0,Representative,3.0,5.0,100.0,100.0
 271,Thermus aquaticus,UP000037685,271.0,Other,2.0,1.0,100.0,0.0
 274,Thermus thermophilus,UP000000532,300852.0,Representative,4.0,3.0,100.0,100.0
 280,Xanthobacter autotrophicus,UP000002417,78245.0,Representative,2.0,2.0,100.0,50.0
-287,Pseudomonas aeruginosa,UP000002438,208964.0,Representative,148.0,610.0,97.97297297297295,90.65573770491804
+287,Pseudomonas aeruginosa,UP000002438,208964.0,Representative,148.0,593.0,97.97297297297295,91.90556492411469
 288,Pseudoalteromonas atlantica,UP000001981,342610.0,Representative,1.0,1.0,0.0,0.0
 292,Burkholderia cepacia (Burkholderia cepacia genomovar I),UP000036338,292.0,Non-redundant,3.0,2.0,100.0,50.0
 294,Pseudomonas fluorescens,UP000022611,1042209.0,Representative,7.0,16.0,100.0,6.25
 298,Pseudomonas marginalis,UP000055023,1198317.0,Non-redundant,1.0,1.0,100.0,0.0
-300,Pseudomonas mendocina,UP000254260,300.0,Non-redundant,2.0,3.0,100.0,66.66666666666666
-303,Pseudomonas putida,UP000000556,160488.0,Representative,18.0,15.0,77.77777777777779,40.0
+300,Pseudomonas mendocina,UP000254260,300.0,Non-redundant,2.0,2.0,100.0,50.0
+303,Pseudomonas putida,UP000000556,160488.0,Representative,18.0,12.0,77.77777777777779,41.66666666666667
 306,Pseudomonas sp.,UP000315499,306.0,Representative,1.0,1.0,0.0,0.0
 312,Pseudomonas sp. RS-16,,312.0,All-proteins,1.0,1.0,100.0,100.0
 316,Pseudomonas stutzeri,UP000000233,379731.0,Representative,5.0,4.0,100.0,25.0

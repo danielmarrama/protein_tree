@@ -32,6 +32,7 @@ def run_protein_tree(
   
   # if there are no epitopes or sources, return None
   if epitopes_df.empty or sources_df.empty:
+    print('No epitopes or sources found for this species.')
     return
 
   # update proteome if flag or if proteome doesn't exist
@@ -65,12 +66,14 @@ def run_protein_tree(
 
   # write data to metrics.csv
   print('Recording metrics...') 
-  metrics_df = pd.read_csv('metrics.csv')
+  metrics_df = pd.read_csv(Path(__file__).parent.parent / 'metrics.csv')
   idx = metrics_df['Species Taxon ID'] == taxon_id
   
-  metrics_df.loc[idx, 'Proteome ID'] = proteome_data[0]
-  metrics_df.loc[idx, 'Proteome Taxon'] = proteome_data[1]
-  metrics_df.loc[idx, 'Proteome Type'] = proteome_data[2]
+  if update_proteome:
+    metrics_df.loc[idx, 'Proteome ID'] = proteome_data[0]
+    metrics_df.loc[idx, 'Proteome Taxon'] = proteome_data[1]
+    metrics_df.loc[idx, 'Proteome Type'] = proteome_data[2]
+  
   metrics_df.loc[idx, 'Source Count'] = assigner_data[0]
   metrics_df.loc[idx, 'Epitope Count'] = assigner_data[1]
   metrics_df.loc[idx, 'Successful Source Assignment'] = successful_source_assignment
@@ -78,8 +81,6 @@ def run_protein_tree(
   
   metrics_df.to_csv('metrics.csv', index=False)
   print('Done recording metrics.\n')
-
-  return
 
 
 def build_tree_for_species(

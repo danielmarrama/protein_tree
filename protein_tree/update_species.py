@@ -15,8 +15,7 @@ def update_species_data() -> None:
     user: IEDB MySQL backend username.
     password: IEDB MySQL backend password.
   """
-  sql_query = """
-              SELECT object.organism2_id, object.organism2_name
+  sql_query = """SELECT object.organism2_id, object.organism2_name
               FROM epitope, object
               WHERE epitope.e_object_id = object.object_id
               AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
@@ -38,6 +37,9 @@ def update_species_data() -> None:
     for organism in organisms.itertuples():
 
       species_data = get_species_data(connection, str(organism.organism_id), organism.organism_name)
+
+      if species_data is None: # no species data found
+        continue
 
       if species_data[0] not in species: # add new species
         species[species_data[0]] = {
@@ -71,18 +73,20 @@ def get_species_data(
     organism_id: Organism taxon ID.
     organism_name: Organism name.
   """
-  path_query = """
-              SELECT path
-              FROM organism
-              WHERE tax_id = :organism_id
-              """
+  path_query = """SELECT path, rank
+               FROM organism
+               WHERE tax_id = :organism_id
+               """
   result = connection.execute(text(path_query), {"organism_id": organism_id})
-  path = result.fetchone()
+  data = result.fetchone()
   
-  if path is None:
-    return (organism_id, organism_name, False, 'Other')
+  if data is None:
+    return None
+
+  if data[1] == 'genus':
+    return None
   
-  tax_ids = path[0].split(':')
+  tax_ids = data[0].split(':')
 
   # assign is_vertebrate
   is_vertebrate = True if '7742' in tax_ids else False # Vertebrata taxon ID
@@ -99,11 +103,10 @@ def get_species_data(
   species_id = organism_id
   species_name = organism_name
   for tax_id in reversed(tax_ids):
-    rank_query = """
-                  SELECT rank, organism_name
-                  FROM organism
-                  WHERE tax_id = :tax_id
-                  """
+    rank_query = """SELECT rank, organism_name
+                 FROM organism
+                 WHERE tax_id = :tax_id
+                 """
     rank_result = connection.execute(text(rank_query), {"tax_id": tax_id})
     rank, name = rank_result.fetchone()
 
@@ -112,7 +115,7 @@ def get_species_data(
       species_name = name
       break
   
-  return (species_id, species_name, is_vertebrate, group)
+  return species_id, species_name, is_vertebrate, group
 
 
 if __name__ == '__main__':
