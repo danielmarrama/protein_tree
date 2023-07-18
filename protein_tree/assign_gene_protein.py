@@ -19,6 +19,7 @@ class GeneAndProteinAssigner:
     self.is_vertebrate = is_vertebrate
     self.source_gene_assignment = {}
     self.source_protein_assignment = {}
+    self.source_assignment_score = {}
 
     # create UniProt ID -> gene map
     self.proteome = pd.read_csv(f'{self.species_path}/proteome.csv')
@@ -66,7 +67,8 @@ class GeneAndProteinAssigner:
     sources_df['Assigned Gene'] = sources_df['Accession'].map(self.source_gene_assignment)
     sources_df['Assigned Protein ID'] = sources_df['Accession'].map(self.source_protein_assignment)
     sources_df['Assigned Protein Name'] = sources_df['Assigned Protein ID'].map(self.uniprot_id_to_name_map)
-    
+    sources_df['Assignment Score'] = sources_df['Accession'].map(self.source_assignment_score)
+
     # map source antigens to their best blast matches (gene) for epitopes
     epitopes_df['Assigned Gene'] = epitopes_df['Source Accession'].map(self.source_gene_assignment)
     epitopes_df['Assigned Parent Protein ID'] = epitopes_df['Sequence'].map(self.epitope_parent_assignment)
@@ -247,10 +249,11 @@ class GeneAndProteinAssigner:
     # after sorting, drop duplicates based on 'Query', keeping only the first (i.e., best) match.
     blast_results_df.drop_duplicates(subset='Query', keep='first', inplace=True)
 
-    # Assign gene symbols and protein IDs.
+    # assign gene symbols, protein ID, and score
     for i, row in blast_results_df.iterrows():
       self.source_gene_assignment[row['Query']] = row['Target Gene Symbol']
       self.source_protein_assignment[row['Query']] = row['Target']
+      self.source_assignment_score[row['Query']] = row['Quality Score']
 
 
   def _assign_parents(self) -> tuple:
@@ -272,12 +275,17 @@ class GeneAndProteinAssigner:
     self.epitope_parent_assignment = {}
     for antigen, epitopes in self.source_to_epitopes_map.items():
       for epitope in epitopes:
+
         # check if the epitope is found in the protein the antigen is assigned to
         matches_df = all_matches_df[all_matches_df['Query Sequence'] == epitope]
-        epitope_protein = matches_df[matches_df['Protein ID'] == self.source_protein_assignment[antigen]]
-
+        try:
+          epitope_protein = matches_df[matches_df['Protein ID'] == self.source_protein_assignment[antigen]]
+        except KeyError: # if the source antigen has no assignment, skip
+          continue
+      
         if epitope_protein.empty: # otherwise, get an isoform of the assigned gene
           epitope_protein = matches_df[matches_df['Gene'] == self.source_gene_assignment[antigen]]
+
           if len(epitope_protein) > 1: # if there are ties, select the protein with the best protein existence level
             epitope_protein = epitope_protein.loc[epitope_protein['Protein Existence Level'].idxmin()]
 

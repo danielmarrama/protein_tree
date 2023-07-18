@@ -2,15 +2,15 @@ Species Taxon ID,Species Name,Proteome ID,Proteome Taxon,Proteome Type,Source Co
 24,Shewanella putrefaciens,UP000008209,399804.0,Non-redundant,1.0,1.0,100.0,100.0
 106,Runella slithyformis,UP000000493,761193.0,Representative,1.0,1.0,100.0,100.0
 108,Spirosoma linguale,UP000002028,504472.0,Other,1.0,1.0,100.0,100.0
-139,Borreliella burgdorferi (Lyme disease spirochete),UP000001807,224326.0,Representative,72.0,864.0,100.0,88.07870370370371
+139,Borreliella burgdorferi (Lyme disease spirochete),UP000001807,224326.0,Representative,72.0,843.0,100.0,89.32384341637011
 158,Treponema denticola,UP000008212,243275.0,Representative,2.0,2.0,100.0,100.0
-160,Treponema pallidum,UP000000811,243276.0,Representative,13.0,477.0,100.0,90.98532494758908
+160,Treponema pallidum,UP000000811,243276.0,Representative,13.0,474.0,100.0,91.35021097046412
 162,Treponema phagedenis,UP000042527,162.0,Representative,1.0,1.0,100.0,100.0
-173,Leptospira interrogans,UP000093180,211880.0,Representative,34.0,300.0,97.05882352941175,82.0
+173,Leptospira interrogans,UP000093180,211880.0,Representative,34.0,288.0,97.05882352941175,82.98611111111111
 188,Magnetospirillum magnetotacticum,UP000031971,272627.0,Other,5.0,5.0,100.0,80.0
 195,Campylobacter coli,UP000255069,195.0,Non-redundant,4.0,4.0,100.0,100.0
-196,Campylobacter fetus,UP000000760,360106.0,Representative,1.0,17.0,100.0,88.23529411764706
-197,Campylobacter jejuni,UP000000799,192222.0,Representative,124.0,583.0,93.5483870967742,92.96740994854204
+196,Campylobacter fetus,UP000000760,360106.0,Representative,1.0,12.0,100.0,100.0
+197,Campylobacter jejuni,UP000000799,192222.0,Representative,124.0,517.0,93.54838709677419,92.26305609284333
 201,Campylobacter lari,UP000007727,306263.0,Non-redundant,1.0,1.0,100.0,100.0
 210,Helicobacter pylori,UP000000429,85962.0,Representative,208.0,1232.0,100.0,87.5
 214,Helicobacter felis,,,,,,,

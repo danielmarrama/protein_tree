@@ -25,9 +25,8 @@ def run_protein_tree(
   """
   print(f'Building tree for {species_name} (ID: {taxon_id})...\n')
   print('Getting epitopes and sources data...')
-  Fetcher = DataFetcher()
-  epitopes_df = Fetcher.get_epitopes(all_taxa)
-  sources_df = Fetcher.get_sources(all_taxa)
+  Fetcher = DataFetcher(all_taxa)
+  epitopes_df, sources_df = Fetcher.get_data()
   print('Done getting data.\n')
   
   # if there are no epitopes or sources, return None
