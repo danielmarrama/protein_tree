@@ -3,7 +3,7 @@
 import os
 import argparse
 import pandas as pd
-import numpy as np
+from pathlib import Path
 
 from get_data import DataFetcher
 from select_proteome import ProteomeSelector
@@ -14,7 +14,8 @@ def run_protein_tree(
   taxon_id: int,
   species_name: str,
   all_taxa: str,
-  is_vertebrate: bool
+  is_vertebrate: bool,
+  update_proteome: bool
 ) -> None:
   """Run all steps for the protein tree.
   
@@ -33,17 +34,20 @@ def run_protein_tree(
   if epitopes_df.empty or sources_df.empty:
     return
 
-  print('Getting the best proteome...')
-  Selector = ProteomeSelector(taxon_id, species_name)
-  print(f'Number of candidate proteomes: {Selector.num_of_proteomes}\n')
+  # update proteome if flag or if proteome doesn't exist
+  proteome_file = Path(f'species/{taxon_id}-{species_name.replace(" ", "_")}/proteome.fasta')
+  if update_proteome or not proteome_file.exists():
+    print('Getting the best proteome...')
+    Selector = ProteomeSelector(taxon_id, species_name)
+    print(f'Number of candidate proteomes: {Selector.num_of_proteomes}\n')
 
-  proteome_data = Selector.select_best_proteome(epitopes_df)
-  Selector.proteome_to_csv()
-  
-  print('Got the best proteome:')
-  print(f'Proteome ID: {proteome_data[0]}')
-  print(f'Proteome taxon: {proteome_data[1]:.0f}')
-  print(f'Proteome type: {proteome_data[2]}\n')
+    proteome_data = Selector.select_best_proteome(epitopes_df)
+    Selector.proteome_to_csv()
+    
+    print('Got the best proteome:')
+    print(f'Proteome ID: {proteome_data[0]}')
+    print(f'Proteome taxon: {proteome_data[1]:.0f}')
+    print(f'Proteome type: {proteome_data[2]}\n')
 
   # assign genes to source antigens and parent proteins to epitopes
   print('Assigning genes to source antigens...')
@@ -82,7 +86,8 @@ def build_tree_for_species(
   taxon_id: int,
   all_taxa_map: dict,
   species_name_map: dict,
-  is_vertebrate_map: dict
+  is_vertebrate_map: dict,
+  update_proteome: bool
 ) -> None:
   """Build protein tree for a species.
   
@@ -96,7 +101,7 @@ def build_tree_for_species(
   species_name = species_name_map[taxon_id]
   is_vertebrate = is_vertebrate_map[taxon_id]
 
-  run_protein_tree(taxon_id, species_name, all_taxa, is_vertebrate)
+  run_protein_tree(taxon_id, species_name, all_taxa, is_vertebrate, update_proteome)
   print(f'Protein tree built for {species_name} (ID: {taxon_id}).\n')
 
 
@@ -113,12 +118,19 @@ def main():
     type=int, 
     help='Taxon ID for the species to run protein tree.'
   )
+  parser.add_argument(
+    '-p', '--update_proteome',
+    action='store_true',
+    help='Update the proteome(s) to be used for the species.'
+  )
   
   args = parser.parse_args()
 
+  update_proteome = args.update_proteome
+
   species_df = pd.read_csv('species.csv') # all species and their taxon IDs
   valid_taxon_ids = species_df['Species Taxon ID'].tolist()
-
+  
   # taxa, species name, and is_vertebrate mapppings
   all_taxa_map = dict(
     zip(
@@ -142,7 +154,7 @@ def main():
   if args.all_species:
     for taxon_id in valid_taxon_ids:
       build_tree_for_species(
-        taxon_id, all_taxa_map, species_name_map, is_vertebrate_map
+        taxon_id, all_taxa_map, species_name_map, is_vertebrate_map, update_proteome
       )
     print('All protein trees built.')
 
@@ -150,7 +162,7 @@ def main():
     taxon_id = args.taxon_id
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     build_tree_for_species(
-      taxon_id, all_taxa_map, species_name_map, is_vertebrate_map
+      taxon_id, all_taxa_map, species_name_map, is_vertebrate_map, update_proteome
     )
 
 if __name__ == '__main__':
