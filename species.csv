@@ -29,7 +29,6 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 285,Comamonas testosteroni,285,False,Bacteria
 286,Pseudomonas,286,False,Bacteria
 287,Pseudomonas aeruginosa,287;208963;1009714;208964;388272;350704;350703;1081927,False,Bacteria
-288,Pseudoalteromonas atlantica,342610,False,Bacteria
 292,Burkholderia cepacia,292,False,Bacteria
 294,Pseudomonas fluorescens,294,False,Bacteria
 298,Pseudomonas marginalis,298,False,Bacteria
@@ -46,7 +45,6 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 384,Rhizobium leguminosarum,384,False,Bacteria
 446,Legionella pneumophila,446;66976,False,Bacteria
 450,Legionella longbeachae,661367,False,Bacteria
-469,Acinetobacter,469,False,Bacteria
 470,Acinetobacter baumannii,470;400667;509173,False,Bacteria
 471,Acinetobacter calcoaceticus,471,False,Bacteria
 480,Moraxella catarrhalis,480;857571,False,Bacteria
@@ -153,9 +151,10 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 1313,Streptococcus pneumoniae,1313;170187;373153;171101;914129,False,Bacteria
 1314,Streptococcus pyogenes,1314;160491;160490;301449;301450;286636;342023;301452;301451;404330;404331;410069;301448;1207470;186103;301447,False,Bacteria
 1317,Streptococcus downei,1317,False,Bacteria
-1320,Streptococcus sp. group G,1320,False,Bacteria
+1320,Streptococcus sp. Group G,1320,False,Bacteria
 1334,Streptococcus dysgalactiae,119602;1334,False,Bacteria
 1336,Streptococcus equi,1336,False,Bacteria
+1338,Streptococcus intermedius,1338,False,Bacteria
 1349,Streptococcus uberis,1349,False,Bacteria
 1351,Enterococcus faecalis,1351,False,Bacteria
 1352,Enterococcus faecium,1352;333849,False,Bacteria
@@ -194,6 +193,7 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 1622,Ligilactobacillus murinus,1235801,False,Bacteria
 1638,Listeria ivanovii,1638,False,Bacteria
 1639,Listeria monocytogenes,169963;1639;393133;265669;267409;267410;393124;568819;393117;401650;552536;393130;393126;393128;393125;1334565,False,Bacteria
+1640,Listeria seeligeri,1640,False,Bacteria
 1641,Listeria grayi,1641,False,Bacteria
 1642,Listeria innocua,1642,False,Bacteria
 1643,Listeria welshimeri,386043,False,Bacteria
@@ -392,6 +392,7 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 6182,Schistosoma japonicum,6182,False,Eukaryota
 6183,Schistosoma mansoni,6183,False,Eukaryota
 6184,Schistosoma bovis,6184,False,Eukaryota
+6185,Schistosoma haematobium,6185,False,Eukaryota
 6192,Fasciola hepatica,6192,False,Eukaryota
 6198,Opisthorchis viverrini,6198,False,Eukaryota
 6203,Taenia ovis,6203,False,Eukaryota
@@ -558,23 +559,8 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 10261,Fowlpox virus,10261;928301,False,Viruses
 10273,Myxoma virus,10273,False,Viruses
 10276,Swinepox virus,10276,False,Viruses
-10298,Human alphaherpesvirus 1,10298;10301;10306;10304;10299;10309;10308;10303;37107,False,Viruses
-10310,Human alphaherpesvirus 2,10310;10315;10313;10312,False,Viruses
-10317,Cercopithecine alphaherpesvirus 2,10317,False,Viruses
-10320,Bovine alphaherpesvirus 1,10323;10320;79889;10324,False,Viruses
-10325,Macacine alphaherpesvirus 1,10325;260965,False,Viruses
-10326,Equid alphaherpesvirus 1,10326,False,Viruses
-10331,Equid alphaherpesvirus 4,10331,False,Viruses
-10335,Human alphaherpesvirus 3,10335;10338;341980,False,Viruses
-10345,Suid alphaherpesvirus 1,10349;10345;33703,False,Viruses
-10359,Human betaherpesvirus 5,10359;10363;10360;295027;311339,False,Viruses
-10366,Murid betaherpesvirus 1,10367;10366;69156;524651,False,Viruses
 10368,Human betaherpesvirus 6,10368,False,Viruses
-10372,Human betaherpesvirus 7,57278;10372,False,Viruses
 10373,Macaca mulatta cytomegalovirus,10373,False,Viruses
-10376,Human gammaherpesvirus 4,10376;10377;82830;36352;12509;10378;31525,False,Viruses
-10381,Saimiriine gammaherpesvirus 2,10381,False,Viruses
-10390,Gallid alphaherpesvirus 2,10390;33707,False,Viruses
 10407,Hepatitis B virus,10407;10418;10408;106820;106821;10419;2847137;489460;2764122;391647;490133;10409;10415;10410;10412;10414;489455;391650;45410;10411;391646;489469;482134;480116,False,Viruses
 10493,Frog virus 3,160691,False,Viruses
 10497,African swine fever virus,10497;10498;874269,False,Viruses
@@ -591,46 +577,16 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 10864,Enterobacteria phage fd,10864,False,Viruses
 10879,Cystovirus phi6,10879,False,Viruses
 10891,Reovirus sp.,10891,False,Viruses
-10995,Infectious bursal disease virus,10995;31560;10997;10996,False,Viruses
-11002,Infectious pancreatic necrosis virus,11002,False,Viruses
 11021,Eastern equine encephalitis virus,11022;11021,False,Viruses
 11029,Ross River virus,11032;11029,False,Viruses
 11033,Semliki Forest virus,11033,False,Viruses
 11034,Sindbis virus,11034,False,Viruses
 11036,Venezuelan equine encephalitis virus,11037;11036;11038,False,Viruses
 11039,Western equine encephalitis virus,11039,False,Viruses
-11072,Japanese encephalitis virus,11076;11075;11072;11073,False,Viruses
-11079,Murray Valley encephalitis virus,11079;301478,False,Viruses
-11080,Saint Louis encephalitis virus,11081;11080,False,Viruses
-11082,West Nile virus,307044;11082;11078;11077;449278;406269,False,Viruses
-11083,Powassan virus,11083,False,Viruses
-11084,Tick-borne encephalitis virus,11084;11087;11092,False,Viruses
-11085,Langat virus,11085,False,Viruses
-11086,Louping ill virus,36386;11086,False,Viruses
-11089,Yellow fever virus,11090;11089;407141;407134;31641;617102,False,Viruses
-11103,Hepacivirus C,31647;11116;41856;11103;2847144;63746;31645;11104;11105;356417;11108;421877;356426;31653;333284;356114;11113;31650;31649;329389;356386;356410;356418;356424;42182;11115;356416;356421;31644;356415;11110;31654;356411;42792;356413;356391;356419;357355;420174;40271;33745;33746;31655;1053141;595609,False,Viruses
 11137,Human coronavirus 229E,11137;1739614,False,Viruses
-11191,Murine respirovirus,11194;11191;11198;11196;302272;11195,False,Viruses
-11215,Bovine respirovirus 3,11215,False,Viruses
-11216,Human respirovirus 3,11217;11216,False,Viruses
-11232,Canine morbillivirus,11232;11233,False,Viruses
-11234,Measles morbillivirus,11234;70146;11235;132487;11236;70149;262307;171264;170529;170525,False,Viruses
-11241,Rinderpest morbillivirus,36409;11241;11243,False,Viruses
-11246,Bovine orthopneumovirus,11246;82824;11249;31611;82823;12814,False,Viruses
-11250,Human orthopneumovirus,11260;208893;11250;11259;11251;11256;11255;11253;11252;410078;79692;208895;253182,False,Viruses
-11263,Murine orthopneumovirus,270473;11263,False,Viruses
-11269,Marburg marburgvirus,11269;33727;33728;378809;378830,False,Viruses
 11276,Vesicular stomatitis virus,11276,False,Viruses
 11292,Lyssavirus rabies,11295;11292;103929;11296;37132;11293;11294;11298,False,Viruses
 11318,Thogotovirus dhoriense,11318,False,Viruses
-11320,Influenza A virus,11320;211044;384505;392809;506350;387161;264513;387191;223935;132504;383586;444318;385624;137578;385630;382835;387139;385640;119210;114727;382781;392810;383571;183764;380964;63106;380301;41857;380905;317652;381517;385576;384502;381518;380950;132734;132841;381516;384498;385605;384500;387207;382832;11375;130760;88104;380340;380282;488241;385587;353253;79695;130763;387156;352520;384495;380985;393557;221012;383602;382842;351277;383604;11408;62503;382848;82372;107558;62564;62488;62596;62541;62446;62512;107493;62496;644788;11384;260806;384487;169169;384484;135658;385586;1086859;387147;311710;311695;311169;342221;307819;306061;304883;300748;299733;299730;299390;298716;298713;284195;282124;279797;432070;273361;270490;270484;264510;59375;256045;253682;62575;185794;182781;177188;177131;177128;177117;216877;215864;215862;210663;210656;210655;207401;173477;173473;170342;165420;164326;205954;205946;155227;155226;155225;155222;147095;382828;132884;436004;405050;404163;404155;404152;404150;404138;404137;402194;426738;441962;395842;395841;393697;393548;393486;389259;385583;384527;384493;383566;383561;383558;381512;380978;95234;380842;380836;380330;380210;192720;480019;192549;373145;366524;365078;365074;357205;355624;354235;344598;342396;1093545;342210;342207;402489;342145;342137;336800;336794;336207;336205;334590;334589;327311;327310;322566;322564;192535;97348;383550;387208;1342434;210659;198059;158306;197589;274829;680692;384946;279798;380979;380833;214826;370813;284168;365129;380332;132783;36418;385644;293054;381513;1144025;155917;384509;518968;95888;228928;145307;385580;385617;11484;170500;62559;186460;480024;284218;203126;387223;197585;102793;352963;393902;400830;1163697;370127;165512;291592;367120;427773;145306;417758;447133;461772;249372;400828;357208;335337;335358;332733;365417;371082;415167;415172;415169;415176;415166;415177;573797;435359;576142;578079;566260;191090;142948;176672;197579;400788;553345;385599;370810;384499;462695;680789;392811;380285;378139;161502;380217;383531;329593;93838;187164;137885;154540;128982;137886;514193;183778;1727172;229051;387239;383121;55532;680799;402464;136474;169166;168278;641501;411167;172149;475493;522740;225071;255681;515581;83206;402527;88103;533026;223947;135661;538555;383152;383231;383568;203129;680803;380299;223932;370128;225089;223931;231851;225088;11448;499286;196462;432094;303316;385616;680690;183783;1176042;680739;354228;286239;336238;335333;518922;270945;327205;342508;364132;320306;380213;384483;383577;155218;365080;407418;300750;88776;488233;378131;425557;383578;293090;383281;504910;642794;383603;648856;560463;658578;742305;401372;762400;506355;383574;400810;62549;587884;430417;936115;991335;768646;768647;385600;380951;380346;236235;336092;577543;647096;1068705;464623;446023;383028;155220;402518;183741;404573;89172;89169;332747;284202;506282;292039;292045;1041990;311775;504904;641809;421901;657165;468968;754366;680729;472511;427890;418868;357210;370811;414044;562988;562992;464314;421472;411157;641812;402938;352764;162326;385585;384510;380284;352564;359921;504697;416730;62478;380339;380343;496036;97353;947939;444793;655288;387213;387243;293055;352034;376721;449656;371214;388041;932622;404408;511839;382813;300749;645724;643212;1081253;36420;447188;654811;119211;102796;644289;761251;535852;887118;333278;476294;114729;342546;157642;647923;1391655;251297;680693;715091;680689;153969;119218;1470614;1171336;1403514;1268360;915014;387203;352348;697610;382825;224819;908203;996581;1330339;255682;986174;682728;1332244;1342397;715494;1413188;266827;1122279;284190;100835;292590;614035;510222;475478;159471;1663996;680785;1082519;1481964;642261;425551;632134;464622;380342;529058;616922;762378;353466;448058;274828;680767;411662;220977;400331;38973;1346336;253686;1310532;453057;383537;380337;380960;1663934;1663864;673446;690988;1507381;1289562;352561;558177;270510;476303;266093;1420840;1321009;380984;380982;1447813;1451093;2070132;645771;1395982;119220;1481966;556277;760591;1285028;1129345;225085;479022;683780;1129347;1395524;2026033;311596;514118;119215;1184593;568833;445027;383570;762377;1314758;1481987;476261;2019386;1458555;1507390;1968303;1968304;2026007;1331831;2019571;1507384;243678;1654135;1184594;760063;1777792;329606;387165;1933916;187166,False,Viruses
-11520,Influenza B virus,11520;518987;11521;427826;150127;1077587;184816;11541;256080;206203;504666;335812;224964;171425;503386;504662;504660;504664;107404;107406;461739;464417;289338;604436;416674;11550;279329,False,Viruses
-11552,Influenza C virus,11553;11552;224197;374405,False,Viruses
-11620,Lassa mammarenavirus,11622;11620;11621,False,Viruses
-11623,Lymphocytic choriomeningitis mammarenavirus,11623;11627;11624;11625;11626,False,Viruses
-11628,Machupo mammarenavirus,11628,False,Viruses
-11629,Mopeia mammarenavirus,11629,False,Viruses
-11631,Tacaribe mammarenavirus,11631;31616;928313;31615,False,Viruses
 11636,Reticuloendotheliosis virus,11636,False,Viruses
 11642,Simian foamy virus,11963;298339;41858;288118;11642,False,Viruses
 11660,Caprine arthritis encephalitis virus,11662;11660;11661;254355,False,Viruses
@@ -653,31 +609,23 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 11966,Aids-associated retrovirus,11966,False,Viruses
 11976,Rabbit hemorrhagic disease virus,11976,False,Viruses
 11978,Feline calicivirus,11978;11981;11980;292349,False,Viruses
-11983,Norwalk virus,122929;122928;11984;150080;223997;489821;11983;588533;647514;647515;647519;499191;490039;647521;520963;520964;524364;1156983;747305;1182144;158465;508775;647516;463722;1286616;1241973;546980;489822;1665645;416035;1634342;490041;178773;1972699;1406148;1182143;332884;1046049;707488;1472713;660659;1260941;1498657;1070539;707477;82658;1350216;660658;707424;1254407;1291870;1792260;1291821;647343;1321999;552592;392172;479063;416039;1320096;1577715,False,Viruses
+11983,Norwalk virus,122929;122928;11984;150080;223997;489821;11983;588533;647514;647515;647519;499191;490039;647521;520963;520964;524364;1156983;747305;1182144;158465;508775;647516;463722;1286616;1241973;546980;489822;1665645;416035;1634342;490041;178773;1972699;1406148;1182143;332884;1046049;707488;1472713;660659;1260941;1498657;1070539;707477;82658;1350216;660658;707424;1254407;1291870;1792260;1291821;647343;1321999;552592;392172;479063;416039;1320096;1577715;173929;1184498,False,Viruses
 12064,Enterovirus E,12064;12065,False,Viruses
 12092,Hepatovirus A,12092;208726;12098,False,Viruses
 12110,Foot-and-mouth disease virus,12114;12118;12110;161727;73482;244367;46290;12112;12121;12116;12117;12113;12115;12120;110195;35292;12123;12111,False,Viruses
-12145,Tomato bushy stunt virus,12146,False,Viruses
 12161,Beet yellows virus,12161,False,Viruses
 12162,Citrus tristeza virus,12162,False,Viruses
 12211,Plum pox virus,12211;12213,False,Viruses
 12216,Potato virus Y,12216;12220;12219,False,Viruses
 12232,Zucchini yellow mosaic virus,12232,False,Viruses
 12242,Tobacco mosaic virus,12242;12246;12243,False,Viruses
-12260,Bean pod mottle virus,31715;12260,False,Viruses
-12264,Cowpea mosaic virus,12264,False,Viruses
-12274,Grapevine fanleaf virus,12274,False,Viruses
 12305,Cucumber mosaic virus,12305;117125,False,Viruses
 12455,Borna disease virus,12455,False,Viruses
 12475,Hepatitis delta virus,12475;510670,False,Viruses
 12480,African green monkey polyomavirus,10574,False,Viruses
-12618,Chicken anemia virus,12618,False,Viruses
-12637,Dengue virus,11064;11060;11070;31634;11069;11053;12637;33741;11066;11065;408871;31635;408688;11059;11062;408870;408686;408685;408694;408691;408693;408692;408690;408687;11067;408689;11057;31637;31636,False,Viruses
 12639,Duck hepatitis B virus,12639,False,Viruses
 12643,Ectromelia virus,12643,False,Viruses
-12657,Equid gammaherpesvirus 2,82831,False,Viruses
 12721,Human immunodeficiency virus,12721,False,Viruses
-12730,Human respirovirus 1,36412;188538,False,Viruses
 13101,Juniperus ashei,13101,False,Eukaryota
 13187,Parietaria officinalis,13187,False,Eukaryota
 13286,Theromyzon tessulatum,13286,False,Eukaryota
@@ -747,7 +695,7 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 29497,Vibrio splendidus,314291,False,Bacteria
 29507,Leptospira kirschneri,29507,False,Bacteria
 29518,Borreliella afzelii,29518;390236,False,Bacteria
-29519,Borreliella garinii,29519;664662,False,Bacteria
+29519,Borreliella garinii,29519,False,Bacteria
 29523,Bacteroides sp.,29523,False,Bacteria
 29543,Pelobacter propionicus,338966,False,Bacteria
 29661,Anthoxanthum odoratum,29661,False,Eukaryota
@@ -765,14 +713,11 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 30538,Vicugna pacos,30538,True,Eukaryota
 31276,Perkinsus marinus,31276,False,Eukaryota
 31330,Ephydatia fluviatilis,31330,False,Eukaryota
-31604,Small ruminant morbillivirus,31604;2593991,False,Viruses
 31721,Beet necrotic yellow vein virus,31721,False,Viruses
 32025,Helicobacter hepaticus,32025;235279,False,Bacteria
 32049,Synechococcus sp. PCC 7002,32049,False,Bacteria
 32201,Carya illinoinensis,32201,False,Eukaryota
 32278,Metapenaeus ensis,32278,False,Eukaryota
-32603,Human betaherpesvirus 6A,10370;32603;10369,False,Viruses
-32604,Human betaherpesvirus 6B,32604;36351,False,Viruses
 32630,synthetic construct,32630,False,Other
 32644,unidentified,32644,False,Other
 33025,Phascolarctobacterium faecium,33025,False,Bacteria
@@ -783,9 +728,6 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 33075,Acidobacterium capsulatum,33075,False,Bacteria
 33127,Parietaria judaica,33127,False,Eukaryota
 33178,Aspergillus terreus,33178;341663,False,Eukaryota
-33706,Caviid betaherpesvirus 2,33706;103920,False,Viruses
-33708,Murid gammaherpesvirus 4,33708;1440122,False,Viruses
-33743,Kyasanur Forest disease virus,172148,False,Viruses
 33934,Anoxybacillus flavithermus,33934,False,Bacteria
 33940,Geobacillus thermodenitrificans,420246,False,Bacteria
 33959,Lactobacillus johnsonii,33959,False,Bacteria
@@ -796,7 +738,6 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 34631,Rhipicephalus appendiculatus,34631,False,Eukaryota
 34632,Rhipicephalus sanguineus,34632,False,Eukaryota
 34862,Otospermophilus beecheyi,34862,True,Eukaryota
-35244,Bovine alphaherpesvirus 5,263683,False,Viruses
 35258,Lambdapapillomavirus 2,35258,False,Viruses
 35269,Woodchuck hepatitis virus,35269;341946;10430;10433,False,Viruses
 35275,Murine endogenous retrovirus,35275,False,Viruses
@@ -822,10 +763,9 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 36911,Clavispora lusitaniae,36911,False,Eukaryota
 36914,Lodderomyces elongisporus,36914,False,Eukaryota
 36936,Lepidoglyphus destructor,36936,False,Eukaryota
-37124,Chikungunya virus,37124;371094,False,Viruses
+37124,Chikungunya virus,37124;371094;371095,False,Viruses
 37128,Potato mop-top virus,37128,False,Viruses
 37207,Rio Segundo hantavirus,37207,False,Viruses
-37296,Human gammaherpesvirus 8,37296,False,Viruses
 37326,Nocardia brasiliensis,37326,False,Bacteria
 37332,Nocardia seriolae,37332,False,Bacteria
 37347,Tupaia belangeri,37347,True,Eukaryota
@@ -848,6 +788,7 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 40050,African horse sickness virus,117204;36421,False,Viruses
 40051,Bluetongue virus,10906;10904;33717;40051;33718;35327;94967;35330;10900;10903;35329;197780;45029;94966;35331,False,Viruses
 40214,Acinetobacter johnsonii,40214,False,Bacteria
+40216,Acinetobacter radioresistens,40216,False,Bacteria
 40324,Stenotrophomonas maltophilia,40324,False,Bacteria
 40697,Blomia tropicalis,40697,False,Eukaryota
 40834,Borrelia duttonii,412419,False,Bacteria
@@ -857,52 +798,42 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 42345,Phoenix dactylifera,42345,False,Eukaryota
 42358,Hantavirus Monongahela-3,42358,False,Viruses
 42374,Candida dubliniensis,42374,False,Eukaryota
-42764,Oliveros mammarenavirus,42764,False,Viruses
 42862,Rickettsia felis,42862;315456,False,Bacteria
 43335,Populus alba,43335,False,Eukaryota
 43763,Redspotted grouper nervous necrosis virus,292633;43763,False,Viruses
 43765,Corynebacterium amycolatum,43765,False,Bacteria
 43767,Prescottella equi,43767,False,Bacteria
 44001,Caldicellulosiruptor saccharolyticus,351627,False,Bacteria
-44026,Sepik virus,44026,False,Viruses
 44088,Canarypox virus,44088,False,Viruses
 44271,Leishmania chagasi,44271,False,Eukaryota
 44386,Haemaphysalis longicornis,44386,False,Eukaryota
 44689,Dictyostelium discoideum,44689,False,Eukaryota
 44755,New York hantavirus,44755,False,Viruses
-45219,Guanarito mammarenavirus,45219,False,Viruses
 45235,Tolypocladium capitatum,45235,False,Eukaryota
-45455,Macacine gammaherpesvirus 4,45455,False,Viruses
 45617,Human endogenous retrovirus K,45617;64382,False,Viruses
 46221,Porcine circovirus,46221,False,Viruses
-46242,Spodoptera litura nucleopolyhedrovirus,46242,False,Viruses
 46457,Cycloclasticus oligotrophus,46457,False,Bacteria
 46503,Parabacteroides merdae,46503,False,Bacteria
 46506,Bacteroides stercoris,46506,False,Bacteria
 46681,Entamoeba dispar,370354,False,Eukaryota
 46771,Simian virus 12,46771,False,Viruses
 46835,Fasciola gigantica,46835,False,Eukaryota
-46919,Whitewater Arroyo mammarenavirus,46919,False,Viruses
 46920,Rio Mamore hantavirus,46920;379963,False,Viruses
 47000,Equine rhinitis A virus,47000,False,Viruses
 47466,Borrelia miyamotoi,47466,False,Bacteria
 47770,Lactobacillus crispatus,47770,False,Bacteria
 47845,Brachybacterium alimentarium,47845,False,Bacteria
-47929,Macacine betaherpesvirus 3,47929;103930,False,Viruses
 48483,Reclinomonas americana,48483,False,Eukaryota
 49011,Hesperocyparis arizonica,49011,False,Eukaryota
 49338,Desulfitobacterium hafniense,272564,False,Bacteria
-50292,Cercopithecine betaherpesvirus 5,50292,False,Viruses
 51022,Ancylostoma duodenale,51022,False,Eukaryota
 51031,Necator americanus,51031,False,Eukaryota
 51240,Juglans regia,51240,False,Eukaryota
-51313,Helicoverpa armigera nucleopolyhedrovirus,148363,False,Viruses
 53182,Feline foamy virus,53182,False,Viruses
 53326,Ancylostoma ceylanicum,53326,False,Eukaryota
 53432,Nocardia uniformis,96045,False,Bacteria
 54390,Micrurus corallinus,54390,True,Eukaryota
 54736,Salmonella bongori,54736,False,Bacteria
-55097,Mobala mammarenavirus,55097,False,Viruses
 55194,Malassezia furfur,55194,False,Eukaryota
 55513,Pistacia vera,55513,False,Eukaryota
 55518,Magnetospirillum gryphiswaldense,431944,False,Bacteria
@@ -937,15 +868,9 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 62319,Halococcus saccharolyticus,62319,False,Archaea
 62322,Shewanella baltica,325240;62322,False,Bacteria
 62330,Fagopyrum tataricum,62330,False,Eukaryota
-63330,Hendra henipavirus,63330;928303,False,Viruses
 63363,Aquifex aeolicus,63363;224324,False,Bacteria
 63673,Turbo cornutus,63673,False,Eukaryota
-64284,Saboya virus,64284,False,Viruses
-64289,Carey Island virus,64289,False,Viruses
-64293,Tembusu virus,1399582;64293;1002900,False,Viruses
-64320,Zika virus,64320;2043570;2316109,False,Viruses
 64495,Rhizopus arrhizus,64495,False,Eukaryota
-65743,Blackcurrant reversion virus,65743,False,Viruses
 67351,Streptomyces californicus,67351,False,Bacteria
 68825,Rasamsonia emersonii,68825,False,Eukaryota
 68887,Torque teno virus,68887;167758;487067;486280,False,Viruses
@@ -957,7 +882,6 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 71238,Pseudomonas sp. G-179,71238,False,Bacteria
 71647,Pinus pinaster,71647,False,Eukaryota
 72004,Bos mutus,72004,True,Eukaryota
-72539,Physalis mottle virus,72539,False,Viruses
 72556,Achromobacter piechaudii,72556,False,Bacteria
 72558,Sporisorium reilianum,999809,False,Eukaryota
 72664,Eutrema salsugineum,72664,False,Eukaryota
@@ -998,7 +922,6 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 83816,Methanobrevibacter ruminantium,83816,False,Archaea
 85552,Scylla paramamosain,85552,False,Eukaryota
 85698,Achromobacter xylosoxidans,85698,False,Bacteria
-85708,Porcine circovirus 2,85708;85709;86385,False,Viruses
 85831,Bacteroides acidifaciens,85831,False,Bacteria
 85929,Sphaerulina musiva,85929,False,Eukaryota
 85991,Chlamydia pecorum,1427371;85991;331635,False,Bacteria
@@ -1055,7 +978,6 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 121225,Pediculus humanus,121224,False,Eukaryota
 121723,Photobacterium sp. SKA34,121723,False,Bacteria
 121759,Paracoccidioides brasiliensis,121759;502780,False,Eukaryota
-121791,Nipah henipavirus,121791,False,Viruses
 122291,Kappapapillomavirus 1,122291,False,Viruses
 122355,Pseudomonas psychrophila,122355,False,Bacteria
 123734,Hypoderma bovis,123734,False,Eukaryota
@@ -1073,14 +995,13 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 130310,Human mastadenovirus D,31545;28276;46921;46941,False,Viruses
 131110,Schaalia radingae,131110,False,Bacteria
 131568,Kineococcus radiotolerans,266940,False,Bacteria
-133704,Porcine circovirus 1,133704,False,Viruses
 133926,Olsenella uli,133926,False,Bacteria
 134537,Paraburkholderia fungorum,134537,False,Bacteria
 136966,SEN virus,136966,False,Viruses
 138072,Candidatus Hamiltonella defensa,138072,False,Bacteria
 138336,Blastococcus saxobsidens,1146883,False,Bacteria
-138948,Enterovirus A,39054;150846;69153;31704;138948;86107;42769;103922;42785,False,Viruses
-138949,Enterovirus B,103903;12072;103906;12077;12073;12067;12071;103905;12076;12075;82639;12078;35293;12060;138949;41846,False,Viruses
+138948,Enterovirus A,39054;150846;69153;31704;138948;86107;42769;103922;42785;42786;2884179,False,Viruses
+138949,Enterovirus B,103903;12072;103906;12077;12073;12067;12071;103905;12076;12075;82639;12078;35293;12060;138949;41846;103915,False,Viruses
 138950,Enterovirus C,12082;138950;12081;12086;12080;12088;270338;42782,False,Viruses
 138951,Enterovirus D,42789;138951,False,Viruses
 139445,Limestone Canyon virus,139445,False,Viruses
@@ -1095,7 +1016,6 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 152682,Sphingomonas melonis,152682,False,Bacteria
 152794,Corynebacterium efficiens,152794;196164,False,Bacteria
 153496,Kozakia baliensis,153496,False,Bacteria
-154334,Macacine gammaherpesvirus 5,169974,False,Viruses
 155615,Fusobacterium vincentii,209882,False,Bacteria
 157914,Ziziphus mauritiana,157914,False,Eukaryota
 158836,Enterobacter hormaechei,158836,False,Bacteria
@@ -1105,7 +1025,6 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 159479,Saaremaa hantavirus,159479,False,Viruses
 160808,Acidithiobacillus ferrivorans,160808,False,Bacteria
 161600,Yellow grouper nervous necrosis virus,161600,False,Viruses
-162145,Human metapneumovirus,162145,False,Viruses
 162425,Aspergillus nidulans,162425;227321,False,Eukaryota
 163164,Wolbachia endosymbiont of Drosophila melanogaster,163164,False,Bacteria
 164756,Mycobacterium sp. MCS,164756,False,Bacteria
@@ -1113,17 +1032,11 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 165179,Prevotella copri,165179,False,Bacteria
 166486,Roseburia intestinalis,166486,False,Bacteria
 169174,Calabazo virus,169174,False,Viruses
-170325,Canid alphaherpesvirus 1,170325,False,Viruses
 171929,Anacardium occidentale,171929,False,Eukaryota
 176275,Beauveria bassiana,176275,False,Eukaryota
 180498,Jatropha curcas,180498,False,Eukaryota
 185782,Aquareovirus C,128987,False,Viruses
 185949,Sphingomonas aurantiaca,185949,False,Bacteria
-186538,Zaire ebolavirus,186538;128952;129000;128951;128947;1891187;1570291,False,Viruses
-186539,Reston ebolavirus,186539;129003;386032,False,Viruses
-186540,Sudan ebolavirus,186540;128949;128948;386033;428693,False,Viruses
-186541,Tai Forest ebolavirus,128999;186541,False,Viruses
-188763,Panine betaherpesvirus 2,188763,False,Viruses
 189918,Mycobacterium sp. KMS,189918,False,Bacteria
 190063,Fowl aviadenovirus C,130663;190063,False,Viruses
 190065,Fowl aviadenovirus E,586029,False,Viruses
@@ -1141,7 +1054,6 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 205075,Candidatus Rickettsia tarasevichiae,205075,False,Bacteria
 205488,Ebola virus sp.,205488,False,Viruses
 208226,Alkaliphilus metalliredigens,208226,False,Bacteria
-208899,Cupixi mammarenavirus,208899,False,Viruses
 209285,Thermochaetoides thermophila,209285,False,Eukaryota
 214856,Alistipes finegoldii,214856,False,Bacteria
 215243,Exophiala oligosperma,215243,False,Eukaryota
@@ -1176,7 +1088,6 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 266779,Chelativorans sp. BNC1,266779,False,Bacteria
 267212,Neisseria bacilliformis,267212,False,Bacteria
 270478,Zantedeschia mild mosaic virus,270478,False,Viruses
-271108,Bombyx mori nucleopolyhedrovirus,271108,False,Viruses
 272131,Nostoc punctiforme,63737,False,Bacteria
 272636,Adeno-associated virus,272636,False,Viruses
 273371,Candida orthopsilosis,273371,False,Eukaryota
@@ -1192,7 +1103,6 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 301964,CY1014 virus,301964,False,Viruses
 304399,Mule deerpox virus,305674,False,Viruses
 304895,Catenulispora acidiphila,304895,False,Bacteria
-307456,Autographa californica multiple nucleopolyhedrovirus,46015,False,Viruses
 308159,Araucaria virus,308159;308061,False,Viruses
 310542,Chimpanzee adenovirus,310542,False,Viruses
 311410,Roseibium album,311410,False,Bacteria
@@ -1206,8 +1116,6 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 316287,Ceratogyrus marshalli,316287,False,Eukaryota
 320667,Trichosanthes dioica,320667,False,Eukaryota
 322053,Konjac mosaic virus,322053,False,Viruses
-328670,Banana streak GF virus,328670,False,Viruses
-328671,Banana streak OL virus,328671,False,Viruses
 328812,Parabacteroides goldsteinii,328812,False,Bacteria
 328814,Alistipes shahii,328814,False,Bacteria
 329091,Cupressus torulosa,329091,False,Eukaryota
@@ -1236,6 +1144,7 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 337051,Betapapillomavirus 1,333923,False,Viruses
 337052,Deltapapillomavirus 4,337052;2758382,False,Viruses
 337090,Chlorobium chlorochromatii,337090;340177,False,Bacteria
+337810,Oratosquilla oratoria,337810,False,Eukaryota
 338079,African green monkey simian foamy virus,338079,False,Viruses
 338188,Bacteroides finegoldii,338188,False,Bacteria
 338478,Macaque simian foamy virus,338478,False,Viruses
@@ -1243,7 +1152,7 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 342409,White spot syndrome virus,92652;342409,False,Viruses
 344880,Sphingomonas dokdonensis,344880,False,Bacteria
 345840,Palaemon modestus,345840,False,Eukaryota
-351073,Mammalian orthoreovirus,351073;10884,False,Viruses
+351073,Mammalian orthoreovirus,351073;10884;538123,False,Viruses
 351091,Oscillibacter valericigenes,351091,False,Bacteria
 351745,Shewanella sp. W3-18-1,351745,False,Bacteria
 357276,Phocaeicola dorei,357276,False,Bacteria
@@ -1302,7 +1211,6 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 558553,Crassostrea angulata,558553,False,Eukaryota
 559561,Aureobasidium namibiae,559561,False,Eukaryota
 563466,Scedosporium apiospermum,563466,False,Eukaryota
-565995,Bundibugyo ebolavirus,565995,False,Viruses
 566466,gamma proteobacterium NOR5-3,566466,False,Bacteria
 571800,Psychrobacter sp. G,571800,False,Bacteria
 571949,Encephalitozoon romaleae,1178016,False,Eukaryota
@@ -1316,36 +1224,15 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 651183,Aurantimonas manganoxydans,651183,False,Bacteria
 655809,Prevotella sp. oral taxon 472,619693,False,Bacteria
 658655,Lachnospiraceae bacterium 1_4_56FAA,658655,False,Bacteria
+664662,Borreliella bavariensis,664662,False,Bacteria
 674529,Bacteroides faecis,674529,False,Bacteria
 686984,Sapelovirus A,686984;1002921,False,Viruses
-687340,Torque teno virus 1,687340,False,Viruses
-687341,Torque teno virus 2,687341,False,Viruses
-687342,Torque teno virus 3,687342,False,Viruses
-687343,Torque teno virus 4,687343,False,Viruses
-687345,Torque teno virus 6,687345,False,Viruses
-687346,Torque teno virus 7,687346,False,Viruses
 687347,Torque teno virus 8,687347,False,Viruses
 687350,Torque teno virus 11,687350,False,Viruses
-687353,Torque teno virus 14,687353,False,Viruses
-687354,Torque teno virus 15,687354,False,Viruses
 687355,Torque teno virus 16,687355,False,Viruses
-687358,Torque teno virus 19,687358,False,Viruses
-687359,Torque teno virus 20,687359,False,Viruses
-687360,Torque teno virus 21,687360,False,Viruses
 687362,Torque teno virus 23,687362,False,Viruses
-687363,Torque teno virus 24,687363,False,Viruses
-687364,Torque teno virus 25,687364,False,Viruses
-687365,Torque teno virus 26,687365,False,Viruses
 687366,Torque teno virus 27,687366,False,Viruses
 687367,Torque teno virus 28,687367,False,Viruses
-687368,Torque teno virus 29,687368,False,Viruses
-687369,Torque teno mini virus 1,687369,False,Viruses
-687371,Torque teno mini virus 3,687371,False,Viruses
-687375,Torque teno mini virus 7,687375,False,Viruses
-687376,Torque teno mini virus 8,687376,False,Viruses
-687382,Torque teno tamarin virus,687382,False,Viruses
-687383,Torque teno douroucouli virus,687383,False,Viruses
-687386,Torque teno sus virus 1a,687386;1225860,False,Viruses
 691956,Avihepatovirus A,1006061,False,Viruses
 693153,Vibrio atlanticus,575788,False,Bacteria
 693997,Alphacoronavirus 1,11151;11149;33734;11150;12663;398812;11153;11135;502101;454951,False,Viruses
@@ -1380,7 +1267,6 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 1004253,Cyberlindnera mrakii,1004253,False,Eukaryota
 1005962,Ogataea parapolymorpha,871575;1005962,False,Eukaryota
 1016852,Banana streak CA virus,1016852,False,Viruses
-1016853,Banana streak IM virus,1016853,False,Viruses
 1045775,Paenibacillus catalpae,1045775,False,Bacteria
 1047168,Zymoseptoria brevis,1047168,False,Eukaryota
 1071379,Tetrapisispora blattae,1071379,False,Eukaryota
@@ -1422,24 +1308,16 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 1463841,Streptomyces sp. NRRL F-2580,1463841,False,Bacteria
 1464048,Micromonospora parva,1464048,False,Bacteria
 1472417,Butyricimonas paravirosa,1472417,False,Bacteria
-1476909,Banana streak MY virus,1476909,False,Viruses
 1498499,Legionella norrlandica,1498499,False,Bacteria
 1501332,Oribacterium asaccharolyticum,1501332,False,Bacteria
 1508220,Bat coronavirus,1508220,False,Viruses
-1511862,Carnivore amdoparvovirus 1,28314;10783,False,Viruses
-1511871,Primate bocaparvovirus 1,689403;638313,False,Viruses
-1511872,Primate bocaparvovirus 2,573977,False,Viruses
-1511891,Adeno-associated dependoparvovirus A,10804;202813;235455;202812;85106;57579;68558,False,Viruses
-1511892,Adeno-associated dependoparvovirus B,82300,False,Viruses
-1511895,Anseriform dependoparvovirus 1,38251;37325,False,Viruses
-1511900,Primate erythroparvovirus 1,10798,False,Viruses
-1511906,Carnivore protoparvovirus 1,10788;10793;10790;246878;10786;10791,False,Viruses
-1511910,Ungulate protoparvovirus 1,10796,False,Viruses
-1511913,Primate tetraparvovirus 1,289365,False,Viruses
+1511891,Dependoparvovirus primate1,10804;202813;235455;202812;85106;57579;68558,False,Viruses
+1511892,Dependoparvovirus mammalian1,82300,False,Viruses
+1511895,Dependoparvovirus anseriform1,38251;37325,False,Viruses
+1513262,Gammapapillomavirus 17,1070417,False,Viruses
 1527299,Psychromonas sp. PRT-SC03,1527299,False,Bacteria
 1534553,Duck aviadenovirus B,2233538,False,Viruses
 1564681,Carnobacterium sp. CP1,1564681,False,Bacteria
-1566201,Pseudomonas sp. NFACC45,1566201,False,Bacteria
 1566298,Paraiso Escondido virus,1566298,False,Viruses
 1574408,Cervus canadensis,9864,True,Eukaryota
 1631247,Mesorhizobium delmotii,1631247,False,Bacteria
@@ -1455,7 +1333,6 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 1821750,Cardiovirus B,12125;12124;12126;204711,False,Viruses
 1849603,Enterobacteriaceae bacterium,1849603,False,Bacteria
 1855372,bacterium JGI 053,1855372,False,Bacteria
-1868221,Porcine circovirus 3,1868221,False,Viruses
 1868482,Carlito syrichta,1868482,True,Eukaryota
 1891726,Alphapolyomavirus quintihominis,493803;1891726,False,Viruses
 1891727,Alphapolyomavirus octihominis,862909,False,Viruses
@@ -1470,42 +1347,19 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 1898104,Bacteroidota bacterium,1898104,False,Bacteria
 1898112,Rhodospirillaceae bacterium,1898112,False,Bacteria
 1898203,Lachnospiraceae bacterium,1898203,False,Bacteria
+1906674,Betanodavirus sp.,1906674,False,Viruses
 1913988,Alphaproteobacteria bacterium,1913988,False,Bacteria
-1933187,Rift Valley fever phlebovirus,11588,False,Viruses
-1933264,California encephalitis orthobunyavirus,35305,False,Viruses
-1933298,Tomato spotted wilt orthotospovirus,1933298,False,Viruses
-1933300,Watermelon silver mottle orthotospovirus,1933300,False,Viruses
 1965089,Coronavirus HKU15,1586324,False,Viruses
 1965093,Hedgehog coronavirus 1,1385427,False,Viruses
 1972577,Vesiculovirus indiana,11284;11285;11277;11278;11279,False,Viruses
 1977402,Inovirus M13,1977402;10863,False,Viruses
 1978231,Acidobacteriota bacterium,1978231,False,Bacteria
 1980442,Orthohantavirus,1980442,False,Viruses
-1980456,Andes orthohantavirus,1980456;69248;367400;69247;69245;69246,False,Viruses
-1980459,Bayou orthohantavirus,1980459,False,Viruses
-1980463,Cano Delgadito orthohantavirus,1980463,False,Viruses
-1980465,Choclo orthohantavirus,169173,False,Viruses
-1980467,Dobrava-Belgrade orthohantavirus,1980467,False,Viruses
-1980468,El Moro Canyon orthohantavirus,1980468,False,Viruses
-1980471,Hantaan orthohantavirus,11602;1980471;74943;74942;370830;458678;11583,False,Viruses
-1980475,Khabarovsk orthohantavirus,74537;1980475,False,Viruses
-1980476,Laguna Negra orthohantavirus,1980476,False,Viruses
-1980480,Maporal orthohantavirus,238817,False,Viruses
-1980481,Montano orthohantavirus,1980481,False,Viruses
-1980485,Prospect Hill orthohantavirus,1980485,False,Viruses
-1980486,Puumala orthohantavirus,39002;1980486;11605;1337063,False,Viruses
-1980489,Sangassou orthohantavirus,1980489,False,Viruses
-1980490,Seoul orthohantavirus,12557;1980490;11607;11610;280855,False,Viruses
-1980491,Sin Nombre orthohantavirus,1980491;31621;32614,False,Viruses
-1980494,Tula orthohantavirus,1980494,False,Viruses
-1980519,Crimean-Congo hemorrhagic fever orthonairovirus,1980519;652961,False,Viruses
+1980456,Orthohantavirus andesense,1980456;69248;367400;69247;69245;69246,False,Viruses
 1980916,Novirhabdovirus piscine,11288;11287,False,Viruses
 1980917,Novirhabdovirus salmonid,11290,False,Viruses
 1982365,Predatorvirus predator,543153,False,Viruses
-1985356,Pegivirus C,54290,False,Viruses
 1985738,Teseptimavirus T7,10760,False,Viruses
-2008762,Hepacivirus B,2847087,False,Viruses
-2008766,Hepacivirus G,1562038,False,Viruses
 2015173,Ooceraea biroi,2015173,False,Eukaryota
 2015376,Bat mastadenovirus G,2015376,False,Viruses
 2016460,Giant panda anellovirus,2016460,False,Viruses
@@ -1525,17 +1379,7 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 2116544,Synechococcus lacustris,2116544,False,Bacteria
 2136182,Acinetobacter cumulans,2136182,False,Bacteria
 2169971,Visna-maedi virus,2169971;12750;11742;11743;36374,False,Viruses
-2169986,Barley yellow dwarf virus PAV,2169986,False,Viruses
-2169991,Argentinian mammarenavirus,2169991,False,Viruses
-2169992,Brazilian mammarenavirus,2169992,False,Viruses
-2169993,Cali mammarenavirus,2169993,False,Viruses
-2169994,Paraguayan mammarenavirus,2169994,False,Viruses
-2169996,Serra do Navio mammarenavirus,2169996,False,Viruses
-2170080,Pestivirus A,11100;158474;82470;11099;221918;981676,False,Viruses
-2170081,Pestivirus B,54315,False,Viruses
-2170082,Pestivirus C,11096;11098;358769;358805;279150;358812;68621,False,Viruses
-2170083,Pestivirus D,56950,False,Viruses
-2170090,Pestivirus K,1914447,False,Viruses
+2169991,Mammarenavirus juninense,2169991,False,Viruses
 2170193,Bornean orangutan simian foamy virus,221703,False,Viruses
 2170197,Guenon simian foamy virus,2170197,False,Viruses
 2170200,Spider monkey simian foamy virus,2170200,False,Viruses
@@ -1556,35 +1400,198 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 2501960,China Rattus coronavirus HKU24,1590370,False,Viruses
 2502994,Fusarium odoratissimum,2502994,False,Eukaryota
 2560288,Deltapolyomavirus ailuropodae,2016463,False,Viruses
-2560319,Avian orthoavulavirus 1,2560319;11178;11180;11177;11186;351071,False,Viruses
-2560525,Human orthorubulavirus 2,11214;2560525,False,Viruses
-2560547,La Crosse orthobunyavirus,11577;11578,False,Viruses
-2560580,Mammalian orthorubulavirus 5,2560580;31608,False,Viruses
-2560586,Menangle pararubulavirus,152219,False,Viruses
-2560602,Mumps orthorubulavirus,2560602;11169;11173;1384672,False,Viruses
-2560645,Porcine orthorubulavirus,2560645,False,Viruses
-2560743,Schmallenberg orthobunyavirus,1133363;1318464,False,Viruses
 2584949,Enterobacter sp. DE0047,2584949,False,Bacteria
 2594813,Fusarium fasciculatum,2594813,False,Eukaryota
 2599941,Oligoflexia bacterium,2599941,False,Bacteria
 2678873,Trimerodytes annularis,2678873,True,Eukaryota
 2707005,Paenibacillus lutimineralis,2707005,False,Bacteria
 2708335,Pangolin coronavirus,2708335,False,Viruses
-2734478,Toscana phlebovirus,11590,False,Viruses
-2747316,Guertu bandavirus,1763596,False,Viruses
-2748958,Dabie bandavirus,1003835,False,Viruses
+2748958,Bandavirus dabieense,1003835,False,Viruses
 2770637,Aestuariibaculum sediminum,2770637,False,Bacteria
 2787823,unclassified entries,2787823,False,Other
 2843841,Betatristromavirus TTV1,10479,False,Viruses
 2846071,Rubivirus rubellae,11043;11041;11044;11045,False,Viruses
 2846271,Peeveelvirus PVL,71366,False,Viruses
-2846472,Torque teno canid virus 1,687385,False,Viruses
-2846480,Torque teno felid virus 1,687384,False,Viruses
 2851130,Dermatophagoides pteronyssinus virus 3,2851130,False,Viruses
 2900548,Actinomycetota bacterium,2900548,False,Bacteria
 2951618,Lyssavirus hamburg,57482,False,Viruses
 2951978,Betanucleorhabdovirus retesonchi,11307,False,Viruses
+2955291,Alphainfluenzavirus influenzae,11320;211044;384505;392809;506350;387161;264513;387191;223935;132504;383586;444318;385624;137578;385630;382835;387139;385640;119210;114727;382781;392810;383571;183764;380964;63106;380301;41857;380905;317652;381517;385576;384502;381518;380950;132734;132841;381516;384498;385605;384500;387207;382832;11375;130760;88104;380340;380282;488241;385587;353253;79695;130763;387156;352520;384495;380985;393557;221012;383602;382842;351277;383604;11408;62503;382848;82372;107558;62564;62488;62596;62541;62446;62512;107493;62496;644788;11384;260806;384487;169169;384484;135658;385586;1086859;387147;311710;311695;311169;342221;307819;306061;304883;300748;299733;299730;299390;298716;298713;284195;282124;279797;432070;273361;270490;270484;264510;59375;256045;253682;62575;185794;182781;177188;177131;177128;177117;216877;215864;215862;210663;210656;210655;207401;173477;173473;170342;165420;164326;205954;205946;155227;155226;155225;155222;147095;382828;132884;436004;405050;404163;404155;404152;404150;404138;404137;402194;426738;441962;395842;395841;393697;393548;393486;389259;385583;384527;384493;383566;383561;383558;381512;380978;95234;380842;380836;380330;380210;192720;480019;192549;373145;366524;365078;365074;357205;355624;354235;344598;342396;1093545;342210;342207;402489;342145;342137;336800;336794;336207;336205;334590;334589;327311;327310;322566;322564;192535;97348;383550;387208;1342434;210659;198059;158306;197589;274829;680692;384946;279798;380979;380833;214826;370813;284168;365129;380332;132783;36418;385644;293054;381513;1144025;155917;384509;518968;95888;228928;145307;385580;385617;11484;170500;62559;186460;480024;284218;203126;387223;197585;102793;352963;393902;400830;1163697;370127;165512;291592;367120;427773;145306;417758;447133;461772;249372;400828;357208;335337;335358;332733;365417;371082;415167;415172;415169;415176;415166;415177;573797;435359;576142;578079;566260;191090;142948;176672;197579;400788;553345;385599;370810;384499;462695;680789;392811;380285;378139;161502;380217;383531;329593;93838;187164;137885;154540;128982;137886;514193;183778;1727172;229051;387239;383121;55532;680799;402464;136474;169166;168278;641501;411167;172149;475493;522740;225071;255681;515581;83206;402527;88103;533026;223947;135661;538555;383152;383231;383568;203129;680803;380299;223932;370128;225089;223931;231851;225088;11448;499286;196462;432094;303316;385616;680690;183783;1176042;680739;354228;286239;336238;335333;518922;270945;327205;342508;364132;320306;380213;384483;383577;155218;365080;407418;300750;88776;488233;378131;425557;383578;293090;383281;504910;642794;383603;648856;560463;658578;742305;401372;762400;506355;383574;400810;62549;587884;430417;936115;991335;768646;768647;385600;380951;380346;236235;336092;577543;647096;1068705;464623;446023;383028;155220;402518;183741;404573;89172;89169;332747;284202;506282;292039;292045;1041990;311775;504904;641809;421901;657165;468968;754366;680729;472511;427890;418868;357210;370811;414044;562988;562992;464314;421472;411157;641812;402938;352764;162326;385585;384510;380284;352564;359921;504697;416730;62478;380339;380343;496036;97353;947939;444793;655288;387213;387243;293055;352034;376721;449656;371214;388041;932622;404408;511839;382813;300749;645724;643212;1081253;36420;447188;654811;119211;102796;644289;761251;535852;887118;333278;476294;114729;342546;157642;647923;1391655;251297;680693;715091;680689;153969;119218;1470614;1171336;1403514;1268360;915014;387203;352348;697610;382825;224819;908203;996581;1330339;255682;986174;682728;1332244;1342397;715494;1413188;266827;1122279;284190;100835;292590;614035;510222;475478;159471;1663996;680785;1082519;1481964;642261;425551;632134;464622;380342;529058;616922;762378;353466;448058;274828;680767;411662;220977;400331;38973;1346336;253686;1310532;453057;383537;380337;380960;1663934;1663864;673446;690988;1507381;1289562;352561;558177;270510;476303;266093;1420840;1321009;380984;380982;1447813;1451093;2070132;645771;1395982;119220;1481966;556277;760591;1285028;1129345;225085;479022;683780;1129347;1395524;2026033;311596;514118;119215;1184593;568833;445027;383570;762377;1314758;1481987;476261;2019386;1458555;1507390;1968303;1968304;2026007;1331831;2019571;1507384;243678;1654135;1184594;760063;1777792;329606;387165;1933916;351253;1589663;1406946;187166,False,Viruses
+2955465,Betainfluenzavirus influenzae,11520;518987;11521;427826;150127;1077587;184816;11541;256080;206203;504666;335812;224964;171425;503386;504662;504660;504664;107404;107406;461739;464417;289338;604436;416674;11550;279329,False,Viruses
+2955935,Gammainfluenzavirus influenzae,11553;11552;224197;374405,False,Viruses
 2978683,Burkholderia orbicola,2978683,False,Bacteria
+3042615,Paraglaciecola sp. T6c,3042615,False,Bacteria
+3046277,Orthoflavivirus flavi,11090;11089;407141;407134;31641;617102,False,Viruses
+3047383,Alphabaculovirus aucalifonicae,46015,False,Viruses
+3047386,Badnavirus alphavirgamusae,328670,False,Viruses
+3047387,Badnavirus betavirgamusae,1016853,False,Viruses
+3047388,Badnavirus gammavirgamusae,1476909,False,Viruses
+3047389,Badnavirus deltavirgamusae,328671,False,Viruses
+3047677,Comovirus siliquae,31715;12260,False,Viruses
+3047688,Nepovirus ribis,65743,False,Viruses
+3047695,Alphabaculovirus bomori,271108,False,Viruses
+3047725,Orthoflavivirus careyense,64289,False,Viruses
+3047743,Gyrovirus chickenanemia,12618,False,Viruses
+3047771,Comovirus vignae,12264,False,Viruses
+3047852,Nepovirus foliumflabelli,12274,False,Viruses
+3047947,Alphabaculovirus helarmigerae,148363,False,Viruses
+3048148,Metapneumovirus hominis,162145,False,Viruses
+3048151,Avibirnavirus gumboroense,10995;31560;10997;10996,False,Viruses
+3048153,Aquabirnavirus salmonidae,11002,False,Viruses
+3048158,Orthoflavivirus japonicum,11076;11075;11072;11073,False,Viruses
+3048170,Orthoflavivirus kyasanurense,172148,False,Viruses
+3048175,Orthoflavivirus langatense,11085,False,Viruses
+3048184,Orthoflavivirus loupingi,36386;11086,False,Viruses
+3048215,Orthoflavivirus murrayense,11079;301478,False,Viruses
+3048269,Tymovirus physalis,72539,False,Viruses
+3048278,Circovirus porcine1,133704,False,Viruses
+3048279,Circovirus porcine2,85708;85709;86385,False,Viruses
+3048280,Circovirus porcine3,1868221,False,Viruses
+3048287,Orthoflavivirus powassanense,11083,False,Viruses
+3048308,Orthoflavivirus saboyaense,64284,False,Viruses
+3048316,Orthoflavivirus sepikense,44026,False,Viruses
+3048338,Alphabaculovirus spliturae,46242,False,Viruses
+3048360,Orthoflavivirus tembusu,1399582;64293;1002900,False,Viruses
+3048374,Tombusvirus lycopersici,12146,False,Viruses
+3048379,Zetatorquevirus aotid1,687383,False,Viruses
+3048395,Betatorquevirus homini1,687369,False,Viruses
+3048401,Betatorquevirus homini3,687371,False,Viruses
+3048405,Betatorquevirus homini7,687375,False,Viruses
+3048406,Betatorquevirus homini8,687376,False,Viruses
+3048408,Iotatorquevirus suida1a,687386;1225860,False,Viruses
+3048411,Epsilontorquevirus calli1,687382,False,Viruses
+3048413,Alphatorquevirus homin1,687340,False,Viruses
+3048416,Alphatorquevirus homin14,687353,False,Viruses
+3048417,Alphatorquevirus homin15,687354,False,Viruses
+3048420,Alphatorquevirus homin19,687358,False,Viruses
+3048421,Alphatorquevirus homin2,687341,False,Viruses
+3048422,Alphatorquevirus homin20,687359,False,Viruses
+3048423,Alphatorquevirus homin21,687360,False,Viruses
+3048424,Alphatorquevirus homin24,687363,False,Viruses
+3048425,Alphatorquevirus cerco7,687364,False,Viruses
+3048426,Alphatorquevirus cerco6,687365,False,Viruses
+3048427,Alphatorquevirus homin29,687368,False,Viruses
+3048428,Alphatorquevirus homin3,687342,False,Viruses
+3048429,Alphatorquevirus homin4,687343,False,Viruses
+3048431,Alphatorquevirus homin6,687345,False,Viruses
+3048432,Alphatorquevirus homin7,687346,False,Viruses
+3048448,Orthoflavivirus nilense,307044;11082;11078;11077;449278;406269,False,Viruses
+3048459,Orthoflavivirus zikaense,64320;2043570;2316109,False,Viruses
+3049952,Respirovirus laryngotracheitidis,36412;188538,False,Viruses
+3049953,Respirovirus pneumoniae,11217;11216,False,Viruses
+3049954,Orthopneumovirus hominis,11260;208893;11250;11259;11251;11256;11255;11253;11252;410078;79692;208895;253182,False,Viruses
+3050243,Varicellovirus bovinealpha1,10323;10320;79889;10324,False,Viruses
+3050245,Varicellovirus bovinealpha5,263683,False,Viruses
+3050246,Rhadinovirus bovinegamma4,10355,False,Viruses
+3050248,Orthopneumovirus bovis,11246;82824;11249;31611;82823;12814,False,Viruses
+3050251,Varicellovirus canidalpha1,170325,False,Viruses
+3050254,Quwivirus caviidbeta2,33706;103920,False,Viruses
+3050256,Simplexvirus cercopithecinealpha2,10317,False,Viruses
+3050258,Cytomegalovirus cercopithecinebeta5,50292,False,Viruses
+3050276,Varicellovirus equidalpha1,10326,False,Viruses
+3050278,Varicellovirus equidalpha4,10331,False,Viruses
+3050281,Percavirus equidgamma2,82831,False,Viruses
+3050287,Mardivirus gallidalpha2,10390;33707,False,Viruses
+3050292,Simplexvirus humanalpha1,10298;10301;10306;10304;10299;10309;10308;10303;37107,False,Viruses
+3050293,Simplexvirus humanalpha2,10310;10315;10313;10312,False,Viruses
+3050294,Varicellovirus humanalpha3,10335;10338;341980,False,Viruses
+3050295,Cytomegalovirus humanbeta5,10359;10363;10360;295027;311339,False,Viruses
+3050296,Roseolovirus humanbeta6a,10370;32603;10369,False,Viruses
+3050297,Roseolovirus humanbeta6b,32604;36351,False,Viruses
+3050298,Roseolovirus humanbeta7,57278;10372,False,Viruses
+3050299,Lymphocryptovirus humangamma4,10376;10377;82830;36352;12509;10378;31525,False,Viruses
+3050300,Rhadinovirus humangamma8,37296,False,Viruses
+3050305,Simplexvirus macacinealpha1,10325;260965,False,Viruses
+3050308,Cytomegalovirus macacinebeta3,47929;103930,False,Viruses
+3050314,Lymphocryptovirus macacinegamma4,45455,False,Viruses
+3050315,Rhadinovirus macacinegamma5,169974,False,Viruses
+3050323,Muromegalovirus muridbeta1,10367;10366;69156;524651,False,Viruses
+3050327,Rhadinovirus muridgamma4,33708;1440122,False,Viruses
+3050329,Orthopneumovirus muris,270473;11263,False,Viruses
+3050334,Cytomegalovirus paninebeta2,188763,False,Viruses
+3050350,Rhadinovirus saimiriinegamma2,10381,False,Viruses
+3050355,Varicellovirus suidalpha1,10349;10345;33703,False,Viruses
+3051375,Orthoavulavirus javaense,2560319;11178;11180;11177;11186;351071,False,Viruses
+3051624,Amdoparvovirus carnivoran1,28314;10783,False,Viruses
+3051991,Bandavirus guertuense,1763596,False,Viruses
+3052040,Bocaparvovirus primate1,689403;638313,False,Viruses
+3052041,Bocaparvovirus primate2,573977,False,Viruses
+3052189,Erythroparvovirus primate1,10798,False,Viruses
+3052195,Etatorquevirus felid1,687384,False,Viruses
+3052223,Henipavirus hendraense,3052223;928303,False,Viruses
+3052225,Henipavirus nipahense,3052225,False,Viruses
+3052230,Hepacivirus hominis,31647;11116;41856;3052230;2847144;63746;31645;11104;11105;356417;11108;421877;356426;31653;333284;356114;11113;31650;31649;329389;356386;356410;356418;356424;42182;11115;356416;356421;31644;356415;11110;31654;356411;42792;356413;356391;356419;357355;420174;40271;33745;33746;31655;1053141;595609,False,Viruses
+3052236,Hepacivirus platyrrhini,2847087,False,Viruses
+3052237,Hepacivirus ratti,1562038,False,Viruses
+3052294,Luteovirus pavhordei,2169986,False,Viruses
+3052296,Mammarenavirus amapariense,3052296,False,Viruses
+3052299,Mammarenavirus brazilense,3052299,False,Viruses
+3052300,Mammarenavirus caliense,3052300,False,Viruses
+3052303,Mammarenavirus choriomeningitidis,3052303;11627;11624;11625;11626,False,Viruses
+3052304,Mammarenavirus cupixiense,3052304,False,Viruses
+3052307,Mammarenavirus guanaritoense,3052307,False,Viruses
+3052310,Mammarenavirus lassaense,11622;3052310;11621,False,Viruses
+3052317,Mammarenavirus machupoense,3052317,False,Viruses
+3052320,Mammarenavirus mopeiaense,3052320,False,Viruses
+3052322,Mammarenavirus oliverosense,3052322,False,Viruses
+3052323,Mammarenavirus paranaense,3052323,False,Viruses
+3052325,Mammarenavirus praomyidis,3052325,False,Viruses
+3052328,Mammarenavirus tacaribeense,3052328;31616;928313;31615,False,Viruses
+3052331,Mammarenavirus whitewaterense,3052331,False,Viruses
+3052342,Morbillivirus canis,3052342;11233,False,Viruses
+3052343,Morbillivirus caprinae,3052343;2593991,False,Viruses
+3052345,Morbillivirus hominis,11234;70146;11235;132487;11236;70149;262307;171264;170529;170525,False,Viruses
+3052346,Morbillivirus pecoris,36409;11241;11243,False,Viruses
+3052390,Orthobunyavirus encephalitidis,35305,False,Viruses
+3052409,Orthobunyavirus lacrosseense,11577;11578,False,Viruses
+3052437,Orthobunyavirus schmallenbergense,1133363;1318464,False,Viruses
+3052458,Orthoebolavirus bundibugyoense,565995,False,Viruses
+3052459,Orthoebolavirus restonense,186539;129003;386032,False,Viruses
+3052460,Orthoebolavirus sudanense,186540;128949;128948;386033;428693,False,Viruses
+3052461,Orthoebolavirus taiense,128999;186541,False,Viruses
+3052462,Orthoebolavirus zairense,186538;128952;129000;128951;128947;1891187;1570291,False,Viruses
+3052464,Orthoflavivirus denguei,11064;11060;11070;31634;11069;11053;12637;33741;11066;11065;408871;31635;408688;11059;11062;408870;408686;408685;408694;408691;408693;408692;408690;408687;11067;408689;11057;31637;31636,False,Viruses
+3052465,Orthoflavivirus encephalitidis,11084;11087;11092,False,Viruses
+3052468,Orthoflavivirus louisense,11081;11080,False,Viruses
+3052470,Orthohantavirus bayoui,3052470,False,Viruses
+3052474,Orthohantavirus chocloense,169173,False,Viruses
+3052476,Orthohantavirus delgaditoense,3052476,False,Viruses
+3052477,Orthohantavirus dobravaense,3052477,False,Viruses
+3052480,Orthohantavirus hantanense,11602;3052480;74943;74942;370830;458678;11583,False,Viruses
+3052483,Orthohantavirus khabarovskense,74537;3052483,False,Viruses
+3052485,Orthohantavirus maporalense,238817,False,Viruses
+3052486,Orthohantavirus montanoense,3052486,False,Viruses
+3052487,Orthohantavirus moroense,3052487,False,Viruses
+3052489,Orthohantavirus negraense,3052489,False,Viruses
+3052492,Orthohantavirus prospectense,3052492,False,Viruses
+3052493,Orthohantavirus puumalaense,39002;3052493;11605;1337063,False,Viruses
+3052496,Orthohantavirus sangassouense,3052496,False,Viruses
+3052498,Orthohantavirus seoulense,12557;3052498;11607;11610;280855,False,Viruses
+3052499,Orthohantavirus sinnombreense,3052499;31621;32614,False,Viruses
+3052503,Orthohantavirus tulaense,3052503,False,Viruses
+3052505,Orthomarburgvirus marburgense,3052505;33727;33728;378809;378830,False,Viruses
+3052518,Orthonairovirus haemorrhagiae,3052518;652961,False,Viruses
+3052557,Orthorubulavirus laryngotracheitidis,11214;2560525,False,Viruses
+3052558,Orthorubulavirus mammalis,2560580;31608,False,Viruses
+3052560,Orthorubulavirus parotitidis,2560602;11169;11173;1384672,False,Viruses
+3052562,Orthorubulavirus suis,3052562,False,Viruses
+3052571,Orthotospovirus citrullomaculosi,3052571,False,Viruses
+3052585,Orthotospovirus tomatomaculae,3052585,False,Viruses
+3052599,Pararubulavirus menangleense,152219,False,Viruses
+3052608,Pegivirus hominis,54290,False,Viruses
+3052619,Pestivirus bovis,11100;158474;82470;11099;221918;981676,False,Viruses
+3052622,Pestivirus ovis,56950,False,Viruses
+3052624,Pestivirus scrofae,1914447,False,Viruses
+3052625,Pestivirus suis,11096;11098;358769;358805;279150;358812;68621,False,Viruses
+3052626,Pestivirus tauri,54315,False,Viruses
+3052676,Phlebovirus riftense,11588,False,Viruses
+3052686,Phlebovirus toscanaense,11590,False,Viruses
+3052707,Protoparvovirus carnivoran1,10788;10793;10790;246878;10786;10791,False,Viruses
+3052720,Protoparvovirus ungulate1,10796,False,Viruses
+3052729,Respirovirus bovis,3052729,False,Viruses
+3052731,Respirovirus muris,11194;3052731;11198;11196;302272;11195,False,Viruses
+3052770,Tetraparvovirus primate1,289365,False,Viruses
+3052778,Thetatorquevirus canid1,687385,False,Viruses
 10000000,Mus musculus BALB/c,10000000,False,Other
 10000055,Mus musculus DBA/2,10000055,False,Other
 10000067,Mus musculus C57BL/6,10000067,False,Other
@@ -2060,6 +2067,7 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 10002525,SARS-CoV2 Beta,10002525,False,Other
 10002526,SARS-CoV2 Epsilon,10002526,False,Other
 10002528,SARS-CoV2 Gamma,10002528,False,Other
+10002529,SARS-CoV2 Iota,10002529,False,Other
 10002530,SARS-CoV2 Delta,10002530,False,Other
 10002532,SARS-CoV2 Mu,10002532,False,Other
 10002533,SARS-CoV2 Omicron,10002533,False,Other
@@ -2160,3 +2168,11 @@ Species Taxon ID,Species Name,All Taxa,Is Vertebrate,Group
 10002816,Avian orthoreovirus chicken/GA/94826/2012,10002816,False,Other
 10002853,Senecavirus A China/Fujian/CH-FuJ/SVA/2017,10002853,False,Other
 10002854,Severe acute respiratory coronavirus 2 USA/NY-PV09158/2020,10002854,False,Other
+10002858,ZIKV/H. sapiens/Brazil/SPH/2015,10002858,False,Other
+10002862,Porcine reproductive and respiratory syndrome virus GDQY,10002862,False,Other
+10002863,Simian foamy virus BAD468,10002863,False,Other
+10002864,Simian foamy virus BAK74,10002864,False,Other
+10002865,Eastern chimpanzee simian foamy virus pHSRV13,10002865,False,Other
+10002868,Severe acute respiratory coronavirus 2 South Africa/CERI-KRISP-K040484/2022,10002868,False,Other
+10002870,African swine fever virus China/GZ201801/2018,10002870,False,Other
+10002878,Influenza A virus (A/Sichuan/26221/2014(H5N8)),10002878,False,Other

@@ -52,6 +52,9 @@ def update_species_data() -> None:
     species_df.index.name = 'Species Taxon ID'
     species_df.reset_index(inplace=True)
     species_df['All Taxa'] = species_df['All Taxa'].apply(lambda x: ';'.join(x))
+
+    # remove apostrophes from species names
+    species_df['Species Name'] = species_df['Species Name'].str.replace("'", "")
     
     # update species.csv which is in the directory above this script
     species_df.to_csv(Path(__file__).parent.parent / 'species.csv', index=False)
