@@ -1,26 +1,21 @@
 __pycache__/
 .DS_Store
 .ipynb_checkpoints/
-9606*
-all_epitopes.csv
-all_sources.csv
-blast.py
-blastp
-blast_output.csv
-canonical_protein_mapping.pickle
-hugo_symbol_map.csv
-human_proteome.csv
-id_to_gene_name.tsv
-makeblastdb
-mmseqs
-protein_tree.ipynb
-protein_tree.txt
+
 snapshot_2022-12-20/
-species/
-species2.csv
-taxon_ids.txt
-test.fasta
-tree.txt
+
+# bin files
+bin/blastp
+bin/makeblastdb
+
+# data files
+data/species/
+data/all_epitopes.csv
+data/all_sources.csv
 
 # locked files
 .~*
+
+id_to_gene_name.tsv
+protein_tree.ipynb
+tree.txt
