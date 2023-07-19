@@ -6,7 +6,7 @@ Species Taxon ID,Species Name,Proteome ID,Proteome Taxon,Proteome Type,Source Co
 158,Treponema denticola,UP000008212,243275.0,Representative,2.0,2.0,100.0,100.0
 160,Treponema pallidum,UP000000811,243276.0,Representative,13.0,474.0,100.0,91.35021097046412
 162,Treponema phagedenis,UP000042527,162.0,Representative,1.0,1.0,100.0,100.0
-173,Leptospira interrogans,UP000093180,211880.0,Representative,34.0,298.0,97.05882352941175,80.20134228187919
+173,Leptospira interrogans,UP000093180,211880.0,Representative,34.0,298.0,97.05882352941177,80.20134228187919
 188,Magnetospirillum magnetotacticum,UP000031971,272627.0,Other,5.0,5.0,100.0,80.0
 195,Campylobacter coli,UP000255069,195.0,Non-redundant,4.0,4.0,100.0,100.0
 196,Campylobacter fetus,UP000000760,360106.0,Representative,1.0,12.0,100.0,100.0
