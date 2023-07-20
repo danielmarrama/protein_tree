@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+import warnings
+warnings.filterwarnings('ignore')
+
 import os
 import glob
 import pandas as pd
@@ -67,14 +70,14 @@ class GeneAndProteinAssigner:
     # self._assign_manuals()
 
     # map source antigens to their best blast matches (UniProt ID and gene) for sources
-    sources_df['Assigned Gene'] = sources_df['Accession'].map(self.source_gene_assignment)
-    sources_df['Assigned Protein ID'] = sources_df['Accession'].map(self.source_protein_assignment)
-    sources_df['Assigned Protein Name'] = sources_df['Assigned Protein ID'].map(self.uniprot_id_to_name_map)
-    sources_df['Assignment Score'] = sources_df['Accession'].map(self.source_assignment_score)
+    sources_df.loc[:, 'Assigned Gene'] = sources_df['Accession'].map(self.source_gene_assignment)
+    sources_df.loc[:, 'Assigned Protein ID'] = sources_df['Accession'].map(self.source_protein_assignment)
+    sources_df.loc[:, 'Assigned Protein Name'] = sources_df['Assigned Protein ID'].map(self.uniprot_id_to_name_map)
+    sources_df.loc[:, 'Assignment Score'] = sources_df['Accession'].map(self.source_assignment_score)
 
     # map source antigens to their best blast matches (gene) for epitopes
-    epitopes_df['Assigned Gene'] = epitopes_df['Source Accession'].map(self.source_gene_assignment)
-    epitopes_df['Assigned Parent Protein ID'] = epitopes_df['Sequence'].map(self.epitope_parent_assignment)
+    epitopes_df.loc[:, 'Assigned Gene'] = epitopes_df['Source Accession'].map(self.source_gene_assignment)
+    epitopes_df.loc[:, 'Assigned Parent Protein ID'] = epitopes_df['Sequence'].map(self.epitope_parent_assignment)
 
     epitopes_df.drop_duplicates(subset='Sequence', inplace=True) # drop duplicate epitopes
     epitopes_df.to_csv(f'{self.species_dir}/epitopes.csv', index=False)
@@ -208,7 +211,7 @@ class GeneAndProteinAssigner:
     species_path = str(self.species_dir).replace('(', '\(').replace(')', '\)')
 
     os.system( # make BLAST database from proteome
-      f'{bin_dir}/makeblastdb -in {species_path}/proteome.fasta -dbtype prot'
+      f'{bin_dir}/makeblastdb -in {species_path}/proteome.fasta -dbtype prot > /dev/null'
     ) 
     os.system( # run blastp
       f'{bin_dir}/blastp -query {species_path}/sources.fasta '\

@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import os
 import argparse
 import pandas as pd
 from pathlib import Path
@@ -54,10 +53,10 @@ def run_protein_tree(
     print(f'Proteome type: {proteome_data[2]}\n')
 
   # assign genes to source antigens and parent proteins to epitopes
-  print('Assigning genes to source antigens...')
+  print('Assigning source antigens and epitopes...')
   Assigner = GeneAndProteinAssigner(taxon_id, species_name, is_vertebrate)
   assigner_data = Assigner.assign(sources_df, epitopes_df)
-  print('Done assigning genes.\n')
+  print('Done.\n')
 
   successful_source_assignment = (assigner_data[2] / assigner_data[0])*100
   successful_epitope_assignment = (assigner_data[3] / assigner_data[1])*100
@@ -104,7 +103,6 @@ def run_protein_tree(
 
 def build_tree_for_species(
   taxon_id: int,
-  all_taxa_map: dict,
   species_name_map: dict,
   is_vertebrate_map: dict,
   update_proteome: bool,
@@ -115,21 +113,19 @@ def build_tree_for_species(
   
   Args:
     taxon_id: Taxon ID for the species to run protein tree.
-    all_taxa_map: Mapping of taxon ID to all children taxa.
     species_name_map: Mapping of taxon ID to species name.
     is_vertebrate_map: Mapping of taxon ID to is_vertebrate.
     update_proteome: Whether or not to update the proteome to be used for the species.
     epitopes_df: Epitope data for the species.
     sources_df: Source antigen data for the species.
   """
-  all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
   species_name = species_name_map[taxon_id]
   is_vertebrate = is_vertebrate_map[taxon_id]
 
   run_protein_tree(
     taxon_id, species_name, is_vertebrate, update_proteome, epitopes_df, sources_df
   )
-  print(f'Protein tree built for {species_name} (ID: {taxon_id}).\n')
+  print(f'Protein tree built for {species_name} (ID: {taxon_id}).\n\n')
 
 
 def main():
@@ -189,13 +185,13 @@ def main():
     print('All data written.')
 
   if args.all_species:
-    for taxon_id in valid_taxon_ids[155:]:
+    for taxon_id in valid_taxon_ids[10:]:
 
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
       epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)
       sources_df = Fetcher.get_sources_for_species(all_taxa)
       build_tree_for_species(
-        taxon_id, all_taxa_map, species_name_map, is_vertebrate_map, 
+        taxon_id, species_name_map, is_vertebrate_map, 
         args.update_proteome, epitopes_df, sources_df
       )
 
@@ -209,7 +205,7 @@ def main():
     epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)
     sources_df = Fetcher.get_sources_for_species(all_taxa)
     build_tree_for_species(
-      taxon_id, all_taxa_map, species_name_map, is_vertebrate_map, 
+      taxon_id, species_name_map, is_vertebrate_map, 
       args.update_proteome, epitopes_df, sources_df
     )
 
