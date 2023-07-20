@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
-import argparse
 import pandas as pd
 from pathlib import Path
 
+from update_species import update_species_data
 from get_data import DataFetcher
 from select_proteome import ProteomeSelector
 from assign_gene_protein import GeneAndProteinAssigner
@@ -129,6 +129,7 @@ def build_tree_for_species(
 
 
 def main():
+  import argparse
   parser = argparse.ArgumentParser()
   
   parser.add_argument(
@@ -139,7 +140,7 @@ def main():
   parser.add_argument(
     '-t', '--taxon_id', 
     type=int, 
-    help='Taxon ID for the species to run protein tree.'
+    help='Taxon ID for the species to run protein tree individually.'
   )
   parser.add_argument(
     '-d', '--update_data',
@@ -150,6 +151,11 @@ def main():
     '-p', '--update_proteome',
     action='store_true',
     help='Update the proteome(s) to be used for the species.'
+  )
+  parser.add_argument(
+    '-s', '--update_species',
+    action='store_true',
+    help='Update the species table.'
   )
   
   data_dir = Path(__file__).parent.parent / 'data'
@@ -177,6 +183,9 @@ def main():
   )
 
   args = parser.parse_args()
+
+  if args.update_species:
+    update_species_data()    
   
   Fetcher = DataFetcher()
   if args.update_data or not (data_dir / 'epitopes.csv').exists():

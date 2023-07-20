@@ -12,6 +12,7 @@ bin/makeblastdb
 data/species/
 data/epitopes.csv
 data/sources.csv
+data/allergens.csv
 data/epitope_assignments.csv
 data/source_assignments.csv
 

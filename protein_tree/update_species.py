@@ -61,7 +61,7 @@ def update_species_data() -> None:
     species_df['Species Name'] = species_df['Species Name'].str.replace("'", "")
     
     # update species.csv which is in the directory above this script
-    species_df.to_csv(Path(__file__).parent.parent / 'species.csv', index=False)
+    species_df.to_csv(Path(__file__).parent.parent / 'data' / 'species.csv', index=False)
 
 
 def get_species_data(
