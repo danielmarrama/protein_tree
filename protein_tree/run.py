@@ -12,7 +12,6 @@ from assign_gene_protein import GeneAndProteinAssigner
 
 def run_protein_tree(
   taxon_id: int,
-  all_taxa: list,
   species_name: str,
   is_vertebrate: bool,
   update_proteome: bool,
@@ -24,7 +23,10 @@ def run_protein_tree(
   Args:
     taxon_id: Taxon ID for the species to run protein tree.
     species_name: Name of the species to run protein tree.
-    all_taxa: List of all children taxa for a species from the IEDB.
+    is_vertebrate: Whether or not the species is a vertebrate.
+    update_proteome: Whether or not to update the proteome to be used for the species.
+    epitopes_df: Epitope data for the species.
+    sources_df: Source antigen data for the species.
   """
   print(f'Building tree for {species_name} (ID: {taxon_id})...\n')
   
@@ -34,8 +36,11 @@ def run_protein_tree(
     return
 
   # update proteome if flag or if proteome doesn't exist
-  proteome_file = Path(f'species/{taxon_id}-{species_name.replace(" ", "_")}/proteome.fasta')
+  data_dir = Path(__file__).parent.parent / 'data'
+  proteome_file = data_dir / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}' / 'proteome.fasta'
+  
   if update_proteome or not proteome_file.exists():
+    update_proteome = True # if the file doesn't exist, update flag
     print('Getting the best proteome...')
     Selector = ProteomeSelector(taxon_id, species_name)
     print(f'Number of candidate proteomes: {Selector.num_of_proteomes}\n')
@@ -65,18 +70,35 @@ def run_protein_tree(
   # write data to metrics.csv
   metrics_path = Path(__file__).parent.parent / 'data' / 'metrics.csv'
   metrics_df = pd.read_csv(metrics_path)
-  idx = metrics_df['Species Taxon ID'] == taxon_id
-  
-  if update_proteome:
-    metrics_df.loc[idx, 'Proteome ID'] = proteome_data[0]
-    metrics_df.loc[idx, 'Proteome Taxon'] = proteome_data[1]
-    metrics_df.loc[idx, 'Proteome Type'] = proteome_data[2]
-  
-  metrics_df.loc[idx, 'Source Count'] = assigner_data[0]
-  metrics_df.loc[idx, 'Epitope Count'] = assigner_data[1]
-  metrics_df.loc[idx, 'Successful Source Assignment'] = successful_source_assignment
-  metrics_df.loc[idx, 'Successful Epitope Assignment'] = successful_epitope_assignment
-  
+
+  # add new row if species is not in metrics.csv
+  if taxon_id not in metrics_df['Species Taxon ID'].tolist(): 
+    new_row = {
+      'Species Taxon ID': taxon_id,
+      'Species Name': species_name,
+      'Proteome ID': proteome_data[0],
+      'Proteome Taxon': proteome_data[1],
+      'Proteome Type': proteome_data[2],
+      'Source Count': assigner_data[0],
+      'Epitope Count': assigner_data[1],
+      'Successful Source Assignment': successful_source_assignment,
+      'Successful Epitope Assignment': successful_epitope_assignment
+    }
+    metrics_df = pd.concat([metrics_df, pd.DataFrame([new_row])], ignore_index=True)
+
+  else: # update existing row
+    idx = metrics_df['Species Taxon ID'] == taxon_id
+    
+    if update_proteome:
+      metrics_df.loc[idx, 'Proteome ID'] = proteome_data[0]
+      metrics_df.loc[idx, 'Proteome Taxon'] = proteome_data[1]
+      metrics_df.loc[idx, 'Proteome Type'] = proteome_data[2]
+    
+    metrics_df.loc[idx, 'Source Count'] = assigner_data[0]
+    metrics_df.loc[idx, 'Epitope Count'] = assigner_data[1]
+    metrics_df.loc[idx, 'Successful Source Assignment'] = successful_source_assignment
+    metrics_df.loc[idx, 'Successful Epitope Assignment'] = successful_epitope_assignment
+    
   metrics_df.to_csv(metrics_path, index=False)
 
 
@@ -89,21 +111,23 @@ def build_tree_for_species(
   epitopes_df: pd.DataFrame,
   sources_df: pd.DataFrame
 ) -> None:
-  """Build protein tree for a species.
+  """Prepare a run of the protein tree for a species.
   
   Args:
     taxon_id: Taxon ID for the species to run protein tree.
     all_taxa_map: Mapping of taxon ID to all children taxa.
     species_name_map: Mapping of taxon ID to species name.
     is_vertebrate_map: Mapping of taxon ID to is_vertebrate.
+    update_proteome: Whether or not to update the proteome to be used for the species.
+    epitopes_df: Epitope data for the species.
+    sources_df: Source antigen data for the species.
   """
   all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
   species_name = species_name_map[taxon_id]
   is_vertebrate = is_vertebrate_map[taxon_id]
 
   run_protein_tree(
-    taxon_id, all_taxa, species_name, is_vertebrate, 
-    update_proteome, epitopes_df, sources_df
+    taxon_id, species_name, is_vertebrate, update_proteome, epitopes_df, sources_df
   )
   print(f'Protein tree built for {species_name} (ID: {taxon_id}).\n')
 
@@ -165,7 +189,7 @@ def main():
     print('All data written.')
 
   if args.all_species:
-    for taxon_id in valid_taxon_ids[156:]:
+    for taxon_id in valid_taxon_ids[155:]:
 
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
       epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)

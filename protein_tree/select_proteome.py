@@ -15,6 +15,7 @@ class ProteomeSelector:
 
     data_dir = Path(__file__).parent.parent / 'data'
     self.species_dir = data_dir / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
+    self.species_dir.mkdir(parents=True, exist_ok=True)
 
     self.species_df = pd.read_csv(f'{data_dir}/species.csv') # IEBD species data
     self.metrics_df = pd.read_csv(f'{data_dir}/metrics.csv') # protein tree metrics
@@ -51,9 +52,6 @@ class ProteomeSelector:
       proteome_type = self.metrics_df[idx]['Proteome Type'].iloc[0]
       
       return proteome_id, proteome_taxon, proteome_type
-    
-    else:
-      self.species_dir.mkdir(parents=True, exist_ok=True)
 
     if self.proteome_list.empty:
       print('No proteomes found. Fetching orphan proteins.')

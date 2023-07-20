@@ -142,7 +142,7 @@ Species Taxon ID,Species Name,Proteome ID,Proteome Taxon,Proteome Type,Source Co
 1336,Streptococcus equi,UP000001365,553482.0,Non-redundant,3.0,37.0,100.0,75.67567567567568
 1349,Streptococcus uberis,UP000000449,218495.0,Representative,3.0,10.0,100.0,80.0
 1351,Enterococcus faecalis,UP000001415,226185.0,Representative,1.0,1.0,100.0,100.0
-1352,Enterococcus faecium,UP000003429,749522.0,Non-redundant,4.0,4.0,75.0,75.0
+1352,Enterococcus faecium,UP000003429,749522.0,Non-redundant,4.0,7.0,75.0,42.85714285714285
 1358,Lactococcus lactis,UP000002196,272623.0,Representative,3.0,3.0,100.0,100.0
 1390,Bacillus amyloliquefaciens,UP000276875,1390.0,Non-redundant,1.0,121.0,100.0,100.0
 1392,Bacillus anthracis (anthrax bacterium),UP000000594,1392.0,Reference,202.0,1963.0,100.0,97.7075904228222
@@ -1429,3 +1429,4 @@ Species Taxon ID,Species Name,Proteome ID,Proteome Taxon,Proteome Type,Source Co
 2951618,Lyssavirus hamburg,UP000008926,453115.0,Representative,,,,
 2951978,Betanucleorhabdovirus retesonchi,UP000002326,11307.0,Representative,,,,
 2978683,Burkholderia orbicola,UP000002169,406425.0,Non-redundant,,,,
+1359,Lactococcus cremoris,UP000015854,1234876.0,Representative,1.0,1.0,100.0,100.0
