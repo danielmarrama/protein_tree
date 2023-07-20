@@ -12,10 +12,12 @@ from assign_gene_protein import GeneAndProteinAssigner
 
 def run_protein_tree(
   taxon_id: int,
+  all_taxa: list,
   species_name: str,
-  all_taxa: str,
   is_vertebrate: bool,
-  update_proteome: bool
+  update_proteome: bool,
+  epitopes_df: pd.DataFrame,
+  sources_df: pd.DataFrame
 ) -> None:
   """Run all steps for the protein tree.
   
@@ -25,10 +27,6 @@ def run_protein_tree(
     all_taxa: List of all children taxa for a species from the IEDB.
   """
   print(f'Building tree for {species_name} (ID: {taxon_id})...\n')
-  print('Getting epitopes and sources data...')
-  Fetcher = DataFetcher(all_taxa)
-  epitopes_df, sources_df = Fetcher.get_data()
-  print('Done getting data.\n')
   
   # if there are no epitopes or sources, return None
   if epitopes_df.empty or sources_df.empty:
@@ -65,8 +63,7 @@ def run_protein_tree(
   print(f'Successful epitope assignments: {successful_epitope_assignment:.1f}%\n')
 
   # write data to metrics.csv
-  print('Recording metrics...') 
-  metrics_df = pd.read_csv(Path(__file__).parent.parent / 'metrics.csv')
+  metrics_df = pd.read_csv(Path(__file__).parent.parent / 'data' / 'metrics.csv')
   idx = metrics_df['Species Taxon ID'] == taxon_id
   
   if update_proteome:
@@ -80,7 +77,6 @@ def run_protein_tree(
   metrics_df.loc[idx, 'Successful Epitope Assignment'] = successful_epitope_assignment
   
   metrics_df.to_csv('metrics.csv', index=False)
-  print('Done recording metrics.\n')
 
 
 def build_tree_for_species(
@@ -88,7 +84,9 @@ def build_tree_for_species(
   all_taxa_map: dict,
   species_name_map: dict,
   is_vertebrate_map: dict,
-  update_proteome: bool
+  update_proteome: bool,
+  epitopes_df: pd.DataFrame,
+  sources_df: pd.DataFrame
 ) -> None:
   """Build protein tree for a species.
   
@@ -98,11 +96,14 @@ def build_tree_for_species(
     species_name_map: Mapping of taxon ID to species name.
     is_vertebrate_map: Mapping of taxon ID to is_vertebrate.
   """
-  all_taxa = all_taxa_map[taxon_id]
+  all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
   species_name = species_name_map[taxon_id]
   is_vertebrate = is_vertebrate_map[taxon_id]
 
-  run_protein_tree(taxon_id, species_name, all_taxa, is_vertebrate, update_proteome)
+  run_protein_tree(
+    taxon_id, all_taxa, species_name, is_vertebrate, 
+    update_proteome, epitopes_df, sources_df
+  )
   print(f'Protein tree built for {species_name} (ID: {taxon_id}).\n')
 
 
@@ -120,16 +121,18 @@ def main():
     help='Taxon ID for the species to run protein tree.'
   )
   parser.add_argument(
+    '-d', '--update_data',
+    action='store_true',
+    help='Pull the epitope and source tables from the IEDB backend.'
+  )
+  parser.add_argument(
     '-p', '--update_proteome',
     action='store_true',
     help='Update the proteome(s) to be used for the species.'
   )
   
-  args = parser.parse_args()
-
-  update_proteome = args.update_proteome
-
-  species_df = pd.read_csv('species.csv') # all species and their taxon IDs
+  data_dir = Path(__file__).parent.parent / 'data'
+  species_df = pd.read_csv(data_dir / 'species.csv')
   valid_taxon_ids = species_df['Species Taxon ID'].tolist()
   
   # taxa, species name, and is_vertebrate mapppings
@@ -152,18 +155,37 @@ def main():
     )
   )
 
+  args = parser.parse_args()
+  
+  Fetcher = DataFetcher()
+  if args.update_data:
+    print('Getting all data...')
+    Fetcher.get_all_data()
+    print('All data written.')
+
   if args.all_species:
-    for taxon_id in valid_taxon_ids:
+    for taxon_id in valid_taxon_ids[156:]:
+
+      all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
+      epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)
+      sources_df = Fetcher.get_sources_for_species(all_taxa)
       build_tree_for_species(
-        taxon_id, all_taxa_map, species_name_map, is_vertebrate_map, update_proteome
+        taxon_id, all_taxa_map, species_name_map, is_vertebrate_map, 
+        args.update_proteome, epitopes_df, sources_df
       )
-    print('All protein trees built.')
+
+    print('All species complete.')
 
   else: # one species at a time
     taxon_id = args.taxon_id
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
+
+    all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
+    epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)
+    sources_df = Fetcher.get_sources_for_species(all_taxa)
     build_tree_for_species(
-      taxon_id, all_taxa_map, species_name_map, is_vertebrate_map, update_proteome
+      taxon_id, all_taxa_map, species_name_map, is_vertebrate_map, 
+      args.update_proteome, epitopes_df, sources_df
     )
 
 if __name__ == '__main__':

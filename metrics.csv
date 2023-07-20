@@ -6,7 +6,7 @@ Species Taxon ID,Species Name,Proteome ID,Proteome Taxon,Proteome Type,Source Co
 158,Treponema denticola,UP000008212,243275.0,Representative,2.0,2.0,100.0,100.0
 160,Treponema pallidum,UP000000811,243276.0,Representative,13.0,474.0,100.0,91.35021097046412
 162,Treponema phagedenis,UP000042527,162.0,Representative,1.0,1.0,100.0,100.0
-173,Leptospira interrogans,UP000093180,211880.0,Representative,34.0,298.0,97.05882352941177,80.20134228187919
+173,Leptospira interrogans,UP000093180,211880.0,Representative,34.0,298.0,97.05882352941175,80.20134228187919
 188,Magnetospirillum magnetotacticum,UP000031971,272627.0,Other,5.0,5.0,100.0,80.0
 195,Campylobacter coli,UP000255069,195.0,Non-redundant,4.0,4.0,100.0,100.0
 196,Campylobacter fetus,UP000000760,360106.0,Representative,1.0,12.0,100.0,100.0
@@ -35,120 +35,120 @@ Species Taxon ID,Species Name,Proteome ID,Proteome Taxon,Proteome Type,Source Co
 358,Agrobacterium tumefaciens,UP000001600,311403.0,Non-redundant,2.0,2.0,100.0,0.0
 382,Sinorhizobium meliloti,UP000001976,266834.0,Representative,5.0,4.0,100.0,75.0
 384,Rhizobium leguminosarum,UP000002256,395491.0,Non-redundant,1.0,1.0,100.0,100.0
-446,Legionella pneumophila,UP000000609,272624.0,Representative,2.0,15.0,100.0,100.0
+446,Legionella pneumophila,UP000000609,272624.0,Representative,2.0,13.0,100.0,100.0
 450,Legionella longbeachae,UP000001060,661367.0,Non-redundant,1.0,1.0,100.0,100.0
-470,Acinetobacter baumannii,UP000072389,470.0,Non-redundant,8.0,178.0,87.5,97.19101124
+470,Acinetobacter baumannii,UP000072389,470.0,Non-redundant,8.0,177.0,87.5,97.74011299435028
 471,Acinetobacter calcoaceticus,UP000005126,575585.0,Non-redundant,1.0,1.0,100.0,100.0
-480,Moraxella catarrhalis,UP000000930,1236608.0,Representative,9.0,12.0,100.0,41.66666667
-485,Neisseria gonorrhoeae,UP000000535,242231.0,Reference,31.0,237.0,100.0,89.45147679
-487,Neisseria meningitidis,UP000000425,122586.0,Representative,68.0,198.0,100.0,73.73737374
+480,Moraxella catarrhalis,UP000000930,1236608.0,Representative,11.0,51.0,100.0,94.11764705882352
+485,Neisseria gonorrhoeae,UP000000535,242231.0,Reference,29.0,231.0,100.0,90.04329004329004
+487,Neisseria meningitidis,UP000000425,122586.0,Representative,59.0,155.0,100.0,78.70967741935485
 511,Alcaligenes faecalis,UP000245216,511.0,Non-redundant,2.0,2.0,100.0,50.0
 512,Alcaligenes sp.,,,,,,,
 518,Bordetella bronchiseptica,UP000001027,257310.0,Non-redundant,1.0,1.0,100.0,0.0
-520,Bordetella pertussis,UP000002676,257313.0,Representative,66.0,1105.0,100.0,93.93665158
+520,Bordetella pertussis,UP000002676,257313.0,Representative,3362.0,25887.0,99.3753718024985,97.8985591223394
 521,Bordetella avium,UP000001977,360910.0,Representative,1.0,1.0,100.0,100.0
-524,Acidiphilium cryptum (Acidiphilum cryptum),UP000000245,349163.0,Representative,1.0,2.0,100.0,50.0
+524,Acidiphilium cryptum (Acidiphilum cryptum),UP000000245,349163.0,Representative,1.0,1.0,100.0,100.0
 546,Citrobacter freundii,,,,,,,
-550,Enterobacter cloacae,UP000607214,550.0,Non-redundant,3.0,14.0,100.0,71.42857143
+550,Enterobacter cloacae,UP000607214,550.0,Non-redundant,4.0,15.0,100.0,66.66666666666666
 554,Pectobacterium carotovorum,UP000031378,555.0,Non-redundant,2.0,3.0,100.0,100.0
 556,Dickeya chrysanthemi,UP000002735,561229.0,Other,2.0,1.0,100.0,100.0
-562,Escherichia coli,UP000000558,83334.0,Representative,628.0,2154.0,91.56050955,55.38532962
-573,Klebsiella pneumoniae,UP000007841,1125630.0,Representative,33.0,413.0,93.93939394,93.70460048
-584,Proteus mirabilis,UP000008319,529507.0,Non-redundant,5.0,7.0,100.0,57.14285714
-615,Serratia marcescens,UP000037482,615.0,Non-redundant,6.0,4.0,100.0,75.0
-621,Shigella boydii,UP000001030,344609.0,Reference,24.0,28.0,100.0,78.57142857
-622,Shigella dysenteriae (Escherichia/Shigella dysenteriae),UP000002716,300267.0,Reference,10.0,16.0,100.0,93.75
-623,Shigella flexneri (Escherichia/Shigella flexneri),UP000001006,623.0,Reference,41.0,399.0,97.56097561,97.24310777
+562,Escherichia coli,UP000000558,83334.0,Representative,614.0,2043.0,86.80781758957656,24.669603524229075
+573,Klebsiella pneumoniae,UP000007841,1125630.0,Representative,32.0,411.0,93.75,94.16058394160584
+584,Proteus mirabilis,UP000008319,529507.0,Non-redundant,5.0,5.0,100.0,80.0
+615,Serratia marcescens,UP000037482,615.0,Non-redundant,6.0,3.0,100.0,100.0
+621,Shigella boydii,UP000001030,344609.0,Reference,24.0,26.0,100.0,84.61538461538461
+622,Shigella dysenteriae (Escherichia/Shigella dysenteriae),UP000002716,300267.0,Reference,10.0,13.0,100.0,92.3076923076923
+623,Shigella flexneri (Escherichia/Shigella flexneri),UP000001006,623.0,Reference,42.0,750.0,97.61904761904762,99.06666666666666
 624,Shigella sonnei,UP000002529,300269.0,Reference,12.0,20.0,100.0,95.0
-630,Yersinia enterocolitica,UP000000642,393305.0,Non-redundant,48.0,75.0,97.91666667,77.33333333
-632,Yersinia pestis,UP000000815,632.0,Representative,437.0,763.0,98.62700229,84.27260813
-633,Yersinia pseudotuberculosis,UP000001011,273123.0,Non-redundant,16.0,17.0,100.0,94.11764706
+630,Yersinia enterocolitica,UP000000642,393305.0,Non-redundant,48.0,68.0,97.91666666666666,85.29411764705883
+632,Yersinia pestis,UP000000815,632.0,Representative,436.0,656.0,98.62385321100918,97.71341463414636
+633,Yersinia pseudotuberculosis,UP000001011,273123.0,Non-redundant,15.0,14.0,100.0,100.0
 634,Yersinia bercovieri,UP000229378,634.0,Non-redundant,4.0,5.0,100.0,100.0
 636,Edwardsiella tarda,UP000002230,718251.0,Non-redundant,1.0,1.0,100.0,100.0
-644,Aeromonas hydrophila,UP000000756,380703.0,Representative,3.0,11.0,100.0,27.27272727
-645,Aeromonas salmonicida,UP000000225,382245.0,Non-redundant,2.0,127.0,100.0,96.8503937
+644,Aeromonas hydrophila,UP000000756,380703.0,Representative,3.0,11.0,100.0,27.27272727272727
+645,Aeromonas salmonicida,UP000000225,382245.0,Non-redundant,2.0,127.0,100.0,96.8503937007874
 659,Photobacterium phosphoreum,UP000240683,659.0,Non-redundant,1.0,1.0,100.0,100.0
 661,Photobacterium angustum,UP000001603,314292.0,Non-redundant,1.0,1.0,100.0,100.0
 663,Vibrio alginolyticus,UP000565155,663.0,Non-redundant,5.0,5.0,100.0,100.0
-666,Vibrio cholerae,UP000000584,243277.0,Representative,236.0,293.0,98.72881356,52.90102389
+666,Vibrio cholerae,UP000000584,243277.0,Representative,235.0,443.0,98.72340425531917,83.97291196388262
 668,Aliivibrio fischeri,,,,,,,
-670,Vibrio parahaemolyticus,UP000002493,223926.0,Representative,173.0,178.0,100.0,64.04494382
+670,Vibrio parahaemolyticus,UP000002493,223926.0,Representative,173.0,113.0,100.0,100.0
 671,Vibrio proteolyticus,UP000016570,1219065.0,Representative,1.0,1.0,100.0,100.0
-672,Vibrio vulnificus,UP000002275,216895.0,Non-redundant,241.0,245.0,99.17012448,55.91836735
+672,Vibrio vulnificus,UP000002275,216895.0,Non-redundant,241.0,159.0,99.1701244813278,86.79245283018868
 674,Vibrio mimicus,UP000004827,671074.0,Non-redundant,2.0,2.0,100.0,100.0
 703,Plesiomonas shigelloides,UP000014012,1315976.0,Representative,2.0,2.0,50.0,0.0
-714,Aggregatibacter actinomycetemcomitans,UP000323961,714.0,Non-redundant,10.0,11.0,100.0,36.36363636
-715,Actinobacillus pleuropneumoniae,UP000001432,416269.0,Representative,4.0,5.0,100.0,60.0
-727,Haemophilus influenzae,UP000000579,71421.0,Representative,115.0,161.0,98.26086957,70.80745342
+714,Aggregatibacter actinomycetemcomitans,UP000323961,714.0,Non-redundant,10.0,7.0,100.0,57.14285714285714
+715,Actinobacillus pleuropneumoniae,UP000001432,416269.0,Representative,2.0,2.0,100.0,100.0
+727,Haemophilus influenzae,UP000000579,71421.0,Representative,112.0,139.0,98.21428571428572,86.33093525179856
 730,Haemophilus ducreyi,UP000001022,233412.0,Representative,2.0,1.0,100.0,100.0
 731,Histophilus somni,,731.0,All-proteins,2.0,2.0,100.0,100.0
-738,Haemophilus parasuis,UP000006743,557723.0,Representative,2.0,2.0,100.0,50.0
-747,Pasteurella multocida,UP000000809,272843.0,Representative,20.0,18.0,100.0,55.55555556
+738,Haemophilus parasuis,UP000006743,557723.0,Representative,5.0,4.0,100.0,100.0
+747,Pasteurella multocida,UP000000809,272843.0,Representative,19.0,12.0,100.0,83.33333333333334
 769,Anaplasma centrale,UP000000630,574556.0,Other,3.0,4.0,100.0,100.0
-770,Anaplasma marginale,UP000007307,320483.0,Representative,29.0,250.0,100.0,54.8
-774,Bartonella bacilliformis,UP000000643,360095.0,Representative,3.0,36.0,100.0,86.11111111
-777,Coxiella burnetii,UP000002671,227377.0,Representative,377.0,777.0,97.08222812,67.82496782
-779,Ehrlichia ruminantium (heartwater rickettsia),UP000001021,254945.0,Non-redundant,12.0,30.0,100.0,80.0
-781,Rickettsia conorii,UP000000816,272944.0,Non-redundant,17.0,16.0,100.0,100.0
-782,Rickettsia prowazekii,UP000002480,272947.0,Representative,37.0,39.0,100.0,69.23076923
-783,Rickettsia rickettsii,UP000006832,392021.0,Non-redundant,9.0,95.0,100.0,98.94736842
-784,Orientia tsutsugamushi,UP000001565,357244.0,Representative,8.0,167.0,87.5,91.01796407
-785,Rickettsia typhi,UP000000604,257363.0,Non-redundant,12.0,12.0,100.0,83.33333333
+770,Anaplasma marginale,UP000007307,320483.0,Representative,29.0,218.0,100.0,66.97247706422019
+774,Bartonella bacilliformis,UP000000643,360095.0,Representative,3.0,36.0,100.0,77.77777777777779
+777,Coxiella burnetii,UP000002671,227377.0,Representative,377.0,550.0,97.08222811671088,95.63636363636364
+779,Ehrlichia ruminantium (heartwater rickettsia),UP000001021,254945.0,Non-redundant,13.0,41.0,100.0,100.0
+781,Rickettsia conorii,UP000000816,272944.0,Non-redundant,16.0,19.0,100.0,100.0
+782,Rickettsia prowazekii,UP000002480,272947.0,Representative,37.0,27.0,100.0,100.0
+783,Rickettsia rickettsii,UP000006832,392021.0,Non-redundant,10.0,95.0,100.0,100.0
+784,Orientia tsutsugamushi,UP000001565,357244.0,Representative,8.0,167.0,87.5,91.01796407185628
+785,Rickettsia typhi,UP000000604,257363.0,Non-redundant,12.0,10.0,100.0,100.0
 786,Rickettsia akari (rickettsialpox),UP000006830,293614.0,Other,1.0,1.0,100.0,100.0
 787,Rickettsia australis,UP000007589,1105110.0,Other,1.0,1.0,100.0,100.0
-788,Rickettsia canadensis,UP000007056,293613.0,Non-redundant,2.0,2.0,100.0,50.0
-813,Chlamydia trachomatis,UP000000431,272561.0,Representative,210.0,590.0,97.14285714,65.93220339
-817,Bacteroides fragilis,UP000006731,272559.0,Representative,10.0,124.0,90.0,96.77419355
+788,Rickettsia canadensis,UP000007056,293613.0,Non-redundant,2.0,1.0,100.0,100.0
+813,Chlamydia trachomatis,UP000000431,272561.0,Representative,212.0,851.0,97.16981132075472,76.96827262044653
+817,Bacteroides fragilis,UP000006731,272559.0,Representative,9.0,122.0,88.88888888888889,97.54098360655738
 818,Bacteroides thetaiotaomicron,UP000001414,226186.0,Representative,2.0,2.0,100.0,50.0
-837,Porphyromonas gingivalis,UP000000588,242619.0,Representative,32.0,414.0,100.0,55.31400966
-851,Fusobacterium nucleatum (Fusibacterium nucleatum),UP000002521,190304.0,Representative,30.0,146.0,80.0,73.28767123
+837,Porphyromonas gingivalis,UP000000588,242619.0,Representative,32.0,461.0,100.0,50.97613882863341
+851,Fusobacterium nucleatum (Fusibacterium nucleatum),UP000002521,190304.0,Representative,27.0,28.0,77.77777777777779,14.285714285714285
 891,Desulfuromonas acetoxidans,UP000005695,281689.0,Representative,1.0,1.0,100.0,100.0
 920,Acidithiobacillus ferrooxidans,UP000001362,243159.0,Representative,1.0,1.0,100.0,100.0
 944,Ehrlichia canis,UP000000435,269484.0,Non-redundant,4.0,25.0,100.0,100.0
 945,Ehrlichia chaffeensis,UP000008320,205920.0,Representative,6.0,44.0,100.0,100.0
-948,Anaplasma phagocytophilum (agent of human granulocytic ehrlichiosis),UP000001943,212042.0,Representative,17.0,89.0,100.0,44.94382022
+948,Anaplasma phagocytophilum (agent of human granulocytic ehrlichiosis),UP000001943,212042.0,Representative,17.0,76.0,100.0,13.157894736842104
 985,Cytophaga hutchinsonii,UP000001822,269798.0,Representative,2.0,2.0,100.0,100.0
-1006,Marivirga tractuosa,UP000008720,643867.0,Representative,2.0,1.0,100.0,100.0
+1006,Marivirga tractuosa,UP000008720,643867.0,Representative,2.0,2.0,100.0,100.0
 1018,Capnocytophaga ochracea,UP000006650,521097.0,Representative,2.0,1.0,100.0,100.0
 1022,Beggiatoa alba,UP000005744,395493.0,Representative,1.0,1.0,100.0,100.0
 1027,Microscilla marina,UP000004095,313606.0,Representative,1.0,1.0,100.0,100.0
-1063,Rhodobacter sphaeroides,UP000002703,272943.0,Representative,3.0,3.0,100.0,100.0
-1076,Rhodopseudomonas palustris,UP000001426,258594.0,Representative,2.0,3.0,100.0,33.33333333
+1063,Rhodobacter sphaeroides,UP000002703,272943.0,Representative,2.0,2.0,100.0,100.0
+1076,Rhodopseudomonas palustris,UP000001426,258594.0,Representative,2.0,3.0,100.0,33.33333333333333
 1102,Prosthecochloris aestuarii,UP000002725,290512.0,Representative,1.0,1.0,100.0,100.0
 1108,Chloroflexus aurantiacus,UP000002008,324602.0,Representative,1.0,1.0,100.0,100.0
 1148,Synechocystis sp. PCC 6803,UP000001425,1111708.0,Representative,2.0,1.0,100.0,100.0
 1206,Trichodesmium erythraeum,,1206.0,All-proteins,3.0,3.0,100.0,100.0
 1219,Prochlorococcus marinus,UP000000788,93059.0,Representative,1.0,1.0,100.0,0.0
 1254,Pediococcus acidilactici,UP000004470,862514.0,Representative,1.0,1.0,0.0,0.0
-1260,Finegoldia magna,UP000001319,334413.0,Representative,2.0,1.0,100.0,100.0
+1260,Finegoldia magna,UP000001319,334413.0,Representative,1.0,1.0,100.0,0.0
 1265,Ruminococcus flavefaciens,UP000019365,1341157.0,Representative,1.0,1.0,100.0,0.0
 1270,Micrococcus luteus,UP000000738,465515.0,Representative,2.0,1.0,100.0,100.0
-1280,Staphylococcus aureus,UP000008816,93061.0,Representative,125.0,1104.0,99.2,70.10869565
-1282,Staphylococcus epidermidis,UP000000531,176279.0,Reference,2.0,1.0,100.0,100.0
-1303,Streptococcus oralis,UP000071369,1303.0,Non-redundant,2.0,13.0,100.0,69.23076923
+1280,Staphylococcus aureus,UP000008816,93061.0,Representative,130.0,1074.0,99.23076923076924,74.58100558659217
+1282,Staphylococcus epidermidis,UP000000531,176279.0,Reference,2.0,2.0,100.0,100.0
+1303,Streptococcus oralis,UP000071369,1303.0,Non-redundant,2.0,12.0,100.0,75.0
 1305,Streptococcus sanguinis,UP000002148,388919.0,Representative,1.0,1.0,100.0,0.0
-1307,Streptococcus suis,UP000072231,1307.0,Representative,4.0,12.0,75.0,0.0
-1309,Streptococcus mutans,UP000002512,210007.0,Representative,10.0,365.0,100.0,84.38356164
-1310,Streptococcus sobrinus,UP000016617,1227275.0,Non-redundant,4.0,2.0,75.0,50.0
-1311,Streptococcus agalactiae,UP000000821,208435.0,Representative,12.0,21.0,100.0,76.19047619
-1313,Streptococcus pneumoniae,UP000000586,171101.0,Representative,66.0,654.0,100.0,39.29663609
-1314,Streptococcus pyogenes,UP000000750,301447.0,Representative,212.0,7682.0,98.11320755,90.56235355
+1307,Streptococcus suis,UP000072231,1307.0,Representative,4.0,12.0,100.0,100.0
+1309,Streptococcus mutans,UP000002512,210007.0,Representative,10.0,382.0,100.0,87.17277486910994
+1310,Streptococcus sobrinus,UP000016617,1227275.0,Non-redundant,4.0,8.0,75.0,50.0
+1311,Streptococcus agalactiae,UP000000821,208435.0,Representative,12.0,18.0,100.0,88.88888888888889
+1313,Streptococcus pneumoniae,UP000000586,171101.0,Representative,66.0,633.0,100.0,44.86571879936809
+1314,Streptococcus pyogenes,UP000000750,301447.0,Representative,203.0,6930.0,98.0295566502463,94.8051948051948
 1317,Streptococcus downei (Streptococcus downensis),UP000254082,764290.0,Representative,1.0,2.0,100.0,100.0
-1320,Streptococcus sp. group G,,1320.0,All-proteins,4.0,95.0,100.0,75.78947368421053
+1320,Streptococcus sp. group G,,1320.0,All-proteins,4.0,70.0,100.0,98.57142857142858
 1323,Faecalicoccus pleomorphus,,,,,,,
 1325,Streptococcus sp. GX7805,,,,,,,
 1329,Streptococcus canis,,,,,,,
-1334,Streptococcus dysgalactiae,UP000503331,119602.0,Non-redundant,9.0,63.0,100.0,79.36507937
-1336,Streptococcus equi,UP000001365,553482.0,Non-redundant,3.0,37.0,100.0,75.67567568
+1334,Streptococcus dysgalactiae,UP000503331,119602.0,Non-redundant,8.0,52.0,100.0,86.53846153846155
+1336,Streptococcus equi,UP000001365,553482.0,Non-redundant,3.0,37.0,100.0,75.67567567567568
 1349,Streptococcus uberis,UP000000449,218495.0,Representative,3.0,10.0,100.0,80.0
 1351,Enterococcus faecalis,UP000001415,226185.0,Representative,1.0,1.0,100.0,100.0
-1352,Enterococcus faecium,UP000003429,749522.0,Non-redundant,5.0,7.0,80.0,71.42857143
+1352,Enterococcus faecium,UP000003429,749522.0,Non-redundant,4.0,4.0,75.0,75.0
 1358,Lactococcus lactis,UP000002196,272623.0,Representative,3.0,3.0,100.0,100.0
-1390,Bacillus amyloliquefaciens,UP000276875,1390.0,Non-redundant,2.0,129.0,100.0,94.57364341
-1392,Bacillus anthracis (anthrax bacterium),UP000000594,1392.0,Reference,202.0,2106.0,100.0,91.40550807
-1396,Bacillus cereus,UP000001417,226900.0,Representative,95.0,108.0,94.73684211,61.11111111
-1402,Bacillus licheniformis,UP000000606,279010.0,Representative,12.0,256.0,100.0,87.5
-1404,Bacillus megaterium,UP000000935,545693.0,Representative,9.0,7.0,100.0,42.85714286
+1390,Bacillus amyloliquefaciens,UP000276875,1390.0,Non-redundant,1.0,121.0,100.0,100.0
+1392,Bacillus anthracis (anthrax bacterium),UP000000594,1392.0,Reference,202.0,1963.0,100.0,97.7075904228222
+1396,Bacillus cereus,UP000001417,226900.0,Representative,93.0,96.0,94.6236559139785,65.625
+1402,Bacillus licheniformis,UP000000606,279010.0,Representative,12.0,251.0,100.0,89.2430278884462
+1404,Bacillus megaterium,UP000000935,545693.0,Representative,9.0,7.0,100.0,42.85714285714285
 1408,Bacillus pumilus,UP000001355,315750.0,Representative,1.0,1.0,100.0,100.0
 1421,Lysinibacillus sphaericus,,,,,,,
 1422,Geobacillus stearothermophilus,UP000075424,1422.0,Non-redundant,4.0,4.0,100.0,25.0
@@ -1337,8 +1337,8 @@ Species Taxon ID,Species Name,Proteome ID,Proteome Taxon,Proteome Type,Source Co
 1891767,Macaca mulatta polyomavirus 1,UP000007705,1891767.0,Representative,8.0,81.0,100.0,86.41975308641975
 1891770,Mus musculus polyomavirus 2,UP000158963,1891770.0,Representative,1.0,1.0,100.0,100.0
 696863,Sprivivirus cyprinus,UP000007541,696863.0,Representative,,,,
-823,Parabacteroides distasonis,UP000000566,435591.0,Representative,,,,
-853,Faecalibacterium prausnitzii,UP000095722,853.0,Representative,,,,
+823,Parabacteroides distasonis,UP000000566,435591.0,Representative,1.0,1.0,100.0,0.0
+853,Faecalibacterium prausnitzii,UP000095722,853.0,Representative,3.0,3.0,100.0,66.66666666666666
 1590,Lactiplantibacillus plantarum,UP000000432,220668.0,Representative,,,,
 2100,Mesomycoplasma hyorhinis,UP000009399,1118964.0,Representative,,,,
 4784,Phytophthora capsici,,4784.0,All-proteins,,,,

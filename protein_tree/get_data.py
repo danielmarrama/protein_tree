@@ -13,6 +13,9 @@ class DataFetcher:
     self.data_dir = Path(__file__).parent.parent / 'data'
     self.sql_engine = create_sql_engine()
 
+    self.epitopes_df = pd.read_csv(self.data_dir / 'epitopes.csv')
+    self.sources_df = pd.read_csv(self.data_dir / 'sources.csv')
+
 
   def get_all_data(self) -> None:
     """Get all epitopes and source antigens tables."""
@@ -53,7 +56,8 @@ class DataFetcher:
       result2 = connection.execute(text(sql_query2))
 
       columns=[
-        'Linear Sequence', 'Discontinuous Sequence', 'Source Name', 'Source Accession', 'Organism ID'
+        'Linear Sequence', 'Discontinuous Sequence', 
+        'Source Name', 'Source Accession', 'Organism ID'
       ]
       df1 = pd.DataFrame(result1.fetchall(), columns=columns)
       df2 = pd.DataFrame(result2.fetchall(), columns=columns)
@@ -99,6 +103,7 @@ class DataFetcher:
     Args:
       all_taxa: list of all active children taxa for a species.
     """
+    return self.epitopes_df[self.epitopes_df['Organism ID'].isin(all_taxa)]
 
 
   def get_sources_for_species(self, all_taxa: list) -> pd.DataFrame:
@@ -107,6 +112,7 @@ class DataFetcher:
     Args:
       all_taxa: list of all active children taxa for a species.
     """
+    return self.sources_df[self.sources_df['Organism ID'].isin(all_taxa)]
 
 
 def main():
@@ -145,18 +151,21 @@ def main():
       DataFetcher().get_all_data()
       print('All data written.')
 
-    print('Writing separate files for a species...')
     taxon_id = args.taxon_id
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
 
     species_name = species_name_map[taxon_id]
     species_dir = data_dir / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
+    species_dir.mkdir(parents=True, exist_ok=True)
 
-    epitopes_df = DataFetcher().get_epitopes_for_species(all_taxa_map[taxon_id])
-    sources_df = DataFetcher().get_epitopes_for_species(all_taxa_map[taxon_id])
+    print(f'Writing separate files for {species_name}...')
+    all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
+    epitopes_df = DataFetcher().get_epitopes_for_species(all_taxa)
+    sources_df = DataFetcher().get_sources_for_species(all_taxa)
     
     epitopes_df.to_csv(species_dir / 'epitopes.csv', index=False)
     sources_df.to_csv(species_dir / 'sources.csv', index=False)
+    print(f'Epitopes and sources for {species_name} written.')
 
   else:
     print('Getting all data...')

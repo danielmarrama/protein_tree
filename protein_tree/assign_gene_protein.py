@@ -15,14 +15,17 @@ from pepmatch import Preprocessor, Matcher
 class GeneAndProteinAssigner:
   def __init__(self, taxon_id, species_name, is_vertebrate):
     self.taxon_id = taxon_id
-    self.species_path = Path(f'species/{taxon_id}-{species_name.replace(" ", "_")}')
     self.is_vertebrate = is_vertebrate
+
+    data_dir = Path(__file__).parent.parent / 'data'
+    self.species_dir = data_dir / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
+    
     self.source_gene_assignment = {}
     self.source_protein_assignment = {}
     self.source_assignment_score = {}
 
     # create UniProt ID -> gene map
-    self.proteome = pd.read_csv(f'{self.species_path}/proteome.csv')
+    self.proteome = pd.read_csv(f'{self.species_dir}/proteome.csv')
     self.uniprot_id_to_gene_map = dict(
       zip(
         self.proteome['Protein ID'], 
@@ -73,9 +76,12 @@ class GeneAndProteinAssigner:
     epitopes_df['Assigned Gene'] = epitopes_df['Source Accession'].map(self.source_gene_assignment)
     epitopes_df['Assigned Parent Protein ID'] = epitopes_df['Sequence'].map(self.epitope_parent_assignment)
 
+    epitopes_df.drop_duplicates(subset='Sequence', inplace=True) # drop duplicate epitopes
+    epitopes_df.to_csv(f'{self.species_dir}/epitopes.csv', index=False)
+
     sources_df.drop(columns=['Sequence'], inplace=True) # drop sequence column for output
-    sources_df.to_csv(f'{self.species_path}/sources.csv', index=False)
-    epitopes_df.to_csv(f'{self.species_path}/epitopes.csv', index=False)
+    sources_df.to_csv(f'{self.species_dir}/sources.csv', index=False)
+    
 
     self._remove_files()
     
@@ -139,7 +145,7 @@ class GeneAndProteinAssigner:
           id=row['Accession'],
           description='')
       )
-    with open(f'{self.species_path}/sources.fasta', 'w') as f:
+    with open(f'{self.species_dir}/sources.fasta', 'w') as f:
       SeqIO.write(seq_records, f, 'fasta')
 
 
@@ -147,25 +153,25 @@ class GeneAndProteinAssigner:
     """Run ARC to assign MHC/TCR/Ig to source antigens."""
     # pass sources.fasta to ARC
     SeqClassifier(
-      outfile=f'{self.species_path}/ARC_results.tsv',
+      outfile=f'{self.species_dir}/ARC_results.tsv',
       blast_path = './' 
-    ).classify_seqfile(f'{self.species_path}/sources.fasta')
-    arc_results = pd.read_csv(f'{self.species_path}/ARC_results.tsv', sep='\t')
+    ).classify_seqfile(f'{self.species_dir}/sources.fasta')
+    arc_results = pd.read_csv(f'{self.species_dir}/ARC_results.tsv', sep='\t')
     
     if not arc_results.dropna(subset=['class']).empty:
       arc_assignments = arc_results.set_index('id')['class'].to_dict()
       self.source_gene_assignment.update(arc_assignments)
 
-    os.remove(f'{self.species_path}/ARC_results.tsv')
+    os.remove(f'{self.species_dir}/ARC_results.tsv')
 
 
   def _preprocess_proteome_if_needed(self) -> None:
     """Preprocess the proteome if the preprocessed files don't exist."""
-    if not os.path.exists(f'{self.species_path}/proteome.db'):
-        gp_proteome = f'{self.species_path}/gp_proteome.fasta' if os.path.exists(f'{self.species_path}/gp_proteome.fasta') else ''
+    if not os.path.exists(f'{self.species_dir}/proteome.db'):
+        gp_proteome = f'{self.species_dir}/gp_proteome.fasta' if os.path.exists(f'{self.species_dir}/gp_proteome.fasta') else ''
         Preprocessor(
-          proteome = f'{self.species_path}/proteome.fasta',
-          preprocessed_files_path = f'{self.species_path}',
+          proteome = f'{self.species_dir}/proteome.fasta',
+          preprocessed_files_path = f'{self.species_dir}',
           gene_priority_proteome=gp_proteome
         ).sql_proteome(k = 5)
 
@@ -174,10 +180,10 @@ class GeneAndProteinAssigner:
     """Search epitopes within the proteome using PEPMatch."""
     df = Matcher(
       query = epitopes,
-      proteome_file = f'{self.species_path}/proteome.fasta',
+      proteome_file = f'{self.species_dir}/proteome.fasta',
       max_mismatches = 0, 
       k = 5, 
-      preprocessed_files_path = f'{self.species_path}', 
+      preprocessed_files_path = f'{self.species_dir}', 
       best_match=best_match, 
       output_format='dataframe',
       sequence_version=False
@@ -198,13 +204,14 @@ class GeneAndProteinAssigner:
     sequences and select the protein with the most matches.
     """
     # escape parentheses in species path
-    species_path = str(self.species_path).replace('(', '\(').replace(')', '\)')
+    bin_dir = Path(__file__).parent.parent / 'bin'
+    species_path = str(self.species_dir).replace('(', '\(').replace(')', '\)')
 
     os.system( # make BLAST database from proteome
-      f'./makeblastdb -in {species_path}/proteome.fasta -dbtype prot'
+      f'{bin_dir}/makeblastdb -in {species_path}/proteome.fasta -dbtype prot'
     ) 
     os.system( # run blastp
-      f'./blastp -query {species_path}/sources.fasta '\
+      f'{bin_dir}/blastp -query {species_path}/sources.fasta '\
       f'-db {species_path}/proteome.fasta '\
       f'-evalue 1 -num_threads 12 -outfmt 10 '\
       f'-out {species_path}/blast_results.csv'
@@ -215,7 +222,7 @@ class GeneAndProteinAssigner:
       'Target Start', 'Target End', 'e-Value', 'Bit Score'
     ]
     blast_results_df = pd.read_csv( # read in BLAST results
-      f'{self.species_path}/blast_results.csv', names=result_columns
+      f'{self.species_dir}/blast_results.csv', names=result_columns
     )
 
     # extract the UniProt ID from the target column
@@ -304,19 +311,19 @@ class GeneAndProteinAssigner:
     """Delete all the files that were created when making the BLAST database."""
     for extension in ['pdb', 'phr', 'pin', 'pjs', 'pot', 'psq', 'ptf', 'pto']:
       try: # if DB wasn't created this will throw an error
-        os.remove(glob.glob(f'{self.species_path}/*.{extension}')[0])
+        os.remove(glob.glob(f'{self.species_dir}/*.{extension}')[0])
       except IndexError:
         pass 
     
-    os.remove(f'{self.species_path}/blast_results.csv')
-    os.remove(f'{self.species_path}/sources.fasta')
+    os.remove(f'{self.species_dir}/blast_results.csv')
+    os.remove(f'{self.species_dir}/sources.fasta')
 
     # if self.is_vertebrate:
-    #   os.remove(f'{self.species_path}/ARC_results.tsv')
+    #   os.remove(f'{self.species_dir}/ARC_results.tsv')
 
     # if proteome.db exists, remove it
     try:
-      os.remove(f'{self.species_path}/proteome.db')
+      os.remove(f'{self.species_dir}/proteome.db')
     except OSError:
       pass
 

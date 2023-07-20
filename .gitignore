@@ -10,8 +10,10 @@ bin/makeblastdb
 
 # data files
 data/species/
-data/all_epitopes.csv
-data/all_sources.csv
+data/epitopes.csv
+data/sources.csv
+data/epitope_assignments.csv
+data/source_assignments.csv
 
 # locked files
 .~*

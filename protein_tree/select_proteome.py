@@ -13,12 +13,11 @@ class ProteomeSelector:
   def __init__(self, taxon_id, species_name):
     self.taxon_id = taxon_id
 
-    parent_dir = Path(__file__).resolve().parent.parent
-    species_dir = f'{taxon_id}-{species_name.replace(" ", "_")}'
-    self.species_path = parent_dir / 'species' / species_dir
+    data_dir = Path(__file__).parent.parent / 'data'
+    self.species_dir = data_dir / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
 
-    self.species_df = pd.read_csv(f'{parent_dir}/species.csv') # IEBD species data
-    self.metrics_df = pd.read_csv(f'{parent_dir}/metrics.csv') # protein tree metrics
+    self.species_df = pd.read_csv(f'{data_dir}/species.csv') # IEBD species data
+    self.metrics_df = pd.read_csv(f'{data_dir}/metrics.csv') # protein tree metrics
 
     self.proteome_list = self._get_proteome_list() # get all candidate proteomes
     self.num_of_proteomes = len(self.proteome_list) + 1 # +1 for all proteins option
@@ -45,7 +44,7 @@ class ProteomeSelector:
     Args:
       epitopes_df (pd.DataFrame): DataFrame of epitopes for the species to use for tie breaks.
     """
-    if (self.species_path / 'proteome.fasta').exists():
+    if (self.species_dir / 'proteome.fasta').exists():
       idx = self.metrics_df['Species Taxon ID'] == self.taxon_id
       proteome_id = self.metrics_df[idx]['Proteome ID'].iloc[0]
       proteome_taxon = self.metrics_df[idx]['Proteome Taxon'].iloc[0]
@@ -54,7 +53,7 @@ class ProteomeSelector:
       return proteome_id, proteome_taxon, proteome_type
     
     else:
-      self.species_path.mkdir(parents=True, exist_ok=True)
+      self.species_dir.mkdir(parents=True, exist_ok=True)
 
     if self.proteome_list.empty:
       print('No proteomes found. Fetching orphan proteins.')
@@ -94,7 +93,7 @@ class ProteomeSelector:
     self._remove_other_proteomes(proteome_id)
     
     # sanity check to make sure proteome.fasta is not empty
-    if (self.species_path / 'proteome.fasta').stat().st_size == 0:
+    if (self.species_dir / 'proteome.fasta').stat().st_size == 0:
       proteome_id = 'None'
       proteome_taxon = self.taxon_id
       proteome_type = 'All-proteins'
@@ -107,7 +106,7 @@ class ProteomeSelector:
     """Write the proteome data for a species to a CSV file for later use."""
     from Bio import SeqIO
     
-    if not (self.species_path / 'proteome.fasta').exists():
+    if not (self.species_dir / 'proteome.fasta').exists():
       return
 
     regexes = {
@@ -117,8 +116,8 @@ class ProteomeSelector:
       'pe_level': re.compile(r"PE=(.+?)\s"),        # between PE= and space
     }
 
-    proteins = list(SeqIO.parse(f'{self.species_path}/proteome.fasta', 'fasta'))
-    gp_proteome_path = self.species_path / 'gp_proteome.fasta'
+    proteins = list(SeqIO.parse(f'{self.species_dir}/proteome.fasta', 'fasta'))
+    gp_proteome_path = self.species_dir / 'gp_proteome.fasta'
     if gp_proteome_path.exists():
       gp_ids = [str(protein.id.split('|')[1]) for protein in list(SeqIO.parse(gp_proteome_path, 'fasta'))]
     else:
@@ -150,7 +149,7 @@ class ProteomeSelector:
     columns = ['Protein ID', 'Protein Name', 'Gene', 'Protein Existence Level', 'Gene Priority', 'Sequence', 'Database']
     proteome = pd.DataFrame(proteome_data, columns=columns)
     proteome = proteome[['Database', 'Gene', 'Protein ID', 'Protein Name', 'Protein Existence Level', 'Gene Priority', 'Sequence']]
-    proteome.to_csv(f'{self.species_path}/proteome.csv', index=False)
+    proteome.to_csv(f'{self.species_dir}/proteome.csv', index=False)
 
 
   def _get_proteome_list(self) -> pd.DataFrame:
@@ -188,7 +187,7 @@ class ProteomeSelector:
 
     # loop through all protein batches and write proteins to FASTA file
     for batch in self._get_protein_batches(url):
-      with open(f'{self.species_path}/proteome.fasta', 'a') as f:
+      with open(f'{self.species_dir}/proteome.fasta', 'a') as f:
         f.write(batch.text)
 
 
@@ -253,7 +252,7 @@ class ProteomeSelector:
       return
 
     # unzip the request and write the gene priority proteome to a file
-    with open(f'{self.species_path}/gp_proteome.fasta', 'wb') as f:
+    with open(f'{self.species_dir}/gp_proteome.fasta', 'wb') as f:
       f.write(gzip.open(r.raw, 'rb').read())
 
 
@@ -267,7 +266,7 @@ class ProteomeSelector:
     url = f'https://rest.uniprot.org/uniprotkb/stream?compressed=false&format=fasta&includeIsoform=true&query=(proteome:{proteome_id})'
     r = requests.get(url)
     r.raise_for_status()
-    with open(f'{self.species_path}/{proteome_id}.fasta', 'w') as f:
+    with open(f'{self.species_dir}/{proteome_id}.fasta', 'w') as f:
       f.write(r.text)
 
 
@@ -292,16 +291,16 @@ class ProteomeSelector:
       self._get_proteome_to_fasta(proteome_id)
       
       Preprocessor(
-        proteome = f'{self.species_path}/{proteome_id}.fasta',
-        preprocessed_files_path = f'{self.species_path}',
+        proteome = f'{self.species_dir}/{proteome_id}.fasta',
+        preprocessed_files_path = f'{self.species_dir}',
       ).sql_proteome(k = 5)
 
       matches_df = Matcher(
         query = epitopes, 
-        proteome_file = f'{self.species_path}/{proteome_id}.fasta', 
+        proteome_file = f'{self.species_dir}/{proteome_id}.fasta', 
         max_mismatches = 0, 
         k = 5,
-        preprocessed_files_path = f'{self.species_path}',
+        preprocessed_files_path = f'{self.species_dir}',
         output_format='dataframe'
       ).match()
       
@@ -329,13 +328,13 @@ class ProteomeSelector:
     """
     proteome_list_to_remove = self.proteome_list[self.proteome_list['upid'] != proteome_id]
     for i in list(proteome_list_to_remove['upid']):
-      os.remove(self.species_path / f'{i}.fasta')
-      os.remove(self.species_path / f'{i}.db')
+      os.remove(self.species_dir / f'{i}.fasta')
+      os.remove(self.species_dir / f'{i}.db')
     
     # rename the chosen proteome to proteome.fasta and remove the .db file
-    os.rename(f'{self.species_path}/{proteome_id}.fasta', f'{self.species_path}/proteome.fasta')
+    os.rename(f'{self.species_dir}/{proteome_id}.fasta', f'{self.species_dir}/proteome.fasta')
     if self.num_of_proteomes > 2: # there is only a .db file if there is more than one proteome
-      os.remove(f'{self.species_path}/{proteome_id}.db')
+      os.remove(f'{self.species_dir}/{proteome_id}.db')
 
 
 def run(
