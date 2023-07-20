@@ -148,7 +148,7 @@ Species Taxon ID,Species Name,Proteome ID,Proteome Taxon,Proteome Type,Source Co
 1392,Bacillus anthracis (anthrax bacterium),UP000000594,1392.0,Reference,202.0,1963.0,100.0,97.7075904228222
 1396,Bacillus cereus,UP000001417,226900.0,Representative,93.0,96.0,94.6236559139785,65.625
 1402,Bacillus licheniformis,UP000000606,279010.0,Representative,12.0,251.0,100.0,89.2430278884462
-1404,Bacillus megaterium,UP000000935,545693.0,Representative,9.0,7.0,100.0,42.857142857142854
+1404,Bacillus megaterium,UP000000935,545693.0,Representative,9.0,7.0,100.0,42.85714285714285
 1408,Bacillus pumilus,UP000001355,315750.0,Representative,1.0,1.0,100.0,100.0
 1421,Lysinibacillus sphaericus,,,,,,,
 1422,Geobacillus stearothermophilus,UP000075424,1422.0,Non-redundant,4.0,4.0,100.0,25.0

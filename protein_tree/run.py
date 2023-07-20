@@ -63,7 +63,8 @@ def run_protein_tree(
   print(f'Successful epitope assignments: {successful_epitope_assignment:.1f}%\n')
 
   # write data to metrics.csv
-  metrics_df = pd.read_csv(Path(__file__).parent.parent / 'data' / 'metrics.csv')
+  metrics_path = Path(__file__).parent.parent / 'data' / 'metrics.csv'
+  metrics_df = pd.read_csv(metrics_path)
   idx = metrics_df['Species Taxon ID'] == taxon_id
   
   if update_proteome:
@@ -76,7 +77,7 @@ def run_protein_tree(
   metrics_df.loc[idx, 'Successful Source Assignment'] = successful_source_assignment
   metrics_df.loc[idx, 'Successful Epitope Assignment'] = successful_epitope_assignment
   
-  metrics_df.to_csv('metrics.csv', index=False)
+  metrics_df.to_csv(metrics_path, index=False)
 
 
 def build_tree_for_species(
