@@ -26,10 +26,15 @@ class DataFetcher:
     epitopes_df = epitopes_df[
       epitopes_df['Source Accession'].isin(sources_df['Accession'])
     ]
+
+    # get allergen data
+    url = 'http://www.allergen.org/csv.php?table=joint'
+    allergen_df = pd.read_csv(url)
     
-    # write epitopes and source antigens to files
+    # write tables to fiels
     epitopes_df.to_csv(self.data_dir / 'epitopes.csv', index=False)
     sources_df.to_csv(self.data_dir / 'sources.csv', index=False)
+    allergen_df.to_csv(self.data_dir / 'allergens.csv', index=False)
 
 
   def _get_epitope_table(self) -> pd.DataFrame:

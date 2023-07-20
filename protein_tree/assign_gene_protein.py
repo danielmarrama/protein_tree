@@ -20,8 +20,8 @@ class GeneAndProteinAssigner:
     self.taxon_id = taxon_id
     self.is_vertebrate = is_vertebrate
 
-    data_dir = Path(__file__).parent.parent / 'data'
-    self.species_dir = data_dir / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
+    self.data_dir = Path(__file__).parent.parent / 'data'
+    self.species_dir = self.data_dir / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
     
     self.source_gene_assignment = {}
     self.source_protein_assignment = {}
@@ -333,8 +333,7 @@ class GeneAndProteinAssigner:
 
   def _assign_allergens(self) -> None:
     """Get allergen data from allergen.org and then assign allergens to sources."""
-    url = 'http://www.allergen.org/csv.php?table=joint'
-    allergen_df = pd.read_csv(url)
+    allergen_df = pd.read_csv(self.data_dir / 'allergens.csv')
     allergen_map = allergen_df.set_index('AccProtein')['Name'].to_dict()
 
     for k, v in self.source_protein_assignment.items():
