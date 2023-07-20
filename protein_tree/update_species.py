@@ -85,7 +85,7 @@ def get_species_data(
   if data is None:
     return None
 
-  if data[1] == 'genus':
+  if data[1] in ['genus', 'family', 'order', 'class', 'phylum', 'kingdom', 'superkingdom']:
     return None
   
   tax_ids = data[0].split(':')
