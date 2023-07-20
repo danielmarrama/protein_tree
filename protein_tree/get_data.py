@@ -13,9 +13,6 @@ class DataFetcher:
     self.data_dir = Path(__file__).parent.parent / 'data'
     self.sql_engine = create_sql_engine()
 
-    self.epitopes_df = pd.read_csv(self.data_dir / 'epitopes.csv')
-    self.sources_df = pd.read_csv(self.data_dir / 'sources.csv')
-
 
   def get_all_data(self) -> None:
     """Get all epitopes and source antigens tables."""
@@ -108,7 +105,11 @@ class DataFetcher:
     Args:
       all_taxa: list of all active children taxa for a species.
     """
-    return self.epitopes_df[self.epitopes_df['Organism ID'].isin(all_taxa)]
+    try:
+      epitopes_df = pd.read_csv(self.data_dir / 'epitopes.csv')
+    except FileNotFoundError:
+      epitopes_df = pd.read_csv(self.data_dir / 'epitopes.tsv', sep='\t')
+    return epitopes_df[epitopes_df['Organism ID'].isin(all_taxa)]
 
 
   def get_sources_for_species(self, all_taxa: list) -> pd.DataFrame:
@@ -117,7 +118,11 @@ class DataFetcher:
     Args:
       all_taxa: list of all active children taxa for a species.
     """
-    return self.sources_df[self.sources_df['Organism ID'].isin(all_taxa)]
+    try:
+      sources_df = pd.read_csv(self.data_dir / 'sources.csv')
+    except FileNotFoundError:
+      sources_df = pd.read_csv(self.data_dir / 'sources.tsv', sep='\t')
+    return sources_df[sources_df['Organism ID'].isin(all_taxa)]
 
 
 def main():
