@@ -179,13 +179,13 @@ def main():
   args = parser.parse_args()
   
   Fetcher = DataFetcher()
-  if args.update_data:
+  if args.update_data or not (data_dir / 'epitopes.csv').exists():
     print('Getting all data...')
     Fetcher.get_all_data()
     print('All data written.')
 
   if args.all_species:
-    for taxon_id in valid_taxon_ids[10:]:
+    for taxon_id in valid_taxon_ids:
 
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
       epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)
