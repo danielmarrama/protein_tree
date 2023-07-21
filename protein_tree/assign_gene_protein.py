@@ -149,22 +149,6 @@ class GeneAndProteinAssigner:
       SeqIO.write(seq_records, f, 'fasta')
 
 
-  def _run_arc(self) -> None:
-    """Run ARC to assign MHC/TCR/Ig to source antigens."""
-    # pass sources.fasta to ARC
-    SeqClassifier(
-      outfile=f'{self.species_dir}/ARC_results.tsv',
-      blast_path = './' 
-    ).classify_seqfile(f'{self.species_dir}/sources.fasta')
-    arc_results = pd.read_csv(f'{self.species_dir}/ARC_results.tsv', sep='\t')
-    
-    if not arc_results.dropna(subset=['class']).empty:
-      arc_assignments = arc_results.set_index('id')['class'].to_dict()
-      self.source_gene_assignment.update(arc_assignments)
-
-    os.remove(f'{self.species_dir}/ARC_results.tsv')
-
-
   def _preprocess_proteome_if_needed(self) -> None:
     """Preprocess the proteome if the preprocessed files don't exist."""
     if not os.path.exists(f'{self.species_dir}/proteome.db'):
@@ -321,14 +305,27 @@ class GeneAndProteinAssigner:
     os.remove(f'{self.species_dir}/blast_results.csv')
     os.remove(f'{self.species_dir}/sources.fasta')
 
-    if self.is_vertebrate:
-      os.remove(f'{self.species_dir}/ARC_results.tsv')
-
     # if proteome.db exists, remove it
     try:
       os.remove(f'{self.species_dir}/proteome.db')
     except OSError:
       pass
+
+
+  def _run_arc(self) -> None:
+    """Run ARC to assign MHC/TCR/Ig to source antigens."""
+    # pass sources.fasta to ARC
+    SeqClassifier(
+      outfile=f'{self.species_dir}/ARC_results.tsv',
+      blast_path = str(Path(__file__).parent.parent / 'bin') + '/',
+    ).classify_seqfile(f'{self.species_dir}/sources.fasta')
+    arc_results = pd.read_csv(f'{self.species_dir}/ARC_results.tsv', sep='\t')
+    
+    if not arc_results.dropna(subset=['class']).empty:
+      arc_assignments = arc_results.set_index('id')['class'].to_dict()
+      self.source_gene_assignment.update(arc_assignments)
+
+    os.remove(f'{self.species_dir}/ARC_results.tsv')
 
 
   def _assign_allergens(self) -> None:
