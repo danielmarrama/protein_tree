@@ -428,4 +428,5 @@ Species Taxon ID,Species Name,Proteome ID,Proteome Taxon,Proteome Type,Source Co
 7719,Ciona intestinalis,UP000008144,7719,Representative,3,3,100.0,33.33333333333333
 7741,Branchiostoma belcheri,UP000515135,7741,Representative,1,1,100.0,100.0
 7787,Tetronarce californica,,7787,All-proteins,9,227,100.0,99.11894273127754
-7788,Torpedo marmorata,None,7788,All-proteins,2,6,100.0,100.0
+7788,Torpedo marmorata,,7788,All-proteins,2,6,100.0,100.0
+7955,Danio rerio,UP000000437,7955,Representative,9,8,100.0,100.0
