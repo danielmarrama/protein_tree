@@ -75,9 +75,7 @@ Use [combine_data.py](combine_data.py) to merge all epitopes.csv and all sources
 
 
 ### TODO
-- Add flag to do proteome selection - default is to use the proteome already selected (if there is one)
 - Implement skipping a species if the data is the same as the last build
-- Create manual assignments at the end of the all-species build
 - Create a tree for visualization
 
 

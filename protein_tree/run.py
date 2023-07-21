@@ -199,6 +199,7 @@ def main():
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
       epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)
       sources_df = Fetcher.get_sources_for_species(all_taxa)
+
       build_tree_for_species(
         taxon_id, species_name_map, is_vertebrate_map, 
         args.update_proteome, epitopes_df, sources_df
@@ -213,6 +214,7 @@ def main():
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
     epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)
     sources_df = Fetcher.get_sources_for_species(all_taxa)
+    
     build_tree_for_species(
       taxon_id, species_name_map, is_vertebrate_map, 
       args.update_proteome, epitopes_df, sources_df

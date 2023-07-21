@@ -299,7 +299,10 @@ class GeneAndProteinAssigner:
         if epitope_protein.empty: # still empty, skip
           continue
 
-        self.epitope_parent_assignment[epitope] = epitope_protein['Protein ID'].values[0]
+        if isinstance(epitope_protein['Protein ID'], pd.Series):
+            self.epitope_parent_assignment[epitope] = epitope_protein['Protein ID'].values[0]
+        else: # sometimes epitope_protein['Protein ID'] is a string
+            self.epitope_parent_assignment[epitope] = epitope_protein['Protein ID']
     
     # count the number of epitopes with matches
     num_matched_epitopes = len(self.epitope_parent_assignment.keys())

@@ -1,7 +1,7 @@
 __pycache__/
 .DS_Store
-.ipynb_checkpoints/
 
+notebooks/
 snapshot_2022-12-20/
 
 # bin files
@@ -20,5 +20,4 @@ data/source_assignments.csv
 .~*
 
 id_to_gene_name.tsv
-protein_tree.ipynb
 tree.txt
