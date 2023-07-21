@@ -64,10 +64,8 @@ class GeneAndProteinAssigner:
     )
     num_matched_sources = self._assign_genes(sources_df, epitopes_df, num_sources)
     num_matched_epitopes = self._assign_parents()
-
-    # TODO: move this to the final tree building script
     self._assign_allergens()
-    # self._assign_manuals()
+    self._assign_manuals()
 
     # map source antigens to their best blast matches (UniProt ID and gene) for sources
     sources_df.loc[:, 'Assigned Gene'] = sources_df['Accession'].map(self.source_gene_assignment)
@@ -85,7 +83,6 @@ class GeneAndProteinAssigner:
     sources_df.drop(columns=['Sequence'], inplace=True) # drop sequence column for output
     sources_df.to_csv(f'{self.species_dir}/sources.csv', index=False)
     
-
     self._remove_files()
     
     assigner_data = (
@@ -321,8 +318,8 @@ class GeneAndProteinAssigner:
     os.remove(f'{self.species_dir}/blast_results.csv')
     os.remove(f'{self.species_dir}/sources.fasta')
 
-    # if self.is_vertebrate:
-    #   os.remove(f'{self.species_dir}/ARC_results.tsv')
+    if self.is_vertebrate:
+      os.remove(f'{self.species_dir}/ARC_results.tsv')
 
     # if proteome.db exists, remove it
     try:
@@ -346,8 +343,7 @@ class GeneAndProteinAssigner:
     genes and proteins to sources.
     """
     # manual_assignments.csv should be in the directory above this one
-    directory = Path(__file__).resolve().parent.parent
-    manual_df = pd.read_csv(directory / 'manual_assignments.csv')
+    manual_df = pd.read_csv(self.data_dir / 'manual_assignments.csv')
     manual_gene_map = manual_df.set_index('Accession')['Accession Gene'].to_dict()
     manual_protein_id_map = manual_df.set_index('Accession')['Parent Accession'].to_dict()
     manual_protein_name_map = manual_df.set_index('Accession')['Parent Name'].to_dict()

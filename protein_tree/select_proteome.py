@@ -59,32 +59,32 @@ class ProteomeSelector:
       return 'None', self.taxon_id, 'All-proteins'
 
     if self.proteome_list['isRepresentativeProteome'].any():
-      print('Found representative proteome(s).')
+      print('Found representative proteome(s).\n')
       proteome_type = 'Representative'
       self.proteome_list = self.proteome_list[self.proteome_list['isRepresentativeProteome']]
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
       self._get_gp_proteome_to_fasta(proteome_id, proteome_taxon)
     
     elif self.proteome_list['isReferenceProteome'].any():
-      print('Found reference proteome(s).')
+      print('Found reference proteome(s).\n')
       proteome_type = 'Reference'
       self.proteome_list = self.proteome_list[self.proteome_list['isReferenceProteome']]
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
       self._get_gp_proteome_to_fasta(proteome_id, proteome_taxon)
 
     elif 'redundantTo' not in self.proteome_list.columns:
-      print('Found other proteome(s).')
+      print('Found other proteome(s).\n')
       proteome_type = 'Other'
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
     
     elif self.proteome_list['redundantTo'].isna().any():
-      print('Found non-redundant proteome(s).')
+      print('Found non-redundant proteome(s).\n')
       proteome_type = 'Non-redundant'
       self.proteome_list = self.proteome_list[self.proteome_list['redundantTo'].isna()]
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
     
     else:
-      print('Found other proteome(s).')
+      print('Found other proteome(s).\n')
       proteome_type = 'Other'
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
 
@@ -108,10 +108,10 @@ class ProteomeSelector:
       return
 
     regexes = {
-      'protein_id': re.compile(r"\|([^|]*)\|"),     # between | and |
-      'protein_name': re.compile(r"\s(.+?)\sOS"),   # between space and space before OS
-      'gene': re.compile(r"GN=(.+?)\s"),            # between GN= and space
-      'pe_level': re.compile(r"PE=(.+?)\s"),        # between PE= and space
+      'protein_id': re.compile(r"\|([^|]*)\|"),    # between | and |
+      'protein_name': re.compile(r"\s(.+?)\sOS"),  # between space and space before OS
+      'gene': re.compile(r"GN=(.+?)\s"),           # between GN= and space
+      'pe_level': re.compile(r"PE=(.+?)\s"),       # between PE= and space
     }
 
     proteins = list(SeqIO.parse(f'{self.species_dir}/proteome.fasta', 'fasta'))
@@ -262,7 +262,10 @@ class ProteomeSelector:
       proteome_id (str): UniProt Proteome ID.
     """
     url = f'https://rest.uniprot.org/uniprotkb/stream?compressed=false&format=fasta&includeIsoform=true&query=(proteome:{proteome_id})'
-    r = requests.get(url)
+    try:
+      r = requests.get(url)
+    except requests.exceptions.ChunkedEncodingError:
+      r = requests.get(url) # try again if ChunkedEncodingError
     r.raise_for_status()
     with open(f'{self.species_dir}/{proteome_id}.fasta', 'w') as f:
       f.write(r.text)
