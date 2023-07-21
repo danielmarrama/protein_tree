@@ -79,3 +79,10 @@ Use [combine_data.py](combine_data.py) to merge all epitopes.csv and all sources
 - Implement skipping a species if the data is the same as the last build
 - Create manual assignments at the end of the all-species build
 - Create a tree for visualization
+
+
+### Workflow
+
+<p align="center">
+  <img src="docs/workflow.png">
+</p>
