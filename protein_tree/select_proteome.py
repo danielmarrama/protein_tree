@@ -263,12 +263,14 @@ class ProteomeSelector:
     """
     url = f'https://rest.uniprot.org/uniprotkb/stream?compressed=false&format=fasta&includeIsoform=true&query=(proteome:{proteome_id})'
     try:
-      r = requests.get(url)
+      with requests.get(url, stream=True) as r:
+        r.raise_for_status()   
+        with open(f'{self.species_dir}/{proteome_id}.fasta', 'w') as f:
+          for chunk in r.iter_content(chunk_size=8192):
+            if chunk:  # filter out keep-alive new chunks
+              f.write(chunk.decode())
     except requests.exceptions.ChunkedEncodingError:
-      r = requests.get(url) # try again if ChunkedEncodingError
-    r.raise_for_status()
-    with open(f'{self.species_dir}/{proteome_id}.fasta', 'w') as f:
-      f.write(r.text)
+      self._get_proteome_to_fasta(proteome_id)  # Recursive call on error
 
 
   def _get_proteome_with_most_matches(self, epitopes_df: pd.DataFrame) -> tuple:
