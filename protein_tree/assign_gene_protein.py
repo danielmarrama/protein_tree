@@ -5,6 +5,7 @@ warnings.filterwarnings('ignore')
 
 import os
 import glob
+import multiprocessing
 import pandas as pd
 
 from ARC.classifier import SeqClassifier
@@ -14,6 +15,8 @@ from Bio.SeqRecord import SeqRecord
 from pathlib import Path
 from pepmatch import Preprocessor, Matcher
 
+
+NUM_THREADS = multiprocessing.cpu_count() - 2
 
 class GeneAndProteinAssigner:
   def __init__(self, taxon_id, species_name, is_vertebrate):
@@ -197,7 +200,7 @@ class GeneAndProteinAssigner:
     os.system( # run blastp
       f'{bin_dir}/blastp -query {species_path}/sources.fasta '\
       f'-db {species_path}/proteome.fasta '\
-      f'-evalue 1 -num_threads 12 -outfmt 10 '\
+      f'-evalue 1 -num_threads {NUM_THREADS} -outfmt 10 '\
       f'-out {species_path}/blast_results.csv'
     ) 
     result_columns = [
@@ -314,11 +317,16 @@ class GeneAndProteinAssigner:
 
   def _run_arc(self) -> None:
     """Run ARC to assign MHC/TCR/Ig to source antigens."""
+
+    print('Running ARC for MHC/TCR/Ig assignments...\n')
+
     # pass sources.fasta to ARC
     SeqClassifier(
       outfile=f'{self.species_dir}/ARC_results.tsv',
+      threads=NUM_THREADS,
       blast_path = str(Path(__file__).parent.parent / 'bin') + '/',
     ).classify_seqfile(f'{self.species_dir}/sources.fasta')
+
     arc_results = pd.read_csv(f'{self.species_dir}/ARC_results.tsv', sep='\t')
     
     if not arc_results.dropna(subset=['class']).empty:
