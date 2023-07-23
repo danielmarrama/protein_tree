@@ -40,6 +40,7 @@ def run_protein_tree(
   
   if update_proteome or not proteome_file.exists():
     update_proteome = True # if the file doesn't exist, update flag
+    
     print('Getting the best proteome...')
     Selector = ProteomeSelector(taxon_id, species_name)
     print(f'Number of candidate proteomes: {Selector.num_of_proteomes}\n')

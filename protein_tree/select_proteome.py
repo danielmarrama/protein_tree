@@ -343,46 +343,46 @@ class ProteomeSelector:
 def run(
   taxon_id: int, all_taxa: list, species_name: str, metrics_df: pd.DataFrame
 ) -> None:
-    """Run the proteome selection process for a species.
-    
-    Args:
-      taxon_id (int): Taxon ID for the species.
-      all_taxa (list): List of all children taxa for the species.
-      species_name (str): Name of the species.
-      metrics_df (pd.DataFrame): DataFrame of metrics data.
-    """
-    from get_data import DataFetcher
-
-    Fetcher = DataFetcher()
-    epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)
-
-    print(f'Selecting best proteome for {species_name} (Taxon ID: {taxon_id}).')
-    Selector = ProteomeSelector(taxon_id, species_name)
-    print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')
-
-    proteome_data = Selector.select_best_proteome(epitopes_df)
-    Selector.proteome_to_csv()
-    
-    print(f'Proteome ID: {proteome_data[0]}')
-    print(f'Proteome taxon: {proteome_data[1]}')
-    print(f'Proteome type: {proteome_data[2]}')
+  """Run the proteome selection process for a species.
   
-    # update metrics data to metrics.csv file
-    if taxon_id not in metrics_df['Species Taxon ID'].tolist():
-      new_row = {
-        'Species Taxon ID': taxon_id,
-        'Species Name': species_name,
-        'Proteome ID': proteome_data[0],
-        'Proteome Taxon': proteome_data[1],
-        'Proteome Type': proteome_data[2]
-      }
-      metrics_df = pd.concat([metrics_df, pd.DataFrame([new_row])], ignore_index=True)
-    else:
-      metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome ID'] = proteome_data[0]
-      metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Taxon'] = proteome_data[1]
-      metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Type'] = proteome_data[2]
+  Args:
+    taxon_id (int): Taxon ID for the species.
+    all_taxa (list): List of all children taxa for the species.
+    species_name (str): Name of the species.
+    metrics_df (pd.DataFrame): DataFrame of metrics data.
+  """
+  from get_data import DataFetcher
 
-    metrics_df.to_csv('metrics.csv', index=False)
+  Fetcher = DataFetcher()
+  epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)
+
+  print(f'Selecting best proteome for {species_name} (Taxon ID: {taxon_id}).')
+  Selector = ProteomeSelector(taxon_id, species_name)
+  print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')
+
+  proteome_data = Selector.select_best_proteome(epitopes_df)
+  Selector.proteome_to_csv()
+  
+  print(f'Proteome ID: {proteome_data[0]}')
+  print(f'Proteome taxon: {proteome_data[1]}')
+  print(f'Proteome type: {proteome_data[2]}')
+
+  # update metrics data to metrics.csv file
+  if taxon_id not in metrics_df['Species Taxon ID'].tolist():
+    new_row = {
+      'Species Taxon ID': taxon_id,
+      'Species Name': species_name,
+      'Proteome ID': proteome_data[0],
+      'Proteome Taxon': proteome_data[1],
+      'Proteome Type': proteome_data[2]
+    }
+    metrics_df = pd.concat([metrics_df, pd.DataFrame([new_row])], ignore_index=True)
+  else:
+    metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome ID'] = proteome_data[0]
+    metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Taxon'] = proteome_data[1]
+    metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Type'] = proteome_data[2]
+
+  metrics_df.to_csv('metrics.csv', index=False)
 
 
 def main():
