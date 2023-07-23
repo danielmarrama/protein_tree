@@ -297,24 +297,6 @@ class GeneAndProteinAssigner:
     return num_matched_epitopes
 
 
-  def _remove_files(self) -> None:
-    """Delete all the files that were created when making the BLAST database."""
-    for extension in ['pdb', 'phr', 'pin', 'pjs', 'pot', 'psq', 'ptf', 'pto']:
-      try: # if DB wasn't created this will throw an error
-        os.remove(glob.glob(f'{self.species_dir}/*.{extension}')[0])
-      except IndexError:
-        pass 
-    
-    os.remove(f'{self.species_dir}/blast_results.csv')
-    os.remove(f'{self.species_dir}/sources.fasta')
-
-    # if proteome.db exists, remove it
-    try:
-      os.remove(f'{self.species_dir}/proteome.db')
-    except OSError:
-      pass
-
-
   def _run_arc(self) -> None:
     """Run ARC to assign MHC/TCR/Ig to source antigens."""
 
@@ -332,8 +314,6 @@ class GeneAndProteinAssigner:
     if not arc_results.dropna(subset=['class']).empty:
       arc_assignments = arc_results.set_index('id')['class'].to_dict()
       self.source_gene_assignment.update(arc_assignments)
-
-    os.remove(f'{self.species_dir}/ARC_results.tsv')
 
 
   def _assign_allergens(self) -> None:
@@ -361,6 +341,27 @@ class GeneAndProteinAssigner:
         self.source_gene_assignment[k] = manual_gene_map[k]
         self.source_protein_assignment[k] = manual_protein_id_map[k]
         self.uniprot_id_to_name_map[k] = manual_protein_name_map[k]
+
+
+  def _remove_files(self) -> None:
+    """Delete all the files that were created when making the BLAST database."""
+    for extension in ['pdb', 'phr', 'pin', 'pjs', 'pot', 'psq', 'ptf', 'pto']:
+      try: # if DB wasn't created this will throw an error
+        os.remove(glob.glob(f'{self.species_dir}/*.{extension}')[0])
+      except IndexError:
+        pass 
+    
+    os.remove(f'{self.species_dir}/blast_results.csv')
+    os.remove(f'{self.species_dir}/sources.fasta')
+
+    if self.is_vertebrate:
+      os.remove(f'{self.species_dir}/ARC_results.tsv')
+
+    # if proteome.db exists, remove it
+    try:
+      os.remove(f'{self.species_dir}/proteome.db')
+    except OSError:
+      pass
 
 
 def main():

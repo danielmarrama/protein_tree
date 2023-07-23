@@ -354,7 +354,7 @@ def run(
     from get_data import DataFetcher
 
     Fetcher = DataFetcher()
-    epitopes_df = Fetcher.get_epitopes(all_taxa)
+    epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)
 
     print(f'Selecting best proteome for {species_name} (Taxon ID: {taxon_id}).')
     Selector = ProteomeSelector(taxon_id, species_name)
@@ -405,8 +405,9 @@ def main():
   all_species = args.all_species
   taxon_id = args.taxon_id
 
-  species_df = pd.read_csv('species.csv') # IEDB species data
-  metrics_df = pd.read_csv('metrics.csv') # protein tree metrics data
+  data_dir = Path(__file__).parent.parent / 'data'
+  species_df = pd.read_csv(data_dir / 'species.csv')
+  metrics_df = pd.read_csv(data_dir / 'metrics.csv')
   valid_taxon_ids = species_df['Species Taxon ID'].tolist()
 
   all_taxa_map = dict( # map taxon ID to list of all children taxa
@@ -424,14 +425,18 @@ def main():
 
   if all_species: # run all species at once
     for taxon_id in valid_taxon_ids:
+
+      all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
       run(
-        taxon_id, all_taxa_map[taxon_id], species_id_to_name_map[taxon_id], metrics_df
+        taxon_id, all_taxa, species_id_to_name_map[taxon_id], metrics_df
       )
 
   else: # one species at a time
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
+
+    all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
     run(
-      taxon_id, all_taxa_map[taxon_id], species_id_to_name_map[taxon_id], metrics_df
+      taxon_id, all_taxa, species_id_to_name_map[taxon_id], metrics_df
     )
 
 if __name__ == '__main__':

@@ -1,6 +1,7 @@
 __pycache__/
 .DS_Store
 
+# folders
 notebooks/
 snapshot_2022-12-20/
 
@@ -16,8 +17,10 @@ data/allergens.csv
 data/epitope_assignments.csv
 data/source_assignments.csv
 
-# locked files
-.~*
-
+# other files
+docs/protein_tree.drawio
 id_to_gene_name.tsv
 tree.txt
+
+# locked files
+.~*
