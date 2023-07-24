@@ -16,8 +16,6 @@ from pathlib import Path
 from pepmatch import Preprocessor, Matcher
 
 
-NUM_THREADS = multiprocessing.cpu_count() - 2
-
 class GeneAndProteinAssigner:
   def __init__(
     self,
@@ -25,15 +23,17 @@ class GeneAndProteinAssigner:
     species_name,
     is_vertebrate,
     data_path = Path(__file__).parent.parent / 'data',
-    bin_path = Path(__file__).parent.parent / 'bin'
+    bin_path = Path(__file__).parent.parent / 'bin',
+    num_threads = multiprocessing.cpu_count() - 2
   ):
+    self.species_dir = data_path / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
     self.taxon_id = taxon_id
     self.is_vertebrate = is_vertebrate
-
     self.data_path = data_path
     self.bin_path = bin_path
-    self.species_dir = data_path / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
+    self.num_threads = num_threads
     
+    # initialize maps for assignments
     self.source_gene_assignment = {}
     self.source_protein_assignment = {}
     self.source_assignment_score = {}
@@ -206,7 +206,7 @@ class GeneAndProteinAssigner:
     os.system( # run blastp
       f'{self.bin_path}/blastp -query {species_path}/sources.fasta '\
       f'-db {species_path}/proteome.fasta '\
-      f'-evalue 1 -num_threads {NUM_THREADS} -outfmt 10 '\
+      f'-evalue 1 -num_threads {self.num_threads} -outfmt 10 '\
       f'-out {species_path}/blast_results.csv'
     ) 
     result_columns = [
@@ -310,8 +310,8 @@ class GeneAndProteinAssigner:
 
     # pass sources.fasta to ARC
     SeqClassifier(
-      outfile=f'{self.species_dir}/ARC_results.tsv',
-      threads=NUM_THREADS,
+      outfile = f'{self.species_dir}/ARC_results.tsv',
+      threads = self.num_threads,
       hmmer_path = self.bin_path,
       blast_path = self.bin_path
     ).classify_seqfile(f'{self.species_dir}/sources.fasta')
