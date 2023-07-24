@@ -979,3 +979,489 @@ Species Taxon ID,Species Name,Proteome ID,Proteome Taxon,Proteome Type,Source Co
 240426,Squirrelpox virus,UP000144311,240426,Representative,1.0,1.0,100.0,100.0
 246437,Tupaia chinensis,UP000011518,246437,Representative,4.0,7.0,100.0,85.71428571428571
 246787,Bacteroides cellulosilyticus,UP000061809,246787,Non-redundant,1.0,1.0,100.0,100.0
+252307,Robiginitalea biformata,UP000009049,313596,Representative,1.0,1.0,100.0,100.0
+256839,Shewanella decolorationis,UP000017548,1353536,Other,6.0,6.0,100.0,83.33333333333334
+259354,Desulfatibacillum alkenivorans,UP000183994,1121393,Other,1.0,1.0,100.0,100.0
+261202,Alto Paraguay hantavirus,,261202,All-proteins,1.0,3.0,100.0,100.0
+261204,Itapua hantavirus,,261204,All-proteins,5.0,12.0,100.0,100.0
+261658,Cavenderia fasciculata,UP000007797,261658,Representative,1.0,1.0,100.0,100.0
+263511,Crocosphaera watsonii,UP000003922,165597,Representative,1.0,1.0,100.0,100.0
+263815,Pneumocystis murina,UP000011958,1069680,Representative,2.0,3.0,100.0,100.0
+265606,Rhodopirellula baltica,UP000001025,243090,Representative,1.0,1.0,100.0,100.0
+265619,Ornithodoros erraticus,,265619,All-proteins,1.0,60.0,100.0,100.0
+266779,Chelativorans sp. BNC1,,266779,All-proteins,4.0,4.0,100.0,100.0
+267212,Neisseria bacilliformis,UP000004105,888742,Representative,1.0,1.0,100.0,100.0
+270478,Zantedeschia mild mosaic virus,UP000202900,270478,Other,1.0,1.0,100.0,100.0
+272131,Nostoc punctiforme,UP000001191,63737,Representative,2.0,2.0,100.0,100.0
+272636,Adeno-associated virus,UP000290640,272636,Other,4.0,153.0,100.0,6.535947712418301
+277944,Human coronavirus NL63,UP000008573,277944,Other,278.0,20504.0,100.0,74.56106125634022
+280240,Nocardiopsis baichengensis,,280240,All-proteins,1.0,1.0,0.0,0.0
+283877,Leucobacter chromiireducens,,283877,All-proteins,1.0,1.0,0.0,0.0
+284581,Priestia koreensis,UP000037558,284581,Representative,1.0,1.0,100.0,100.0
+286540,Soochong virus,UP000114195,286542,Other,1.0,1.0,100.0,100.0
+290028,Human coronavirus HKU1,UP000001985,443241,Representative,171.0,17383.0,100.0,60.674221940976814
+296587,Micromonas commoda,UP000002009,296587,Representative,2.0,1.0,100.0,100.0
+298653,Frankia sp. EAN1pec,,298653,All-proteins,2.0,2.0,100.0,100.0
+300180,Mopeia Lassa virus reassortant 29,UP000099038,300180,Other,1.0,4.0,100.0,100.0
+301964,CY1014 virus,,301964,All-proteins,1.0,1.0,100.0,100.0
+304399,Mule deerpox virus,UP000000866,305674,Representative,2.0,2.0,100.0,100.0
+304895,Catenulispora acidiphila,UP000000851,479433,Representative,1.0,1.0,100.0,100.0
+308159,Araucaria virus,,308159,All-proteins,3.0,15.0,100.0,100.0
+311410,Roseibium album,UP000049983,311410,Representative,1.0,1.0,100.0,0.0
+312306,Pseudomonas entomophila,UP000000658,384676,Other,1.0,1.0,100.0,100.0
+313589,Janibacter sp. HTCC2649,UP000005063,313589,Representative,1.0,1.0,100.0,100.0
+313627,Bacillus sp. NRRL B-14911,UP000004554,313627,Other,2.0,2.0,100.0,100.0
+314262,Roseobacter sp. MED193,UP000005943,314262,Other,1.0,1.0,100.0,100.0
+314275,Alteromonas mediterranea,UP000001870,1774373,Non-redundant,1.0,1.0,100.0,100.0
+316068,Leadbetterella byssophila,UP000007435,649349,Representative,1.0,1.0,100.0,100.0
+316287,Ceratogyrus marshalli,,316287,All-proteins,1.0,1.0,100.0,100.0
+320667,Trichosanthes dioica,,320667,All-proteins,1.0,1.0,100.0,100.0
+322053,Konjac mosaic virus,UP000202808,322053,Other,1.0,1.0,100.0,100.0
+328812,Parabacteroides goldsteinii,UP000014140,1235789,Non-redundant,4.0,4.0,100.0,100.0
+328814,Alistipes shahii,UP000008794,717959,Representative,1.0,1.0,100.0,0.0
+329852,Emesvirus zinderi,UP000002127,12022,Representative,1.0,2.0,100.0,100.0
+329854,Bacteroides intestinalis,UP000004596,471870,Non-redundant,1.0,2.0,100.0,50.0
+332163,Candidatus Solibacter usitatus,,332163,All-proteins,1.0,1.0,100.0,100.0
+333367,Enterocloster asparagiformis,UP000004756,518636,Non-redundant,1.0,1.0,100.0,100.0
+333754,Alphapapillomavirus 10,UP000104660,31552,Representative,30.0,351.0,100.0,62.96296296296296
+333757,Alphapapillomavirus 8,UP000144847,10615,Representative,3.0,4.0,100.0,25.0
+333767,Alphapapillomavirus 3,UP000172383,333772,Representative,1.0,1.0,100.0,100.0
+333926,Gammapapillomavirus 1,UP000009253,10617,Representative,1.0,4.0,100.0,100.0
+333990,Carnobacterium sp. AT7,UP000005587,333990,Other,1.0,1.0,100.0,100.0
+334203,Mupapillomavirus 1,UP000006372,10583,Representative,8.0,64.0,100.0,98.4375
+334205,Nupapillomavirus 1,UP000006367,10589,Representative,1.0,1.0,100.0,100.0
+334426,Angiostrongylus costaricensis,UP000267027,334426,Representative,1.0,1.0,100.0,100.0
+337039,Alphapapillomavirus 2,UP000009105,333759,Representative,3.0,5.0,100.0,20.0
+337041,Alphapapillomavirus 9,UP000009251,333760,Representative,135.0,1616.0,100.0,79.88861386138613
+337042,Alphapapillomavirus 7,UP000009109,333761,Representative,35.0,444.0,100.0,91.8918918918919
+337043,Alphapapillomavirus 4,UP000097916,333751,Representative,3.0,11.0,100.0,100.0
+337044,Alphapapillomavirus 5,UP000145193,129724,Representative,6.0,4.0,100.0,0.0
+337048,Alphapapillomavirus 1,UP000009117,333763,Representative,1.0,1.0,100.0,100.0
+337049,Alphapapillomavirus 11,UP000246263,51033,Representative,2.0,2.0,100.0,100.0
+337050,Alphapapillomavirus 6,UP000007666,10596,Representative,4.0,10.0,100.0,80.0
+337051,Betapapillomavirus 1,UP000009252,333923,Representative,1.0,1.0,100.0,100.0
+337052,Deltapapillomavirus 4,UP000113705,2758382,Representative,5.0,166.0,100.0,56.024096385542165
+337090,Chlorobium chlorochromatii,,337090,All-proteins,1.0,1.0,100.0,100.0
+337810,Oratosquilla oratoria,,337810,All-proteins,1.0,8.0,0.0,0.0
+338478,Macaque simian foamy virus,UP000142129,338478,Representative,1.0,1.0,100.0,100.0
+339268,Mycobacterium colombiense,UP000025947,1324261,Representative,215.0,336.0,100.0,96.42857142857144
+342409,White spot syndrome virus,UP000000327,654913,Representative,3.0,9.0,100.0,100.0
+344880,Sphingomonas dokdonensis,UP000197290,344880,Other,8.0,7.0,100.0,100.0
+351073,Mammalian orthoreovirus,UP000007253,10884,Representative,3.0,4.0,100.0,75.0
+351091,Oscillibacter valericigenes,,351091,All-proteins,1.0,2.0,100.0,0.0
+351745,Shewanella sp. W3-18-1,UP000002597,351745,Other,1.0,1.0,100.0,100.0
+357276,Phocaeicola dorei,UP000004849,483217,Non-redundant,4.0,5.0,100.0,80.0
+360549,Themiste hennahi,,360549,All-proteins,1.0,1.0,100.0,100.0
+363265,Prevotella stercorea,UP000004407,1002367,Other,1.0,1.0,100.0,100.0
+368445,Crocodilepox virus,,368445,All-proteins,2.0,2.0,0.0,0.0
+369960,Porcine type-C oncovirus,UP000101055,194958,Other,3.0,104.0,100.0,74.03846153846155
+370405,Gallionella capsiferriformans,UP000001235,395494,Representative,1.0,1.0,100.0,100.0
+371601,Bacteroides xylanisolvens,UP000183040,371601,Non-redundant,2.0,2.0,100.0,50.0
+374838,Reinekea blandensis,UP000005953,314283,Representative,1.0,1.0,100.0,100.0
+376805,Phocaeicola salanitronis,UP000007486,667015,Other,1.0,1.0,100.0,100.0
+386056,Paraburkholderia ferrariae,,386056,All-proteins,1.0,1.0,100.0,0.0
+387090,Phocaeicola coprophilus,UP000014073,547042,Other,1.0,2.0,100.0,100.0
+387093,Sulfurovum sp. NBC37-1,UP000006378,387093,Other,1.0,1.0,100.0,100.0
+387661,Parabacteroides johnsonii,UP000001218,999419,Representative,1.0,1.0,100.0,100.0
+388634,Bombyx mandarina nuclear polyhedrosis virus,,388634,All-proteins,1.0,1.0,100.0,100.0
+390157,Senecavirus A,UP000000672,686944,Reference,6.0,12.0,100.0,75.0
+392734,Terriglobus roseus,UP000006056,926566,Representative,1.0,1.0,100.0,100.0
+393662,Congregibacter litoralis,UP000019205,314285,Representative,1.0,1.0,100.0,100.0
+402648,Streptomyces hainanensis,UP000295345,402648,Representative,1.0,1.0,100.0,100.0
+408580,Bacillus coahuilensis,UP000074108,1150625,Representative,1.0,1.0,100.0,0.0
+408657,Dyadobacter koreensis,UP000199532,408657,Representative,1.0,1.0,100.0,100.0
+410072,Coprococcus comes,UP000003793,470146,Other,2.0,1.0,100.0,100.0
+413502,Cronobacter turicensis,UP000002069,693216,Non-redundant,1.0,1.0,100.0,100.0
+419612,Camelus ferus,UP000030684,419612,Representative,2.0,1.0,100.0,100.0
+420521,Expression vector pNIC-NHT-CF,,420521,All-proteins,1.0,1.0,0.0,0.0
+425088,Tanganya virus,,425088,All-proteins,1.0,1.0,100.0,100.0
+430511,Juquitiba virus,,430511,All-proteins,2.0,3.0,100.0,100.0
+439220,Streptococcus caballi,,439220,All-proteins,1.0,1.0,0.0,0.0
+444922,Psychromonas ossibalaenae,,444922,All-proteins,1.0,2.0,0.0,0.0
+446679,Nostoc sphaeroides,UP000326678,2653204,Representative,1.0,1.0,100.0,100.0
+447106,Leptospira licerasiae,UP000004889,1049972,Non-redundant,1.0,1.0,100.0,100.0
+452646,Neogale vison,UP000694425,452646,Representative,3.0,1.0,100.0,100.0
+463676,Rhinovirus C,UP000143371,1219377,Other,9.0,67.0,100.0,82.08955223880598
+465541,Streptomyces sp. Mg1,UP000035653,465541,Representative,1.0,1.0,100.0,100.0
+469009,Brassica napus phytoplasma,,469009,All-proteins,1.0,1.0,100.0,100.0
+469613,Enterobacteriaceae bacterium 9_2_54FAA,UP000004908,469613,Other,1.0,1.0,100.0,100.0
+471223,Geobacillus sp. WCH70,,471223,All-proteins,2.0,2.0,100.0,100.0
+472390,Prunus dulcis x Prunus persica,,472390,All-proteins,1.0,15.0,100.0,100.0
+479935,Gluconobacter morbifer,UP000004949,1088869,Representative,1.0,1.0,100.0,100.0
+482957,Burkholderia lata,UP000002705,482957,Non-redundant,5.0,2.0,100.0,100.0
+487316,Acinetobacter soli,UP000018433,1217677,Non-redundant,1.0,1.0,100.0,100.0
+487317,Aequorivita capsosiphonis,,487317,All-proteins,1.0,1.0,0.0,0.0
+502790,Aeromonas diversa,UP000023775,1268237,Other,1.0,1.0,100.0,100.0
+507750,Peptoniphilus duerdenii,UP000003280,862517,Representative,1.0,1.0,100.0,100.0
+515817,Amphioctopus fangsiao,,515817,All-proteins,1.0,1.0,100.0,100.0
+519424,Alkalihalobacillus trypoxylicola,UP000075806,519424,Representative,1.0,1.0,100.0,100.0
+545501,Oceanobacillus oncorhynchi,UP000040453,545501,Representative,1.0,1.0,100.0,100.0
+545650,Sporothrix brasiliensis,UP000031575,1398154,Other,6.0,7.0,100.0,100.0
+549169,Pseudogulbenkiania ferrooxidans,UP000003165,279714,Other,1.0,1.0,100.0,100.0
+558553,Crassostrea angulata,,558553,All-proteins,3.0,38.0,33.33333333333333,31.57894736842105
+563466,Scedosporium apiospermum,UP000028545,563466,Representative,1.0,1.0,100.0,0.0
+566466,gamma proteobacterium NOR5-3,UP000003977,566466,Other,1.0,1.0,100.0,100.0
+571800,Psychrobacter sp. G,UP000014806,571800,Other,1.0,1.0,100.0,100.0
+571949,Encephalitozoon romaleae,UP000010094,1178016,Other,1.0,1.0,100.0,100.0
+580165,Bacillus cytotoxicus,UP000242229,580165,Non-redundant,3.0,3.0,100.0,100.0
+588596,Rhizophagus irregularis,UP000018888,747089,Representative,1.0,1.0,100.0,100.0
+593106,Pyrophorus angustus,,593106,All-proteins,1.0,1.0,100.0,100.0
+630277,Tarsius lariang,,630277,All-proteins,1.0,1.0,100.0,100.0
+632955,Acinetobacter rudis,UP000014568,421052,Representative,1.0,1.0,100.0,100.0
+655809,Prevotella sp. oral taxon 472,UP000005290,619693,Other,1.0,1.0,100.0,100.0
+658655,Lachnospiraceae bacterium 1_4_56FAA,UP000004289,658655,Representative,1.0,1.0,100.0,100.0
+664662,Borreliella bavariensis,UP000002276,290434,Non-redundant,1.0,1.0,100.0,100.0
+674529,Bacteroides faecis,UP000095606,674529,Non-redundant,1.0,1.0,0.0,0.0
+686984,Sapelovirus A,UP000000407,1002921,Reference,2.0,2.0,100.0,50.0
+687347,Torque teno virus 8,UP000146867,687347,Other,1.0,6.0,100.0,100.0
+687350,Torque teno virus 11,UP000232560,687350,Representative,1.0,1.0,100.0,100.0
+687355,Torque teno virus 16,UP000144241,687355,Representative,1.0,4.0,100.0,100.0
+687362,Torque teno virus 23,UP000232667,687362,Other,1.0,2.0,100.0,100.0
+687366,Torque teno virus 27,UP000007551,687366,Representative,1.0,5.0,100.0,100.0
+687367,Torque teno virus 28,UP000160062,687367,Representative,2.0,3.0,100.0,100.0
+691956,Avihepatovirus A,UP000000404,693992,Reference,2.0,2.0,100.0,50.0
+693153,Vibrio atlanticus,UP000009100,575788,Other,1.0,1.0,100.0,100.0
+693997,Alphacoronavirus 1,UP000000835,33734,Representative,48.0,187.0,100.0,49.73262032085562
+693998,Rhinolophus bat coronavirus HKU2,UP000166619,693998,Representative,1.0,2.0,100.0,100.0
+693999,Scotophilus bat coronavirus 512,UP000113079,693999,Other,1.0,1.0,100.0,100.0
+694003,Betacoronavirus 1,UP000007552,31631,Representative,719.0,33271.0,99.30458970792768,49.26512578521836
+694005,Murine coronavirus,UP000007192,11142,Representative,21.0,973.0,100.0,50.87358684480987
+694006,Rousettus bat coronavirus HKU9,UP000006576,694006,Representative,2.0,2.0,100.0,100.0
+694007,Tylonycteris bat coronavirus HKU4,UP000006574,694007,Representative,3.0,4.0,100.0,100.0
+694008,Pipistrellus bat coronavirus HKU5,UP000007451,694008,Representative,3.0,3.0,100.0,100.0
+694009,Severe acute respiratory syndrome-related coronavirus,UP000464024,2697049,Representative,843.0,39926.0,98.81376037959669,67.78540299554176
+694014,Avian coronavirus,UP000006717,11122,Representative,28.0,102.0,100.0,27.450980392156865
+696859,Murine mastadenovirus C,UP000141842,573199,Other,1.0,1.0,100.0,100.0
+696863,Sprivivirus cyprinus,UP000007541,696863,Representative,1.0,1.0,100.0,100.0
+708187,Colletotrichum chlorophyti,UP000186583,708187,Representative,1.0,1.0,100.0,0.0
+742503,Tokudaia muenninki,,742503,All-proteins,1.0,1.0,100.0,100.0
+743722,Sphingobacterium sp. 21,,743722,All-proteins,1.0,1.0,100.0,100.0
+746128,Aspergillus fumigatus,UP000002530,330879,Representative,40.0,736.0,100.0,91.44021739130434
+759851,Sporosarcina newyorkensis,UP000005316,1027292,Other,1.0,1.0,100.0,100.0
+765414,Paraburkholderia bannensis,UP000571554,765414,Other,1.0,1.0,100.0,0.0
+863370,Meiothermus granaticius,UP000266178,1227551,Representative,1.0,1.0,100.0,100.0
+868131,Methanobacterium paludis,UP000009231,868131,Other,2.0,2.0,100.0,100.0
+870484,Nonlabens agnitus,UP000239532,870484,Other,1.0,1.0,100.0,100.0
+871325,Bacteroides faecichinchillae,UP000184436,871325,Representative,1.0,1.0,100.0,100.0
+875328,Mycolicibacter sinensis,UP000009224,875328,Representative,173.0,276.0,99.42196531791907,100.0
+905828,Duck astrovirus GII.A,UP000117347,707882,Other,2.0,1.0,100.0,100.0
+940614,Granulicella mallensis,UP000007113,682795,Representative,1.0,1.0,100.0,100.0
+945780,Synechocystis salina,,945780,All-proteins,1.0,1.0,0.0,0.0
+983924,Eidolon bat coronavirus/Kenya/KY24/2006,,983924,All-proteins,1.0,1.0,100.0,100.0
+983929,Chaerephon bat coronavirus/Kenya/KY22/2006,,983929,All-proteins,1.0,1.0,100.0,100.0
+1004253,Cyberlindnera mrakii,,1004253,All-proteins,2.0,2.0,100.0,100.0
+1005962,Ogataea parapolymorpha,UP000008673,871575,Representative,1.0,1.0,100.0,100.0
+1016852,Banana streak CA virus,UP000208096,1016852,Other,1.0,23.0,100.0,100.0
+1045775,Paenibacillus catalpae,UP000198855,1045775,Representative,1.0,1.0,100.0,100.0
+1047168,Zymoseptoria brevis,UP000033647,1047168,Representative,1.0,1.0,100.0,0.0
+1133319,Bacteroides reticulotermitis,UP000019131,1445607,Representative,1.0,1.0,100.0,100.0
+1134687,Klebsiella michiganensis,UP000020202,1134687,Representative,1.0,1.0,0.0,0.0
+1159904,Night heron coronavirus HKU19,UP000132721,1159904,Representative,1.0,1.0,100.0,100.0
+1159907,White-eye coronavirus HKU16,UP000135406,1159907,Other,1.0,1.0,100.0,100.0
+1159908,Wigeon coronavirus HKU20,UP000167590,1159908,Representative,1.0,1.0,100.0,100.0
+1160968,Rabbit coronavirus HKU14,UP000145001,1160968,Representative,1.0,1.0,100.0,100.0
+1173018,Phlebovirus WCH/97/HN/China/2011,,1173018,All-proteins,1.0,67.0,0.0,0.0
+1173701,Colletotrichum sublineola,UP000027238,1173701,Representative,1.0,1.0,100.0,0.0
+1176145,Pipapillomavirus 2,UP000129308,763552,Representative,5.0,57.0,100.0,100.0
+1179777,Mycoplasma feriruminatoris,UP000010753,1179777,Other,1.0,1.0,100.0,100.0
+1193095,Paucilactobacillus hokkaidonensis,UP000031620,1291742,Other,1.0,1.0,100.0,100.0
+1209926,Colletotrichum orchidophilum,UP000176998,1209926,Representative,1.0,1.0,100.0,0.0
+1214225,Acidocella sp. MX-AZ02,UP000006217,1214225,Representative,1.0,1.0,100.0,100.0
+1218488,Torque teno sus virus k2,,1218488,All-proteins,1.0,11.0,100.0,0.0
+1223514,Corynebacterium humireducens,UP000031524,1223515,Representative,14.0,11.0,100.0,100.0
+1236180,Halopelagius longus,UP000199289,1236180,Other,1.0,1.0,100.0,100.0
+1239565,Mamastrovirus 1,UP000001650,12456,Reference,3.0,3.0,100.0,0.0
+1239567,Mamastrovirus 3,UP000120357,1239567,Other,2.0,3.0,100.0,66.66666666666666
+1263102,Prevotella copri CAG:164,UP000018361,1263102,Representative,1.0,3.0,100.0,100.0
+1268303,Rhodococcus sp. AW25M09,UP000011207,1268303,Other,2.0,2.0,100.0,100.0
+1281454,Rodent hepacivirus,UP000297098,1281454,Other,2.0,17.0,100.0,100.0
+1285902,Artificial vector pGEX-2T,,1285902,All-proteins,1.0,1.0,0.0,0.0
+1330520,Enterovirus F,UP000101796,269638,Other,2.0,3.0,100.0,66.66666666666666
+1335626,Middle East respiratory syndrome-related coronavirus,UP000171868,1335626,Representative,913.0,55050.0,100.0,32.228882833787466
+1337054,Paenibacillus sp. A3,UP000050308,1337054,Other,1.0,1.0,100.0,100.0
+1349999,Goose astrovirus,UP000201524,1349999,Other,2.0,5.0,100.0,0.0
+1355477,Bradyrhizobium diazoefficiens,UP000002526,224911,Representative,1.0,1.0,100.0,100.0
+1380362,Ralstonia sp. UNC404CL21Col,,1380362,All-proteins,1.0,1.0,0.0,0.0
+1380386,Mycobacterium sp. URHB0044,,1380386,All-proteins,1.0,1.0,0.0,0.0
+1380865,Rana catesbeiana virus,UP000317581,1380865,Other,1.0,2.0,100.0,100.0
+1432052,Eisenbergiella tayi,UP000094067,1432052,Non-redundant,1.0,3.0,100.0,100.0
+1449063,Paenibacillus sp. UNC451MF,,1449063,All-proteins,1.0,1.0,0.0,0.0
+1457141,Chlamydia avium,UP000019433,1229831,Non-redundant,2.0,3.0,100.0,100.0
+1457153,Chlamydia gallinacea,UP000019147,1143323,Non-redundant,2.0,3.0,100.0,100.0
+1463841,Streptomyces sp. NRRL F-2580,,1463841,All-proteins,1.0,1.0,0.0,0.0
+1464048,Micromonospora parva,,1464048,All-proteins,1.0,1.0,0.0,0.0
+1472417,Butyricimonas paravirosa,UP000576368,1472417,Non-redundant,1.0,1.0,100.0,100.0
+1498499,Legionella norrlandica,UP000054422,1498499,Other,1.0,1.0,100.0,100.0
+1501332,Oribacterium asaccharolyticum,UP000003527,796944,Other,1.0,1.0,100.0,100.0
+1508220,Bat coronavirus,UP000501844,1508220,Representative,6.0,1.0,100.0,0.0
+1511891,Dependoparvovirus primate1,UP000180764,648242,Reference,10.0,1015.0,100.0,53.30049261083744
+1511892,Dependoparvovirus mammalian1,UP000207583,82300,Other,1.0,9.0,100.0,100.0
+1511895,Dependoparvovirus anseriform1,UP000099578,37325,Other,10.0,45.0,100.0,75.55555555555556
+1513262,Gammapapillomavirus 17,UP000156843,1070417,Representative,1.0,1.0,100.0,100.0
+1527299,Psychromonas sp. PRT-SC03,UP000053944,1527299,Representative,1.0,1.0,100.0,100.0
+1534553,Duck aviadenovirus B,UP000516061,1520006,Representative,4.0,10.0,100.0,100.0
+1564681,Carnobacterium sp. CP1,UP000064734,1564681,Representative,1.0,1.0,100.0,100.0
+1566298,Paraiso Escondido virus,UP000147468,1566298,Other,1.0,1.0,100.0,100.0
+1574408,Cervus canadensis,,1574408,All-proteins,2.0,5.0,100.0,100.0
+1631247,Mesorhizobium delmotii,UP000245698,1631247,Other,9.0,11.0,100.0,100.0
+1678143,Paslahepevirus balayani,UP000006705,652674,Reference,109.0,1982.0,100.0,58.476286579212925
+1678144,Avihepevirus magniiecur,UP000159379,1678144,Other,4.0,22.0,100.0,77.27272727272727
+1737357,Rhizobium wenxiniae,UP000547879,1737357,Non-redundant,1.0,1.0,100.0,100.0
+1776082,Shigella genomosp. SF-2015,,1776082,All-proteins,1.0,1.0,0.0,0.0
+1783360,Comamonas sediminis,,1783360,All-proteins,1.0,1.0,100.0,100.0
+1796646,Muribaculum intestinale,UP000186351,1796646,Representative,1.0,1.0,100.0,100.0
+1803956,Parechovirus A,UP000000670,122962,Reference,8.0,11.0,100.0,18.181818181818183
+1812858,Anaerosacchariphilus polymeriproducens,UP000255036,1812858,Representative,1.0,1.0,100.0,0.0
+1821749,Cardiovirus A,UP000002319,2870365,Reference,4.0,22.0,100.0,72.72727272727273
+1821750,Cardiovirus B,UP000120424,12127,Other,10.0,215.0,100.0,77.20930232558139
+1849603,Enterobacteriaceae bacterium,UP000257819,1849603,Other,1.0,1.0,100.0,100.0
+1855372,bacterium JGI 053,UP000218046,1855372,Representative,1.0,1.0,100.0,100.0
+1868482,Carlito syrichta,UP000189704,1868482,Representative,2.0,1.0,100.0,100.0
+1891726,Alphapolyomavirus quintihominis,UP000112534,493803,Representative,20.0,384.0,100.0,91.92708333333334
+1891727,Alphapolyomavirus octihominis,UP000112218,862909,Representative,1.0,2.0,100.0,100.0
+1891729,Alphapolyomavirus mauratus,UP000008477,1891729,Representative,2.0,26.0,100.0,100.0
+1891730,Alphapolyomavirus muris,UP000008479,10636,Representative,11.0,64.0,100.0,96.875
+1891762,Betapolyomavirus hominis,UP000103779,1891762,Other,13.0,96.0,100.0,96.875
+1891763,Betapolyomavirus secuhominis,UP000008478,10632,Representative,47.0,314.0,100.0,85.35031847133759
+1891767,Betapolyomavirus macacae,UP000007705,1891767,Representative,8.0,77.0,100.0,90.9090909090909
+1891770,Betapolyomavirus secumuris,UP000158963,1891770,Representative,1.0,1.0,100.0,100.0
+1895866,Verrucomicrobia bacterium 61-8,,1895866,All-proteins,1.0,1.0,0.0,0.0
+1897087,Orthobornavirus sciuri,UP000155354,1885248,Other,1.0,1.0,100.0,100.0
+1898104,Bacteroidota bacterium,UP000509427,1898104,Representative,2.0,1.0,100.0,0.0
+1898112,Rhodospirillaceae bacterium,UP000522138,1898112,Representative,1.0,1.0,100.0,0.0
+1898203,Lachnospiraceae bacterium,UP000191179,1898203,Representative,1.0,3.0,100.0,0.0
+1906674,Betanodavirus sp.,,1906674,All-proteins,1.0,3.0,100.0,66.66666666666666
+1913988,Alphaproteobacteria bacterium,UP000291202,1913988,Representative,1.0,1.0,100.0,0.0
+1965089,Coronavirus HKU15,UP000115701,1586324,Representative,8.0,8.0,100.0,75.0
+1965093,Hedgehog coronavirus 1,UP000101546,1385427,Representative,1.0,1.0,100.0,100.0
+1972577,Vesiculovirus indiana,UP000002327,11285,Representative,14.0,87.0,100.0,94.2528735632184
+1977402,Inovirus M13,UP000001836,2847073,Representative,3.0,2.0,100.0,100.0
+1978231,Acidobacteriota bacterium,UP000588066,1978231,Representative,1.0,1.0,100.0,0.0
+1980456,Orthohantavirus andesense,UP000204348,1980456,Representative,40.0,128.0,100.0,99.21875
+1980916,Novirhabdovirus piscine,UP000154838,11287,Representative,3.0,17.0,100.0,35.294117647058826
+1980917,Novirhabdovirus salmonid,UP000007212,429314,Representative,1.0,8.0,100.0,100.0
+1982365,Predatorvirus predator,UP000000621,543153,Representative,1.0,1.0,100.0,100.0
+1985738,Teseptimavirus T7,UP000000840,10760,Representative,3.0,1.0,100.0,100.0
+2015376,Bat mastadenovirus G,UP000204594,2015376,Other,1.0,1.0,100.0,100.0
+2016460,Giant panda anellovirus,UP000676270,2016460,Representative,1.0,1.0,100.0,0.0
+2016461,Giant panda associated gemycircularvirus,UP000268073,2016461,Representative,1.0,1.0,0.0,0.0
+2024894,Acidimicrobiaceae bacterium,UP000259374,2024894,Non-redundant,1.0,1.0,100.0,100.0
+2026800,Verrucomicrobiaceae bacterium,UP000293567,2026800,Representative,1.0,1.0,100.0,0.0
+2029108,Bacillus sp. UMB0899,,2029108,All-proteins,1.0,1.0,0.0,0.0
+2030927,Bacteroidales bacterium,UP000308886,2030927,Representative,18.0,8.0,94.44444444444444,0.0
+2032731,Swine acute diarrhea syndrome coronavirus,,2032731,All-proteins,3.0,3.0,100.0,100.0
+2034996,Tilapinevirus tilapiae,UP000201867,1549864,Representative,2.0,1.0,100.0,100.0
+2044587,Schaedlerella arabinosiphila,UP000274920,2044587,Representative,8.0,5.0,100.0,60.0
+2044939,Clostridia bacterium,UP000629893,2044939,Representative,2.0,2.0,50.0,0.0
+2049047,Prevotellaceae bacterium,UP000245693,2049047,Non-redundant,2.0,2.0,100.0,0.0
+2050018,Rodent coronavirus,UP000501448,2050018,Other,1.0,1.0,100.0,100.0
+2066070,Mesorhizobium japonicum,UP000000552,266835,Non-redundant,1.0,1.0,100.0,100.0
+2115988,Swine acute diarrhea syndrome related coronavirus,,2115988,All-proteins,2.0,1.0,100.0,100.0
+2116544,Synechococcus lacustris,UP000240206,1910958,Representative,1.0,1.0,100.0,100.0
+2136182,Acinetobacter cumulans,UP000241231,2136182,Non-redundant,4.0,4.0,100.0,100.0
+2169971,Visna-maedi virus,UP000106909,2169971,Other,8.0,112.0,75.0,1.7857142857142856
+2169991,Mammarenavirus juninense,UP000127886,2169991,Representative,39.0,954.0,100.0,85.9538784067086
+2170193,Bornean orangutan simian foamy virus,UP000161882,221703,Representative,1.0,1.0,100.0,100.0
+2170197,Guenon simian foamy virus,UP000173446,2170197,Other,1.0,1.0,100.0,100.0
+2170200,Spider monkey simian foamy virus,UP000109780,2170200,Representative,1.0,1.0,100.0,100.0
+2170201,Squirrel monkey simian foamy virus,UP000154225,2170201,Representative,1.0,1.0,100.0,100.0
+2170206,Yellow-breasted capuchin simian foamy virus,UP000100532,2170206,Representative,1.0,1.0,100.0,100.0
+2212467,Bacteroidaceae bacterium,UP000490506,2212467,Other,5.0,1.0,100.0,100.0
+2282107,Pyrrhoderma noxium,UP000217199,2282107,Representative,1.0,1.0,100.0,0.0
+2478486,Holophagales bacterium,UP000468330,2478486,Non-redundant,1.0,1.0,100.0,100.0
+2485925,Oscillospiraceae bacterium,UP000774150,2485925,Non-redundant,1.0,1.0,100.0,100.0
+2487134,Clostridium sp. E02,,2487134,All-proteins,1.0,1.0,0.0,0.0
+2492960,Bacillus yapensis,UP000271374,2492960,Representative,1.0,1.0,100.0,100.0
+2499620,Alphaarterivirus equid,UP000000353,299386,Representative,7.0,12.0,100.0,83.33333333333334
+2499677,Kappaarterivirus wobum,UP000203107,1118369,Representative,5.0,31.0,100.0,100.0
+2499678,Gammaarterivirus lacdeh,UP000171571,11048,Representative,2.0,6.0,100.0,33.33333333333333
+2499680,Betaarterivirus suid 1,UP000006687,11049,Representative,8.0,289.0,100.0,100.0
+2499685,Betaarterivirus suid 2,UP000104281,28344,Representative,310.0,6561.0,99.35483870967742,5.105928974241731
+2501929,NL63-related bat coronavirus strain BtKYNL63-9b,UP000277178,1920748,Other,2.0,1.0,100.0,100.0
+2501960,China Rattus coronavirus HKU24,UP000174571,1590370,Representative,2.0,4.0,100.0,100.0
+2560288,Deltapolyomavirus ailuropodae,UP000201543,2016463,Representative,1.0,1.0,100.0,100.0
+2584949,Enterobacter sp. DE0047,,2584949,All-proteins,1.0,1.0,0.0,0.0
+2594813,Fusarium fasciculatum,,2594813,All-proteins,1.0,1.0,0.0,0.0
+2599941,Oligoflexia bacterium,UP000610699,2599941,Representative,1.0,1.0,100.0,0.0
+2707005,Paenibacillus lutimineralis,UP000270678,2707005,Representative,1.0,1.0,100.0,100.0
+2708335,Pangolin coronavirus,,2708335,All-proteins,17.0,4568.0,100.0,100.0
+2748958,Bandavirus dabieense,UP000201130,992212,Representative,2.0,1.0,100.0,100.0
+2770637,Aestuariibaculum sediminum,UP000600588,2770637,Other,1.0,1.0,100.0,100.0
+2843841,Betatristromavirus TTV1,UP000009250,10480,Representative,1.0,2.0,100.0,100.0
+2846071,Rubivirus rubellae,UP000000571,11045,Representative,12.0,279.0,100.0,85.66308243727599
+2846271,Peeveelvirus PVL,UP000000976,71366,Representative,1.0,1.0,100.0,100.0
+2851130,Dermatophagoides pteronyssinus virus 3,,2851130,All-proteins,1.0,53.0,100.0,100.0
+2900548,Actinomycetota bacterium,UP000678472,2900548,Representative,1.0,1.0,100.0,0.0
+2951618,Lyssavirus hamburg,UP000008926,453115,Representative,2.0,1.0,100.0,100.0
+2951978,Betanucleorhabdovirus retesonchi,UP000002326,11307,Representative,1.0,1.0,100.0,100.0
+2955291,Alphainfluenzavirus influenzae,,2955291,All-proteins,1152.0,8927.0,0.0,0.0
+2955465,Betainfluenzavirus influenzae,,2955465,All-proteins,75.0,665.0,0.0,0.0
+2955935,Gammainfluenzavirus influenzae,,2955935,All-proteins,5.0,21.0,0.0,0.0
+2978683,Burkholderia orbicola,UP000002169,406425,Non-redundant,7.0,7.0,100.0,85.71428571428571
+3042615,Paraglaciecola sp. T6c,,3042615,All-proteins,1.0,1.0,0.0,0.0
+3046277,Orthoflavivirus flavi,,3046277,All-proteins,100.0,3302.0,0.0,0.0
+3047383,Alphabaculovirus aucalifonicae,,3047383,All-proteins,1.0,1.0,0.0,0.0
+3047386,Badnavirus alphavirgamusae,,3047386,All-proteins,1.0,23.0,0.0,0.0
+3047387,Badnavirus betavirgamusae,,3047387,All-proteins,1.0,23.0,0.0,0.0
+3047388,Badnavirus gammavirgamusae,,3047388,All-proteins,2.0,97.0,0.0,0.0
+3047389,Badnavirus deltavirgamusae,,3047389,All-proteins,1.0,22.0,0.0,0.0
+3047677,Comovirus siliquae,,3047677,All-proteins,2.0,11.0,0.0,0.0
+3047688,Nepovirus ribis,,3047688,All-proteins,1.0,2.0,0.0,0.0
+3047695,Alphabaculovirus bomori,,3047695,All-proteins,2.0,5.0,0.0,0.0
+3047725,Orthoflavivirus careyense,,3047725,All-proteins,1.0,2.0,0.0,0.0
+3047771,Comovirus vignae,,3047771,All-proteins,2.0,1.0,0.0,0.0
+3047852,Nepovirus foliumflabelli,,3047852,All-proteins,1.0,1.0,0.0,0.0
+3047947,Alphabaculovirus helarmigerae,,3047947,All-proteins,1.0,2.0,0.0,0.0
+3048148,Metapneumovirus hominis,,3048148,All-proteins,57.0,228.0,0.0,0.0
+3048151,Avibirnavirus gumboroense,,3048151,All-proteins,12.0,28.0,0.0,0.0
+3048153,Aquabirnavirus salmonidae,,3048153,All-proteins,1.0,1.0,0.0,0.0
+3048158,Orthoflavivirus japonicum,,3048158,All-proteins,57.0,856.0,0.0,0.0
+3048170,Orthoflavivirus kyasanurense,,3048170,All-proteins,1.0,5.0,0.0,0.0
+3048175,Orthoflavivirus langatense,,3048175,All-proteins,1.0,1.0,0.0,0.0
+3048184,Orthoflavivirus loupingi,,3048184,All-proteins,2.0,2.0,0.0,0.0
+3048215,Orthoflavivirus murrayense,,3048215,All-proteins,9.0,48.0,0.0,0.0
+3048269,Tymovirus physalis,,3048269,All-proteins,2.0,2.0,0.0,0.0
+3048278,Circovirus porcine1,,3048278,All-proteins,7.0,4.0,0.0,0.0
+3048279,Circovirus porcine2,,3048279,All-proteins,49.0,94.0,0.0,0.0
+3048280,Circovirus porcine3,,3048280,All-proteins,1.0,4.0,0.0,0.0
+3048287,Orthoflavivirus powassanense,,3048287,All-proteins,2.0,17.0,0.0,0.0
+3048308,Orthoflavivirus saboyaense,,3048308,All-proteins,1.0,1.0,0.0,0.0
+3048316,Orthoflavivirus sepikense,,3048316,All-proteins,1.0,1.0,0.0,0.0
+3048338,Alphabaculovirus spliturae,,3048338,All-proteins,1.0,1.0,0.0,0.0
+3048360,Orthoflavivirus tembusu,,3048360,All-proteins,8.0,66.0,0.0,0.0
+3048374,Tombusvirus lycopersici,,3048374,All-proteins,1.0,3.0,0.0,0.0
+3048379,Zetatorquevirus aotid1,,3048379,All-proteins,1.0,5.0,0.0,0.0
+3048395,Betatorquevirus homini1,,3048395,All-proteins,1.0,1.0,0.0,0.0
+3048401,Betatorquevirus homini3,,3048401,All-proteins,1.0,2.0,0.0,0.0
+3048405,Betatorquevirus homini7,,3048405,All-proteins,1.0,2.0,0.0,0.0
+3048406,Betatorquevirus homini8,,3048406,All-proteins,1.0,2.0,0.0,0.0
+3048408,Iotatorquevirus suida1a,,3048408,All-proteins,5.0,15.0,0.0,0.0
+3048411,Epsilontorquevirus calli1,,3048411,All-proteins,2.0,2.0,0.0,0.0
+3048413,Alphatorquevirus homin1,,3048413,All-proteins,1.0,3.0,0.0,0.0
+3048416,Alphatorquevirus homin14,,3048416,All-proteins,1.0,5.0,0.0,0.0
+3048417,Alphatorquevirus homin15,,3048417,All-proteins,1.0,3.0,0.0,0.0
+3048420,Alphatorquevirus homin19,,3048420,All-proteins,1.0,5.0,0.0,0.0
+3048421,Alphatorquevirus homin2,,3048421,All-proteins,1.0,4.0,0.0,0.0
+3048422,Alphatorquevirus homin20,,3048422,All-proteins,1.0,2.0,0.0,0.0
+3048423,Alphatorquevirus homin21,,3048423,All-proteins,1.0,2.0,0.0,0.0
+3048424,Alphatorquevirus homin24,,3048424,All-proteins,1.0,3.0,0.0,0.0
+3048425,Alphatorquevirus cerco7,,3048425,All-proteins,1.0,3.0,0.0,0.0
+3048426,Alphatorquevirus cerco6,,3048426,All-proteins,1.0,5.0,0.0,0.0
+3048427,Alphatorquevirus homin29,,3048427,All-proteins,1.0,4.0,0.0,0.0
+3048428,Alphatorquevirus homin3,,3048428,All-proteins,1.0,4.0,0.0,0.0
+3048429,Alphatorquevirus homin4,,3048429,All-proteins,1.0,6.0,0.0,0.0
+3048431,Alphatorquevirus homin6,,3048431,All-proteins,1.0,2.0,0.0,0.0
+3048432,Alphatorquevirus homin7,,3048432,All-proteins,1.0,3.0,0.0,0.0
+3048448,Orthoflavivirus nilense,,3048448,All-proteins,60.0,881.0,0.0,0.0
+3048459,Orthoflavivirus zikaense,,3048459,All-proteins,87.0,3356.0,0.0,0.0
+3049952,Respirovirus laryngotracheitidis,,3049952,All-proteins,2.0,13.0,0.0,0.0
+3049953,Respirovirus pneumoniae,,3049953,All-proteins,6.0,48.0,0.0,0.0
+3049954,Orthopneumovirus hominis,,3049954,All-proteins,127.0,2548.0,0.0,0.0
+3050243,Varicellovirus bovinealpha1,,3050243,All-proteins,30.0,86.0,0.0,0.0
+3050248,Orthopneumovirus bovis,,3050248,All-proteins,19.0,748.0,0.0,0.0
+3050251,Varicellovirus canidalpha1,,3050251,All-proteins,1.0,1.0,0.0,0.0
+3050254,Quwivirus caviidbeta2,,3050254,All-proteins,4.0,141.0,0.0,0.0
+3050256,Simplexvirus cercopithecinealpha2,,3050256,All-proteins,1.0,1.0,0.0,0.0
+3050258,Cytomegalovirus cercopithecinebeta5,,3050258,All-proteins,1.0,1.0,0.0,0.0
+3050276,Varicellovirus equidalpha1,,3050276,All-proteins,73.0,666.0,0.0,0.0
+3050278,Varicellovirus equidalpha4,,3050278,All-proteins,3.0,6.0,0.0,0.0
+3050287,Mardivirus gallidalpha2,,3050287,All-proteins,25.0,88.0,0.0,0.0
+3050292,Simplexvirus humanalpha1,,3050292,All-proteins,231.0,1592.0,0.0,0.0
+3050293,Simplexvirus humanalpha2,,3050293,All-proteins,130.0,3311.0,0.0,0.0
+3050294,Varicellovirus humanalpha3,,3050294,All-proteins,66.0,792.0,0.0,0.0
+3050295,Cytomegalovirus humanbeta5,,3050295,All-proteins,764.0,4805.0,0.0,0.0
+3050296,Roseolovirus humanbeta6a,,3050296,All-proteins,16.0,15.0,0.0,0.0
+3050297,Roseolovirus humanbeta6b,,3050297,All-proteins,224.0,7139.0,0.0,0.0
+3050298,Roseolovirus humanbeta7,,3050298,All-proteins,6.0,7.0,0.0,0.0
+3050299,Lymphocryptovirus humangamma4,,3050299,All-proteins,358.0,5396.0,0.0,0.0
+3050300,Rhadinovirus humangamma8,,3050300,All-proteins,31.0,676.0,0.0,0.0
+3050305,Simplexvirus macacinealpha1,,3050305,All-proteins,9.0,1161.0,0.0,0.0
+3050308,Cytomegalovirus macacinebeta3,,3050308,All-proteins,7.0,268.0,0.0,0.0
+3050314,Lymphocryptovirus macacinegamma4,,3050314,All-proteins,2.0,67.0,0.0,0.0
+3050315,Rhadinovirus macacinegamma5,,3050315,All-proteins,1.0,1.0,0.0,0.0
+3050323,Muromegalovirus muridbeta1,,3050323,All-proteins,86.0,774.0,0.0,0.0
+3050327,Rhadinovirus muridgamma4,,3050327,All-proteins,51.0,53.0,0.0,0.0
+3050329,Orthopneumovirus muris,,3050329,All-proteins,16.0,119.0,0.0,0.0
+3050334,Cytomegalovirus paninebeta2,,3050334,All-proteins,4.0,4.0,0.0,0.0
+3050350,Rhadinovirus saimiriinegamma2,,3050350,All-proteins,3.0,4.0,0.0,0.0
+3050355,Varicellovirus suidalpha1,,3050355,All-proteins,14.0,110.0,0.0,0.0
+3051375,Orthoavulavirus javaense,,3051375,All-proteins,31.0,149.0,0.0,0.0
+3051624,Amdoparvovirus carnivoran1,,3051624,All-proteins,4.0,15.0,0.0,0.0
+3051991,Bandavirus guertuense,,3051991,All-proteins,2.0,192.0,0.0,0.0
+3052040,Bocaparvovirus primate1,,3052040,All-proteins,2.0,14.0,0.0,0.0
+3052041,Bocaparvovirus primate2,,3052041,All-proteins,1.0,4.0,0.0,0.0
+3052189,Erythroparvovirus primate1,,3052189,All-proteins,11.0,337.0,0.0,0.0
+3052195,Etatorquevirus felid1,,3052195,All-proteins,1.0,1.0,0.0,0.0
+3052223,Henipavirus hendraense,,3052223,All-proteins,10.0,17.0,0.0,0.0
+3052225,Henipavirus nipahense,,3052225,All-proteins,10.0,29.0,0.0,0.0
+3052230,Hepacivirus hominis,,3052230,All-proteins,1410.0,14344.0,0.0,0.0
+3052236,Hepacivirus platyrrhini,,3052236,All-proteins,1.0,8.0,0.0,0.0
+3052237,Hepacivirus ratti,,3052237,All-proteins,8.0,5.0,0.0,0.0
+3052294,Luteovirus pavhordei,,3052294,All-proteins,1.0,1.0,0.0,0.0
+3052296,Mammarenavirus amapariense,,3052296,All-proteins,2.0,3.0,0.0,0.0
+3052299,Mammarenavirus brazilense,,3052299,All-proteins,13.0,956.0,0.0,0.0
+3052300,Mammarenavirus caliense,,3052300,All-proteins,5.0,13.0,0.0,0.0
+3052303,Mammarenavirus choriomeningitidis,,3052303,All-proteins,51.0,2172.0,0.0,0.0
+3052304,Mammarenavirus cupixiense,,3052304,All-proteins,1.0,1.0,0.0,0.0
+3052307,Mammarenavirus guanaritoense,,3052307,All-proteins,20.0,910.0,0.0,0.0
+3052310,Mammarenavirus lassaense,,3052310,All-proteins,77.0,1303.0,0.0,0.0
+3052317,Mammarenavirus machupoense,,3052317,All-proteins,35.0,871.0,0.0,0.0
+3052320,Mammarenavirus mopeiaense,,3052320,All-proteins,2.0,17.0,0.0,0.0
+3052322,Mammarenavirus oliverosense,,3052322,All-proteins,3.0,3.0,0.0,0.0
+3052323,Mammarenavirus paranaense,,3052323,All-proteins,1.0,1.0,0.0,0.0
+3052325,Mammarenavirus praomyidis,,3052325,All-proteins,1.0,1.0,0.0,0.0
+3052328,Mammarenavirus tacaribeense,,3052328,All-proteins,7.0,120.0,0.0,0.0
+3052331,Mammarenavirus whitewaterense,,3052331,All-proteins,9.0,383.0,0.0,0.0
+3052342,Morbillivirus canis,,3052342,All-proteins,27.0,139.0,0.0,0.0
+3052343,Morbillivirus caprinae,,3052343,All-proteins,14.0,43.0,0.0,0.0
+3052345,Morbillivirus hominis,,3052345,All-proteins,46.0,608.0,0.0,0.0
+3052346,Morbillivirus pecoris,,3052346,All-proteins,7.0,49.0,0.0,0.0
+3052390,Orthobunyavirus encephalitidis,,3052390,All-proteins,1.0,1.0,0.0,0.0
+3052409,Orthobunyavirus lacrosseense,,3052409,All-proteins,2.0,4.0,0.0,0.0
+3052437,Orthobunyavirus schmallenbergense,,3052437,All-proteins,3.0,8.0,0.0,0.0
+3052458,Orthoebolavirus bundibugyoense,,3052458,All-proteins,5.0,15.0,0.0,0.0
+3052459,Orthoebolavirus restonense,,3052459,All-proteins,20.0,40.0,0.0,0.0
+3052460,Orthoebolavirus sudanense,,3052460,All-proteins,24.0,452.0,0.0,0.0
+3052461,Orthoebolavirus taiense,,3052461,All-proteins,5.0,5.0,0.0,0.0
+3052462,Orthoebolavirus zairense,,3052462,All-proteins,109.0,2229.0,0.0,0.0
+3052464,Orthoflavivirus denguei,,3052464,All-proteins,1221.0,13613.0,0.0,0.0
+3052465,Orthoflavivirus encephalitidis,,3052465,All-proteins,26.0,328.0,0.0,0.0
+3052468,Orthoflavivirus louisense,,3052468,All-proteins,7.0,21.0,0.0,0.0
+3052470,Orthohantavirus bayoui,,3052470,All-proteins,1.0,1.0,0.0,0.0
+3052474,Orthohantavirus chocloense,,3052474,All-proteins,5.0,17.0,0.0,0.0
+3052476,Orthohantavirus delgaditoense,,3052476,All-proteins,1.0,2.0,0.0,0.0
+3052477,Orthohantavirus dobravaense,,3052477,All-proteins,6.0,28.0,0.0,0.0
+3052480,Orthohantavirus hantanense,,3052480,All-proteins,25.0,456.0,0.0,0.0
+3052483,Orthohantavirus khabarovskense,,3052483,All-proteins,2.0,1.0,0.0,0.0
+3052485,Orthohantavirus maporalense,,3052485,All-proteins,3.0,6.0,0.0,0.0
+3052486,Orthohantavirus montanoense,,3052486,All-proteins,1.0,3.0,0.0,0.0
+3052487,Orthohantavirus moroense,,3052487,All-proteins,1.0,2.0,0.0,0.0
+3052489,Orthohantavirus negraense,,3052489,All-proteins,5.0,13.0,0.0,0.0
+3052492,Orthohantavirus prospectense,,3052492,All-proteins,3.0,4.0,0.0,0.0
+3052493,Orthohantavirus puumalaense,,3052493,All-proteins,21.0,282.0,0.0,0.0
+3052496,Orthohantavirus sangassouense,,3052496,All-proteins,4.0,10.0,0.0,0.0
+3052498,Orthohantavirus seoulense,,3052498,All-proteins,7.0,15.0,0.0,0.0
+3052499,Orthohantavirus sinnombreense,,3052499,All-proteins,18.0,60.0,0.0,0.0
+3052503,Orthohantavirus tulaense,,3052503,All-proteins,4.0,19.0,0.0,0.0
+3052505,Orthomarburgvirus marburgense,,3052505,All-proteins,41.0,279.0,0.0,0.0
+3052518,Orthonairovirus haemorrhagiae,,3052518,All-proteins,39.0,635.0,0.0,0.0
+3052557,Orthorubulavirus laryngotracheitidis,,3052557,All-proteins,2.0,13.0,0.0,0.0
+3052558,Orthorubulavirus mammalis,,3052558,All-proteins,3.0,3.0,0.0,0.0
+3052560,Orthorubulavirus parotitidis,,3052560,All-proteins,43.0,85.0,0.0,0.0
+3052562,Orthorubulavirus suis,,3052562,All-proteins,1.0,3.0,0.0,0.0
+3052571,Orthotospovirus citrullomaculosi,,3052571,All-proteins,1.0,3.0,0.0,0.0
+3052585,Orthotospovirus tomatomaculae,,3052585,All-proteins,3.0,1.0,0.0,0.0
+3052599,Pararubulavirus menangleense,,3052599,All-proteins,1.0,2.0,0.0,0.0
+3052608,Pegivirus hominis,,3052608,All-proteins,5.0,14.0,0.0,0.0
+3052619,Pestivirus bovis,,3052619,All-proteins,15.0,1204.0,0.0,0.0
+3052624,Pestivirus scrofae,,3052624,All-proteins,3.0,3.0,0.0,0.0
+3052625,Pestivirus suis,,3052625,All-proteins,20.0,156.0,0.0,0.0
+3052626,Pestivirus tauri,,3052626,All-proteins,1.0,2.0,0.0,0.0
+3052676,Phlebovirus riftense,,3052676,All-proteins,10.0,106.0,0.0,0.0
+3052686,Phlebovirus toscanaense,,3052686,All-proteins,1.0,3.0,0.0,0.0
+3052707,Protoparvovirus carnivoran1,,3052707,All-proteins,12.0,793.0,0.0,0.0
+3052720,Protoparvovirus ungulate1,,3052720,All-proteins,6.0,45.0,0.0,0.0
+3052729,Respirovirus bovis,,3052729,All-proteins,2.0,4.0,0.0,0.0
+3052731,Respirovirus muris,,3052731,All-proteins,16.0,552.0,0.0,0.0
+3052770,Tetraparvovirus primate1,,3052770,All-proteins,1.0,132.0,0.0,0.0
+3052778,Thetatorquevirus canid1,None,3052778,All-proteins,1.0,1.0,0.0,0.0

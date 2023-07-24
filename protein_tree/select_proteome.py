@@ -47,6 +47,7 @@ class ProteomeSelector:
     """
     if (self.species_dir / 'proteome.fasta').exists():
       idx = self.metrics_df['Species Taxon ID'] == self.taxon_id
+      print(self.metrics_df[idx])
       proteome_id = self.metrics_df[idx]['Proteome ID'].iloc[0]
       proteome_taxon = self.metrics_df[idx]['Proteome Taxon'].iloc[0]
       proteome_type = self.metrics_df[idx]['Proteome Type'].iloc[0]
