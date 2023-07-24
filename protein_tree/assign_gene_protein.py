@@ -313,7 +313,7 @@ class GeneAndProteinAssigner:
       outfile = f'{self.species_dir}/ARC_results.tsv',
       threads = self.num_threads,
       hmmer_path = str(self.bin_path) + '/',
-      blast_path = self.bin_path
+      blast_path = str(self.bin_path) + '/',
     ).classify_seqfile(f'{self.species_dir}/sources.fasta')
 
     arc_results = pd.read_csv(f'{self.species_dir}/ARC_results.tsv', sep='\t')
