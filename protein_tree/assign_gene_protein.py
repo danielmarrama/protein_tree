@@ -312,7 +312,7 @@ class GeneAndProteinAssigner:
     SeqClassifier(
       outfile = f'{self.species_dir}/ARC_results.tsv',
       threads = self.num_threads,
-      hmmer_path = self.bin_path,
+      hmmer_path = str(self.bin_path) + '/',
       blast_path = self.bin_path
     ).classify_seqfile(f'{self.species_dir}/sources.fasta')
 
