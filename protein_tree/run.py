@@ -13,22 +13,27 @@ data_path = Path(__file__).parent.parent / 'data'
 
 def run_protein_tree(
   taxon_id: int,
-  species_name: str,
-  is_vertebrate: bool,
-  update_proteome: bool,
+  species_name_map: dict,
+  is_vertebrate_map: dict,
   epitopes_df: pd.DataFrame,
-  sources_df: pd.DataFrame
+  sources_df: pd.DataFrame,
+  update_proteome: bool,
+  num_threads: int
 ) -> None:
   """Run all steps for the protein tree.
   
   Args:
     taxon_id: Taxon ID for the species to run protein tree.
-    species_name: Name of the species to run protein tree.
-    is_vertebrate: Whether or not the species is a vertebrate.
-    update_proteome: Whether or not to update the proteome to be used for the species.
+    species_name_map: Mapping of taxon ID to species name.
+    is_vertebrate_map: Mapping of taxon ID to boolean indicating species is vertebrate.
     epitopes_df: Epitope data for the species.
     sources_df: Source antigen data for the species.
+    update_proteome: Whether or not to update the proteome to be used for the species.
+    num_threads: Number of threads to use for BLAST and ARC.
   """
+  species_name = species_name_map[taxon_id]
+  is_vertebrate = is_vertebrate_map[taxon_id]
+
   print(f'Building tree for {species_name} (ID: {taxon_id})...\n')
   
   # if there are no epitopes or sources, return None
@@ -56,7 +61,7 @@ def run_protein_tree(
 
   # assign genes to source antigens and parent proteins to epitopes
   print('Assigning source antigens and epitopes...')
-  Assigner = GeneAndProteinAssigner(taxon_id, species_name, is_vertebrate)
+  Assigner = GeneAndProteinAssigner(taxon_id, species_name, is_vertebrate, num_threads=num_threads)
   assigner_data, epitope_assignments, source_assignments = Assigner.assign(sources_df, epitopes_df)
   print('Done.\n')
 
@@ -110,33 +115,8 @@ def run_protein_tree(
     
   metrics_df.to_csv(metrics_path, index=False)
 
-
-def build_tree_for_species(
-  taxon_id: int,
-  species_name_map: dict,
-  is_vertebrate_map: dict,
-  update_proteome: bool,
-  epitopes_df: pd.DataFrame,
-  sources_df: pd.DataFrame
-) -> None:
-  """Prepare a run of the protein tree for a species.
-  
-  Args:
-    taxon_id: Taxon ID for the species to run protein tree.
-    species_name_map: Mapping of taxon ID to species name.
-    is_vertebrate_map: Mapping of taxon ID to is_vertebrate.
-    update_proteome: Whether or not to update the proteome to be used for the species.
-    epitopes_df: Epitope data for the species.
-    sources_df: Source antigen data for the species.
-  """
-  species_name = species_name_map[taxon_id]
-  is_vertebrate = is_vertebrate_map[taxon_id]
-
-  run_protein_tree(
-    taxon_id, species_name, is_vertebrate, update_proteome, epitopes_df, sources_df
-  )
   print(f'Protein tree built for {species_name} (ID: {taxon_id}).\n\n')
-
+  
 
 def main():
   import argparse
@@ -166,6 +146,12 @@ def main():
     '-s', '--update_species',
     action='store_true',
     help='Update the species table.'
+  )
+  parser.add_argument(
+    '-n', '--num_threads',
+    type=int,
+    default=1,
+    help='Number of threads to use for BLAST and ARC.'
   )
   
   species_df = pd.read_csv(data_path / 'species.csv')
@@ -209,9 +195,10 @@ def main():
       epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)
       sources_df = Fetcher.get_sources_for_species(all_taxa)
 
-      build_tree_for_species(
+      run_protein_tree(
         taxon_id, species_name_map, is_vertebrate_map, 
-        args.update_proteome, epitopes_df, sources_df
+        epitopes_df, sources_df, args.update_proteome,
+        args.num_threads
       )
 
     print('All species complete.')
@@ -224,9 +211,10 @@ def main():
     epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)
     sources_df = Fetcher.get_sources_for_species(all_taxa)
     
-    build_tree_for_species(
+    run_protein_tree(
       taxon_id, species_name_map, is_vertebrate_map, 
-      args.update_proteome, epitopes_df, sources_df
+      epitopes_df, sources_df, args.update_proteome,
+      args.num_threads
     )
 
 if __name__ == '__main__':
