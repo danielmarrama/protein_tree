@@ -19,12 +19,14 @@ from pepmatch import Preprocessor, Matcher
 NUM_THREADS = multiprocessing.cpu_count() - 2
 
 class GeneAndProteinAssigner:
-  def __init__(self, taxon_id, species_name, is_vertebrate):
+  def __init__(
+    self, taxon_id, species_name, is_vertebrate, data_path = Path(__file__).parent.parent / 'data'
+  ):
     self.taxon_id = taxon_id
     self.is_vertebrate = is_vertebrate
 
-    self.data_dir = Path(__file__).parent.parent / 'data'
-    self.species_dir = self.data_dir / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
+    self.data_path = data_path
+    self.species_dir = data_path / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
     
     self.source_gene_assignment = {}
     self.source_protein_assignment = {}
@@ -81,10 +83,7 @@ class GeneAndProteinAssigner:
     epitopes_df.loc[:, 'Assigned Parent Protein ID'] = epitopes_df['Sequence'].map(self.epitope_parent_assignment)
 
     epitopes_df.drop_duplicates(subset='Sequence', inplace=True) # drop duplicate epitopes
-    epitopes_df.to_csv(f'{self.species_dir}/epitopes.csv', index=False)
-
     sources_df.drop(columns=['Sequence'], inplace=True) # drop sequence column for output
-    sources_df.to_csv(f'{self.species_dir}/sources.csv', index=False)
     
     self._remove_files()
     
@@ -94,7 +93,8 @@ class GeneAndProteinAssigner:
       num_matched_sources,
       num_matched_epitopes
     )
-    return assigner_data
+
+    return assigner_data, epitopes_df, sources_df
 
 
   def _assign_genes(
@@ -192,7 +192,7 @@ class GeneAndProteinAssigner:
     """
     # escape parentheses in species path
     bin_dir = Path(__file__).parent.parent / 'bin'
-    species_path = str(self.species_dir).replace('(', '\(').replace(')', '\)')
+    species_path = str(self.species_dir).replace('(', '\\(').replace(')', '\\)')
 
     os.system( # make BLAST database from proteome
       f'{bin_dir}/makeblastdb -in {species_path}/proteome.fasta -dbtype prot > /dev/null'
@@ -318,7 +318,7 @@ class GeneAndProteinAssigner:
 
   def _assign_allergens(self) -> None:
     """Get allergen data from allergen.org and then assign allergens to sources."""
-    allergen_df = pd.read_csv(self.data_dir / 'allergens.csv')
+    allergen_df = pd.read_csv(self.data_path / 'allergens.csv')
     allergen_map = allergen_df.set_index('AccProtein')['Name'].to_dict()
 
     for k, v in self.source_protein_assignment.items():
@@ -331,7 +331,7 @@ class GeneAndProteinAssigner:
     genes and proteins to sources.
     """
     # manual_assignments.csv should be in the directory above this one
-    manual_df = pd.read_csv(self.data_dir / 'manual_assignments.csv')
+    manual_df = pd.read_csv(self.data_path / 'manual_assignments.csv')
     manual_gene_map = manual_df.set_index('Accession')['Accession Gene'].to_dict()
     manual_protein_id_map = manual_df.set_index('Accession')['Parent Accession'].to_dict()
     manual_protein_name_map = manual_df.set_index('Accession')['Parent Name'].to_dict()

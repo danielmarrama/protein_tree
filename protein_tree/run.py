@@ -9,6 +9,8 @@ from select_proteome import ProteomeSelector
 from assign_gene_protein import GeneAndProteinAssigner
 
 
+data_path = Path(__file__).parent.parent / 'data'
+
 def run_protein_tree(
   taxon_id: int,
   species_name: str,
@@ -35,8 +37,7 @@ def run_protein_tree(
     return
 
   # update proteome if flag or if proteome doesn't exist
-  data_dir = Path(__file__).parent.parent / 'data'
-  proteome_file = data_dir / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}' / 'proteome.fasta'
+  proteome_file = data_path / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}' / 'proteome.fasta'
   
   if update_proteome or not proteome_file.exists():
     update_proteome = True # if the file doesn't exist, update flag
@@ -56,8 +57,16 @@ def run_protein_tree(
   # assign genes to source antigens and parent proteins to epitopes
   print('Assigning source antigens and epitopes...')
   Assigner = GeneAndProteinAssigner(taxon_id, species_name, is_vertebrate)
-  assigner_data = Assigner.assign(sources_df, epitopes_df)
+  assigner_data, epitope_assignments, source_assignments = Assigner.assign(sources_df, epitopes_df)
   print('Done.\n')
+
+  # write assignments to CSV
+  epitope_assignments.to_csv(
+    data_path / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}' / 'epitope_assignments.csv', index=False
+  )
+  source_assignments.to_csv(
+    data_path / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}' / 'source_assignments.csv', index=False
+  )
 
   successful_source_assignment = (assigner_data[2] / assigner_data[0])*100
   successful_epitope_assignment = (assigner_data[3] / assigner_data[1])*100
@@ -159,8 +168,7 @@ def main():
     help='Update the species table.'
   )
   
-  data_dir = Path(__file__).parent.parent / 'data'
-  species_df = pd.read_csv(data_dir / 'species.csv')
+  species_df = pd.read_csv(data_path / 'species.csv')
   valid_taxon_ids = species_df['Species Taxon ID'].tolist()
   
   # taxa, species name, and is_vertebrate mapppings
@@ -189,7 +197,7 @@ def main():
     update_species_data()    
   
   Fetcher = DataFetcher()
-  if args.update_data or not (data_dir / 'epitopes.csv').exists():
+  if args.update_data or not (data_path / 'epitopes.csv').exists():
     print('Getting all data...')
     Fetcher.get_all_data()
     print('All data written.')
