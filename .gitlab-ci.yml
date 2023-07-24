@@ -14,7 +14,7 @@ pytest:
     - apt-get install -y wget
     - wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.14.0+-x64-linux.tar.gz
     - tar xzf ncbi-blast-2.14.0+-x64-linux.tar.gz
-    - export PATH=$PATH:`pwd`/ncbi-blast-2.14.0+/bin
+    - mv ncbi-blast-2.14.0+/bin/* /usr/bin/
     - wget http://eddylab.org/software/hmmer/hmmer-3.3.2.tar.gz
     - tar xzf hmmer-3.3.2.tar.gz
     - cd hmmer-3.3.2 && ./configure && make && make install && cd ..
