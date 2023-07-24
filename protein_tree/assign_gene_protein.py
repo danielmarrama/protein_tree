@@ -20,12 +20,18 @@ NUM_THREADS = multiprocessing.cpu_count() - 2
 
 class GeneAndProteinAssigner:
   def __init__(
-    self, taxon_id, species_name, is_vertebrate, data_path = Path(__file__).parent.parent / 'data'
+    self,
+    taxon_id,
+    species_name,
+    is_vertebrate,
+    data_path = Path(__file__).parent.parent / 'data',
+    bin_path = Path(__file__).parent.parent / 'bin'
   ):
     self.taxon_id = taxon_id
     self.is_vertebrate = is_vertebrate
 
     self.data_path = data_path
+    self.bin_path = bin_path
     self.species_dir = data_path / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
     
     self.source_gene_assignment = {}
@@ -191,14 +197,14 @@ class GeneAndProteinAssigner:
     sequences and select the protein with the most matches.
     """
     # escape parentheses in species path
-    bin_dir = Path(__file__).parent.parent / 'bin'
     species_path = str(self.species_dir).replace('(', '\\(').replace(')', '\\)')
 
     os.system( # make BLAST database from proteome
-      f'{bin_dir}/makeblastdb -in {species_path}/proteome.fasta -dbtype prot > /dev/null'
+      f'{self.bin_path}/makeblastdb -in {species_path}/proteome.fasta '\
+      f'-dbtype prot > /dev/null'
     ) 
     os.system( # run blastp
-      f'{bin_dir}/blastp -query {species_path}/sources.fasta '\
+      f'{self.bin_path}/blastp -query {species_path}/sources.fasta '\
       f'-db {species_path}/proteome.fasta '\
       f'-evalue 1 -num_threads {NUM_THREADS} -outfmt 10 '\
       f'-out {species_path}/blast_results.csv'
@@ -306,7 +312,8 @@ class GeneAndProteinAssigner:
     SeqClassifier(
       outfile=f'{self.species_dir}/ARC_results.tsv',
       threads=NUM_THREADS,
-      blast_path = str(Path(__file__).parent.parent / 'bin') + '/',
+      hmmer_path = self.bin_path,
+      blast_path = self.bin_path
     ).classify_seqfile(f'{self.species_dir}/sources.fasta')
 
     arc_results = pd.read_csv(f'{self.species_dir}/ARC_results.tsv', sep='\t')
