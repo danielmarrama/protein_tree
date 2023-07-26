@@ -26,6 +26,7 @@ class GeneAndProteinAssigner:
     bin_path = Path(__file__).parent.parent / 'bin',
     num_threads = multiprocessing.cpu_count() - 2
   ):
+    
     self.species_dir = data_path / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
     self.taxon_id = taxon_id
     self.is_vertebrate = is_vertebrate
@@ -37,6 +38,7 @@ class GeneAndProteinAssigner:
     self.source_gene_assignment = {}
     self.source_protein_assignment = {}
     self.source_assignment_score = {}
+    self.epitope_protein_assignment = {}
 
     # create UniProt ID -> gene map
     self.proteome = pd.read_csv(f'{self.species_dir}/proteome.csv')
@@ -73,8 +75,9 @@ class GeneAndProteinAssigner:
         sources_df['Length']
       )
     )
-    num_matched_sources = self._assign_genes(sources_df, epitopes_df, num_sources)
+    num_matched_sources = self._assign_genes(sources_df)
     num_matched_epitopes = self._assign_parents()
+
     self._assign_allergens()
     self._assign_manuals()
 
@@ -86,7 +89,7 @@ class GeneAndProteinAssigner:
 
     # map source antigens to their best blast matches (gene) for epitopes
     epitopes_df.loc[:, 'Assigned Gene'] = epitopes_df['Source Accession'].map(self.source_gene_assignment)
-    epitopes_df.loc[:, 'Assigned Parent Protein ID'] = epitopes_df['Sequence'].map(self.epitope_parent_assignment)
+    epitopes_df.loc[:, 'Assigned Parent Protein ID'] = epitopes_df['Sequence'].map(self.epitope_protein_assignment)
 
     epitopes_df.drop_duplicates(subset='Sequence', inplace=True) # drop duplicate epitopes
     sources_df.drop(columns=['Sequence'], inplace=True) # drop sequence column for output
@@ -103,9 +106,7 @@ class GeneAndProteinAssigner:
     return assigner_data, epitopes_df, sources_df
 
 
-  def _assign_genes(
-    self, sources_df: pd.DataFrame, epitopes_df: pd.DataFrame, num_sources: int
-  ) -> None:
+  def _assign_genes(self, sources_df: pd.DataFrame) -> None:
     """Assign a gene to the source antigens of a species.
 
     Run ARC for vertebrates to assign MHC/TCR/Ig to source antigens first.
@@ -115,18 +116,16 @@ class GeneAndProteinAssigner:
 
     Args:
       sources_df: DataFrame of source antigens for a species.
-      epitopes_df: DataFrame of epitopes for a species.
     """    
     self._sources_to_fasta(sources_df) # write sources to FASTA file
 
     if self.is_vertebrate:
+      print('Running ARC for MHC/TCR/Ig assignments...')
       self._run_arc()
 
     self._run_blast()
 
-    num_matched_sources = len(self.source_gene_assignment.keys())
-
-    return num_matched_sources   
+    return len(self.source_gene_assignment.keys())   
 
 
   def _create_source_to_epitopes_map(self, epitopes_df: pd.DataFrame) -> dict:
@@ -271,44 +270,47 @@ class GeneAndProteinAssigner:
       all_epitopes.extend(epitopes)
 
     all_matches_df = self._search_epitopes(all_epitopes, best_match=False)
+    all_matches_df.set_index('Query Sequence', inplace=True)
 
-    self.epitope_parent_assignment = {}
     for antigen, epitopes in self.source_to_epitopes_map.items():
-      for epitope in epitopes:
 
-        # check if the epitope is found in the protein the antigen is assigned to
-        matches_df = all_matches_df[all_matches_df['Query Sequence'] == epitope]
-        try:
-          epitope_protein = matches_df[matches_df['Protein ID'] == self.source_protein_assignment[antigen]]
-        except KeyError: # if the source antigen has no assignment, skip
-          continue
+      matches_df = all_matches_df.loc[epitopes] # limit to epitopes of source antigen
       
-        if epitope_protein.empty: # otherwise, get an isoform of the assigned gene
-          epitope_protein = matches_df[matches_df['Gene'] == self.source_gene_assignment[antigen]]
+      try: # see if all epitopes match to the assigned protein for their source antigen
+        matched_epitopes_df = matches_df[matches_df['Protein ID'] == self.source_protein_assignment[antigen]]
+      except KeyError: # if the source antigen has no assignment, skip
+        continue
+      
+      if len(matched_epitopes_df['Matched Sequence'].unique()) == len(epitopes):
+        self.epitope_protein_assignment.update(
+          dict(zip(matched_epitopes_df.index, matched_epitopes_df['Protein ID']))
+        )
+      else: # if not all epitopes match to the assigned protein, try separately
+        for epitope in epitopes:
+          
+          matched_epitope_df = matches_df.loc[epitope]
 
-          if len(epitope_protein) > 1: # if there are ties, select the protein with the best protein existence level
-            epitope_protein = epitope_protein.loc[epitope_protein['Protein Existence Level'].idxmin()]
+          # try assigning the protein assigned to source antigen
+          matched_epitope_df = matched_epitope_df[matched_epitope_df['Protein ID'] == self.source_protein_assignment[antigen]]
 
-        if epitope_protein.empty: # still empty, skip
-          continue
-
-        if isinstance(epitope_protein['Protein ID'], pd.Series):
-            self.epitope_parent_assignment[epitope] = epitope_protein['Protein ID'].values[0]
-        else: # sometimes epitope_protein['Protein ID'] is a string
-            self.epitope_parent_assignment[epitope] = epitope_protein['Protein ID']
+          if not matched_epitope_df.empty: # assign if possible
+            self.epitope_protein_assignment[epitope] = self.source_protein_assignment[antigen]
+            continue
+          
+          # try assigning the best isoform of the assigned gene
+          matched_epitope_df = matched_epitope_df[matched_epitope_df['Gene'] == self.source_gene_assignment[antigen]]
+          
+          if not matched_epitope_df.empty:
+            best_isoform_index = matched_epitope_df['Protein Existence Level'].idxmin()
+            best_isoform_id = matched_epitope_df.loc[best_isoform_index, 'Protein ID']
+            self.epitope_protein_assignment[epitope] = best_isoform_id
     
-    # count the number of epitopes with matches
-    num_matched_epitopes = len(self.epitope_parent_assignment.keys())
-    
-    return num_matched_epitopes
+    return len(self.epitope_protein_assignment.keys())
 
 
   def _run_arc(self) -> None:
     """Run ARC to assign MHC/TCR/Ig to source antigens."""
 
-    print('Running ARC for MHC/TCR/Ig assignments...\n')
-
-    # pass sources.fasta to ARC
     SeqClassifier(
       outfile = f'{self.species_dir}/ARC_results.tsv',
       threads = self.num_threads,
