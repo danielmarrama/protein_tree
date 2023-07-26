@@ -106,7 +106,7 @@ class DataFetcher:
     Args:
       all_taxa: list of all active children taxa for a species.
     """
-    epitopes_df = pd.read_csv(self.data_dir / 'epitopes.csv')
+    epitopes_df = pd.read_csv(self.data_dir / 'epitopes.tsv', sep='\t')
     return epitopes_df[epitopes_df['Organism ID'].isin(all_taxa)]
 
 
@@ -116,7 +116,7 @@ class DataFetcher:
     Args:
       all_taxa: list of all active children taxa for a species.
     """
-    sources_df = pd.read_csv(self.data_dir / 'sources.csv')
+    sources_df = pd.read_csv(self.data_dir / 'sources.tsv', sep='\t')
     return sources_df[sources_df['Organism ID'].isin(all_taxa)]
 
 
@@ -139,7 +139,7 @@ def main():
   args = parser.parse_args()
   data_dir = Path(args.data_dir)
   
-  species_df = pd.read_csv(data_dir / 'species.csv')
+  species_df = pd.read_csv(data_dir / 'species.tsv', sep='\t')
   valid_taxon_ids = species_df['Species Taxon ID'].tolist()
   
   # create maps for taxon ID to species name and all taxa

@@ -30,13 +30,13 @@ def organism(request):
 @pytest.fixture
 def epitopes(organism) -> Path:
   taxon_id, species_name, _, _ = organism
-  return data_path / 'species' / f"{taxon_id}-{species_name.replace(' ', '_')}" / "epitopes.csv"
+  return data_path / 'species' / f"{taxon_id}-{species_name.replace(' ', '_')}" / "epitopes.tsv"
 
 
 @pytest.fixture
 def sources(organism) -> Path:
   taxon_id, species_name, _, _= organism
-  return data_path / 'species' / f"{taxon_id}-{species_name.replace(' ', '_')}" / "sources.csv"
+  return data_path / 'species' / f"{taxon_id}-{species_name.replace(' ', '_')}" / "sources.tsv"
 
 
 @pytest.fixture(scope='session', autouse=True)
@@ -49,7 +49,7 @@ def cleanup_after_all_tests():
 def test_select_proteome(epitopes, organism):
   taxon_id, species_name, _, proteome_id = organism 
 
-  epitopes_df = pd.read_csv(epitopes)
+  epitopes_df = pd.read_csv(epitopes, sep='\t')
   Selector = ProteomeSelector(taxon_id, species_name, data_path)
   proteome_data = Selector.select_best_proteome(epitopes_df)
   Selector.proteome_to_csv()
@@ -59,17 +59,23 @@ def test_select_proteome(epitopes, organism):
 
 def test_assignments(epitopes, sources, organism):
   taxon_id, species_name, is_vertebrate, _ = organism
+
+  species_dir = f"{taxon_id}-{species_name.replace(' ', '_')}"
   
-  epitopes_df = pd.read_csv(epitopes)
-  sources_df = pd.read_csv(sources)
+  epitopes_df = pd.read_csv(epitopes, sep='\t')
+  sources_df = pd.read_csv(sources, sep='\t')
 
   Assigner = GeneAndProteinAssigner(
     taxon_id, species_name, is_vertebrate, data_path, bin_path='/usr/bin', num_threads=1
   )
   _, epitope_assignments, source_assignments = Assigner.assign(sources_df, epitopes_df)
   
-  epitopes_expected = pd.read_csv(data_path / 'species' / f"{taxon_id}-{species_name.replace(' ', '_')}" / 'epitope_assignments.csv')
-  sources_expected = pd.read_csv(data_path / 'species' / f"{taxon_id}-{species_name.replace(' ', '_')}" / 'source_assignments.csv')
+  epitopes_expected = pd.read_csv(
+    data_path / 'species' / species_dir / 'epitope_assignments.tsv', sep='\t'
+  )
+  sources_expected = pd.read_csv(
+    data_path / 'species' / species_dir / 'source_assignments.tsv', sep='\t'
+  )
 
   assert epitopes_expected.equals(epitope_assignments)
   assert sources_expected.equals(source_assignments)

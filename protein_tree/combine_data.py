@@ -12,8 +12,8 @@ def main():
   
   data_path = Path(__file__).parent.parent / 'data'
   for species in (data_path / 'species').iterdir():
-    epitopes_df = pd.read_csv(species / 'epitope_assginments.csv')
-    sources_df = pd.read_csv(species / 'source_assignments.csv')
+    epitopes_df = pd.read_csv(species / 'epitope_assginments.tsv')
+    sources_df = pd.read_csv(species / 'source_assignments.tsv')
     
     # add taxon ID and species name columns
     taxon_id = species.name.split('-')[0]
@@ -32,8 +32,8 @@ def main():
     all_epitopes_df = pd.concat([all_epitopes_df, epitopes_df])
     all_sources_df = pd.concat([all_sources_df, sources_df])
 
-  all_epitopes_df.to_csv(data_path / 'all_epitope_assignments.csv', index=False)
-  all_sources_df.to_csv(data_path / 'all_source_assignments.csv', index=False)
+  all_epitopes_df.to_csv(data_path / 'all_epitope_assignments.tsv', sep='\t', index=False)
+  all_sources_df.to_csv(data_path / 'all_source_assignments.tsv', sep='\t', index=False)
 
 if __name__ == '__main__':
   main()

@@ -58,7 +58,7 @@ def update_species_data() -> None:
     # remove apostrophes from species names
     species_df['Species Name'] = species_df['Species Name'].str.replace("'", "")
     
-    # update species.csv which is in the directory above this script
+    # update species.tsv which is in the directory above this script
     data_path = Path(__file__).parent.parent / 'data'
     species_df.to_csv(data_path / 'species.tsv', sep='\t', index=False)
 

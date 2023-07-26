@@ -41,7 +41,7 @@ class GeneAndProteinAssigner:
     self.epitope_protein_assignment = {}
 
     # create UniProt ID -> gene map
-    self.proteome = pd.read_csv(f'{self.species_dir}/proteome.csv')
+    self.proteome = pd.read_csv(f'{self.species_dir}/proteome.tsv', sep='\t')
     self.uniprot_id_to_gene_map = dict(
       zip(
         self.proteome['Protein ID'], 
@@ -327,7 +327,7 @@ class GeneAndProteinAssigner:
 
   def _assign_allergens(self) -> None:
     """Get allergen data from allergen.org and then assign allergens to sources."""
-    allergen_df = pd.read_csv(self.data_path / 'allergens.csv')
+    allergen_df = pd.read_csv(self.data_path / 'allergens.tsv', sep='\t')
     allergen_map = allergen_df.set_index('AccProtein')['Name'].to_dict()
 
     for k, v in self.source_protein_assignment.items():
@@ -336,11 +336,11 @@ class GeneAndProteinAssigner:
 
 
   def _assign_manuals(self) -> None:
-    """Get manual assignments from manual_assignments.csv and then assign
+    """Get manual assignments from manual_assignments.tsv and then assign
     genes and proteins to sources.
     """
-    # manual_assignments.csv should be in the directory above this one
-    manual_df = pd.read_csv(self.data_path / 'manual_assignments.csv')
+    # manual_assignments.tsv should be in the directory above this one
+    manual_df = pd.read_csv(self.data_path / 'manual_assignments.tsv', sep='\t')
     manual_gene_map = manual_df.set_index('Accession')['Accession Gene'].to_dict()
     manual_protein_id_map = manual_df.set_index('Accession')['Parent Accession'].to_dict()
     manual_protein_name_map = manual_df.set_index('Accession')['Parent Name'].to_dict()

@@ -31,6 +31,7 @@ def run_protein_tree(
     update_proteome: Whether or not to update the proteome to be used for the species.
     num_threads: Number of threads to use for BLAST and ARC.
   """
+  species_dir = f'{taxon_id}-{species_name_map[taxon_id].replace(" ", "_")}'
   species_name = species_name_map[taxon_id]
   is_vertebrate = is_vertebrate_map[taxon_id]
 
@@ -67,10 +68,10 @@ def run_protein_tree(
 
   # write assignments to CSV
   epitope_assignments.to_csv(
-    data_path / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}' / 'epitope_assignments.csv', index=False
+    data_path / 'species' / species_dir / 'epitope_assignments.tsv', sep='\t', index=False
   )
   source_assignments.to_csv(
-    data_path / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}' / 'source_assignments.csv', index=False
+    data_path / 'species' / species_dir / 'source_assignments.tsv', sep='\t', index=False
   )
 
   successful_source_assignment = (assigner_data[2] / assigner_data[0])*100
@@ -81,11 +82,11 @@ def run_protein_tree(
   print(f'Successful source antigen assignments: {successful_source_assignment:.1f}%')
   print(f'Successful epitope assignments: {successful_epitope_assignment:.1f}%\n')
 
-  # write data to metrics.csv
-  metrics_path = Path(__file__).parent.parent / 'data' / 'metrics.csv'
-  metrics_df = pd.read_csv(metrics_path)
+  # write data to metrics.tsv
+  metrics_path = Path(__file__).parent.parent / 'data' / 'metrics.tsv'
+  metrics_df = pd.read_csv(metrics_path, sep='\t')
 
-  # add new row if species is not in metrics.csv
+  # add new row if species is not in metrics.tsv
   if taxon_id not in metrics_df['Species Taxon ID'].tolist(): 
     new_row = {
       'Species Taxon ID': taxon_id,
@@ -113,7 +114,7 @@ def run_protein_tree(
     metrics_df.loc[idx, 'Successful Source Assignment'] = successful_source_assignment
     metrics_df.loc[idx, 'Successful Epitope Assignment'] = successful_epitope_assignment
     
-  metrics_df.to_csv(metrics_path, index=False)
+  metrics_df.to_csv(metrics_path, sep='\t', index=False)
 
   print(f'Protein tree built for {species_name} (ID: {taxon_id}).\n\n')
   
@@ -154,7 +155,7 @@ def main():
     help='Number of threads to use for BLAST and ARC.'
   )
   
-  species_df = pd.read_csv(data_path / 'species.csv')
+  species_df = pd.read_csv(data_path / 'species.tsv', sep='\t')
   valid_taxon_ids = species_df['Species Taxon ID'].tolist()
   
   # taxa, species name, and is_vertebrate mapppings
@@ -183,7 +184,7 @@ def main():
     update_species_data()    
   
   Fetcher = DataFetcher()
-  if args.update_data or not (data_path / 'epitopes.csv').exists():
+  if args.update_data or not (data_path / 'epitopes.tsv').exists():
     print('Getting all data...')
     Fetcher.get_all_data()
     print('All data written.')

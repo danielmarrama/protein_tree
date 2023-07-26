@@ -1,0 +1,1585 @@
+Species Taxon ID	Species Name	All Taxa	Is Vertebrate	Group
+24	Shewanella putrefaciens	319224	False	Bacteria
+106	Runella slithyformis	761193;106	False	Bacteria
+108	Spirosoma linguale	108	False	Bacteria
+139	Borreliella burgdorferi	224326;139;521007;445985;445983;521009	False	Bacteria
+158	Treponema denticola	158	False	Bacteria
+160	Treponema pallidum	160;243276	False	Bacteria
+162	Treponema phagedenis	754027	False	Bacteria
+173	Leptospira interrogans	267671;173;189518;214675;44275;44276;57678;211882;1279460	False	Bacteria
+174	Leptospira borgpetersenii	338220;280504	False	Bacteria
+188	Magnetospirillum magnetotacticum	272627	False	Bacteria
+195	Campylobacter coli	195;306254	False	Bacteria
+196	Campylobacter fetus	32019	False	Bacteria
+197	Campylobacter jejuni	197;195099;360112;354242;192222;407148;398000;482628;567106	False	Bacteria
+199	Campylobacter concisus	199	False	Bacteria
+200	Campylobacter curvus	200	False	Bacteria
+201	Campylobacter lari	306263	False	Bacteria
+203	Campylobacter rectus	203	False	Bacteria
+210	Helicobacter pylori	85962;210;102617;85963;637383;992121;1352357;1337393;866344;102618;290847	False	Bacteria
+235	Brucella abortus	235;359391;430066;641140;575591;520450;262698	False	Bacteria
+236	Brucella ovis	444178;236	False	Bacteria
+263	Francisella tularensis	376619;177416;263;119856;393115;393011;418136;430557;458234;351581	False	Bacteria
+266	Paracoccus denitrificans	266;318586	False	Bacteria
+271	Thermus aquaticus	271	False	Bacteria
+274	Thermus thermophilus	274;300852;262724	False	Bacteria
+280	Xanthobacter autotrophicus	280;78245	False	Bacteria
+285	Comamonas testosteroni	285	False	Bacteria
+287	Pseudomonas aeruginosa	287;208963;1009714;208964;388272;350704;350703;1081927	False	Bacteria
+292	Burkholderia cepacia	292	False	Bacteria
+294	Pseudomonas fluorescens	294	False	Bacteria
+298	Pseudomonas marginalis	298	False	Bacteria
+300	Pseudomonas mendocina	300	False	Bacteria
+303	Pseudomonas putida	303;351746	False	Bacteria
+306	Pseudomonas sp.	306	False	Bacteria
+312	Pseudomonas sp. RS-16	312	False	Bacteria
+316	Stutzerimonas stutzeri	316	False	Bacteria
+329	Ralstonia pickettii	1366050	False	Bacteria
+346	Xanthomonas citri	346	False	Bacteria
+354	Azotobacter vinelandii	354;322710	False	Bacteria
+358	Agrobacterium tumefaciens	358	False	Bacteria
+382	Sinorhizobium meliloti	382;266834	False	Bacteria
+384	Rhizobium leguminosarum	384	False	Bacteria
+446	Legionella pneumophila	446;66976	False	Bacteria
+450	Legionella longbeachae	661367	False	Bacteria
+470	Acinetobacter baumannii	470;400667;509173	False	Bacteria
+471	Acinetobacter calcoaceticus	471	False	Bacteria
+480	Moraxella catarrhalis	480;857571	False	Bacteria
+485	Neisseria gonorrhoeae	485;242231;528354	False	Bacteria
+487	Neisseria meningitidis	487;65699;122586;491;272831;1172206;909420	False	Bacteria
+502	Kingella denitrificans	502	False	Bacteria
+511	Alcaligenes faecalis	511	False	Bacteria
+520	Bordetella pertussis	520;257313	False	Bacteria
+521	Bordetella avium	521	False	Bacteria
+524	Acidiphilium cryptum	349163;524	False	Bacteria
+539	Eikenella corrodens	539	False	Bacteria
+548	Klebsiella aerogenes	548	False	Bacteria
+550	Enterobacter cloacae	550;336306	False	Bacteria
+554	Pectobacterium carotovorum	561230;554	False	Bacteria
+556	Dickeya chrysanthemi	556	False	Bacteria
+562	Escherichia coli	316401;562;83333;217992;83334;37762;362663;364106;168807;155864;585034;478005;478006;478008;525281;331111;344601;386585;511145;340197;340184;358709;405955;340185;316407;199310;331112;481805;244320;316385;340186;679206;344610;1432555;439184;1045010;595496;511693	False	Bacteria
+573	Klebsiella pneumoniae	573;484021;272620	False	Bacteria
+584	Proteus mirabilis	584;529507	False	Bacteria
+615	Serratia marcescens	615	False	Bacteria
+621	Shigella boydii	621;344609;300268	False	Bacteria
+622	Shigella dysenteriae	622;300267	False	Bacteria
+623	Shigella flexneri	623;42897;373384;198214;198215;591020;424717;766147;766154	False	Bacteria
+624	Shigella sonnei	624;300269	False	Bacteria
+630	Yersinia enterocolitica	630;393305;34054;913028	False	Bacteria
+632	Yersinia pestis	632;214092;377628;360102;386656;412420;187410;349746;375450;373665	False	Bacteria
+633	Yersinia pseudotuberculosis	633;349747;273123	False	Bacteria
+634	Yersinia bercovieri	349968	False	Bacteria
+636	Edwardsiella tarda	636	False	Bacteria
+644	Aeromonas hydrophila	644	False	Bacteria
+645	Aeromonas salmonicida	645;29491	False	Bacteria
+659	Photobacterium phosphoreum	659	False	Bacteria
+661	Photobacterium angustum	314292	False	Bacteria
+663	Vibrio alginolyticus	314288	False	Bacteria
+666	Vibrio cholerae	666;44104;686;127906;345073;345076;345075;345074;45888;243277;412614;412967;412966;417400;417399;404974;345072;592313;417398;412883	False	Bacteria
+670	Vibrio parahaemolyticus	223926;670;419109;627611;563773	False	Bacteria
+671	Vibrio proteolyticus	671	False	Bacteria
+672	Vibrio vulnificus	672;196600;216895	False	Bacteria
+674	Vibrio mimicus	674	False	Bacteria
+703	Plesiomonas shigelloides	703	False	Bacteria
+714	Aggregatibacter actinomycetemcomitans	714	False	Bacteria
+715	Actinobacillus pleuropneumoniae	228399;209841;715	False	Bacteria
+727	Haemophilus influenzae	727;281310;374932;521004;71421;262727;262728;374931;375432;374928;375177;374927;521005;374933	False	Bacteria
+730	[Haemophilus] ducreyi	730	False	Bacteria
+731	Histophilus somni	731;205914	False	Bacteria
+738	Glaesserella parasuis	738;1117322;557723	False	Bacteria
+747	Pasteurella multocida	747;272843	False	Bacteria
+769	Anaplasma centrale	769;574556	False	Bacteria
+770	Anaplasma marginale	320483;770;234826	False	Bacteria
+774	Bartonella bacilliformis	360095;774	False	Bacteria
+777	Coxiella burnetii	777;360117;227377;360116;434922;360115;434923;434924	False	Bacteria
+779	Ehrlichia ruminantium	779;254945	False	Bacteria
+781	Rickettsia conorii	272944;781	False	Bacteria
+782	Rickettsia prowazekii	782;272947	False	Bacteria
+783	Rickettsia rickettsii	783;452659;392021;1105104	False	Bacteria
+784	Orientia tsutsugamushi	357244;784;334380	False	Bacteria
+785	Rickettsia typhi	785;257363	False	Bacteria
+786	Rickettsia akari	293614	False	Bacteria
+787	Rickettsia australis	787	False	Bacteria
+788	Rickettsia canadensis	788	False	Bacteria
+813	Chlamydia trachomatis	813;315277;272561;580047;634464;672161;759363	False	Bacteria
+817	Bacteroides fragilis	817	False	Bacteria
+818	Bacteroides thetaiotaomicron	226186;818	False	Bacteria
+820	Bacteroides uniformis	820	False	Bacteria
+821	Phocaeicola vulgatus	821	False	Bacteria
+823	Parabacteroides distasonis	823	False	Bacteria
+837	Porphyromonas gingivalis	837;1403335;242619;1125722;431947	False	Bacteria
+851	Fusobacterium nucleatum	851	False	Bacteria
+853	Faecalibacterium prausnitzii	853	False	Bacteria
+891	Desulfuromonas acetoxidans	281689	False	Bacteria
+907	Megasphaera elsdenii	907	False	Bacteria
+920	Acidithiobacillus ferrooxidans	920	False	Bacteria
+944	Ehrlichia canis	944;269484	False	Bacteria
+945	Ehrlichia chaffeensis	945;205920	False	Bacteria
+947	Ehrlichia ewingii	947	False	Bacteria
+948	Anaplasma phagocytophilum	212042;948	False	Bacteria
+955	Wolbachia pipientis	955	False	Bacteria
+985	Cytophaga hutchinsonii	269798	False	Bacteria
+1006	Marivirga tractuosa	1006	False	Bacteria
+1018	Capnocytophaga ochracea	1018	False	Bacteria
+1019	Capnocytophaga sputigena	1019	False	Bacteria
+1022	Beggiatoa alba	1022	False	Bacteria
+1027	Microscilla marina	313606	False	Bacteria
+1063	Cereibacter sphaeroides	1063;272943;349101	False	Bacteria
+1076	Rhodopseudomonas palustris	316056;1076	False	Bacteria
+1102	Prosthecochloris aestuarii	290512	False	Bacteria
+1108	Chloroflexus aurantiacus	324602	False	Bacteria
+1206	Trichodesmium erythraeum	203124	False	Bacteria
+1254	Pediococcus acidilactici	1254	False	Bacteria
+1260	Finegoldia magna	1260	False	Bacteria
+1265	Ruminococcus flavefaciens	1265	False	Bacteria
+1270	Micrococcus luteus	1270	False	Bacteria
+1280	Staphylococcus aureus	1280;196620;93062;548470;282458;158879;93061;553583;426430;367830;1458279;451516;867914;359787;451515;1193576;548473	False	Bacteria
+1282	Staphylococcus epidermidis	525374;176279	False	Bacteria
+1292	Staphylococcus warneri	1292	False	Bacteria
+1299	Deinococcus radiodurans	1299;243230	False	Bacteria
+1302	Streptococcus gordonii	1302	False	Bacteria
+1303	Streptococcus oralis	1303	False	Bacteria
+1305	Streptococcus sanguinis	1305	False	Bacteria
+1307	Streptococcus suis	1307	False	Bacteria
+1309	Streptococcus mutans	1309;1198676;857099;210007	False	Bacteria
+1310	Streptococcus sobrinus	246202;1310	False	Bacteria
+1311	Streptococcus agalactiae	1311;211110;208435;342614	False	Bacteria
+1313	Streptococcus pneumoniae	1313;170187;373153;171101;914129	False	Bacteria
+1314	Streptococcus pyogenes	1314;160491;160490;301449;301450;286636;342023;301452;301451;404330;404331;410069;301448;1207470;186103;301447	False	Bacteria
+1317	Streptococcus downei	1317	False	Bacteria
+1320	Streptococcus sp. group G	1320	False	Bacteria
+1334	Streptococcus dysgalactiae	119602;1334	False	Bacteria
+1336	Streptococcus equi	1336	False	Bacteria
+1338	Streptococcus intermedius	1338	False	Bacteria
+1349	Streptococcus uberis	1349	False	Bacteria
+1351	Enterococcus faecalis	1351	False	Bacteria
+1352	Enterococcus faecium	1352;333849	False	Bacteria
+1358	Lactococcus lactis	1358	False	Bacteria
+1359	Lactococcus cremoris	272622	False	Bacteria
+1390	Bacillus amyloliquefaciens	1390;692420	False	Bacteria
+1392	Bacillus anthracis	260799;1392;486624;486623;486620;261594;486619;191218;405536;198094;486621;568206;592021;212045	False	Bacteria
+1396	Bacillus cereus	1396;405533;451709;451708;405532;405917;451707;405531;269801;226900;526977;572264;526979;347495;526974	False	Bacteria
+1402	Bacillus licheniformis	1402	False	Bacteria
+1404	Priestia megaterium	1404	False	Bacteria
+1405	Bacillus mycoides	1405;315730	False	Bacteria
+1408	Bacillus pumilus	1408	False	Bacteria
+1422	Geobacillus stearothermophilus	1422	False	Bacteria
+1423	Bacillus subtilis	1423;224308;535026	False	Bacteria
+1428	Bacillus thuringiensis	1435;1428;29339;339854;412694;527024;527026	False	Bacteria
+1454	Schinkia azotoformans	1454	False	Bacteria
+1467	Lederbergia lenta	1467	False	Bacteria
+1488	Clostridium acetobutylicum	272562	False	Bacteria
+1491	Clostridium botulinum	441771;1491;36831;36830;36829;445338;36826;36827;935198;445335;413999;508767	False	Bacteria
+1492	Clostridium butyricum	1492	False	Bacteria
+1496	Clostridioides difficile	1496;1169127;645463	False	Bacteria
+1502	Clostridium perfringens	1502;195102;107819	False	Bacteria
+1513	Clostridium tetani	1513;212717	False	Bacteria
+1515	Acetivibrio thermocellus	203119	False	Bacteria
+1520	Clostridium beijerinckii	290402;1520	False	Bacteria
+1525	Moorella thermoacetica	264732	False	Bacteria
+1531	Enterocloster clostridioformis	1531	False	Bacteria
+1542	Clostridium novyi	386415	False	Bacteria
+1584	Lactobacillus delbrueckii	1585	False	Bacteria
+1590	Lactiplantibacillus plantarum	1590	False	Bacteria
+1599	Latilactobacillus sakei	1599	False	Bacteria
+1604	Lactobacillus amylovorus	1604	False	Bacteria
+1605	Ligilactobacillus animalis	1605	False	Bacteria
+1613	Limosilactobacillus fermentum	1613	False	Bacteria
+1622	Ligilactobacillus murinus	1235801	False	Bacteria
+1638	Listeria ivanovii	1638	False	Bacteria
+1639	Listeria monocytogenes	169963;1639;393133;265669;267409;267410;393124;568819;393117;401650;552536;393130;393126;393128;393125;1334565	False	Bacteria
+1640	Listeria seeligeri	1640	False	Bacteria
+1641	Listeria grayi	1641	False	Bacteria
+1642	Listeria innocua	1642	False	Bacteria
+1643	Listeria welshimeri	386043	False	Bacteria
+1646	Renibacterium salmoninarum	1646	False	Bacteria
+1660	Schaalia odontolytica	1660	False	Bacteria
+1661	Trueperella pyogenes	1661	False	Bacteria
+1664	Arthrobacter glacialis	1664	False	Bacteria
+1681	Bifidobacterium bifidum	1681	False	Bacteria
+1685	Bifidobacterium breve	1685	False	Bacteria
+1717	Corynebacterium diphtheriae	1717;257309	False	Bacteria
+1718	Corynebacterium glutamicum	1718;196627;340322	False	Bacteria
+1719	Corynebacterium pseudotuberculosis	1719	False	Bacteria
+1744	Propionibacterium freudenreichii	1752	False	Bacteria
+1747	Cutibacterium acnes	1747;1091045	False	Bacteria
+1764	Mycobacterium avium	1764;1770;243243;262316;1391998	False	Bacteria
+1767	Mycobacterium intracellulare	487521;1767	False	Bacteria
+1768	Mycobacterium kansasii	1768	False	Bacteria
+1769	Mycobacterium leprae	1769;272631	False	Bacteria
+1772	Mycolicibacterium smegmatis	246196;1772	False	Bacteria
+1773	Mycobacterium tuberculosis	1773;83332;652616;419947;1765;33892;83331;561275;233413;410289;395095;348776;336982;1389959;182785;520141;515617;443149;515616	False	Bacteria
+1778	Mycobacterium gordonae	1778	False	Bacteria
+1781	Mycobacterium marinum	216594;1781	False	Bacteria
+1783	Mycobacterium scrofulaceum	1783	False	Bacteria
+1795	Mycolicibacterium neoaurum	1795	False	Bacteria
+1804	Mycolicibacterium gilvum	350054;1804;278137	False	Bacteria
+1809	Mycobacterium ulcerans	1809;362242	False	Bacteria
+1828	Rhodococcus fascians	1828	False	Bacteria
+1833	Rhodococcus erythropolis	1833	False	Bacteria
+1836	Saccharopolyspora erythraea	1836	False	Bacteria
+1895	Streptomyces avidinii	1895	False	Bacteria
+1902	Streptomyces coelicolor	1902;100226	False	Bacteria
+1916	Streptomyces lividans	1916	False	Bacteria
+1943	Streptomyces griseoruber	1943	False	Bacteria
+1946	Streptomyces kasugaensis	1946	False	Bacteria
+2021	Thermobifida fusca	269800	False	Bacteria
+2039	Tropheryma whipplei	2039	False	Bacteria
+2066	Kitasatospora setae	452652	False	Bacteria
+2096	Mycoplasmoides gallisepticum	1006581	False	Bacteria
+2097	Mycoplasmoides genitalium	2097;243273	False	Bacteria
+2099	Mesomycoplasma hyopneumoniae	2099;295358;262722;754503	False	Bacteria
+2100	Mesomycoplasma hyorhinis	2100	False	Bacteria
+2104	Mycoplasmoides pneumoniae	722438;2104;272634	False	Bacteria
+2110	Mycoplasmopsis agalactiae	347257	False	Bacteria
+2111	Metamycoplasma arthritidis	2111	False	Bacteria
+2133	Spiroplasma citri	2133	False	Bacteria
+2148	Acholeplasma laidlawii	2148	False	Bacteria
+2173	Methanobrevibacter smithii	2173	False	Archaea
+2190	Methanocaldococcus jannaschii	2190;243232	False	Archaea
+2234	Archaeoglobus fulgidus	2234	False	Archaea
+2238	Haloarcula marismortui	272569	False	Archaea
+2242	Halobacterium salinarum	2242	False	Archaea
+2261	Pyrococcus furiosus	2261	False	Archaea
+2277	Pyrobaculum islandicum	2277	False	Archaea
+2287	Saccharolobus solfataricus	2287	False	Archaea
+2336	Thermotoga maritima	243274	False	Bacteria
+2439	Plasmid ColB2	2439	False	Other
+2465	Plasmid F	2465	False	Other
+2702	Gardnerella vaginalis	2702	False	Bacteria
+2736	Verrucomicrobium spinosum	2736	False	Bacteria
+2903	Emiliania huxleyi	280463;2903	False	Eukaryota
+3055	Chlamydomonas reinhardtii	3055	False	Eukaryota
+3067	Volvox carteri	3068	False	Eukaryota
+3346	Pinus pinea	3346	False	Eukaryota
+3352	Pinus taeda	3352	False	Eukaryota
+3369	Cryptomeria japonica	3369	False	Eukaryota
+3505	Betula pendula	3505	False	Eukaryota
+3513	Quercus alba	3513	False	Eukaryota
+3517	Alnus glutinosa	3517	False	Eukaryota
+3559	Chenopodium album	3559	False	Eukaryota
+3562	Spinacia oleracea	3562	False	Eukaryota
+3567	Amaranthus caudatus	3567	False	Eukaryota
+3617	Fagopyrum esculentum	3617	False	Eukaryota
+3625	Actinidia chinensis	3625	False	Eukaryota
+3645	Bertholletia excelsa	3645	False	Eukaryota
+3656	Cucumis melo	3656	False	Eukaryota
+3677	Trichosanthes kirilowii	3677	False	Eukaryota
+3702	Arabidopsis thaliana	3702	False	Eukaryota
+3707	Brassica juncea	3707	False	Eukaryota
+3708	Brassica napus	3708	False	Eukaryota
+3711	Brassica rapa	3711	False	Eukaryota
+3728	Sinapis alba	3728	False	Eukaryota
+3750	Malus domestica	3750	False	Eukaryota
+3755	Prunus dulcis	3755	False	Eukaryota
+3758	Prunus domestica	3758	False	Eukaryota
+3760	Prunus persica	3760	False	Eukaryota
+3816	Abrus precatorius	3816	False	Eukaryota
+3818	Arachis hypogaea	3818	False	Eukaryota
+3847	Glycine max	3847	False	Eukaryota
+3864	Lens culinaris	3864	False	Eukaryota
+3885	Phaseolus vulgaris	3885	False	Eukaryota
+3888	Pisum sativum	3888	False	Eukaryota
+3972	Viscum album	3972	False	Eukaryota
+3981	Hevea brasiliensis	3981	False	Eukaryota
+3988	Ricinus communis	3988	False	Eukaryota
+4039	Daucus carota	4039	False	Eukaryota
+4045	Apium graveolens	4045	False	Eukaryota
+4081	Solanum lycopersicum	4081	False	Eukaryota
+4097	Nicotiana tabacum	4097	False	Eukaryota
+4113	Solanum tuberosum	4113	False	Eukaryota
+4120	Ipomoea batatas	4120	False	Eukaryota
+4146	Olea europaea	4146	False	Eukaryota
+4182	Sesamum indicum	4182	False	Eukaryota
+4212	Ambrosia artemisiifolia	4215;4212	False	Eukaryota
+4214	Ambrosia trifida	4214	False	Eukaryota
+4220	Artemisia vulgaris	4220	False	Eukaryota
+4232	Helianthus annuus	4232	False	Eukaryota
+4498	Avena sativa	4498	False	Eukaryota
+4509	Dactylis glomerata	4509	False	Eukaryota
+4513	Hordeum vulgare	4513;112509;77009	False	Eukaryota
+4522	Lolium perenne	4522	False	Eukaryota
+4530	Oryza sativa	39947;4530	False	Eukaryota
+4545	Poa pratensis	4545	False	Eukaryota
+4550	Secale cereale	4550;155091	False	Eukaryota
+4558	Sorghum bicolor	4558	False	Eukaryota
+4565	Triticum aestivum	4565	False	Eukaryota
+4568	Triticum monococcum	4568	False	Eukaryota
+4571	Triticum turgidum	4567	False	Eukaryota
+4573	Aegilops speltoides	4573	False	Eukaryota
+4577	Zea mays	4577;76912	False	Eukaryota
+4606	Lolium arundinaceum	4606	False	Eukaryota
+4641	Musa acuminata	4641;214697	False	Eukaryota
+4754	Pneumocystis carinii	4754	False	Eukaryota
+4784	Phytophthora capsici	4784	False	Eukaryota
+4792	Phytophthora parasitica	4792	False	Eukaryota
+4920	Millerozyma farinosa	4920	False	Eukaryota
+4932	Saccharomyces cerevisiae	4932;285006;559292;643680	False	Eukaryota
+4954	Zygosaccharomyces bailii	4954	False	Eukaryota
+5037	Histoplasma capsulatum	447093;5037	False	Eukaryota
+5039	Blastomyces dermatitidis	5039;447095;653446	False	Eukaryota
+5057	Aspergillus clavatus	5057	False	Eukaryota
+5059	Aspergillus flavus	5059	False	Eukaryota
+5060	Aspergillus giganteus	5060	False	Eukaryota
+5061	Aspergillus niger	5061	False	Eukaryota
+5064	Aspergillus restrictus	5064	False	Eukaryota
+5067	Aspergillus parasiticus	5067	False	Eukaryota
+5076	Penicillium chrysogenum	5076	False	Eukaryota
+5077	Penicillium citrinum	5077	False	Eukaryota
+5116	Cryphonectria parasitica	660469	False	Eukaryota
+5141	Neurospora crassa	5141	False	Eukaryota
+5207	Cryptococcus neoformans	5207;283643;235443	False	Eukaryota
+5270	Ustilago maydis	237631	False	Eukaryota
+5325	Trametes versicolor	5325	False	Eukaryota
+5334	Schizophyllum commune	5334	False	Eukaryota
+5346	Coprinopsis cinerea	5346	False	Eukaryota
+5476	Candida albicans	5476;237561	False	Eukaryota
+5482	Candida tropicalis	5482	False	Eukaryota
+5501	Coccidioides immitis	5501	False	Eukaryota
+5503	Curvularia lunata	5503	False	Eukaryota
+5507	Fusarium oxysporum	5507	False	Eukaryota
+5551	Trichophyton rubrum	5551	False	Eukaryota
+5580	Aureobasidium pullulans	5580	False	Eukaryota
+5599	Alternaria alternata	5599	False	Eukaryota
+5659	Leishmania amazonensis	5659	False	Eukaryota
+5660	Leishmania braziliensis	5660;420245	False	Eukaryota
+5661	Leishmania donovani	5661;981087	False	Eukaryota
+5664	Leishmania major	5664;347515	False	Eukaryota
+5665	Leishmania mexicana	5665;929439	False	Eukaryota
+5667	Leishmania aethiopica	5667	False	Eukaryota
+5671	Leishmania infantum	5671;435258	False	Eukaryota
+5679	Leishmania panamensis	5679	False	Eukaryota
+5682	Leishmania pifanoi	5682	False	Eukaryota
+5691	Trypanosoma brucei	5691;31286;31285;679716;185431;5702	False	Eukaryota
+5692	Trypanosoma congolense	5692	False	Eukaryota
+5693	Trypanosoma cruzi	5693;353153;85057	False	Eukaryota
+5699	Trypanosoma vivax	1055687	False	Eukaryota
+5722	Trichomonas vaginalis	5722	False	Eukaryota
+5741	Giardia intestinalis	5741;184922;598745;658858	False	Eukaryota
+5755	Acanthamoeba castellanii	5755	False	Eukaryota
+5759	Entamoeba histolytica	5759;294381;885311	False	Eukaryota
+5762	Naegleria gruberi	5762	False	Eukaryota
+5801	Eimeria acervulina	5801	False	Eukaryota
+5802	Eimeria tenella	5802	False	Eukaryota
+5807	Cryptosporidium parvum	5807;353152	False	Eukaryota
+5811	Toxoplasma gondii	383379;5811;508771;507601;432359;1209523;1209525;398031	False	Eukaryota
+5821	Plasmodium berghei	5821;5823	False	Eukaryota
+5824	Plasmodium brasilianum	5824	False	Eukaryota
+5825	Plasmodium chabaudi	5825;31271	False	Eukaryota
+5827	Plasmodium cynomolgi	5827;5828	False	Eukaryota
+5833	Plasmodium falciparum	5833;5843;5835;36329;5846;5836;5839;5837;57266;5848;5840;5842;5841;5834;57270;5838;1036723;1036727	False	Eukaryota
+5850	Plasmodium knowlesi	5850;5851;5852	False	Eukaryota
+5855	Plasmodium vivax	5855;31273;126793;1035514	False	Eukaryota
+5857	Plasmodium fragile	5857	False	Eukaryota
+5858	Plasmodium malariae	5858	False	Eukaryota
+5861	Plasmodium yoelii	73239;5861;352914	False	Eukaryota
+5865	Babesia bovis	5865	False	Eukaryota
+5866	Babesia bigemina	5866	False	Eukaryota
+5868	Babesia microti	5868;1133968	False	Eukaryota
+5872	Theileria equi	5872	False	Eukaryota
+5874	Theileria annulata	5874;353154	False	Eukaryota
+5875	Theileria parva	333668;5875	False	Eukaryota
+5877	Theileria sergenti	5877	False	Eukaryota
+5970	Exophiala dermatitidis	5970	False	Eukaryota
+6035	Encephalitozoon cuniculi	6035;284813	False	Eukaryota
+6100	Aequorea victoria	6100	False	Eukaryota
+6182	Schistosoma japonicum	6182	False	Eukaryota
+6183	Schistosoma mansoni	6183	False	Eukaryota
+6184	Schistosoma bovis	6184	False	Eukaryota
+6185	Schistosoma haematobium	6185	False	Eukaryota
+6192	Fasciola hepatica	6192	False	Eukaryota
+6198	Opisthorchis viverrini	6198	False	Eukaryota
+6203	Taenia ovis	6203	False	Eukaryota
+6204	Taenia solium	6204	False	Eukaryota
+6206	Taenia saginata	6206	False	Eukaryota
+6207	Taenia crassiceps	6207	False	Eukaryota
+6210	Echinococcus granulosus	6210	False	Eukaryota
+6211	Echinococcus multilocularis	6211	False	Eukaryota
+6238	Caenorhabditis briggsae	6238	False	Eukaryota
+6239	Caenorhabditis elegans	6239	False	Eukaryota
+6248	Strongyloides stercoralis	6248	False	Eukaryota
+6252	Ascaris lumbricoides	6252	False	Eukaryota
+6253	Ascaris suum	6253	False	Eukaryota
+6269	Anisakis simplex	6269	False	Eukaryota
+6279	Brugia malayi	6279	False	Eukaryota
+6282	Onchocerca volvulus	6282	False	Eukaryota
+6293	Wuchereria bancrofti	6293	False	Eukaryota
+6299	Litomosoides carinii	6299	False	Eukaryota
+6313	Angiostrongylus cantonensis	6313	False	Eukaryota
+6334	Trichinella spiralis	6334	False	Eukaryota
+6339	Heligmosomoides polygyrus	6339	False	Eukaryota
+6421	Hirudo medicinalis	6421	False	Eukaryota
+6454	Haliotis rufescens	6454	False	Eukaryota
+6491	Conus geographus	6491	False	Eukaryota
+6492	Conus magus	6492	False	Eukaryota
+6493	Conus striatus	6493	False	Eukaryota
+6495	Conus tulipa	6495	False	Eukaryota
+6594	Macrocallista nimbosa	6594	False	Eukaryota
+6661	Artemia franciscana	6661	False	Eukaryota
+6687	Penaeus monodon	6687	False	Eukaryota
+6689	Penaeus vannamei	6689	False	Eukaryota
+6690	Penaeus aztecus	6690	False	Eukaryota
+6728	Procambarus clarkii	6728	False	Eukaryota
+6761	Scylla serrata	6761	False	Eukaryota
+6819	Euphausia superba	6819	False	Eukaryota
+6850	Limulus polyphemus	6850	False	Eukaryota
+6853	Tachypleus tridentatus	6853	False	Eukaryota
+6858	Androctonus australis	70175;6858	False	Eukaryota
+6859	Androctonus mauritanicus	6860	False	Eukaryota
+6878	Centruroides noxius	6878	False	Eukaryota
+6887	Tityus serrulatus	6887	False	Eukaryota
+6925	Latrodectus tredecimguttatus	6925	False	Eukaryota
+6938	Ornithodoros moubata	6938	False	Eukaryota
+6941	Rhipicephalus microplus	6941	False	Eukaryota
+6945	Ixodes scapularis	6945	False	Eukaryota
+6954	Dermatophagoides farinae	6954	False	Eukaryota
+6956	Dermatophagoides pteronyssinus	6956	False	Eukaryota
+6958	Euroglyphus maynei	6958	False	Eukaryota
+6973	Blattella germanica	6973	False	Eukaryota
+6978	Periplaneta americana	6978	False	Eukaryota
+7004	Locusta migratoria	7004	False	Eukaryota
+7108	Spodoptera frugiperda	7108	False	Eukaryota
+7130	Manduca sexta	7130	False	Eukaryota
+7137	Galleria mellonella	7137	False	Eukaryota
+7154	Chironomus thummi	7155;7154	False	Eukaryota
+7160	Aedes albopictus	7160	False	Eukaryota
+7165	Anopheles gambiae	7165;180454	False	Eukaryota
+7227	Drosophila melanogaster	7227	False	Eukaryota
+7234	Drosophila persimilis	7234	False	Eukaryota
+7237	Drosophila pseudoobscura	46245	False	Eukaryota
+7386	Sarcophaga peregrina	7386	False	Eukaryota
+7394	Glossina morsitans	37546	False	Eukaryota
+7441	Dolichovespula maculata	7441	False	Eukaryota
+7444	Vespa basalis	7444	False	Eukaryota
+7453	Vespula maculifrons	7453	False	Eukaryota
+7454	Vespula vulgaris	7454	False	Eukaryota
+7460	Apis mellifera	7460;7469	False	Eukaryota
+7515	Ctenocephalides felis	7515	False	Eukaryota
+7719	Ciona intestinalis	7719	False	Eukaryota
+7741	Branchiostoma belcheri	7741	False	Eukaryota
+7787	Tetronarce californica	7787	True	Eukaryota
+7788	Torpedo marmorata	7788	True	Eukaryota
+7955	Danio rerio	7955	True	Eukaryota
+7957	Carassius auratus	7957	True	Eukaryota
+7959	Ctenopharyngodon idella	7959	True	Eukaryota
+7962	Cyprinus carpio	7962	True	Eukaryota
+8005	Electrophorus electricus	8005	True	Eukaryota
+8018	Oncorhynchus keta	8018	True	Eukaryota
+8022	Oncorhynchus mykiss	8022	True	Eukaryota
+8030	Salmo salar	8030	True	Eukaryota
+8049	Gadus morhua	8053;8049	True	Eukaryota
+8090	Oryzias latipes	8090	True	Eukaryota
+8255	Paralichthys olivaceus	8255	True	Eukaryota
+8355	Xenopus laevis	8355	True	Eukaryota
+8364	Xenopus tropicalis	8364	True	Eukaryota
+8554	Heloderma suspectum	8554	True	Eukaryota
+8613	Bungarus fasciatus	8613	True	Eukaryota
+8616	Bungarus multicinctus	8616	True	Eukaryota
+8624	Dendroaspis polylepis	8620	True	Eukaryota
+8654	Naja nigricollis	8654	True	Eukaryota
+8655	Naja nivea	8655	True	Eukaryota
+8656	Naja atra	8656	True	Eukaryota
+8657	Naja oxiana	8657	True	Eukaryota
+8658	Naja pallida	8658	True	Eukaryota
+8663	Notechis scutatus	8663	True	Eukaryota
+8668	Oxyuranus scutellatus	8667	True	Eukaryota
+8671	Pseudechis porphyriacus	8671	True	Eukaryota
+8704	Vipera ammodytes	8704	True	Eukaryota
+8706	Vipera aspis	194601	True	Eukaryota
+8722	Bothrops asper	8722	True	Eukaryota
+8724	Bothrops jararaca	8724	True	Eukaryota
+8725	Bothrops atrox	8725	True	Eukaryota
+8726	Bothrops jararacussu	8726	True	Eukaryota
+8731	Crotalus durissus	8732	True	Eukaryota
+8752	Lachesis muta	8753	True	Eukaryota
+8839	Anas platyrhynchos	8839	True	Eukaryota
+8845	Anser cygnoides	8845	True	Eukaryota
+8855	Cairina moschata	8855	True	Eukaryota
+8932	Columba livia	8932	True	Eukaryota
+8996	Numida meleagris	8996	True	Eukaryota
+9014	Colinus virginianus	9014	True	Eukaryota
+9031	Gallus gallus	9031	True	Eukaryota
+9054	Phasianus colchicus	9057	True	Eukaryota
+9085	Catreus wallichii	9085	True	Eukaryota
+9103	Meleagris gallopavo	9103	True	Eukaryota
+9258	Ornithorhynchus anatinus	9258	True	Eukaryota
+9305	Sarcophilus harrisii	9305	True	Eukaryota
+9337	Trichosurus vulpecula	9337	True	Eukaryota
+9402	Pteropus alecto	9402	True	Eukaryota
+9483	Callithrix jacchus	9483	True	Eukaryota
+9509	Ateles geoffroyi	9509	True	Eukaryota
+9534	Chlorocebus aethiops	9534	True	Eukaryota
+9538	Erythrocebus patas	9538	True	Eukaryota
+9541	Macaca fascicularis	9541	True	Eukaryota
+9544	Macaca mulatta	9544	True	Eukaryota
+9545	Macaca nemestrina	9545	True	Eukaryota
+9548	Macaca radiata	9548	True	Eukaryota
+9556	Papio cynocephalus	9556	True	Eukaryota
+9580	Hylobates lar	9580	True	Eukaryota
+9593	Gorilla gorilla	9595;9593	True	Eukaryota
+9597	Pan paniscus	9597	True	Eukaryota
+9598	Pan troglodytes	9598	True	Eukaryota
+9600	Pongo pygmaeus	9600	True	Eukaryota
+9601	Pongo abelii	9601	True	Eukaryota
+9606	Homo sapiens	9606	True	Eukaryota
+9612	Canis lupus	9615	True	Eukaryota
+9627	Vulpes vulpes	9627	True	Eukaryota
+9685	Felis catus	9685	True	Eukaryota
+9755	Physeter catodon	9755	True	Eukaryota
+9796	Equus caballus	9796	True	Eukaryota
+9798	Equus przewalskii	9798	True	Eukaryota
+9823	Sus scrofa	9823;9825	True	Eukaryota
+9844	Lama glama	9844	True	Eukaryota
+9860	Cervus elaphus	9860	True	Eukaryota
+9874	Odocoileus virginianus	9874	True	Eukaryota
+9913	Bos taurus	9913	True	Eukaryota
+9925	Capra hircus	9925	True	Eukaryota
+9940	Ovis aries	9940	True	Eukaryota
+9978	Ochotona princeps	9978	True	Eukaryota
+9986	Oryctolagus cuniculus	9986	True	Eukaryota
+10029	Cricetulus griseus	10029	True	Eukaryota
+10036	Mesocricetus auratus	10036	True	Eukaryota
+10042	Peromyscus maniculatus	10042	True	Eukaryota
+10090	Mus musculus	10090;10092;57486;39442	True	Eukaryota
+10116	Rattus norvegicus	10116	True	Eukaryota
+10141	Cavia porcellus	10141	True	Eukaryota
+10224	Saccoglossus kowalevskii	10224	False	Eukaryota
+10243	Cowpox virus	10243;265872	False	Viruses
+10244	Monkeypox virus	10244	False	Viruses
+10245	Vaccinia virus	10254;10245;467144;126794;10249;10248;332193;10253;32605;201444;10251;31531;10247;32606;397342;502057;696871	False	Viruses
+10255	Variola virus	12870;10255;53258;587200	False	Viruses
+10258	Orf virus	10258;75325	False	Viruses
+10261	Fowlpox virus	10261;928301	False	Viruses
+10273	Myxoma virus	10273	False	Viruses
+10276	Swinepox virus	10276	False	Viruses
+10368	Human betaherpesvirus 6	10368	False	Viruses
+10373	Macaca mulatta cytomegalovirus	10373	False	Viruses
+10407	Hepatitis B virus	10407;10418;10408;106820;106821;10419;2847137;489460;2764122;391647;490133;10409;10415;10410;10412;10414;489455;391650;45410;10411;391646;489469;482134;480116	False	Viruses
+10493	Frog virus 3	160691	False	Viruses
+10497	African swine fever virus	10497;10498;874269	False	Viruses
+10537	Canine mastadenovirus A	10514	False	Viruses
+10561	Xipapillomavirus 1	10562	False	Viruses
+10566	Human papillomavirus	10566	False	Viruses
+10623	Kappapapillomavirus 2	10623	False	Viruses
+10665	Tequatrovirus T4	10665	False	Viruses
+10678	Punavirus P1	10678	False	Viruses
+10703	Corynephage beta	10703	False	Viruses
+10710	Lambdavirus lambda	10710	False	Viruses
+10754	Lederbergvirus P22	10754	False	Viruses
+10847	Sinsheimervirus phiX174	10847	False	Viruses
+10864	Enterobacteria phage fd	10864	False	Viruses
+10879	Cystovirus phi6	10879	False	Viruses
+10891	Reovirus sp.	10891	False	Viruses
+11021	Eastern equine encephalitis virus	11022;11021	False	Viruses
+11029	Ross River virus	11032;11029	False	Viruses
+11033	Semliki Forest virus	11033	False	Viruses
+11034	Sindbis virus	11034	False	Viruses
+11036	Venezuelan equine encephalitis virus	11037;11036;11038	False	Viruses
+11039	Western equine encephalitis virus	11039	False	Viruses
+11137	Human coronavirus 229E	11137;1739614	False	Viruses
+11276	Vesicular stomatitis virus	11276	False	Viruses
+11292	Lyssavirus rabies	11295;11292;103929;11296;37132;11293;11294;11298	False	Viruses
+11318	Thogotovirus dhoriense	11318	False	Viruses
+11636	Reticuloendotheliosis virus	11636	False	Viruses
+11642	Simian foamy virus	11963;298339;41858;288118;11642	False	Viruses
+11660	Caprine arthritis encephalitis virus	11662;11660;11661;254355	False	Viruses
+11665	Equine infectious anemia virus	11671;11665;11670	False	Viruses
+11673	Feline immunodeficiency virus	11673;11674;45409;36372;11675	False	Viruses
+11676	Human immunodeficiency virus 1	11685;11676;11678;11686;11701;11696;82834;362651;11695;11704;11689;11688;31678;11698;11679;11690;11687;11703;11706;11697;11705;11683;11694;11708;11699;36375;11684;327105;388799;11682;11681;505186;505184;505185;11691;471721;401671;505228;1345266	False	Viruses
+11709	Human immunodeficiency virus 2	11716;11709;11714;73484;11715;31681;11718;11717;11713;11720	False	Viruses
+11723	Simian immunodeficiency virus	11723;31683;11735;11711;11738;11733;11736;31682;11737;31684;11731;160753;11730;11732;11734;224206	False	Viruses
+11746	Jaagsiekte sheep retrovirus	11746	False	Viruses
+11757	Mouse mammary tumor virus	11757	False	Viruses
+11768	Feline leukemia virus	11824;11769	False	Viruses
+11780	Snyder-Theilen feline sarcoma virus	11780	False	Viruses
+11786	Murine leukemia virus	11795;11801;11791;44561;11786;31687;65690;11790	False	Viruses
+11809	Moloney murine sarcoma virus	11812	False	Viruses
+11827	Human endogenous retrovirus	11827	False	Viruses
+11855	Mason-Pfizer monkey virus	11942;39068	False	Viruses
+11864	Avian leukosis virus	11861;363020;1401444;11864	False	Viruses
+11886	Rous sarcoma virus	11886	False	Viruses
+11901	Bovine leukemia virus	11901;11902	False	Viruses
+11966	Aids-associated retrovirus	11966	False	Viruses
+11976	Rabbit hemorrhagic disease virus	11976	False	Viruses
+11978	Feline calicivirus	11978;11981;11980;292349	False	Viruses
+11983	Norwalk virus	122929;122928;11984;150080;223997;489821;11983;588533;647514;647515;647519;499191;490039;647521;520963;520964;524364;1156983;747305;1182144;158465;508775;647516;463722;1286616;1241973;546980;489822;1665645;416035;1634342;490041;178773;1972699;1406148;1182143;332884;1046049;707488;1472713;660659;1260941;1498657;1070539;707477;82658;1350216;660658;707424;1254407;1291870;1792260;1291821;647343;1321999;552592;392172;479063;416039;1320096;1577715;173929;1184498	False	Viruses
+12064	Enterovirus E	12064;12065	False	Viruses
+12092	Hepatovirus A	12092;208726;12098	False	Viruses
+12110	Foot-and-mouth disease virus	12114;12118;12110;161727;73482;244367;46290;12112;12121;12116;12117;12113;12115;12120;110195;35292;12123;12111	False	Viruses
+12161	Beet yellows virus	12161	False	Viruses
+12162	Citrus tristeza virus	12162	False	Viruses
+12211	Plum pox virus	12211;12213	False	Viruses
+12216	Potato virus Y	12216;12220;12219	False	Viruses
+12232	Zucchini yellow mosaic virus	12232	False	Viruses
+12242	Tobacco mosaic virus	12242;12246;12243	False	Viruses
+12305	Cucumber mosaic virus	12305;117125	False	Viruses
+12455	Borna disease virus	12455	False	Viruses
+12475	Hepatitis delta virus	12475;510670	False	Viruses
+12480	African green monkey polyomavirus	10574	False	Viruses
+12639	Duck hepatitis B virus	12639	False	Viruses
+12643	Ectromelia virus	12643	False	Viruses
+12721	Human immunodeficiency virus	12721	False	Viruses
+13101	Juniperus ashei	13101	False	Eukaryota
+13187	Parietaria officinalis	13187	False	Eukaryota
+13286	Theromyzon tessulatum	13286	False	Eukaryota
+13373	Burkholderia mallei	13373;243160;320388;412022;334802;334803;320390	False	Bacteria
+13415	Chamaecyparis obtusa	13415	False	Eukaryota
+13451	Corylus avellana	13451	False	Eukaryota
+13469	Cupressus sempervirens	13469	False	Eukaryota
+13557	Hapalemur griseus	13557	True	Eukaryota
+13616	Monodelphis domestica	13616	True	Eukaryota
+13618	Myrmecia pilosula	13618	False	Eukaryota
+13677	Scomber scombrus	13677	True	Eukaryota
+13684	Parastagonospora nodorum	13684	False	Eukaryota
+13818	Adiantum capillus-veneris	13818	False	Eukaryota
+15368	Brachypodium distachyon	15368	False	Eukaryota
+15957	Phleum pratense	15957	False	Eukaryota
+16719	Juglans nigra	16719	False	Eukaryota
+27990	Plasmodium vivax-like sp.	27990	False	Eukaryota
+28035	Staphylococcus lugdunensis	28035	False	Bacteria
+28037	Streptococcus mitis	28037	False	Bacteria
+28038	Latilactobacillus curvatus	28038	False	Bacteria
+28049	Acidothermus cellulolyticus	351607	False	Bacteria
+28080	Campylobacter upsaliensis	306264	False	Bacteria
+28108	Alteromonas macleodii	28108	False	Bacteria
+28116	Bacteroides ovatus	28116	False	Bacteria
+28130	Prevotella disiens	28130	False	Bacteria
+28131	Prevotella intermedia	28131	False	Bacteria
+28132	Prevotella melaninogenica	28132	False	Bacteria
+28137	Prevotella veroralis	28137	False	Bacteria
+28151	Serratia proteamaculans	28151	False	Bacteria
+28172	Vibrio metschnikovii	28172	False	Bacteria
+28197	Aliarcobacter butzleri	367737	False	Bacteria
+28227	Malacoplasma penetrans	28227	False	Bacteria
+28295	Porcine epidemic diarrhea virus	28295;229032	False	Viruses
+28300	Heron hepatitis B virus	28300	False	Viruses
+28327	Murine rotavirus	28327;70865	False	Viruses
+28375	Soil-borne wheat mosaic virus	28375	False	Viruses
+28446	Anaerotignum propionicum	28446	False	Bacteria
+28448	Komagataeibacter xylinus	28448	False	Bacteria
+28450	Burkholderia pseudomallei	28450;272560;320373;425067;357348;360118;320374;441158;441159;441160;331978;320372	False	Bacteria
+28479	Phalaris aquatica	28479	False	Eukaryota
+28869	Ovine respiratory syncytial virus	28869	False	Viruses
+28871	Taterapox virus	28871	False	Viruses
+28873	Camelpox virus	203173;203174;203172;28873	False	Viruses
+28875	Rotavirus A	35336;195700;10960;10927;72132;10962;10941;37137;10933;10919;10923;10950;444185;408599;10952;10934;374507;31569;10957;10958;10917;36439;1835656;94432;73036;444186;10915;28875;697298;578831	False	Viruses
+28901	Salmonella enterica	54388;99287;90371;90370;28901;605;149539;596;48409;41514;98360;220341;28142;209261;295319;321314;59202;497977;59205;286783;1016998;119912;59203;554290;423368;439847;216597;497976;439843;440534;59201;611;272989	False	Bacteria
+28903	Mycoplasmopsis bovis	28903	False	Bacteria
+28909	Cynodon dactylon	28909	False	Eukaryota
+29073	Ursus maritimus	29073	True	Eukaryota
+29159	Crassostrea gigas	29159	False	Eukaryota
+29170	Ancylostoma caninum	29170	False	Eukaryota
+29176	Neospora caninum	29176;572307	False	Eukaryota
+29271	Dasheen mosaic virus	29271	False	Viruses
+29292	Pyrococcus abyssi	29292	False	Archaea
+29320	Paenarthrobacter nicotinovorans	29320	False	Bacteria
+29355	Ruminiclostridium cellobioparum	29355	False	Bacteria
+29362	Ruminiclostridium papyrosolvens	29362	False	Bacteria
+29380	Staphylococcus caprae	29380	False	Bacteria
+29388	Staphylococcus capitis	29388	False	Bacteria
+29430	Acinetobacter haemolyticus	707232	False	Bacteria
+29438	Pseudomonas savastanoi	29438	False	Bacteria
+29442	Pseudomonas tolaasii	29442	False	Bacteria
+29447	Xanthomonas albilineans	29447	False	Bacteria
+29459	Brucella melitensis	29459;224914;520464;703352	False	Bacteria
+29461	Brucella suis	29461;470137;204722	False	Bacteria
+29466	Veillonella parvula	29466	False	Bacteria
+29484	Yersinia frederiksenii	349966	False	Bacteria
+29497	Vibrio splendidus	314291	False	Bacteria
+29507	Leptospira kirschneri	29507	False	Bacteria
+29518	Borreliella afzelii	29518;390236	False	Bacteria
+29519	Borreliella garinii	29519	False	Bacteria
+29523	Bacteroides sp.	29523	False	Bacteria
+29543	Pelobacter propionicus	338966	False	Bacteria
+29661	Anthoxanthum odoratum	29661	False	Eukaryota
+29679	Holcus lanatus	29679	False	Eukaryota
+29715	Ambrosia psilostachya	29715	False	Eukaryota
+29760	Vitis vinifera	29760	False	Eukaryota
+29780	Mangifera indica	29780	False	Eukaryota
+29908	Sporothrix schenckii	29908	False	Eukaryota
+29918	Cladosporium herbarum	29918	False	Eukaryota
+29960	Penaeus indicus	29960	False	Eukaryota
+30011	Pyrophorus plagiophthalamus	30011	False	Eukaryota
+30069	Anopheles stephensi	30069	False	Eukaryota
+30215	Vespula vidua	30215	False	Eukaryota
+30522	Bos indicus x Bos taurus	30522	True	Eukaryota
+30538	Vicugna pacos	30538	True	Eukaryota
+31276	Perkinsus marinus	31276	False	Eukaryota
+31330	Ephydatia fluviatilis	31330	False	Eukaryota
+31721	Beet necrotic yellow vein virus	31721	False	Viruses
+32025	Helicobacter hepaticus	32025;235279	False	Bacteria
+32049	Synechococcus sp. PCC 7002	32049	False	Bacteria
+32201	Carya illinoinensis	32201	False	Eukaryota
+32278	Metapenaeus ensis	32278	False	Eukaryota
+32630	synthetic construct	32630	False	Other
+32644	unidentified	32644	False	Other
+33025	Phascolarctobacterium faecium	33025	False	Bacteria
+33038	[Ruminococcus] gnavus	33038	False	Bacteria
+33039	[Ruminococcus] torques	33039	False	Bacteria
+33060	Yersinia mollaretii	349967	False	Bacteria
+33069	Pseudomonas viridiflava	33069	False	Bacteria
+33075	Acidobacterium capsulatum	33075	False	Bacteria
+33127	Parietaria judaica	33127	False	Eukaryota
+33178	Aspergillus terreus	33178;341663	False	Eukaryota
+33934	Anoxybacillus flavithermus	33934	False	Bacteria
+33940	Geobacillus thermodenitrificans	420246	False	Bacteria
+33959	Lactobacillus johnsonii	33959	False	Bacteria
+33989	Rickettsia amblyommatis	33989	False	Bacteria
+33990	Rickettsia bellii	33990;336407;391896	False	Bacteria
+34245	Zinnia elegans	34245	False	Eukaryota
+34610	Amblyomma variegatum	34610	False	Eukaryota
+34631	Rhipicephalus appendiculatus	34631	False	Eukaryota
+34632	Rhipicephalus sanguineus	34632	False	Eukaryota
+34862	Otospermophilus beecheyi	34862	True	Eukaryota
+35258	Lambdapapillomavirus 2	35258	False	Viruses
+35269	Woodchuck hepatitis virus	35269;341946;10430;10433	False	Viruses
+35275	Murine endogenous retrovirus	35275	False	Viruses
+35288	Grapevine virus A	35288	False	Viruses
+35297	Striped jack nervous necrosis virus	35297	False	Viruses
+35345	Lactococcus phage TP901-1	35345	False	Viruses
+35670	Naja naja	35670	True	Eukaryota
+35725	Macrophomina phaseolina	1126212;35725	False	Eukaryota
+35788	Rickettsia africae	35788	False	Bacteria
+35791	Rickettsia massiliae	35791;416276	False	Bacteria
+35792	Rickettsia parkeri	35792	False	Bacteria
+35793	Rickettsia sibirica	35793;272951	False	Bacteria
+35795	Ehrlichia muris	35795	False	Bacteria
+35797	Nitrococcus mobilis	314278	False	Bacteria
+35818	Helicobacter pullorum	35818	False	Bacteria
+36080	Mucor circinelloides	36080	False	Eukaryota
+36087	Trichuris trichiura	36087	False	Eukaryota
+36427	Rotavirus C	101350	False	Viruses
+36596	Prunus armeniaca	36596	False	Eukaryota
+36809	Mycobacteroides abscessus	1198627;36809	False	Bacteria
+36845	Clostridium intestinale	36845	False	Bacteria
+36855	Brucella canis	483179;36855	False	Bacteria
+36911	Clavispora lusitaniae	36911	False	Eukaryota
+36914	Lodderomyces elongisporus	36914	False	Eukaryota
+36936	Lepidoglyphus destructor	36936	False	Eukaryota
+37124	Chikungunya virus	37124;371094;371095	False	Viruses
+37128	Potato mop-top virus	37128	False	Viruses
+37207	Rio Segundo hantavirus	37207	False	Viruses
+37326	Nocardia brasiliensis	37326	False	Bacteria
+37332	Nocardia seriolae	37332	False	Bacteria
+37347	Tupaia belangeri	37347	True	Eukaryota
+37682	Aegilops tauschii	37682	False	Eukaryota
+37734	Enterococcus casseliflavus	37734	False	Bacteria
+37769	Cryptococcus gattii VGI	37769	False	Eukaryota
+38020	marmosets	38020	True	Eukaryota
+38033	Chaetomium globosum	38033	False	Eukaryota
+38170	Avian orthoreovirus	38171;253446;77153	False	Viruses
+38289	Corynebacterium jeikeium	38289	False	Bacteria
+38323	Bartonella henselae	283166;38323	False	Bacteria
+38873	Fraxinus excelsior	38873	False	Eukaryota
+39152	Methanococcus maripaludis	39152;267377	False	Archaea
+39414	Plantago lanceolata	39414	False	Eukaryota
+39483	Faecalitalea cylindroides	39483	False	Bacteria
+39584	Juniperus virginiana	39584	False	Eukaryota
+39778	Veillonella dispar	39778	False	Bacteria
+39803	Qubevirus durum	39803	False	Viruses
+39950	Dialister pneumosintes	39950	False	Bacteria
+40050	African horse sickness virus	117204;36421	False	Viruses
+40051	Bluetongue virus	10906;10904;33717;40051;33718;35327;94967;35330;10900;10903;35329;197780;45029;94966;35331	False	Viruses
+40214	Acinetobacter johnsonii	40214	False	Bacteria
+40216	Acinetobacter radioresistens	40216	False	Bacteria
+40324	Stenotrophomonas maltophilia	40324	False	Bacteria
+40697	Blomia tropicalis	40697	False	Eukaryota
+40834	Borrelia duttonii	412419	False	Bacteria
+41997	Enterococcus saccharolyticus	41997	False	Bacteria
+42097	Isla Vista hantavirus	42097	False	Viruses
+42229	Prunus avium	42229	False	Eukaryota
+42345	Phoenix dactylifera	42345	False	Eukaryota
+42358	Hantavirus Monongahela-3	42358	False	Viruses
+42374	Candida dubliniensis	42374	False	Eukaryota
+42862	Rickettsia felis	42862;315456	False	Bacteria
+43335	Populus alba	43335	False	Eukaryota
+43763	Redspotted grouper nervous necrosis virus	292633;43763	False	Viruses
+43765	Corynebacterium amycolatum	43765	False	Bacteria
+43767	Prescottella equi	43767	False	Bacteria
+44001	Caldicellulosiruptor saccharolyticus	351627	False	Bacteria
+44088	Canarypox virus	44088	False	Viruses
+44271	Leishmania chagasi	44271	False	Eukaryota
+44386	Haemaphysalis longicornis	44386	False	Eukaryota
+44689	Dictyostelium discoideum	44689	False	Eukaryota
+44755	New York hantavirus	44755	False	Viruses
+45235	Tolypocladium capitatum	45235	False	Eukaryota
+45617	Human endogenous retrovirus K	45617;64382	False	Viruses
+46221	Porcine circovirus	46221	False	Viruses
+46457	Cycloclasticus oligotrophus	46457	False	Bacteria
+46503	Parabacteroides merdae	46503	False	Bacteria
+46506	Bacteroides stercoris	46506	False	Bacteria
+46681	Entamoeba dispar	370354	False	Eukaryota
+46771	Simian virus 12	46771	False	Viruses
+46835	Fasciola gigantica	46835	False	Eukaryota
+46920	Rio Mamore hantavirus	46920;379963	False	Viruses
+47000	Equine rhinitis A virus	47000	False	Viruses
+47466	Borrelia miyamotoi	47466	False	Bacteria
+47770	Lactobacillus crispatus	47770	False	Bacteria
+47845	Brachybacterium alimentarium	47845	False	Bacteria
+48483	Reclinomonas americana	48483	False	Eukaryota
+49011	Hesperocyparis arizonica	49011	False	Eukaryota
+49338	Desulfitobacterium hafniense	272564	False	Bacteria
+51022	Ancylostoma duodenale	51022	False	Eukaryota
+51031	Necator americanus	51031	False	Eukaryota
+51240	Juglans regia	51240	False	Eukaryota
+53182	Feline foamy virus	53182	False	Viruses
+53326	Ancylostoma ceylanicum	53326	False	Eukaryota
+53432	Nocardia uniformis	96045	False	Bacteria
+54390	Micrurus corallinus	54390	True	Eukaryota
+54736	Salmonella bongori	54736	False	Bacteria
+55194	Malassezia furfur	55194	False	Eukaryota
+55513	Pistacia vera	55513	False	Eukaryota
+55518	Magnetospirillum gryphiswaldense	431944	False	Bacteria
+55601	Vibrio anguillarum	55601	False	Bacteria
+55951	Grapevine leafroll-associated virus 3	55951	False	Viruses
+56636	Aeropyrum pernix	56636	False	Archaea
+57068	Acanthisitta chloris	57068	True	Eukaryota
+57282	Human endogenous retrovirus H	57282	False	Viruses
+57372	Mycoplasma suis	57372	False	Bacteria
+57667	Simian-Human immunodeficiency virus	57667	False	Viruses
+57975	Burkholderia thailandensis	57975	False	Bacteria
+58216	Loxosceles gaucho	58216	False	Eukaryota
+58217	Loxosceles laeta	58217	False	Eukaryota
+58218	Loxosceles intermedia	58218	False	Eukaryota
+58291	Rhizopus microsporus	58291	False	Eukaryota
+58866	Secale strictum	37731	False	Eukaryota
+58933	Triticum spelta	279889	False	Eukaryota
+59300	Getah virus	59300	False	Viruses
+59301	Mayaro virus	59301	False	Viruses
+59538	Pantholops hodgsonii	59538	True	Eukaryota
+59729	Taeniopygia guttata	59729	True	Eukaryota
+59779	Paracoccus marcusii	59779	False	Bacteria
+59799	Angomonas deanei	59799	False	Eukaryota
+60189	Rhipicephalus decoloratus	60189	False	Eukaryota
+60217	Shewanella violacea	60217	False	Bacteria
+60552	Burkholderia vietnamiensis	269482;60552	False	Bacteria
+60876	Pixuna virus	60876	False	Viruses
+60879	Cabassou virus	60879	False	Viruses
+60893	Desulfobacca acetoxidans	60893	False	Bacteria
+61435	Dehalococcoides mccartyi	243164	False	Bacteria
+61466	Gnathostoma binucleatum	61466	False	Eukaryota
+62319	Halococcus saccharolyticus	62319	False	Archaea
+62322	Shewanella baltica	325240;62322	False	Bacteria
+62330	Fagopyrum tataricum	62330	False	Eukaryota
+63363	Aquifex aeolicus	63363;224324	False	Bacteria
+63673	Turbo cornutus	63673	False	Eukaryota
+64495	Rhizopus arrhizus	64495	False	Eukaryota
+67351	Streptomyces californicus	67351	False	Bacteria
+68825	Rasamsonia emersonii	68825	False	Eukaryota
+68887	Torque teno virus	68887;167758;487067;486280	False	Viruses
+68909	Deinococcus geothermalis	68909	False	Bacteria
+69008	Juniperus oxycedrus	69008	False	Eukaryota
+69218	Enterobacter cancerogenus	69218	False	Bacteria
+69820	Spodoptera litura	69820	False	Eukaryota
+70203	Fibrovirus fs1	70203	False	Viruses
+71238	Pseudomonas sp. G-179	71238	False	Bacteria
+71647	Pinus pinaster	71647	False	Eukaryota
+72004	Bos mutus	72004	True	Eukaryota
+72556	Achromobacter piechaudii	72556	False	Bacteria
+72558	Sporisorium reilianum	999809	False	Eukaryota
+72664	Eutrema salsugineum	72664	False	Eukaryota
+74437	Alectryonella plicatula	74437	False	Eukaryota
+74722	Stachybotrys chartarum	74722	False	Eukaryota
+75658	Campylobacter lanienae	75658	False	Bacteria
+75922	Mycolicibacterium tusciae	75922	False	Bacteria
+75985	Mannheimia haemolytica	45201	False	Bacteria
+76777	Malassezia sympodialis	76777	False	Eukaryota
+76832	Myroides odoratimimus	76832	False	Bacteria
+76859	Fusobacterium animalis	469601	False	Bacteria
+77044	Rosellinia necatrix	77044	False	Eukaryota
+77095	Prevotella bryantii	77095	False	Bacteria
+77643	Mycobacterium tuberculosis complex (Mycobacterium complex)	77643	False	Bacteria
+78579	Thermothelomyces thermophilus	573729	False	Eukaryota
+79327	Schmidtea mediterranea	79327	False	Eukaryota
+79698	Merluccius bilinearis	79698	True	Eukaryota
+79880	Alkalihalobacillus clausii	66692	False	Bacteria
+79923	Clonorchis sinensis	79923	False	Eukaryota
+80859	Streptomyces ribosidificus	80859	False	Bacteria
+80956	Pomacentrus moluccensis	80956	True	Eukaryota
+81032	Hyphomonas neptunium	81032	False	Bacteria
+81475	Frateuria aurantia	81475	False	Bacteria
+81985	Capsella rubella	81985	False	Eukaryota
+82348	Streptococcus pluranimalium	82348	False	Bacteria
+82508	Trichosporon asahii	1186058	False	Eukaryota
+83192	Topografov hantavirus	83192	False	Viruses
+83262	Mycobacteroides immunogenum	83262	False	Bacteria
+83455	Myxococcus stipitatus	1278073;83455	False	Bacteria
+83554	Chlamydia psittaci	83554;1112258;1112253;1112262;1050221;1112244;1112269;1112254	False	Bacteria
+83555	Chlamydia abortus	83555;218497	False	Bacteria
+83556	Chlamydia felis	83556;264202	False	Bacteria
+83557	Chlamydia caviae	83557;227941	False	Bacteria
+83558	Chlamydia pneumoniae	83558;115713;182082;115711	False	Bacteria
+83559	Chlamydia suis	83559;1405296	False	Bacteria
+83560	Chlamydia muridarum	243161;83560	False	Bacteria
+83810	Thosea asigna virus	83810	False	Viruses
+83816	Methanobrevibacter ruminantium	83816	False	Archaea
+85552	Scylla paramamosain	85552	False	Eukaryota
+85698	Achromobacter xylosoxidans	85698	False	Bacteria
+85831	Bacteroides acidifaciens	85831	False	Bacteria
+85929	Sphaerulina musiva	85929	False	Eukaryota
+85991	Chlamydia pecorum	1427371;85991;331635	False	Bacteria
+86049	Cladophialophora carrionii	86049	False	Eukaryota
+86600	Discosoma sp.	86600	False	Eukaryota
+86782	Amur virus	86782;170955	False	Viruses
+87786	Human endogenous retrovirus W	62805;89382;87786	False	Viruses
+87883	Burkholderia multivorans	87883	False	Bacteria
+88036	Selaginella moellendorffii	88036	False	Eukaryota
+88085	Lachesis stenophrys	88085	True	Eukaryota
+88086	Protobothrops elegans	88086	True	Eukaryota
+88087	Protobothrops flavoviridis	88087	True	Eukaryota
+88431	Dorea longicatena	88431	False	Bacteria
+89059	Ligilactobacillus acidipiscis	89059	False	Bacteria
+89462	Bubalus bubalis	89462	True	Eukaryota
+89586	Neoehrlichia mikurensis	89586	False	Bacteria
+89946	Merluccius australis	307685	True	Eukaryota
+91465	Pseudomonas sp. MIS38	91465	False	Bacteria
+91626	Mucor ambiguus	91626	False	Eukaryota
+92050	Macruronus magellanicus	92050	True	Eukaryota
+92438	Bungarus candidus	92438	True	Eukaryota
+92637	Metarhizium acridum	655827;92637	False	Eukaryota
+93621	Heteropneustes fossilis	93621	True	Eukaryota
+93678	TTV-like mini virus	93678	False	Viruses
+95342	Sapporo virus	82659;234603	False	Viruses
+95486	Burkholderia cenocepacia	350702;331272;95486	False	Bacteria
+95602	Eriocheir sinensis	95602	False	Eukaryota
+95648	Bothrops neuwiedi	95648	True	Eukaryota
+97138	Clostridium sp. MD294	97138	False	Bacteria
+97253	Eubacterium plexicaudatum	1235802;97253	False	Bacteria
+97477	Acetomicrobium mobile	97477	False	Bacteria
+99000	Tanapox virus	132475	False	Viruses
+99586	Echis ocellatus	99586	True	Eukaryota
+99806	Taxus cuspidata	99806	False	Eukaryota
+99883	Tetraodon nigroviridis	99883	True	Eukaryota
+103448	Pleistophora sp. LS	103448	False	Eukaryota
+104102	Acetobacter tropicalis	104102	False	Bacteria
+104355	Gloeophyllum trabeum	104355	False	Eukaryota
+105560	Methylibium petroleiphilum	420662	False	Bacteria
+105751	Aeromonas bestiarum	105751	False	Bacteria
+106276	Mimachlamys nobilis	106276	False	Eukaryota
+106590	Cupriavidus necator	381666	False	Bacteria
+106654	Acinetobacter nosocomialis	106654	False	Bacteria
+108098	Human mastadenovirus B	45659;343462;10541;10519;108098;714978;10521;343463	False	Viruses
+110321	Sinorhizobium medicae	110321	False	Bacteria
+110539	Mycolicibacterium vanbaalenii	350058	False	Bacteria
+114497	Cordyceps fumosorosea	114497	False	Eukaryota
+114742	Pythium insidiosum	114742	False	Eukaryota
+117207	Sphingopyxis alaskensis	317655	False	Bacteria
+117260	Rosa acicularis	117260	False	Eukaryota
+118161	Pleurocapsa sp. PCC 7319	118161	False	Bacteria
+119219	Cupriavidus metallidurans	266264	False	Bacteria
+120505	Baboon cytomegalovirus	120505	False	Viruses
+121225	Pediculus humanus	121224	False	Eukaryota
+121723	Photobacterium sp. SKA34	121723	False	Bacteria
+121759	Paracoccidioides brasiliensis	121759;502780	False	Eukaryota
+122291	Kappapapillomavirus 1	122291	False	Viruses
+122355	Pseudomonas psychrophila	122355	False	Bacteria
+123734	Hypoderma bovis	123734	False	Eukaryota
+123841	Helicobacter canadensis	123841	False	Bacteria
+127886	Alkalihalobacillus hemicellulosilyticus	127886	False	Bacteria
+129052	Catelliglobosispora koreensis	129052	False	Bacteria
+129470	Micrurus surinamensis	129470	True	Eukaryota
+129727	Bovine papular stomatitis virus	129727	False	Viruses
+129788	Ruditapes philippinarum	129788	False	Eukaryota
+129875	Human mastadenovirus A	28282;129875;10529	False	Viruses
+129951	Human mastadenovirus C	28285;10515;129951;10533	False	Viruses
+129956	Murine mastadenovirus A	10530	False	Viruses
+130308	Human mastadenovirus E	28280	False	Viruses
+130309	Human mastadenovirus F	28284;10524	False	Viruses
+130310	Human mastadenovirus D	31545;28276;46921;46941	False	Viruses
+131110	Schaalia radingae	131110	False	Bacteria
+131568	Kineococcus radiotolerans	266940	False	Bacteria
+133926	Olsenella uli	133926	False	Bacteria
+134537	Paraburkholderia fungorum	134537	False	Bacteria
+136966	SEN virus	136966	False	Viruses
+138072	Candidatus Hamiltonella defensa	138072	False	Bacteria
+138336	Blastococcus saxobsidens	1146883	False	Bacteria
+138948	Enterovirus A	39054;150846;69153;31704;138948;86107;42769;103922;42785;42786;2884179	False	Viruses
+138949	Enterovirus B	103903;12072;103906;12077;12073;12067;12071;103905;12076;12075;82639;12078;35293;12060;138949;41846;103915	False	Viruses
+138950	Enterovirus C	12082;138950;12081;12086;12080;12088;270338;42782	False	Viruses
+138951	Enterovirus D	42789;138951	False	Viruses
+139445	Limestone Canyon virus	139445	False	Viruses
+145262	Methanothermobacter thermautotrophicus	145262;187420	False	Archaea
+146500	Watermelon mosaic virus	148360	False	Viruses
+147272	Paspalum notatum	147272	False	Eukaryota
+147711	Rhinovirus A	12130;12134;12132;185905;31708;185907;185894;147711;650130	False	Viruses
+147712	Rhinovirus B	12131	False	Viruses
+150340	Vibrio antiquarius	150340	False	Bacteria
+151250	Kali turgidum	151250	False	Eukaryota
+152480	Burkholderia ambifaria	339670	False	Bacteria
+152682	Sphingomonas melonis	152682	False	Bacteria
+152794	Corynebacterium efficiens	152794;196164	False	Bacteria
+153496	Kozakia baliensis	153496	False	Bacteria
+155615	Fusobacterium vincentii	209882	False	Bacteria
+157914	Ziziphus mauritiana	157914	False	Eukaryota
+158836	Enterobacter hormaechei	158836	False	Bacteria
+158899	Collimonas fungivorans	158899;1005048	False	Bacteria
+159091	Pseudomonas sp. KIE171	159091	False	Bacteria
+159449	Embleya scabrispora	159449	False	Bacteria
+159479	Saaremaa hantavirus	159479	False	Viruses
+160808	Acidithiobacillus ferrivorans	160808	False	Bacteria
+161600	Yellow grouper nervous necrosis virus	161600	False	Viruses
+162425	Aspergillus nidulans	162425;227321	False	Eukaryota
+163164	Wolbachia endosymbiont of Drosophila melanogaster	163164	False	Bacteria
+164756	Mycobacterium sp. MCS	164756	False	Bacteria
+164757	Mycobacterium sp. JLS	164757	False	Bacteria
+165179	Prevotella copri	165179	False	Bacteria
+166486	Roseburia intestinalis	166486	False	Bacteria
+169174	Calabazo virus	169174	False	Viruses
+171929	Anacardium occidentale	171929	False	Eukaryota
+176275	Beauveria bassiana	176275	False	Eukaryota
+180498	Jatropha curcas	180498	False	Eukaryota
+185782	Aquareovirus C	128987	False	Viruses
+185949	Sphingomonas aurantiaca	185949	False	Bacteria
+189918	Mycobacterium sp. KMS	189918	False	Bacteria
+190063	Fowl aviadenovirus C	130663;190063	False	Viruses
+190065	Fowl aviadenovirus E	586029	False	Viruses
+190898	Desulfotignum phosphitoxidans	1286635	False	Bacteria
+194326	Companilactobacillus versmoldensis	194326	False	Bacteria
+194440	Primate T-lymphotropic virus 1	11908;11926;11927;11928;33747;39015	False	Viruses
+194441	Primate T-lymphotropic virus 2	11909	False	Viruses
+196403	Baboon endogenous virus	196403;11764	False	Viruses
+199306	Coccidioides posadasii	199306;222929	False	Eukaryota
+199738	uncultured Chlamydia sp.	199738	False	Bacteria
+200454	Pseudomonas tremae	200454	False	Bacteria
+202950	Acinetobacter baylyi	202950	False	Bacteria
+203192	Stutzerimonas chloritidismutans	203192	False	Bacteria
+204038	Dickeya dadantii	204038	False	Bacteria
+205075	Candidatus Rickettsia tarasevichiae	205075	False	Bacteria
+205488	Ebola virus sp.	205488	False	Viruses
+208226	Alkaliphilus metalliredigens	208226	False	Bacteria
+209285	Thermochaetoides thermophila	209285	False	Eukaryota
+214856	Alistipes finegoldii	214856	False	Bacteria
+215243	Exophiala oligosperma	215243	False	Eukaryota
+215358	Larimichthys crocea	215358	True	Eukaryota
+216465	Polaromonas naphthalenivorans	365044	False	Bacteria
+216816	Bifidobacterium longum	205913	False	Bacteria
+217686	Little cherry virus 1	217686	False	Viruses
+218538	Dialister invisus	218538	False	Bacteria
+220837	Cryptosporidium sp. MNJ-1	220837	False	Eukaryota
+223337	Tobacco leaf curl Zimbabwe virus	223337	False	Viruses
+226899	Grosmannia clavigera	655863	False	Eukaryota
+231455	Dyella japonica	231455	False	Bacteria
+237609	Pseudomonas alkylphenolica	237609	False	Bacteria
+237895	Cryptosporidium hominis	237895	False	Eukaryota
+239935	Akkermansia muciniphila	349741;239935	False	Bacteria
+240125	Mycobacterium parascrofulaceum	525368	False	Bacteria
+240426	Squirrelpox virus	240426	False	Viruses
+246437	Tupaia chinensis	246437	True	Eukaryota
+246618	Bifidobacterium thermacidophilum	246618	False	Bacteria
+246787	Bacteroides cellulosilyticus	246787	False	Bacteria
+252307	Robiginitalea biformata	313596	False	Bacteria
+256839	Shewanella decolorationis	256839	False	Bacteria
+257758	Streptococcus pseudopneumoniae	257758	False	Bacteria
+259354	Desulfatibacillum alkenivorans	439235	False	Bacteria
+261202	Alto Paraguay hantavirus	261202	False	Viruses
+261204	Itapua hantavirus	261204	False	Viruses
+261658	Cavenderia fasciculata	261658	False	Eukaryota
+263511	Crocosphaera watsonii	165597	False	Bacteria
+263815	Pneumocystis murina	263815	False	Eukaryota
+265606	Rhodopirellula baltica	243090	False	Bacteria
+265619	Ornithodoros erraticus	265619	False	Eukaryota
+266779	Chelativorans sp. BNC1	266779	False	Bacteria
+267212	Neisseria bacilliformis	267212	False	Bacteria
+270478	Zantedeschia mild mosaic virus	270478	False	Viruses
+272131	Nostoc punctiforme	63737	False	Bacteria
+272636	Adeno-associated virus	272636	False	Viruses
+273371	Candida orthopsilosis	273371	False	Eukaryota
+277944	Human coronavirus NL63	277944	False	Viruses
+280240	Nocardiopsis baichengensis	280240	False	Bacteria
+283877	Leucobacter chromiireducens	283877	False	Bacteria
+284581	Priestia koreensis	284581	False	Bacteria
+286540	Soochong virus	286542	False	Viruses
+290028	Human coronavirus HKU1	290028;443240;443239;443241	False	Viruses
+296587	Micromonas commoda	296587	False	Eukaryota
+298653	Frankia sp. EAN1pec	298653	False	Bacteria
+300180	Mopeia Lassa virus reassortant 29	300180	False	Viruses
+301964	CY1014 virus	301964	False	Viruses
+304399	Mule deerpox virus	305674	False	Viruses
+304895	Catenulispora acidiphila	304895	False	Bacteria
+308159	Araucaria virus	308159;308061	False	Viruses
+310542	Chimpanzee adenovirus	310542	False	Viruses
+311410	Roseibium album	311410	False	Bacteria
+312185	Erbovirus A	650131	False	Viruses
+312306	Pseudomonas entomophila	384676	False	Bacteria
+313589	Janibacter sp. HTCC2649	313589	False	Bacteria
+313627	Bacillus sp. NRRL B-14911	313627	False	Bacteria
+314262	Roseobacter sp. MED193	314262	False	Bacteria
+314275	Alteromonas mediterranea	314275	False	Bacteria
+316068	Leadbetterella byssophila	316068	False	Bacteria
+316287	Ceratogyrus marshalli	316287	False	Eukaryota
+320667	Trichosanthes dioica	320667	False	Eukaryota
+322053	Konjac mosaic virus	322053	False	Viruses
+328812	Parabacteroides goldsteinii	328812	False	Bacteria
+328814	Alistipes shahii	328814	False	Bacteria
+329091	Cupressus torulosa	329091	False	Eukaryota
+329852	Emesvirus zinderi	12022	False	Viruses
+329854	Bacteroides intestinalis	329854	False	Bacteria
+332163	Candidatus Solibacter usitatus	234267	False	Bacteria
+333367	Enterocloster asparagiformis	333367	False	Bacteria
+333754	Alphapapillomavirus 10	10580;10592;10600;31552;10573;333754	False	Viruses
+333757	Alphapapillomavirus 8	10620;10615	False	Viruses
+333766	Alphapapillomavirus 13	1671798	False	Viruses
+333767	Alphapapillomavirus 3	171370	False	Viruses
+333926	Gammapapillomavirus 1	10617	False	Viruses
+333990	Carnobacterium sp. AT7	333990	False	Bacteria
+334203	Mupapillomavirus 1	334203;10583	False	Viruses
+334205	Nupapillomavirus 1	10589	False	Viruses
+334426	Angiostrongylus costaricensis	334426	False	Eukaryota
+337039	Alphapapillomavirus 2	37112;10614;37111	False	Viruses
+337041	Alphapapillomavirus 9	333760;10618;10585;10586;10598;10587;37120	False	Viruses
+337042	Alphapapillomavirus 7	333761;10593;37115;45240;10588;337042;39457	False	Viruses
+337043	Alphapapillomavirus 4	337043;333751	False	Viruses
+337044	Alphapapillomavirus 5	10595;333762;37121	False	Viruses
+337048	Alphapapillomavirus 1	333763	False	Viruses
+337049	Alphapapillomavirus 11	51033	False	Viruses
+337050	Alphapapillomavirus 6	10596;333765;10611	False	Viruses
+337051	Betapapillomavirus 1	333923	False	Viruses
+337052	Deltapapillomavirus 4	337052;2758382	False	Viruses
+337090	Chlorobium chlorochromatii	337090;340177	False	Bacteria
+337810	Oratosquilla oratoria	337810	False	Eukaryota
+338079	African green monkey simian foamy virus	338079	False	Viruses
+338188	Bacteroides finegoldii	338188	False	Bacteria
+338478	Macaque simian foamy virus	338478	False	Viruses
+339268	Mycobacterium colombiense	1041522	False	Bacteria
+342409	White spot syndrome virus	92652;342409	False	Viruses
+344880	Sphingomonas dokdonensis	344880	False	Bacteria
+345840	Palaemon modestus	345840	False	Eukaryota
+351073	Mammalian orthoreovirus	351073;10884;538123	False	Viruses
+351091	Oscillibacter valericigenes	351091	False	Bacteria
+351745	Shewanella sp. W3-18-1	351745	False	Bacteria
+357276	Phocaeicola dorei	357276	False	Bacteria
+360549	Themiste hennahi	360549	False	Eukaryota
+363265	Prevotella stercorea	363265	False	Bacteria
+368445	Crocodilepox virus	368445	False	Viruses
+369960	Porcine type-C oncovirus	194958;61673;194959	False	Viruses
+370405	Gallionella capsiferriformans	395494	False	Bacteria
+371601	Bacteroides xylanisolvens	371601	False	Bacteria
+374838	Reinekea blandensis	314283	False	Bacteria
+376805	Phocaeicola salanitronis	667015	False	Bacteria
+386056	Paraburkholderia ferrariae	386056	False	Bacteria
+387090	Phocaeicola coprophilus	387090	False	Bacteria
+387093	Sulfurovum sp. NBC37-1	387093	False	Bacteria
+387661	Parabacteroides johnsonii	387661	False	Bacteria
+388634	Bombyx mandarina nuclear polyhedrosis virus	388634	False	Viruses
+390157	Senecavirus A	390157	False	Viruses
+392734	Terriglobus roseus	392734	False	Bacteria
+393662	Congregibacter litoralis	314285	False	Bacteria
+402648	Streptomyces hainanensis	402648	False	Bacteria
+408580	Bacillus coahuilensis	441769	False	Bacteria
+408657	Dyadobacter koreensis	408657	False	Bacteria
+410072	Coprococcus comes	410072	False	Bacteria
+413502	Cronobacter turicensis	413502	False	Bacteria
+419612	Camelus ferus	419612	True	Eukaryota
+420521	Expression vector pNIC-NHT-CF	420521	False	Other
+425088	Tanganya virus	425088	False	Viruses
+430511	Juquitiba virus	430511	False	Viruses
+439220	Streptococcus caballi	439220	False	Bacteria
+444922	Psychromonas ossibalaenae	444922	False	Bacteria
+446679	Nostoc sphaeroides	446679	False	Bacteria
+447106	Leptospira licerasiae	447106	False	Bacteria
+452646	Neogale vison	452646	True	Eukaryota
+453927	Juniperus formosana	453927	False	Eukaryota
+456999	Rhizoctonia solani	456999	False	Eukaryota
+463676	Rhinovirus C	1219377;463676	False	Viruses
+465541	Streptomyces sp. Mg1	465541	False	Bacteria
+469009	Brassica napus phytoplasma	469009	False	Bacteria
+469613	Enterobacteriaceae bacterium 9_2_54FAA	469613	False	Bacteria
+471223	Geobacillus sp. WCH70	471223	False	Bacteria
+472390	Prunus dulcis x Prunus persica	472390	False	Eukaryota
+479935	Gluconobacter morbifer	479935	False	Bacteria
+482957	Burkholderia lata	482957	False	Bacteria
+487316	Acinetobacter soli	487316	False	Bacteria
+487317	Aequorivita capsosiphonis	487317	False	Bacteria
+502049	Thalassospira profundimaris	502049	False	Bacteria
+502790	Aeromonas diversa	502790	False	Bacteria
+507750	Peptoniphilus duerdenii	507750	False	Bacteria
+515817	Amphioctopus fangsiao	515817	False	Eukaryota
+519424	Alkalihalobacillus trypoxylicola	519424	False	Bacteria
+543824	Synechocystis aquatilis	543824	False	Bacteria
+545501	Oceanobacillus oncorhynchi	545501	False	Bacteria
+545650	Sporothrix brasiliensis	1398154	False	Eukaryota
+549169	Pseudogulbenkiania ferrooxidans	549169	False	Bacteria
+551760	Aromatoleum aromaticum	551760	False	Bacteria
+558553	Crassostrea angulata	558553	False	Eukaryota
+559561	Aureobasidium namibiae	559561	False	Eukaryota
+563466	Scedosporium apiospermum	563466	False	Eukaryota
+566466	gamma proteobacterium NOR5-3	566466	False	Bacteria
+571800	Psychrobacter sp. G	571800	False	Bacteria
+571949	Encephalitozoon romaleae	1178016	False	Eukaryota
+580165	Bacillus cytotoxicus	580165;315749	False	Bacteria
+588596	Rhizophagus irregularis	588596	False	Eukaryota
+593106	Pyrophorus angustus	593107	False	Eukaryota
+626940	Phascolarctobacterium succinatutens	626940	False	Bacteria
+630277	Tarsius lariang	630277	True	Eukaryota
+632955	Acinetobacter rudis	632955	False	Bacteria
+649756	Anaerostipes hadrus	649756	False	Bacteria
+651183	Aurantimonas manganoxydans	651183	False	Bacteria
+655809	Prevotella sp. oral taxon 472	619693	False	Bacteria
+658655	Lachnospiraceae bacterium 1_4_56FAA	658655	False	Bacteria
+664662	Borreliella bavariensis	664662	False	Bacteria
+674529	Bacteroides faecis	674529	False	Bacteria
+686984	Sapelovirus A	686984;1002921	False	Viruses
+687347	Torque teno virus 8	687347	False	Viruses
+687350	Torque teno virus 11	687350	False	Viruses
+687355	Torque teno virus 16	687355	False	Viruses
+687362	Torque teno virus 23	687362	False	Viruses
+687366	Torque teno virus 27	687366	False	Viruses
+687367	Torque teno virus 28	687367	False	Viruses
+691956	Avihepatovirus A	1006061	False	Viruses
+693153	Vibrio atlanticus	575788	False	Bacteria
+693997	Alphacoronavirus 1	11151;11149;33734;11150;12663;398812;11153;11135;502101;454951	False	Viruses
+693998	Rhinolophus bat coronavirus HKU2	693998	False	Viruses
+693999	Scotophilus bat coronavirus 512	693999	False	Viruses
+694003	Betacoronavirus 1	11128;31631;233262;2501420;694003;215681	False	Viruses
+694005	Murine coronavirus	11144;11142;11138;12760;76344	False	Viruses
+694006	Rousettus bat coronavirus HKU9	694006	False	Viruses
+694007	Tylonycteris bat coronavirus HKU4	424362;694007	False	Viruses
+694008	Pipistrellus bat coronavirus HKU5	694008	False	Viruses
+694009	Severe acute respiratory syndrome-related coronavirus	227984;228330;228407;229992;627442;344702;284672;2697049;633137;228415;1508227;2709072;1415851;1415852	False	Viruses
+694014	Avian coronavirus	11127;11120;231428;633557;11152	False	Viruses
+696859	Murine mastadenovirus C	573199	False	Viruses
+696863	Sprivivirus cyprinus	696863	False	Viruses
+708187	Colletotrichum chlorophyti	708187	False	Eukaryota
+742503	Tokudaia muenninki	742503	True	Eukaryota
+743722	Sphingobacterium sp. 21	743722	False	Bacteria
+746128	Aspergillus fumigatus	746128;330879;451804	False	Eukaryota
+759851	Sporosarcina newyorkensis	759851	False	Bacteria
+765414	Paraburkholderia bannensis	765414	False	Bacteria
+863370	Meiothermus granaticius	863370	False	Bacteria
+868131	Methanobacterium paludis	868131	False	Archaea
+870484	Nonlabens agnitus	870484	False	Bacteria
+871325	Bacteroides faecichinchillae	871325	False	Bacteria
+875328	Mycolicibacter sinensis	875328	False	Bacteria
+884045	Juniperus saxicola	884045	False	Eukaryota
+905828	Duck astrovirus GII.A	707882	False	Viruses
+940614	Granulicella mallensis	940614	False	Bacteria
+945780	Synechocystis salina	945782	False	Bacteria
+983924	Eidolon bat coronavirus/Kenya/KY24/2006	983924	False	Viruses
+983929	Chaerephon bat coronavirus/Kenya/KY22/2006	983929	False	Viruses
+1004253	Cyberlindnera mrakii	1004253	False	Eukaryota
+1005962	Ogataea parapolymorpha	871575;1005962	False	Eukaryota
+1016852	Banana streak CA virus	1016852	False	Viruses
+1045775	Paenibacillus catalpae	1045775	False	Bacteria
+1047168	Zymoseptoria brevis	1047168	False	Eukaryota
+1071379	Tetrapisispora blattae	1071379	False	Eukaryota
+1133319	Bacteroides reticulotermitis	1133319	False	Bacteria
+1134687	Klebsiella michiganensis	1134687	False	Bacteria
+1159904	Night heron coronavirus HKU19	1159904	False	Viruses
+1159907	White-eye coronavirus HKU16	1159907	False	Viruses
+1159908	Wigeon coronavirus HKU20	1159908	False	Viruses
+1160968	Rabbit coronavirus HKU14	1160968	False	Viruses
+1173018	Phlebovirus WCH/97/HN/China/2011	1173018	False	Viruses
+1173701	Colletotrichum sublineola	1173701	False	Eukaryota
+1176145	Pipapillomavirus 2	763552	False	Viruses
+1176484	Canine vesivirus	292348	False	Viruses
+1179777	Mycoplasma feriruminatoris	1179777	False	Bacteria
+1193095	Paucilactobacillus hokkaidonensis	1193095	False	Bacteria
+1209926	Colletotrichum orchidophilum	1209926	False	Eukaryota
+1214225	Acidocella sp. MX-AZ02	1214225	False	Bacteria
+1218488	Torque teno sus virus k2	1218488	False	Viruses
+1223514	Corynebacterium humireducens	1223514	False	Bacteria
+1236180	Halopelagius longus	1236180	False	Archaea
+1239565	Mamastrovirus 1	12701;43358	False	Viruses
+1239567	Mamastrovirus 3	1239567	False	Viruses
+1263102	Prevotella copri CAG:164	1263102	False	Bacteria
+1268303	Rhodococcus sp. AW25M09	1268303	False	Bacteria
+1281454	Rodent hepacivirus	1281454	False	Viruses
+1285902	Artificial vector pGEX-2T	1285902	False	Other
+1330520	Enterovirus F	269638;1330520	False	Viruses
+1335626	Middle East respiratory syndrome-related coronavirus	1235996;1335626;1263720	False	Viruses
+1337054	Paenibacillus sp. A3	1337054	False	Bacteria
+1349999	Goose astrovirus	1349999	False	Viruses
+1355477	Bradyrhizobium diazoefficiens	1355477	False	Bacteria
+1380362	Ralstonia sp. UNC404CL21Col	1380362	False	Bacteria
+1380386	Mycobacterium sp. URHB0044	1380386	False	Bacteria
+1380865	Rana catesbeiana virus	1380865	False	Viruses
+1432052	Eisenbergiella tayi	1432052	False	Bacteria
+1449063	Paenibacillus sp. UNC451MF	1449063	False	Bacteria
+1457141	Chlamydia avium	1229831;1457141	False	Bacteria
+1457153	Chlamydia gallinacea	1457153	False	Bacteria
+1463841	Streptomyces sp. NRRL F-2580	1463841	False	Bacteria
+1464048	Micromonospora parva	1464048	False	Bacteria
+1472417	Butyricimonas paravirosa	1472417	False	Bacteria
+1498499	Legionella norrlandica	1498499	False	Bacteria
+1501332	Oribacterium asaccharolyticum	1501332	False	Bacteria
+1508220	Bat coronavirus	1508220	False	Viruses
+1511891	Dependoparvovirus primate1	10804;202813;235455;202812;85106;57579;68558	False	Viruses
+1511892	Dependoparvovirus mammalian1	82300	False	Viruses
+1511895	Dependoparvovirus anseriform1	38251;37325	False	Viruses
+1513262	Gammapapillomavirus 17	1070417	False	Viruses
+1527299	Psychromonas sp. PRT-SC03	1527299	False	Bacteria
+1534553	Duck aviadenovirus B	2233538	False	Viruses
+1564681	Carnobacterium sp. CP1	1564681	False	Bacteria
+1566298	Paraiso Escondido virus	1566298	False	Viruses
+1574408	Cervus canadensis	9864	True	Eukaryota
+1631247	Mesorhizobium delmotii	1631247	False	Bacteria
+1678143	Paslahepevirus balayani	31767;1678143;31768;185579;63421;509628	False	Viruses
+1678144	Avihepevirus magniiecur	1678144	False	Viruses
+1737357	Rhizobium wenxiniae	1737357	False	Bacteria
+1776082	Shigella genomosp. SF-2015	358708	False	Bacteria
+1783360	Comamonas sediminis	1783360	False	Bacteria
+1796646	Muribaculum intestinale	1796646	False	Bacteria
+1803956	Parechovirus A	12063;195055;1803956	False	Viruses
+1812858	Anaerosacchariphilus polymeriproducens	1812858	False	Bacteria
+1821749	Cardiovirus A	12107;12104	False	Viruses
+1821750	Cardiovirus B	12125;12124;12126;204711	False	Viruses
+1849603	Enterobacteriaceae bacterium	1849603	False	Bacteria
+1855372	bacterium JGI 053	1855372	False	Bacteria
+1868482	Carlito syrichta	1868482	True	Eukaryota
+1891726	Alphapolyomavirus quintihominis	493803;1891726	False	Viruses
+1891727	Alphapolyomavirus octihominis	862909	False	Viruses
+1891729	Alphapolyomavirus mauratus	1891729	False	Viruses
+1891730	Alphapolyomavirus muris	1891730;10636;157703	False	Viruses
+1891762	Betapolyomavirus hominis	1891762;10631	False	Viruses
+1891763	Betapolyomavirus secuhominis	10632	False	Viruses
+1891767	Betapolyomavirus macacae	1891767	False	Viruses
+1891770	Betapolyomavirus secumuris	10638	False	Viruses
+1895866	Verrucomicrobia bacterium 61-8	1895866	False	Bacteria
+1897087	Orthobornavirus sciuri	1885248	False	Viruses
+1898104	Bacteroidota bacterium	1898104	False	Bacteria
+1898112	Rhodospirillaceae bacterium	1898112	False	Bacteria
+1898203	Lachnospiraceae bacterium	1898203	False	Bacteria
+1906674	Betanodavirus sp.	1906674	False	Viruses
+1913988	Alphaproteobacteria bacterium	1913988	False	Bacteria
+1965089	Coronavirus HKU15	1586324	False	Viruses
+1965093	Hedgehog coronavirus 1	1385427	False	Viruses
+1972577	Vesiculovirus indiana	11284;11285;11277;11278;11279	False	Viruses
+1977402	Inovirus M13	1977402;10863	False	Viruses
+1978231	Acidobacteriota bacterium	1978231	False	Bacteria
+1980456	Orthohantavirus andesense	1980456;69248;367400;69247;69245;69246	False	Viruses
+1980916	Novirhabdovirus piscine	11288;11287	False	Viruses
+1980917	Novirhabdovirus salmonid	11290	False	Viruses
+1982365	Predatorvirus predator	543153	False	Viruses
+1985738	Teseptimavirus T7	10760	False	Viruses
+2015173	Ooceraea biroi	2015173	False	Eukaryota
+2015376	Bat mastadenovirus G	2015376	False	Viruses
+2016460	Giant panda anellovirus	2016460	False	Viruses
+2016461	Giant panda associated gemycircularvirus	2016461	False	Viruses
+2024894	Acidimicrobiaceae bacterium	2024894	False	Bacteria
+2026800	Verrucomicrobiaceae bacterium	2026800	False	Bacteria
+2029108	Bacillus sp. UMB0899	2029108	False	Bacteria
+2030927	Bacteroidales bacterium	2030927	False	Bacteria
+2032731	Swine acute diarrhea syndrome coronavirus	2032731	False	Viruses
+2034996	Tilapinevirus tilapiae	1549864	False	Viruses
+2044587	Schaedlerella arabinosiphila	2044587	False	Bacteria
+2044939	Clostridia bacterium	2044939	False	Bacteria
+2049047	Prevotellaceae bacterium	2049047	False	Bacteria
+2050018	Rodent coronavirus	2050018	False	Viruses
+2066070	Mesorhizobium japonicum	2066070	False	Bacteria
+2115988	Swine acute diarrhea syndrome related coronavirus	2115988	False	Viruses
+2116544	Synechococcus lacustris	2116544	False	Bacteria
+2136182	Acinetobacter cumulans	2136182	False	Bacteria
+2169971	Visna-maedi virus	2169971;12750;11742;11743;36374	False	Viruses
+2169991	Mammarenavirus juninense	2169991	False	Viruses
+2170193	Bornean orangutan simian foamy virus	221703	False	Viruses
+2170197	Guenon simian foamy virus	2170197	False	Viruses
+2170200	Spider monkey simian foamy virus	2170200	False	Viruses
+2170201	Squirrel monkey simian foamy virus	2170201	False	Viruses
+2170206	Yellow-breasted capuchin simian foamy virus	2170206	False	Viruses
+2212467	Bacteroidaceae bacterium	2212467	False	Bacteria
+2282107	Pyrrhoderma noxium	2282107	False	Eukaryota
+2478486	Holophagales bacterium	2478486	False	Bacteria
+2485925	Oscillospiraceae bacterium	2485925	False	Bacteria
+2487134	Clostridium sp. E02	2487134	False	Bacteria
+2492960	Bacillus yapensis	2492960	False	Bacteria
+2499620	Alphaarterivirus equid	11047;299386	False	Viruses
+2499677	Kappaarterivirus wobum	1118369	False	Viruses
+2499678	Gammaarterivirus lacdeh	11048;300016;300015	False	Viruses
+2499680	Betaarterivirus suid 1	11049	False	Viruses
+2499685	Betaarterivirus suid 2	28344;300559;300563;1965067	False	Viruses
+2501929	NL63-related bat coronavirus strain BtKYNL63-9b	1920748	False	Viruses
+2501960	China Rattus coronavirus HKU24	1590370	False	Viruses
+2502994	Fusarium odoratissimum	2502994	False	Eukaryota
+2560288	Deltapolyomavirus ailuropodae	2016463	False	Viruses
+2584949	Enterobacter sp. DE0047	2584949	False	Bacteria
+2594813	Fusarium fasciculatum	2594813	False	Eukaryota
+2599941	Oligoflexia bacterium	2599941	False	Bacteria
+2678873	Trimerodytes annularis	2678873	True	Eukaryota
+2707005	Paenibacillus lutimineralis	2707005	False	Bacteria
+2708335	Pangolin coronavirus	2708335	False	Viruses
+2748958	Bandavirus dabieense	1003835	False	Viruses
+2770637	Aestuariibaculum sediminum	2770637	False	Bacteria
+2787823	unclassified entries	2787823	False	Other
+2843841	Betatristromavirus TTV1	10479	False	Viruses
+2846071	Rubivirus rubellae	11043;11041;11044;11045	False	Viruses
+2846271	Peeveelvirus PVL	71366	False	Viruses
+2851130	Dermatophagoides pteronyssinus virus 3	2851130	False	Viruses
+2900548	Actinomycetota bacterium	2900548	False	Bacteria
+2951618	Lyssavirus hamburg	57482	False	Viruses
+2951978	Betanucleorhabdovirus retesonchi	11307	False	Viruses
+2955291	Alphainfluenzavirus influenzae	11320;211044;384505;392809;506350;387161;264513;387191;223935;132504;383586;444318;385624;137578;385630;382835;387139;385640;119210;114727;382781;392810;383571;183764;380964;63106;380301;41857;380905;317652;381517;385576;384502;381518;380950;132734;132841;381516;384498;385605;384500;387207;382832;11375;130760;88104;380340;380282;488241;385587;353253;79695;130763;387156;352520;384495;380985;393557;221012;383602;382842;351277;383604;11408;62503;382848;82372;107558;62564;62488;62596;62541;62446;62512;107493;62496;644788;11384;260806;384487;169169;384484;135658;385586;1086859;387147;311710;311695;311169;342221;307819;306061;304883;300748;299733;299730;299390;298716;298713;284195;282124;279797;432070;273361;270490;270484;264510;59375;256045;253682;62575;185794;182781;177188;177131;177128;177117;216877;215864;215862;210663;210656;210655;207401;173477;173473;170342;165420;164326;205954;205946;155227;155226;155225;155222;147095;382828;132884;436004;405050;404163;404155;404152;404150;404138;404137;402194;426738;441962;395842;395841;393697;393548;393486;389259;385583;384527;384493;383566;383561;383558;381512;380978;95234;380842;380836;380330;380210;192720;480019;192549;373145;366524;365078;365074;357205;355624;354235;344598;342396;1093545;342210;342207;402489;342145;342137;336800;336794;336207;336205;334590;334589;327311;327310;322566;322564;192535;97348;383550;387208;1342434;210659;198059;158306;197589;274829;680692;384946;279798;380979;380833;214826;370813;284168;365129;380332;132783;36418;385644;293054;381513;1144025;155917;384509;518968;95888;228928;145307;385580;385617;11484;170500;62559;186460;480024;284218;203126;387223;197585;102793;352963;393902;400830;1163697;370127;165512;291592;367120;427773;145306;417758;447133;461772;249372;400828;357208;335337;335358;332733;365417;371082;415167;415172;415169;415176;415166;415177;573797;435359;576142;578079;566260;191090;142948;176672;197579;400788;553345;385599;370810;384499;462695;680789;392811;380285;378139;161502;380217;383531;329593;93838;187164;137885;154540;128982;137886;514193;183778;1727172;229051;387239;383121;55532;680799;402464;136474;169166;168278;641501;411167;172149;475493;522740;225071;255681;515581;83206;402527;88103;533026;223947;135661;538555;383152;383231;383568;203129;680803;380299;223932;370128;225089;223931;231851;225088;11448;499286;196462;432094;303316;385616;680690;183783;1176042;680739;354228;286239;336238;335333;518922;270945;327205;342508;364132;320306;380213;384483;383577;155218;365080;407418;300750;88776;488233;378131;425557;383578;293090;383281;504910;642794;383603;648856;560463;658578;742305;401372;762400;506355;383574;400810;62549;587884;430417;936115;991335;768646;768647;385600;380951;380346;236235;336092;577543;647096;1068705;464623;446023;383028;155220;402518;183741;404573;89172;89169;332747;284202;506282;292039;292045;1041990;311775;504904;641809;421901;657165;468968;754366;680729;472511;427890;418868;357210;370811;414044;562988;562992;464314;421472;411157;641812;402938;352764;162326;385585;384510;380284;352564;359921;504697;416730;62478;380339;380343;496036;97353;947939;444793;655288;387213;387243;293055;352034;376721;449656;371214;388041;932622;404408;511839;382813;300749;645724;643212;1081253;36420;447188;654811;119211;102796;644289;761251;535852;887118;333278;476294;114729;342546;157642;647923;1391655;251297;680693;715091;680689;153969;119218;1470614;1171336;1403514;1268360;915014;387203;352348;697610;382825;224819;908203;996581;1330339;255682;986174;682728;1332244;1342397;715494;1413188;266827;1122279;284190;100835;292590;614035;510222;475478;159471;1663996;680785;1082519;1481964;642261;425551;632134;464622;380342;529058;616922;762378;353466;448058;274828;680767;411662;220977;400331;38973;1346336;253686;1310532;453057;383537;380337;380960;1663934;1663864;673446;690988;1507381;1289562;352561;558177;270510;476303;266093;1420840;1321009;380984;380982;1447813;1451093;2070132;645771;1395982;119220;1481966;556277;760591;1285028;1129345;225085;479022;683780;1129347;1395524;2026033;311596;514118;119215;1184593;568833;445027;383570;762377;1314758;1481987;476261;2019386;1458555;1507390;1968303;1968304;2026007;1331831;2019571;1507384;243678;1654135;1184594;760063;1777792;329606;387165;1933916;351253;1589663;1406946;187166	False	Viruses
+2955465	Betainfluenzavirus influenzae	11520;518987;11521;427826;150127;1077587;184816;11541;256080;206203;504666;335812;224964;171425;503386;504662;504660;504664;107404;107406;461739;464417;289338;604436;416674;11550;279329	False	Viruses
+2955935	Gammainfluenzavirus influenzae	11553;11552;224197;374405	False	Viruses
+2978683	Burkholderia orbicola	2978683	False	Bacteria
+3042615	Paraglaciecola sp. T6c	3042615	False	Bacteria
+3046277	Orthoflavivirus flavi	11090;11089;407141;407134;31641;617102	False	Viruses
+3047383	Alphabaculovirus aucalifonicae	46015	False	Viruses
+3047386	Badnavirus alphavirgamusae	328670	False	Viruses
+3047387	Badnavirus betavirgamusae	1016853	False	Viruses
+3047388	Badnavirus gammavirgamusae	1476909	False	Viruses
+3047389	Badnavirus deltavirgamusae	328671	False	Viruses
+3047677	Comovirus siliquae	31715;12260	False	Viruses
+3047688	Nepovirus ribis	65743	False	Viruses
+3047695	Alphabaculovirus bomori	271108	False	Viruses
+3047725	Orthoflavivirus careyense	64289	False	Viruses
+3047743	Gyrovirus chickenanemia	12618	False	Viruses
+3047771	Comovirus vignae	12264	False	Viruses
+3047852	Nepovirus foliumflabelli	12274	False	Viruses
+3047947	Alphabaculovirus helarmigerae	148363	False	Viruses
+3048148	Metapneumovirus hominis	162145	False	Viruses
+3048151	Avibirnavirus gumboroense	10995;31560;10997;10996	False	Viruses
+3048153	Aquabirnavirus salmonidae	11002	False	Viruses
+3048158	Orthoflavivirus japonicum	11076;11075;11072;11073	False	Viruses
+3048170	Orthoflavivirus kyasanurense	172148	False	Viruses
+3048175	Orthoflavivirus langatense	11085	False	Viruses
+3048184	Orthoflavivirus loupingi	36386;11086	False	Viruses
+3048215	Orthoflavivirus murrayense	11079;301478	False	Viruses
+3048269	Tymovirus physalis	72539	False	Viruses
+3048278	Circovirus porcine1	133704	False	Viruses
+3048279	Circovirus porcine2	85708;85709;86385	False	Viruses
+3048280	Circovirus porcine3	1868221	False	Viruses
+3048287	Orthoflavivirus powassanense	11083	False	Viruses
+3048308	Orthoflavivirus saboyaense	64284	False	Viruses
+3048316	Orthoflavivirus sepikense	44026	False	Viruses
+3048338	Alphabaculovirus spliturae	46242	False	Viruses
+3048360	Orthoflavivirus tembusu	1399582;64293;1002900	False	Viruses
+3048374	Tombusvirus lycopersici	12146	False	Viruses
+3048379	Zetatorquevirus aotid1	687383	False	Viruses
+3048395	Betatorquevirus homini1	687369	False	Viruses
+3048401	Betatorquevirus homini3	687371	False	Viruses
+3048405	Betatorquevirus homini7	687375	False	Viruses
+3048406	Betatorquevirus homini8	687376	False	Viruses
+3048408	Iotatorquevirus suida1a	687386;1225860	False	Viruses
+3048411	Epsilontorquevirus calli1	687382	False	Viruses
+3048413	Alphatorquevirus homin1	687340	False	Viruses
+3048416	Alphatorquevirus homin14	687353	False	Viruses
+3048417	Alphatorquevirus homin15	687354	False	Viruses
+3048420	Alphatorquevirus homin19	687358	False	Viruses
+3048421	Alphatorquevirus homin2	687341	False	Viruses
+3048422	Alphatorquevirus homin20	687359	False	Viruses
+3048423	Alphatorquevirus homin21	687360	False	Viruses
+3048424	Alphatorquevirus homin24	687363	False	Viruses
+3048425	Alphatorquevirus cerco7	687364	False	Viruses
+3048426	Alphatorquevirus cerco6	687365	False	Viruses
+3048427	Alphatorquevirus homin29	687368	False	Viruses
+3048428	Alphatorquevirus homin3	687342	False	Viruses
+3048429	Alphatorquevirus homin4	687343	False	Viruses
+3048431	Alphatorquevirus homin6	687345	False	Viruses
+3048432	Alphatorquevirus homin7	687346	False	Viruses
+3048448	Orthoflavivirus nilense	307044;11082;11078;11077;449278;406269	False	Viruses
+3048459	Orthoflavivirus zikaense	64320;2043570;2316109	False	Viruses
+3049952	Respirovirus laryngotracheitidis	36412;188538	False	Viruses
+3049953	Respirovirus pneumoniae	11217;11216	False	Viruses
+3049954	Orthopneumovirus hominis	11260;208893;11250;11259;11251;11256;11255;11253;11252;410078;79692;208895;253182	False	Viruses
+3050243	Varicellovirus bovinealpha1	10323;10320;79889;10324	False	Viruses
+3050245	Varicellovirus bovinealpha5	263683	False	Viruses
+3050246	Rhadinovirus bovinegamma4	10355	False	Viruses
+3050248	Orthopneumovirus bovis	11246;82824;11249;31611;82823;12814	False	Viruses
+3050251	Varicellovirus canidalpha1	170325	False	Viruses
+3050254	Quwivirus caviidbeta2	33706;103920	False	Viruses
+3050256	Simplexvirus cercopithecinealpha2	10317	False	Viruses
+3050258	Cytomegalovirus cercopithecinebeta5	50292	False	Viruses
+3050276	Varicellovirus equidalpha1	10326	False	Viruses
+3050278	Varicellovirus equidalpha4	10331	False	Viruses
+3050281	Percavirus equidgamma2	82831	False	Viruses
+3050287	Mardivirus gallidalpha2	10390;33707	False	Viruses
+3050292	Simplexvirus humanalpha1	10298;10301;10306;10304;10299;10309;10308;10303;37107	False	Viruses
+3050293	Simplexvirus humanalpha2	10310;10315;10313;10312	False	Viruses
+3050294	Varicellovirus humanalpha3	10335;10338;341980	False	Viruses
+3050295	Cytomegalovirus humanbeta5	10359;10363;10360;295027;311339	False	Viruses
+3050296	Roseolovirus humanbeta6a	10370;32603;10369	False	Viruses
+3050297	Roseolovirus humanbeta6b	32604;36351	False	Viruses
+3050298	Roseolovirus humanbeta7	57278;10372	False	Viruses
+3050299	Lymphocryptovirus humangamma4	10376;10377;82830;36352;12509;10378;31525	False	Viruses
+3050300	Rhadinovirus humangamma8	37296	False	Viruses
+3050305	Simplexvirus macacinealpha1	10325;260965	False	Viruses
+3050308	Cytomegalovirus macacinebeta3	47929;103930	False	Viruses
+3050314	Lymphocryptovirus macacinegamma4	45455	False	Viruses
+3050315	Rhadinovirus macacinegamma5	169974	False	Viruses
+3050323	Muromegalovirus muridbeta1	10367;10366;69156;524651	False	Viruses
+3050327	Rhadinovirus muridgamma4	33708;1440122	False	Viruses
+3050329	Orthopneumovirus muris	270473;11263	False	Viruses
+3050334	Cytomegalovirus paninebeta2	188763	False	Viruses
+3050350	Rhadinovirus saimiriinegamma2	10381	False	Viruses
+3050355	Varicellovirus suidalpha1	10349;10345;33703	False	Viruses
+3051375	Orthoavulavirus javaense	2560319;11178;11180;11177;11186;351071	False	Viruses
+3051624	Amdoparvovirus carnivoran1	28314;10783	False	Viruses
+3051991	Bandavirus guertuense	1763596	False	Viruses
+3052040	Bocaparvovirus primate1	689403;638313	False	Viruses
+3052041	Bocaparvovirus primate2	573977	False	Viruses
+3052189	Erythroparvovirus primate1	10798	False	Viruses
+3052195	Etatorquevirus felid1	687384	False	Viruses
+3052223	Henipavirus hendraense	3052223;928303	False	Viruses
+3052225	Henipavirus nipahense	3052225	False	Viruses
+3052230	Hepacivirus hominis	31647;11116;41856;3052230;2847144;63746;31645;11104;11105;356417;11108;421877;356426;31653;333284;356114;11113;31650;31649;329389;356386;356410;356418;356424;42182;11115;356416;356421;31644;356415;11110;31654;356411;42792;356413;356391;356419;357355;420174;40271;33745;33746;31655;1053141;595609	False	Viruses
+3052236	Hepacivirus platyrrhini	2847087	False	Viruses
+3052237	Hepacivirus ratti	1562038	False	Viruses
+3052294	Luteovirus pavhordei	2169986	False	Viruses
+3052296	Mammarenavirus amapariense	3052296	False	Viruses
+3052299	Mammarenavirus brazilense	3052299	False	Viruses
+3052300	Mammarenavirus caliense	3052300	False	Viruses
+3052303	Mammarenavirus choriomeningitidis	3052303;11627;11624;11625;11626	False	Viruses
+3052304	Mammarenavirus cupixiense	3052304	False	Viruses
+3052307	Mammarenavirus guanaritoense	3052307	False	Viruses
+3052310	Mammarenavirus lassaense	11622;3052310;11621	False	Viruses
+3052317	Mammarenavirus machupoense	3052317	False	Viruses
+3052320	Mammarenavirus mopeiaense	3052320	False	Viruses
+3052322	Mammarenavirus oliverosense	3052322	False	Viruses
+3052323	Mammarenavirus paranaense	3052323	False	Viruses
+3052325	Mammarenavirus praomyidis	3052325	False	Viruses
+3052328	Mammarenavirus tacaribeense	3052328;31616;928313;31615	False	Viruses
+3052331	Mammarenavirus whitewaterense	3052331	False	Viruses
+3052342	Morbillivirus canis	3052342;11233	False	Viruses
+3052343	Morbillivirus caprinae	3052343;2593991	False	Viruses
+3052345	Morbillivirus hominis	11234;70146;11235;132487;11236;70149;262307;171264;170529;170525	False	Viruses
+3052346	Morbillivirus pecoris	36409;11241;11243	False	Viruses
+3052390	Orthobunyavirus encephalitidis	35305	False	Viruses
+3052409	Orthobunyavirus lacrosseense	11577;11578	False	Viruses
+3052437	Orthobunyavirus schmallenbergense	1133363;1318464	False	Viruses
+3052458	Orthoebolavirus bundibugyoense	565995	False	Viruses
+3052459	Orthoebolavirus restonense	186539;129003;386032	False	Viruses
+3052460	Orthoebolavirus sudanense	186540;128949;128948;386033;428693	False	Viruses
+3052461	Orthoebolavirus taiense	128999;186541	False	Viruses
+3052462	Orthoebolavirus zairense	186538;128952;129000;128951;128947;1891187;1570291	False	Viruses
+3052464	Orthoflavivirus denguei	11064;11060;11070;31634;11069;11053;12637;33741;11066;11065;408871;31635;408688;11059;11062;408870;408686;408685;408694;408691;408693;408692;408690;408687;11067;408689;11057;31637;31636	False	Viruses
+3052465	Orthoflavivirus encephalitidis	11084;11087;11092	False	Viruses
+3052468	Orthoflavivirus louisense	11081;11080	False	Viruses
+3052470	Orthohantavirus bayoui	3052470	False	Viruses
+3052474	Orthohantavirus chocloense	169173	False	Viruses
+3052476	Orthohantavirus delgaditoense	3052476	False	Viruses
+3052477	Orthohantavirus dobravaense	3052477	False	Viruses
+3052480	Orthohantavirus hantanense	11602;3052480;74943;74942;370830;458678;11583	False	Viruses
+3052483	Orthohantavirus khabarovskense	74537;3052483	False	Viruses
+3052485	Orthohantavirus maporalense	238817	False	Viruses
+3052486	Orthohantavirus montanoense	3052486	False	Viruses
+3052487	Orthohantavirus moroense	3052487	False	Viruses
+3052489	Orthohantavirus negraense	3052489	False	Viruses
+3052492	Orthohantavirus prospectense	3052492	False	Viruses
+3052493	Orthohantavirus puumalaense	39002;3052493;11605;1337063	False	Viruses
+3052496	Orthohantavirus sangassouense	3052496	False	Viruses
+3052498	Orthohantavirus seoulense	12557;3052498;11607;11610;280855	False	Viruses
+3052499	Orthohantavirus sinnombreense	3052499;31621;32614	False	Viruses
+3052503	Orthohantavirus tulaense	3052503	False	Viruses
+3052505	Orthomarburgvirus marburgense	3052505;33727;33728;378809;378830	False	Viruses
+3052518	Orthonairovirus haemorrhagiae	3052518;652961	False	Viruses
+3052557	Orthorubulavirus laryngotracheitidis	11214;2560525	False	Viruses
+3052558	Orthorubulavirus mammalis	2560580;31608	False	Viruses
+3052560	Orthorubulavirus parotitidis	2560602;11169;11173;1384672	False	Viruses
+3052562	Orthorubulavirus suis	3052562	False	Viruses
+3052571	Orthotospovirus citrullomaculosi	3052571	False	Viruses
+3052585	Orthotospovirus tomatomaculae	3052585	False	Viruses
+3052599	Pararubulavirus menangleense	152219	False	Viruses
+3052608	Pegivirus hominis	54290	False	Viruses
+3052619	Pestivirus bovis	11100;158474;82470;11099;221918;981676	False	Viruses
+3052622	Pestivirus ovis	56950	False	Viruses
+3052624	Pestivirus scrofae	1914447	False	Viruses
+3052625	Pestivirus suis	11096;11098;358769;358805;279150;358812;68621	False	Viruses
+3052626	Pestivirus tauri	54315	False	Viruses
+3052676	Phlebovirus riftense	11588	False	Viruses
+3052686	Phlebovirus toscanaense	11590	False	Viruses
+3052707	Protoparvovirus carnivoran1	10788;10793;10790;246878;10786;10791	False	Viruses
+3052720	Protoparvovirus ungulate1	10796	False	Viruses
+3052729	Respirovirus bovis	3052729	False	Viruses
+3052731	Respirovirus muris	11194;3052731;11198;11196;302272;11195	False	Viruses
+3052770	Tetraparvovirus primate1	289365	False	Viruses
+3052778	Thetatorquevirus canid1	687385	False	Viruses

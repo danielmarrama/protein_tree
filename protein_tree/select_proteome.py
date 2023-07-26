@@ -106,7 +106,7 @@ class ProteomeSelector:
     return proteome_id, proteome_taxon, proteome_type
 
 
-  def proteome_to_csv(self) -> None:
+  def proteome_to_tsv(self) -> None:
     """Write the proteome data for a species to a CSV file for later use."""
     from Bio import SeqIO
     
@@ -153,7 +153,7 @@ class ProteomeSelector:
     columns = ['Protein ID', 'Protein Name', 'Gene', 'Protein Existence Level', 'Gene Priority', 'Sequence', 'Database']
     proteome = pd.DataFrame(proteome_data, columns=columns)
     proteome = proteome[['Database', 'Gene', 'Protein ID', 'Protein Name', 'Protein Existence Level', 'Gene Priority', 'Sequence']]
-    proteome.to_csv(f'{self.species_dir}/proteome.csv', index=False)
+    proteome.to_csv(f'{self.species_dir}/proteome.tsv', sep='\t', index=False)
 
 
   def _get_proteome_list(self) -> pd.DataFrame:
@@ -373,7 +373,7 @@ def run(
   print(f'Proteome taxon: {proteome_data[1]}')
   print(f'Proteome type: {proteome_data[2]}')
 
-  # update metrics data to metrics.csv file
+  # update metrics data to metrics.tsv file
   if taxon_id not in metrics_df['Species Taxon ID'].tolist():
     new_row = {
       'Species Taxon ID': taxon_id,
@@ -388,7 +388,7 @@ def run(
     metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Taxon'] = proteome_data[1]
     metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Type'] = proteome_data[2]
 
-  metrics_df.to_csv('metrics.csv', index=False)
+  metrics_df.to_csv('metrics.tsv', index=False, sep='\t')
 
 
 def main():
@@ -412,8 +412,8 @@ def main():
   taxon_id = args.taxon_id
 
   data_dir = Path(__file__).parent.parent / 'data'
-  species_df = pd.read_csv(data_dir / 'species.csv')
-  metrics_df = pd.read_csv(data_dir / 'metrics.csv')
+  species_df = pd.read_csv(data_dir / 'species.tsv', sep='\t')
+  metrics_df = pd.read_csv(data_dir / 'metrics.tsv', sep='\t')
   valid_taxon_ids = species_df['Species Taxon ID'].tolist()
 
   all_taxa_map = dict( # map taxon ID to list of all children taxa
