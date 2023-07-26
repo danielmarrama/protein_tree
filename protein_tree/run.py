@@ -53,7 +53,7 @@ def run_protein_tree(
     print(f'Number of candidate proteomes: {Selector.num_of_proteomes}\n')
 
     proteome_data = Selector.select_best_proteome(epitopes_df)
-    Selector.proteome_to_csv()
+    Selector.proteome_to_tsv()
     
     print('Got the best proteome:')
     print(f'Proteome ID: {proteome_data[0]}')
@@ -66,7 +66,7 @@ def run_protein_tree(
   assigner_data, epitope_assignments, source_assignments = Assigner.assign(sources_df, epitopes_df)
   print('Done.\n')
 
-  # write assignments to CSV
+  # write assignments to files
   epitope_assignments.to_csv(
     data_path / 'species' / species_dir / 'epitope_assignments.tsv', sep='\t', index=False
   )
