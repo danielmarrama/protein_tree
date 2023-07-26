@@ -10,21 +10,19 @@ from sql_engine import create_sql_engine
 def update_species_data() -> None:
   """Get all organism IDs for all epitope data we need for protein tree. Then,
   get the species taxon ID for each organism and update the species data file.
-
-  Args:
-    user: IEDB MySQL backend username.
-    password: IEDB MySQL backend password.
   """
   sql_query = """SELECT object.organism2_id, object.organism2_name
-              FROM epitope, object
-              WHERE epitope.e_object_id = object.object_id
-              AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
-              UNION
-              SELECT object.organism2_id, object.organism2_name
-              FROM epitope, object
-              WHERE epitope.related_object_id = object.object_id
-              AND object.object_sub_type IN ("Peptide from protein", "Discontinuous protein residues")
-              """
+    FROM epitope, object
+    WHERE epitope.e_object_id = object.object_id
+    AND object.object_sub_type IN 
+      ("Peptide from protein", "Discontinuous protein residues")
+    UNION
+    SELECT object.organism2_id, object.organism2_name
+    FROM epitope, object
+    WHERE epitope.related_object_id = object.object_id
+    AND object.object_sub_type IN 
+      ("Peptide from protein", "Discontinuous protein residues")
+    """
   sql_engine = create_sql_engine()
   with sql_engine.connect() as connection:
     
@@ -61,7 +59,8 @@ def update_species_data() -> None:
     species_df['Species Name'] = species_df['Species Name'].str.replace("'", "")
     
     # update species.csv which is in the directory above this script
-    species_df.to_csv(Path(__file__).parent.parent / 'data' / 'species.csv', index=False)
+    data_path = Path(__file__).parent.parent / 'data'
+    species_df.to_csv(data_path / 'species.tsv', sep='\t', index=False)
 
 
 def get_species_data(
@@ -76,9 +75,9 @@ def get_species_data(
     organism_name: Organism name.
   """
   path_query = """SELECT path, rank
-               FROM organism
-               WHERE tax_id = :organism_id
-               """
+    FROM organism
+    WHERE tax_id = :organism_id
+    """
   result = connection.execute(text(path_query), {"organism_id": organism_id})
   data = result.fetchone()
   
@@ -106,9 +105,9 @@ def get_species_data(
   species_name = organism_name
   for tax_id in reversed(tax_ids):
     rank_query = """SELECT rank, organism_name
-                 FROM organism
-                 WHERE tax_id = :tax_id
-                 """
+      FROM organism
+      WHERE tax_id = :tax_id
+      """
     rank_result = connection.execute(text(rank_query), {"tax_id": tax_id})
     rank, name = rank_result.fetchone()
 

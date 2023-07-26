@@ -18,8 +18,12 @@ class ProteomeSelector:
     self.species_dir = data_path / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
     self.species_dir.mkdir(parents=True, exist_ok=True)
 
-    self.species_df = pd.read_csv(Path(__file__).parent.parent / 'data' / 'species.csv')
-    self.metrics_df = pd.read_csv(Path(__file__).parent.parent / 'data' / 'metrics.csv')
+    self.species_df = pd.read_csv(
+      Path(__file__).parent.parent / 'data' / 'species.tsv', sep='\t'
+    )
+    self.metrics_df = pd.read_csv(
+      Path(__file__).parent.parent / 'data' / 'metrics.tsv', sep='\t'
+    ) 
 
     self.proteome_list = self._get_proteome_list() # get all candidate proteomes
     self.num_of_proteomes = len(self.proteome_list) + 1 # +1 for all proteins option

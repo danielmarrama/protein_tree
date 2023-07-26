@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import os
 import pandas as pd
 from pathlib import Path
 from sqlalchemy import text
@@ -9,13 +8,15 @@ from sql_engine import create_sql_engine
 
 
 class DataFetcher:
-  def __init__(self) -> None:
-    self.data_dir = Path(__file__).parent.parent / 'data'
+  def __init__(self, data_dir = Path(__file__).parent.parent / 'data') -> None:
+    self.data_dir = data_dir
     self.sql_engine = create_sql_engine()
 
 
   def get_all_data(self) -> None:
-    """Get all epitopes and source antigens tables."""
+    """Get all epitopes and source antigens tables from the IEDB backend. Also, get
+    allergen data from the IUIS allergen nomenclature database.
+    """
     epitopes_df = self._get_epitope_table()
     sources_df = self._get_source_table()
 
@@ -28,21 +29,21 @@ class DataFetcher:
     url = 'http://www.allergen.org/csv.php?table=joint'
     allergen_df = pd.read_csv(url)
     
-    # write tables to fiels
-    epitopes_df.to_csv(self.data_dir / 'epitopes.csv', index=False)
-    sources_df.to_csv(self.data_dir / 'sources.csv', index=False)
-    allergen_df.to_csv(self.data_dir / 'allergens.csv', index=False)
+    # write data to TSV files
+    epitopes_df.to_csv(self.data_dir / 'epitopes.tsv', sep='\t', index=False)
+    sources_df.to_csv(self.data_dir / 'sources.tsv', sep='\t', index=False)
+    allergen_df.to_csv(self.data_dir / 'allergens.tsv', sep='\t', index=False)
 
 
   def _get_epitope_table(self) -> pd.DataFrame:
-    """Get epitopes table from the IEDB backend."""
+    """Get epitopes from epitope/object tables from the IEDB backend."""
     sql_query1 = f"""
       SELECT object.mol1_seq, object.region, object.mol2_name, 
              object.mol2_accession, object.organism2_id
       FROM epitope, object
       WHERE epitope.e_object_id = object.object_id
       AND object.object_sub_type IN 
-          ("Peptide from protein", "Discontinuous protein residues")
+        ("Peptide from protein", "Discontinuous protein residues")
       """
     sql_query2 = f"""
       SELECT object.mol1_seq, object.region, object.mol2_name,
@@ -50,7 +51,7 @@ class DataFetcher:
       FROM epitope, object
       WHERE epitope.related_object_id = object.object_id
       AND object.object_sub_type IN 
-          ("Peptide from protein", "Discontinuous protein residues")
+        ("Peptide from protein", "Discontinuous protein residues")
       """
     
     with self.sql_engine.connect() as connection:
@@ -82,7 +83,7 @@ class DataFetcher:
 
 
   def _get_source_table(self) -> pd.DataFrame:
-    """Get all source antigens for a species."""
+    """Get all source antigens from source table in IEDB backend."""
     sql_query = f'SELECT accession, name, sequence, organism_id FROM source;'
 
     with self.sql_engine.connect() as connection:
@@ -100,28 +101,22 @@ class DataFetcher:
   
 
   def get_epitopes_for_species(self, all_taxa: list) -> pd.DataFrame:
-    """Get epitopes for a species.
+    """Get epitopes from the written file only for a specific species.
     
     Args:
       all_taxa: list of all active children taxa for a species.
     """
-    try:
-      epitopes_df = pd.read_csv(self.data_dir / 'epitopes.csv')
-    except FileNotFoundError:
-      epitopes_df = pd.read_csv(self.data_dir / 'epitopes.tsv', sep='\t')
+    epitopes_df = pd.read_csv(self.data_dir / 'epitopes.csv')
     return epitopes_df[epitopes_df['Organism ID'].isin(all_taxa)]
 
 
   def get_sources_for_species(self, all_taxa: list) -> pd.DataFrame:
-    """Get source antigens for a species.
+    """Get source antigens from the written file only for a specific species.
     
     Args:
       all_taxa: list of all active children taxa for a species.
     """
-    try:
-      sources_df = pd.read_csv(self.data_dir / 'sources.csv')
-    except FileNotFoundError:
-      sources_df = pd.read_csv(self.data_dir / 'sources.tsv', sep='\t')
+    sources_df = pd.read_csv(self.data_dir / 'sources.csv')
     return sources_df[sources_df['Organism ID'].isin(all_taxa)]
 
 
@@ -134,10 +129,16 @@ def main():
     type=int, 
     help='Write separate files for a species with its taxon ID.'
   )
+  parser.add_argument(
+    '-d', '--data_dir',
+    type=str,
+    default=Path(__file__).parent.parent / 'data',
+    help='Directory to write data to.'
+  )
   
   args = parser.parse_args()
-
-  data_dir = Path(__file__).parent.parent / 'data'
+  data_dir = Path(args.data_dir)
+  
   species_df = pd.read_csv(data_dir / 'species.csv')
   valid_taxon_ids = species_df['Species Taxon ID'].tolist()
   
@@ -156,7 +157,12 @@ def main():
   )  
 
   if args.taxon_id:
-    if not (data_dir / 'epitopes.csv').exists() or not (data_dir / 'sources.csv').exists():
+    files_exists = (
+      (data_dir / 'epitopes.tsv').exists() and
+      (data_dir / 'sources.tsv').exists() and
+      (data_dir / 'allergens.tsv').exists()
+    )
+    if not files_exists:
       print('Getting all data...')
       DataFetcher().get_all_data()
       print('All data written.')
@@ -173,8 +179,8 @@ def main():
     epitopes_df = DataFetcher().get_epitopes_for_species(all_taxa)
     sources_df = DataFetcher().get_sources_for_species(all_taxa)
     
-    epitopes_df.to_csv(species_dir / 'epitopes.csv', index=False)
-    sources_df.to_csv(species_dir / 'sources.csv', index=False)
+    epitopes_df.to_csv(species_dir / 'epitopes.tsv', sep='\t', index=False)
+    sources_df.to_csv(species_dir / 'sources.tsv', sep='\t', index=False)
     print(f'Epitopes and sources for {species_name} written.')
 
   else:

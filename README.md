@@ -16,7 +16,7 @@ Assigning IEDB source antigens and epitopes to their genes and proteins.
 - `blastp` and `makeblastdb` binaries from [NCBI](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
 - `hmmscan` binary from [HMMER](http://eddylab.org/software/hmmer/)
 - [manual_assignments.csv](data/manual_assignments.csv) - manually assigned proteins
-- [allergens.csv](data/allergens.csv) - IUIS allergen nomenclature; update using [get_data.py](protein_tree/get_data.py)
+- `allergens.csv` - IUIS allergen nomenclature; get/update using [get_data.py](protein_tree/get_data.py)
 - Flags (for [run.py](protein_tree/run.py))
     - `-a` - run for all species
     - `-t` - run for a single species using its taxon ID
@@ -46,7 +46,6 @@ protein_tree/get_data.py -t <taxon ID>
 
 Selecting the best proteome can also be run separately:
 
-- select best proteome:
 ```bash
 protein_tree/select_proteome.py -t <taxon ID>
 ```
