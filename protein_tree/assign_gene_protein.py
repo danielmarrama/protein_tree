@@ -119,11 +119,11 @@ class GeneAndProteinAssigner:
     """    
     self._sources_to_fasta(sources_df) # write sources to FASTA file
 
+    self._run_blast()
+
     if self.is_vertebrate:
       print('Running ARC for MHC/TCR/Ig assignments...')
       self._run_arc()
-
-    self._run_blast()
 
     return len(self.source_gene_assignment.keys())   
 

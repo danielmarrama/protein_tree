@@ -8,11 +8,11 @@ bin/
 
 # data files
 data/species/
-data/epitopes.csv
-data/sources.csv
-data/allergens.csv
-data/epitope_assignments.csv
-data/source_assignments.csv
+data/epitopes.tsv
+data/sources.tsv
+data/allergens.tsv
+data/epitope_assignments.tsv
+data/source_assignments.tsv
 
 # other files
 docs/protein_tree.drawio

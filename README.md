@@ -25,17 +25,18 @@ Assigning IEDB source antigens and epitopes to their genes and proteins.
     - `-s` - update species list (runs [update_species.py](protein_tree/update_species.py))
     - `-n` - number of threads to speed up source antigen assignment
 
+
 ### Running
 
 To run the entire pipeline:
 
 - for one species:
 ```bash
-protein_tree/run_protein_tree.py -t <taxon ID>
+protein_tree/run.py -t <taxon ID>
 ```
 - for all species:
 ```bash
-protein_tree/run_protein_tree.py -a
+protein_tree/run.py -a
 ```
 
 Getting the raw epitope and source antigen data can be run separately:
