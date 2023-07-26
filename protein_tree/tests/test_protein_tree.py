@@ -52,7 +52,7 @@ def test_select_proteome(epitopes, organism):
   epitopes_df = pd.read_csv(epitopes, sep='\t')
   Selector = ProteomeSelector(taxon_id, species_name, data_path)
   proteome_data = Selector.select_best_proteome(epitopes_df)
-  Selector.proteome_to_csv()
+  Selector.proteome_to_tsv()
 
   assert proteome_data[0] == proteome_id
 
