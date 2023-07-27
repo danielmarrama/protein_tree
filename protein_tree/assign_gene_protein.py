@@ -75,8 +75,13 @@ class GeneAndProteinAssigner:
         sources_df['Length']
       )
     )
-    num_matched_sources = self._assign_genes(sources_df)
-    num_matched_epitopes = self._assign_parents()
+    print('Assigning source antigens...')
+    num_matched_sources = self._assign_sources(sources_df)
+    print('Done assigning source antigens.\n')
+
+    print('Assigning epitopes...')
+    num_matched_epitopes = self._assign_epitopes(epitopes_df)
+    print('Done.\n')
 
     self._assign_allergens()
     self._assign_manuals()
@@ -106,7 +111,7 @@ class GeneAndProteinAssigner:
     return assigner_data, epitopes_df, sources_df
 
 
-  def _assign_genes(self, sources_df: pd.DataFrame) -> None:
+  def _assign_sources(self, sources_df: pd.DataFrame) -> None:
     """Assign a gene to the source antigens of a species.
 
     Run ARC for vertebrates to assign MHC/TCR/Ig to source antigens first.
@@ -119,6 +124,7 @@ class GeneAndProteinAssigner:
     """    
     self._sources_to_fasta(sources_df) # write sources to FASTA file
 
+    print('Running BLAST for source antigens...')
     self._run_blast()
 
     if self.is_vertebrate:
@@ -201,13 +207,13 @@ class GeneAndProteinAssigner:
     os.system( # make BLAST database from proteome
       f'{self.bin_path}/makeblastdb -in {species_path}/proteome.fasta '\
       f'-dbtype prot > /dev/null'
-    )
+    ) 
     os.system( # run blastp
       f'{self.bin_path}/blastp -query {species_path}/sources.fasta '\
       f'-db {species_path}/proteome.fasta '\
       f'-evalue 1 -num_threads {self.num_threads} -outfmt 10 '\
       f'-out {species_path}/blast_results.csv'
-    )
+    ) 
     result_columns = [
       'Query', 'Target', 'Percentage Identity', 'Alignment Length', 
       'Mismatches', 'Gap Opens', 'Query Start', 'Query End', 
@@ -255,7 +261,7 @@ class GeneAndProteinAssigner:
       self.source_assignment_score[row['Query']] = row['Quality Score']
 
 
-  def _assign_parents(self) -> tuple:
+  def _assign_epitopes(self, epitopes_df: pd.DataFrame) -> tuple:
     """Assign a parent protein to each epitope.
     
     Preprocess the proteome and then search all the epitopes within
@@ -265,10 +271,9 @@ class GeneAndProteinAssigner:
     """
     self._preprocess_proteome_if_needed()
 
-    all_epitopes = []
-    for epitopes in self.source_to_epitopes_map.values():
-      all_epitopes.extend(epitopes)
+    all_epitopes = epitopes_df['Sequence'].unique().tolist()
 
+    # search all epitopes within the proteome using PEPMatch
     all_matches_df = self._search_epitopes(all_epitopes, best_match=False)
     all_matches_df.set_index('Query Sequence', inplace=True)
 
@@ -288,20 +293,22 @@ class GeneAndProteinAssigner:
       else: # if not all epitopes match to the assigned protein, try separately
         for epitope in epitopes:
           
-          matched_epitope_df = matches_df.loc[epitope]
+          epitope_df = matches_df.loc[epitope]
 
-          # try assigning the protein assigned to source antigen
-          try:
-            matched_epitope_df = matched_epitope_df[matched_epitope_df['Protein ID'] == self.source_protein_assignment[antigen]]
+          # if epitope_df['Matched Sequence'].isna().all() or not epitope_df['Matched Sequence']:
+          #   continue
+
+          try: # assigning the protein assigned to source antigen
+            matched_epitope_df = epitope_df[epitope_df['Protein ID'] == self.source_protein_assignment[antigen]]
           except KeyError: # if the source antigen has no assignment, skip
             continue
 
-          if not matched_epitope_df.empty: # assign if possible
+          if not matched_epitope_df.empty:
             self.epitope_protein_assignment[epitope] = self.source_protein_assignment[antigen]
             continue
           
           # try assigning the best isoform of the assigned gene
-          matched_epitope_df = matched_epitope_df[matched_epitope_df['Gene'] == self.source_gene_assignment[antigen]]
+          matched_epitope_df = epitope_df[epitope_df['Gene'] == self.source_gene_assignment[antigen]]
           
           if not matched_epitope_df.empty:
             best_isoform_index = matched_epitope_df['Protein Existence Level'].idxmin()

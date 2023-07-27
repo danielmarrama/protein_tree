@@ -77,8 +77,15 @@ class DataFetcher:
     )
     # remove epitopes with no sequence
     epitopes_df.dropna(subset=['Sequence'], inplace=True)
+
+    # limit to epitopes with 5 or more amino acids
+    epitopes_df = epitopes_df[epitopes_df['Sequence'].str.len() >= 5]
+
+    # make epitope sequences uppercase
+    epitopes_df['Sequence'] = epitopes_df['Sequence'].str.upper()
+
     epitopes_df.drop_duplicates(inplace=True)
-    
+  
     return epitopes_df[['Sequence', 'Source Name', 'Source Accession', 'Organism ID']]
 
 

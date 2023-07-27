@@ -61,10 +61,8 @@ def run_protein_tree(
     print(f'Proteome type: {proteome_data[2]}\n')
 
   # assign genes to source antigens and parent proteins to epitopes
-  print('Assigning source antigens and epitopes...')
   Assigner = GeneAndProteinAssigner(taxon_id, species_name, is_vertebrate, num_threads=num_threads)
   assigner_data, epitope_assignments, source_assignments = Assigner.assign(sources_df, epitopes_df)
-  print('Done.\n')
 
   # write assignments to files
   epitope_assignments.to_csv(
