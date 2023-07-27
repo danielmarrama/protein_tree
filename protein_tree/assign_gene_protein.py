@@ -201,13 +201,13 @@ class GeneAndProteinAssigner:
     os.system( # make BLAST database from proteome
       f'{self.bin_path}/makeblastdb -in {species_path}/proteome.fasta '\
       f'-dbtype prot > /dev/null'
-    ) 
+    )
     os.system( # run blastp
       f'{self.bin_path}/blastp -query {species_path}/sources.fasta '\
       f'-db {species_path}/proteome.fasta '\
       f'-evalue 1 -num_threads {self.num_threads} -outfmt 10 '\
       f'-out {species_path}/blast_results.csv'
-    ) 
+    )
     result_columns = [
       'Query', 'Target', 'Percentage Identity', 'Alignment Length', 
       'Mismatches', 'Gap Opens', 'Query Start', 'Query End', 
@@ -291,7 +291,10 @@ class GeneAndProteinAssigner:
           matched_epitope_df = matches_df.loc[epitope]
 
           # try assigning the protein assigned to source antigen
-          matched_epitope_df = matched_epitope_df[matched_epitope_df['Protein ID'] == self.source_protein_assignment[antigen]]
+          try:
+            matched_epitope_df = matched_epitope_df[matched_epitope_df['Protein ID'] == self.source_protein_assignment[antigen]]
+          except KeyError: # if the source antigen has no assignment, skip
+            continue
 
           if not matched_epitope_df.empty: # assign if possible
             self.epitope_protein_assignment[epitope] = self.source_protein_assignment[antigen]
