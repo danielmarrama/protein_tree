@@ -166,12 +166,12 @@ class GeneAndProteinAssigner:
   def _preprocess_proteome_if_needed(self) -> None:
     """Preprocess the proteome if the preprocessed files don't exist."""
     if not os.path.exists(f'{self.species_dir}/proteome.db'):
-        gp_proteome = f'{self.species_dir}/gp_proteome.fasta' if os.path.exists(f'{self.species_dir}/gp_proteome.fasta') else ''
-        Preprocessor(
-          proteome = f'{self.species_dir}/proteome.fasta',
-          preprocessed_files_path = f'{self.species_dir}',
-          gene_priority_proteome=gp_proteome
-        ).sql_proteome(k = 5)
+      gp_proteome = f'{self.species_dir}/gp_proteome.fasta' if os.path.exists(f'{self.species_dir}/gp_proteome.fasta') else ''
+      Preprocessor(
+        proteome = f'{self.species_dir}/proteome.fasta',
+        preprocessed_files_path = f'{self.species_dir}',
+        gene_priority_proteome=gp_proteome
+      ).sql_proteome(k = 5)
 
 
   def _search_epitopes(self, epitopes: list, best_match: bool = True) -> pd.DataFrame:
@@ -207,13 +207,13 @@ class GeneAndProteinAssigner:
     os.system( # make BLAST database from proteome
       f'{self.bin_path}/makeblastdb -in {species_path}/proteome.fasta '\
       f'-dbtype prot > /dev/null'
-    ) 
+    )
     os.system( # run blastp
       f'{self.bin_path}/blastp -query {species_path}/sources.fasta '\
       f'-db {species_path}/proteome.fasta '\
       f'-evalue 1 -num_threads {self.num_threads} -outfmt 10 '\
       f'-out {species_path}/blast_results.csv'
-    ) 
+    )
     result_columns = [
       'Query', 'Target', 'Percentage Identity', 'Alignment Length', 
       'Mismatches', 'Gap Opens', 'Query Start', 'Query End', 
@@ -274,47 +274,75 @@ class GeneAndProteinAssigner:
     all_epitopes = epitopes_df['Sequence'].unique().tolist()
 
     # search all epitopes within the proteome using PEPMatch
-    all_matches_df = self._search_epitopes(all_epitopes, best_match=False)
-    all_matches_df.set_index('Query Sequence', inplace=True)
+    # all_matches_df = self._search_epitopes(all_epitopes, best_match=False)
+    all_matches_df = pd.read_csv(f'{self.species_dir}/pepmatch_results.tsv', sep='\t')
 
-    for antigen, epitopes in self.source_to_epitopes_map.items():
+    # create dataframes of source antigen mappings so we can merge and perform operations
+    epitope_source_map_df = pd.DataFrame({
+      'Epitope': epitope,
+      'Source Antigen': antigen
+    } for antigen, epitopes in self.source_to_epitopes_map.items() for epitope in epitopes)
+    source_protein_assignment_df = pd.DataFrame({
+      'Source Antigen': antigen, 
+      'Protein ID': protein_id
+    } for antigen, protein_id in self.source_protein_assignment.items())
+    source_gene_assignment_df = pd.DataFrame({
+      'Source Antigen': antigen, 
+      'Gene': gene
+    } for antigen, gene in self.source_gene_assignment.items())
 
-      matches_df = all_matches_df.loc[epitopes] # limit to epitopes of source antigen
-      
-      try: # see if all epitopes match to the assigned protein for their source antigen
-        matched_epitopes_df = matches_df[matches_df['Protein ID'] == self.source_protein_assignment[antigen]]
-      except KeyError: # if the source antigen has no assignment, skip
-        continue
-      
-      if len(matched_epitopes_df['Matched Sequence'].unique()) == len(epitopes):
-        self.epitope_protein_assignment.update(
-          dict(zip(matched_epitopes_df.index, matched_epitopes_df['Protein ID']))
-        )
-      else: # if not all epitopes match to the assigned protein, try separately
-        for epitope in epitopes:
-          
-          epitope_df = matches_df.loc[epitope]
+    # merge the source antigen for each epitope
+    merged_df = pd.merge( 
+      all_matches_df, 
+      epitope_source_map_df, 
+      how='left', 
+      left_on='Query Sequence', 
+      right_on='Epitope'
+    )
+    # merge the protein ID for each source antigen
+    merged_df = pd.merge( 
+      merged_df, 
+      source_protein_assignment_df, 
+      how='left', 
+      on='Source Antigen',
+      suffixes=('', '_assigned')
+    )
+    # now, grab epitopes that match to the assigned protein for their source antigen
+    assigned_epitopes = merged_df[merged_df['Protein ID'] == merged_df['Protein ID_assigned']]
+    self.epitope_protein_assignment.update(
+      dict(zip(
+        assigned_epitopes['Query Sequence'],
+        assigned_epitopes['Protein ID']))
+    )
+    # grab the rest of the epitopes and merged with gene assignments
+    unassigned_epitopes = merged_df[merged_df['Protein ID'] != merged_df['Protein ID_assigned']]
 
-          # if epitope_df['Matched Sequence'].isna().all() or not epitope_df['Matched Sequence']:
-          #   continue
+    if unassigned_epitopes.empty: # if there are no unassigned epitopes, return
+      return len(self.epitope_protein_assignment.keys())
 
-          try: # assigning the protein assigned to source antigen
-            matched_epitope_df = epitope_df[epitope_df['Protein ID'] == self.source_protein_assignment[antigen]]
-          except KeyError: # if the source antigen has no assignment, skip
-            continue
-
-          if not matched_epitope_df.empty:
-            self.epitope_protein_assignment[epitope] = self.source_protein_assignment[antigen]
-            continue
-          
-          # try assigning the best isoform of the assigned gene
-          matched_epitope_df = epitope_df[epitope_df['Gene'] == self.source_gene_assignment[antigen]]
-          
-          if not matched_epitope_df.empty:
-            best_isoform_index = matched_epitope_df['Protein Existence Level'].idxmin()
-            best_isoform_id = matched_epitope_df.loc[best_isoform_index, 'Protein ID']
-            self.epitope_protein_assignment[epitope] = best_isoform_id
+    # merge with gene assignments
+    unassigned_epitopes = pd.merge(
+      unassigned_epitopes,
+      source_gene_assignment_df,
+      how='left',
+      on='Source Antigen',
+      suffixes=('', '_assigned')
+    )
+    # now, get the isoform of the assigned gene with the best protein existence level
+    best_isoform_indices = unassigned_epitopes.groupby(['Gene', 'Query Sequence'])['Protein Existence Level'].idxmin()
+    best_isoforms = unassigned_epitopes.loc[best_isoform_indices, ['Gene', 'Query Sequence', 'Protein ID']].set_index(['Gene', 'Query Sequence'])['Protein ID']
+    unassigned_epitopes['Best Isoform'] = unassigned_epitopes.set_index(['Gene', 'Query Sequence']).index.map(best_isoforms)
     
+    # drop any unassigned epitopes that couldn't be assigned an isoform
+    unassigned_epitopes = unassigned_epitopes.dropna(subset=['Best Isoform'])
+
+    # Update the protein assignment with the best isoform
+    self.epitope_protein_assignment.update(
+      dict(zip(
+        unassigned_epitopes['Query Sequence'],
+        unassigned_epitopes['Best Isoform']))
+    )
+
     return len(self.epitope_protein_assignment.keys())
 
 
