@@ -63,10 +63,7 @@ class GeneAndProteinAssigner:
     Args:
       sources_df: DataFrame of source antigens for a species.
       epitopes_df: DataFrame of epitopes for a species.
-    """
-    num_sources = len(sources_df['Accession'].unique())
-    num_epitopes = len(epitopes_df['Sequence'].unique())
-    
+    """   
     # create source to epitope map
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
     self.source_length_map = dict( # create map of source antigens to their length
@@ -76,11 +73,11 @@ class GeneAndProteinAssigner:
       )
     )
     print('Assigning source antigens...')
-    num_matched_sources = self._assign_sources(sources_df)
+    self._assign_sources(sources_df)
     print('Done assigning source antigens.\n')
 
     print('Assigning epitopes...')
-    num_matched_epitopes = self._assign_epitopes(epitopes_df)
+    self._assign_epitopes(epitopes_df)
     print('Done.\n')
 
     self._assign_allergens()
@@ -94,13 +91,22 @@ class GeneAndProteinAssigner:
 
     # map source antigens to their best blast matches (gene) for epitopes
     epitopes_df.loc[:, 'Assigned Gene'] = epitopes_df['Source Accession'].map(self.source_gene_assignment)
-    epitopes_df.loc[:, 'Assigned Parent Protein ID'] = epitopes_df['Sequence'].map(self.epitope_protein_assignment)
 
-    epitopes_df.drop_duplicates(subset='Sequence', inplace=True) # drop duplicate epitopes
+    # now map the epitopes to their parent proteins
+    epitopes_df.set_index(['Source Accession', 'Sequence'], inplace=True)
+    epitopes_df.loc[:, 'Assigned Protein ID'] = epitopes_df.index.map(self.epitope_protein_assignment)
+    epitopes_df.reset_index(inplace=True)
+
+    epitopes_df.drop_duplicates(subset=['Source Accession', 'Sequence'], inplace=True) # drop duplicate epitopes
     sources_df.drop(columns=['Sequence'], inplace=True) # drop sequence column for output
-    
+
     self._remove_files()
     
+    num_sources = len(sources_df['Accession'].drop_duplicates())
+    num_epitopes = len(epitopes_df[['Source Accession', 'Sequence']].drop_duplicates())
+    num_matched_sources = len(sources_df[sources_df['Assigned Protein ID'].notnull()])
+    num_matched_epitopes = len(epitopes_df[epitopes_df['Assigned Protein ID'].notnull()])
+  
     assigner_data = (
       num_sources,
       num_epitopes,
@@ -130,8 +136,6 @@ class GeneAndProteinAssigner:
     if self.is_vertebrate:
       print('Running ARC for MHC/TCR/Ig assignments...')
       self._run_arc()
-
-    return len(self.source_gene_assignment.keys())   
 
 
   def _create_source_to_epitopes_map(self, epitopes_df: pd.DataFrame) -> dict:
@@ -261,7 +265,7 @@ class GeneAndProteinAssigner:
       self.source_assignment_score[row['Query']] = row['Quality Score']
 
 
-  def _assign_epitopes(self, epitopes_df: pd.DataFrame) -> tuple:
+  def _assign_epitopes(self, epitopes_df: pd.DataFrame) -> None:
     """Assign a parent protein to each epitope.
     
     Preprocess the proteome and then search all the epitopes within
@@ -271,11 +275,9 @@ class GeneAndProteinAssigner:
     """
     self._preprocess_proteome_if_needed()
 
-    all_epitopes = epitopes_df['Sequence'].unique().tolist()
-
     # search all epitopes within the proteome using PEPMatch
-    # all_matches_df = self._search_epitopes(all_epitopes, best_match=False)
-    all_matches_df = pd.read_csv(f'{self.species_dir}/pepmatch_results.tsv', sep='\t')
+    all_epitopes = epitopes_df['Sequence'].unique().tolist()
+    all_matches_df = self._search_epitopes(all_epitopes, best_match=False)
 
     # create dataframes of source antigen mappings so we can merge and perform operations
     epitope_source_map_df = pd.DataFrame({
@@ -311,7 +313,7 @@ class GeneAndProteinAssigner:
     assigned_epitopes = merged_df[merged_df['Protein ID'] == merged_df['Protein ID_assigned']]
     self.epitope_protein_assignment.update(
       dict(zip(
-        assigned_epitopes['Query Sequence'],
+        zip(assigned_epitopes['Source Antigen'], assigned_epitopes['Query Sequence']),
         assigned_epitopes['Protein ID']))
     )
     # grab the rest of the epitopes and merged with gene assignments
@@ -331,19 +333,17 @@ class GeneAndProteinAssigner:
     # now, get the isoform of the assigned gene with the best protein existence level
     best_isoform_indices = unassigned_epitopes.groupby(['Gene', 'Query Sequence'])['Protein Existence Level'].idxmin()
     best_isoforms = unassigned_epitopes.loc[best_isoform_indices, ['Gene', 'Query Sequence', 'Protein ID']].set_index(['Gene', 'Query Sequence'])['Protein ID']
-    unassigned_epitopes['Best Isoform'] = unassigned_epitopes.set_index(['Gene', 'Query Sequence']).index.map(best_isoforms)
+    unassigned_epitopes['Best Isoform ID'] = unassigned_epitopes.set_index(['Gene', 'Query Sequence']).index.map(best_isoforms)
     
     # drop any unassigned epitopes that couldn't be assigned an isoform
-    unassigned_epitopes = unassigned_epitopes.dropna(subset=['Best Isoform'])
+    unassigned_epitopes = unassigned_epitopes.dropna(subset=['Best Isoform ID'])
 
     # Update the protein assignment with the best isoform
     self.epitope_protein_assignment.update(
       dict(zip(
-        unassigned_epitopes['Query Sequence'],
-        unassigned_epitopes['Best Isoform']))
+        zip(unassigned_epitopes['Source Antigen'], unassigned_epitopes['Query Sequence']),
+        unassigned_epitopes['Best Isoform ID']))
     )
-
-    return len(self.epitope_protein_assignment.keys())
 
 
   def _run_arc(self) -> None:
