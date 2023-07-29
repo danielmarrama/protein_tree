@@ -119,6 +119,8 @@ def run_protein_tree(
 
 def main():
   import argparse
+  import multiprocessing
+  
   parser = argparse.ArgumentParser()
   
   parser.add_argument(
@@ -149,7 +151,7 @@ def main():
   parser.add_argument(
     '-n', '--num_threads',
     type=int,
-    default=1,
+    default=multiprocessing.cpu_count() - 2,
     help='Number of threads to use for BLAST and ARC.'
   )
   

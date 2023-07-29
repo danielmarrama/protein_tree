@@ -2,7 +2,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 24	Shewanella putrefaciens	UP000008209	399804	Non-redundant	1.0	1.0	100.0	100.0
 106	Runella slithyformis	UP000000493	761193	Representative	1.0	1.0	100.0	100.0
 108	Spirosoma linguale	UP000002028	504472	Other	1.0	1.0	100.0	100.0
-139	Borreliella burgdorferi	UP000001807	224326	Representative	72.0	852.0	100.0	88.7323943661972
+139	Borreliella burgdorferi	UP000001807	224326	Representative	72.0	860.0	100.0	89.53488372093024
 158	Treponema denticola	UP000008212	243275	Representative	2.0	2.0	100.0	100.0
 160	Treponema pallidum	UP000000811	243276	Representative	13.0	477.0	100.0	90.7756813417191
 162	Treponema phagedenis	UP000042527	162	Representative	1.0	1.0	100.0	100.0
@@ -701,7 +701,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 36845	Clostridium intestinale	UP000016721	1294142	Representative	2.0	2.0	100.0	100.0
 36855	Brucella canis	UP000001385	483179	Non-redundant	9.0	9.0	100.0	100.0
 36911	Clavispora lusitaniae	UP000007703	306902	Representative	1.0	1.0	100.0	0.0
-36936	Lepidoglyphus destructor		36936	All-proteins	3.0	24.0	100.0	58.3333333333333
+36936	Lepidoglyphus destructor		36936	All-proteins	3.0	24.0	100.0	58.333333333333336
 37124	Chikungunya virus	UP000000569	371094	Reference	55.0	1273.0	100.0	70.3849175176748
 37128	Potato mop-top virus	UP000006715	652839	Representative	1.0	8.0	100.0	62.5
 37207	Rio Segundo hantavirus		37207	All-proteins	1.0	1.0	100.0	100.0

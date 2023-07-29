@@ -5,7 +5,6 @@ warnings.filterwarnings('ignore')
 
 import os
 import glob
-import multiprocessing
 import pandas as pd
 
 from ARC.classifier import SeqClassifier
@@ -22,9 +21,9 @@ class GeneAndProteinAssigner:
     taxon_id,
     species_name,
     is_vertebrate,
+    num_threads,
     data_path = Path(__file__).parent.parent / 'data',
     bin_path = Path(__file__).parent.parent / 'bin',
-    num_threads = multiprocessing.cpu_count() - 2
   ):
     
     self.species_dir = data_path / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
@@ -33,7 +32,7 @@ class GeneAndProteinAssigner:
     self.data_path = data_path
     self.bin_path = bin_path
     self.num_threads = num_threads
-    
+
     # initialize maps for assignments
     self.source_gene_assignment = {}
     self.source_protein_assignment = {}
@@ -215,7 +214,7 @@ class GeneAndProteinAssigner:
     os.system( # run blastp
       f'{self.bin_path}/blastp -query {species_path}/sources.fasta '\
       f'-db {species_path}/proteome.fasta '\
-      f'-evalue 1 -num_threads {self.num_threads} -outfmt 10 '\
+      f'-evalue 1  -num_threads {self.num_threads} -outfmt 10 '\
       f'-out {species_path}/blast_results.csv'
     )
     result_columns = [
