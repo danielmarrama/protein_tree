@@ -235,9 +235,9 @@ class GeneAndProteinAssigner:
     
     # map target UniProt IDs to gene symbols
     blast_results_df['Target Gene Symbol'] = blast_results_df['Target'].map(self.uniprot_id_to_gene_map)
-    
+
     # create a quality score based on % identity, alignment length, and query length
-    blast_results_df['Query Length'] = blast_results_df['Query'].map(self.source_length_map)
+    blast_results_df['Query Length'] = blast_results_df['Query'].astype(str).map(self.source_length_map)
     blast_results_df['Quality Score'] = blast_results_df['Percentage Identity'] * (blast_results_df['Alignment Length'] / blast_results_df['Query Length'])
 
     # join proteome metadata to select the best match for each source antigen
@@ -259,10 +259,10 @@ class GeneAndProteinAssigner:
 
     # assign gene symbols, protein ID, and score
     for i, row in blast_results_df.iterrows():
-      self.source_gene_assignment[row['Query']] = row['Target Gene Symbol']
-      self.source_protein_assignment[row['Query']] = row['Target']
-      self.source_assignment_score[row['Query']] = row['Quality Score']
-
+      self.source_gene_assignment[str(row['Query'])] = row['Target Gene Symbol']
+      self.source_protein_assignment[str(row['Query'])] = row['Target']
+      self.source_assignment_score[str(row['Query'])] = row['Quality Score']
+  
 
   def _assign_epitopes(self, epitopes_df: pd.DataFrame) -> None:
     """Assign a parent protein to each epitope.
@@ -277,6 +277,10 @@ class GeneAndProteinAssigner:
     # search all epitopes within the proteome using PEPMatch
     all_epitopes = epitopes_df['Sequence'].unique().tolist()
     all_matches_df = self._search_epitopes(all_epitopes, best_match=False)
+    
+    # if no source antigens were assigned, return
+    if not self.source_gene_assignment or not self.source_protein_assignment:
+      return
 
     # create dataframes of source antigen mappings so we can merge and perform operations
     epitope_source_map_df = pd.DataFrame({

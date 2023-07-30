@@ -120,7 +120,7 @@ def run_protein_tree(
 def main():
   import argparse
   import multiprocessing
-  
+
   parser = argparse.ArgumentParser()
   
   parser.add_argument(
