@@ -66,7 +66,7 @@ def test_assignments(epitopes, sources, organism):
   sources_df = pd.read_csv(sources, sep='\t')
 
   Assigner = GeneAndProteinAssigner(
-    taxon_id, species_name, is_vertebrate, data_path, bin_path='/usr/bin', num_threads=1
+    taxon_id, species_name, is_vertebrate, num_threads=1, data_path=data_path, bin_path='/usr/bin'
   )
   _, epitope_assignments, source_assignments = Assigner.assign(sources_df, epitopes_df)
   
