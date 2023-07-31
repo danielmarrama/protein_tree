@@ -1295,174 +1295,174 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 2900548	Actinomycetota bacterium	UP000678472	2900548	Representative	1.0	1.0	100.0	0.0
 2951618	Lyssavirus hamburg	UP000008926	453115	Representative	2.0	1.0	100.0	100.0
 2951978	Betanucleorhabdovirus retesonchi	UP000002326	11307	Representative	1.0	1.0	100.0	100.0
-2955291	Alphainfluenzavirus influenzae	UP000009255	211044	Representative	1152.0	12073.0	99.82638888888889	51.528203429139396
+2955291	Alphainfluenzavirus influenzae	UP000009255	211044	Representative	1152.0	12073.0	99.82638888888889	51.5282034291394
 2955465	Betainfluenzavirus influenzae	UP000113189	1296981	Representative	75.0	730.0	100.0	67.8082191780822
 2955935	Gammainfluenzavirus influenzae	UP000008286	11553	Representative	5.0	18.0	100.0	83.33333333333334
-2978683	Burkholderia orbicola	UP000002169	406425	Non-redundant	7.0	7.0	100.0	85.7142857142857
-3042615	Paraglaciecola sp. T6c		3042615	All-proteins	1.0	1.0	0.0	0.0
-3046277	Orthoflavivirus flavi		3046277	All-proteins	100.0	3302.0	0.0	0.0
-3047383	Alphabaculovirus aucalifonicae		3047383	All-proteins	1.0	1.0	0.0	0.0
-3047386	Badnavirus alphavirgamusae		3047386	All-proteins	1.0	23.0	0.0	0.0
-3047387	Badnavirus betavirgamusae		3047387	All-proteins	1.0	23.0	0.0	0.0
-3047388	Badnavirus gammavirgamusae		3047388	All-proteins	2.0	97.0	0.0	0.0
-3047389	Badnavirus deltavirgamusae		3047389	All-proteins	1.0	22.0	0.0	0.0
-3047677	Comovirus siliquae		3047677	All-proteins	2.0	11.0	0.0	0.0
-3047688	Nepovirus ribis		3047688	All-proteins	1.0	2.0	0.0	0.0
-3047695	Alphabaculovirus bomori		3047695	All-proteins	2.0	5.0	0.0	0.0
-3047725	Orthoflavivirus careyense		3047725	All-proteins	1.0	2.0	0.0	0.0
-3047771	Comovirus vignae		3047771	All-proteins	2.0	1.0	0.0	0.0
-3047852	Nepovirus foliumflabelli		3047852	All-proteins	1.0	1.0	0.0	0.0
-3047947	Alphabaculovirus helarmigerae		3047947	All-proteins	1.0	2.0	0.0	0.0
-3048148	Metapneumovirus hominis		3048148	All-proteins	57.0	228.0	0.0	0.0
-3048151	Avibirnavirus gumboroense		3048151	All-proteins	12.0	28.0	0.0	0.0
+2978683	Burkholderia orbicola	UP000002169	406425	Non-redundant	7.0	7.0	100.0	85.71428571428571
+3042615	Paraglaciecola sp. T6c	UP000233828	2058332	Representative	1.0	1.0	100.0	0.0
+3046277	Orthoflavivirus flavi	UP000000360	11090	Reference	100.0	4729.0	100.0	73.96912666525692
+3047383	Alphabaculovirus aucalifonicae	UP000008292	46015	Representative	1.0	1.0	100.0	100.0
+3047386	Badnavirus alphavirgamusae	UP000208078	328670	Representative	1.0	23.0	100.0	100.0
+3047387	Badnavirus betavirgamusae	UP000207691	1016853	Representative	1.0	23.0	100.0	100.0
+3047388	Badnavirus gammavirgamusae	UP000202191	1476909	Representative	2.0	97.0	100.0	100.0
+3047389	Badnavirus deltavirgamusae	UP000208088	328671	Representative	1.0	22.0	100.0	100.0
+3047677	Comovirus siliquae	UP000007610	31715	Other	2.0	11.0	100.0	100.0
+3047688	Nepovirus ribis	UP000007614	65743	Other	1.0	2.0	100.0	100.0
+3047695	Alphabaculovirus bomori	UP000204315	271108	Other	2.0	5.0	100.0	100.0
+3047725	Orthoflavivirus careyense	UP000232605	64289	Other	1.0	2.0	100.0	100.0
+3047771	Comovirus vignae	UP000008589	928299	Reference	2.0	1.0	100.0	100.0
+3047852	Nepovirus foliumflabelli	UP000009160	12274	Other	1.0	1.0	100.0	100.0
+3047947	Alphabaculovirus helarmigerae	UP000202587	51313	Representative	1.0	2.0	100.0	100.0
+3048148	Metapneumovirus hominis	UP000150552	162145	Representative	57.0	240.0	100.0	91.25
+3048151	Avibirnavirus gumboroense	UP000107661	10995	Representative	12.0	25.0	100.0	92.0
 3048153	Aquabirnavirus salmonidae		3048153	All-proteins	1.0	1.0	0.0	0.0
-3048158	Orthoflavivirus japonicum		3048158	All-proteins	57.0	856.0	0.0	0.0
-3048170	Orthoflavivirus kyasanurense		3048170	All-proteins	1.0	5.0	0.0	0.0
-3048175	Orthoflavivirus langatense		3048175	All-proteins	1.0	1.0	0.0	0.0
-3048184	Orthoflavivirus loupingi		3048184	All-proteins	2.0	2.0	0.0	0.0
-3048215	Orthoflavivirus murrayense		3048215	All-proteins	9.0	48.0	0.0	0.0
-3048269	Tymovirus physalis		3048269	All-proteins	2.0	2.0	0.0	0.0
-3048278	Circovirus porcine1		3048278	All-proteins	7.0	4.0	0.0	0.0
-3048279	Circovirus porcine2		3048279	All-proteins	49.0	94.0	0.0	0.0
-3048280	Circovirus porcine3		3048280	All-proteins	1.0	4.0	0.0	0.0
-3048287	Orthoflavivirus powassanense		3048287	All-proteins	2.0	17.0	0.0	0.0
-3048308	Orthoflavivirus saboyaense		3048308	All-proteins	1.0	1.0	0.0	0.0
-3048316	Orthoflavivirus sepikense		3048316	All-proteins	1.0	1.0	0.0	0.0
-3048338	Alphabaculovirus spliturae		3048338	All-proteins	1.0	1.0	0.0	0.0
-3048360	Orthoflavivirus tembusu		3048360	All-proteins	8.0	66.0	0.0	0.0
-3048374	Tombusvirus lycopersici		3048374	All-proteins	1.0	3.0	0.0	0.0
-3048379	Zetatorquevirus aotid1		3048379	All-proteins	1.0	5.0	0.0	0.0
-3048395	Betatorquevirus homini1		3048395	All-proteins	1.0	1.0	0.0	0.0
-3048401	Betatorquevirus homini3		3048401	All-proteins	1.0	2.0	0.0	0.0
-3048405	Betatorquevirus homini7		3048405	All-proteins	1.0	2.0	0.0	0.0
-3048406	Betatorquevirus homini8		3048406	All-proteins	1.0	2.0	0.0	0.0
-3048408	Iotatorquevirus suida1a		3048408	All-proteins	5.0	15.0	0.0	0.0
-3048411	Epsilontorquevirus calli1		3048411	All-proteins	2.0	2.0	0.0	0.0
-3048413	Alphatorquevirus homin1		3048413	All-proteins	1.0	3.0	0.0	0.0
-3048416	Alphatorquevirus homin14		3048416	All-proteins	1.0	5.0	0.0	0.0
-3048417	Alphatorquevirus homin15		3048417	All-proteins	1.0	3.0	0.0	0.0
+3048158	Orthoflavivirus japonicum	UP000160671	11072	Other	57.0	1249.0	100.0	89.91192954363491
+3048170	Orthoflavivirus kyasanurense	UP000097483	172148	Other	1.0	5.0	100.0	100.0
+3048175	Orthoflavivirus langatense	UP000007766	31638	Other	1.0	1.0	100.0	100.0
+3048184	Orthoflavivirus loupingi	UP000296935	11086	Other	2.0	1.0	100.0	100.0
+3048215	Orthoflavivirus murrayense	UP000008863	301478	Other	9.0	54.0	100.0	98.14814814814817
+3048269	Tymovirus physalis	UP000204435	72539	Other	2.0	2.0	100.0	100.0
+3048278	Circovirus porcine1	UP000180335	133704	Representative	7.0	4.0	100.0	25.0
+3048279	Circovirus porcine2	UP000000470	85708	Representative	49.0	109.0	67.3469387755102	33.02752293577982
+3048280	Circovirus porcine3	UP000287927	1868221	Representative	1.0	4.0	100.0	100.0
+3048287	Orthoflavivirus powassanense	UP000096423	11083	Other	2.0	13.0	100.0	100.0
+3048308	Orthoflavivirus saboyaense	UP000112648	64314	Other	1.0	1.0	100.0	100.0
+3048316	Orthoflavivirus sepikense	UP000112296	44026	Other	1.0	1.0	100.0	100.0
+3048338	Alphabaculovirus spliturae	UP000202667	46242	Other	1.0	1.0	100.0	100.0
+3048360	Orthoflavivirus tembusu	UP000098575	1207926	Other	8.0	76.0	100.0	98.68421052631578
+3048374	Tombusvirus lycopersici	UP000001666	12147	Representative	1.0	3.0	100.0	0.0
+3048379	Zetatorquevirus aotid1	UP000007080	766187	Representative	1.0	5.0	100.0	100.0
+3048395	Betatorquevirus homini1	UP000008779	766183	Representative	1.0	1.0	100.0	100.0
+3048401	Betatorquevirus homini3	UP000158564	687371	Representative	1.0	2.0	100.0	100.0
+3048405	Betatorquevirus homini7	UP000114428	687375	Representative	1.0	2.0	100.0	100.0
+3048406	Betatorquevirus homini8	UP000155130	687376	Representative	1.0	2.0	100.0	100.0
+3048408	Iotatorquevirus suida1a	UP000007079	766190	Representative	5.0	15.0	100.0	13.333333333333334
+3048411	Epsilontorquevirus calli1	UP000008780	766186	Representative	2.0	2.0	100.0	100.0
+3048413	Alphatorquevirus homin1	UP000008778	766182	Representative	1.0	3.0	100.0	100.0
+3048416	Alphatorquevirus homin14	UP000148310	687353	Representative	1.0	5.0	100.0	100.0
+3048417	Alphatorquevirus homin15	UP000140739	687354	Representative	1.0	3.0	100.0	100.0
 3048420	Alphatorquevirus homin19		3048420	All-proteins	1.0	5.0	0.0	0.0
-3048421	Alphatorquevirus homin2		3048421	All-proteins	1.0	4.0	0.0	0.0
-3048422	Alphatorquevirus homin20		3048422	All-proteins	1.0	2.0	0.0	0.0
-3048423	Alphatorquevirus homin21		3048423	All-proteins	1.0	2.0	0.0	0.0
-3048424	Alphatorquevirus homin24		3048424	All-proteins	1.0	3.0	0.0	0.0
-3048425	Alphatorquevirus cerco7		3048425	All-proteins	1.0	3.0	0.0	0.0
-3048426	Alphatorquevirus cerco6		3048426	All-proteins	1.0	5.0	0.0	0.0
-3048427	Alphatorquevirus homin29		3048427	All-proteins	1.0	4.0	0.0	0.0
-3048428	Alphatorquevirus homin3		3048428	All-proteins	1.0	4.0	0.0	0.0
-3048429	Alphatorquevirus homin4		3048429	All-proteins	1.0	6.0	0.0	0.0
-3048431	Alphatorquevirus homin6		3048431	All-proteins	1.0	2.0	0.0	0.0
-3048432	Alphatorquevirus homin7		3048432	All-proteins	1.0	3.0	0.0	0.0
-3048448	Orthoflavivirus nilense		3048448	All-proteins	60.0	881.0	0.0	0.0
-3048459	Orthoflavivirus zikaense		3048459	All-proteins	87.0	3356.0	0.0	0.0
-3049952	Respirovirus laryngotracheitidis		3049952	All-proteins	2.0	13.0	0.0	0.0
-3049953	Respirovirus pneumoniae		3049953	All-proteins	6.0	48.0	0.0	0.0
-3049954	Orthopneumovirus hominis		3049954	All-proteins	127.0	2548.0	0.0	0.0
-3050243	Varicellovirus bovinealpha1		3050243	All-proteins	30.0	86.0	0.0	0.0
-3050248	Orthopneumovirus bovis		3050248	All-proteins	19.0	748.0	0.0	0.0
-3050251	Varicellovirus canidalpha1		3050251	All-proteins	1.0	1.0	0.0	0.0
-3050254	Quwivirus caviidbeta2		3050254	All-proteins	4.0	141.0	0.0	0.0
-3050256	Simplexvirus cercopithecinealpha2		3050256	All-proteins	1.0	1.0	0.0	0.0
-3050258	Cytomegalovirus cercopithecinebeta5		3050258	All-proteins	1.0	1.0	0.0	0.0
-3050276	Varicellovirus equidalpha1		3050276	All-proteins	73.0	666.0	0.0	0.0
-3050278	Varicellovirus equidalpha4		3050278	All-proteins	3.0	6.0	0.0	0.0
-3050287	Mardivirus gallidalpha2		3050287	All-proteins	25.0	88.0	0.0	0.0
-3050292	Simplexvirus humanalpha1		3050292	All-proteins	231.0	1592.0	0.0	0.0
-3050293	Simplexvirus humanalpha2		3050293	All-proteins	130.0	3311.0	0.0	0.0
-3050294	Varicellovirus humanalpha3		3050294	All-proteins	66.0	792.0	0.0	0.0
-3050295	Cytomegalovirus humanbeta5		3050295	All-proteins	764.0	4805.0	0.0	0.0
-3050296	Roseolovirus humanbeta6a		3050296	All-proteins	16.0	15.0	0.0	0.0
-3050297	Roseolovirus humanbeta6b		3050297	All-proteins	224.0	7139.0	0.0	0.0
-3050298	Roseolovirus humanbeta7		3050298	All-proteins	6.0	7.0	0.0	0.0
-3050299	Lymphocryptovirus humangamma4		3050299	All-proteins	358.0	5396.0	0.0	0.0
-3050300	Rhadinovirus humangamma8		3050300	All-proteins	31.0	676.0	0.0	0.0
-3050305	Simplexvirus macacinealpha1		3050305	All-proteins	9.0	1161.0	0.0	0.0
-3050308	Cytomegalovirus macacinebeta3		3050308	All-proteins	7.0	268.0	0.0	0.0
-3050314	Lymphocryptovirus macacinegamma4		3050314	All-proteins	2.0	67.0	0.0	0.0
-3050315	Rhadinovirus macacinegamma5		3050315	All-proteins	1.0	1.0	0.0	0.0
-3050323	Muromegalovirus muridbeta1		3050323	All-proteins	86.0	774.0	0.0	0.0
-3050327	Rhadinovirus muridgamma4		3050327	All-proteins	51.0	53.0	0.0	0.0
-3050329	Orthopneumovirus muris		3050329	All-proteins	16.0	119.0	0.0	0.0
-3050334	Cytomegalovirus paninebeta2		3050334	All-proteins	4.0	4.0	0.0	0.0
-3050350	Rhadinovirus saimiriinegamma2		3050350	All-proteins	3.0	4.0	0.0	0.0
-3050355	Varicellovirus suidalpha1		3050355	All-proteins	14.0	110.0	0.0	0.0
-3051375	Orthoavulavirus javaense		3051375	All-proteins	31.0	149.0	0.0	0.0
-3051624	Amdoparvovirus carnivoran1		3051624	All-proteins	4.0	15.0	0.0	0.0
-3051991	Bandavirus guertuense		3051991	All-proteins	2.0	192.0	0.0	0.0
-3052040	Bocaparvovirus primate1		3052040	All-proteins	2.0	14.0	0.0	0.0
-3052041	Bocaparvovirus primate2		3052041	All-proteins	1.0	4.0	0.0	0.0
-3052189	Erythroparvovirus primate1		3052189	All-proteins	11.0	337.0	0.0	0.0
-3052195	Etatorquevirus felid1		3052195	All-proteins	1.0	1.0	0.0	0.0
-3052223	Henipavirus hendraense		3052223	All-proteins	10.0	17.0	0.0	0.0
-3052225	Henipavirus nipahense		3052225	All-proteins	10.0	29.0	0.0	0.0
-3052230	Hepacivirus hominis		3052230	All-proteins	1410.0	14344.0	0.0	0.0
-3052236	Hepacivirus platyrrhini		3052236	All-proteins	1.0	8.0	0.0	0.0
-3052237	Hepacivirus ratti		3052237	All-proteins	8.0	5.0	0.0	0.0
-3052294	Luteovirus pavhordei		3052294	All-proteins	1.0	1.0	0.0	0.0
-3052296	Mammarenavirus amapariense		3052296	All-proteins	2.0	3.0	0.0	0.0
-3052299	Mammarenavirus brazilense		3052299	All-proteins	13.0	956.0	0.0	0.0
+3048421	Alphatorquevirus homin2	UP000203082	687341	Representative	1.0	4.0	100.0	100.0
+3048422	Alphatorquevirus homin20	UP000232833	687359	Representative	1.0	2.0	100.0	100.0
+3048423	Alphatorquevirus homin21	UP000232847	687360	Representative	1.0	2.0	100.0	100.0
+3048424	Alphatorquevirus homin24	UP000232628	687363	Other	1.0	3.0	100.0	100.0
+3048425	Alphatorquevirus cerco7	UP000008261	687364	Representative	1.0	3.0	100.0	100.0
+3048426	Alphatorquevirus cerco6	UP000170849	687365	Representative	1.0	5.0	100.0	100.0
+3048427	Alphatorquevirus homin29	UP000232736	687368	Representative	1.0	4.0	100.0	100.0
+3048428	Alphatorquevirus homin3	UP000008257	687342	Representative	1.0	4.0	100.0	100.0
+3048429	Alphatorquevirus homin4	UP000007553	687343	Representative	1.0	6.0	100.0	100.0
+3048431	Alphatorquevirus homin6	UP000008258	687345	Representative	1.0	2.0	100.0	100.0
+3048432	Alphatorquevirus homin7	UP000172761	687346	Representative	1.0	3.0	100.0	100.0
+3048448	Orthoflavivirus nilense	UP000096925	1968826	Other	60.0	1266.0	100.0	89.96840442338072
+3048459	Orthoflavivirus zikaense	UP000054557	64320	Reference	87.0	5135.0	100.0	65.58909444985395
+3049952	Respirovirus laryngotracheitidis	UP000165616	12730	Representative	2.0	13.0	100.0	84.61538461538461
+3049953	Respirovirus pneumoniae	UP000162202	11216	Representative	6.0	43.0	100.0	74.4186046511628
+3049954	Orthopneumovirus hominis	UP000134464	11259	Representative	127.0	2802.0	100.0	91.79157744468236
+3050243	Varicellovirus bovinealpha1	UP000144590	10320	Representative	30.0	87.0	100.0	88.50574712643679
+3050248	Orthopneumovirus bovis	UP000128003	11246	Other	19.0	747.0	100.0	78.84872824631861
+3050251	Varicellovirus canidalpha1	UP000138111	170325	Representative	1.0	1.0	100.0	100.0
+3050254	Quwivirus caviidbeta2	UP000102041	33706	Representative	4.0	141.0	75.0	98.58156028368792
+3050256	Simplexvirus cercopithecinealpha2	UP000137988	10317	Other	1.0	1.0	100.0	100.0
+3050258	Cytomegalovirus cercopithecinebeta5	UP000116555	50292	Representative	1.0	1.0	100.0	100.0
+3050276	Varicellovirus equidalpha1	UP000001189	31520	Representative	73.0	666.0	100.0	99.84984984984985
+3050278	Varicellovirus equidalpha4	UP000009245	10333	Other	3.0	6.0	100.0	100.0
+3050287	Mardivirus gallidalpha2	UP000008072	10389	Representative	25.0	89.0	100.0	100.0
+3050292	Simplexvirus humanalpha1	UP000009294	10299	Representative	231.0	1728.0	100.0	95.89120370370372
+3050293	Simplexvirus humanalpha2	UP000001874	10315	Representative	130.0	3484.0	100.0	98.19173363949484
+3050294	Varicellovirus humanalpha3	UP000002602	10338	Representative	66.0	940.0	100.0	99.36170212765958
+3050295	Cytomegalovirus humanbeta5	UP000000938	295027	Representative	765.0	5800.0	82.09150326797385	84.39655172413794
+3050296	Roseolovirus humanbeta6a	UP000009295	10370	Representative	16.0	14.0	100.0	85.71428571428571
+3050297	Roseolovirus humanbeta6b	UP000006930	36351	Reference	224.0	7479.0	99.55357142857144	99.15764139590854
+3050298	Roseolovirus humanbeta7	UP000009246	57278	Representative	6.0	7.0	100.0	100.0
+3050299	Lymphocryptovirus humangamma4	UP000153037	10377	Representative	358.0	6057.0	100.0	80.53491827637444
+3050300	Rhadinovirus humangamma8	UP000000942	868565	Representative	31.0	685.0	93.5483870967742	97.22627737226276
+3050305	Simplexvirus macacinealpha1	UP000110594	10325	Representative	9.0	1580.0	100.0	99.74683544303798
+3050308	Cytomegalovirus macacinebeta3	UP000101154	47929	Representative	7.0	268.0	100.0	97.01492537313432
+3050314	Lymphocryptovirus macacinegamma4	UP000201521	45455	Other	2.0	67.0	100.0	100.0
+3050315	Rhadinovirus macacinegamma5	UP000122166	83534	Representative	1.0	1.0	100.0	0.0
+3050323	Muromegalovirus muridbeta1	UP000122533	10366	Representative	86.0	804.0	97.67441860465117	93.1592039800995
+3050327	Rhadinovirus muridgamma4	UP000099649	33708	Representative	51.0	58.0	100.0	100.0
+3050329	Orthopneumovirus muris	UP000149165	270473	Representative	16.0	122.0	100.0	100.0
+3050334	Cytomegalovirus paninebeta2	UP000099188	188763	Representative	4.0	4.0	100.0	100.0
+3050350	Rhadinovirus saimiriinegamma2	UP000000587	10383	Representative	3.0	5.0	100.0	100.0
+3050355	Varicellovirus suidalpha1	UP000154030	10345	Representative	14.0	110.0	100.0	95.45454545454544
+3051375	Orthoavulavirus javaense	UP000133442	2560319	Representative	31.0	135.0	100.0	88.14814814814815
+3051624	Amdoparvovirus carnivoran1	UP000008470	10783	Reference	4.0	16.0	100.0	75.0
+3051991	Bandavirus guertuense	UP000297151	1763596	Other	2.0	192.0	100.0	100.0
+3052040	Bocaparvovirus primate1	UP000140113	689403	Reference	2.0	14.0	100.0	57.14285714285714
+3052041	Bocaparvovirus primate2	UP000098414	573977	Other	1.0	4.0	100.0	100.0
+3052189	Erythroparvovirus primate1	UP000006624	648237	Reference	11.0	352.0	100.0	89.48863636363636
+3052195	Etatorquevirus felid1	UP000008781	766188	Representative	1.0	1.0	100.0	100.0
+3052223	Henipavirus hendraense	UP000008771	928303	Representative	10.0	13.0	100.0	100.0
+3052225	Henipavirus nipahense	UP000002330	121791	Other	10.0	28.0	100.0	100.0
+3052230	Hepacivirus hominis	UP000000518	63746	Reference	1411.0	16991.0	100.0	31.36954858454476
+3052236	Hepacivirus platyrrhini	UP000114117	2847087	Other	1.0	8.0	100.0	100.0
+3052237	Hepacivirus ratti		3052237	All-proteins	8.0	7.0	100.0	100.0
+3052294	Luteovirus pavhordei	UP000006722	2169986	Representative	1.0	1.0	100.0	0.0
+3052296	Mammarenavirus amapariense	UP000127390	2886894	Other	2.0	3.0	100.0	100.0
+3052299	Mammarenavirus brazilense		3052299	All-proteins	13.0	990.0	0.0	0.0
 3052300	Mammarenavirus caliense		3052300	All-proteins	5.0	13.0	0.0	0.0
-3052303	Mammarenavirus choriomeningitidis		3052303	All-proteins	51.0	2172.0	0.0	0.0
-3052304	Mammarenavirus cupixiense		3052304	All-proteins	1.0	1.0	0.0	0.0
-3052307	Mammarenavirus guanaritoense		3052307	All-proteins	20.0	910.0	0.0	0.0
-3052310	Mammarenavirus lassaense		3052310	All-proteins	77.0	1303.0	0.0	0.0
-3052317	Mammarenavirus machupoense		3052317	All-proteins	35.0	871.0	0.0	0.0
-3052320	Mammarenavirus mopeiaense		3052320	All-proteins	2.0	17.0	0.0	0.0
-3052322	Mammarenavirus oliverosense		3052322	All-proteins	3.0	3.0	0.0	0.0
-3052323	Mammarenavirus paranaense		3052323	All-proteins	1.0	1.0	0.0	0.0
-3052325	Mammarenavirus praomyidis		3052325	All-proteins	1.0	1.0	0.0	0.0
-3052328	Mammarenavirus tacaribeense		3052328	All-proteins	7.0	120.0	0.0	0.0
-3052331	Mammarenavirus whitewaterense		3052331	All-proteins	9.0	383.0	0.0	0.0
-3052342	Morbillivirus canis		3052342	All-proteins	27.0	139.0	0.0	0.0
-3052343	Morbillivirus caprinae		3052343	All-proteins	14.0	43.0	0.0	0.0
-3052345	Morbillivirus hominis		3052345	All-proteins	46.0	608.0	0.0	0.0
-3052346	Morbillivirus pecoris		3052346	All-proteins	7.0	49.0	0.0	0.0
-3052390	Orthobunyavirus encephalitidis		3052390	All-proteins	1.0	1.0	0.0	0.0
-3052409	Orthobunyavirus lacrosseense		3052409	All-proteins	2.0	4.0	0.0	0.0
-3052437	Orthobunyavirus schmallenbergense		3052437	All-proteins	3.0	8.0	0.0	0.0
-3052458	Orthoebolavirus bundibugyoense		3052458	All-proteins	5.0	15.0	0.0	0.0
-3052459	Orthoebolavirus restonense		3052459	All-proteins	20.0	40.0	0.0	0.0
-3052460	Orthoebolavirus sudanense		3052460	All-proteins	24.0	452.0	0.0	0.0
-3052461	Orthoebolavirus taiense		3052461	All-proteins	5.0	5.0	0.0	0.0
-3052462	Orthoebolavirus zairense		3052462	All-proteins	109.0	2229.0	0.0	0.0
-3052464	Orthoflavivirus denguei		3052464	All-proteins	1221.0	13613.0	0.0	0.0
-3052465	Orthoflavivirus encephalitidis		3052465	All-proteins	26.0	328.0	0.0	0.0
-3052468	Orthoflavivirus louisense		3052468	All-proteins	7.0	21.0	0.0	0.0
-3052470	Orthohantavirus bayoui		3052470	All-proteins	1.0	1.0	0.0	0.0
-3052474	Orthohantavirus chocloense		3052474	All-proteins	5.0	17.0	0.0	0.0
-3052476	Orthohantavirus delgaditoense		3052476	All-proteins	1.0	2.0	0.0	0.0
-3052477	Orthohantavirus dobravaense		3052477	All-proteins	6.0	28.0	0.0	0.0
-3052480	Orthohantavirus hantanense		3052480	All-proteins	25.0	456.0	0.0	0.0
-3052483	Orthohantavirus khabarovskense		3052483	All-proteins	2.0	1.0	0.0	0.0
-3052485	Orthohantavirus maporalense		3052485	All-proteins	3.0	6.0	0.0	0.0
-3052486	Orthohantavirus montanoense		3052486	All-proteins	1.0	3.0	0.0	0.0
-3052487	Orthohantavirus moroense		3052487	All-proteins	1.0	2.0	0.0	0.0
-3052489	Orthohantavirus negraense		3052489	All-proteins	5.0	13.0	0.0	0.0
-3052492	Orthohantavirus prospectense		3052492	All-proteins	3.0	4.0	0.0	0.0
-3052493	Orthohantavirus puumalaense		3052493	All-proteins	21.0	282.0	0.0	0.0
-3052496	Orthohantavirus sangassouense		3052496	All-proteins	4.0	10.0	0.0	0.0
-3052498	Orthohantavirus seoulense		3052498	All-proteins	7.0	15.0	0.0	0.0
-3052499	Orthohantavirus sinnombreense		3052499	All-proteins	18.0	60.0	0.0	0.0
-3052503	Orthohantavirus tulaense		3052503	All-proteins	4.0	19.0	0.0	0.0
-3052505	Orthomarburgvirus marburgense		3052505	All-proteins	41.0	279.0	0.0	0.0
-3052518	Orthonairovirus haemorrhagiae		3052518	All-proteins	39.0	635.0	0.0	0.0
-3052557	Orthorubulavirus laryngotracheitidis		3052557	All-proteins	2.0	13.0	0.0	0.0
-3052558	Orthorubulavirus mammalis		3052558	All-proteins	3.0	3.0	0.0	0.0
-3052560	Orthorubulavirus parotitidis		3052560	All-proteins	43.0	85.0	0.0	0.0
-3052562	Orthorubulavirus suis		3052562	All-proteins	1.0	3.0	0.0	0.0
-3052571	Orthotospovirus citrullomaculosi		3052571	All-proteins	1.0	3.0	0.0	0.0
-3052585	Orthotospovirus tomatomaculae		3052585	All-proteins	3.0	1.0	0.0	0.0
-3052599	Pararubulavirus menangleense		3052599	All-proteins	1.0	2.0	0.0	0.0
-3052608	Pegivirus hominis		3052608	All-proteins	5.0	14.0	0.0	0.0
-3052619	Pestivirus bovis		3052619	All-proteins	15.0	1204.0	0.0	0.0
-3052624	Pestivirus scrofae		3052624	All-proteins	3.0	3.0	0.0	0.0
-3052625	Pestivirus suis		3052625	All-proteins	20.0	156.0	0.0	0.0
-3052626	Pestivirus tauri		3052626	All-proteins	1.0	2.0	0.0	0.0
-3052676	Phlebovirus riftense		3052676	All-proteins	10.0	106.0	0.0	0.0
-3052686	Phlebovirus toscanaense		3052686	All-proteins	1.0	3.0	0.0	0.0
-3052707	Protoparvovirus carnivoran1		3052707	All-proteins	12.0	793.0	0.0	0.0
-3052720	Protoparvovirus ungulate1		3052720	All-proteins	6.0	45.0	0.0	0.0
-3052729	Respirovirus bovis		3052729	All-proteins	2.0	4.0	0.0	0.0
-3052731	Respirovirus muris		3052731	All-proteins	16.0	552.0	0.0	0.0
-3052770	Tetraparvovirus primate1		3052770	All-proteins	1.0	132.0	0.0	0.0
-3052778	Thetatorquevirus canid1		3052778	All-proteins	1.0	1.0	0.0	0.0
+3052303	Mammarenavirus choriomeningitidis	UP000002474	11624	Representative	51.0	3454.0	100.0	92.55935147654893
+3052304	Mammarenavirus cupixiense	UP000008164	208899	Other	1.0	1.0	100.0	100.0
+3052307	Mammarenavirus guanaritoense	UP000147629	45219	Other	20.0	942.0	100.0	98.83227176220808
+3052310	Mammarenavirus lassaense	UP000002473	11622	Representative	77.0	1509.0	100.0	73.49237905897945
+3052317	Mammarenavirus machupoense	UP000233880	11628	Other	35.0	904.0	100.0	90.59734513274336
+3052320	Mammarenavirus mopeiaense	UP000119238	11629	Other	2.0	17.0	100.0	100.0
+3052322	Mammarenavirus oliverosense	UP000009264	42764	Representative	3.0	3.0	100.0	100.0
+3052323	Mammarenavirus paranaense	UP000009265	2169994	Other	1.0	1.0	100.0	100.0
+3052325	Mammarenavirus praomyidis	UP000140987	55097	Other	1.0	1.0	100.0	100.0
+3052328	Mammarenavirus tacaribeense	UP000008026	928313	Representative	7.0	123.0	100.0	98.3739837398374
+3052331	Mammarenavirus whitewaterense	UP000009268	46919	Representative	9.0	393.0	100.0	93.38422391857506
+3052342	Morbillivirus canis	UP000007634	11233	Representative	27.0	146.0	100.0	82.87671232876713
+3052343	Morbillivirus caprinae	UP000180906	31604	Representative	14.0	43.0	100.0	86.04651162790698
+3052345	Morbillivirus hominis	UP000000833	11235	Representative	46.0	746.0	100.0	96.514745308311
+3052346	Morbillivirus pecoris	UP000008654	36409	Representative	7.0	47.0	100.0	93.61702127659576
+3052390	Orthobunyavirus encephalitidis	UP000267394	35305	Other	1.0	1.0	100.0	0.0
+3052409	Orthobunyavirus lacrosseense	UP000008768	796210	Representative	2.0	4.0	100.0	100.0
+3052437	Orthobunyavirus schmallenbergense	UP000141581	1133363	Representative	3.0	8.0	100.0	100.0
+3052458	Orthoebolavirus bundibugyoense	UP000164800	565995	Representative	5.0	12.0	100.0	100.0
+3052459	Orthoebolavirus restonense	UP000138664	386032	Representative	20.0	66.0	100.0	100.0
+3052460	Orthoebolavirus sudanense	UP000000277	386033	Other	24.0	464.0	100.0	90.08620689655172
+3052461	Orthoebolavirus taiense	UP000100390	186541	Other	5.0	6.0	100.0	100.0
+3052462	Orthoebolavirus zairense	UP000007209	128952	Representative	109.0	2812.0	100.0	95.83926031294452
+3052464	Orthoflavivirus denguei	UP000002500	11059	Reference	1221.0	18910.0	99.91809991809993	20.71390798519302
+3052465	Orthoflavivirus encephalitidis	UP000007402	11088	Other	26.0	323.0	100.0	96.59442724458204
+3052468	Orthoflavivirus louisense	UP000156857	11080	Other	7.0	20.0	100.0	60.0
+3052470	Orthohantavirus bayoui	UP000136583	1980459	Other	1.0	1.0	100.0	100.0
+3052474	Orthohantavirus chocloense	UP000243631	169173	Other	5.0	19.0	100.0	100.0
+3052476	Orthohantavirus delgaditoense	UP000124236	1980463	Other	1.0	2.0	100.0	100.0
+3052477	Orthohantavirus dobravaense	UP000202548	1980467	Other	6.0	28.0	100.0	100.0
+3052480	Orthohantavirus hantanense	UP000008627	11602	Representative	25.0	498.0	100.0	96.18473895582328
+3052483	Orthohantavirus khabarovskense	UP000105174	1980475	Other	2.0	1.0	100.0	100.0
+3052485	Orthohantavirus maporalense	UP000130449	238817	Other	3.0	6.0	100.0	100.0
+3052486	Orthohantavirus montanoense	UP000111004	1980481	Other	1.0	3.0	100.0	66.66666666666666
+3052487	Orthohantavirus moroense	UP000243187	1980468	Other	1.0	2.0	100.0	100.0
+3052489	Orthohantavirus negraense	UP000232894	1980476	Other	5.0	19.0	100.0	15.789473684210526
+3052492	Orthohantavirus prospectense	UP000242194	1980485	Other	3.0	4.0	100.0	75.0
+3052493	Orthohantavirus puumalaense	UP000110237	39002	Representative	21.0	287.0	100.0	97.90940766550524
+3052496	Orthohantavirus sangassouense	UP000170858	1980489	Other	4.0	12.0	100.0	100.0
+3052498	Orthohantavirus seoulense	UP000207620	12557	Other	7.0	18.0	100.0	100.0
+3052499	Orthohantavirus sinnombreense	UP000113911	1980491	Other	18.0	72.0	100.0	97.2222222222222
+3052503	Orthohantavirus tulaense	UP000243699	1980494	Other	4.0	31.0	100.0	100.0
+3052505	Orthomarburgvirus marburgense	UP000007772	33728	Representative	41.0	456.0	100.0	84.64912280701753
+3052518	Orthonairovirus haemorrhagiae	UP000108063	1980519	Representative	39.0	633.0	100.0	48.49921011058452
+3052557	Orthorubulavirus laryngotracheitidis	UP000000472	11214	Representative	2.0	12.0	100.0	100.0
+3052558	Orthorubulavirus mammalis	UP000007232	11208	Representative	3.0	3.0	100.0	100.0
+3052560	Orthorubulavirus parotitidis	UP000002331	11171	Representative	43.0	133.0	100.0	87.21804511278195
+3052562	Orthorubulavirus suis	UP000169747	2898537	Other	1.0	3.0	100.0	100.0
+3052571	Orthotospovirus citrullomaculosi	UP000201829	1933300	Other	1.0	3.0	100.0	100.0
+3052585	Orthotospovirus tomatomaculae	UP000006674	36413	Representative	3.0	1.0	100.0	100.0
+3052599	Pararubulavirus menangleense	UP000144543	152219	Representative	1.0	2.0	100.0	0.0
+3052608	Pegivirus hominis	UP000137011	54290	Other	5.0	14.0	100.0	78.57142857142857
+3052619	Pestivirus bovis	UP000002317	11100	Reference	15.0	1202.0	100.0	41.43094841930117
+3052624	Pestivirus scrofae	UP000138377	1689785	Other	3.0	3.0	100.0	100.0
+3052625	Pestivirus suis	UP000148997	11096	Other	20.0	158.0	100.0	84.81012658227847
+3052626	Pestivirus tauri	UP000099428	54315	Other	1.0	2.0	100.0	50.0
+3052676	Phlebovirus riftense	UP000002477	11589	Representative	10.0	122.0	100.0	90.1639344262295
+3052686	Phlebovirus toscanaense	UP000167928	11590	Representative	1.0	3.0	100.0	0.0
+3052707	Protoparvovirus carnivoran1	UP000008295	10791	Other	12.0	798.0	100.0	95.1127819548872
+3052720	Protoparvovirus ungulate1	UP000000468	73487	Other	6.0	44.0	100.0	81.81818181818183
+3052729	Respirovirus bovis	UP000105282	11215	Representative	2.0	4.0	100.0	50.0
+3052731	Respirovirus muris	UP000180650	302271	Representative	16.0	554.0	100.0	79.6028880866426
+3052770	Tetraparvovirus primate1	UP000135600	1511919	Other	1.0	132.0	100.0	100.0
+3052778	Thetatorquevirus canid1	UP000001295	766189	Representative	1.0	1.0	100.0	100.0
