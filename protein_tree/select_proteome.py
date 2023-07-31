@@ -3,6 +3,7 @@
 import re
 import os
 import requests
+import json
 import pandas as pd
 from pathlib import Path
 
@@ -14,6 +15,8 @@ class ProteomeSelector:
     self, taxon_id, species_name, data_path = Path(__file__).parent.parent / 'data'
   ):
     self.taxon_id = taxon_id
+
+    self.new_taxonomy_map = json.load(open(data_path / 'new_taxonomy_map.json'))
 
     self.species_dir = data_path / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
     self.species_dir.mkdir(parents=True, exist_ok=True)
@@ -52,7 +55,6 @@ class ProteomeSelector:
     """
     if (self.species_dir / 'proteome.fasta').exists():
       idx = self.metrics_df['Species Taxon ID'] == self.taxon_id
-      print(self.metrics_df[idx])
       proteome_id = self.metrics_df[idx]['Proteome ID'].iloc[0]
       proteome_taxon = self.metrics_df[idx]['Proteome Taxon'].iloc[0]
       proteome_type = self.metrics_df[idx]['Proteome Type'].iloc[0]
@@ -163,8 +165,15 @@ class ProteomeSelector:
 
     If there are no proteomes, return empty DataFrame.
     """
+    # TODO (FUTURE): REMOVE THIS NEW TAXONOMY WORKAROUND
+    # check if the taxon ID is in the new taxonomy map
+    if str(self.taxon_id) in self.new_taxonomy_map:
+      taxon_id = self.new_taxonomy_map[str(self.taxon_id)]
+    else:
+      taxon_id = self.taxon_id
+
     # URL to get proteome list for a species - use proteome_type:1 first
-    url = f'https://rest.uniprot.org/proteomes/stream?format=xml&query=(proteome_type:1)AND(taxonomy_id:{self.taxon_id})'
+    url = f'https://rest.uniprot.org/proteomes/stream?format=xml&query=(proteome_type:1)AND(taxonomy_id:{taxon_id})'
     
     try:
       proteome_list = pd.read_xml(requests.get(url).text)
@@ -186,8 +195,15 @@ class ProteomeSelector:
     stored within those proteomes. There is a way to get every protein
     using the taxonomy part of UniProt. 
     """
+    # TODO (FUTURE): REMOVE THIS NEW TAXONOMY WORKAROUND
+    # check if the taxon ID is in the new taxonomy map
+    if str(self.taxon_id) in self.new_taxonomy_map:
+      taxon_id = self.new_taxonomy_map[str(self.taxon_id)]
+    else:
+      taxon_id = self.taxon_id
+
     # URL link to all proteins for a species - size = 500 proteins at a time
-    url = f'https://rest.uniprot.org/uniprotkb/search?format=fasta&query=taxonomy_id:{self.taxon_id}&size=500'
+    url = f'https://rest.uniprot.org/uniprotkb/search?format=fasta&query=taxonomy_id:{taxon_id}&size=500'
 
     # loop through all protein batches and write proteins to FASTA file
     for batch in self._get_protein_batches(url):
@@ -367,7 +383,7 @@ def run(
   print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')
 
   proteome_data = Selector.select_best_proteome(epitopes_df)
-  Selector.proteome_to_csv()
+  Selector.proteome_to_tsv()
   
   print(f'Proteome ID: {proteome_data[0]}')
   print(f'Proteome taxon: {proteome_data[1]}')
@@ -388,7 +404,7 @@ def run(
     metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Taxon'] = proteome_data[1]
     metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Type'] = proteome_data[2]
 
-  metrics_df.to_csv('metrics.tsv', index=False, sep='\t')
+  metrics_df.to_csv(Path(__file__).parent.parent / 'data' / 'metrics.tsv', sep='\t', index=False)
 
 
 def main():
