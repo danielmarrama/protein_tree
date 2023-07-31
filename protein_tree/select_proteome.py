@@ -16,7 +16,8 @@ class ProteomeSelector:
   ):
     self.taxon_id = taxon_id
 
-    self.new_taxonomy_map = json.load(open(data_path / 'new_taxonomy_map.json'))
+    # TODO (FUTURE): REMOVE THIS NEW TAXONOMY WORKAROUND
+    self.new_taxonomy_map = json.load(open(Path(__file__).parent.parent / 'data' / 'new_taxonomy_map.json'))
 
     self.species_dir = data_path / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
     self.species_dir.mkdir(parents=True, exist_ok=True)
