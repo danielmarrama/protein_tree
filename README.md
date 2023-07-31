@@ -2,6 +2,10 @@
 
 Assigning IEDB source antigens and epitopes to their genes and proteins.
 
+Current Success Rate:
+- Source Antigen Assignment: 97.9%
+- Epitope Assignment: 90.6%
+
 
 ### Process
 1. Collect the epitope and source antigen data for a species.
@@ -11,11 +15,11 @@ Assigning IEDB source antigens and epitopes to their genes and proteins.
 
 ### Inputs
 - IEDB MySQL backend access
-- List of IEDB species: [species.csv](data/species.csv)
+- List of IEDB species: [species.csv](data/species.tsv)
     - This is updated with [update_species.py](protein_tree/update_species.py)
 - `blastp` and `makeblastdb` binaries from [NCBI](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
 - `hmmscan` binary from [HMMER](http://eddylab.org/software/hmmer/)
-- [manual_assignments.csv](data/manual_assignments.csv) - manually assigned proteins
+- [manual_assignments.csv](data/manual_assignments.tsv) - manually assigned proteins
 - `allergens.csv` - IUIS allergen nomenclature; get/update using [get_data.py](protein_tree/get_data.py)
 - Flags (for [run.py](protein_tree/run.py))
     - `-a` - run for all species
@@ -76,8 +80,6 @@ Use [combine_data.py](protein_tree/combine_data.py) to merge all the assignments
 
 
 ### TODO
-- Create a workaround for new NCBI taxonomy additions
-- Play with BLAST speed and e-values and how they affect the results
 - Implement skipping a species if the data is the same as the last build
 - Create a tree for visualization
 

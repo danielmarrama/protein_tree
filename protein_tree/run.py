@@ -30,20 +30,19 @@ def run_protein_tree(
     sources_df: Source antigen data for the species.
     update_proteome: Whether or not to update the proteome to be used for the species.
     num_threads: Number of threads to use for BLAST and ARC.
-  """
-  species_dir = f'{taxon_id}-{species_name_map[taxon_id].replace(" ", "_")}'
+  """ 
   species_name = species_name_map[taxon_id]
   is_vertebrate = is_vertebrate_map[taxon_id]
+  species_dir = f'{taxon_id}-{species_name.replace(" ", "_")}'
 
   print(f'Building tree for {species_name} (ID: {taxon_id})...\n')
-  
-  # if there are no epitopes or sources, return None
-  if epitopes_df.empty or sources_df.empty:
-    print('No epitopes or sources found for this species.')
+
+  if sources_df.empty:
+    print('No source antigens found for this species.')
     return
 
   # update proteome if flag or if proteome doesn't exist
-  proteome_file = data_path / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}' / 'proteome.fasta'
+  proteome_file = data_path / 'species' / species_dir / 'proteome.fasta'
   
   if update_proteome or not proteome_file.exists():
     update_proteome = True # if the file doesn't exist, update flag
@@ -64,7 +63,13 @@ def run_protein_tree(
   Assigner = GeneAndProteinAssigner(taxon_id, species_name, is_vertebrate, num_threads=num_threads)
   assigner_data, epitope_assignments, source_assignments = Assigner.assign(sources_df, epitopes_df)
 
-  # write assignments to files
+  # write data to files
+  epitopes_df.to_csv(
+    data_path / 'species' / species_dir / 'epitopes.tsv', sep='\t', index=False
+  )
+  sources_df.to_csv(
+    data_path / 'species' / species_dir / 'sources.tsv', sep='\t', index=False
+  )
   epitope_assignments.to_csv(
     data_path / 'species' / species_dir / 'epitope_assignments.tsv', sep='\t', index=False
   )
