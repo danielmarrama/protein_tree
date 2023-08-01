@@ -288,8 +288,6 @@ class GeneAndProteinAssigner:
     # search all epitopes within the proteome using PEPMatch
     all_epitopes = epitopes_df['Sequence'].unique().tolist()
     all_matches_df = self._search_epitopes(all_epitopes, best_match=False)
-
-    print(all_matches_df)
     
     # if no source antigens were assigned, return
     if not self.source_gene_assignment or not self.source_protein_assignment:

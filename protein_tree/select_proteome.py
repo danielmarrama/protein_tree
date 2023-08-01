@@ -54,14 +54,6 @@ class ProteomeSelector:
     Args:
       epitopes_df (pd.DataFrame): DataFrame of epitopes for the species to use for tie breaks.
     """
-    if (self.species_dir / 'proteome.fasta').exists():
-      idx = self.metrics_df['Species Taxon ID'] == self.taxon_id
-      proteome_id = self.metrics_df[idx]['Proteome ID'].iloc[0]
-      proteome_taxon = self.metrics_df[idx]['Proteome Taxon'].iloc[0]
-      proteome_type = self.metrics_df[idx]['Proteome Type'].iloc[0]
-      
-      return proteome_id, proteome_taxon, proteome_type
-
     if self.proteome_list.empty:
       print('No proteomes found. Fetching orphan proteins.')
       self._get_all_proteins()
