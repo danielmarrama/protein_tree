@@ -117,14 +117,14 @@ class DataFetcher:
     return epitopes_df[epitopes_df['Organism ID'].isin(all_taxa)]
 
 
-  def get_sources_for_species(self, all_taxa: list) -> pd.DataFrame:
+  def get_sources_for_species(self, accessions: list) -> pd.DataFrame:
     """Get source antigens from the written file only for a specific species.
     
     Args:
       all_taxa: list of all active children taxa for a species.
     """
     sources_df = pd.read_csv(self.data_dir / 'sources.tsv', sep='\t')
-    return sources_df[sources_df['Organism ID'].isin(all_taxa)]
+    return sources_df[sources_df['Accession'].isin(accessions)]
 
 
 def main():

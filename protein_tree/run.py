@@ -38,8 +38,8 @@ def run_protein_tree(
 
   print(f'Building tree for {species_name} (ID: {taxon_id})...\n')
 
-  if sources_df.empty:
-    print('No source antigens found for this species.')
+  if epitopes_df.empty or sources_df.empty:
+    print('No epitopes found or source antigens found for this species.')
     return
 
   # update proteome if flag or if proteome doesn't exist
@@ -217,7 +217,7 @@ def main():
 
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
       epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)
-      sources_df = Fetcher.get_sources_for_species(all_taxa)
+      sources_df = Fetcher.get_sources_for_species(epitopes_df['Source Accession'].tolist())
 
       run_protein_tree(
         taxon_id, species_name_map, is_vertebrate_map, 
@@ -233,7 +233,7 @@ def main():
 
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
     epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)
-    sources_df = Fetcher.get_sources_for_species(all_taxa)
+    sources_df = Fetcher.get_sources_for_species(epitopes_df['Source Accession'].tolist())
     
     run_protein_tree(
       taxon_id, species_name_map, is_vertebrate_map, 
