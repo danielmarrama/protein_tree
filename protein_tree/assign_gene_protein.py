@@ -33,7 +33,7 @@ class GeneAndProteinAssigner:
     self.bin_path = bin_path
     self.num_threads = num_threads
 
-    # initialize maps for assignments
+    # initialize dicts for assignments
     self.source_gene_assignment = {}
     self.source_protein_assignment = {}
     self.source_assignment_score = {}
@@ -62,7 +62,15 @@ class GeneAndProteinAssigner:
     Args:
       sources_df: DataFrame of source antigens for a species.
       epitopes_df: DataFrame of epitopes for a species.
-    """   
+    """
+    # assign None to all source antigens and epitopes to start
+    for i, row in sources_df.iterrows():
+      self.source_gene_assignment[row['Accession']] = None
+      self.source_protein_assignment[row['Accession']] = None
+      self.source_assignment_score[row['Accession']] = None
+    for i, row in epitopes_df.iterrows():
+      self.epitope_protein_assignment[(row['Source Accession'], row['Sequence'])] = None
+
     # create source to epitope map
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
     self.source_length_map = dict( # create map of source antigens to their length
@@ -75,12 +83,12 @@ class GeneAndProteinAssigner:
     self._assign_sources(sources_df)
     print('Done assigning source antigens.\n')
 
+    self._assign_allergens()
+    self._assign_manuals()
+
     print('Assigning epitopes...')
     self._assign_epitopes(epitopes_df)
     print('Done.\n')
-
-    self._assign_allergens()
-    self._assign_manuals()
 
     # map source antigens to their best blast matches (UniProt ID and gene) for sources
     sources_df.loc[:, 'Assigned Gene'] = sources_df['Accession'].map(self.source_gene_assignment)
@@ -156,9 +164,12 @@ class GeneAndProteinAssigner:
     """Write source antigens to FASTA file."""          
     seq_records = [] # create seq records of sources with ID and sequence
     for i, row in sources_df.iterrows():
+
+      # if there is no sequence, use empty string
+      seq = row['Sequence'] if not pd.isnull(row['Sequence']) else ''
       seq_records.append(
         SeqRecord(
-          Seq(row['Sequence']),
+          Seq(seq),
           id=row['Accession'],
           description='')
       )
@@ -175,21 +186,6 @@ class GeneAndProteinAssigner:
         preprocessed_files_path = f'{self.species_dir}',
         gene_priority_proteome=gp_proteome
       ).sql_proteome(k = 5)
-
-
-  def _search_epitopes(self, epitopes: list, best_match: bool = True) -> pd.DataFrame:
-    """Search epitopes within the proteome using PEPMatch."""
-    df = Matcher(
-      query = epitopes,
-      proteome_file = f'{self.species_dir}/proteome.fasta',
-      max_mismatches = 0, 
-      k = 5, 
-      preprocessed_files_path = f'{self.species_dir}', 
-      best_match=best_match, 
-      output_format='dataframe',
-      sequence_version=False
-    ).match()
-    return df
 
 
   def _run_blast(self) -> None:
@@ -264,6 +260,21 @@ class GeneAndProteinAssigner:
       self.source_assignment_score[str(row['Query'])] = row['Quality Score']
   
 
+  def _search_epitopes(self, epitopes: list, best_match: bool = True) -> pd.DataFrame:
+    """Search epitopes within the proteome using PEPMatch."""
+    df = Matcher(
+      query = epitopes,
+      proteome_file = f'{self.species_dir}/proteome.fasta',
+      max_mismatches = 0, 
+      k = 5, 
+      preprocessed_files_path = f'{self.species_dir}', 
+      best_match=best_match, 
+      output_format='dataframe',
+      sequence_version=False
+    ).match()
+    return df
+
+
   def _assign_epitopes(self, epitopes_df: pd.DataFrame) -> None:
     """Assign a parent protein to each epitope.
     
@@ -277,6 +288,8 @@ class GeneAndProteinAssigner:
     # search all epitopes within the proteome using PEPMatch
     all_epitopes = epitopes_df['Sequence'].unique().tolist()
     all_matches_df = self._search_epitopes(all_epitopes, best_match=False)
+
+    print(all_matches_df)
     
     # if no source antigens were assigned, return
     if not self.source_gene_assignment or not self.source_protein_assignment:
@@ -382,16 +395,17 @@ class GeneAndProteinAssigner:
     """
     # manual_assignments.tsv should be in the directory above this one
     manual_df = pd.read_csv(self.data_path / 'manual_assignments.tsv', sep='\t')
+
     manual_gene_map = manual_df.set_index('Accession')['Accession Gene'].to_dict()
     manual_protein_id_map = manual_df.set_index('Accession')['Parent Accession'].to_dict()
     manual_protein_name_map = manual_df.set_index('Accession')['Parent Name'].to_dict()
-
+    
     for k, v in self.source_gene_assignment.items():
       if k in manual_gene_map.keys():
         self.source_gene_assignment[k] = manual_gene_map[k]
         self.source_protein_assignment[k] = manual_protein_id_map[k]
+        self.source_assignment_score[k] = -1
         self.uniprot_id_to_name_map[k] = manual_protein_name_map[k]
-
 
   def _remove_files(self) -> None:
     """Delete all the files that were created when making the BLAST database."""
