@@ -79,7 +79,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 674	Vibrio mimicus	UP000004827	671074	Non-redundant	2.0	2.0	100.0	100.0
 703	Plesiomonas shigelloides	UP000014012	1315976	Representative	2.0	2.0	50.0	0.0
 714	Aggregatibacter actinomycetemcomitans	UP000323961	714	Non-redundant	10.0	9.0	100.0	88.88888888888889
-715	Actinobacillus pleuropneumoniae	UP000001432	416269	Representative	2.0	4.0	100.0	75.0
+715	Actinobacillus pleuropneumoniae	UP000001432	416269	Representative	5.0	6.0	100.0	50.0
 727	Haemophilus influenzae	UP000000579	71421	Representative	112.0	166.0	98.21428571428572	88.55421686746988
 730	[Haemophilus] ducreyi	UP000001022	233412	Representative	2.0	1.0	100.0	100.0
 731	Histophilus somni		731	All-proteins	2.0	2.0	100.0	100.0
@@ -1400,7 +1400,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 3052237	Hepacivirus ratti		3052237	All-proteins	8.0	7.0	100.0	100.0
 3052294	Luteovirus pavhordei	UP000006722	2169986	Representative	1.0	1.0	100.0	0.0
 3052296	Mammarenavirus amapariense	UP000127390	2886894	Other	2.0	3.0	100.0	100.0
-3052299	Mammarenavirus brazilense		3052299	All-proteins	13.0	990.0	0.0	0.0
+3052299	Mammarenavirus brazilense	UP000009267	2169992	Other	14.0	991.0	100.0	99.89909182643795
 3052300	Mammarenavirus caliense		3052300	All-proteins	5.0	13.0	0.0	0.0
 3052303	Mammarenavirus choriomeningitidis	UP000002474	11624	Representative	51.0	3454.0	100.0	92.55935147654893
 3052304	Mammarenavirus cupixiense	UP000008164	208899	Other	1.0	1.0	100.0	100.0
