@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import numpy as np
 import pandas as pd
 from pathlib import Path
 
@@ -30,7 +31,7 @@ def run_protein_tree(
     sources_df: Source antigen data for the species.
     update_proteome: Whether or not to update the proteome to be used for the species.
     num_threads: Number of threads to use for BLAST and ARC.
-  """ 
+  """
   species_name = species_name_map[taxon_id]
   is_vertebrate = is_vertebrate_map[taxon_id]
   species_dir = f'{taxon_id}-{species_name.replace(" ", "_")}'
@@ -58,18 +59,35 @@ def run_protein_tree(
     print(f'Proteome ID: {proteome_data[0]}')
     print(f'Proteome taxon: {proteome_data[1]:.0f}')
     print(f'Proteome type: {proteome_data[2]}\n')
+  
+  else: # check if epitopes and sources have changed since last run
+    try:
+      previous_epitopes_df = pd.read_csv(
+        data_path / 'species' / species_dir / 'epitopes.tsv', sep='\t'
+      )
+      previous_sources_df = pd.read_csv(
+        data_path / 'species' / species_dir / 'sources.tsv', sep='\t'
+      )
+      if np.array_equal(previous_epitopes_df.values, epitopes_df.values) and \
+         np.array_equal(previous_sources_df.values, sources_df.values):
+        print('Sources, epitopes, and proteome have not changed since last run.')
+        return
+    except FileNotFoundError:
+      pass
 
-  # assign genes to source antigens and parent proteins to epitopes
-  Assigner = GeneAndProteinAssigner(taxon_id, species_name, is_vertebrate, num_threads=num_threads)
-  assigner_data, epitope_assignments, source_assignments = Assigner.assign(sources_df, epitopes_df)
-
-  # write data to files
+  # write raw data to files
   epitopes_df.to_csv(
     data_path / 'species' / species_dir / 'epitopes.tsv', sep='\t', index=False
   )
   sources_df.to_csv(
     data_path / 'species' / species_dir / 'sources.tsv', sep='\t', index=False
   )
+
+  # assign genes to source antigens and parent proteins to epitopes
+  Assigner = GeneAndProteinAssigner(taxon_id, species_name, is_vertebrate, num_threads=num_threads)
+  assigner_data, epitope_assignments, source_assignments = Assigner.assign(sources_df, epitopes_df)
+
+  # write assignments to files
   epitope_assignments.to_csv(
     data_path / 'species' / species_dir / 'epitope_assignments.tsv', sep='\t', index=False
   )

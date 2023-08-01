@@ -2,7 +2,7 @@
 
 Assigning IEDB source antigens and epitopes to their genes and proteins.
 
-Current Success Rate:
+<b>Current Success Rates:</b>
 - Source Antigen Assignment: 97.9%
 - Epitope Assignment: 90.6%
 
@@ -80,7 +80,6 @@ Use [combine_data.py](protein_tree/combine_data.py) to merge all the assignments
 
 
 ### TODO
-- Implement skipping a species if the data is the same as the last build
 - Create a tree for visualization
 
 
