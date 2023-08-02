@@ -68,10 +68,14 @@ def run_protein_tree(
       previous_sources_df = pd.read_csv(
         data_path / 'species' / species_dir / 'sources.tsv', sep='\t'
       )
-      if np.array_equal(previous_epitopes_df.values, epitopes_df.values) and \
-         np.array_equal(previous_sources_df.values, sources_df.values):
+      
+      epitopes_same = list(epitopes_df['Sequence']) == list(previous_epitopes_df['Sequence'])
+      sources_same = list(sources_df['Accession']) == list(previous_sources_df['Accession'])
+
+      if epitopes_same and sources_same:
         print('Sources, epitopes, and proteome have not changed since last run.')
         return
+    
     except FileNotFoundError:
       pass
 
@@ -179,7 +183,7 @@ def main():
   )
   
   species_df = pd.read_csv(data_path / 'species.tsv', sep='\t')
-  valid_taxon_ids = species_df['Species Taxon ID'].tolist()
+  all_species_taxa = species_df['Species Taxon ID'].tolist()
   
   # taxa, species name, and is_vertebrate mapppings
   all_taxa_map = dict(
@@ -212,12 +216,17 @@ def main():
     Fetcher.get_all_data()
     print('All data written.')
 
+  all_epitopes = Fetcher.get_all_epitopes()
+  all_sources = Fetcher.get_all_sources()
+
   if args.all_species:
-    for taxon_id in valid_taxon_ids:
+    for taxon_id in all_species_taxa:
 
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
-      epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)
-      sources_df = Fetcher.get_sources_for_species(epitopes_df['Source Accession'].tolist())
+      epitopes_df = Fetcher.get_epitopes_for_species(all_epitopes, all_taxa)
+      sources_df = Fetcher.get_sources_for_species(
+        all_sources, epitopes_df['Source Accession'].tolist()
+      )
 
       run_protein_tree(
         taxon_id, species_name_map, is_vertebrate_map, 
@@ -229,11 +238,13 @@ def main():
 
   else: # one species at a time
     taxon_id = args.taxon_id
-    assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
+    assert taxon_id in all_species_taxa, f'{taxon_id} is not a valid taxon ID.'
 
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
-    epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)
-    sources_df = Fetcher.get_sources_for_species(epitopes_df['Source Accession'].tolist())
+    epitopes_df = Fetcher.get_epitopes_for_species(all_epitopes, all_taxa)
+    sources_df = Fetcher.get_sources_for_species(
+      all_sources, epitopes_df['Source Accession'].tolist()
+    )
     
     run_protein_tree(
       taxon_id, species_name_map, is_vertebrate_map, 

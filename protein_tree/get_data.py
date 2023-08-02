@@ -107,24 +107,38 @@ class DataFetcher:
     return sources_df
   
 
-  def get_epitopes_for_species(self, all_taxa: list) -> pd.DataFrame:
+  def get_all_epitopes(self) -> pd.DataFrame:
+    """Get all epitopes from the written file."""
+    return pd.read_csv(self.data_dir / 'epitopes.tsv', sep='\t')
+  
+
+  def get_all_sources(self) -> pd.DataFrame:
+    """Get all source antigens from the written file."""
+    return pd.read_csv(self.data_dir / 'sources.tsv', sep='\t')
+  
+
+  def get_epitopes_for_species(
+    self, all_epitopes: pd.DataFrame, all_taxa: list
+  ) -> pd.DataFrame:
     """Get epitopes from the written file only for a specific species.
     
     Args:
+      all_epitopes: list of all epitopes from the backend. 
       all_taxa: list of all active children taxa for a species.
     """
-    epitopes_df = pd.read_csv(self.data_dir / 'epitopes.tsv', sep='\t')
-    return epitopes_df[epitopes_df['Organism ID'].isin(all_taxa)]
+    return all_epitopes[all_epitopes['Organism ID'].isin(all_taxa)]
 
 
-  def get_sources_for_species(self, accessions: list) -> pd.DataFrame:
+  def get_sources_for_species(
+    self, all_sources: pd.DataFrame, accessions: list
+  ) -> pd.DataFrame:
     """Get source antigens from the written file only for a specific species.
     
     Args:
+      all_sources: list of all source antigens from the backend.
       all_taxa: list of all active children taxa for a species.
     """
-    sources_df = pd.read_csv(self.data_dir / 'sources.tsv', sep='\t')
-    return sources_df[sources_df['Accession'].isin(accessions)]
+    return all_sources[all_sources['Accession'].isin(accessions)]
 
 
 def main():
@@ -174,6 +188,9 @@ def main():
       DataFetcher().get_all_data()
       print('All data written.')
 
+    all_epitopes = DataFetcher().get_all_epitopes()
+    all_sources = DataFetcher().get_all_sources()
+
     taxon_id = args.taxon_id
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
 
@@ -183,8 +200,10 @@ def main():
 
     print(f'Writing separate files for {species_name}...')
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
-    epitopes_df = DataFetcher().get_epitopes_for_species(all_taxa)
-    sources_df = DataFetcher().get_sources_for_species(all_taxa)
+    epitopes_df = DataFetcher().get_epitopes_for_species(all_epitopes, all_taxa)
+    sources_df = DataFetcher().get_sources_for_species(
+      all_sources, epitopes_df['Source Accession'].tolist()
+    )
     
     epitopes_df.to_csv(species_dir / 'epitopes.tsv', sep='\t', index=False)
     sources_df.to_csv(species_dir / 'sources.tsv', sep='\t', index=False)
