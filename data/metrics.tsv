@@ -1151,7 +1151,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 983924	Eidolon bat coronavirus-Kenya-KY24-2006		983924	All-proteins	1	1	100.0	100.0
 983929	Chaerephon bat coronavirus-Kenya-KY22-2006		983929	All-proteins	1	1	100.0	100.0
 1004253	Cyberlindnera mrakii		1004253	All-proteins	2	2	100.0	100.0
-1005962	Ogataea parapolymorpha	UP000008673	871575	Representative	1	1	100.0	100.0
+1005962	Ogataea parapolymorpha	UP000008673	871575	Representative	1	1	100.0	0.0
 1016852	Banana streak CA virus	UP000208096	1016852	Other	1	23	100.0	100.0
 1045775	Paenibacillus catalpae	UP000198855	1045775	Representative	1	1	100.0	100.0
 1047168	Zymoseptoria brevis	UP000033647	1047168	Representative	1	1	100.0	100.0

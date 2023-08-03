@@ -11,8 +11,8 @@ data/species/
 data/epitopes.tsv
 data/sources.tsv
 data/allergens.tsv
-data/epitope_assignments.tsv
-data/source_assignments.tsv
+data/all_epitope_assignments.tsv
+data/all_source_assignments.tsv
 
 # other files
 docs/protein_tree.drawio
