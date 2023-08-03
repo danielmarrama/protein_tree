@@ -141,6 +141,10 @@ class GeneAndProteinAssigner:
     self._run_blast()
 
     if self.is_vertebrate:
+
+      if sources_df['Sequence'].isna().all():
+        return
+      
       print('Running ARC for MHC/TCR/Ig assignments...')
       self._run_arc()
 
@@ -166,10 +170,12 @@ class GeneAndProteinAssigner:
     for i, row in sources_df.iterrows():
 
       # if there is no sequence, use empty string
-      seq = row['Sequence'] if not pd.isnull(row['Sequence']) else ''
+      if pd.isnull(row['Sequence']):
+        continue
+
       seq_records.append(
         SeqRecord(
-          Seq(seq),
+          Seq(row['Sequence']),
           id=row['Accession'],
           description='')
       )
@@ -416,8 +422,10 @@ class GeneAndProteinAssigner:
     os.remove(f'{self.species_dir}/blast_results.csv')
     os.remove(f'{self.species_dir}/sources.fasta')
 
-    if self.is_vertebrate:
+    try:
       os.remove(f'{self.species_dir}/ARC_results.tsv')
+    except OSError:
+      pass
 
     # if proteome.db exists, remove it
     try:

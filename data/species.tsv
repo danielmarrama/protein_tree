@@ -1254,8 +1254,8 @@ Species Taxon ID	Species Name	All Taxa	Is Vertebrate	Group
 905828	Duck astrovirus GII.A	707882	False	Viruses
 940614	Granulicella mallensis	940614	False	Bacteria
 945780	Synechocystis salina	945782	False	Bacteria
-983924	Eidolon bat coronavirus/Kenya/KY24/2006	983924	False	Viruses
-983929	Chaerephon bat coronavirus/Kenya/KY22/2006	983929	False	Viruses
+983924	Eidolon bat coronavirus-Kenya-KY24-2006	983924	False	Viruses
+983929	Chaerephon bat coronavirus-Kenya-KY22-2006	983929	False	Viruses
 1004253	Cyberlindnera mrakii	1004253	False	Eukaryota
 1005962	Ogataea parapolymorpha	871575;1005962	False	Eukaryota
 1016852	Banana streak CA virus	1016852	False	Viruses
@@ -1268,7 +1268,7 @@ Species Taxon ID	Species Name	All Taxa	Is Vertebrate	Group
 1159907	White-eye coronavirus HKU16	1159907	False	Viruses
 1159908	Wigeon coronavirus HKU20	1159908	False	Viruses
 1160968	Rabbit coronavirus HKU14	1160968	False	Viruses
-1173018	Phlebovirus WCH/97/HN/China/2011	1173018	False	Viruses
+1173018	Phlebovirus WCH-97-HN-China-2011	1173018	False	Viruses
 1173701	Colletotrichum sublineola	1173701	False	Eukaryota
 1176145	Pipapillomavirus 2	763552	False	Viruses
 1176484	Canine vesivirus	292348	False	Viruses
@@ -1399,7 +1399,6 @@ Species Taxon ID	Species Name	All Taxa	Is Vertebrate	Group
 2708335	Pangolin coronavirus	2708335	False	Viruses
 2748958	Bandavirus dabieense	1003835	False	Viruses
 2770637	Aestuariibaculum sediminum	2770637	False	Bacteria
-2787823	unclassified entries	2787823	False	Other
 2843841	Betatristromavirus TTV1	10479	False	Viruses
 2846071	Rubivirus rubellae	11043;11041;11044;11045	False	Viruses
 2846271	Peeveelvirus PVL	71366	False	Viruses

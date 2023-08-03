@@ -34,6 +34,8 @@ def update_species_data() -> None:
     species = {} # map species taxon to all children organism IDs, is_vertebrate, and group
     for organism in organisms.itertuples():
 
+      if str(organism.organism_id) == '2787823': continue # skip 'unclassified entries'
+
       print(f'Getting species data for {organism.organism_name} (ID: {organism.organism_id})...')
 
       species_data = get_species_data(connection, str(organism.organism_id), organism.organism_name)
