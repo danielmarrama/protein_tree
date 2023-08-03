@@ -63,17 +63,28 @@ def run_protein_tree(
   else: # check if epitopes and sources have changed since last run
     try:
       previous_epitopes_df = pd.read_csv(
-        data_path / 'species' / species_dir / 'epitopes.tsv', sep='\t'
+        data_path / 'species' / species_dir / 'epitope_assignments.tsv', sep='\t'
       )
       previous_sources_df = pd.read_csv(
-        data_path / 'species' / species_dir / 'sources.tsv', sep='\t'
+        data_path / 'species' / species_dir / 'source_assignments.tsv', sep='\t'
       )
       
-      epitopes_same = list(epitopes_df['Sequence']) == list(previous_epitopes_df['Sequence'])
-      sources_same = list(sources_df['Accession']) == list(previous_sources_df['Accession'])
+      previous_epitopes = set(previous_epitopes_df[['Sequence', 'Source Accession']].apply(
+        lambda row: (row['Sequence'], row['Source Accession']), axis=1
+      ).tolist())
+      previous_sources = set(previous_sources_df['Accession'].apply(
+        lambda accession: str(accession)
+      ).tolist())
 
-      if epitopes_same and sources_same:
-        print('Sources, epitopes, and proteome have not changed since last run.')
+      epitopes = set(epitopes_df[['Sequence', 'Source Accession']].apply(
+        lambda row: (row['Sequence'], row['Source Accession']), axis=1
+      ).tolist())
+      sources = set(sources_df['Accession'].apply(
+        lambda accession: str(accession)
+      ).tolist())
+
+      if previous_epitopes == epitopes or previous_sources == sources:
+        print('Sources, epitopes, and proteome have not changed since last run.\n')
         return
     
     except FileNotFoundError:
