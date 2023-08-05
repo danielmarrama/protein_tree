@@ -4,7 +4,7 @@ Assigning IEDB source antigens and epitopes to their genes and proteins.
 
 <b>Current Success Rates:</b>
 - Source Antigen Assignment: 97.9%
-- Epitope Assignment: 90.6%
+- Epitope Assignment: 87.4%
 
 
 ### Process
@@ -69,11 +69,11 @@ For all species:
     - Proteome ID
     - Proteome Taxon
     - Proteome Type
-    - Source Antigen Count
+    - Source Antgigen Count
     - Epitope Count
     - Successful Source Assignement (%)
     - Successful Epitope Assignment (%)
-- all_epitope_assignments.csv - combined epitope assignments for every species
+- all_epitope_assinments.csv - combined epitope assignments for every species
 - all_source_assignments.csv - combined source antigen assignments for every species
 
 Use [combine_data.py](protein_tree/combine_data.py) to merge all the assignments into the `all_epitope_assignments.csv` and `all_source_assignments.csv` files.
