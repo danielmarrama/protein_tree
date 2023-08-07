@@ -507,7 +507,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 10029	Cricetulus griseus	UP000001075	10029	Representative	3	10	100.0	90.0
 10036	Mesocricetus auratus	UP000189706	10036	Representative	5	144	100.0	96.5277777777778
 10042	Peromyscus maniculatus	UP000504601	230844	Representative	1	1	100.0	100.0
-10090	Mus musculus	UP000000589	10090	Representative	27665	97972	99.37827579974697	98.79965704486996
+10090	Mus musculus	UP000000589	10090	Representative	27665	97972	99.37827579974696	98.79965704486996
 10116	Rattus norvegicus	UP000002494	10116	Representative	11359	34988	99.9119640813452	98.2851263290271
 10141	Cavia porcellus	UP000005447	10141	Representative	13	161	100.0	90.0621118012422
 10224	Saccoglossus kowalevskii		10224	All-proteins	1	1	100.0	100.0

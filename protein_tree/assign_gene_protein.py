@@ -135,7 +135,7 @@ class GeneAndProteinAssigner:
     Args:
       sources_df: DataFrame of source antigens for a species.
     """    
-    self._sources_to_fasta(sources_df) # write sources to FASTA file
+    self._write_to_fasta(sources_df, 'sources') # write sources to FASTA file
 
     print('Running BLAST for source antigens...')
     self._run_blast()
@@ -146,7 +146,7 @@ class GeneAndProteinAssigner:
         return
       
       print('Running ARC for MHC/TCR/Ig assignments...')
-      self._run_arc()
+      self._run_arc(sources_df)
 
 
   def _create_source_to_epitopes_map(self, epitopes_df: pd.DataFrame) -> dict:
@@ -164,7 +164,7 @@ class GeneAndProteinAssigner:
     return source_to_epitopes_map 
 
 
-  def _sources_to_fasta(self, sources_df: pd.DataFrame) -> None:
+  def _write_to_fasta(self, sources_df: pd.DataFrame, filename: str) -> None:
     """Write source antigens to FASTA file."""          
     seq_records = [] # create seq records of sources with ID and sequence
     for i, row in sources_df.iterrows():
@@ -179,7 +179,7 @@ class GeneAndProteinAssigner:
           id=row['Accession'],
           description='')
       )
-    with open(f'{self.species_dir}/sources.fasta', 'w') as f:
+    with open(f'{self.species_dir}/{filename}.fasta', 'w') as f:
       SeqIO.write(seq_records, f, 'fasta')
 
 
@@ -366,20 +366,36 @@ class GeneAndProteinAssigner:
     )
 
 
-  def _run_arc(self) -> None:
+  def _run_arc(self, sources_df: pd.DataFrame) -> None:
     """Run ARC to assign MHC/TCR/Ig to source antigens."""
 
-    SeqClassifier(
-      outfile = f'{self.species_dir}/ARC_results.tsv',
-      threads = self.num_threads,
-      hmmer_path = str(self.bin_path) + '/',
-      blast_path = str(self.bin_path) + '/',
-    ).classify_seqfile(f'{self.species_dir}/sources.fasta')
+    try: # read ARC results if they already exist and only run ARC on new sources
+      past_arc_results_df = pd.read_csv(f'{self.species_dir}/ARC_results.tsv', sep='\t')
+      past_arc_ids = past_arc_results_df['id'].tolist()
+      arc_sources_df = sources_df[~sources_df['Accession'].isin(past_arc_ids)]
+      self._write_to_fasta(arc_sources_df, 'ARC_sources')
+      past_results = True
+    except FileNotFoundError:
+      self._write_to_fasta(sources_df, 'ARC_sources')
+      past_results = False
 
-    arc_results = pd.read_csv(f'{self.species_dir}/ARC_results.tsv', sep='\t')
+    # make sure ARC_sources.fasta isn't empty, then run ARC
+    if os.stat(f'{self.species_dir}/ARC_sources.fasta').st_size != 0:
+      SeqClassifier( # run ARC
+        outfile = f'{self.species_dir}/ARC_results.tsv',
+        threads = self.num_threads,
+        hmmer_path = str(self.bin_path) + '/',
+        blast_path = str(self.bin_path) + '/',
+      ).classify_seqfile(f'{self.species_dir}/ARC_sources.fasta')
+
+    os.remove(f'{self.species_dir}/ARC_sources.fasta')
     
-    if not arc_results.dropna(subset=['class']).empty:
-      arc_assignments = arc_results.set_index('id')['class'].to_dict()
+    arc_results_df = pd.read_csv(f'{self.species_dir}/ARC_results.tsv', sep='\t')
+    if past_results:
+      arc_results_df = pd.concat([arc_results_df, past_arc_results_df])
+
+    if not arc_results_df.dropna(subset=['class']).empty:
+      arc_assignments = arc_results_df.set_index('id')['class'].to_dict()
       self.source_gene_assignment.update(arc_assignments)
 
 
@@ -421,11 +437,6 @@ class GeneAndProteinAssigner:
     
     os.remove(f'{self.species_dir}/blast_results.csv')
     os.remove(f'{self.species_dir}/sources.fasta')
-
-    try:
-      os.remove(f'{self.species_dir}/ARC_results.tsv')
-    except OSError:
-      pass
 
     # if proteome.db exists, remove it
     try:
