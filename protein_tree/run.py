@@ -19,7 +19,8 @@ def run_protein_tree(
   epitopes_df: pd.DataFrame,
   sources_df: pd.DataFrame,
   update_proteome: bool,
-  num_threads: int
+  num_threads: int,
+  force: bool
 ) -> None:
   """Run all steps for the protein tree.
   
@@ -60,8 +61,11 @@ def run_protein_tree(
     print(f'Proteome taxon: {proteome_data[1]:.0f}')
     print(f'Proteome type: {proteome_data[2]}\n')
   
-  else: # check if epitopes and sources have changed since last run
-    try:
+  else: 
+    try: # check if epitopes and sources have changed since last run
+      if force:
+        raise FileNotFoundError # force run 
+
       previous_epitopes_df = pd.read_csv(
         data_path / 'species' / species_dir / 'epitope_assignments.tsv', sep='\t'
       )
@@ -192,6 +196,12 @@ def main():
     default=multiprocessing.cpu_count() - 2,
     help='Number of threads to use for BLAST and ARC.'
   )
+  parser.add_argument(
+    '-f', '--force',
+    action='store_true',
+    help='Force run the protein tree for a species, even if the data has not changed.'
+  )
+
   
   species_df = pd.read_csv(data_path / 'species.tsv', sep='\t')
   all_species_taxa = species_df['Species Taxon ID'].tolist()
@@ -242,7 +252,7 @@ def main():
       run_protein_tree(
         taxon_id, species_name_map, is_vertebrate_map, 
         epitopes_df, sources_df, args.update_proteome,
-        args.num_threads
+        args.num_threads, args.force
       )
 
     print('All species complete.')
@@ -260,7 +270,7 @@ def main():
     run_protein_tree(
       taxon_id, species_name_map, is_vertebrate_map, 
       epitopes_df, sources_df, args.update_proteome,
-      args.num_threads
+      args.num_threads, args.force
     )
 
 if __name__ == '__main__':

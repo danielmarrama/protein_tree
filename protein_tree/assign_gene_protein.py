@@ -37,6 +37,7 @@ class GeneAndProteinAssigner:
     self.source_gene_assignment = {}
     self.source_protein_assignment = {}
     self.source_assignment_score = {}
+    self.source_arc_assignment = {}
     self.epitope_protein_assignment = {}
 
     # create UniProt ID -> gene map
@@ -95,6 +96,7 @@ class GeneAndProteinAssigner:
     sources_df.loc[:, 'Assigned Protein ID'] = sources_df['Accession'].map(self.source_protein_assignment)
     sources_df.loc[:, 'Assigned Protein Name'] = sources_df['Assigned Protein ID'].map(self.uniprot_id_to_name_map)
     sources_df.loc[:, 'Assignment Score'] = sources_df['Accession'].map(self.source_assignment_score)
+    sources_df.loc[:, 'ARC Assignment'] = sources_df['Accession'].map(self.source_arc_assignment)
 
     # map source antigens to their best blast matches (gene) for epitopes
     epitopes_df.loc[:, 'Assigned Gene'] = epitopes_df['Source Accession'].map(self.source_gene_assignment)
@@ -395,8 +397,7 @@ class GeneAndProteinAssigner:
       arc_results_df = pd.concat([arc_results_df, past_arc_results_df])
 
     if not arc_results_df.dropna(subset=['class']).empty:
-      arc_assignments = arc_results_df.set_index('id')['class'].to_dict()
-      self.source_gene_assignment.update(arc_assignments)
+      self.source_arc_assignment = arc_results_df.set_index('id')['class'].to_dict()
 
 
   def _assign_allergens(self) -> None:
