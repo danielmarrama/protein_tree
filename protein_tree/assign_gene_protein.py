@@ -91,20 +91,19 @@ class GeneAndProteinAssigner:
     self._assign_epitopes(epitopes_df)
     print('Done.\n')
 
-    # map source antigens to their best blast matches (UniProt ID and gene) for sources
+    # map source antigens to their BLAST matches and ARC assignments
     sources_df.loc[:, 'Assigned Gene'] = sources_df['Accession'].map(self.source_gene_assignment)
     sources_df.loc[:, 'Assigned Protein ID'] = sources_df['Accession'].map(self.source_protein_assignment)
     sources_df.loc[:, 'Assigned Protein Name'] = sources_df['Assigned Protein ID'].map(self.uniprot_id_to_name_map)
     sources_df.loc[:, 'Assignment Score'] = sources_df['Accession'].map(self.source_assignment_score)
     sources_df.loc[:, 'ARC Assignment'] = sources_df['Accession'].map(self.source_arc_assignment)
 
-    # map source antigens to their best blast matches (gene) for epitopes
+    # map epitope source antigens to assignments above and then PEPMatch assignments
     epitopes_df.loc[:, 'Assigned Gene'] = epitopes_df['Source Accession'].map(self.source_gene_assignment)
-
-    # now map the epitopes to their parent proteins
     epitopes_df.set_index(['Source Accession', 'Sequence'], inplace=True)
     epitopes_df.loc[:, 'Assigned Protein ID'] = epitopes_df.index.map(self.epitope_protein_assignment)
     epitopes_df.reset_index(inplace=True)
+    epitopes_df.loc[:, 'ARC Assignment'] = epitopes_df['Source Accession'].map(self.source_arc_assignment)
 
     epitopes_df.drop_duplicates(subset=['Source Accession', 'Sequence'], inplace=True) # drop duplicate epitopes
     sources_df.drop(columns=['Sequence'], inplace=True) # drop sequence column for output
