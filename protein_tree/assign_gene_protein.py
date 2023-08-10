@@ -152,6 +152,7 @@ class GeneAndProteinAssigner:
 
   def _create_source_to_epitopes_map(self, epitopes_df: pd.DataFrame) -> dict:
     """Create a map from source antigens to their epitopes.
+    
     Args:
       epitopes_df: DataFrame of epitopes for a species.
     """    
@@ -166,7 +167,12 @@ class GeneAndProteinAssigner:
 
 
   def _write_to_fasta(self, sources_df: pd.DataFrame, filename: str) -> None:
-    """Write source antigens to FASTA file."""          
+    """Write source antigens to FASTA file.
+
+    Args:
+      sources_df: DataFrame of source antigens for a species.
+      filename: Name of the FASTA file to write to.    
+    """          
     seq_records = [] # create seq records of sources with ID and sequence
     for i, row in sources_df.iterrows():
 
@@ -267,21 +273,6 @@ class GeneAndProteinAssigner:
       self.source_assignment_score[str(row['Query'])] = row['Quality Score']
   
 
-  def _search_epitopes(self, epitopes: list, best_match: bool = True) -> pd.DataFrame:
-    """Search epitopes within the proteome using PEPMatch."""
-    df = Matcher(
-      query = epitopes,
-      proteome_file = f'{self.species_dir}/proteome.fasta',
-      max_mismatches = 0, 
-      k = 5, 
-      preprocessed_files_path = f'{self.species_dir}', 
-      best_match=best_match, 
-      output_format='dataframe',
-      sequence_version=False
-    ).match()
-    return df
-
-
   def _assign_epitopes(self, epitopes_df: pd.DataFrame) -> None:
     """Assign a parent protein to each epitope.
     
@@ -294,7 +285,16 @@ class GeneAndProteinAssigner:
 
     # search all epitopes within the proteome using PEPMatch
     all_epitopes = epitopes_df['Sequence'].unique().tolist()
-    all_matches_df = self._search_epitopes(all_epitopes, best_match=False)
+    all_matches_df = Matcher(
+      query = all_epitopes,
+      proteome_file = f'{self.species_dir}/proteome.fasta',
+      max_mismatches = 0, 
+      k = 5, 
+      preprocessed_files_path = f'{self.species_dir}', 
+      best_match=False, 
+      output_format='dataframe',
+      sequence_version=False
+    ).match()
     
     # if no source antigens were assigned, return
     if not self.source_gene_assignment or not self.source_protein_assignment:
@@ -368,8 +368,11 @@ class GeneAndProteinAssigner:
 
 
   def _run_arc(self, sources_df: pd.DataFrame) -> None:
-    """Run ARC to assign MHC/TCR/Ig to source antigens."""
-
+    """Run ARC to assign MHC/TCR/Ig to source antigens.
+    
+    Args:
+      sources_df: DataFrame of source antigens for a species.
+    """
     try: # read ARC results if they already exist and only run ARC on new sources
       past_arc_results_df = pd.read_csv(f'{self.species_dir}/ARC_results.tsv', sep='\t')
       past_arc_ids = past_arc_results_df['id'].tolist()
@@ -427,6 +430,7 @@ class GeneAndProteinAssigner:
         self.source_assignment_score[k] = -1
         self.uniprot_id_to_name_map[k] = manual_protein_name_map[k]
 
+
   def _remove_files(self) -> None:
     """Delete all the files that were created when making the BLAST database."""
     for extension in ['pdb', 'phr', 'pin', 'pjs', 'pot', 'psq', 'ptf', 'pto']:
@@ -438,8 +442,7 @@ class GeneAndProteinAssigner:
     os.remove(f'{self.species_dir}/blast_results.csv')
     os.remove(f'{self.species_dir}/sources.fasta')
 
-    # if proteome.db exists, remove it
-    try:
+    try: # if proteome.db exists, remove it
       os.remove(f'{self.species_dir}/proteome.db')
     except OSError:
       pass
