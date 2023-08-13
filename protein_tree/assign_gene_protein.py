@@ -395,8 +395,9 @@ class GeneAndProteinAssigner:
     os.remove(f'{self.species_dir}/ARC_sources.fasta')
     
     arc_results_df = pd.read_csv(f'{self.species_dir}/ARC_results.tsv', sep='\t')
-    if past_results:
+    if past_results: # combine old results and new, then write all to file
       arc_results_df = pd.concat([arc_results_df, past_arc_results_df])
+      arc_results_df.to_csv(f'{self.species_dir}/ARC_results.tsv', sep='\t', index=False)
 
     if not arc_results_df.dropna(subset=['class']).empty:
       self.source_arc_assignment = arc_results_df.set_index('id')['class'].to_dict()
