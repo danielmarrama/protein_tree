@@ -379,7 +379,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 5872	Theileria equi	UP000031512	1537102	Representative	2	126	100.0	90.47619047619048
 5874	Theileria annulata	UP000001950	5874	Representative	4	5	100.0	100.0
 5875	Theileria parva	UP000001949	5875	Representative	167	418	97.60479041916167	84.688995215311
-5877	Theileria sergenti		5877	All-proteins	1	1	100.0	100.0
+5877	Theileria sergenti		5877	All-proteins	6	31	100.0	90.32258064516128
 5970	Exophiala dermatitidis	UP000007304	858893	Representative	1	1	100.0	100.0
 6035	Encephalitozoon cuniculi	UP000000819	284813	Representative	35	36	100.0	94.44444444444444
 6100	Aequorea victoria		6100	All-proteins	1	10	100.0	100.0
@@ -582,7 +582,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 11636	Reticuloendotheliosis virus	UP000098146	11636	Other	2	7	100.0	100.0
 11642	Simian foamy virus	UP000154619	11642	Representative	6	11	100.0	63.63636363636363
 11660	Caprine arthritis encephalitis virus	UP000203242	11661	Representative	12	40	100.0	57.49999999999999
-11665	Equine infectious anemia virus		11665	All-proteins	24	380	100.0	99.73684210526316
+11665	Equine infectious anemia virus		11665	All-proteins	24	381	100.0	99.73753280839895
 11673	Feline immunodeficiency virus	UP000242267	11674	Representative	18	47	100.0	55.319148936170215
 11676	Human immunodeficiency virus 1	UP000107234	11678	Representative	471	1606	100.0	48.567870485678704
 11709	Human immunodeficiency virus 2	UP000007425	73484	Representative	31	96	100.0	55.208333333333336
@@ -1578,3 +1578,91 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 3052731	Respirovirus muris	UP000180650	302271	Representative	14	555	100.0	79.45945945945945
 3052770	Tetraparvovirus primate1	UP000135600	1511919	Other	1	132	100.0	100.0
 3052778	Thetatorquevirus canid1	UP000001295	766189	Representative	1	1	100.0	100.0
+10298	Human herpesvirus 1	UP000009294	10299	Representative	237	1753	99.57805907172995	94.58071876782658
+10310	Human herpesvirus 2	UP000001874	10315	Representative	138	3495	100.0	97.88268955650928
+10325	Macacine alphaherpesvirus 1 (Cercopithecid herpesvirus 1)	UP000110594	10325	Representative	9	1580	100.0	99.74683544303798
+10326	Equid alphaherpesvirus 1 (Equid herpesvirus 1)	UP000001189	31520	Representative	75	666	100.0	99.84984984984985
+10331	Equid alphaherpesvirus 4 (Equid herpesvirus 4)	UP000009245	10333	Other	3	11	100.0	100.0
+10335	Human herpesvirus 3 (Varicella-zoster virus)	UP000002602	10338	Representative	66	974	100.0	99.17864476386036
+10345	Suid alphaherpesvirus 1 (Alphaherpesvirus pseudorabies virus PRV)	UP000154030	10345	Representative	13	110	100.0	95.45454545454544
+10359	Human herpesvirus 5 (Human cytomegalovirus)	UP000000938	295027	Representative	903	6087	66.66666666666666	80.53228191227205
+10366	Murid betaherpesvirus 1 (Mouse cytomegalovirus 1)	UP000122533	10366	Representative	89	814	97.75280898876404	92.26044226044226
+10372	Human betaherpesvirus 7 (Herpes simplex virus 7)	UP000009246	57278	Representative	7	8	85.71428571428571	87.5
+10376	Human herpesvirus 4 (Epstein Barr virus)	UP000153037	10377	Representative	368	6155	98.91304347826086	79.36636880584891
+10381	Saimiriine gammaherpesvirus 2 (Herpesvirus saimiri)	UP000000587	10383	Representative	4	5	100.0	100.0
+10390	Gallid alphaherpesvirus 2 (Gallid herpesvirus 2)	UP000008072	10389	Representative	22	108	100.0	100.0
+11080	Saint Louis encephalitis virus (St. Louis encephalitis virus)	UP000156857	11080	Other	6	21	100.0	57.14285714285714
+11084	Tick-borne encephalitis virus (FSME virus)	UP000007402	11088	Other	25	326	100.0	96.62576687116564
+11103	Hepatitis C virus	UP000000518	63746	Reference	467	8547	100.0	39.20673920673921
+11191	Murine respirovirus (Sendai virus)	UP000007311	302272	Representative	9	19	100.0	78.94736842105263
+11232	Canine morbillivirus (Canine distemper virus)	UP000007634	11233	Representative	12	120	100.0	85.0
+11234	Measles morbillivirus (Cell-associated subacute sclerosing panencephalitis)	UP000000833	11235	Representative	49	752	100.0	96.01063829787236
+11240	Phocine morbillivirus (Phocine distemper virus)	UP000159978	11240	Other	2	3	100.0	100.0
+11241	Rinderpest morbillivirus (Rinderpest virus)	UP000008654	36409	Representative	8	56	100.0	78.57142857142857
+11263	Murine orthopneumovirus (Murine pneumonia virus)	UP000149165	270473	Representative	18	122	100.0	100.0
+11269	Marburg marburgvirus (Lake Victoria marburgvirus)	UP000007772	33728	Representative	25	320	100.0	79.6875
+11320	Influenza A virus	UP000009255	211044	Representative	1243	12524	100.0	51.72468859789204
+11520	Influenza B virus (Influenza virus type B)	UP000113189	1296981	Representative	111	741	99.09909909909908	66.80161943319838
+11552	Influenza C virus (Influenza C viruses)	UP000008286	11553	Representative	5	18	100.0	83.33333333333334
+11620	Lassa mammarenavirus (Lassa virus)	UP000002473	11622	Representative	10	714	100.0	94.39775910364143
+11623	Lymphocytic choriomeningitis mammarenavirus (Lymphocytic choriomeningitis virus)	UP000002474	11624	Representative	26	2747	100.0	96.10484164543138
+11631	Tacaribe mammarenavirus (Tacaribe virus)	UP000008026	928313	Representative	3	10	100.0	80.0
+12637	Dengue virus	UP000002500	11059	Reference	1195	19450	100.0	20.426735218509
+12657	Equid gammaherpesvirus 2 (Equid herpesvirus 2)	UP000007083	82831	Representative	2	2	50.0	50.0
+31604	Small ruminant morbillivirus (Pseudorinderpest virus)	UP000180906	31604	Representative	8	171	100.0	59.06432748538012
+32603	Human betaherpesvirus 6A (Human herpesvirus 6A)	UP000009295	10370	Representative	14	15	100.0	80.0
+32604	Human betaherpesvirus 6B (Human herpes virus 6B)	UP000006930	36351	Reference	226	7482	99.5575221238938	99.11788291900562
+33708	Murid gammaherpesvirus 4 (Murid herpesvirus 4)	UP000099649	33708	Representative	52	78	98.07692307692308	98.71794871794872
+37296	Human gammaherpesvirus 8 (Human herpesvirus 8)	UP000000942	868565	Representative	39	706	94.87179487179486	94.3342776203966
+45455	Macacine gammaherpesvirus 4 (Cercopithecine herpesvirus 15)	UP000201521	45455	Other	2	67	100.0	100.0
+47929	Macacine betaherpesvirus 3 (Cercopithecine herpesvirus 8)	UP000101154	47929	Representative	7	268	100.0	97.01492537313432
+63330	Hendra henipavirus (Equine morbillivirus)	UP000008771	928303	Representative	2	3	100.0	100.0
+104388	Anatid alphaherpesvirus 1 (Anatid Herpes virus-1)	UP000135812	104388	Representative	1	1	100.0	100.0
+154334	Macacine gammaherpesvirus 5 (Cercopithecine herpesvirus 17)	UP000122166	83534	Representative	1	1	100.0	0.0
+186538	Zaire ebolavirus (Zaire Ebola virus)	UP000007209	128952	Representative	93	2821	100.0	95.53349875930522
+186539	Reston ebolavirus (Ebola virus Reston)	UP000138664	386032	Representative	16	66	100.0	100.0
+186540	Sudan ebolavirus (Sudan Ebola virus)	UP000000277	386033	Other	18	464	100.0	90.08620689655172
+188763	Panine betaherpesvirus 2 (Chimpanzee cytomegalovirus)	UP000099188	188763	Representative	4	4	100.0	100.0
+565995	Bundibugyo ebolavirus (Bundibugyo virus)	UP000164800	565995	Representative	3	12	100.0	100.0
+1511862	Carnivore amdoparvovirus 1	UP000008470	10783	Reference	4	16	100.0	75.0
+1511871	Primate bocaparvovirus 1	UP000140113	689403	Reference	2	14	100.0	57.14285714285714
+1511872	Primate bocaparvovirus 2	UP000098414	573977	Other	1	4	100.0	100.0
+1511900	Primate erythroparvovirus 1	UP000006624	648237	Reference	12	354	100.0	89.26553672316385
+1511906	Carnivore protoparvovirus 1	UP000008295	10791	Other	12	798	100.0	95.1127819548872
+1511910	Ungulate protoparvovirus 1	UP000000468	73487	Other	6	44	100.0	81.81818181818183
+1511913	Primate tetraparvovirus 1	UP000135600	1511919	Other	1	132	100.0	100.0
+1933187	Rift Valley fever phlebovirus	UP000002477	11589	Representative	11	192	100.0	91.66666666666666
+1933264	California encephalitis orthobunyavirus	UP000267394	35305	Other	1	1	100.0	0.0
+1980465	Choclo orthohantavirus	UP000243631	169173	Other	4	19	100.0	100.0
+1980471	Hantaan orthohantavirus (Hantaan hantavirus)	UP000008627	11602	Representative	13	416	100.0	97.59615384615384
+1980475	Khabarovsk orthohantavirus (Khabarovsk hantavirus)	UP000105174	1980475	Other	1	1	100.0	0.0
+1980480	Maporal orthohantavirus	UP000130449	238817	Other	2	6	100.0	100.0
+1980486	Puumala orthohantavirus (Puumala hantavirus)	UP000110237	39002	Representative	5	266	100.0	96.61654135338344
+1980490	Seoul orthohantavirus (Seoul hantavirus)	UP000207620	12557	Other	5	12	100.0	100.0
+1980491	Sin Nombre orthohantavirus (Sin Nombre hantavirus)	UP000113911	1980491	Other	8	29	100.0	93.10344827586206
+1980519	Crimean-Congo hemorrhagic fever orthonairovirus (Crimean-Congo haemorrhagic fever virus)	UP000008767	652961	Representative	2	59	100.0	98.30508474576273
+1985356	Pegivirus C	UP000137011	54290	Other	6	16	83.33333333333334	68.75
+2008762	Hepacivirus B	UP000114117	2847087	Other	1	8	100.0	100.0
+2008766	Hepacivirus G	UP000124105	2008766	Other	5	7	100.0	100.0
+2169700	Alphatectivirus PRD1 (Pseudomonas virus PRD1)	UP000002143	10658	Representative	1	2	100.0	100.0
+2169986	Barley yellow dwarf virus PAV (Barley yellow dwarf virus (ISOLATE PAV))	UP000006722	2169986	Representative	1	1	100.0	0.0
+2170080	Pestivirus A	UP000002317	11100	Reference	16	1219	100.0	41.42739950779328
+2170081	Pestivirus B	UP000099428	54315	Other	1	2	100.0	50.0
+2170082	Pestivirus C	UP000148997	11096	Other	18	244	100.0	78.68852459016394
+2170083	Pestivirus D	UP000106705	358764	Other	1	1	100.0	0.0
+2170090	Pestivirus K	UP000138377	1689785	Other	1	3	100.0	100.0
+2170195	Eastern chimpanzee simian foamy virus	UP000241420	2170195	Other	1	12	100.0	100.0
+2560319	Avian orthoavulavirus 1 (Avian Paramyxovirus Serotype I)	UP000133442	2560319	Representative	32	698	100.0	92.97994269340974
+2560525	Human orthorubulavirus 2 (Human parainfluenza 2 virus)	UP000000472	11214	Representative	2	12	100.0	100.0
+2560547	La Crosse orthobunyavirus	UP000008768	796210	Representative	2	4	100.0	100.0
+2560580	Mammalian orthorubulavirus 5 (Simian parainfluenza virus 5)	UP000007232	11208	Representative	3	3	100.0	100.0
+2560586	Menangle pararubulavirus	UP000144543	152219	Representative	1	2	100.0	0.0
+2560602	Mumps orthorubulavirus (Mumps virus)	UP000002331	11171	Representative	51	152	100.0	76.31578947368422
+2560743	Schmallenberg orthobunyavirus	UP000141581	1133363	Representative	3	8	100.0	100.0
+2697049	SARS-CoV2	UP000464024	2697049	Representative	457	36265	100.0	96.9640148903902
+2734478	Toscana phlebovirus	UP000167928	11590	Representative	1	3	100.0	0.0
+2747316	Guertu bandavirus (Guertu banyangvirus)	UP000297151	1763596	Other	2	264	100.0	100.0
+2846472	Torque teno canid virus 1	UP000001295	766189	Representative	1	1	100.0	100.0
+2846480	Torque teno felid virus 1	UP000008781	766188	Representative	1	1	100.0	100.0
+10002316	SARS-CoV1		10002316	All-proteins	376	51932	1.5957446808510638	0.0
+10002383	Other SARS	None	10002383	All-proteins	30	3905	0.0	0.0

@@ -441,7 +441,7 @@ def main():
   if all_species: # run all species at once
     for taxon_id in valid_taxon_ids:
 
-      all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
+      all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
       run(
         taxon_id, all_taxa, species_id_to_name_map[taxon_id], metrics_df
       )
@@ -449,7 +449,7 @@ def main():
   else: # one species at a time
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
 
-    all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
+    all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
     run(
       taxon_id, all_taxa, species_id_to_name_map[taxon_id], metrics_df
     )

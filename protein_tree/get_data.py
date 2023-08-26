@@ -160,20 +160,26 @@ def main():
   args = parser.parse_args()
   data_dir = Path(args.data_dir)
   
-  species_df = pd.read_csv(data_dir / 'species.tsv', sep='\t')
-  valid_taxon_ids = species_df['Species Taxon ID'].tolist()
+  species_df = pd.read_csv(data_dir / 'active-species.tsv', sep='\t')
+  all_taxon_ids = species_df['Species ID'].tolist()
   
   # create maps for taxon ID to species name and all taxa
+  species_key_map = dict(
+    zip(
+      species_df['Species ID'], 
+      species_df['Species Key']
+    )
+  )
   species_name_map = dict(
     zip(
-      species_df['Species Taxon ID'], 
-      species_df['Species Name']
+      species_df['Species ID'], 
+      species_df['Species Label']
     )
   )
   all_taxa_map = dict(
     zip(
-      species_df['Species Taxon ID'],
-      species_df['All Taxa']
+      species_df['Species ID'],
+      species_df['Active Taxa']
     )
   )  
 
@@ -192,14 +198,17 @@ def main():
     all_sources = DataFetcher().get_all_sources()
 
     taxon_id = args.taxon_id
-    assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
-
+    assert taxon_id in all_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
+    
+    species_key = species_key_map[taxon_id]
     species_name = species_name_map[taxon_id]
-    species_dir = data_dir / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
+
+    species_dir = data_dir / 'species' / species_key # directory to write species data
     species_dir.mkdir(parents=True, exist_ok=True)
 
     print(f'Writing separate files for {species_name}...')
-    all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
+    all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
+    
     epitopes_df = DataFetcher().get_epitopes_for_species(all_epitopes, all_taxa)
     sources_df = DataFetcher().get_sources_for_species(
       all_sources, epitopes_df['Source Accession'].tolist()

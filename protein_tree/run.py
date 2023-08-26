@@ -243,7 +243,7 @@ def main():
   if args.all_species:
     for taxon_id in all_species_taxa:
 
-      all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
+      all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
       epitopes_df = Fetcher.get_epitopes_for_species(all_epitopes, all_taxa)
       sources_df = Fetcher.get_sources_for_species(
         all_sources, epitopes_df['Source Accession'].tolist()
@@ -261,7 +261,8 @@ def main():
     taxon_id = args.taxon_id
     assert taxon_id in all_species_taxa, f'{taxon_id} is not a valid taxon ID.'
 
-    all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(';')]
+    all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
+    print(all_taxa)
     epitopes_df = Fetcher.get_epitopes_for_species(all_epitopes, all_taxa)
     sources_df = Fetcher.get_sources_for_species(
       all_sources, epitopes_df['Source Accession'].tolist()
