@@ -1,21 +1,18 @@
 #!/usr/bin/env python3
 
-import numpy as np
 import pandas as pd
 from pathlib import Path
 
-from update_species import update_species_data
 from get_data import DataFetcher
 from select_proteome import ProteomeSelector
 from assign_gene_protein import GeneAndProteinAssigner
 
 
-data_path = Path(__file__).parent.parent / 'data'
-
 def run_protein_tree(
+  species_path: Path,
   taxon_id: int,
   species_name_map: dict,
-  is_vertebrate_map: dict,
+  species_group_map: dict,
   epitopes_df: pd.DataFrame,
   sources_df: pd.DataFrame,
   update_proteome: bool,
@@ -25,32 +22,30 @@ def run_protein_tree(
   """Run all steps for the protein tree.
   
   Args:
+    species_path: Path to the species directory.
     taxon_id: Taxon ID for the species to run protein tree.
     species_name_map: Mapping of taxon ID to species name.
-    is_vertebrate_map: Mapping of taxon ID to boolean indicating species is vertebrate.
+    species_group_map: Mapping of taxon ID to group. Groups:
+      bacterium, archeobacterium, plant, vertebrate, virus, other-eukaryote, other.
     epitopes_df: Epitope data for the species.
     sources_df: Source antigen data for the species.
     update_proteome: Whether or not to update the proteome to be used for the species.
     num_threads: Number of threads to use for BLAST and ARC.
   """
   species_name = species_name_map[taxon_id]
-  is_vertebrate = is_vertebrate_map[taxon_id]
-  species_dir = f'{taxon_id}-{species_name.replace(" ", "_")}'
+  group = species_group_map[taxon_id]
 
   print(f'Building tree for {species_name} (ID: {taxon_id})...\n')
 
   if epitopes_df.empty or sources_df.empty:
     print('No epitopes found or source antigens found for this species.')
     return
-
-  # update proteome if flag or if proteome doesn't exist
-  proteome_file = data_path / 'species' / species_dir / 'proteome.fasta'
   
-  if update_proteome or not proteome_file.exists():
+  if update_proteome or not (species_path / 'proteome.fasta').exists():
     update_proteome = True # if the file doesn't exist, update flag
     
     print('Getting the best proteome...')
-    Selector = ProteomeSelector(taxon_id, species_name)
+    Selector = ProteomeSelector(taxon_id, species_path)
     print(f'Number of candidate proteomes: {Selector.num_of_proteomes}\n')
 
     proteome_data = Selector.select_best_proteome(epitopes_df)
@@ -67,10 +62,10 @@ def run_protein_tree(
         raise FileNotFoundError # force run 
 
       previous_epitopes_df = pd.read_csv(
-        data_path / 'species' / species_dir / 'epitope_assignments.tsv', sep='\t'
+        species_path / 'epitope_assignments.tsv', sep='\t'
       )
       previous_sources_df = pd.read_csv(
-        data_path / 'species' / species_dir / 'source_assignments.tsv', sep='\t'
+        species_path / 'source_assignments.tsv', sep='\t'
       )
       
       previous_epitopes = set(previous_epitopes_df[['Sequence', 'Source Accession']].apply(
@@ -95,23 +90,22 @@ def run_protein_tree(
       pass
 
   # write raw data to files
-  epitopes_df.to_csv(
-    data_path / 'species' / species_dir / 'epitopes.tsv', sep='\t', index=False
-  )
-  sources_df.to_csv(
-    data_path / 'species' / species_dir / 'sources.tsv', sep='\t', index=False
-  )
+  epitopes_df.to_csv(species_path / 'epitopes.tsv', sep='\t', index=False)
+  sources_df.to_csv(species_path / 'sources.tsv', sep='\t', index=False)
+
+  # boolean for vertebrate species - to be used for ARC assignments
+  is_vertebrate = group == 'vertebrate'
 
   # assign genes to source antigens and parent proteins to epitopes
-  Assigner = GeneAndProteinAssigner(taxon_id, species_name, is_vertebrate, num_threads=num_threads)
+  Assigner = GeneAndProteinAssigner(taxon_id, species_path, is_vertebrate, num_threads=num_threads)
   assigner_data, epitope_assignments, source_assignments = Assigner.assign(sources_df, epitopes_df)
 
   # write assignments to files
   epitope_assignments.to_csv(
-    data_path / 'species' / species_dir / 'epitope_assignments.tsv', sep='\t', index=False
+    species_path / 'epitope_assignments.tsv', sep='\t', index=False
   )
   source_assignments.to_csv(
-    data_path / 'species' / species_dir / 'source_assignments.tsv', sep='\t', index=False
+    species_path / 'source_assignments.tsv', sep='\t', index=False
   )
 
   successful_source_assignment = (assigner_data[2] / assigner_data[0])*100
@@ -202,37 +196,53 @@ def main():
     help='Force run the protein tree for a species, even if the data has not changed.'
   )
 
+  args = parser.parse_args()
+
+  global data_path
+  data_path = Path(__file__).parent.parent / 'data'
+
+  if args.update_species:
+    print('Updating species table...')
+    DataFetcher.update_species() # call update_species() static method
+    print('Done.\n')
+
+  species_df = pd.read_csv(data_path / 'active-species.tsv', sep='\t')
+  all_species_taxa = species_df['Species ID'].tolist()
   
-  species_df = pd.read_csv(data_path / 'species.tsv', sep='\t')
-  all_species_taxa = species_df['Species Taxon ID'].tolist()
-  
-  # taxa, species name, and is_vertebrate mapppings
-  all_taxa_map = dict(
+  # key, taxa, species name, and group mapppings
+  species_key_map = dict(
     zip(
-      species_df['Species Taxon ID'],
-      species_df['All Taxa']
+      species_df['Species ID'], 
+      species_df['Species Key']
     )
   )
   species_name_map = dict(
     zip(
-      species_df['Species Taxon ID'],
-      species_df['Species Name']
+      species_df['Species ID'],
+      species_df['Species Label']
     )
   )
-  is_vertebrate_map = dict(
+  all_taxa_map = dict(
     zip(
-      species_df['Species Taxon ID'],
-      species_df['Is Vertebrate']
+      species_df['Species ID'],
+      species_df['Active Taxa']
+    )
+  )
+  species_group_map = dict(
+    zip(
+      species_df['Species ID'],
+      species_df['Group']
     )
   )
 
-  args = parser.parse_args()
-
-  if args.update_species:
-    update_species_data()    
-  
   Fetcher = DataFetcher()
-  if args.update_data or not (data_path / 'epitopes.tsv').exists():
+
+  files_exist = (
+    (data_path / 'epitopes.tsv').exists() and
+    (data_path / 'sources.tsv').exists() and
+    (data_path / 'allergens.tsv').exists()
+  )
+  if args.update_data or not files_exist:
     print('Getting all data...')
     Fetcher.get_all_data()
     print('All data written.')
@@ -242,7 +252,7 @@ def main():
 
   if args.all_species:
     for taxon_id in all_species_taxa:
-
+      species_path = data_path / 'species' / species_key_map[taxon_id]
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
       epitopes_df = Fetcher.get_epitopes_for_species(all_epitopes, all_taxa)
       sources_df = Fetcher.get_sources_for_species(
@@ -250,9 +260,8 @@ def main():
       )
 
       run_protein_tree(
-        taxon_id, species_name_map, is_vertebrate_map, 
-        epitopes_df, sources_df, args.update_proteome,
-        args.num_threads, args.force
+        species_path, taxon_id, species_name_map, species_group_map, epitopes_df,
+        sources_df, args.update_proteome, args.num_threads, args.force
       )
 
     print('All species complete.')
@@ -260,18 +269,16 @@ def main():
   else: # one species at a time
     taxon_id = args.taxon_id
     assert taxon_id in all_species_taxa, f'{taxon_id} is not a valid taxon ID.'
-
+    species_path = data_path / 'species' / species_key_map[taxon_id]
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
-    print(all_taxa)
     epitopes_df = Fetcher.get_epitopes_for_species(all_epitopes, all_taxa)
     sources_df = Fetcher.get_sources_for_species(
       all_sources, epitopes_df['Source Accession'].tolist()
     )
     
     run_protein_tree(
-      taxon_id, species_name_map, is_vertebrate_map, 
-      epitopes_df, sources_df, args.update_proteome,
-      args.num_threads, args.force
+      species_path, taxon_id, species_name_map, species_group_map, epitopes_df,
+      sources_df, args.update_proteome, args.num_threads, args.force
     )
 
 if __name__ == '__main__':

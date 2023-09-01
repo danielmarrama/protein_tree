@@ -12,22 +12,18 @@ from pepmatch import Preprocessor, Matcher
 
 class ProteomeSelector:
   def __init__(
-    self, taxon_id, species_name, data_path = Path(__file__).parent.parent / 'data'
+    self, taxon_id, species_path, data_path = Path(__file__).parent.parent / 'data'
   ):
     self.taxon_id = taxon_id
 
     # TODO (FUTURE): REMOVE THIS NEW TAXONOMY WORKAROUND
-    self.new_taxonomy_map = json.load(open(Path(__file__).parent.parent / 'data' / 'new_taxonomy_map.json'))
+    self.new_taxonomy_map = json.load(open(data_path / 'new_taxonomy_map.json'))
 
-    self.species_dir = data_path / 'species' / f'{taxon_id}-{species_name.replace(" ", "_")}'
-    self.species_dir.mkdir(parents=True, exist_ok=True)
+    self.species_path = species_path
+    self.species_path.mkdir(parents=True, exist_ok=True)
 
-    self.species_df = pd.read_csv(
-      Path(__file__).parent.parent / 'data' / 'species.tsv', sep='\t'
-    )
-    self.metrics_df = pd.read_csv(
-      Path(__file__).parent.parent / 'data' / 'metrics.tsv', sep='\t'
-    ) 
+    self.species_df = pd.read_csv(data_path / 'active-species.tsv', sep='\t')
+    self.metrics_df = pd.read_csv(data_path / 'metrics.tsv', sep='\t') 
 
     self.proteome_list = self._get_proteome_list() # get all candidate proteomes
     self.num_of_proteomes = len(self.proteome_list) + 1 # +1 for all proteins option
@@ -92,7 +88,7 @@ class ProteomeSelector:
     self._remove_other_proteomes(proteome_id)
     
     # sanity check to make sure proteome.fasta is not empty
-    if (self.species_dir / 'proteome.fasta').stat().st_size == 0:
+    if (self.species_path / 'proteome.fasta').stat().st_size == 0:
       proteome_id = 'None'
       proteome_taxon = self.taxon_id
       proteome_type = 'All-proteins'
@@ -105,7 +101,7 @@ class ProteomeSelector:
     """Write the proteome data for a species to a CSV file for later use."""
     from Bio import SeqIO
     
-    if not (self.species_dir / 'proteome.fasta').exists():
+    if not (self.species_path / 'proteome.fasta').exists():
       return
 
     regexes = {
@@ -115,8 +111,8 @@ class ProteomeSelector:
       'pe_level': re.compile(r"PE=(.+?)\s"),       # between PE= and space
     }
 
-    proteins = list(SeqIO.parse(f'{self.species_dir}/proteome.fasta', 'fasta'))
-    gp_proteome_path = self.species_dir / 'gp_proteome.fasta'
+    proteins = list(SeqIO.parse(f'{self.species_path}/proteome.fasta', 'fasta'))
+    gp_proteome_path = self.species_path / 'gp_proteome.fasta'
     if gp_proteome_path.exists():
       gp_ids = [str(protein.id.split('|')[1]) for protein in list(SeqIO.parse(gp_proteome_path, 'fasta'))]
     else:
@@ -148,7 +144,7 @@ class ProteomeSelector:
     columns = ['Protein ID', 'Protein Name', 'Gene', 'Protein Existence Level', 'Gene Priority', 'Sequence', 'Database']
     proteome = pd.DataFrame(proteome_data, columns=columns)
     proteome = proteome[['Database', 'Gene', 'Protein ID', 'Protein Name', 'Protein Existence Level', 'Gene Priority', 'Sequence']]
-    proteome.to_csv(f'{self.species_dir}/proteome.tsv', sep='\t', index=False)
+    proteome.to_csv(f'{self.species_path}/proteome.tsv', sep='\t', index=False)
 
 
   def _get_proteome_list(self) -> pd.DataFrame:
@@ -200,7 +196,7 @@ class ProteomeSelector:
 
     # loop through all protein batches and write proteins to FASTA file
     for batch in self._get_protein_batches(url):
-      with open(f'{self.species_dir}/proteome.fasta', 'a') as f:
+      with open(f'{self.species_path}/proteome.fasta', 'a') as f:
         f.write(batch.text)
 
 
@@ -245,19 +241,21 @@ class ProteomeSelector:
     """
     import gzip
     
-    idx = self.species_df['Species Taxon ID'] == self.taxon_id
+    idx = self.species_df['Species ID'] == self.taxon_id
     group = self.species_df[idx]['Group'].iloc[0]
     ftp_url = f'https://ftp.uniprot.org/pub/databases/uniprot/knowledgebase/reference_proteomes/'
     
-    if group == 'Archaea':
+    if group == 'archeobacterium':
       ftp_url += f'Archaea/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
-    elif group == 'Bacteria':
+    elif group == 'bacterium':
       ftp_url += f'Bacteria/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
-    elif group == 'Eukaryota':
+    elif group in ['plant', 'vertebrate', 'other-eukaryote']:
       ftp_url += f'Eukaryota/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
-    elif group == 'Viruses':
+    elif group == 'virus':
       ftp_url += f'Viruses/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
-    
+    else:
+      return
+
     r = requests.get(ftp_url, stream=True)
     try:
       r.raise_for_status()
@@ -265,7 +263,7 @@ class ProteomeSelector:
       return
 
     # unzip the request and write the gene priority proteome to a file
-    with open(f'{self.species_dir}/gp_proteome.fasta', 'wb') as f:
+    with open(f'{self.species_path}/gp_proteome.fasta', 'wb') as f:
       f.write(gzip.open(r.raw, 'rb').read())
 
 
@@ -280,7 +278,7 @@ class ProteomeSelector:
     try:
       with requests.get(url, stream=True) as r:
         r.raise_for_status()   
-        with open(f'{self.species_dir}/{proteome_id}.fasta', 'w') as f:
+        with open(f'{self.species_path}/{proteome_id}.fasta', 'w') as f:
           for chunk in r.iter_content(chunk_size=8192):
             if chunk:  # filter out keep-alive new chunks
               f.write(chunk.decode())
@@ -309,16 +307,16 @@ class ProteomeSelector:
       self._get_proteome_to_fasta(proteome_id)
       
       Preprocessor(
-        proteome = f'{self.species_dir}/{proteome_id}.fasta',
-        preprocessed_files_path = f'{self.species_dir}',
+        proteome = f'{self.species_path}/{proteome_id}.fasta',
+        preprocessed_files_path = f'{self.species_path}',
       ).sql_proteome(k = 5)
 
       matches_df = Matcher(
         query = epitopes, 
-        proteome_file = f'{self.species_dir}/{proteome_id}.fasta', 
+        proteome_file = f'{self.species_path}/{proteome_id}.fasta', 
         max_mismatches = 0, 
         k = 5,
-        preprocessed_files_path = f'{self.species_dir}',
+        preprocessed_files_path = f'{self.species_path}',
         output_format='dataframe'
       ).match()
       
@@ -346,13 +344,13 @@ class ProteomeSelector:
     """
     proteome_list_to_remove = self.proteome_list[self.proteome_list['upid'] != proteome_id]
     for i in list(proteome_list_to_remove['upid']):
-      os.remove(self.species_dir / f'{i}.fasta')
-      os.remove(self.species_dir / f'{i}.db')
+      os.remove(self.species_path / f'{i}.fasta')
+      os.remove(self.species_path / f'{i}.db')
     
     # rename the chosen proteome to proteome.fasta and remove the .db file
-    os.rename(f'{self.species_dir}/{proteome_id}.fasta', f'{self.species_dir}/proteome.fasta')
+    os.rename(f'{self.species_path}/{proteome_id}.fasta', f'{self.species_path}/proteome.fasta')
     if self.num_of_proteomes > 2: # there is only a .db file if there is more than one proteome
-      os.remove(f'{self.species_dir}/{proteome_id}.db')
+      os.remove(f'{self.species_path}/{proteome_id}.db')
 
 
 def run(
@@ -383,19 +381,19 @@ def run(
   print(f'Proteome type: {proteome_data[2]}')
 
   # update metrics data to metrics.tsv file
-  if taxon_id not in metrics_df['Species Taxon ID'].tolist():
+  if taxon_id not in metrics_df['Species ID'].tolist():
     new_row = {
-      'Species Taxon ID': taxon_id,
-      'Species Name': species_name,
+      'Species ID': taxon_id,
+      'Species Label': species_name,
       'Proteome ID': proteome_data[0],
       'Proteome Taxon': proteome_data[1],
       'Proteome Type': proteome_data[2]
     }
     metrics_df = pd.concat([metrics_df, pd.DataFrame([new_row])], ignore_index=True)
   else:
-    metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome ID'] = proteome_data[0]
-    metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Taxon'] = proteome_data[1]
-    metrics_df.loc[metrics_df['Species Taxon ID'] == int(taxon_id), 'Proteome Type'] = proteome_data[2]
+    metrics_df.loc[metrics_df['Species ID'] == int(taxon_id), 'Proteome ID'] = proteome_data[0]
+    metrics_df.loc[metrics_df['Species ID'] == int(taxon_id), 'Proteome Taxon'] = proteome_data[1]
+    metrics_df.loc[metrics_df['Species ID'] == int(taxon_id), 'Proteome Type'] = proteome_data[2]
 
   metrics_df.to_csv(Path(__file__).parent.parent / 'data' / 'metrics.tsv', sep='\t', index=False)
 
@@ -421,20 +419,20 @@ def main():
   taxon_id = args.taxon_id
 
   data_dir = Path(__file__).parent.parent / 'data'
-  species_df = pd.read_csv(data_dir / 'species.tsv', sep='\t')
+  species_df = pd.read_csv(data_dir / 'active-pecies.tsv', sep='\t')
   metrics_df = pd.read_csv(data_dir / 'metrics.tsv', sep='\t')
-  valid_taxon_ids = species_df['Species Taxon ID'].tolist()
+  valid_taxon_ids = species_df['Species ID'].tolist()
 
   all_taxa_map = dict( # map taxon ID to list of all children taxa
     zip(
-      species_df['Species Taxon ID'],
-      species_df['All Taxa']
+      species_df['Species ID'],
+      species_df['Active Taxa']
     )
   )
   species_id_to_name_map = dict( # map taxon ID to species name
     zip(
-      species_df['Species Taxon ID'],
-      species_df['Species Name']
+      species_df['Species ID'],
+      species_df['Species Label']
     )
   )
 

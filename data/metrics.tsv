@@ -1665,4 +1665,4 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 2846472	Torque teno canid virus 1	UP000001295	766189	Representative	1	1	100.0	100.0
 2846480	Torque teno felid virus 1	UP000008781	766188	Representative	1	1	100.0	100.0
 10002316	SARS-CoV1		10002316	All-proteins	376	51932	1.5957446808510638	0.0
-10002383	Other SARS	None	10002383	All-proteins	30	3905	0.0	0.0
+10002383	Other SARS		10002383	All-proteins	30	3905	0.0	0.0
