@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import requests
 import pandas as pd
 from pathlib import Path
 from sqlalchemy import text
@@ -141,6 +142,19 @@ class DataFetcher:
     return all_sources[all_sources['Accession'].isin(accessions)]
 
 
+  @staticmethod
+  def update_species():
+    """Update species table "active-species-tsv" fron OntoDev site."""
+    url = 'https://nb.ontodev.com/active_species.tsv?limit=3000&offset=0'
+    
+    r = requests.get(url)
+    r.raise_for_status()
+
+    file_path = Path(__file__).parent.parent / 'data' / 'active-species.tsv'
+    with open(file_path, 'wb') as f:
+      f.write(r.content)
+
+  
 def main():
   import argparse
   
@@ -184,12 +198,12 @@ def main():
   )  
 
   if args.taxon_id:
-    files_exists = (
+    files_exist = (
       (data_dir / 'epitopes.tsv').exists() and
       (data_dir / 'sources.tsv').exists() and
       (data_dir / 'allergens.tsv').exists()
     )
-    if not files_exists:
+    if not files_exist:
       print('Getting all data...')
       DataFetcher().get_all_data()
       print('All data written.')
