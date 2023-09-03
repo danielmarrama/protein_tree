@@ -2,11 +2,11 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 24	Shewanella putrefaciens	UP000008209	399804	Non-redundant	1	1	100.0	100.0
 106	Runella slithyformis	UP000000493	761193	Representative	1	1	100.0	100.0
 108	Spirosoma linguale	UP000002028	504472	Other	1	1	100.0	100.0
-139	Borreliella burgdorferi	UP000001807	224326	Representative	72	873	98.61111111111111	88.20160366552119
+139	Borreliella burgdorferi	UP000001807	224326	Representative	74	879	98.64864864864865	88.28213879408419
 158	Treponema denticola	UP000008212	243275	Representative	2	2	100.0	100.0
-160	Treponema pallidum	UP000000811	243276	Representative	12	514	100.0	90.27237354085604
+160	Treponema pallidum	UP000000811	243276	Representative	17	539	100.0	86.08534322820037
 162	Treponema phagedenis	UP000042527	162	Representative	1	1	100.0	100.0
-173	Leptospira interrogans	UP000093180	211880	Representative	32	302	96.875	82.11920529801324
+173	Leptospira interrogans	UP000093180	211880	Representative	33	303	96.96969696969695	82.17821782178217
 174	Leptospira borgpetersenii	UP000011783	1193007	Representative	4	9	75.0	22.22222222222222
 188	Magnetospirillum magnetotacticum	UP000031971	272627	Other	5	5	100.0	80.0
 195	Campylobacter coli	UP000255069	195	Non-redundant	4	4	100.0	100.0
@@ -18,14 +18,14 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 203	Campylobacter rectus	UP000003082	553218	Non-redundant	1	1	100.0	100.0
 210	Helicobacter pylori	UP000000429	85962	Representative	131	1261	99.23664122137404	87.3116574147502
 235	Brucella abortus	UP000002719	359391	Representative	315	348	99.04761904761904	96.26436781609196
-236	Brucella ovis	UP000006383	444178	Non-redundant	11	11	100.0	100.0
+236	Brucella ovis	UP000006383	444178	Non-redundant	14	15	100.0	100.0
 263	Francisella tularensis	UP000001174	177416	Representative	863	2886	99.42062572421784	88.77338877338877
 266	Paracoccus denitrificans	UP000000361	318586	Representative	3	5	100.0	100.0
 271	Thermus aquaticus	UP000037685	271	Other	1	1	100.0	0.0
 274	Thermus thermophilus	UP000000532	300852	Representative	3	3	100.0	100.0
 280	Xanthobacter autotrophicus	UP000002417	78245	Representative	2	2	100.0	50.0
 285	Comamonas testosteroni	UP000003039	399795	Non-redundant	1	1	100.0	100.0
-287	Pseudomonas aeruginosa	UP000002438	208964	Representative	144	806	96.5277777777778	91.06699751861042
+287	Pseudomonas aeruginosa	UP000002438	208964	Representative	149	815	96.64429530201345	90.5521472392638
 292	Burkholderia cepacia	UP000036338	292	Non-redundant	2	2	100.0	50.0
 294	Pseudomonas fluorescens	UP000022611	1042209	Representative	7	16	100.0	6.25
 298	Pseudomonas marginalis	UP000055023	1198317	Non-redundant	1	1	100.0	0.0
@@ -45,11 +45,11 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 470	Acinetobacter baumannii	UP000072389	470	Non-redundant	8	178	87.5	97.75280898876404
 471	Acinetobacter calcoaceticus	UP000005126	575585	Non-redundant	1	1	100.0	100.0
 480	Moraxella catarrhalis	UP000280228	480	Non-redundant	10	51	100.0	94.11764705882352
-485	Neisseria gonorrhoeae	UP000000535	242231	Reference	28	242	100.0	90.08264462809916
-487	Neisseria meningitidis	UP000000425	122586	Representative	44	190	100.0	75.26315789473685
+485	Neisseria gonorrhoeae	UP000000535	242231	Reference	29	245	100.0	88.9795918367347
+487	Neisseria meningitidis	UP000000425	122586	Representative	50	279	100.0	72.75985663082437
 502	Kingella denitrificans	UP000004088	888741	Representative	1	1	100.0	100.0
 511	Alcaligenes faecalis	UP000245216	511	Non-redundant	2	2	100.0	50.0
-520	Bordetella pertussis	UP000002676	257313	Representative	3362	25957	99.3753718024985	97.87725854297491
+520	Bordetella pertussis	UP000002676	257313	Representative	3366	25964	99.37611408199643	97.87783084270528
 521	Bordetella avium	UP000001977	360910	Representative	1	1	100.0	100.0
 524	Acidiphilium cryptum	UP000000245	349163	Representative	2	2	100.0	50.0
 539	Eikenella corrodens	UP000018554	1073362	Representative	16	16	93.75	62.5
@@ -57,17 +57,17 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 550	Enterobacter cloacae	UP000607214	550	Non-redundant	4	15	100.0	66.66666666666666
 554	Pectobacterium carotovorum	UP000031378	555	Non-redundant	2	3	100.0	100.0
 556	Dickeya chrysanthemi	UP000002735	561229	Other	1	1	100.0	100.0
-562	Escherichia coli	UP000000625	83333	Representative	550	2207	88.18181818181819	28.092433167195285
+562	Escherichia coli	UP000000625	83333	Representative	551	2209	88.2032667876588	28.11226799456768
 573	Klebsiella pneumoniae	UP000007841	1125630	Representative	27	412	92.5925925925926	94.41747572815534
-584	Proteus mirabilis	UP000008319	529507	Non-redundant	4	7	100.0	57.14285714285714
+584	Proteus mirabilis	UP000008319	529507	Non-redundant	5	8	100.0	62.5
 615	Serratia marcescens	UP000037482	615	Non-redundant	4	4	100.0	100.0
 621	Shigella boydii	UP000001030	344609	Reference	24	28	100.0	82.14285714285714
-622	Shigella dysenteriae	UP000002716	300267	Reference	9	13	100.0	92.3076923076923
+622	Shigella dysenteriae	UP000031647	754093	Representative	9	13	88.88888888888889	53.84615384615385
 623	Shigella flexneri	UP000001006	623	Reference	44	756	95.45454545454544	98.8095238095238
 624	Shigella sonnei	UP000002529	300269	Reference	11	20	100.0	95.0
 630	Yersinia enterocolitica	UP000000642	393305	Non-redundant	50	75	98.0	80.0
 632	Yersinia pestis	UP000000815	632	Representative	438	759	98.63013698630137	95.9156785243742
-633	Yersinia pseudotuberculosis	UP000001011	273123	Non-redundant	15	15	100.0	100.0
+633	Yersinia pseudotuberculosis	UP000001011	273123	Non-redundant	16	16	100.0	100.0
 634	Yersinia bercovieri	UP000229378	634	Non-redundant	4	5	100.0	100.0
 636	Edwardsiella tarda	UP000002230	718251	Non-redundant	1	1	100.0	100.0
 644	Aeromonas hydrophila	UP000000756	380703	Representative	2	11	100.0	27.27272727272727
@@ -83,31 +83,31 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 703	Plesiomonas shigelloides	UP000014012	1315976	Representative	2	2	50.0	0.0
 714	Aggregatibacter actinomycetemcomitans	UP000323961	714	Non-redundant	9	9	100.0	88.88888888888889
 715	Actinobacillus pleuropneumoniae	UP000001432	416269	Representative	5	6	100.0	50.0
-727	Haemophilus influenzae	UP000000579	71421	Representative	108	168	98.14814814814817	87.5
+727	Haemophilus influenzae	UP000000579	71421	Representative	115	662	98.2608695652174	80.51359516616314
 730	[Haemophilus] ducreyi	UP000001022	233412	Representative	1	1	100.0	100.0
 731	Histophilus somni		731	All-proteins	2	2	100.0	100.0
 738	Glaesserella parasuis	UP000006743	557723	Representative	4	4	100.0	100.0
-747	Pasteurella multocida	UP000000809	272843	Representative	18	18	100.0	83.33333333333334
+747	Pasteurella multocida	UP000000809	272843	Representative	19	20	100.0	75.0
 769	Anaplasma centrale	UP000000630	574556	Other	3	4	100.0	100.0
-770	Anaplasma marginale	UP000007307	320483	Representative	28	248	100.0	64.51612903225806
+770	Anaplasma marginale	UP000007307	320483	Representative	29	250	100.0	64.0
 774	Bartonella bacilliformis	UP000000643	360095	Representative	3	36	100.0	77.77777777777779
 777	Coxiella burnetii	UP000002671	227377	Representative	409	777	96.33251833740832	91.37709137709138
 779	Ehrlichia ruminantium	UP000001021	254945	Non-redundant	14	45	92.85714285714286	93.33333333333331
 781	Rickettsia conorii	UP000000816	272944	Non-redundant	18	21	100.0	90.47619047619048
 782	Rickettsia prowazekii	UP000002480	272947	Representative	37	39	100.0	100.0
 783	Rickettsia rickettsii	UP000006832	392021	Non-redundant	9	96	100.0	100.0
-784	Orientia tsutsugamushi	UP000001565	357244	Representative	7	167	85.71428571428571	91.01796407185628
+784	Orientia tsutsugamushi	UP000001565	357244	Representative	8	168	87.5	90.47619047619048
 785	Rickettsia typhi	UP000000604	257363	Non-redundant	12	12	100.0	100.0
 786	Rickettsia akari	UP000006830	293614	Other	1	1	100.0	100.0
 787	Rickettsia australis	UP000007589	1105110	Other	1	1	100.0	100.0
 788	Rickettsia canadensis	UP000007056	293613	Non-redundant	2	2	100.0	100.0
-813	Chlamydia trachomatis	UP000000431	272561	Representative	183	966	97.81420765027322	77.95031055900621
+813	Chlamydia trachomatis	UP000000431	272561	Representative	198	1259	97.97979797979798	70.53216838760922
 817	Bacteroides fragilis	UP000006731	272559	Representative	9	124	88.88888888888889	96.7741935483871
 818	Bacteroides thetaiotaomicron	UP000001414	226186	Representative	2	2	100.0	50.0
 820	Bacteroides uniformis	UP000014212	1235787	Representative	1	1	100.0	0.0
 821	Phocaeicola vulgatus	UP000002861	435590	Representative	18	22	88.88888888888889	54.54545454545454
 823	Parabacteroides distasonis	UP000000566	435591	Representative	1	1	100.0	0.0
-837	Porphyromonas gingivalis	UP000000588	242619	Representative	32	474	96.875	51.68776371308017
+837	Porphyromonas gingivalis	UP000000588	242619	Representative	33	579	96.96969696969695	42.83246977547496
 851	Fusobacterium nucleatum	UP000002521	190304	Representative	101	143	93.06930693069307	74.12587412587412
 853	Faecalibacterium prausnitzii	UP000095722	853	Representative	3	3	100.0	66.66666666666666
 891	Desulfuromonas acetoxidans	UP000005695	281689	Representative	1	1	100.0	100.0
@@ -139,13 +139,13 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 1299	Deinococcus radiodurans	UP000002524	243230	Representative	2	5	100.0	100.0
 1302	Streptococcus gordonii	UP000001131	467705	Representative	5	5	100.0	80.0
 1303	Streptococcus oralis	UP000071369	1303	Non-redundant	3	12	100.0	75.0
-1305	Streptococcus sanguinis	UP000002148	388919	Representative	1	1	100.0	0.0
+1305	Streptococcus sanguinis	UP000002148	388919	Representative	2	7	100.0	28.57142857142857
 1307	Streptococcus suis	UP000009077	568814	Representative	2	12	100.0	100.0
 1309	Streptococcus mutans	UP000002512	210007	Representative	11	390	100.0	87.43589743589743
 1310	Streptococcus sobrinus	UP000016617	1227275	Non-redundant	3	8	100.0	50.0
 1311	Streptococcus agalactiae	UP000000821	208435	Representative	10	17	100.0	94.11764705882352
 1313	Streptococcus pneumoniae	UP000000586	171101	Representative	66	659	100.0	45.52352048558422
-1314	Streptococcus pyogenes	UP000000750	301447	Representative	195	7636	99.48717948717947	94.10686223153483
+1314	Streptococcus pyogenes	UP000000750	301447	Representative	203	7664	99.50738916256158	93.78914405010438
 1317	Streptococcus downei	UP000254082	764290	Representative	1	2	100.0	100.0
 1320	Streptococcus sp. group G		1320	All-proteins	3	95	66.66666666666666	75.78947368421053
 1334	Streptococcus dysgalactiae	UP000503331	119602	Non-redundant	9	55	100.0	85.45454545454545
@@ -169,9 +169,9 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 1454	Schinkia azotoformans	UP000006315	1131731	Representative	1	1	100.0	100.0
 1467	Lederbergia lenta	UP000249134	1467	Representative	1	86	0.0	0.0
 1488	Clostridium acetobutylicum	UP000000814	272562	Representative	1	1	100.0	100.0
-1491	Clostridium botulinum	UP000001986	441771	Representative	43	450	97.67441860465117	61.11111111111112
+1491	Clostridium botulinum	UP000001986	441771	Representative	45	469	97.77777777777776	58.84861407249466
 1492	Clostridium butyricum	UP000003081	632245	Representative	3	3	100.0	66.66666666666666
-1496	Clostridioides difficile	UP000001978	272563	Representative	17	446	94.11764705882352	87.4439461883408
+1496	Clostridioides difficile	UP000001978	272563	Representative	17	451	94.11764705882352	87.58314855875831
 1502	Clostridium perfringens	UP000000818	195102	Representative	15	188	80.0	11.702127659574469
 1513	Clostridium tetani	UP000001412	212717	Representative	13	1364	100.0	98.60703812316716
 1515	Acetivibrio thermocellus	UP000002145	203119	Representative	1	1	100.0	100.0
@@ -187,7 +187,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 1613	Limosilactobacillus fermentum	UP000094714	1613	Representative	1	1	100.0	100.0
 1622	Ligilactobacillus murinus	UP000012542	1235801	Non-redundant	2	2	100.0	50.0
 1638	Listeria ivanovii	UP000001286	881621	Non-redundant	2	2	100.0	100.0
-1639	Listeria monocytogenes	UP000000817	169963	Representative	207	833	98.55072463768116	95.31812725090036
+1639	Listeria monocytogenes	UP000000817	169963	Representative	208	834	98.5576923076923	95.32374100719424
 1640	Listeria seeligeri	UP000004302	702453	Non-redundant	1	1	100.0	100.0
 1641	Listeria grayi	UP000010119	525367	Representative	1	1	100.0	100.0
 1642	Listeria innocua	UP000002513	272626	Non-redundant	2	10	100.0	100.0
@@ -203,12 +203,12 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 1719	Corynebacterium pseudotuberculosis	UP000000276	681645	Representative	1	6	100.0	100.0
 1744	Propionibacterium freudenreichii	UP000000936	754252	Representative	1	1	100.0	100.0
 1747	Cutibacterium acnes	UP000019083	1302244	Representative	6	8	100.0	87.5
-1764	Mycobacterium avium	UP000000580	262316	Representative	656	1556	99.2378048780488	95.11568123393316
+1764	Mycobacterium avium	UP000000580	262316	Representative	659	1559	99.2412746585736	95.06093649775497
 1767	Mycobacterium intracellulare	UP000020825	1299331	Non-redundant	2	2	100.0	100.0
 1768	Mycobacterium kansasii	UP000516380	1768	Representative	5	23	100.0	73.91304347826086
 1769	Mycobacterium leprae	UP000000806	272631	Representative	71	703	100.0	96.8705547652916
 1772	Mycolicibacterium smegmatis	UP000000757	246196	Representative	462	909	99.7835497835498	99.7799779977998
-1773	Mycobacterium tuberculosis	UP000001584	83332	Representative	9135	30682	99.73727422003284	92.15826869174109
+1773	Mycobacterium tuberculosis	UP000001584	83332	Representative	9137	30719	99.73733172813832	92.1612031641655
 1778	Mycobacterium gordonae	UP000051677	1778	Non-redundant	1	1	100.0	100.0
 1781	Mycobacterium marinum	UP000001190	216594	Representative	247	412	99.59514170040484	100.0
 1783	Mycobacterium scrofulaceum	UP000192601	1783	Non-redundant	2	45	100.0	84.44444444444444
@@ -258,7 +258,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 3513	Quercus alba		3513	All-proteins	1	5	100.0	100.0
 3517	Alnus glutinosa		3517	All-proteins	2	74	100.0	100.0
 3559	Chenopodium album		3559	All-proteins	1	3	100.0	100.0
-3562	Spinacia oleracea	UP000054095	3562	Other	2	4	100.0	100.0
+3562	Spinacia oleracea	UP000054095	3562	Representative	2	4	100.0	100.0
 3567	Amaranthus caudatus		3567	All-proteins	1	1	100.0	100.0
 3617	Fagopyrum esculentum		3617	All-proteins	5	206	100.0	100.0
 3625	Actinidia chinensis	UP000241394	1590841	Representative	1	1	100.0	100.0
@@ -267,7 +267,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 3677	Trichosanthes kirilowii		3677	All-proteins	2	4	100.0	100.0
 3702	Arabidopsis thaliana	UP000006548	3702	Representative	27	30	100.0	93.33333333333331
 3707	Brassica juncea		3707	All-proteins	2	58	100.0	96.55172413793105
-3708	Brassica napus	UP000028999	3708	Reference	1	2	100.0	100.0
+3708	Brassica napus	UP000028999	3708	Representative	1	2	100.0	100.0
 3711	Brassica rapa	UP000011750	3711	Other	1	1	100.0	100.0
 3728	Sinapis alba		3728	All-proteins	1	1	100.0	0.0
 3750	Malus domestica	UP000290289	3750	Representative	8	130	100.0	43.07692307692308
@@ -317,7 +317,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 4932	Saccharomyces cerevisiae	UP000002311	559292	Representative	35	61	97.14285714285714	96.72131147540983
 4954	Zygosaccharomyces bailii	UP000019375	1333698	Non-redundant	1	1	100.0	100.0
 5037	Histoplasma capsulatum	UP000008142	544711	Representative	52	84	98.07692307692308	94.04761904761904
-5039	Blastomyces dermatitidis	UP000002039	559297	Other	19	40	100.0	97.5
+5039	Blastomyces dermatitidis	UP000002039	559297	Other	20	42	95.0	92.85714285714286
 5057	Aspergillus clavatus	UP000006701	344612	Representative	1	1	100.0	100.0
 5059	Aspergillus flavus	UP000001875	332952	Non-redundant	1	1	100.0	100.0
 5060	Aspergillus giganteus		5060	All-proteins	1	47	100.0	100.0
@@ -347,7 +347,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 5664	Leishmania major	UP000000542	5664	Representative	84	389	98.8095238095238	91.25964010282776
 5665	Leishmania mexicana	UP000007259	929439	Other	6	10	100.0	50.0
 5667	Leishmania aethiopica		5667	All-proteins	4	85	75.0	30.58823529411765
-5671	Leishmania infantum	UP000008153	5671	Reference	52	316	98.07692307692308	67.40506329113924
+5671	Leishmania infantum	UP000008153	5671	Reference	54	335	98.14814814814817	65.3731343283582
 5679	Leishmania panamensis	UP000063063	5679	Other	7	18	100.0	94.44444444444444
 5682	Leishmania pifanoi		5682	All-proteins	1	21	100.0	100.0
 5691	Trypanosoma brucei	UP000008524	185431	Representative	14	98	92.85714285714286	7.142857142857142
@@ -357,34 +357,34 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 5722	Trichomonas vaginalis	UP000001542	412133	Reference	9	81	100.0	97.53086419753086
 5741	Giardia intestinalis	UP000001548	184922	Representative	416	433	98.79807692307692	96.99769053117782
 5755	Acanthamoeba castellanii	UP000011083	1257118	Representative	4	16	75.0	87.5
-5759	Entamoeba histolytica	UP000001926	294381	Representative	144	222	100.0	95.94594594594594
+5759	Entamoeba histolytica	UP000001926	294381	Representative	145	224	100.0	95.98214285714286
 5762	Naegleria gruberi	UP000006671	5762	Representative	1	1	100.0	100.0
 5801	Eimeria acervulina		5801	All-proteins	1	1	100.0	0.0
 5802	Eimeria tenella	UP000243681	5802	Other	3	10	66.66666666666666	0.0
 5807	Cryptosporidium parvum	UP000006726	353152	Representative	137	145	99.27007299270072	97.24137931034484
-5811	Toxoplasma gondii	UP000002226	432359	Representative	294	803	99.31972789115646	82.68991282689913
+5811	Toxoplasma gondii	UP000002226	432359	Representative	297	840	99.32659932659934	82.38095238095238
 5821	Plasmodium berghei	UP000074855	5823	Representative	436	810	95.6422018348624	87.77777777777777
 5824	Plasmodium brasilianum		5824	All-proteins	1	2	100.0	50.0
 5825	Plasmodium chabaudi	UP000071118	31271	Other	4	9	100.0	77.77777777777779
 5827	Plasmodium cynomolgi	UP000006319	1120755	Representative	2	2	100.0	100.0
-5833	Plasmodium falciparum	UP000001450	36329	Representative	790	10375	99.74683544303798	84.23132530120482
+5833	Plasmodium falciparum	UP000001450	36329	Representative	794	10479	99.74811083123426	0.6012024048096193
 5850	Plasmodium knowlesi	UP000031513	5851	Representative	9	99	100.0	96.96969696969695
 5855	Plasmodium vivax	UP000008333	126793	Representative	79	1631	97.46835443037976	74.1263028816677
 5857	Plasmodium fragile	UP000054561	5857	Other	1	8	100.0	100.0
 5858	Plasmodium malariae	UP000219813	5858	Representative	1	1	100.0	100.0
 5861	Plasmodium yoelii	UP000008553	73239	Representative	55	269	98.1818181818182	96.6542750929368
-5865	Babesia bovis	UP000002173	5865	Representative	9	45	100.0	80.0
+5865	Babesia bovis	UP000002173	5865	Representative	14	89	100.0	77.52808988764045
 5866	Babesia bigemina	UP000033188	5866	Representative	3	7	100.0	57.14285714285714
 5868	Babesia microti	UP000002899	1133968	Representative	4	16	100.0	87.5
 5872	Theileria equi	UP000031512	1537102	Representative	2	126	100.0	90.47619047619048
 5874	Theileria annulata	UP000001950	5874	Representative	4	5	100.0	100.0
-5875	Theileria parva	UP000001949	5875	Representative	167	418	97.60479041916167	84.688995215311
+5875	Theileria parva	UP000001949	5875	Representative	168	419	97.61904761904762	84.48687350835323
 5877	Theileria sergenti		5877	All-proteins	6	31	100.0	90.32258064516128
 5970	Exophiala dermatitidis	UP000007304	858893	Representative	1	1	100.0	100.0
 6035	Encephalitozoon cuniculi	UP000000819	284813	Representative	35	36	100.0	94.44444444444444
 6100	Aequorea victoria		6100	All-proteins	1	10	100.0	100.0
 6182	Schistosoma japonicum	UP000311919	6182	Representative	81	2094	79.01234567901234	55.587392550143264
-6183	Schistosoma mansoni	UP000008854	6183	Representative	138	8295	94.20289855072464	96.69680530440024
+6183	Schistosoma mansoni	UP000008854	6183	Representative	139	8307	94.24460431654676	96.68953894306009
 6184	Schistosoma bovis	UP000290809	6184	Representative	1	2	100.0	50.0
 6185	Schistosoma haematobium	UP000471633	6185	Representative	4	4	75.0	50.0
 6192	Fasciola hepatica	UP000230066	6192	Representative	24	671	100.0	72.28017883755588
@@ -543,19 +543,19 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 10116	Rattus norvegicus	UP000002494	10116	Representative	11359	34988	99.9119640813452	98.2851263290271
 10141	Cavia porcellus	UP000005447	10141	Representative	13	161	100.0	90.06211180124224
 10224	Saccoglossus kowalevskii		10224	All-proteins	1	1	100.0	100.0
-10243	Cowpox virus	UP000113999	10243	Other	28	36	100.0	86.11111111111111
-10244	Monkeypox virus	UP000516359	10244	Reference	7	12	100.0	100.0
-10245	Vaccinia virus	UP000000344	10254	Representative	1310	22344	96.7175572519084	92.66022198353023
-10255	Variola virus	UP000002060	587200	Reference	185	466	99.45945945945948	98.49785407725322
+10243	Cowpox virus	UP000113999	10243	Other	29	37	100.0	86.48648648648648
+10244	Monkeypox virus	UP000516359	10244	Reference	8	13	100.0	100.0
+10245	Vaccinia virus	UP000000344	10254	Representative	1318	22379	96.73748103186648	92.66276419857904
+10255	Variola virus	UP000002060	587200	Reference	186	467	98.9247311827957	98.28693790149892
 10258	Orf virus	UP000000870	647330	Representative	22	37	100.0	78.37837837837837
 10261	Fowlpox virus	UP000008597	928301	Representative	9	9	88.88888888888889	88.88888888888889
 10273	Myxoma virus	UP000291359	10273	Representative	5	6	100.0	100.0
 10276	Swinepox virus	UP000000871	300880	Representative	2	2	100.0	100.0
 10368	Human betaherpesvirus 6		10368	All-proteins	2	2	100.0	100.0
 10373	Macaca mulatta cytomegalovirus		10373	All-proteins	2	150	100.0	100.0
-10407	Hepatitis B virus	UP000007930	490133	Representative	403	3998	99.75186104218362	60.80540270135067
+10407	Hepatitis B virus	UP000007930	490133	Representative	404	4012	99.75247524752476	60.7926221335992
 10493	Frog virus 3	UP000319751	10493	Representative	1	3	100.0	100.0
-10497	African swine fever virus	UP000000624	10498	Representative	198	708	99.4949494949495	67.79661016949152
+10497	African swine fever virus	UP000000624	10498	Representative	204	733	99.50980392156865	68.4856753069577
 10537	Canine mastadenovirus A	UP000118097	10514	Representative	1	2	100.0	100.0
 10561	Xipapillomavirus 1	UP000126963	714200	Representative	2	34	100.0	17.647058823529413
 10566	Human papillomavirus	UP000126093	10566	Representative	5	10	100.0	0.0
@@ -569,7 +569,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 10864	Enterobacteria phage fd		10864	All-proteins	2	32	100.0	96.875
 10879	Cystovirus phi6	UP000002610	2928686	Representative	1	7	100.0	100.0
 10891	Reovirus sp.		10891	All-proteins	1	2	100.0	100.0
-11021	Eastern equine encephalitis virus	UP000008298	374598	Other	11	76	100.0	69.73684210526315
+11021	Eastern equine encephalitis virus	UP000008298	374598	Other	13	89	100.0	70.78651685393258
 11029	Ross River virus	UP000006579	11031	Other	3	37	100.0	78.37837837837837
 11033	Semliki Forest virus	UP000000570	11033	Reference	4	54	100.0	98.14814814814817
 11034	Sindbis virus	UP000006710	11034	Reference	7	22	100.0	50.0
@@ -577,42 +577,42 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 11039	Western equine encephalitis virus	UP000096692	11039	Other	3	6	100.0	83.33333333333334
 11137	Human coronavirus 229E	UP000006716	11137	Representative	251	17717	100.0	73.51696111079754
 11276	Vesicular stomatitis virus	UP000147073	11276	Representative	9	16	100.0	18.75
-11292	Lyssavirus rabies	UP000166950	11292	Representative	36	149	100.0	59.06040268456376
+11292	Lyssavirus rabies	UP000166950	11292	Representative	38	166	100.0	60.24096385542169
 11318	Thogotovirus dhoriense	UP000181622	11318	Other	1	1	100.0	100.0
 11636	Reticuloendotheliosis virus	UP000098146	11636	Other	2	7	100.0	100.0
-11642	Simian foamy virus	UP000154619	11642	Representative	6	11	100.0	63.63636363636363
-11660	Caprine arthritis encephalitis virus	UP000203242	11661	Representative	12	40	100.0	57.49999999999999
+11642	Simian foamy virus	UP000154619	11642	Representative	7	49	100.0	48.97959183673469
+11660	Caprine arthritis encephalitis virus	UP000203242	11661	Representative	14	42	100.0	54.761904761904766
 11665	Equine infectious anemia virus		11665	All-proteins	24	381	100.0	99.73753280839895
 11673	Feline immunodeficiency virus	UP000242267	11674	Representative	18	47	100.0	55.319148936170215
 11676	Human immunodeficiency virus 1	UP000107234	11678	Representative	471	1606	100.0	48.567870485678704
 11709	Human immunodeficiency virus 2	UP000007425	73484	Representative	31	96	100.0	55.208333333333336
-11723	Simian immunodeficiency virus	UP000005623	11723	Representative	306	24244	99.67320261437908	16.37106088104273
+11723	Simian immunodeficiency virus	UP000005623	11723	Representative	315	25081	99.68253968253968	18.691439735257763
 11746	Jaagsiekte sheep retrovirus	UP000118907	11746	Other	1	1	100.0	100.0
 11757	Mouse mammary tumor virus	UP000228400	11758	Reference	4	30	100.0	96.66666666666669
-11768	Feline leukemia virus	UP000120560	11768	Other	2	19	100.0	63.1578947368421
+11768	Feline leukemia virus	UP000120560	11768	Other	3	21	100.0	61.90476190476191
 11780	Snyder-Theilen feline sarcoma virus		11780	All-proteins	1	1	100.0	100.0
-11786	Murine leukemia virus	UP000006625	928306	Reference	39	163	94.87179487179486	24.539877300613497
+11786	Murine leukemia virus	UP000006625	928306	Reference	40	164	92.5	24.390243902439025
 11809	Moloney murine sarcoma virus	UP000108184	11809	Other	1	4	100.0	0.0
 11827	Human endogenous retrovirus	UP000147721	228277	Representative	4	12	75.0	8.333333333333332
 11855	Mason-Pfizer monkey virus	UP000007228	11942	Other	2	7	100.0	57.14285714285714
-11864	Avian leukosis virus	UP000002238	363745	Reference	10	14	90.0	21.428571428571427
+11864	Avian leukosis virus	UP000002238	363745	Reference	11	17	90.9090909090909	17.647058823529413
 11886	Rous sarcoma virus	UP000007183	11888	Other	3	10	100.0	100.0
 11901	Bovine leukemia virus	UP000202838	11901	Representative	13	464	100.0	67.88793103448276
 11966	Aids-associated retrovirus		11966	All-proteins	1	2	100.0	100.0
-11976	Rabbit hemorrhagic disease virus	UP000000413	314536	Reference	2	17	100.0	76.47058823529412
+11976	Rabbit hemorrhagic disease virus	UP000000413	314536	Reference	4	19	100.0	73.68421052631578
 11978	Feline calicivirus	UP000001098	292349	Reference	5	63	100.0	30.15873015873016
-11983	Norwalk virus	UP000000826	524364	Reference	84	447	100.0	27.29306487695749
+11983	Norwalk virus	UP000000826	524364	Reference	91	926	100.0	13.498920086393088
 12064	Enterovirus E	UP000006566	12065	Other	4	19	100.0	84.21052631578947
 12092	Hepatovirus A	UP000006724	12098	Reference	23	636	100.0	88.0503144654088
-12110	Foot-and-mouth disease virus	UP000000682	649897	Reference	97	1402	100.0	31.31241084165478
+12110	Foot-and-mouth disease virus	UP000000682	649897	Reference	120	1834	100.0	34.405670665212654
 12161	Beet yellows virus	UP000000359	478555	Representative	1	4	100.0	100.0
 12162	Citrus tristeza virus	UP000204414	12162	Representative	3	7	100.0	0.0
 12211	Plum pox virus	UP000006685	12213	Other	2	2	100.0	100.0
 12216	Potato virus Y	UP000000520	12219	Reference	4	10	100.0	80.0
 12232	Zucchini yellow mosaic virus	UP000008610	117128	Other	1	1	100.0	100.0
-12242	Tobacco mosaic virus	UP000000522	12243	Representative	11	230	100.0	97.82608695652172
+12242	Tobacco mosaic virus	UP000000522	12243	Representative	12	232	91.66666666666666	96.98275862068964
 12305	Cucumber mosaic virus	UP000002502	12307	Representative	2	7	100.0	100.0
-12455	Borna disease virus	UP000007804	928296	Representative	9	30	100.0	96.66666666666669
+12455	Borna disease virus	UP000007804	928296	Representative	10	36	100.0	94.44444444444444
 12475	Hepatitis delta virus	UP000006675	31762	Representative	30	368	100.0	37.22826086956522
 12480	African green monkey polyomavirus	UP000173801	10574	Representative	1	1	100.0	100.0
 12639	Duck hepatitis B virus	UP000007203	489543	Representative	10	296	100.0	80.74324324324324
@@ -650,7 +650,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 28172	Vibrio metschnikovii	UP000005604	675813	Other	1	1	100.0	100.0
 28197	Aliarcobacter butzleri	UP000001136	367737	Representative	1	1	100.0	100.0
 28227	Malacoplasma penetrans	UP000002522	272633	Representative	3	71	100.0	92.95774647887325
-28295	Porcine epidemic diarrhea virus	UP000110085	28295	Representative	23	261	100.0	56.70498084291188
+28295	Porcine epidemic diarrhea virus	UP000110085	28295	Representative	26	442	100.0	70.58823529411765
 28300	Heron hepatitis B virus	UP000008679	28300	Other	1	1	100.0	100.0
 28327	Murine rotavirus	UP000141373	28327	Representative	3	44	100.0	88.63636363636364
 28375	Soil-borne wheat mosaic virus	UP000009270	652673	Representative	1	1	100.0	100.0
@@ -661,8 +661,8 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 28869	Ovine respiratory syncytial virus		28869	All-proteins	1	1	100.0	100.0
 28871	Taterapox virus	UP000139570	28871	Other	3	5	100.0	100.0
 28873	Camelpox virus	UP000107153	203172	Representative	65	169	100.0	100.0
-28875	Rotavirus A	UP000006581	10962	Representative	71	253	100.0	56.52173913043478
-28901	Salmonella enterica	UP000001014	99287	Representative	518	645	94.5945945945946	73.64341085271317
+28875	Rotavirus A	UP000006581	10962	Representative	72	257	100.0	55.6420233463035
+28901	Salmonella enterica	UP000001014	99287	Representative	520	655	94.6153846153846	73.89312977099237
 28903	Mycoplasmopsis bovis	UP000008713	289397	Non-redundant	4	12	100.0	100.0
 28909	Cynodon dactylon		28909	All-proteins	9	171	100.0	93.56725146198828
 29073	Ursus maritimus	UP000261680	29073	Representative	1	1	100.0	100.0
@@ -753,7 +753,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 36911	Clavispora lusitaniae	UP000007703	306902	Representative	1	1	100.0	100.0
 36914	Lodderomyces elongisporus	UP000001996	379508	Representative	2	3	50.0	33.33333333333333
 36936	Lepidoglyphus destructor		36936	All-proteins	3	24	100.0	58.333333333333336
-37124	Chikungunya virus	UP000000569	371094	Reference	51	2139	100.0	71.43525011687704
+37124	Chikungunya virus	UP000000569	371094	Reference	55	2241	100.0	70.90584560464079
 37128	Potato mop-top virus	UP000006715	652839	Representative	1	8	100.0	62.5
 37207	Rio Segundo hantavirus		37207	All-proteins	1	1	100.0	100.0
 37326	Nocardia brasiliensis	UP000006304	1133849	Representative	1	7	100.0	100.0
@@ -764,7 +764,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 37769	Cryptococcus gattii VGI	UP000007805	367775	Non-redundant	1	1	100.0	100.0
 38020	marmosets		38020	All-proteins	1	2	100.0	0.0
 38033	Chaetomium globosum	UP000001056	306901	Representative	1	1	100.0	100.0
-38170	Avian orthoreovirus	UP000100541	38170	Representative	6	29	100.0	79.3103448275862
+38170	Avian orthoreovirus	UP000100541	38170	Representative	10	90	100.0	28.88888888888889
 38289	Corynebacterium jeikeium	UP000000545	306537	Representative	1	1	100.0	100.0
 38323	Bartonella henselae	UP000000421	283166	Non-redundant	2	2	100.0	100.0
 38873	Fraxinus excelsior		38873	All-proteins	1	6	100.0	100.0
@@ -776,7 +776,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 39803	Qubevirus durum	UP000310443	39803	Representative	1	2	100.0	100.0
 39950	Dialister pneumosintes	UP000094757	39950	Non-redundant	2	2	100.0	100.0
 40050	African horse sickness virus	UP000146235	40050	Representative	16	73	93.75	63.013698630136986
-40051	Bluetongue virus	UP000112999	45029	Representative	30	132	93.33333333333331	64.39393939393939
+40051	Bluetongue virus	UP000112999	45029	Representative	33	138	93.93939393939394	63.04347826086957
 40214	Acinetobacter johnsonii	UP000012047	575586	Non-redundant	1	1	100.0	100.0
 40216	Acinetobacter radioresistens	UP000314285	40216	Non-redundant	1	1	100.0	100.0
 40324	Stenotrophomonas maltophilia	UP000008840	522373	Representative	1	1	100.0	0.0
@@ -809,7 +809,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 46771	Simian virus 12	UP000130309	46771	Other	1	1	100.0	100.0
 46835	Fasciola gigantica	UP000316759	46835	Representative	3	4	100.0	75.0
 46920	Rio Mamore hantavirus	UP000125085	46920	Other	5	7	100.0	71.42857142857143
-47000	Equine rhinitis A virus	UP000100919	47000	Other	1	1	100.0	100.0
+47000	Equine rhinitis A virus	UP000100919	47000	Other	3	6	100.0	66.66666666666666
 47466	Borrelia miyamotoi	UP000176410	47466	Non-redundant	16	81	93.75	54.32098765432099
 47770	Lactobacillus crispatus	UP000002371	748671	Non-redundant	1	2	100.0	100.0
 47845	Brachybacterium alimentarium	UP000218598	47845	Representative	15	15	100.0	100.0
@@ -902,10 +902,10 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 83262	Mycobacteroides immunogenum	UP000037843	83262	Non-redundant	1	5	100.0	100.0
 83455	Myxococcus stipitatus	UP000011131	1278073	Other	1	1	100.0	100.0
 83554	Chlamydia psittaci	UP000229171	83554	Non-redundant	25	134	100.0	53.73134328358209
-83555	Chlamydia abortus	UP000001012	218497	Non-redundant	23	74	100.0	100.0
+83555	Chlamydia abortus	UP000001012	218497	Non-redundant	25	85	100.0	98.82352941176472
 83556	Chlamydia felis	UP000001260	264202	Other	9	30	100.0	100.0
 83557	Chlamydia caviae	UP000002193	227941	Other	6	21	100.0	100.0
-83558	Chlamydia pneumoniae	UP000000583	83558	Non-redundant	74	386	100.0	91.45077720207254
+83558	Chlamydia pneumoniae	UP000000583	83558	Non-redundant	77	393	100.0	91.6030534351145
 83559	Chlamydia suis	UP000512184	83559	Non-redundant	16	45	100.0	26.666666666666668
 83560	Chlamydia muridarum	UP000000800	243161	Non-redundant	68	118	100.0	99.15254237288136
 83810	Thosea asigna virus		83810	All-proteins	1	2	100.0	100.0
@@ -990,9 +990,9 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 136966	SEN virus		136966	All-proteins	3	7	100.0	100.0
 138072	Candidatus Hamiltonella defensa	UP000216438	672795	Representative	1	1	100.0	100.0
 138336	Blastococcus saxobsidens	UP000007517	1146883	Representative	1	1	100.0	100.0
-138948	Enterovirus A	UP000150761	39054	Other	49	538	100.0	60.4089219330855
-138949	Enterovirus B	UP000007531	103906	Other	37	418	100.0	56.45933014354066
-138950	Enterovirus C	UP000000356	12081	Reference	20	353	100.0	39.376770538243626
+138948	Enterovirus A	UP000150761	39054	Other	58	802	100.0	59.47630922693266
+138949	Enterovirus B	UP000007531	103906	Other	38	436	100.0	54.12844036697248
+138950	Enterovirus C	UP000000356	12081	Reference	21	360	100.0	39.72222222222222
 138951	Enterovirus D	UP000115624	42789	Other	5	22	100.0	40.909090909090914
 139445	Limestone Canyon virus		139445	All-proteins	2	23	100.0	100.0
 145262	Methanothermobacter thermautotrophicus	UP000005223	187420	Representative	2	2	100.0	100.0
@@ -1096,7 +1096,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 308159	Araucaria virus		308159	All-proteins	3	26	100.0	100.0
 310542	Chimpanzee adenovirus		310542	All-proteins	1	5	100.0	0.0
 311410	Roseibium album	UP000049983	311410	Representative	1	1	100.0	0.0
-312185	Erbovirus A	UP000000405	650131	Reference	2	6	100.0	100.0
+312185	Erbovirus A	UP000000405	650131	Reference	5	18	100.0	33.33333333333333
 312306	Pseudomonas entomophila	UP000000658	384676	Other	1	1	100.0	100.0
 313589	Janibacter sp. HTCC2649	UP000005063	313589	Representative	1	1	100.0	100.0
 313627	Bacillus sp. NRRL B-14911	UP000004554	313627	Other	2	2	100.0	100.0
@@ -1158,7 +1158,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 387093	Sulfurovum sp. NBC37-1	UP000006378	387093	Other	1	1	100.0	100.0
 387661	Parabacteroides johnsonii	UP000001218	999419	Representative	1	1	100.0	100.0
 388634	Bombyx mandarina nuclear polyhedrosis virus		388634	All-proteins	1	1	100.0	100.0
-390157	Senecavirus A	UP000000672	686944	Reference	6	57	100.0	78.94736842105263
+390157	Senecavirus A	UP000000672	686944	Reference	7	141	100.0	76.59574468085107
 392734	Terriglobus roseus	UP000006056	926566	Representative	1	1	100.0	100.0
 393662	Congregibacter litoralis	UP000019205	314285	Representative	1	1	100.0	100.0
 402648	Streptomyces hainanensis	UP000295345	402648	Representative	1	1	100.0	100.0
@@ -1222,9 +1222,9 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 687362	Torque teno virus 23	UP000232667	687362	Other	1	2	100.0	100.0
 687366	Torque teno virus 27	UP000007551	687366	Representative	1	5	100.0	100.0
 687367	Torque teno virus 28	UP000160062	687367	Representative	2	3	100.0	100.0
-691956	Avihepatovirus A	UP000000404	693992	Reference	1	1	100.0	100.0
+691956	Avihepatovirus A	UP000000404	693992	Reference	2	4	100.0	75.0
 693153	Vibrio atlanticus	UP000009100	575788	Other	1	1	100.0	100.0
-693997	Alphacoronavirus 1	UP000000835	33734	Representative	48	190	100.0	48.94736842105264
+693997	Alphacoronavirus 1	UP000000835	33734	Representative	52	309	100.0	37.86407766990291
 693998	Rhinolophus bat coronavirus HKU2	UP000166619	693998	Representative	1	2	100.0	100.0
 693999	Scotophilus bat coronavirus 512	UP000113079	693999	Other	1	1	100.0	100.0
 694003	Betacoronavirus 1	UP000007552	31631	Representative	740	33323	98.91891891891892	49.32929208054497
@@ -1233,7 +1233,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 694007	Tylonycteris bat coronavirus HKU4	UP000006574	694007	Representative	3	4	100.0	100.0
 694008	Pipistrellus bat coronavirus HKU5	UP000007451	694008	Representative	3	3	100.0	100.0
 694009	Severe acute respiratory syndrome-related coronavirus	UP000464024	2697049	Representative	386	45477	98.70466321243524	71.8451085163929
-694014	Avian coronavirus	UP000006717	11122	Representative	22	104	100.0	26.923076923076923
+694014	Avian coronavirus	UP000006717	11122	Representative	26	115	100.0	24.347826086956523
 696859	Murine mastadenovirus C	UP000141842	573199	Other	1	1	100.0	100.0
 696863	Sprivivirus cyprinus	UP000007541	696863	Representative	1	1	100.0	100.0
 708187	Colletotrichum chlorophyti	UP000186583	708187	Representative	1	1	100.0	100.0
@@ -1275,8 +1275,8 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 1218488	Torque teno sus virus k2		1218488	All-proteins	1	11	100.0	0.0
 1223514	Corynebacterium humireducens	UP000031524	1223515	Representative	11	11	100.0	100.0
 1236180	Halopelagius longus	UP000199289	1236180	Other	1	1	100.0	100.0
-1239565	Mamastrovirus 1	UP000001650	12456	Reference	3	4	100.0	0.0
-1239567	Mamastrovirus 3	UP000120357	1239567	Other	1	3	100.0	66.66666666666666
+1239565	Mamastrovirus 1	UP000001650	12456	Reference	1	2	100.0	0.0
+1239567	Mamastrovirus 3	UP000120357	1239567	Other	2	5	100.0	80.0
 1263102	Prevotella copri CAG:164	UP000018361	1263102	Representative	1	3	100.0	100.0
 1268303	Rhodococcus sp. AW25M09	UP000011207	1268303	Other	2	2	100.0	100.0
 1281454	Rodent hepacivirus	UP000297098	1281454	Other	4	23	50.0	73.91304347826086
@@ -1309,7 +1309,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 1566298	Paraiso Escondido virus	UP000147468	1566298	Other	1	1	100.0	100.0
 1574408	Cervus canadensis		1574408	All-proteins	2	4	100.0	100.0
 1631247	Mesorhizobium delmotii	UP000245698	1631247	Other	8	11	100.0	100.0
-1678143	Paslahepevirus balayani	UP000006705	652674	Reference	107	2166	99.06542056074768	58.49492151431209
+1678143	Paslahepevirus balayani	UP000006705	652674	Reference	108	2176	99.07407407407408	58.50183823529412
 1678144	Avihepevirus magniiecur	UP000159379	1678144	Other	4	22	100.0	86.36363636363636
 1737357	Rhizobium wenxiniae	UP000547879	1737357	Non-redundant	1	1	100.0	100.0
 1776082	Shigella genomosp. SF-2015		1776082	All-proteins	1	1	0.0	0.0
@@ -1337,12 +1337,12 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 1898203	Lachnospiraceae bacterium	UP000191179	1898203	Representative	2	4	50.0	0.0
 1906674	Betanodavirus sp.		1906674	All-proteins	1	3	100.0	100.0
 1913988	Alphaproteobacteria bacterium	UP000291202	1913988	Representative	1	1	100.0	0.0
-1965089	Coronavirus HKU15	UP000115701	1586324	Representative	3	6	100.0	83.33333333333334
+1965089	Coronavirus HKU15	UP000115701	1586324	Representative	6	10	100.0	70.0
 1965093	Hedgehog coronavirus 1	UP000101546	1385427	Representative	1	1	100.0	100.0
 1972577	Vesiculovirus indiana	UP000002327	11285	Representative	10	88	100.0	94.31818181818184
 1977402	Inovirus M13	UP000001836	2847073	Representative	3	3	100.0	100.0
 1978231	Acidobacteriota bacterium	UP000588066	1978231	Representative	1	1	100.0	0.0
-1980456	Orthohantavirus andesense	UP000204348	1980456	Representative	39	190	100.0	98.42105263157896
+1980456	Orthohantavirus andesense	UP000204348	1980456	Representative	40	348	100.0	92.81609195402298
 1980916	Novirhabdovirus piscine	UP000154838	11287	Representative	3	17	100.0	35.294117647058826
 1980917	Novirhabdovirus salmonid	UP000007212	429314	Representative	1	8	100.0	100.0
 1982365	Predatorvirus predator	UP000000621	543153	Representative	1	1	100.0	100.0
@@ -1392,7 +1392,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 2599941	Oligoflexia bacterium	UP000610699	2599941	Representative	1	1	100.0	0.0
 2678873	Trimerodytes annularis		2678873	All-proteins	1	1	100.0	100.0
 2707005	Paenibacillus lutimineralis	UP000270678	2707005	Representative	1	1	100.0	100.0
-2708335	Pangolin coronavirus		2708335	All-proteins	10	4568	100.0	100.0
+2708335	Pangolin coronavirus		2708335	All-proteins	11	4570	100.0	100.0
 2748958	Bandavirus dabieense	UP000201130	992212	Representative	1	1	100.0	100.0
 2770637	Aestuariibaculum sediminum	UP000600588	2770637	Other	1	1	100.0	100.0
 2843841	Betatristromavirus TTV1	UP000009250	10480	Representative	1	2	100.0	100.0
@@ -1407,7 +1407,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 2955935	Gammainfluenzavirus influenzae	UP000008286	11553	Representative	5	18	100.0	83.33333333333334
 2978683	Burkholderia orbicola	UP000002169	406425	Non-redundant	7	7	100.0	85.71428571428571
 3042615	Paraglaciecola sp. T6c	UP000233828	2058332	Representative	1	1	100.0	0.0
-3046277	Orthoflavivirus flavi	UP000000360	11090	Reference	105	4734	100.0	73.89100126742713
+3046277	Orthoflavivirus flavi	UP000000360	11090	Reference	106	4737	100.0	73.86531560059109
 3047383	Alphabaculovirus aucalifonicae	UP000008292	46015	Representative	1	1	100.0	100.0
 3047386	Badnavirus alphavirgamusae	UP000208078	328670	Representative	1	23	100.0	100.0
 3047387	Badnavirus betavirgamusae	UP000207691	1016853	Representative	1	23	100.0	100.0
@@ -1421,17 +1421,17 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 3047771	Comovirus vignae	UP000008589	928299	Reference	1	1	100.0	100.0
 3047852	Nepovirus foliumflabelli	UP000009160	12274	Other	1	1	100.0	100.0
 3047947	Alphabaculovirus helarmigerae	UP000202587	51313	Representative	1	2	100.0	100.0
-3048148	Metapneumovirus hominis	UP000150552	162145	Representative	32	240	100.0	91.25
+3048148	Metapneumovirus hominis	UP000150552	162145	Representative	57	321	100.0	89.09657320872275
 3048151	Avibirnavirus gumboroense	UP000107661	10995	Representative	7	26	100.0	88.46153846153845
 3048153	Aquabirnavirus salmonidae		3048153	All-proteins	1	1	0.0	0.0
-3048158	Orthoflavivirus japonicum	UP000160671	11072	Other	57	1254	100.0	89.55342902711324
+3048158	Orthoflavivirus japonicum	UP000160671	11072	Other	58	1260	100.0	89.44444444444444
 3048170	Orthoflavivirus kyasanurense	UP000097483	172148	Other	1	5	100.0	100.0
 3048175	Orthoflavivirus langatense	UP000007766	31638	Other	1	1	100.0	100.0
 3048184	Orthoflavivirus loupingi	UP000296935	11086	Other	1	1	100.0	100.0
 3048215	Orthoflavivirus murrayense	UP000008863	301478	Other	9	54	100.0	98.14814814814817
 3048269	Tymovirus physalis	UP000204435	72539	Other	1	2	100.0	100.0
-3048278	Circovirus porcine1	UP000180335	133704	Representative	4	7	100.0	14.285714285714285
-3048279	Circovirus porcine2	UP000000470	85708	Representative	41	112	68.29268292682927	32.142857142857146
+3048278	Circovirus porcine1	UP000180335	133704	Representative	5	22	100.0	50.0
+3048279	Circovirus porcine2	UP000000470	85708	Representative	43	131	67.44186046511628	38.93129770992366
 3048280	Circovirus porcine3	UP000287927	1868221	Representative	1	4	100.0	100.0
 3048287	Orthoflavivirus powassanense	UP000096423	11083	Other	2	13	100.0	100.0
 3048308	Orthoflavivirus saboyaense	UP000112648	64314	Other	1	1	100.0	100.0
@@ -1461,12 +1461,12 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 3048429	Alphatorquevirus homin4	UP000007553	687343	Representative	1	6	100.0	100.0
 3048431	Alphatorquevirus homin6	UP000008258	687345	Representative	1	2	100.0	100.0
 3048432	Alphatorquevirus homin7	UP000172761	687346	Representative	1	3	100.0	100.0
-3048448	Orthoflavivirus nilense	UP000096925	1968826	Other	50	1266	100.0	89.96840442338072
-3048459	Orthoflavivirus zikaense	UP000054557	64320	Reference	79	5486	100.0	65.14764855997083
+3048448	Orthoflavivirus nilense	UP000096925	1968826	Other	55	1476	100.0	85.77235772357723
+3048459	Orthoflavivirus zikaense	UP000054557	64320	Reference	82	6215	100.0	64.4569589702333
 3049952	Respirovirus laryngotracheitidis	UP000165616	12730	Representative	2	13	100.0	84.61538461538461
 3049953	Respirovirus pneumoniae	UP000162202	11216	Representative	5	43	100.0	74.4186046511628
 3049954	Orthopneumovirus hominis	UP000134464	11259	Representative	129	2829	100.0	90.91551785083068
-3050243	Varicellovirus bovinealpha1	UP000144590	10320	Representative	33	89	100.0	86.51685393258427
+3050243	Varicellovirus bovinealpha1	UP000144590	10320	Representative	34	90	100.0	86.66666666666667
 3050245	Varicellovirus bovinealpha5	UP000105204	35244	Other	2	2	100.0	50.0
 3050246	Rhadinovirus bovinegamma4	UP000109731	10385	Representative	1	1	100.0	0.0
 3050248	Orthopneumovirus bovis	UP000128003	11246	Other	14	759	100.0	77.60210803689066
@@ -1476,7 +1476,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 3050258	Cytomegalovirus cercopithecinebeta5	UP000116555	50292	Representative	1	1	100.0	100.0
 3050276	Varicellovirus equidalpha1	UP000001189	31520	Representative	75	666	100.0	99.84984984984985
 3050278	Varicellovirus equidalpha4	UP000009245	10333	Other	3	6	100.0	100.0
-3050281	Percavirus equidgamma2	UP000007083	82831	Representative	1	1	100.0	100.0
+3050281	Percavirus equidgamma2	UP000007083	82831	Representative	2	2	50.0	50.0
 3050287	Mardivirus gallidalpha2	UP000008072	10389	Representative	22	89	100.0	100.0
 3050292	Simplexvirus humanalpha1	UP000009294	10299	Representative	236	1752	99.57627118644068	94.57762557077626
 3050293	Simplexvirus humanalpha2	UP000001874	10315	Representative	138	3495	100.0	97.88268955650928
@@ -1491,31 +1491,31 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 3050308	Cytomegalovirus macacinebeta3	UP000101154	47929	Representative	7	268	100.0	97.01492537313432
 3050314	Lymphocryptovirus macacinegamma4	UP000201521	45455	Other	2	67	100.0	100.0
 3050315	Rhadinovirus macacinegamma5	UP000122166	83534	Representative	1	1	100.0	0.0
-3050323	Muromegalovirus muridbeta1	UP000122533	10366	Representative	86	810	97.67441860465117	92.46913580246914
-3050327	Rhadinovirus muridgamma4	UP000099649	33708	Representative	44	61	97.72727272727272	98.36065573770492
+3050323	Muromegalovirus muridbeta1	UP000122533	10366	Representative	89	814	97.75280898876404	92.26044226044226
+3050327	Rhadinovirus muridgamma4	UP000099649	33708	Representative	52	78	98.07692307692308	98.71794871794872
 3050329	Orthopneumovirus muris	UP000149165	270473	Representative	18	122	100.0	100.0
 3050334	Cytomegalovirus paninebeta2	UP000099188	188763	Representative	4	4	100.0	100.0
 3050350	Rhadinovirus saimiriinegamma2	UP000000587	10383	Representative	4	5	100.0	100.0
 3050355	Varicellovirus suidalpha1	UP000154030	10345	Representative	13	110	100.0	95.45454545454544
-3051375	Orthoavulavirus javaense	UP000133442	2560319	Representative	23	137	100.0	86.86131386861314
+3051375	Orthoavulavirus javaense	UP000133442	2560319	Representative	32	698	100.0	92.97994269340974
 3051624	Amdoparvovirus carnivoran1	UP000008470	10783	Reference	4	16	100.0	75.0
 3051991	Bandavirus guertuense	UP000297151	1763596	Other	1	192	100.0	100.0
 3052040	Bocaparvovirus primate1	UP000140113	689403	Reference	2	14	100.0	57.14285714285714
 3052041	Bocaparvovirus primate2	UP000098414	573977	Other	1	4	100.0	100.0
-3052189	Erythroparvovirus primate1	UP000006624	648237	Reference	11	353	100.0	89.23512747875354
+3052189	Erythroparvovirus primate1	UP000006624	648237	Reference	12	354	100.0	89.26553672316385
 3052195	Etatorquevirus felid1	UP000008781	766188	Representative	1	1	100.0	100.0
 3052223	Henipavirus hendraense	UP000008771	928303	Representative	6	13	100.0	100.0
 3052225	Henipavirus nipahense	UP000002330	121791	Other	5	28	100.0	100.0
-3052230	Hepacivirus hominis	UP000000518	63746	Reference	1281	17416	100.0	30.604042259990816
+3052230	Hepacivirus hominis	UP000000518	63746	Reference	1282	17583	100.0	30.546550645509868
 3052236	Hepacivirus platyrrhini	UP000114117	2847087	Other	1	8	100.0	100.0
 3052237	Hepacivirus ratti		3052237	All-proteins	5	7	100.0	100.0
 3052294	Luteovirus pavhordei	UP000006722	2169986	Representative	1	1	100.0	0.0
 3052296	Mammarenavirus amapariense	UP000127390	2886894	Other	2	3	100.0	100.0
 3052299	Mammarenavirus brazilense	UP000009267	2169992	Other	14	991	100.0	99.89909182643795
 3052300	Mammarenavirus caliense		3052300	All-proteins	4	13	0.0	0.0
-3052303	Mammarenavirus choriomeningitidis	UP000002474	11624	Representative	54	3626	100.0	88.16878102592388
+3052303	Mammarenavirus choriomeningitidis	UP000002474	11624	Representative	56	3674	100.0	88.18726183995645
 3052304	Mammarenavirus cupixiense	UP000008164	208899	Other	1	1	100.0	100.0
-3052307	Mammarenavirus guanaritoense	UP000147629	45219	Other	21	943	100.0	98.72746553552491
+3052307	Mammarenavirus guanaritoense	UP000147629	45219	Other	22	944	100.0	98.6228813559322
 3052310	Mammarenavirus lassaense	UP000002473	11622	Representative	75	1529	100.0	72.5310660562459
 3052317	Mammarenavirus machupoense	UP000233880	11628	Other	35	904	100.0	90.59734513274336
 3052320	Mammarenavirus mopeiaense	UP000119238	11629	Other	2	17	100.0	100.0
@@ -1524,10 +1524,10 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 3052325	Mammarenavirus praomyidis	UP000140987	55097	Other	1	1	100.0	100.0
 3052328	Mammarenavirus tacaribeense	UP000008026	928313	Representative	7	123	100.0	98.3739837398374
 3052331	Mammarenavirus whitewaterense	UP000009268	46919	Representative	9	393	100.0	93.38422391857506
-3052342	Morbillivirus canis	UP000007634	11233	Representative	21	147	100.0	82.31292517006803
-3052343	Morbillivirus caprinae	UP000180906	31604	Representative	9	45	100.0	82.22222222222221
+3052342	Morbillivirus canis	UP000007634	11233	Representative	23	151	100.0	81.45695364238411
+3052343	Morbillivirus caprinae	UP000180906	31604	Representative	15	215	100.0	64.18604651162791
 3052345	Morbillivirus hominis	UP000000833	11235	Representative	49	750	100.0	96.0
-3052346	Morbillivirus pecoris	UP000008654	36409	Representative	5	47	100.0	93.61702127659576
+3052346	Morbillivirus pecoris	UP000008654	36409	Representative	8	56	100.0	78.57142857142857
 3052390	Orthobunyavirus encephalitidis	UP000267394	35305	Other	1	1	100.0	0.0
 3052409	Orthobunyavirus lacrosseense	UP000008768	796210	Representative	2	4	100.0	100.0
 3052437	Orthobunyavirus schmallenbergense	UP000141581	1133363	Representative	3	8	100.0	100.0
@@ -1536,27 +1536,27 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 3052460	Orthoebolavirus sudanense	UP000000277	386033	Other	18	464	100.0	90.08620689655172
 3052461	Orthoebolavirus taiense	UP000100390	186541	Other	4	6	100.0	100.0
 3052462	Orthoebolavirus zairense	UP000007209	128952	Representative	93	2821	100.0	95.53349875930522
-3052464	Orthoflavivirus denguei	UP000002500	11059	Reference	1185	19012	100.0	20.67641489585525
-3052465	Orthoflavivirus encephalitidis	UP000007402	11088	Other	24	323	100.0	96.59442724458204
+3052464	Orthoflavivirus denguei	UP000002500	11059	Reference	1195	19450	100.0	20.426735218509
+3052465	Orthoflavivirus encephalitidis	UP000007402	11088	Other	25	326	100.0	96.62576687116564
 3052468	Orthoflavivirus louisense	UP000156857	11080	Other	6	21	100.0	57.14285714285714
 3052470	Orthohantavirus bayoui	UP000136583	1980459	Other	1	1	100.0	100.0
 3052474	Orthohantavirus chocloense	UP000243631	169173	Other	4	19	100.0	100.0
 3052476	Orthohantavirus delgaditoense	UP000124236	1980463	Other	1	2	100.0	100.0
 3052477	Orthohantavirus dobravaense	UP000202548	1980467	Other	5	28	100.0	100.0
-3052480	Orthohantavirus hantanense	UP000008627	11602	Representative	28	499	100.0	95.99198396793588
+3052480	Orthohantavirus hantanense	UP000008627	11602	Representative	27	498	100.0	96.18473895582328
 3052483	Orthohantavirus khabarovskense	UP000105174	1980475	Other	2	2	100.0	50.0
 3052485	Orthohantavirus maporalense	UP000130449	238817	Other	2	6	100.0	100.0
 3052486	Orthohantavirus montanoense	UP000111004	1980481	Other	1	3	100.0	66.66666666666666
 3052487	Orthohantavirus moroense	UP000243187	1980468	Other	1	2	100.0	100.0
 3052489	Orthohantavirus negraense	UP000232894	1980476	Other	4	19	100.0	15.789473684210526
 3052492	Orthohantavirus prospectense	UP000242194	1980485	Other	3	4	100.0	75.0
-3052493	Orthohantavirus puumalaense	UP000110237	39002	Representative	17	289	100.0	97.2318339100346
+3052493	Orthohantavirus puumalaense	UP000110237	39002	Representative	20	476	100.0	85.71428571428571
 3052496	Orthohantavirus sangassouense	UP000170858	1980489	Other	4	12	100.0	100.0
 3052498	Orthohantavirus seoulense	UP000207620	12557	Other	7	18	100.0	100.0
 3052499	Orthohantavirus sinnombreense	UP000113911	1980491	Other	15	72	100.0	97.2222222222222
 3052503	Orthohantavirus tulaense	UP000243699	1980494	Other	4	31	100.0	100.0
 3052505	Orthomarburgvirus marburgense	UP000007772	33728	Representative	38	456	100.0	84.64912280701753
-3052518	Orthonairovirus haemorrhagiae	UP000108063	1980519	Representative	30	633	100.0	48.49921011058452
+3052518	Orthonairovirus haemorrhagiae	UP000108063	1980519	Representative	31	635	100.0	48.66141732283464
 3052557	Orthorubulavirus laryngotracheitidis	UP000000472	11214	Representative	2	12	100.0	100.0
 3052558	Orthorubulavirus mammalis	UP000007232	11208	Representative	3	3	100.0	100.0
 3052560	Orthorubulavirus parotitidis	UP000002331	11171	Representative	51	152	100.0	76.31578947368422
@@ -1565,10 +1565,10 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 3052585	Orthotospovirus tomatomaculae	UP000006674	36413	Representative	1	1	100.0	100.0
 3052599	Pararubulavirus menangleense	UP000144543	152219	Representative	1	2	100.0	0.0
 3052608	Pegivirus hominis	UP000137011	54290	Other	6	16	83.33333333333334	68.75
-3052619	Pestivirus bovis	UP000002317	11100	Reference	15	1217	100.0	41.49548069022186
+3052619	Pestivirus bovis	UP000002317	11100	Reference	16	1219	100.0	41.42739950779328
 3052622	Pestivirus ovis	UP000106705	358764	Other	1	1	100.0	0.0
 3052624	Pestivirus scrofae	UP000138377	1689785	Other	1	3	100.0	100.0
-3052625	Pestivirus suis	UP000148997	11096	Other	17	158	100.0	84.81012658227847
+3052625	Pestivirus suis	UP000148997	11096	Other	18	244	100.0	78.68852459016394
 3052626	Pestivirus tauri	UP000099428	54315	Other	1	2	100.0	50.0
 3052676	Phlebovirus riftense	UP000002477	11589	Representative	10	122	100.0	90.1639344262295
 3052686	Phlebovirus toscanaense	UP000167928	11590	Representative	1	3	100.0	0.0
@@ -1601,7 +1601,7 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 11241	Rinderpest morbillivirus (Rinderpest virus)	UP000008654	36409	Representative	8	56	100.0	78.57142857142857
 11263	Murine orthopneumovirus (Murine pneumonia virus)	UP000149165	270473	Representative	18	122	100.0	100.0
 11269	Marburg marburgvirus (Lake Victoria marburgvirus)	UP000007772	33728	Representative	25	320	100.0	79.6875
-11320	Influenza A virus	UP000009255	211044	Representative	1243	12524	100.0	51.72468859789204
+11320	Influenza A virus	UP000009255	211044	Representative	1249	12625	100.0	51.38217821782178
 11520	Influenza B virus (Influenza virus type B)	UP000113189	1296981	Representative	111	741	99.09909909909908	66.80161943319838
 11552	Influenza C virus (Influenza C viruses)	UP000008286	11553	Representative	5	18	100.0	83.33333333333334
 11620	Lassa mammarenavirus (Lassa virus)	UP000002473	11622	Representative	10	714	100.0	94.39775910364143
@@ -1666,3 +1666,5 @@ Species Taxon ID	Species Name	Proteome ID	Proteome Taxon	Proteome Type	Source Co
 2846480	Torque teno felid virus 1	UP000008781	766188	Representative	1	1	100.0	100.0
 10002316	SARS-CoV1		10002316	All-proteins	376	51932	1.5957446808510638	0.0
 10002383	Other SARS		10002383	All-proteins	30	3905	0.0	0.0
+3047813	Circovirus duck		3047813	All-proteins	1	1	0.0	0.0
+3052347	Morbillivirus phocae		3052347	All-proteins	2	3	0.0	0.0
