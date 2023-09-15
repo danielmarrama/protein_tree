@@ -46,7 +46,14 @@ def sources(species_path) -> Path:
 @pytest.fixture(scope='session', autouse=True)
 def cleanup_after_all_tests():
   yield
-  for file in glob.glob(str(data_path / 'species' / '**' / '*proteome*'), recursive=True):
+
+  file_names = ['*proteome*', '*ARC_results*']
+  files_to_remove = []
+  for name in file_names:
+    path = data_path / 'species' / '**' / name
+    files_to_remove.extend(glob.glob(str(path), recursive=True))
+
+  for file in files_to_remove:
     os.remove(file)
 
 
