@@ -354,7 +354,8 @@ class ProteomeSelector:
 
 
 def run(
-  taxon_id: int, all_taxa: list, species_name: str, metrics_df: pd.DataFrame
+  taxon_id: int, all_taxa: list, species_path: Path, species_name: str, 
+  metrics_df: pd.DataFrame
 ) -> None:
   """Run the proteome selection process for a species.
   
@@ -367,10 +368,12 @@ def run(
   from get_data import DataFetcher
 
   Fetcher = DataFetcher()
-  epitopes_df = Fetcher.get_epitopes_for_species(all_taxa)
+  all_epitopes = Fetcher.get_all_epitopes()
+  epitopes_df = Fetcher.get_epitopes_for_species(all_epitopes, all_taxa)
 
   print(f'Selecting best proteome for {species_name} (Taxon ID: {taxon_id}).')
-  Selector = ProteomeSelector(taxon_id, species_name)
+  
+  Selector = ProteomeSelector(taxon_id, species_path)
   print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')
 
   proteome_data = Selector.select_best_proteome(epitopes_df)
@@ -418,9 +421,11 @@ def main():
   all_species = args.all_species
   taxon_id = args.taxon_id
 
-  data_dir = Path(__file__).parent.parent / 'data'
-  species_df = pd.read_csv(data_dir / 'active-pecies.tsv', sep='\t')
-  metrics_df = pd.read_csv(data_dir / 'metrics.tsv', sep='\t')
+  data_path = Path(__file__).parent.parent / 'data'
+  species_path = data_path / 'species' / f'{taxon_id}'
+  
+  species_df = pd.read_csv(data_path / 'active-species.tsv', sep='\t')
+  metrics_df = pd.read_csv(data_path / 'metrics.tsv', sep='\t')
   valid_taxon_ids = species_df['Species ID'].tolist()
 
   all_taxa_map = dict( # map taxon ID to list of all children taxa
@@ -441,7 +446,7 @@ def main():
 
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
       run(
-        taxon_id, all_taxa, species_id_to_name_map[taxon_id], metrics_df
+        taxon_id, all_taxa, species_path, species_id_to_name_map[taxon_id], metrics_df
       )
 
   else: # one species at a time
@@ -449,7 +454,7 @@ def main():
 
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
     run(
-      taxon_id, all_taxa, species_id_to_name_map[taxon_id], metrics_df
+      taxon_id, all_taxa, species_path, species_id_to_name_map[taxon_id], metrics_df
     )
 
 if __name__ == '__main__':

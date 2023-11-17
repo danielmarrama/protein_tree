@@ -210,12 +210,6 @@ def main():
   all_species_taxa = species_df['Species ID'].tolist()
   
   # key, taxa, species name, and group mapppings
-  species_key_map = dict(
-    zip(
-      species_df['Species ID'], 
-      species_df['Species Key']
-    )
-  )
   species_name_map = dict(
     zip(
       species_df['Species ID'],
@@ -252,7 +246,7 @@ def main():
 
   if args.all_species:
     for taxon_id in all_species_taxa:
-      species_path = data_path / 'species' / species_key_map[taxon_id]
+      species_path = data_path / 'species' / f'{taxon_id}'
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
       epitopes_df = Fetcher.get_epitopes_for_species(all_epitopes, all_taxa)
       sources_df = Fetcher.get_sources_for_species(
@@ -269,7 +263,7 @@ def main():
   else: # one species at a time
     taxon_id = args.taxon_id
     assert taxon_id in all_species_taxa, f'{taxon_id} is not a valid taxon ID.'
-    species_path = data_path / 'species' / species_key_map[taxon_id]
+    species_path = data_path / 'species' / f'{taxon_id}'
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
     epitopes_df = Fetcher.get_epitopes_for_species(all_epitopes, all_taxa)
     sources_df = Fetcher.get_sources_for_species(

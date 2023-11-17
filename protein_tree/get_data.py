@@ -9,8 +9,8 @@ from sql_engine import create_sql_engine
 
 
 class DataFetcher:
-  def __init__(self, data_dir = Path(__file__).parent.parent / 'data') -> None:
-    self.data_dir = data_dir
+  def __init__(self, data_path = Path(__file__).parent.parent / 'data') -> None:
+    self.data_path = data_path
     self.sql_engine = create_sql_engine()
 
 
@@ -31,9 +31,9 @@ class DataFetcher:
     allergen_df = pd.read_csv(url)
     
     # write data to TSV files
-    epitopes_df.to_csv(self.data_dir / 'epitopes.tsv', sep='\t', index=False)
-    sources_df.to_csv(self.data_dir / 'sources.tsv', sep='\t', index=False)
-    allergen_df.to_csv(self.data_dir / 'allergens.tsv', sep='\t', index=False)
+    epitopes_df.to_csv(self.data_path / 'epitopes.tsv', sep='\t', index=False)
+    sources_df.to_csv(self.data_path / 'sources.tsv', sep='\t', index=False)
+    allergen_df.to_csv(self.data_path / 'allergens.tsv', sep='\t', index=False)
 
 
   def _get_epitope_table(self) -> pd.DataFrame:
@@ -110,12 +110,12 @@ class DataFetcher:
 
   def get_all_epitopes(self) -> pd.DataFrame:
     """Get all epitopes from the written file."""
-    return pd.read_csv(self.data_dir / 'epitopes.tsv', sep='\t')
+    return pd.read_csv(self.data_path / 'epitopes.tsv', sep='\t')
   
 
   def get_all_sources(self) -> pd.DataFrame:
     """Get all source antigens from the written file."""
-    return pd.read_csv(self.data_dir / 'sources.tsv', sep='\t')
+    return pd.read_csv(self.data_path / 'sources.tsv', sep='\t')
   
 
   def get_epitopes_for_species(
@@ -165,25 +165,19 @@ def main():
     help='Write separate files for a species with its taxon ID.'
   )
   parser.add_argument(
-    '-d', '--data_dir',
+    '-d', '--data_path',
     type=str,
     default=Path(__file__).parent.parent / 'data',
     help='Directory to write data to.'
   )
   
   args = parser.parse_args()
-  data_dir = Path(args.data_dir)
+  data_path = Path(args.data_path)
   
-  species_df = pd.read_csv(data_dir / 'active-species.tsv', sep='\t')
+  species_df = pd.read_csv(data_path / 'active-species.tsv', sep='\t')
   all_taxon_ids = species_df['Species ID'].tolist()
   
   # create maps for taxon ID to species name and all taxa
-  species_key_map = dict(
-    zip(
-      species_df['Species ID'], 
-      species_df['Species Key']
-    )
-  )
   species_name_map = dict(
     zip(
       species_df['Species ID'], 
@@ -199,9 +193,9 @@ def main():
 
   if args.taxon_id:
     files_exist = (
-      (data_dir / 'epitopes.tsv').exists() and
-      (data_dir / 'sources.tsv').exists() and
-      (data_dir / 'allergens.tsv').exists()
+      (data_path / 'epitopes.tsv').exists() and
+      (data_path / 'sources.tsv').exists() and
+      (data_path / 'allergens.tsv').exists()
     )
     if not files_exist:
       print('Getting all data...')
@@ -214,11 +208,10 @@ def main():
     taxon_id = args.taxon_id
     assert taxon_id in all_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     
-    species_key = species_key_map[taxon_id]
     species_name = species_name_map[taxon_id]
 
-    species_dir = data_dir / 'species' / species_key # directory to write species data
-    species_dir.mkdir(parents=True, exist_ok=True)
+    species_path = data_path / 'species' / f'{taxon_id}' # directory to write species data
+    species_path.mkdir(parents=True, exist_ok=True)
 
     print(f'Writing separate files for {species_name}...')
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
@@ -228,8 +221,8 @@ def main():
       all_sources, epitopes_df['Source Accession'].tolist()
     )
     
-    epitopes_df.to_csv(species_dir / 'epitopes.tsv', sep='\t', index=False)
-    sources_df.to_csv(species_dir / 'sources.tsv', sep='\t', index=False)
+    epitopes_df.to_csv(species_path / 'epitopes.tsv', sep='\t', index=False)
+    sources_df.to_csv(species_path / 'sources.tsv', sep='\t', index=False)
     print(f'Epitopes and sources for {species_name} written.')
 
   else:
