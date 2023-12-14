@@ -69,15 +69,15 @@ def run_protein_tree(
         species_path / 'source_assignments.tsv', sep='\t'
       )
       
-      previous_epitopes = set(previous_epitopes_df[['Sequence', 'Source Accession']].apply(
-        lambda row: (row['Sequence'], row['Source Accession']), axis=1
+      previous_epitopes = set(previous_epitopes_df[['Sequence', 'Accession']].apply(
+        lambda row: (row['Sequence'], row['Accession']), axis=1
       ).tolist())
       previous_sources = set(previous_sources_df['Accession'].apply(
         lambda accession: str(accession)
       ).tolist())
 
-      epitopes = set(epitopes_df[['Sequence', 'Source Accession']].apply(
-        lambda row: (row['Sequence'], row['Source Accession']), axis=1
+      epitopes = set(epitopes_df[['Sequence', 'Accession']].apply(
+        lambda row: (row['Sequence'], row['Accession']), axis=1
       ).tolist())
       sources = set(sources_df['Accession'].apply(
         lambda accession: str(accession)
@@ -123,40 +123,6 @@ def run_protein_tree(
   print(f'Number of epitopes: {assigner_data[1]}')
   print(f'Successful source antigen assignments: {successful_source_assignment:.1f}%')
   print(f'Successful epitope assignments: {successful_epitope_assignment:.1f}%\n')
-
-  # write data to metrics.tsv
-  metrics_path = Path(__file__).parent.parent / 'data' / 'metrics.tsv'
-  metrics_df = pd.read_csv(metrics_path, sep='\t')
-
-  # add new row if species is not in metrics.tsv
-  if taxon_id not in metrics_df['Species Taxon ID'].tolist(): 
-    new_row = {
-      'Species Taxon ID': taxon_id,
-      'Species Name': species_name,
-      'Proteome ID': proteome_data[0],
-      'Proteome Taxon': proteome_data[1],
-      'Proteome Type': proteome_data[2],
-      'Source Count': assigner_data[0],
-      'Epitope Count': assigner_data[1],
-      'Successful Source Assignment': successful_source_assignment,
-      'Successful Epitope Assignment': successful_epitope_assignment
-    }
-    metrics_df = pd.concat([metrics_df, pd.DataFrame([new_row])], ignore_index=True)
-
-  else: # update existing row
-    idx = metrics_df['Species Taxon ID'] == taxon_id
-    
-    if update_proteome:
-      metrics_df.loc[idx, 'Proteome ID'] = proteome_data[0]
-      metrics_df.loc[idx, 'Proteome Taxon'] = proteome_data[1]
-      metrics_df.loc[idx, 'Proteome Type'] = proteome_data[2]
-    
-    metrics_df.loc[idx, 'Source Count'] = assigner_data[0]
-    metrics_df.loc[idx, 'Epitope Count'] = assigner_data[1]
-    metrics_df.loc[idx, 'Successful Source Assignment'] = successful_source_assignment
-    metrics_df.loc[idx, 'Successful Epitope Assignment'] = successful_epitope_assignment
-    
-  metrics_df.to_csv(metrics_path, sep='\t', index=False)
 
   print(f'Protein tree built for {species_name} (ID: {taxon_id}).\n\n')
   
