@@ -18,6 +18,7 @@ class DataFetcher:
     """Get all epitopes and source antigens tables from the IEDB backend. Also, get
     allergen data from the IUIS allergen nomenclature database.
     """
+    print(self.build_path)
     epitopes_df = self._get_epitope_table()
     sources_df = self._get_source_table()
 
@@ -33,7 +34,7 @@ class DataFetcher:
     # write data to TSV files
     epitopes_df.to_csv(self.build_path / 'iedb' / 'epitopes.tsv', sep='\t', index=False)
     sources_df.to_csv(self.build_path / 'iedb' / 'sources.tsv', sep='\t', index=False)
-    allergen_df.to_csv(self.build_path / 'iedb' / 'allergens.tsv', sep='\t', index=False)
+    allergen_df.to_csv(self.build_path / 'arborist' / 'allergens.tsv', sep='\t', index=False)
 
 
   def _get_epitope_table(self) -> pd.DataFrame:
@@ -115,7 +116,7 @@ class DataFetcher:
 
   def get_all_sources(self) -> pd.DataFrame:
     """Get all source antigens from the written file."""
-    return pd.read_csv(self.build_path / 'sources.tsv', sep='\t')
+    return pd.read_csv(self.build_path / 'iedb' / 'sources.tsv', sep='\t')
   
 
   def get_epitopes_for_species(
@@ -193,9 +194,9 @@ def main():
 
   if args.taxon_id:
     files_exist = (
-      (data_path / 'epitopes.tsv').exists() and
-      (data_path / 'sources.tsv').exists() and
-      (data_path / 'allergens.tsv').exists()
+      (data_path / 'iedb' / 'epitopes.tsv').exists() and
+      (data_path / 'iedb' / 'sources.tsv').exists() and
+      (data_path / 'arborist' / 'allergens.tsv').exists()
     )
     if not files_exist:
       print('Getting all data...')
@@ -204,6 +205,8 @@ def main():
 
     all_epitopes = DataFetcher().get_all_epitopes()
     all_sources = DataFetcher().get_all_sources()
+
+    print(all_epitopes)
 
     taxon_id = args.taxon_id
     assert taxon_id in all_taxon_ids, f'{taxon_id} is not a valid taxon ID.'

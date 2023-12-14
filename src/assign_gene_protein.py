@@ -22,14 +22,14 @@ class GeneAndProteinAssigner:
     species_path,
     is_vertebrate,
     num_threads,
-    data_path = Path(__file__).parent.parent / 'data',
+    build_path = Path(__file__).parent.parent / 'build',
     bin_path = Path(__file__).parent.parent / 'bin',
   ):
     
     self.species_path = species_path
     self.taxon_id = taxon_id
     self.is_vertebrate = is_vertebrate
-    self.data_path = data_path
+    self.build_path = build_path
     self.bin_path = bin_path
     self.num_threads = num_threads
 
@@ -70,7 +70,7 @@ class GeneAndProteinAssigner:
       self.source_protein_assignment[row['Accession']] = None
       self.source_assignment_score[row['Accession']] = None
     for i, row in epitopes_df.iterrows():
-      self.epitope_protein_assignment[(row['Source Accession'], row['Sequence'])] = None
+      self.epitope_protein_assignment[(row['Accession'], row['Sequence'])] = None
 
     # create source to epitope map
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
@@ -99,19 +99,19 @@ class GeneAndProteinAssigner:
     sources_df.loc[:, 'ARC Assignment'] = sources_df['Accession'].map(self.source_arc_assignment)
 
     # map epitope source antigens to assignments above and then PEPMatch assignments
-    epitopes_df.loc[:, 'Assigned Gene'] = epitopes_df['Source Accession'].map(self.source_gene_assignment)
-    epitopes_df.set_index(['Source Accession', 'Sequence'], inplace=True)
+    epitopes_df.loc[:, 'Assigned Gene'] = epitopes_df['Accession'].map(self.source_gene_assignment)
+    epitopes_df.set_index(['Accession', 'Sequence'], inplace=True)
     epitopes_df.loc[:, 'Assigned Protein ID'] = epitopes_df.index.map(self.epitope_protein_assignment)
     epitopes_df.reset_index(inplace=True)
-    epitopes_df.loc[:, 'ARC Assignment'] = epitopes_df['Source Accession'].map(self.source_arc_assignment)
+    epitopes_df.loc[:, 'ARC Assignment'] = epitopes_df['Accession'].map(self.source_arc_assignment)
 
-    epitopes_df.drop_duplicates(subset=['Source Accession', 'Sequence'], inplace=True) # drop duplicate epitopes
+    epitopes_df.drop_duplicates(subset=['Accession', 'Sequence'], inplace=True) # drop duplicate epitopes
     sources_df.drop(columns=['Sequence'], inplace=True) # drop sequence column for output
 
     self._remove_files()
     
     num_sources = len(sources_df['Accession'].drop_duplicates())
-    num_epitopes = len(epitopes_df[['Source Accession', 'Sequence']].drop_duplicates())
+    num_epitopes = len(epitopes_df[['Accession', 'Sequence']].drop_duplicates())
     num_matched_sources = len(sources_df[sources_df['Assigned Protein ID'].notnull()])
     num_matched_epitopes = len(epitopes_df[epitopes_df['Assigned Protein ID'].notnull()])
   
@@ -158,10 +158,10 @@ class GeneAndProteinAssigner:
     """    
     source_to_epitopes_map = {}
     for i, row in epitopes_df.iterrows():
-      if row['Source Accession'] in source_to_epitopes_map.keys():
-        source_to_epitopes_map[row['Source Accession']].append(row['Sequence'])
+      if row['Accession'] in source_to_epitopes_map.keys():
+        source_to_epitopes_map[row['Accession']].append(row['Sequence'])
       else:
-        source_to_epitopes_map[row['Source Accession']] = [row['Sequence']]
+        source_to_epitopes_map[row['Accession']] = [row['Sequence']]
     
     return source_to_epitopes_map 
 
@@ -405,7 +405,7 @@ class GeneAndProteinAssigner:
 
   def _assign_allergens(self) -> None:
     """Get allergen data from allergen.org and then assign allergens to sources."""
-    allergen_df = pd.read_csv(self.data_path / 'allergens.tsv', sep='\t')
+    allergen_df = pd.read_csv(self.build_path / 'arborist' / 'allergens.tsv', sep='\t')
     allergen_map = allergen_df.set_index('AccProtein')['Name'].to_dict()
 
     for k, v in self.source_protein_assignment.items():
@@ -418,7 +418,7 @@ class GeneAndProteinAssigner:
     genes and proteins to sources.
     """
     # manual_assignments.tsv should be in the directory above this one
-    manual_df = pd.read_csv(self.data_path / 'manual_assignments.tsv', sep='\t')
+    manual_df = pd.read_csv(self.build_path / 'arborist' / 'manual_assignments.tsv', sep='\t')
 
     manual_gene_map = manual_df.set_index('Accession')['Accession Gene'].to_dict()
     manual_protein_id_map = manual_df.set_index('Accession')['Parent Accession'].to_dict()

@@ -9,7 +9,7 @@ from assign_gene_protein import GeneAndProteinAssigner
 
 
 def run_protein_tree(
-  species_path: Path,
+  build_path: Path,
   taxon_id: int,
   species_name_map: dict,
   species_group_map: dict,
@@ -22,7 +22,7 @@ def run_protein_tree(
   """Run all steps for the protein tree.
   
   Args:
-    species_path: Path to the species directory.
+    build_path: Path to the build directory.
     taxon_id: Taxon ID for the species to run protein tree.
     species_name_map: Mapping of taxon ID to species name.
     species_group_map: Mapping of taxon ID to group. Groups:
@@ -32,6 +32,7 @@ def run_protein_tree(
     update_proteome: Whether or not to update the proteome to be used for the species.
     num_threads: Number of threads to use for BLAST and ARC.
   """
+  species_path = build_path / 'species' / f'{taxon_id}'
   species_name = species_name_map[taxon_id]
   group = species_group_map[taxon_id]
 
@@ -45,7 +46,7 @@ def run_protein_tree(
     update_proteome = True # if the file doesn't exist, update flag
     
     print('Getting the best proteome...')
-    Selector = ProteomeSelector(taxon_id, species_path)
+    Selector = ProteomeSelector(taxon_id, species_path, build_path)
     print(f'Number of candidate proteomes: {Selector.num_of_proteomes}\n')
 
     proteome_data = Selector.select_best_proteome(epitopes_df)
@@ -97,7 +98,14 @@ def run_protein_tree(
   is_vertebrate = group == 'vertebrate'
 
   # assign genes to source antigens and parent proteins to epitopes
-  Assigner = GeneAndProteinAssigner(taxon_id, species_path, is_vertebrate, num_threads=num_threads)
+  Assigner = GeneAndProteinAssigner(
+    taxon_id,
+    species_path,
+    is_vertebrate,
+    num_threads,
+    build_path=build_path,
+    bin_path=build_path.parent.parent / 'bin'
+  )
   assigner_data, epitope_assignments, source_assignments = Assigner.assign(sources_df, epitopes_df)
 
   # write assignments to files
@@ -158,7 +166,13 @@ def main():
   import multiprocessing
 
   parser = argparse.ArgumentParser()
-  
+
+  parser.add_argument(
+    '-b', '--build_path', 
+    type=str,
+    default=Path(__file__).parent.parent / 'build',
+    help='Path to data directory.'
+  )
   parser.add_argument(
     '-a', '--all_species', 
     action='store_true',
@@ -198,15 +212,14 @@ def main():
 
   args = parser.parse_args()
 
-  global data_path
-  data_path = Path(__file__).parent.parent / 'data'
+  build_path = Path(args.build_path)
 
   if args.update_species:
     print('Updating species table...')
     DataFetcher.update_species() # call update_species() static method
     print('Done.\n')
 
-  species_df = pd.read_csv(data_path / 'active-species.tsv', sep='\t')
+  species_df = pd.read_csv(build_path / 'arborist' / 'active-species.tsv', sep='\t')
   all_species_taxa = species_df['Species ID'].tolist()
   
   # key, taxa, species name, and group mapppings
@@ -229,12 +242,12 @@ def main():
     )
   )
 
-  Fetcher = DataFetcher()
+  Fetcher = DataFetcher(build_path)
 
   files_exist = (
-    (data_path / 'epitopes.tsv').exists() and
-    (data_path / 'sources.tsv').exists() and
-    (data_path / 'allergens.tsv').exists()
+    (build_path / 'iedb' / 'peptides.tsv').exists() and
+    (build_path / 'iedb' / 'sources.tsv').exists() and
+    (build_path / 'arborist' / 'allergens.tsv').exists()
   )
   if args.update_data or not files_exist:
     print('Getting all data...')
@@ -246,32 +259,35 @@ def main():
 
   if args.all_species:
     for taxon_id in all_species_taxa:
-      species_path = data_path / 'species' / f'{taxon_id}'
+
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
+
       epitopes_df = Fetcher.get_epitopes_for_species(all_epitopes, all_taxa)
       sources_df = Fetcher.get_sources_for_species(
-        all_sources, epitopes_df['Source Accession'].tolist()
+        all_sources, epitopes_df['Accession'].tolist()
       )
 
       run_protein_tree(
-        species_path, taxon_id, species_name_map, species_group_map, epitopes_df,
+        build_path, taxon_id, species_name_map, species_group_map, epitopes_df,
         sources_df, args.update_proteome, args.num_threads, args.force
       )
 
     print('All species complete.')
 
   else: # one species at a time
+
     taxon_id = args.taxon_id
     assert taxon_id in all_species_taxa, f'{taxon_id} is not a valid taxon ID.'
-    species_path = data_path / 'species' / f'{taxon_id}'
+
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
+
     epitopes_df = Fetcher.get_epitopes_for_species(all_epitopes, all_taxa)
     sources_df = Fetcher.get_sources_for_species(
-      all_sources, epitopes_df['Source Accession'].tolist()
+      all_sources, epitopes_df['Accession'].tolist()
     )
     
     run_protein_tree(
-      species_path, taxon_id, species_name_map, species_group_map, epitopes_df,
+      build_path, taxon_id, species_name_map, species_group_map, epitopes_df,
       sources_df, args.update_proteome, args.num_threads, args.force
     )
 
