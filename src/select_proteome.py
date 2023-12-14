@@ -416,7 +416,7 @@ def main():
 
   if all_species: # run all species at once
     for taxon_id in valid_taxon_ids:
-
+      species_path = build_path / 'species' / f'{taxon_id}'
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
       proteome_data = run(
         build_path, taxon_id, all_taxa, species_path, species_id_to_name_map[taxon_id]
