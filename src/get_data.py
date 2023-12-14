@@ -9,8 +9,8 @@ from sql_engine import create_sql_engine
 
 
 class DataFetcher:
-  def __init__(self, data_path = Path(__file__).parent.parent / 'data') -> None:
-    self.data_path = data_path
+  def __init__(self, build_path = Path(__file__).parent.parent / 'build') -> None:
+    self.build_path = build_path
     self.sql_engine = create_sql_engine()
 
 
@@ -31,9 +31,9 @@ class DataFetcher:
     allergen_df = pd.read_csv(url)
     
     # write data to TSV files
-    epitopes_df.to_csv(self.data_path / 'epitopes.tsv', sep='\t', index=False)
-    sources_df.to_csv(self.data_path / 'sources.tsv', sep='\t', index=False)
-    allergen_df.to_csv(self.data_path / 'allergens.tsv', sep='\t', index=False)
+    epitopes_df.to_csv(self.build_path / 'iedb' / 'epitopes.tsv', sep='\t', index=False)
+    sources_df.to_csv(self.build_path / 'iedb' / 'sources.tsv', sep='\t', index=False)
+    allergen_df.to_csv(self.build_path / 'iedb' / 'allergens.tsv', sep='\t', index=False)
 
 
   def _get_epitope_table(self) -> pd.DataFrame:
@@ -110,12 +110,12 @@ class DataFetcher:
 
   def get_all_epitopes(self) -> pd.DataFrame:
     """Get all epitopes from the written file."""
-    return pd.read_csv(self.data_path / 'epitopes.tsv', sep='\t')
+    return pd.read_csv(self.build_path / 'iedb' / 'peptides.tsv', sep='\t')
   
 
   def get_all_sources(self) -> pd.DataFrame:
     """Get all source antigens from the written file."""
-    return pd.read_csv(self.data_path / 'sources.tsv', sep='\t')
+    return pd.read_csv(self.build_path / 'sources.tsv', sep='\t')
   
 
   def get_epitopes_for_species(

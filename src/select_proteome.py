@@ -12,18 +12,16 @@ from pepmatch import Preprocessor, Matcher
 
 class ProteomeSelector:
   def __init__(
-    self, taxon_id, species_path, data_path = Path(__file__).parent.parent / 'data'
+    self, taxon_id, species_path, build_path = Path(__file__).parent.parent / 'build'
   ):
     self.taxon_id = taxon_id
-
-    # TODO (FUTURE): REMOVE THIS NEW TAXONOMY WORKAROUND
-    self.new_taxonomy_map = json.load(open(data_path / 'new_taxonomy_map.json'))
 
     self.species_path = species_path
     self.species_path.mkdir(parents=True, exist_ok=True)
 
-    self.species_df = pd.read_csv(data_path / 'active-species.tsv', sep='\t')
-    self.metrics_df = pd.read_csv(data_path / 'metrics.tsv', sep='\t') 
+    self.species_df = pd.read_csv(
+      build_path / 'arborist' / 'active-species.tsv', sep='\t'
+    )
 
     self.proteome_list = self._get_proteome_list() # get all candidate proteomes
     self.num_of_proteomes = len(self.proteome_list) + 1 # +1 for all proteins option
@@ -154,15 +152,8 @@ class ProteomeSelector:
 
     If there are no proteomes, return empty DataFrame.
     """
-    # TODO (FUTURE): REMOVE THIS NEW TAXONOMY WORKAROUND
-    # check if the taxon ID is in the new taxonomy map
-    if str(self.taxon_id) in self.new_taxonomy_map:
-      taxon_id = self.new_taxonomy_map[str(self.taxon_id)]
-    else:
-      taxon_id = self.taxon_id
-
     # URL to get proteome list for a species - use proteome_type:1 first
-    url = f'https://rest.uniprot.org/proteomes/stream?format=xml&query=(proteome_type:1)AND(taxonomy_id:{taxon_id})'
+    url = f'https://rest.uniprot.org/proteomes/stream?format=xml&query=(proteome_type:1)AND(taxonomy_id:{self.taxon_id})'
     
     try:
       proteome_list = pd.read_xml(requests.get(url).text)
@@ -184,15 +175,8 @@ class ProteomeSelector:
     stored within those proteomes. There is a way to get every protein
     using the taxonomy part of UniProt. 
     """
-    # TODO (FUTURE): REMOVE THIS NEW TAXONOMY WORKAROUND
-    # check if the taxon ID is in the new taxonomy map
-    if str(self.taxon_id) in self.new_taxonomy_map:
-      taxon_id = self.new_taxonomy_map[str(self.taxon_id)]
-    else:
-      taxon_id = self.taxon_id
-
     # URL link to all proteins for a species - size = 500 proteins at a time
-    url = f'https://rest.uniprot.org/uniprotkb/search?format=fasta&query=taxonomy_id:{taxon_id}&size=500'
+    url = f'https://rest.uniprot.org/uniprotkb/search?format=fasta&query=taxonomy_id:{self.taxon_id}&size=500'
 
     # loop through all protein batches and write proteins to FASTA file
     for batch in self._get_protein_batches(url):
@@ -240,8 +224,9 @@ class ProteomeSelector:
       proteome_taxon (str): Taxon ID for the proteome.
     """
     import gzip
-    
+
     idx = self.species_df['Species ID'] == self.taxon_id
+
     group = self.species_df[idx]['Group'].iloc[0]
     ftp_url = f'https://ftp.uniprot.org/pub/databases/uniprot/knowledgebase/reference_proteomes/'
     
@@ -354,8 +339,7 @@ class ProteomeSelector:
 
 
 def run(
-  taxon_id: int, all_taxa: list, species_path: Path, species_name: str, 
-  metrics_df: pd.DataFrame
+  build_path: Path, taxon_id: int, all_taxa: list, species_path: Path, species_name: str,
 ) -> None:
   """Run the proteome selection process for a species.
   
@@ -363,17 +347,16 @@ def run(
     taxon_id (int): Taxon ID for the species.
     all_taxa (list): List of all children taxa for the species.
     species_name (str): Name of the species.
-    metrics_df (pd.DataFrame): DataFrame of metrics data.
   """
   from get_data import DataFetcher
 
-  Fetcher = DataFetcher()
+  Fetcher = DataFetcher(build_path)
   all_epitopes = Fetcher.get_all_epitopes()
   epitopes_df = Fetcher.get_epitopes_for_species(all_epitopes, all_taxa)
 
   print(f'Selecting best proteome for {species_name} (Taxon ID: {taxon_id}).')
   
-  Selector = ProteomeSelector(taxon_id, species_path)
+  Selector = ProteomeSelector(taxon_id, species_path, build_path)
   print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')
 
   proteome_data = Selector.select_best_proteome(epitopes_df)
@@ -383,22 +366,7 @@ def run(
   print(f'Proteome taxon: {proteome_data[1]}')
   print(f'Proteome type: {proteome_data[2]}')
 
-  # update metrics data to metrics.tsv file
-  if taxon_id not in metrics_df['Species ID'].tolist():
-    new_row = {
-      'Species ID': taxon_id,
-      'Species Label': species_name,
-      'Proteome ID': proteome_data[0],
-      'Proteome Taxon': proteome_data[1],
-      'Proteome Type': proteome_data[2]
-    }
-    metrics_df = pd.concat([metrics_df, pd.DataFrame([new_row])], ignore_index=True)
-  else:
-    metrics_df.loc[metrics_df['Species ID'] == int(taxon_id), 'Proteome ID'] = proteome_data[0]
-    metrics_df.loc[metrics_df['Species ID'] == int(taxon_id), 'Proteome Taxon'] = proteome_data[1]
-    metrics_df.loc[metrics_df['Species ID'] == int(taxon_id), 'Proteome Type'] = proteome_data[2]
-
-  metrics_df.to_csv(Path(__file__).parent.parent / 'data' / 'metrics.tsv', sep='\t', index=False)
+  return proteome_data
 
 
 def main():
@@ -406,6 +374,12 @@ def main():
 
   parser = argparse.ArgumentParser()
   
+  parser.add_argument(
+    '-b', '--build_path', 
+    type=str,
+    default=Path(__file__).parent.parent / 'build',
+    help='Path to data directory.'
+  )
   parser.add_argument(
     '-a', '--all_species', 
     action='store_true', 
@@ -420,12 +394,11 @@ def main():
   args = parser.parse_args()
   all_species = args.all_species
   taxon_id = args.taxon_id
-
-  data_path = Path(__file__).parent.parent / 'data'
-  species_path = data_path / 'species' / f'{taxon_id}'
+  build_path = Path(args.build_path)
   
-  species_df = pd.read_csv(data_path / 'active-species.tsv', sep='\t')
-  metrics_df = pd.read_csv(data_path / 'metrics.tsv', sep='\t')
+  species_path = build_path / 'species' / f'{taxon_id}'
+  
+  species_df = pd.read_csv(build_path / 'arborist' / 'active-species.tsv', sep='\t')
   valid_taxon_ids = species_df['Species ID'].tolist()
 
   all_taxa_map = dict( # map taxon ID to list of all children taxa
@@ -445,17 +418,22 @@ def main():
     for taxon_id in valid_taxon_ids:
 
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
-      run(
-        taxon_id, all_taxa, species_path, species_id_to_name_map[taxon_id], metrics_df
+      proteome_data = run(
+        build_path, taxon_id, all_taxa, species_path, species_id_to_name_map[taxon_id]
       )
 
   else: # one species at a time
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
 
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
-    run(
-      taxon_id, all_taxa, species_path, species_id_to_name_map[taxon_id], metrics_df
+    proteome_data = run(
+      build_path, taxon_id, all_taxa, species_path, species_id_to_name_map[taxon_id]
     )
+
+  pd.DataFrame( # write proteome data to metrics file
+    [proteome_data],
+    columns=['Proteome ID', 'Proteome Taxon', 'Proteome Type']
+  ).to_csv(species_path / 'metadata.tsv', sep='\t', index=False)
 
 if __name__ == '__main__':
   main()
