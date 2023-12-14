@@ -3,11 +3,14 @@
 import re
 import os
 import requests
-import json
 import pandas as pd
 from pathlib import Path
 
 from pepmatch import Preprocessor, Matcher
+
+
+import warnings
+warnings.filterwarnings('ignore')
 
 
 class ProteomeSelector:
