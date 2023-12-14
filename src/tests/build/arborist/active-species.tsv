@@ -1,0 +1,1386 @@
+Species Key	Species ID	Species Label	Active Taxa	Group	Epitope Count
+24-Shewanella-putrefaciens	24	Shewanella putrefaciens	319224	bacterium	1
+106-Runella-slithyformis	106	Runella slithyformis	106, 761193	bacterium	2
+108-Spirosoma-linguale	108	Spirosoma linguale	108	bacterium	1
+139-Borreliella-burgdorferi-Lyme-disease-spirochete	139	Borreliella burgdorferi (Lyme disease spirochete)	139, 224326, 445983, 445985, 521007, 521009, 10000675	bacterium	1612
+158-Treponema-denticola	158	Treponema denticola	158	bacterium	2
+160-Treponema-pallidum	160	Treponema pallidum	160, 161, 243276, 10001021	bacterium	579
+162-Treponema-phagedenis	162	Treponema phagedenis	754027	bacterium	1
+173-Leptospira-interrogans	173	Leptospira interrogans	173, 44275, 44276, 57678, 189518, 211882, 267671, 1279460, 10000814	bacterium	287
+174-Leptospira-borgpetersenii	174	Leptospira borgpetersenii	280504, 338220	bacterium	9
+188-Magnetospirillum-magnetotacticum	188	Magnetospirillum magnetotacticum	272627	bacterium	5
+195-Campylobacter-coli	195	Campylobacter coli	195, 306254	bacterium	5
+196-Campylobacter-fetus	196	Campylobacter fetus	32019	bacterium	17
+197-Campylobacter-jejuni	197	Campylobacter jejuni	197, 192222, 195099, 354242, 360112, 398000, 407148, 482628, 567106	bacterium	633
+199-Campylobacter-concisus	199	Campylobacter concisus	199	bacterium	10
+200-Campylobacter-curvus	200	Campylobacter curvus	200	bacterium	1
+201-Campylobacter-lari	201	Campylobacter lari	306263	bacterium	1
+203-Campylobacter-rectus	203	Campylobacter rectus	203	bacterium	1
+210-Helicobacter-pylori	210	Helicobacter pylori	210, 85962, 85963, 102617, 102618, 290847, 637383, 866344, 992121, 1337393, 1352357	bacterium	1272
+235-Brucella-abortus-Brucella-melitensis-bv-Abortus	235	Brucella abortus (Brucella melitensis bv. Abortus)	235, 262698, 359391, 430066, 520450, 575591, 641140	bacterium	351
+236-Brucella-ovis-Brucella-melitensis-bv-Ovis	236	Brucella ovis (Brucella melitensis bv. Ovis)	236, 444178, 10001886, 10001887, 10001888	bacterium	15
+263-Francisella-tularensis	263	Francisella tularensis	263, 119856, 177416, 351581, 376619, 393011, 393115, 418136, 430557, 458234	bacterium	2892
+266-Paracoccus-denitrificans	266	Paracoccus denitrificans	318586	bacterium	2
+274-Thermus-thermophilus	274	Thermus thermophilus	274, 300852	bacterium	2
+280-Xanthobacter-autotrophicus	280	Xanthobacter autotrophicus	280, 78245	bacterium	2
+287-Pseudomonas-aeruginosa	287	Pseudomonas aeruginosa	287, 208963, 208964, 350703, 350704, 388272, 1009714, 10000723, 10000815, 10000817, 10000818, 10001057, 10001058	bacterium	801
+292-Burkholderia-cepacia-Burkholderia-cepacia-genomovar-I	292	Burkholderia cepacia (Burkholderia cepacia genomovar I)	292	bacterium	2
+294-Pseudomonas-fluorescens	294	Pseudomonas fluorescens	294	bacterium	16
+298-Pseudomonas-marginalis	298	Pseudomonas marginalis	298	bacterium	1
+300-Pseudomonas-mendocina	300	Pseudomonas mendocina	300	bacterium	3
+303-Pseudomonas-putida	303	Pseudomonas putida	303, 351746	bacterium	22
+316-Stutzerimonas-stutzeri	316	Stutzerimonas stutzeri	316	bacterium	4
+346-Xanthomonas-citri	346	Xanthomonas citri	346	bacterium	1
+354-Azotobacter-vinelandii	354	Azotobacter vinelandii	354, 322710	bacterium	5
+358-Agrobacterium-tumefaciens	358	Agrobacterium tumefaciens	358	bacterium	2
+382-Sinorhizobium-meliloti	382	Sinorhizobium meliloti	382, 266834	bacterium	4
+384-Rhizobium-leguminosarum	384	Rhizobium leguminosarum	384	bacterium	1
+446-Legionella-pneumophila	446	Legionella pneumophila	446, 66976	bacterium	15
+450-Legionella-longbeachae	450	Legionella longbeachae	661367	bacterium	1
+470-Acinetobacter-baumannii	470	Acinetobacter baumannii	470, 400667, 509173	bacterium	180
+471-Acinetobacter-calcoaceticus	471	Acinetobacter calcoaceticus	471	bacterium	1
+480-Moraxella-catarrhalis	480	Moraxella catarrhalis	480, 857571	bacterium	50
+485-Neisseria-gonorrhoeae	485	Neisseria gonorrhoeae	485, 242231, 528354, 10001077, 10001078	bacterium	251
+487-Neisseria-meningitidis	487	Neisseria meningitidis	487, 491, 65699, 122586, 272831, 1172206, 10000843, 10000972, 10001003, 10001044, 10001049, 10001050, 10001051, 10001161	bacterium	318
+502-Kingella-denitrificans	502	Kingella denitrificans	502	bacterium	1
+511-Alcaligenes-faecalis	511	Alcaligenes faecalis	511	bacterium	2
+520-Bordetella-pertussis	520	Bordetella pertussis	520, 257313, 10002069	bacterium	25963
+521-Bordetella-avium	521	Bordetella avium	521	bacterium	1
+524-Acidiphilium-cryptum-Acidiphilum-cryptum	524	Acidiphilium cryptum (Acidiphilum cryptum)	524, 349163	bacterium	2
+539-Eikenella-corrodens	539	Eikenella corrodens	539	bacterium	16
+548-Klebsiella-aerogenes	548	Klebsiella aerogenes	548	bacterium	1
+550-Enterobacter-cloacae	550	Enterobacter cloacae	550, 336306	bacterium	12
+554-Pectobacterium-carotovorum	554	Pectobacterium carotovorum	554, 561230	bacterium	3
+556-Dickeya-chrysanthemi	556	Dickeya chrysanthemi	556	bacterium	1
+562-Escherichia-coli	562	Escherichia coli	562, 37762, 83333, 83334, 155864, 199310, 217992, 244320, 316385, 316401, 316407, 331111, 331112, 340184, 340185, 340186, 340197, 344601, 344610, 358709, 362663, 364106, 386585, 405955, 439184, 478005, 478006, 478008, 481805, 511145, 525281, 585034, 679206, 1432555, 10000728, 10001145, 10002022	bacterium	2158
+573-Klebsiella-pneumoniae	573	Klebsiella pneumoniae	573, 272620, 484021	bacterium	412
+584-Proteus-mirabilis	584	Proteus mirabilis	584, 529507, 10001006	bacterium	8
+615-Serratia-marcescens	615	Serratia marcescens	615	bacterium	4
+621-Shigella-boydii	621	Shigella boydii	621, 300268, 344609	bacterium	29
+622-Shigella-dysenteriae-Escherichia_Shigella-dysenteriae	622	Shigella dysenteriae (Escherichia/Shigella dysenteriae)	622, 300267	bacterium	13
+623-Shigella-flexneri-Escherichia-flexneri	623	Shigella flexneri (Escherichia flexneri)	623, 42897, 198214, 198215, 373384, 424717, 591020, 766147, 766154	bacterium	755
+624-Shigella-sonnei	624	Shigella sonnei	624, 300269	bacterium	20
+630-Yersinia-enterocolitica	630	Yersinia enterocolitica	630, 34054, 393305, 913028	bacterium	75
+632-Yersinia-pestis	632	Yersinia pestis	632, 187410, 214092, 349746, 360102, 373665, 375450, 377628, 386656, 412420, 10000756, 10000757	bacterium	786
+633-Yersinia-pseudotuberculosis	633	Yersinia pseudotuberculosis	633, 273123, 349747, 10001895	bacterium	17
+634-Yersinia-bercovieri	634	Yersinia bercovieri	349968	bacterium	5
+636-Edwardsiella-tarda	636	Edwardsiella tarda	636	bacterium	1
+644-Aeromonas-hydrophila	644	Aeromonas hydrophila	644	bacterium	11
+645-Aeromonas-salmonicida	645	Aeromonas salmonicida	645, 29491	bacterium	127
+659-Photobacterium-phosphoreum	659	Photobacterium phosphoreum	659	bacterium	1
+661-Photobacterium-angustum	661	Photobacterium angustum	314292	bacterium	1
+663-Vibrio-alginolyticus	663	Vibrio alginolyticus	314288	bacterium	5
+666-Vibrio-cholerae	666	Vibrio cholerae	666, 686, 44104, 45888, 127906, 243277, 345072, 345073, 345074, 345075, 345076, 404974, 412614, 412883, 412966, 412967, 417398, 417399, 417400, 592313	bacterium	544
+670-Vibrio-parahaemolyticus	670	Vibrio parahaemolyticus	670, 223926, 419109, 563773, 627611	bacterium	177
+671-Vibrio-proteolyticus	671	Vibrio proteolyticus	671	bacterium	1
+672-Vibrio-vulnificus	672	Vibrio vulnificus	672, 196600, 216895	bacterium	244
+674-Vibrio-mimicus	674	Vibrio mimicus	674	bacterium	2
+703-Plesiomonas-shigelloides	703	Plesiomonas shigelloides	703	bacterium	2
+714-Aggregatibacter-actinomycetemcomitans	714	Aggregatibacter actinomycetemcomitans	714	bacterium	11
+715-Actinobacillus-pleuropneumoniae	715	Actinobacillus pleuropneumoniae	715, 209841, 228399	bacterium	6
+727-Haemophilus-influenzae	727	Haemophilus influenzae	727, 71421, 262727, 262728, 281310, 374927, 374928, 374931, 374932, 374933, 375177, 375432, 521004, 521005, 10000807, 10000833, 10000860, 10000861, 10001042, 10001053, 10001055, 10001056, 10001149, 10001150, 10001155	bacterium	683
+730-[Haemophilus]-ducreyi	730	[Haemophilus] ducreyi	730	bacterium	1
+731-Histophilus-somni	731	Histophilus somni	731, 205914	bacterium	2
+738-Glaesserella-parasuis	738	Glaesserella parasuis	738, 557723, 1117322	bacterium	4
+747-Pasteurella-multocida	747	Pasteurella multocida	747, 272843, 10000759	bacterium	20
+769-Anaplasma-centrale	769	Anaplasma centrale	769, 574556	bacterium	4
+770-Anaplasma-marginale	770	Anaplasma marginale	770, 234826, 320483, 10000760	bacterium	264
+774-Bartonella-bacilliformis	774	Bartonella bacilliformis	774, 360095	bacterium	36
+777-Coxiella-burnetii	777	Coxiella burnetii	777, 227377, 360115, 360116, 360117, 434922, 434923, 434924	bacterium	778
+779-Ehrlichia-ruminantium-heartwater-rickettsia	779	Ehrlichia ruminantium (heartwater rickettsia)	779, 254945	bacterium	45
+781-Rickettsia-conorii	781	Rickettsia conorii	781, 272944	bacterium	21
+782-Rickettsia-prowazekii	782	Rickettsia prowazekii	782, 272947	bacterium	39
+783-Rickettsia-rickettsii	783	Rickettsia rickettsii	783, 392021, 452659, 1105104	bacterium	96
+784-Orientia-tsutsugamushi	784	Orientia tsutsugamushi	784, 334380, 357244, 10000761	bacterium	168
+785-Rickettsia-typhi	785	Rickettsia typhi	785, 257363	bacterium	12
+786-Rickettsia-akari-rickettsialpox	786	Rickettsia akari (rickettsialpox)	293614	bacterium	1
+787-Rickettsia-australis	787	Rickettsia australis	787	bacterium	1
+788-Rickettsia-canadensis	788	Rickettsia canadensis	788	bacterium	2
+813-Chlamydia-trachomatis	813	Chlamydia trachomatis	813, 272561, 315277, 580047, 634464, 672161, 759363, 10000763, 10000764, 10000765, 10000766, 10000767, 10000768, 10000769, 10000804, 10000845, 10000853, 10000858, 10001008, 10001085, 10001121, 10001141	bacterium	1339
+817-Bacteroides-fragilis	817	Bacteroides fragilis	817	bacterium	124
+818-Bacteroides-thetaiotaomicron	818	Bacteroides thetaiotaomicron	818, 226186	bacterium	2
+820-Bacteroides-uniformis	820	Bacteroides uniformis	820	bacterium	1
+821-Phocaeicola-vulgatus	821	Phocaeicola vulgatus	821	bacterium	22
+823-Parabacteroides-distasonis	823	Parabacteroides distasonis	823	bacterium	1
+837-Porphyromonas-gingivalis	837	Porphyromonas gingivalis	837, 242619, 431947, 1125722, 1403335, 10001081, 10001223	bacterium	595
+851-Fusobacterium-nucleatum-Fusibacterium-nucleatum	851	Fusobacterium nucleatum (Fusibacterium nucleatum)	851	bacterium	143
+853-Faecalibacterium-prausnitzii	853	Faecalibacterium prausnitzii	853	bacterium	3
+891-Desulfuromonas-acetoxidans	891	Desulfuromonas acetoxidans	281689	bacterium	1
+907-Megasphaera-elsdenii	907	Megasphaera elsdenii	907	bacterium	1
+920-Acidithiobacillus-ferrooxidans	920	Acidithiobacillus ferrooxidans	920	bacterium	1
+944-Ehrlichia-canis	944	Ehrlichia canis	944, 269484	bacterium	25
+945-Ehrlichia-chaffeensis	945	Ehrlichia chaffeensis	945, 205920	bacterium	44
+947-Ehrlichia-ewingii	947	Ehrlichia ewingii	947	bacterium	1
+948-Anaplasma-phagocytophilum-agent-of-human-granulocytic-ehrlichiosis	948	Anaplasma phagocytophilum (agent of human granulocytic ehrlichiosis)	948, 212042	bacterium	77
+955-Wolbachia-pipientis	955	Wolbachia pipientis	955	bacterium	1
+985-Cytophaga-hutchinsonii	985	Cytophaga hutchinsonii	269798	bacterium	1
+1006-Marivirga-tractuosa	1006	Marivirga tractuosa	1006	bacterium	1
+1018-Capnocytophaga-ochracea	1018	Capnocytophaga ochracea	1018	bacterium	1
+1019-Capnocytophaga-sputigena	1019	Capnocytophaga sputigena	1019	bacterium	1
+1022-Beggiatoa-alba	1022	Beggiatoa alba	1022	bacterium	1
+1027-Microscilla-marina	1027	Microscilla marina	313606	bacterium	1
+1063-Cereibacter-sphaeroides	1063	Cereibacter sphaeroides	1063, 272943, 349101	bacterium	3
+1076-Rhodopseudomonas-palustris	1076	Rhodopseudomonas palustris	1076, 316056	bacterium	3
+1102-Prosthecochloris-aestuarii	1102	Prosthecochloris aestuarii	290512	bacterium	1
+1108-Chloroflexus-aurantiacus	1108	Chloroflexus aurantiacus	324602	bacterium	1
+1206-Trichodesmium-erythraeum	1206	Trichodesmium erythraeum	203124	bacterium	3
+1254-Pediococcus-acidilactici	1254	Pediococcus acidilactici	1254	bacterium	1
+1260-Finegoldia-magna	1260	Finegoldia magna	1260	bacterium	1
+1265-Ruminococcus-flavefaciens	1265	Ruminococcus flavefaciens	1265	bacterium	1
+1270-Micrococcus-luteus	1270	Micrococcus luteus	1270	bacterium	1
+1280-Staphylococcus-aureus	1280	Staphylococcus aureus	1280, 93061, 93062, 158879, 196620, 282458, 359787, 367830, 426430, 451515, 451516, 548470, 548473, 553583, 1193576, 1458279, 10001662, 10002129	bacterium	1137
+1282-Staphylococcus-epidermidis	1282	Staphylococcus epidermidis	176279, 525374	bacterium	2
+1292-Staphylococcus-warneri	1292	Staphylococcus warneri	1292	bacterium	1
+1299-Deinococcus-radiodurans-Deinococcus-radiidurans	1299	Deinococcus radiodurans (Deinococcus radiidurans)	1299	bacterium	3
+1302-Streptococcus-gordonii	1302	Streptococcus gordonii	1302	bacterium	5
+1303-Streptococcus-oralis	1303	Streptococcus oralis	1303	bacterium	13
+1305-Streptococcus-sanguinis	1305	Streptococcus sanguinis	1305, 10001439	bacterium	7
+1307-Streptococcus-suis	1307	Streptococcus suis	1307	bacterium	12
+1309-Streptococcus-mutans	1309	Streptococcus mutans	1309, 857099, 1198676, 10000773	bacterium	454
+1310-Streptococcus-sobrinus	1310	Streptococcus sobrinus	1310, 246202	bacterium	8
+1311-Streptococcus-agalactiae	1311	Streptococcus agalactiae	1311, 208435, 211110, 342614	bacterium	18
+1313-Streptococcus-pneumoniae	1313	Streptococcus pneumoniae	1313, 170187, 171101, 373153, 914129	bacterium	650
+1314-Streptococcus-pyogenes	1314	Streptococcus pyogenes	1314, 160490, 160491, 186103, 286636, 301448, 301449, 301450, 301451, 301452, 342023, 404330, 404331, 410069, 1207470, 10000542, 10000775, 10000776, 10000777, 10000778, 10000779, 10000780, 10000781, 10000782, 10000783, 10000784, 10000785, 10000786, 10000787, 10000788, 10000789, 10000790, 10000791, 10000792, 10000793, 10000794, 10000795, 10000796, 10000797, 10000798, 10000824	bacterium	7684
+1317-Streptococcus-downei-Streptococcus-downensis	1317	Streptococcus downei (Streptococcus downensis)	1317	bacterium	2
+1320-Streptococcus-sp-group-G	1320	Streptococcus sp. 'group G'	1320	bacterium	94
+1334-Streptococcus-dysgalactiae	1334	Streptococcus dysgalactiae	1334, 119602	bacterium	54
+1336-Streptococcus-equi	1336	Streptococcus equi	1336	bacterium	37
+1338-Streptococcus-intermedius	1338	Streptococcus intermedius	1338	bacterium	1
+1349-Streptococcus-uberis	1349	Streptococcus uberis	1349	bacterium	10
+1351-Enterococcus-faecalis	1351	Enterococcus faecalis	1351	bacterium	1
+1352-Enterococcus-faecium	1352	Enterococcus faecium	1352, 333849	bacterium	7
+1358-Lactococcus-lactis	1358	Lactococcus lactis	1358	bacterium	2
+1359-Lactococcus-cremoris	1359	Lactococcus cremoris	272622	bacterium	1
+1390-Bacillus-amyloliquefaciens	1390	Bacillus amyloliquefaciens	1390	bacterium	129
+1392-Bacillus-anthracis-anthrax	1392	Bacillus anthracis (anthrax)	1392, 191218, 198094, 212045, 260799, 261594, 405536, 486619, 486620, 486621, 486623, 486624, 568206, 592021	bacterium	2099
+1396-Bacillus-cereus	1396	Bacillus cereus	1396, 226900, 269801, 347495, 405531, 405532, 405533, 405917, 451707, 451708, 451709, 526974, 526977, 526979, 572264	bacterium	110
+1402-Bacillus-licheniformis	1402	Bacillus licheniformis	1402	bacterium	256
+1404-Priestia-megaterium	1404	Priestia megaterium	1404	bacterium	7
+1405-Bacillus-mycoides	1405	Bacillus mycoides	1405, 315730	bacterium	6
+1408-Bacillus-pumilus	1408	Bacillus pumilus	1408	bacterium	1
+1422-Geobacillus-stearothermophilus	1422	Geobacillus stearothermophilus	1422	bacterium	2
+1423-Bacillus-subtilis	1423	Bacillus subtilis	1423, 224308, 535026	bacterium	11
+1428-Bacillus-thuringiensis	1428	Bacillus thuringiensis	1428, 1435, 29339, 339854, 412694, 527024, 527026	bacterium	37
+1454-Schinkia-azotoformans-Bacillus-azotiformans	1454	Schinkia azotoformans (Bacillus azotiformans)	1454	bacterium	1
+1467-Lederbergia-lenta	1467	Lederbergia lenta	1467	bacterium	86
+1488-Clostridium-acetobutylicum	1488	Clostridium acetobutylicum	272562	bacterium	1
+1491-Clostridium-botulinum	1491	Clostridium botulinum	1491, 36826, 36827, 36829, 36830, 36831, 413999, 441771, 445335, 445338, 508767, 935198, 10000295, 10000296, 10000297, 10000299, 10000301, 10000302, 10000303, 10000304, 10000305, 10000306	bacterium	609
+1492-Clostridium-butyricum	1492	Clostridium butyricum	1492	bacterium	3
+1496-Clostridium-difficile	1496	Clostridium difficile	1496, 645463, 10000307	bacterium	432
+1502-Clostridium-perfringens	1502	Clostridium perfringens	1502, 107819, 195102	bacterium	176
+1513-Clostridium-tetani	1513	Clostridium tetani	1513, 212717	bacterium	1358
+1515-Acetivibrio-thermocellus	1515	Acetivibrio thermocellus	203119	bacterium	1
+1520-Clostridium-beijerinckii	1520	Clostridium beijerinckii	1520, 290402	bacterium	2
+1525-Moorella-thermoacetica	1525	Moorella thermoacetica	264732	bacterium	1
+1531-Enterocloster-clostridioformis	1531	Enterocloster clostridioformis	1531	bacterium	2
+1542-Clostridium-novyi	1542	Clostridium novyi	386415	bacterium	2
+1584-Lactobacillus-delbrueckii	1584	Lactobacillus delbrueckii	1585	bacterium	1
+1590-Lactiplantibacillus-plantarum	1590	Lactiplantibacillus plantarum	1590	bacterium	8
+1599-Latilactobacillus-sakei	1599	Latilactobacillus sakei	1599	bacterium	1
+1604-Lactobacillus-amylovorus	1604	Lactobacillus amylovorus	1604	bacterium	1
+1605-Ligilactobacillus-animalis	1605	Ligilactobacillus animalis	1605	bacterium	9
+1613-Limosilactobacillus-fermentum	1613	Limosilactobacillus fermentum	1613	bacterium	1
+1622-Ligilactobacillus-murinus	1622	Ligilactobacillus murinus	1235801	bacterium	2
+1638-Listeria-ivanovii	1638	Listeria ivanovii	1638	bacterium	2
+1639-Listeria-monocytogenes	1639	Listeria monocytogenes	1639, 169963, 265669, 267409, 267410, 393117, 393124, 393125, 393126, 393128, 393130, 393133, 401650, 552536, 568819, 10000308, 10000309	bacterium	1001
+1640-Listeria-seeligeri	1640	Listeria seeligeri	1640	bacterium	1
+1641-Listeria-grayi	1641	Listeria grayi	1641	bacterium	1
+1642-Listeria-innocua	1642	Listeria innocua	1642	bacterium	10
+1643-Listeria-welshimeri	1643	Listeria welshimeri	386043	bacterium	3
+1646-Renibacterium-salmoninarum	1646	Renibacterium salmoninarum	1646	bacterium	69
+1660-Schaalia-odontolytica	1660	Schaalia odontolytica	1660	bacterium	8
+1661-Trueperella-pyogenes	1661	Trueperella pyogenes	1661, 10000980	bacterium	11
+1664-Arthrobacter-glacialis	1664	Arthrobacter glacialis	1664	bacterium	1
+1681-Bifidobacterium-bifidum	1681	Bifidobacterium bifidum	1681	bacterium	1
+1685-Bifidobacterium-breve	1685	Bifidobacterium breve	1685	bacterium	1
+1717-Corynebacterium-diphtheriae	1717	Corynebacterium diphtheriae	1717, 257309	bacterium	220
+1718-Corynebacterium-glutamicum	1718	Corynebacterium glutamicum	1718, 196627, 340322	bacterium	47
+1719-Corynebacterium-pseudotuberculosis	1719	Corynebacterium pseudotuberculosis	1719	bacterium	6
+1744-Propionibacterium-freudenreichii	1744	Propionibacterium freudenreichii	1752	bacterium	1
+1747-Cutibacterium-acnes-Propionicibacterium-acnes	1747	Cutibacterium acnes (Propionicibacterium acnes)	1747, 1091045	bacterium	8
+1764-Mycobacterium-avium	1764	Mycobacterium avium	1764, 1770, 243243, 262316, 1391998, 10000319, 10000328, 10001884	bacterium	1562
+1767-Mycobacterium-intracellulare	1767	Mycobacterium intracellulare	1767, 487521	bacterium	2
+1768-Mycobacterium-kansasii	1768	Mycobacterium kansasii	1768	bacterium	22
+1769-Mycobacterium-leprae	1769	Mycobacterium leprae	1769, 272631	bacterium	706
+1772-Mycolicibacterium-smegmatis	1772	Mycolicibacterium smegmatis	1772, 246196	bacterium	909
+1773-Mycobacterium-tuberculosis	1773	Mycobacterium tuberculosis	1765, 1773, 33892, 83331, 83332, 182785, 233413, 336982, 348776, 395095, 410289, 419947, 443149, 515617, 561275, 652616, 1389959, 10000323, 10000329	bacterium	30815
+1778-Mycobacterium-gordonae	1778	Mycobacterium gordonae	1778	bacterium	1
+1781-Mycobacterium-marinum	1781	Mycobacterium marinum	1781, 216594	bacterium	412
+1783-Mycobacterium-scrofulaceum	1783	Mycobacterium scrofulaceum	1783	bacterium	45
+1795-Mycolicibacterium-neoaurum	1795	Mycolicibacterium neoaurum	1795	bacterium	1
+1804-Mycolicibacterium-gilvum	1804	Mycolicibacterium gilvum	1804, 278137, 350054	bacterium	1577
+1809-Mycobacterium-ulcerans	1809	Mycobacterium ulcerans	1809, 362242	bacterium	271
+1828-Rhodococcus-fascians	1828	Rhodococcus fascians	1828	bacterium	2
+1833-Rhodococcus-erythropolis	1833	Rhodococcus erythropolis	1833	bacterium	3
+1895-Streptomyces-avidinii-Streptomyces-avidini	1895	Streptomyces avidinii (Streptomyces avidini)	1895	bacterium	1
+1902-Streptomyces-coelicolor	1902	Streptomyces coelicolor	1902, 100226	bacterium	3
+1916-Streptomyces-lividans	1916	Streptomyces lividans	1916	bacterium	1
+1943-Streptomyces-griseoruber-Streptomyces-griseiruber	1943	Streptomyces griseoruber (Streptomyces griseiruber)	1943	bacterium	1
+1946-Streptomyces-kasugaensis-Streptomyces-kasugensis	1946	Streptomyces kasugaensis (Streptomyces kasugensis)	1946	bacterium	1
+2021-Thermobifida-fusca	2021	Thermobifida fusca	269800	bacterium	1
+2039-Tropheryma-whipplei	2039	Tropheryma whipplei	2039	bacterium	1
+2066-Kitasatospora-setae	2066	Kitasatospora setae	452652	bacterium	1
+2096-Mycoplasmoides-gallisepticum	2096	Mycoplasmoides gallisepticum	1006581	bacterium	1
+2097-Mycoplasmoides-genitalium	2097	Mycoplasmoides genitalium	2097, 243273	bacterium	10
+2099-Mesomycoplasma-hyopneumoniae	2099	Mesomycoplasma hyopneumoniae	2099, 262722, 295358, 754503	bacterium	319
+2100-Mesomycoplasma-hyorhinis	2100	Mesomycoplasma hyorhinis	2100	bacterium	1
+2104-Mycoplasmoides-pneumoniae-Filterable-agent-of-primary-atypical-pneumonia	2104	Mycoplasmoides pneumoniae (Filterable agent of primary atypical pneumonia)	2104, 272634, 722438	bacterium	47
+2110-Mycoplasmopsis-agalactiae	2110	Mycoplasmopsis agalactiae	347257	bacterium	3
+2133-Spiroplasma-citri	2133	Spiroplasma citri	2133	bacterium	1
+2148-Acholeplasma-laidlawii	2148	Acholeplasma laidlawii	2148	bacterium	2
+2173-Methanobrevibacter-smithii	2173	Methanobrevibacter smithii	2173	archeobacterium	2
+2190-Methanocaldococcus-jannaschii	2190	Methanocaldococcus jannaschii	2190, 243232	archeobacterium	2
+2234-Archaeoglobus-fulgidus	2234	Archaeoglobus fulgidus	2234	archeobacterium	1
+2238-Haloarcula-marismortui	2238	Haloarcula marismortui	272569	archeobacterium	1
+2242-Halobacterium-salinarum	2242	Halobacterium salinarum	2242	archeobacterium	1
+2261-Pyrococcus-furiosus	2261	Pyrococcus furiosus	2261	archeobacterium	9
+2439-Plasmid-ColB2	2439	Plasmid ColB2	2439	other	1
+2465-Plasmid-F	2465	Plasmid F	2465	other	1
+2702-Gardnerella-vaginalis	2702	Gardnerella vaginalis	2702	bacterium	10
+2736-Verrucomicrobium-spinosum	2736	Verrucomicrobium spinosum	2736	bacterium	1
+2903-Emiliania-huxleyi	2903	Emiliania huxleyi	2903, 280463	other-eukaryote	2
+3055-Chlamydomonas-reinhardtii	3055	Chlamydomonas reinhardtii	3055	other-eukaryote	1
+3346-Pinus-pinea-parasol-pine	3346	Pinus pinea (parasol pine)	3346	plant	56
+3352-Pinus-taeda-loblolly-pine	3352	Pinus taeda (loblolly pine)	3352	plant	7
+3369-Cryptomeria-japonica-Japanese-cedar	3369	Cryptomeria japonica (Japanese cedar)	3369	plant	750
+3505-Betula-pendula-white-birch	3505	Betula pendula (white birch)	3505	plant	568
+3513-Quercus-alba-white-oak	3513	Quercus alba (white oak)	3513	plant	5
+3517-Alnus-glutinosa	3517	Alnus glutinosa	3517	plant	74
+3559-Chenopodium-album-lambs-quarters	3559	Chenopodium album (lamb's-quarters)	3559	plant	2
+3562-Spinacia-oleracea-spinach	3562	Spinacia oleracea (spinach)	3562	plant	4
+3567-Amaranthus-caudatus-Inca-wheat	3567	Amaranthus caudatus (Inca-wheat)	3567	plant	1
+3617-Fagopyrum-esculentum-common-buckwheat	3617	Fagopyrum esculentum (common buckwheat)	3617	plant	206
+3625-Actinidia-chinensis-golden-kiwifruit	3625	Actinidia chinensis (golden kiwifruit)	3625	plant	1
+3645-Bertholletia-excelsa-Brazil-nut	3645	Bertholletia excelsa (Brazil nut)	3645	plant	48
+3656-Cucumis-melo-Oriental-melon	3656	Cucumis melo (Oriental melon)	3656	plant	27
+3677-Trichosanthes-kirilowii-Mongolian-snake-gourd	3677	Trichosanthes kirilowii (Mongolian snake-gourd)	3677	plant	3
+3702-Arabidopsis-thaliana-mouse-ear-cress	3702	Arabidopsis thaliana (mouse-ear cress)	3702	plant	26
+3707-Brassica-juncea-Indian-mustard	3707	Brassica juncea (Indian mustard)	3707	plant	58
+3708-Brassica-napus-oilseed-rape	3708	Brassica napus (oilseed rape)	3708	plant	2
+3711-Brassica-rapa-field-mustard	3711	Brassica rapa (field mustard)	3711	plant	1
+3728-Sinapis-alba-bai-jie	3728	Sinapis alba (bai jie)	3728	plant	1
+3750-Malus-domestica-apple-tree	3750	Malus domestica (apple tree)	3750	plant	128
+3755-Prunus-dulcis-sweet-almond	3755	Prunus dulcis (sweet almond)	3755	plant	130
+3758-Prunus-domestica-plum	3758	Prunus domestica (plum)	3758	plant	4
+3760-Prunus-persica-peach	3760	Prunus persica (peach)	3760	plant	117
+3816-Abrus-precatorius-crabs-eye	3816	Abrus precatorius (crab's eye)	3816	plant	127
+3818-Arachis-hypogaea-peanut	3818	Arachis hypogaea (peanut)	3818	plant	2657
+3847-Glycine-max-soybeans	3847	Glycine max (soybeans)	3847	plant	1637
+3864-Lens-culinaris-lentil	3864	Lens culinaris (lentil)	3864	plant	25
+3885-Phaseolus-vulgaris-French-bean	3885	Phaseolus vulgaris (French bean)	3885	plant	17
+3888-Pisum-sativum-pea	3888	Pisum sativum (pea)	3888	plant	1
+3972-Viscum-album-European-mistletoe	3972	Viscum album (European mistletoe)	3972	plant	81
+3981-Hevea-brasiliensis-rubbertree	3981	Hevea brasiliensis (rubbertree)	3981	plant	598
+3988-Ricinus-communis-castor-bean	3988	Ricinus communis (castor bean)	3988	plant	100
+4039-Daucus-carota-Queen-Annes-lace	4039	Daucus carota (Queen Anne's lace)	4039	plant	52
+4045-Apium-graveolens-celery	4045	Apium graveolens (celery)	4045	plant	52
+4081-Solanum-lycopersicum-tomato	4081	Solanum lycopersicum (tomato)	4081	plant	6
+4097-Nicotiana-tabacum-American-tobacco	4097	Nicotiana tabacum (American tobacco)	4097	plant	6
+4113-Solanum-tuberosum-potatoes	4113	Solanum tuberosum (potatoes)	4113	plant	1
+4120-Ipomoea-batatas-batate	4120	Ipomoea batatas (batate)	4120	plant	1
+4146-Olea-europaea-common-olive	4146	Olea europaea (common olive)	4146	plant	154
+4182-Sesamum-indicum-beniseed	4182	Sesamum indicum (beniseed)	4182	plant	21
+4212-Ambrosia-artemisiifolia-annual-ragweed	4212	Ambrosia artemisiifolia (annual ragweed)	4212, 4215	plant	436
+4214-Ambrosia-trifida-giant-ragweed	4214	Ambrosia trifida (giant ragweed)	4214	plant	14
+4220-Artemisia-vulgaris-mugwort	4220	Artemisia vulgaris (mugwort)	4220	plant	210
+4232-Helianthus-annuus-common-sunflower	4232	Helianthus annuus (common sunflower)	4232	plant	23
+4498-Avena-sativa-cultivated-oat	4498	Avena sativa (cultivated oat)	4498	plant	14
+4509-Dactylis-glomerata-cocksfoot	4509	Dactylis glomerata (cocksfoot)	4509	plant	25
+4513-Hordeum-vulgare-barley	4513	Hordeum vulgare (barley)	4513, 77009, 112509	plant	70
+4522-Lolium-perenne-perennial-ryegrass	4522	Lolium perenne (perennial ryegrass)	4522	plant	302
+4530-Oryza-sativa-red-rice	4530	Oryza sativa (red rice)	4530, 39947	plant	19
+4545-Poa-pratensis-Kentucky-bluegrass	4545	Poa pratensis (Kentucky bluegrass)	4545	plant	125
+4550-Secale-cereale-rye	4550	Secale cereale (rye)	4550, 155091	plant	125
+4558-Sorghum-bicolor-broomcorn	4558	Sorghum bicolor (broomcorn)	4558	plant	1
+4565-Triticum-aestivum-Canadian-hard-winter-wheat	4565	Triticum aestivum (Canadian hard winter wheat)	4565	plant	1901
+4568-Triticum-monococcum-einkorn-wheat	4568	Triticum monococcum (einkorn wheat)	4568	plant	2
+4571-Triticum-turgidum-English-wheat	4571	Triticum turgidum (English wheat)	4567	plant	3
+4573-Aegilops-speltoides	4573	Aegilops speltoides	4573	plant	5
+4577-Zea-mays-maize	4577	Zea mays (maize)	4577, 76912	plant	8
+4606-Lolium-arundinaceum-tall-fescue	4606	Lolium arundinaceum (tall fescue)	4606	plant	1
+4641-Musa-acuminata-banana	4641	Musa acuminata (banana)	4641, 214697	plant	107
+4754-Pneumocystis-carinii-Pneumocystis-carinii-f-sp-carinii	4754	Pneumocystis carinii (Pneumocystis carinii f. sp. carinii)	4754	other-eukaryote	3
+4784-Phytophthora-capsici	4784	Phytophthora capsici	4784	other-eukaryote	1
+4792-Phytophthora-parasitica	4792	Phytophthora parasitica	4792	other-eukaryote	1
+4920-Millerozyma-farinosa	4920	Millerozyma farinosa	4920	other-eukaryote	1
+4932-Saccharomyces-cerevisiae-bakers-yeast	4932	Saccharomyces cerevisiae (baker's yeast)	4932, 285006, 559292, 643680	other-eukaryote	43
+4954-Zygosaccharomyces-bailii	4954	Zygosaccharomyces bailii	4954	other-eukaryote	1
+5037-Histoplasma-capsulatum	5037	Histoplasma capsulatum	5037, 447093	other-eukaryote	84
+5039-Blastomyces-dermatitidis	5039	Blastomyces dermatitidis	5039, 447095, 653446, 10000828	other-eukaryote	42
+5057-Aspergillus-clavatus	5057	Aspergillus clavatus	5057	other-eukaryote	1
+5059-Aspergillus-flavus	5059	Aspergillus flavus	5059	other-eukaryote	1
+5060-Aspergillus-giganteus	5060	Aspergillus giganteus	5060	other-eukaryote	47
+5061-Aspergillus-niger	5061	Aspergillus niger	5061	other-eukaryote	3
+5064-Aspergillus-restrictus	5064	Aspergillus restrictus	5064	other-eukaryote	1
+5067-Aspergillus-parasiticus	5067	Aspergillus parasiticus	5067	other-eukaryote	1
+5076-Penicillium-chrysogenum	5076	Penicillium chrysogenum	5076	other-eukaryote	129
+5077-Penicillium-citrinum	5077	Penicillium citrinum	5077	other-eukaryote	26
+5116-Cryphonectria-parasitica-chestnut-blight-fungus	5116	Cryphonectria parasitica (chestnut blight fungus)	660469	other-eukaryote	1
+5141-Neurospora-crassa	5141	Neurospora crassa	5141	other-eukaryote	9
+5207-Cryptococcus-neoformans	5207	Cryptococcus neoformans	5207, 235443, 283643	other-eukaryote	70
+5270-Ustilago-maydis	5270	Ustilago maydis	237631	other-eukaryote	2
+5325-Trametes-versicolor	5325	Trametes versicolor	5325	other-eukaryote	1
+5334-Schizophyllum-commune	5334	Schizophyllum commune	5334	other-eukaryote	1
+5346-Coprinopsis-cinerea	5346	Coprinopsis cinerea	5346	other-eukaryote	1
+5476-Candida-albicans	5476	Candida albicans	5476, 237561, 10000337	other-eukaryote	218
+5482-Candida-tropicalis	5482	Candida tropicalis	5482	other-eukaryote	2
+5501-Coccidioides-immitis	5501	Coccidioides immitis	5501	other-eukaryote	1
+5503-Curvularia-lunata	5503	Curvularia lunata	5503	other-eukaryote	20
+5507-Fusarium-oxysporum	5507	Fusarium oxysporum	5507	other-eukaryote	4
+5551-Trichophyton-rubrum	5551	Trichophyton rubrum	5551	other-eukaryote	28
+5580-Aureobasidium-pullulans	5580	Aureobasidium pullulans	5580	other-eukaryote	1
+5599-Alternaria-alternata	5599	Alternaria alternata	5599	other-eukaryote	106
+5659-Leishmania-amazonensis	5659	Leishmania amazonensis	5659	other-eukaryote	23
+5660-Leishmania-braziliensis	5660	Leishmania braziliensis	5660, 420245	other-eukaryote	54
+5661-Leishmania-donovani	5661	Leishmania donovani	5661, 981087	other-eukaryote	212
+5664-Leishmania-major	5664	Leishmania major	5664, 347515	other-eukaryote	392
+5665-Leishmania-mexicana	5665	Leishmania mexicana	5665, 929439	other-eukaryote	10
+5667-Leishmania-aethiopica	5667	Leishmania aethiopica	5667	other-eukaryote	85
+5671-Leishmania-infantum	5671	Leishmania infantum	5671, 435258, 10000345	other-eukaryote	331
+5679-Leishmania-panamensis	5679	Leishmania panamensis	5679	other-eukaryote	18
+5682-Leishmania-pifanoi	5682	Leishmania pifanoi	5682	other-eukaryote	21
+5691-Trypanosoma-brucei	5691	Trypanosoma brucei	5691, 31285, 31286, 185431, 679716	other-eukaryote	84
+5693-Trypanosoma-cruzi	5693	Trypanosoma cruzi	5693, 85057, 353153	other-eukaryote	174829
+5699-Trypanosoma-vivax	5699	Trypanosoma vivax	1055687	other-eukaryote	1
+5722-Trichomonas-vaginalis	5722	Trichomonas vaginalis	5722	other-eukaryote	81
+5741-Giardia-intestinalis-Giardia-lamblia	5741	Giardia intestinalis (Giardia lamblia)	5741, 184922, 598745, 658858	other-eukaryote	434
+5755-Acanthamoeba-castellanii	5755	Acanthamoeba castellanii	5755	other-eukaryote	17
+5759-Entamoeba-histolytica	5759	Entamoeba histolytica	5759, 294381, 885311, 10000352	other-eukaryote	225
+5762-Naegleria-gruberi	5762	Naegleria gruberi	5762	other-eukaryote	1
+5801-Eimeria-acervulina	5801	Eimeria acervulina	5801	other-eukaryote	1
+5802-Eimeria-tenella	5802	Eimeria tenella	5802	other-eukaryote	10
+5807-Cryptosporidium-parvum	5807	Cryptosporidium parvum	5807, 353152	other-eukaryote	145
+5811-Toxoplasma-gondii	5811	Toxoplasma gondii	5811, 383379, 398031, 432359, 507601, 508771, 1209523, 1209525, 10000353, 10000354, 10000355, 10002052	other-eukaryote	845
+5821-Plasmodium-berghei	5821	Plasmodium berghei	5821, 5823, 10000356	other-eukaryote	813
+5824-Plasmodium-brasilianum	5824	Plasmodium brasilianum	5824	other-eukaryote	2
+5825-Plasmodium-chabaudi	5825	Plasmodium chabaudi	5825, 31271, 10000357	other-eukaryote	63
+5827-Plasmodium-cynomolgi	5827	Plasmodium cynomolgi	5827, 5828	other-eukaryote	3
+5833-Plasmodium-falciparum-malaria-parasite-P-falciparum	5833	Plasmodium falciparum (malaria parasite P. falciparum)	5833, 5834, 5835, 5836, 5837, 5838, 5839, 5840, 5841, 5842, 5843, 5846, 5848, 36329, 57266, 57270, 1036723, 10000358, 10000360, 10000361, 10000362, 10000363, 10000366, 10000369, 10000370, 10000371, 10000373, 10000375, 10000376, 10000816, 10002007, 10002008, 10002009, 10002011	other-eukaryote	10503
+5850-Plasmodium-knowlesi	5850	Plasmodium knowlesi	5850, 5851, 5852	other-eukaryote	95
+5855-Plasmodium-vivax-malaria-parasite-P-vivax	5855	Plasmodium vivax (malaria parasite P. vivax)	5855, 31273, 126793, 1035514, 10000378, 10000862, 10002558	other-eukaryote	1643
+5857-Plasmodium-fragile	5857	Plasmodium fragile	5857	other-eukaryote	8
+5858-Plasmodium-malariae	5858	Plasmodium malariae	5858	other-eukaryote	1
+5861-Plasmodium-yoelii	5861	Plasmodium yoelii	5861, 73239, 352914, 10000381, 10000555	other-eukaryote	316
+5865-Babesia-bovis	5865	Babesia bovis	5865, 10000382, 10000383, 10001459	other-eukaryote	95
+5866-Babesia-bigemina	5866	Babesia bigemina	5866	other-eukaryote	7
+5868-Babesia-microti	5868	Babesia microti	5868, 1133968	other-eukaryote	16
+5872-Theileria-equi	5872	Theileria equi	5872	other-eukaryote	126
+5874-Theileria-annulata	5874	Theileria annulata	5874, 353154	other-eukaryote	5
+5875-Theileria-parva	5875	Theileria parva	5875, 333668, 10001243	other-eukaryote	421
+5877-Theileria-sergenti	5877	Theileria sergenti	5877, 10000848, 10000849, 10000850, 10000851	other-eukaryote	31
+5970-Exophiala-dermatitidis	5970	Exophiala dermatitidis	5970	other-eukaryote	1
+6035-Encephalitozoon-cuniculi	6035	Encephalitozoon cuniculi	6035, 284813	other-eukaryote	36
+6100-Aequorea-victoria	6100	Aequorea victoria	6100	other-eukaryote	5
+6182-Schistosoma-japonicum	6182	Schistosoma japonicum	6182	other-eukaryote	2094
+6183-Schistosoma-mansoni	6183	Schistosoma mansoni	6183, 10000385	other-eukaryote	7865
+6184-Schistosoma-bovis	6184	Schistosoma bovis	6184	other-eukaryote	2
+6192-Fasciola-hepatica-liver-fluke	6192	Fasciola hepatica (liver fluke)	6192	other-eukaryote	635
+6198-Opisthorchis-viverrini-Southeast-Asian-liver-fluke	6198	Opisthorchis viverrini (Southeast Asian liver fluke)	6198	other-eukaryote	4
+6203-Taenia-ovis-sheep-tapeworm	6203	Taenia ovis (sheep tapeworm)	6203	other-eukaryote	8
+6204-Taenia-solium-pig-tapeworm	6204	Taenia solium (pig tapeworm)	6204	other-eukaryote	40
+6206-Taenia-saginata-beef-tapeworm	6206	Taenia saginata (beef tapeworm)	6206	other-eukaryote	13
+6207-Taenia-crassiceps	6207	Taenia crassiceps	6207, 10000802	other-eukaryote	18
+6210-Echinococcus-granulosus	6210	Echinococcus granulosus	6210	other-eukaryote	120
+6211-Echinococcus-multilocularis	6211	Echinococcus multilocularis	6211	other-eukaryote	38
+6238-Caenorhabditis-briggsae	6238	Caenorhabditis briggsae	6238	other-eukaryote	2
+6239-Caenorhabditis-elegans	6239	Caenorhabditis elegans	6239	other-eukaryote	11
+6248-Strongyloides-stercoralis	6248	Strongyloides stercoralis	6248	other-eukaryote	1
+6252-Ascaris-lumbricoides-common-roundworm	6252	Ascaris lumbricoides (common roundworm)	6252	other-eukaryote	11
+6253-Ascaris-suum-pig-roundworm	6253	Ascaris suum (pig roundworm)	6253	other-eukaryote	290
+6269-Anisakis-simplex-herring-worm	6269	Anisakis simplex (herring worm)	6269	other-eukaryote	122
+6279-Brugia-malayi-agent-of-lymphatic-filariasis	6279	Brugia malayi (agent of lymphatic filariasis)	6279	other-eukaryote	16
+6282-Onchocerca-volvulus	6282	Onchocerca volvulus	6282	other-eukaryote	7766
+6293-Wuchereria-bancrofti-agent-of-lymphatic-filariasis	6293	Wuchereria bancrofti (agent of lymphatic filariasis)	6293	other-eukaryote	15
+6299-Litomosoides-carinii	6299	Litomosoides carinii	6299	other-eukaryote	3
+6313-Angiostrongylus-cantonensis-rat-lungworm	6313	Angiostrongylus cantonensis (rat lungworm)	6313	other-eukaryote	82
+6334-Trichinella-spiralis	6334	Trichinella spiralis	6334	other-eukaryote	37
+6339-Heligmosomoides-polygyrus	6339	Heligmosomoides polygyrus	6339	other-eukaryote	2
+6491-Conus-geographus-geography-cone	6491	Conus geographus (geography cone)	6491	other-eukaryote	53
+6492-Conus-magus-magus-cone	6492	Conus magus (magus cone)	6492	other-eukaryote	10
+6493-Conus-striatus-striated-cone	6493	Conus striatus (striated cone)	6493	other-eukaryote	15
+6495-Conus-tulipa-fish-hunting-cone-snail	6495	Conus tulipa (fish-hunting cone snail)	6495	other-eukaryote	1
+6594-Macrocallista-nimbosa-sun-ray-clam	6594	Macrocallista nimbosa (sun-ray clam)	6594	other-eukaryote	1
+6661-Artemia-franciscana	6661	Artemia franciscana	6661	other-eukaryote	2
+6687-Penaeus-monodon-giant-tiger-prawn	6687	Penaeus monodon (giant tiger prawn)	6687	other-eukaryote	32
+6689-Penaeus-vannamei-white-Pacific-shrimp	6689	Penaeus vannamei (white Pacific shrimp)	6689	other-eukaryote	338
+6690-Penaeus-aztecus-brown-shrimp	6690	Penaeus aztecus (brown shrimp)	6690	other-eukaryote	191
+6728-Procambarus-clarkii-red-swamp-crayfish	6728	Procambarus clarkii (red swamp crayfish)	6728	other-eukaryote	3
+6761-Scylla-serrata-Indo-Pacific-swamp-crab	6761	Scylla serrata (Indo-Pacific swamp crab)	6761	other-eukaryote	12
+6819-Euphausia-superba	6819	Euphausia superba	6819	other-eukaryote	12
+6850-Limulus-polyphemus-Atlantic-horseshoe-crab	6850	Limulus polyphemus (Atlantic horseshoe crab)	6850	other-eukaryote	1
+6853-Tachypleus-tridentatus-Chinese-horseshoe-crab	6853	Tachypleus tridentatus (Chinese horseshoe crab)	6853	other-eukaryote	1
+6858-Androctonus-australis-Sahara-scorpion	6858	Androctonus australis (Sahara scorpion)	6858, 70175	other-eukaryote	123
+6859-Androctonus-mauritanicus	6859	Androctonus mauritanicus	6860	other-eukaryote	1
+6878-Centruroides-noxius-Mexican-scorpion	6878	Centruroides noxius (Mexican scorpion)	6878	other-eukaryote	7
+6887-Tityus-serrulatus-Brazilian-scorpion	6887	Tityus serrulatus (Brazilian scorpion)	6887	other-eukaryote	129
+6925-Latrodectus-tredecimguttatus-black-widow-spider	6925	Latrodectus tredecimguttatus (black widow spider)	6925	other-eukaryote	1
+6938-Ornithodoros-moubata	6938	Ornithodoros moubata	6938	other-eukaryote	51
+6941-Rhipicephalus-microplus-cattle-tick	6941	Rhipicephalus microplus (cattle tick)	6941	other-eukaryote	5
+6945-Ixodes-scapularis-blacklegged-tick	6945	Ixodes scapularis (blacklegged tick)	6945	other-eukaryote	23
+6954-Dermatophagoides-farinae-American-house-dust-mite	6954	Dermatophagoides farinae (American house dust mite)	6954	other-eukaryote	1425
+6956-Dermatophagoides-pteronyssinus-European-house-dust-mite	6956	Dermatophagoides pteronyssinus (European house dust mite)	6956	other-eukaryote	2308
+6958-Euroglyphus-maynei	6958	Euroglyphus maynei	6958	other-eukaryote	40
+6973-Blattella-germanica-German-cockroach	6973	Blattella germanica (German cockroach)	6973	other-eukaryote	1840
+6978-Periplaneta-americana-American-cockroach	6978	Periplaneta americana (American cockroach)	6978	other-eukaryote	116
+7004-Locusta-migratoria-migratory-locust	7004	Locusta migratoria (migratory locust)	7004	other-eukaryote	1
+7108-Spodoptera-frugiperda-fall-armyworm	7108	Spodoptera frugiperda (fall armyworm)	7108	other-eukaryote	1
+7130-Manduca-sexta-Carolina-sphinx	7130	Manduca sexta (Carolina sphinx)	7130	other-eukaryote	3
+7137-Galleria-mellonella-greater-wax-moth	7137	Galleria mellonella (greater wax moth)	7137	other-eukaryote	2
+7154-Chironomus-thummi-midge	7154	Chironomus thummi (midge)	7154, 7155	other-eukaryote	186
+7160-Aedes-albopictus-forest-day-mosquito	7160	Aedes albopictus (forest day mosquito)	7160	other-eukaryote	24
+7165-Anopheles-gambiae-African-malaria-mosquito	7165	Anopheles gambiae (African malaria mosquito)	7165, 180454	other-eukaryote	18
+7227-Drosophila-melanogaster-fruit-fly	7227	Drosophila melanogaster (fruit fly)	7227	other-eukaryote	26
+7234-Drosophila-persimilis	7234	Drosophila persimilis	7234	other-eukaryote	1
+7237-Drosophila-pseudoobscura	7237	Drosophila pseudoobscura	46245	other-eukaryote	1
+7386-Sarcophaga-peregrina	7386	Sarcophaga peregrina	7386	other-eukaryote	1
+7394-Glossina-morsitans-tsetse-fly	7394	Glossina morsitans (tsetse fly)	37546	other-eukaryote	3
+7441-Dolichovespula-maculata-white-face-hornet	7441	Dolichovespula maculata (white-face hornet)	7441	other-eukaryote	20
+7444-Vespa-basalis	7444	Vespa basalis	7444	other-eukaryote	1
+7453-Vespula-maculifrons-eastern-yellowjacket	7453	Vespula maculifrons (eastern yellowjacket)	7453	other-eukaryote	1
+7454-Vespula-vulgaris	7454	Vespula vulgaris	7454	other-eukaryote	205
+7460-Apis-mellifera-European-honey-bee	7460	Apis mellifera (European honey bee)	7460, 7469	other-eukaryote	138
+7515-Ctenocephalides-felis-cat-flea	7515	Ctenocephalides felis (cat flea)	7515	other-eukaryote	2
+7719-Ciona-intestinalis-sea-vase	7719	Ciona intestinalis (sea vase)	7719	other-eukaryote	1
+7741-Branchiostoma-belcheri-Belchers-lancelet	7741	Branchiostoma belcheri (Belcher's lancelet)	7741	other-eukaryote	1
+7787-Tetronarce-californica-Pacific-electric-ray	7787	Tetronarce californica (Pacific electric ray)	7787	vertebrate	294
+7788-Torpedo-marmorata-spotted-torpedo	7788	Torpedo marmorata (spotted torpedo)	7788	vertebrate	6
+7955-Danio-rerio-leopard-danio	7955	Danio rerio (leopard danio)	7955	vertebrate	8
+7957-Carassius-auratus-goldfish	7957	Carassius auratus (goldfish)	7957	vertebrate	5
+7959-Ctenopharyngodon-idella-grass-carp	7959	Ctenopharyngodon idella (grass carp)	7959	vertebrate	1
+7962-Cyprinus-carpio-carp	7962	Cyprinus carpio (carp)	7962	vertebrate	10
+8005-Electrophorus-electricus-electric-knifefish	8005	Electrophorus electricus (electric knifefish)	8005	vertebrate	1
+8018-Oncorhynchus-keta-chum-salmon	8018	Oncorhynchus keta (chum salmon)	8018	vertebrate	6
+8022-Oncorhynchus-mykiss-rainbow-trout	8022	Oncorhynchus mykiss (rainbow trout)	8022	vertebrate	1
+8030-Salmo-salar-Atlantic-salmon	8030	Salmo salar (Atlantic salmon)	8030	vertebrate	67
+8049-Gadus-morhua-Atlantic-cod	8049	Gadus morhua (Atlantic cod)	8049, 8053	vertebrate	98
+8090-Oryzias-latipes-Japanese-rice-fish	8090	Oryzias latipes (Japanese rice fish)	8090	vertebrate	1
+8255-Paralichthys-olivaceus-bastard-halibut	8255	Paralichthys olivaceus (bastard halibut)	8255	vertebrate	1
+8355-Xenopus-laevis-clawed-frog	8355	Xenopus laevis (clawed frog)	8355	vertebrate	7
+8364-Xenopus-tropicalis-western-clawed-frog	8364	Xenopus tropicalis (western clawed frog)	8364	vertebrate	3
+8554-Heloderma-suspectum-Gila-monster	8554	Heloderma suspectum (Gila monster)	8554	vertebrate	1
+8616-Bungarus-multicinctus-many-banded-krait	8616	Bungarus multicinctus (many-banded krait)	8616	vertebrate	26
+8624-Dendroaspis-polylepis	8624	Dendroaspis polylepis	8620	vertebrate	148
+8654-Naja-nigricollis-black-necked-spitting-cobra	8654	Naja nigricollis (black-necked spitting cobra)	8654	vertebrate	6
+8655-Naja-nivea-cape-cobra	8655	Naja nivea (cape cobra)	8655	vertebrate	11
+8656-Naja-atra-Taiwan-cobra	8656	Naja atra (Taiwan cobra)	8656	vertebrate	44
+8657-Naja-oxiana-Oxus-cobra	8657	Naja oxiana (Oxus cobra)	8657	vertebrate	4
+8658-Naja-pallida-red-spitting-cobra	8658	Naja pallida (red spitting cobra)	8658	vertebrate	1
+8663-Notechis-scutatus-common-tiger-snake	8663	Notechis scutatus (common tiger snake)	8663	vertebrate	2
+8668-Oxyuranus-scutellatus	8668	Oxyuranus scutellatus	8667	vertebrate	4
+8671-Pseudechis-porphyriacus-red-bellied-black-snake	8671	Pseudechis porphyriacus (red-bellied black snake)	8671	vertebrate	3
+8704-Vipera-ammodytes-sand-viper	8704	Vipera ammodytes (sand viper)	8704	vertebrate	1
+8706-Vipera-aspis-aspic-viper	8706	Vipera aspis (aspic viper)	194601	vertebrate	3
+8722-Bothrops-asper-terciopelo	8722	Bothrops asper (terciopelo)	8722	vertebrate	66
+8724-Bothrops-jararaca-jararaca	8724	Bothrops jararaca (jararaca)	8724	vertebrate	194
+8725-Bothrops-atrox-common-lancehead	8725	Bothrops atrox (common lancehead)	8725	vertebrate	66
+8726-Bothrops-jararacussu-jararacussu	8726	Bothrops jararacussu (jararacussu)	8726	vertebrate	67
+8731-Crotalus-durissus-cascabel	8731	Crotalus durissus (cascabel)	8732	vertebrate	60
+8752-Lachesis-muta-bushmaster	8752	Lachesis muta (bushmaster)	8753	vertebrate	127
+8839-Anas-platyrhynchos-duck	8839	Anas platyrhynchos (duck)	8839	vertebrate	1
+8845-Anser-cygnoides-Chinese-goose	8845	Anser cygnoides (Chinese goose)	8845	vertebrate	2
+8855-Cairina-moschata-muscovy	8855	Cairina moschata (muscovy)	8855	vertebrate	3
+8932-Columba-livia-carrier-pigeon	8932	Columba livia (carrier pigeon)	8932	vertebrate	19
+9014-Colinus-virginianus-bobwhite-quail	9014	Colinus virginianus (bobwhite quail)	9014	vertebrate	7
+9031-Gallus-gallus-chicken	9031	Gallus gallus (chicken)	9031	vertebrate	2680
+9085-Catreus-wallichii-cheer-pheasant	9085	Catreus wallichii (cheer pheasant)	9085	vertebrate	2
+9103-Meleagris-gallopavo-common-turkey	9103	Meleagris gallopavo (common turkey)	9103	vertebrate	3
+9258-Ornithorhynchus-anatinus-duck-billed-platypus	9258	Ornithorhynchus anatinus (duck-billed platypus)	9258	vertebrate	1
+9305-Sarcophilus-harrisii-Tasmanian-devil	9305	Sarcophilus harrisii (Tasmanian devil)	9305	vertebrate	22239
+9337-Trichosurus-vulpecula-common-brush-tailed-possum	9337	Trichosurus vulpecula (common brush-tailed possum)	9337	vertebrate	45
+9402-Pteropus-alecto-black-flying-fox	9402	Pteropus alecto (black flying fox)	9402	vertebrate	13
+9483-Callithrix-jacchus-common-marmoset	9483	Callithrix jacchus (common marmoset)	9483	vertebrate	5
+9509-Ateles-geoffroyi-Central-American-spider-monkey	9509	Ateles geoffroyi (Central American spider monkey)	9509	vertebrate	1
+9534-Chlorocebus-aethiops-African-green-monkey	9534	Chlorocebus aethiops (African green monkey)	9534	vertebrate	7
+9538-Erythrocebus-patas-hussar	9538	Erythrocebus patas (hussar)	9538	vertebrate	1
+9541-Macaca-fascicularis-crab-eating-macaque	9541	Macaca fascicularis (crab eating macaque)	9541	vertebrate	6
+9544-Macaca-mulatta-rhesus-macaque	9544	Macaca mulatta (rhesus macaque)	9544	vertebrate	7
+9545-Macaca-nemestrina-pigtail-macaque	9545	Macaca nemestrina (pigtail macaque)	9545	vertebrate	1
+9548-Macaca-radiata-bonnet-macaque	9548	Macaca radiata (bonnet macaque)	9548	vertebrate	15
+9556-Papio-cynocephalus-baboon	9556	Papio cynocephalus (baboon)	9556	vertebrate	1
+9580-Hylobates-lar-white-handed-gibbon	9580	Hylobates lar (white-handed gibbon)	9580	vertebrate	1
+9593-Gorilla-gorilla	9593	Gorilla gorilla	9593, 9595	vertebrate	9
+9597-Pan-paniscus-bonobo	9597	Pan paniscus (bonobo)	9597	vertebrate	1
+9598-Pan-troglodytes-chimpanzee	9598	Pan troglodytes (chimpanzee)	9598	vertebrate	37
+9600-Pongo-pygmaeus-Bornean-orangutan	9600	Pongo pygmaeus (Bornean orangutan)	9600	vertebrate	2
+9601-Pongo-abelii-Sumatran-orangutan	9601	Pongo abelii (Sumatran orangutan)	9601	vertebrate	2
+9606-Homo-sapiens-human	9606	Homo sapiens (human)	9606	vertebrate	1397576
+9612-Canis-lupus-wolf-or-dog	9612	Canis lupus (wolf or dog)	9615	vertebrate	2201
+9627-Vulpes-vulpes-silver-fox	9627	Vulpes vulpes (silver fox)	9627	vertebrate	1
+9685-Felis-catus-cat	9685	Felis catus (cat)	9685	vertebrate	233
+9755-Physeter-catodon-sperm-whale	9755	Physeter catodon (sperm whale)	9755	vertebrate	49
+9796-Equus-caballus-domestic-horse	9796	Equus caballus (domestic horse)	9796	vertebrate	203
+9798-Equus-przewalskii-Przewalski-horse	9798	Equus przewalskii (Przewalski horse)	9798	vertebrate	1
+9823-Sus-scrofa-pig	9823	Sus scrofa (pig)	9823, 9825	vertebrate	130
+9860-Cervus-elaphus-red-deer	9860	Cervus elaphus (red deer)	9860	vertebrate	5
+9874-Odocoileus-virginianus-white-tailed-deer	9874	Odocoileus virginianus (white-tailed deer)	9874	vertebrate	1
+9913-Bos-taurus-bovine	9913	Bos taurus (bovine)	9913	vertebrate	3905
+9925-Capra-hircus-domestic-goat	9925	Capra hircus (domestic goat)	9925	vertebrate	12
+9940-Ovis-aries-domestic-sheep	9940	Ovis aries (domestic sheep)	9940	vertebrate	118
+9978-Ochotona-princeps-southern-American-pika	9978	Ochotona princeps (southern American pika)	9978	vertebrate	1
+9986-Oryctolagus-cuniculus-rabbit	9986	Oryctolagus cuniculus (rabbit)	9986	vertebrate	335
+10029-Cricetulus-griseus-Chinese-hamsters	10029	Cricetulus griseus (Chinese hamsters)	10029	vertebrate	10
+10036-Mesocricetus-auratus-Syrian-golden-hamster	10036	Mesocricetus auratus (Syrian golden hamster)	10036	vertebrate	144
+10042-Peromyscus-maniculatus-North-American-deer-mouse	10042	Peromyscus maniculatus (North American deer mouse)	10042	vertebrate	1
+10090-Mus-musculus-mouse	10090	Mus musculus (mouse)	10090, 10092, 39442, 57486, 10000000, 10000067, 10000225, 10000632, 10001019	vertebrate	106573
+10116-Rattus-norvegicus-brown-rat	10116	Rattus norvegicus (brown rat)	10116, 10000662, 10001133, 10001412	vertebrate	34937
+10141-Cavia-porcellus-guinea-pig	10141	Cavia porcellus (guinea pig)	10141	vertebrate	161
+10224-Saccoglossus-kowalevskii	10224	Saccoglossus kowalevskii	10224	other-eukaryote	1
+10243-Cowpox-virus	10243	Cowpox virus	10243, 265872, 10000571	virus	37
+10244-Monkeypox-virus-monkey-pox-virus	10244	Monkeypox virus (monkey pox virus)	10244, 10000386	virus	12
+10245-Vaccinia-virus-vaccinia-virus-VV	10245	Vaccinia virus (vaccinia virus VV)	10245, 10247, 10248, 10249, 10253, 10254, 31531, 32605, 32606, 126794, 201444, 332193, 397342, 467144, 502057, 696871, 10000388	virus	25451
+10255-Variola-virus-smallpox-virus	10255	Variola virus (smallpox virus)	10255, 12870, 53258, 587200, 10000390	virus	466
+10261-Fowlpox-virus-Avipoxvirus-clade-A1	10261	Fowlpox virus (Avipoxvirus clade A1)	10261, 928301	virus	12
+10273-Myxoma-virus-myxoma-virus-MYX	10273	Myxoma virus (myxoma virus MYX)	10273	virus	4
+10276-Swinepox-virus	10276	Swinepox virus	10276	virus	2
+10298-Human-herpesvirus-1	10298	Human herpesvirus 1	10298, 10299, 10301, 10304, 10306, 10309, 37107, 10000396, 10000398	virus	1602
+10310-Human-herpesvirus-2	10310	Human herpesvirus 2	10310, 10312, 10313, 10315	virus	3256
+10320-Bovine-alphaherpesvirus-1-Bovine-herpesvirus-1	10320	Bovine alphaherpesvirus 1 (Bovine herpesvirus 1)	10320, 10323, 10324, 79889, 10000404	virus	93
+10326-Equid-alphaherpesvirus-1-Equid-herpesvirus-1	10326	Equid alphaherpesvirus 1 (Equid herpesvirus 1)	10326	virus	664
+10331-Equid-alphaherpesvirus-4-Equid-herpesvirus-4	10331	Equid alphaherpesvirus 4 (Equid herpesvirus 4)	10331, 10000405	virus	12
+10335-Human-herpesvirus-3-Varicella-zoster-virus	10335	Human herpesvirus 3 (Varicella-zoster virus)	10335, 10338, 341980, 10000406	virus	928
+10345-Suid-alphaherpesvirus-1-Alphaherpesvirus-pseudorabies-virus-PRV	10345	Suid alphaherpesvirus 1 (Alphaherpesvirus pseudorabies virus PRV)	10345, 10349, 33703	virus	111
+10359-Human-herpesvirus-5-Human-cytomegalovirus	10359	Human herpesvirus 5 (Human cytomegalovirus)	10359, 10360, 10363, 295027, 311339, 10000408, 10001627	virus	6200
+10366-Murid-betaherpesvirus-1-Mouse-cytomegalovirus-1	10366	Murid betaherpesvirus 1 (Mouse cytomegalovirus 1)	10366, 10367, 69156, 524651, 10000411, 10000412, 10000413, 10000414, 10001396	virus	850
+10368-Human-betaherpesvirus-6-Herpesvirus-type-6	10368	Human betaherpesvirus 6 (Herpesvirus type 6)	10368	virus	1
+10373-Macaca-mulatta-cytomegalovirus	10373	Macaca mulatta cytomegalovirus	10373	virus	150
+10376-Human-herpesvirus-4-Epstein-Barr-virus	10376	Human herpesvirus 4 (Epstein Barr virus)	10376, 10377, 10378, 12509, 31525, 36352, 82830, 10000420, 10000421, 10000424, 10000427, 10000429, 10002922	virus	6237
+10390-Gallid-alphaherpesvirus-2-Gallid-herpesvirus-2	10390	Gallid alphaherpesvirus 2 (Gallid herpesvirus 2)	10390, 33707, 10002410	virus	41
+10407-Hepatitis-B-virus-Human-hepatitis-B-virus	10407	Hepatitis B virus (Human hepatitis B virus)	10407, 10408, 10409, 10410, 10411, 10412, 10414, 10415, 10418, 10419, 45410, 106820, 106821, 391647, 391650, 480116, 482134, 489455, 489460, 489469, 490133, 2764122, 2847137, 10000431, 10000436, 10000437, 10001156	virus	4078
+10497-African-swine-fever-virus-African-swine-fever-virus-ASF	10497	African swine fever virus (African swine fever virus ASF)	10497, 10498, 874269, 10002450, 10002502, 10002570, 10002870	virus	735
+10537-Canine-mastadenovirus-A-Canine-adenovirus	10537	Canine mastadenovirus A (Canine adenovirus)	10514	virus	2
+10561-Xipapillomavirus-1-Bovine-papillomavirus---3	10561	Xipapillomavirus 1 (Bovine papillomavirus - 3)	10562	virus	34
+10566-Human-papillomavirus-Human-Papilloma-Virus	10566	Human papillomavirus (Human Papilloma Virus)	10566	virus	10
+10623-Kappapapillomavirus-2-Cottontail-rabbit-SHOPE-PAPILLOMAVIRUS	10623	Kappapapillomavirus 2 (Cottontail rabbit (SHOPE) PAPILLOMAVIRUS)	10623	virus	12
+10665-Tequatrovirus-T4-Escherichia-virus-T4	10665	Tequatrovirus T4 (Escherichia virus T4)	10665	virus	26
+10678-Punavirus-P1-Escherichia-virus-P1	10678	Punavirus P1 (Escherichia virus P1)	10678	virus	10
+10710-Lambdavirus-lambda-Escherichia-virus-Lambda	10710	Lambdavirus lambda (Escherichia virus Lambda)	10710	virus	10
+10754-Lederbergvirus-P22-Salmonella-virus-P22	10754	Lederbergvirus P22 (Salmonella virus P22)	10754	virus	1
+10847-Sinsheimervirus-phiX174-Escherichia-virus-phiX174	10847	Sinsheimervirus phiX174 (Escherichia virus phiX174)	10847	virus	1
+10864-Enterobacteria-phage-fd-Bacteriophage-fd	10864	Enterobacteria phage fd (Bacteriophage fd)	10864	virus	32
+10879-Cystovirus-phi6-Pseudomonas-virus-phi6	10879	Cystovirus phi6 (Pseudomonas virus phi6)	10879	virus	7
+10891-Reovirus-sp-Reovirus	10891	Reovirus sp. (Reovirus)	10891	virus	1
+11021-Eastern-equine-encephalitis-virus-Eastern-equine-encephalomyelitis-virus	11021	Eastern equine encephalitis virus (Eastern equine encephalomyelitis virus)	11021, 11022	virus	70
+11029-Ross-River-virus	11029	Ross River virus	11029	virus	26
+11033-Semliki-Forest-virus	11033	Semliki Forest virus	11033	virus	53
+11034-Sindbis-virus	11034	Sindbis virus	11034	virus	15
+11036-Venezuelan-equine-encephalitis-virus-Venezuelan-equine-encephalitis-VEE	11036	Venezuelan equine encephalitis virus (Venezuelan equine encephalitis VEE)	11036, 11037, 11038	virus	35
+11039-Western-equine-encephalitis-virus	11039	Western equine encephalitis virus	11039	virus	6
+11072-Japanese-encephalitis-virus-Japanese-encephalitis-JE-virus	11072	Japanese encephalitis virus (Japanese encephalitis (JE) virus)	11072, 11073, 11075, 11076, 10001335, 10001648, 10002888	virus	1256
+11082-West-Nile-virus	11082	West Nile virus	11077, 11078, 11082, 307044, 406269, 449278, 10000971, 10001047, 10001649, 10002308	virus	1441
+11083-Powassan-virus-Flavivirus-powassan	11083	Powassan virus (Flavivirus powassan)	11083	virus	4
+11084-Tick-borne-encephalitis-virus-FSME-virus	11084	Tick-borne encephalitis virus (FSME virus)	11084, 11092, 10000449	virus	324
+11089-Yellow-fever-virus-Flavivirus-febricis	11089	Yellow fever virus (Flavivirus febricis)	11089, 11090, 31641, 407134, 407141, 617102	virus	4906
+11137-Human-coronavirus-229E-Coronavirus-229E	11137	Human coronavirus 229E (Coronavirus 229E)	11137, 1739614, 10002665	virus	17712
+11216-Human-respirovirus-3-Human-parainfluenza-3-virus	11216	Human respirovirus 3 (Human parainfluenza 3 virus)	11216, 11217	virus	39
+11234-Measles-morbillivirus-Measles-virus	11234	Measles morbillivirus (Measles virus)	11234, 11235, 11236, 70146, 70149, 132487, 262307, 10000462	virus	759
+11240-Phocine-morbillivirus-Phocine-distemper-virus	11240	Phocine morbillivirus (Phocine distemper virus)	10000463	virus	5
+11241-Rinderpest-morbillivirus-Rinderpest-virus	11241	Rinderpest morbillivirus (Rinderpest virus)	11241, 11243, 36409, 10000465	virus	54
+11276-Vesicular-stomatitis-virus-vesicular-stomatitis-virus-VSV	11276	Vesicular stomatitis virus (vesicular stomatitis virus VSV)	11276	virus	15
+11292-Lyssavirus-rabies-Rabies-lyssavirus	11292	Lyssavirus rabies (Rabies lyssavirus)	11292, 11293, 11294, 11295, 11296, 11298, 37132, 103929, 10000470, 10000471	virus	150
+11318-Thogotovirus-dhoriense-Dhori-thogotovirus	11318	Thogotovirus dhoriense (Dhori thogotovirus)	11318	virus	1
+11320-Influenza-A-virus	11320	Influenza A virus	11320, 11384, 11408, 11448, 36418, 36420, 38973, 41857, 55532, 59375, 62446, 62478, 62488, 62496, 62503, 62512, 62541, 62564, 62575, 62596, 63106, 79695, 82372, 83206, 88103, 88104, 88776, 89169, 89172, 93838, 95234, 97348, 97353, 100835, 102793, 102796, 107493, 107558, 114727, 114729, 119210, 119211, 119215, 119218, 119220, 128982, 130760, 130763, 132504, 132734, 132783, 132841, 132884, 135658, 135661, 136474, 137578, 137885, 137886, 142948, 145307, 147095, 153969, 154540, 155218, 155220, 155222, 155225, 155226, 155227, 158306, 161502, 162326, 164326, 165420, 165512, 168278, 169166, 169169, 170342, 172149, 173473, 173477, 176672, 177117, 177128, 177131, 177188, 182781, 183741, 183764, 183778, 183783, 185794, 187164, 191090, 192535, 192549, 192720, 196462, 197579, 197589, 198059, 203129, 205946, 205954, 207401, 210655, 210656, 210659, 210663, 211044, 214826, 215862, 215864, 216877, 220977, 221012, 223931, 223932, 223935, 223947, 224819, 225071, 225085, 225088, 225089, 229051, 231851, 236235, 243678, 251297, 253682, 253686, 255681, 255682, 256045, 260806, 264510, 264513, 266093, 266827, 270484, 270490, 270510, 270945, 273361, 274828, 274829, 279797, 279798, 282124, 284168, 284190, 284195, 284202, 284218, 286239, 292039, 292045, 292590, 293054, 293055, 293090, 298713, 298716, 299390, 299730, 299733, 300748, 300749, 300750, 303316, 304883, 306061, 307819, 311169, 311596, 311695, 311710, 311775, 317652, 322564, 322566, 327205, 327310, 327311, 329593, 329606, 332733, 332747, 333278, 334589, 334590, 335333, 335337, 335358, 336092, 336205, 336207, 336238, 336794, 336800, 342137, 342145, 342207, 342210, 342221, 342396, 342508, 344598, 351253, 351277, 352034, 352348, 352520, 352561, 352564, 352764, 352963, 353253, 353466, 354228, 354235, 355624, 357205, 357208, 357210, 359921, 364132, 365074, 365078, 365080, 365129, 365417, 366524, 367120, 370127, 370128, 370810, 370811, 370813, 371082, 371214, 373145, 376721, 378131, 378139, 380210, 380213, 380217, 380282, 380284, 380285, 380299, 380301, 380330, 380332, 380337, 380339, 380340, 380342, 380343, 380346, 380833, 380836, 380842, 380905, 380950, 380951, 380964, 380978, 380979, 380982, 380984, 380985, 381512, 381513, 381516, 381517, 381518, 382781, 382825, 382828, 382832, 382835, 382842, 382848, 383028, 383121, 383152, 383231, 383281, 383531, 383537, 383550, 383558, 383561, 383566, 383568, 383570, 383571, 383574, 383577, 383578, 383586, 383602, 383603, 383604, 384483, 384484, 384487, 384493, 384495, 384498, 384499, 384500, 384502, 384505, 384510, 384527, 384946, 385576, 385583, 385585, 385586, 385587, 385599, 385605, 385616, 385624, 385630, 385640, 385644, 387139, 387147, 387156, 387161, 387191, 387203, 387207, 387208, 387213, 387239, 387243, 389259, 392809, 392810, 392811, 393486, 393548, 393557, 393697, 393902, 395841, 395842, 400331, 400788, 400828, 400830, 401372, 402194, 402464, 402489, 402518, 402527, 402938, 404137, 404138, 404150, 404152, 404155, 404163, 404573, 405050, 407418, 411157, 411167, 411662, 414044, 415166, 415167, 415169, 415172, 415176, 415177, 416730, 417758, 418868, 421472, 421901, 425551, 425557, 426738, 427773, 427890, 432070, 432094, 435359, 436004, 441962, 444318, 444793, 446023, 447133, 447188, 448058, 449656, 453057, 461772, 462695, 464314, 464622, 468968, 472511, 475493, 476294, 476303, 479022, 480019, 480024, 488233, 488241, 496036, 499286, 504697, 504904, 504910, 506282, 506350, 510222, 514118, 514193, 515581, 518922, 522740, 529058, 533026, 535852, 538555, 553345, 556277, 558177, 560463, 562988, 562992, 566260, 568833, 573797, 576142, 577543, 578079, 614035, 616922, 632134, 641501, 641809, 641812, 642261, 642794, 643212, 644289, 644788, 645724, 645771, 647096, 647923, 648856, 654811, 655288, 657165, 658578, 680689, 680690, 680692, 680693, 680729, 680739, 680767, 680785, 680789, 680799, 680803, 683780, 690988, 697610, 715091, 715494, 742305, 754366, 760063, 761251, 762377, 762378, 762400, 768646, 768647, 887118, 908203, 915014, 936115, 947939, 986174, 991335, 996581, 1041990, 1068705, 1081253, 1086859, 1093545, 1122279, 1129345, 1129347, 1144025, 1163697, 1171336, 1176042, 1289562, 1310532, 1314758, 1330339, 1331831, 1332244, 1342397, 1342434, 1346336, 1395524, 1395982, 1413188, 1420840, 1447813, 1451093, 1470614, 1481964, 1507381, 1654135, 1663864, 1663934, 1663996, 1727172, 1777792, 1933916, 1968303, 1968304, 2019571, 2026007, 10000474, 10000477, 10000550, 10000865, 10001157, 10001225, 10001315, 10001316, 10001317, 10001318, 10001680, 10002090, 10002273, 10002360, 10002580, 10002657, 10002805	virus	12095
+11520-Influenza-B-virus-Influenza-virus-type-B	11520	Influenza B virus (Influenza virus type B)	11520, 11521, 11550, 107404, 107406, 150127, 206203, 279329, 289338, 416674, 427826, 464417, 518987, 604436, 1077587	virus	707
+11552-Influenza-C-virus-Influenza-C-viruses	11552	Influenza C virus (Influenza C viruses)	11552, 11553, 224197	virus	4
+11636-Reticuloendotheliosis-virus-Avian-reticuloendotheliosis-virus	11636	Reticuloendotheliosis virus (Avian reticuloendotheliosis virus)	11636, 10001999	virus	8
+11642-Simian-foamy-virus	11642	Simian foamy virus	11642, 11963, 41858, 288118, 298339, 10002863, 10002864	virus	49
+11660-Caprine-arthritis-encephalitis-virus-Caprine-arthritis-encephalitis-virus	11660	Caprine arthritis encephalitis virus (Caprine arthritis-encephalitis virus)	11660, 11661, 11662, 254355, 10001307, 10001308	virus	40
+11665-Equine-infectious-anemia-virus-equine-infectious-anemia-virus-EIAV	11665	Equine infectious anemia virus (equine infectious anemia virus EIAV)	11665, 11670, 11671, 10000499	virus	387
+11673-Feline-immunodeficiency-virus-feline-immunodeficiency-virus-FIV	11673	Feline immunodeficiency virus (feline immunodeficiency virus FIV)	11673, 11674, 11675, 36372, 45409	virus	45
+11676-Human-immunodeficiency-virus-1-human-immunodeficiency-virus-1-HIV-1	11676	Human immunodeficiency virus 1 (human immunodeficiency virus 1 HIV-1)	11676, 11678, 11679, 11681, 11682, 11683, 11684, 11685, 11686, 11687, 11688, 11689, 11690, 11691, 11694, 11695, 11696, 11697, 11698, 11699, 11701, 11703, 11704, 11705, 11706, 11708, 31678, 36375, 327105, 362651, 388799, 401671, 505184, 505185, 505186, 10000500	virus	1364
+11709-Human-immunodeficiency-virus-2-HIV-type-2	11709	Human immunodeficiency virus 2 (HIV type 2)	11709, 11713, 11714, 11715, 11716, 11717, 11718, 11720, 31681, 73484	virus	95
+11723-Simian-immunodeficiency-virus-Chimpanzee-immunodeficiency-virus	11723	Simian immunodeficiency virus (Chimpanzee immunodeficiency virus)	11711, 11723, 11730, 11731, 11732, 11733, 11734, 11735, 11736, 11737, 11738, 31682, 31683, 31684, 160753, 224206, 10000501, 10000502, 10000503, 10000504, 10000505, 10000506	virus	1931
+11746-Jaagsiekte-sheep-retrovirus-Endogenous-Jaagziekte-retrovirus	11746	Jaagsiekte sheep retrovirus (Endogenous Jaagziekte retrovirus)	11746	virus	1
+11757-Mouse-mammary-tumor-virus-mouse-mammary-tumor-virus-MMT	11757	Mouse mammary tumor virus (mouse mammary tumor virus MMT)	11757	virus	30
+11768-Feline-leukemia-virus-Feline-leukemia-provirus	11768	Feline leukemia virus (Feline leukemia provirus)	11769, 11824, 10001130	virus	21
+11780-Snyder-Theilen-feline-sarcoma-virus-Feline-sarcoma-virus-STRAIN-SNYDER-THEILEN	11780	Snyder-Theilen feline sarcoma virus (Feline sarcoma virus (STRAIN SNYDER-THEILEN))	11780	virus	1
+11786-Murine-leukemia-virus-murine-leukemia-virus-MLV	11786	Murine leukemia virus (murine leukemia virus MLV)	11786, 11790, 11791, 11795, 11801, 31687, 44561, 65690, 10001207	virus	166
+11827-Human-endogenous-retrovirus	11827	Human endogenous retrovirus	11827	virus	12
+11864-Avian-leukosis-virus-Avian-leukosis-viruses	11864	Avian leukosis virus (Avian leukosis viruses)	11861, 11864, 363020, 1401444, 10001965, 10001967, 10002414	virus	17
+11886-Rous-sarcoma-virus-Rous-sarcoma-virus-RSV	11886	Rous sarcoma virus (Rous sarcoma virus RSV)	11886	virus	11
+11901-Bovine-leukemia-virus-bovine-leukemia-virus-BLV	11901	Bovine leukemia virus (bovine leukemia virus BLV)	11901	virus	405
+11966-Aids-associated-retrovirus	11966	Aids-associated retrovirus	11966	virus	2
+11976-Rabbit-hemorrhagic-disease-virus-Rabbit-haemorrhagic-disease-virus	11976	Rabbit hemorrhagic disease virus (Rabbit haemorrhagic disease virus)	11976, 10000507	virus	18
+11978-Feline-calicivirus-Feline-vesivirus	11978	Feline calicivirus (Feline vesivirus)	11978, 11981, 292349	virus	62
+11983-Norwalk-virus-Norwalk-calicivirus	11983	Norwalk virus (Norwalk calicivirus)	11983, 11984, 82658, 122929, 150080, 158465, 173929, 178773, 223997, 332884, 392172, 463722, 489821, 489822, 490039, 490041, 499191, 508775, 520963, 520964, 524364, 546980, 552592, 588533, 647343, 647514, 647515, 647516, 647519, 647521, 660658, 660659, 707424, 707477, 707488, 1046049, 1070539, 1182144, 1184498, 1241973, 1254407, 1260941, 1286616, 1291821, 1291870, 1321999, 1350216, 1406148, 1472713, 1498657, 1577715, 1665645, 1792260, 1972699, 10000560, 10000829, 10001116, 10001606, 10002026, 10002598	virus	862
+12064-Enterovirus-E-Bovine-enterovirus	12064	Enterovirus E (Bovine enterovirus)	12064, 12065	virus	24
+12092-Hepatovirus-A-Hepatitis-A-virus	12092	Hepatovirus A (Hepatitis A virus)	12092, 12098, 208726	virus	628
+12110-Foot-and-mouth-disease-virus	12110	Foot-and-mouth disease virus	12110, 12111, 12112, 12114, 12115, 12116, 12117, 12118, 12120, 12121, 12123, 35292, 46290, 73482, 110195, 161727, 244367, 10000513, 10000514, 10000515, 10000516, 10000556, 10000801, 10000806, 10000820, 10000836, 10000840, 10000856, 10000986, 10000989, 10000991, 10000992, 10000993, 10000994, 10000995, 10001039, 10001102, 10001118, 10001642, 10001946, 10002131, 10002270, 10002408	virus	1828
+12161-Beet-yellows-virus-sugar-beet-yellows-virus,-SBYV	12161	Beet yellows virus (sugar beet yellows virus, SBYV)	12161	virus	5
+12162-Citrus-tristeza-virus-Citrus-tristeza-closterovirus	12162	Citrus tristeza virus (Citrus tristeza closterovirus)	12162	virus	6
+12211-Plum-pox-virus-Plum-pox-potyvirus	12211	Plum pox virus (Plum pox potyvirus)	12211, 12213, 10001100	virus	9
+12216-Potato-virus-Y-potato-virus-Y-PVY	12216	Potato virus Y (potato virus Y PVY)	12216, 12219, 12220	virus	10
+12232-Zucchini-yellow-mosaic-virus-zucchini-yellow-mosaic-virus-ZYMV	12232	Zucchini yellow mosaic virus (zucchini yellow mosaic virus ZYMV)	12232	virus	1
+12242-Tobacco-mosaic-virus-tobacco-mosaic-virus-TMV	12242	Tobacco mosaic virus (tobacco mosaic virus TMV)	12242, 12243, 12246, 10001209, 10001210	virus	233
+12305-Cucumber-mosaic-virus-cucumber-mosaic-cucumovirus	12305	Cucumber mosaic virus (cucumber mosaic cucumovirus)	12305, 117125	virus	2
+12455-Borna-disease-virus-Borna-disease-virus-BDV	12455	Borna disease virus (Borna disease virus BDV)	12455, 10000518	virus	36
+12475-Hepatitis-delta-virus-Hepatitis-D-virus	12475	Hepatitis delta virus (Hepatitis D virus)	12475, 510670, 10000523	virus	380
+12637-Dengue-virus	12637	Dengue virus	11053, 11057, 11059, 11060, 11062, 11064, 11065, 11066, 11067, 11069, 11070, 12637, 31634, 31635, 31636, 31637, 33741, 408685, 408686, 408687, 408688, 408689, 408690, 408691, 408692, 408693, 408694, 408870, 408871, 10000440, 10000442, 10001582, 10001583, 10001635, 10001636, 10001705, 10002010	virus	19152
+12639-Duck-hepatitis-B-virus-duck-hepatitis-virus,-DHBV	12639	Duck hepatitis B virus (duck hepatitis virus, DHBV)	12639	virus	295
+12643-Ectromelia-virus-Ectromelia-mousepox-virus	12643	Ectromelia virus (Ectromelia mousepox virus)	12643	virus	52
+12657-Equid-gammaherpesvirus-2-Equid-herpesvirus-2	12657	Equid gammaherpesvirus 2 (Equid herpesvirus 2)	82831, 10000391, 10000524, 10000525, 10000526, 10000527	virus	6
+12721-Human-immunodeficiency-virus	12721	Human immunodeficiency virus	12721	virus	60
+13101-Juniperus-ashei-Ashe-juniper	13101	Juniperus ashei (Ashe juniper)	13101	plant	74
+13187-Parietaria-officinalis	13187	Parietaria officinalis	13187	plant	3
+13286-Theromyzon-tessulatum	13286	Theromyzon tessulatum	13286	other-eukaryote	1
+13373-Burkholderia-mallei	13373	Burkholderia mallei	13373, 243160, 320388, 320390, 334802, 334803, 412022	bacterium	169
+13415-Chamaecyparis-obtusa	13415	Chamaecyparis obtusa	13415	plant	128
+13451-Corylus-avellana-European-hazelnut	13451	Corylus avellana (European hazelnut)	13451	plant	159
+13469-Cupressus-sempervirens	13469	Cupressus sempervirens	13469	plant	24
+13557-Hapalemur-griseus-bamboo-lemur	13557	Hapalemur griseus (bamboo lemur)	13557	vertebrate	1
+13616-Monodelphis-domestica-gray-short-tailed-opossum	13616	Monodelphis domestica (gray short-tailed opossum)	13616	vertebrate	4
+13618-Myrmecia-pilosula-Australian-jumper-ant	13618	Myrmecia pilosula (Australian jumper ant)	13618	other-eukaryote	2
+13677-Scomber-scombrus-Atlantic-mackerel	13677	Scomber scombrus (Atlantic mackerel)	13677	vertebrate	1
+13684-Parastagonospora-nodorum	13684	Parastagonospora nodorum	13684	other-eukaryote	2
+13818-Adiantum-capillus-veneris-maidenhair-fern	13818	Adiantum capillus-veneris (maidenhair fern)	13818	other-eukaryote	1
+15368-Brachypodium-distachyon-annual-false-brome	15368	Brachypodium distachyon (annual false brome)	15368	plant	1
+15957-Phleum-pratense-timothy-grass	15957	Phleum pratense (timothy grass)	15957	plant	1924
+16719-Juglans-nigra-black-walnut	16719	Juglans nigra (black walnut)	16719	plant	24
+27990-Plasmodium-vivax-like-sp	27990	Plasmodium vivax-like sp.	27990	other-eukaryote	3
+28035-Staphylococcus-lugdunensis	28035	Staphylococcus lugdunensis	28035	bacterium	5
+28037-Streptococcus-mitis	28037	Streptococcus mitis	28037	bacterium	1
+28038-Latilactobacillus-curvatus	28038	Latilactobacillus curvatus	28038	bacterium	1
+28049-Acidothermus-cellulolyticus-Acidithermus-cellulolyticus	28049	Acidothermus cellulolyticus (Acidithermus cellulolyticus)	351607	bacterium	2
+28080-Campylobacter-upsaliensis	28080	Campylobacter upsaliensis	306264	bacterium	1
+28108-Alteromonas-macleodii	28108	Alteromonas macleodii	28108	bacterium	1
+28116-Bacteroides-ovatus	28116	Bacteroides ovatus	28116	bacterium	6
+28130-Prevotella-disiens	28130	Prevotella disiens	28130	bacterium	1
+28131-Prevotella-intermedia	28131	Prevotella intermedia	28131	bacterium	3
+28137-Prevotella-veroralis	28137	Prevotella veroralis	28137	bacterium	1
+28151-Serratia-proteamaculans	28151	Serratia proteamaculans	28151	bacterium	1
+28172-Vibrio-metschnikovii	28172	Vibrio metschnikovii	28172	bacterium	1
+28227-Malacoplasma-penetrans	28227	Malacoplasma penetrans	28227	bacterium	71
+28295-Porcine-epidemic-diarrhea-virus-porcine-epidemic-diarrhoea-virus	28295	Porcine epidemic diarrhea virus (porcine epidemic diarrhoea virus)	28295, 229032, 10002000, 10002313, 10002691, 10002802, 10002901	virus	444
+28300-Heron-hepatitis-B-virus-heron-hepatitis-virus	28300	Heron hepatitis B virus (heron hepatitis virus)	28300	virus	1
+28327-Murine-rotavirus	28327	Murine rotavirus	28327, 70865	virus	45
+28375-Soil-borne-wheat-mosaic-virus	28375	Soil-borne wheat mosaic virus	28375	virus	1
+28446-Anaerotignum-propionicum	28446	Anaerotignum propionicum	28446	bacterium	2
+28448-Komagataeibacter-xylinus	28448	Komagataeibacter xylinus	28448	bacterium	1
+28450-Burkholderia-pseudomallei	28450	Burkholderia pseudomallei	28450, 272560, 320372, 320373, 320374, 331978, 357348, 360118, 425067, 441158, 441159, 441160	bacterium	936
+28479-Phalaris-aquatica-canary-grass	28479	Phalaris aquatica (canary grass)	28479	plant	29
+28869-Ovine-respiratory-syncytial-virus-ovine-respiratory-syncytial-virus-ORSV	28869	Ovine respiratory syncytial virus (ovine respiratory syncytial virus ORSV)	28869	virus	1
+28871-Taterapox-virus-Tatera-gerbilpox-virus	28871	Taterapox virus (Tatera gerbilpox virus)	28871	virus	5
+28873-Camelpox-virus	28873	Camelpox virus	28873, 203172, 203173, 203174	virus	170
+28875-Rotavirus-A-Group-A-rotaviruses	28875	Rotavirus A (Group A rotaviruses)	10915, 10919, 10923, 10927, 10933, 10934, 10941, 10952, 10957, 10960, 10962, 28875, 35336, 37137, 72132, 73036, 94432, 195700, 444185, 444186, 578831, 697298, 10002082	virus	244
+28901-Salmonella-enterica	28901	Salmonella enterica	596, 605, 611, 28142, 28901, 41514, 48409, 54388, 59201, 59202, 59203, 59205, 90370, 90371, 98360, 99287, 119912, 149539, 209261, 216597, 220341, 272989, 286783, 295319, 321314, 423368, 439843, 439847, 440534, 497976, 497977, 554290, 1016998, 10000740, 10000743, 10002287	bacterium	735
+28903-Mycoplasmopsis-bovis	28903	Mycoplasmopsis bovis	28903	bacterium	21
+28909-Cynodon-dactylon-Bermuda-grass	28909	Cynodon dactylon (Bermuda grass)	28909	plant	171
+29159-Crassostrea-gigas-Pacific-oyster	29159	Crassostrea gigas (Pacific oyster)	29159	other-eukaryote	34
+29170-Ancylostoma-caninum-dog-hookworm	29170	Ancylostoma caninum (dog hookworm)	29170	other-eukaryote	1
+29176-Neospora-caninum	29176	Neospora caninum	29176, 572307	other-eukaryote	84
+29271-Dasheen-mosaic-virus-Dasheen-mosaic-potyvirus	29271	Dasheen mosaic virus (Dasheen mosaic potyvirus)	29271	virus	1
+29292-Pyrococcus-abyssi	29292	Pyrococcus abyssi	29292	archeobacterium	1
+29320-Paenarthrobacter-nicotinovorans-Arthrobacter-nicotinivorans	29320	Paenarthrobacter nicotinovorans (Arthrobacter nicotinivorans)	29320	bacterium	3
+29355-Ruminiclostridium-cellobioparum	29355	Ruminiclostridium cellobioparum	29355	bacterium	1
+29362-Ruminiclostridium-papyrosolvens	29362	Ruminiclostridium papyrosolvens	29362	bacterium	1
+29380-Staphylococcus-caprae	29380	Staphylococcus caprae	29380	bacterium	173
+29388-Staphylococcus-capitis	29388	Staphylococcus capitis	29388	bacterium	17
+29438-Pseudomonas-savastanoi	29438	Pseudomonas savastanoi	29438	bacterium	1
+29442-Pseudomonas-tolaasii	29442	Pseudomonas tolaasii	29442	bacterium	2
+29447-Xanthomonas-albilineans	29447	Xanthomonas albilineans	29447	bacterium	1
+29459-Brucella-melitensis	29459	Brucella melitensis	29459, 224914, 520464, 703352	bacterium	668
+29461-Brucella-suis-Brucella-melitensis-bv-Suis	29461	Brucella suis (Brucella melitensis bv. Suis)	29461, 204722, 470137	bacterium	72
+29466-Veillonella-parvula	29466	Veillonella parvula	29466	bacterium	2
+29484-Yersinia-frederiksenii	29484	Yersinia frederiksenii	349966	bacterium	3
+29497-Vibrio-splendidus	29497	Vibrio splendidus	314291	bacterium	2
+29507-Leptospira-kirschneri	29507	Leptospira kirschneri	29507	bacterium	1
+29518-Borreliella-afzelii	29518	Borreliella afzelii	29518, 390236	bacterium	8
+29519-Borreliella-garinii	29519	Borreliella garinii	29519, 10000530	bacterium	37
+29523-Bacteroides-sp	29523	Bacteroides sp.	29523	bacterium	3
+29543-Pelobacter-propionicus	29543	Pelobacter propionicus	338966	bacterium	3
+29661-Anthoxanthum-odoratum	29661	Anthoxanthum odoratum	29661	plant	4
+29679-Holcus-lanatus-velvet-grass	29679	Holcus lanatus (velvet grass)	29679	plant	21
+29715-Ambrosia-psilostachya	29715	Ambrosia psilostachya	29715	plant	22
+29760-Vitis-vinifera-wine-grape	29760	Vitis vinifera (wine grape)	29760	plant	1
+29780-Mangifera-indica-mango	29780	Mangifera indica (mango)	29780	plant	2
+29908-Sporothrix-schenckii	29908	Sporothrix schenckii	29908	other-eukaryote	2
+29918-Cladosporium-herbarum-Dematium-vulgare	29918	Cladosporium herbarum (Dematium vulgare)	29918	other-eukaryote	59
+29960-Penaeus-indicus	29960	Penaeus indicus	29960	other-eukaryote	2
+30011-Pyrophorus-plagiophthalamus	30011	Pyrophorus plagiophthalamus	30011	other-eukaryote	3
+30215-Vespula-vidua	30215	Vespula vidua	30215	other-eukaryote	1
+30522-Bos-indicus-x-Bos-taurus-hybrid-cow	30522	Bos indicus x Bos taurus (hybrid cow)	30522	vertebrate	1
+31276-Perkinsus-marinus	31276	Perkinsus marinus	31276	other-eukaryote	1
+31330-Ephydatia-fluviatilis	31330	Ephydatia fluviatilis	31330	other-eukaryote	1
+31721-Beet-necrotic-yellow-vein-virus-Beet-necrotic-yellow-vein-mosaic-virus	31721	Beet necrotic yellow vein virus (Beet necrotic yellow vein mosaic virus)	31721	virus	10
+32025-Helicobacter-hepaticus	32025	Helicobacter hepaticus	32025, 235279	bacterium	4
+32049-Picosynechococcus-sp-PCC-7002-Agmenellum-quadruplicatum-PR-6	32049	Picosynechococcus sp. PCC 7002 (Agmenellum quadruplicatum PR-6)	32049	bacterium	1
+32201-Carya-illinoinensis-pecan	32201	Carya illinoinensis (pecan)	32201	plant	162
+32278-Metapenaeus-ensis	32278	Metapenaeus ensis	32278	other-eukaryote	18
+32604-Human-betaherpesvirus-6B-Human-herpes-virus-6B	32604	Human betaherpesvirus 6B (Human herpes virus 6B)	32604, 36351	virus	7290
+33025-Phascolarctobacterium-faecium	33025	Phascolarctobacterium faecium	33025	bacterium	1
+33039-[Ruminococcus]-torques	33039	[Ruminococcus] torques	33039	bacterium	2
+33060-Yersinia-mollaretii	33060	Yersinia mollaretii	349967	bacterium	3
+33069-Pseudomonas-viridiflava	33069	Pseudomonas viridiflava	33069	bacterium	1
+33075-Acidobacterium-capsulatum	33075	Acidobacterium capsulatum	33075	bacterium	1
+33127-Parietaria-judaica	33127	Parietaria judaica	33127	plant	127
+33178-Aspergillus-terreus	33178	Aspergillus terreus	33178, 341663	other-eukaryote	4
+33708-Murid-gammaherpesvirus-4-Murid-herpesvirus-4	33708	Murid gammaherpesvirus 4 (Murid herpesvirus 4)	33708, 1440122, 10000536, 10000537	virus	85
+33934-Anoxybacillus-flavithermus	33934	Anoxybacillus flavithermus	33934	bacterium	1
+33959-Lactobacillus-johnsonii	33959	Lactobacillus johnsonii	33959	bacterium	1
+33989-Rickettsia-amblyommatis	33989	Rickettsia amblyommatis	33989	bacterium	1
+33990-Rickettsia-bellii	33990	Rickettsia bellii	33990, 336407, 391896	bacterium	12
+34245-Zinnia-elegans-garden-zinnia	34245	Zinnia elegans (garden zinnia)	34245	plant	1
+34610-Amblyomma-variegatum-tropical-bont-tick	34610	Amblyomma variegatum (tropical bont tick)	34610	other-eukaryote	164
+34631-Rhipicephalus-appendiculatus	34631	Rhipicephalus appendiculatus	34631	other-eukaryote	164
+34632-Rhipicephalus-sanguineus-brown-dog-tick	34632	Rhipicephalus sanguineus (brown dog tick)	34632	other-eukaryote	1
+34862-Otospermophilus-beecheyi-California-ground-squirrel	34862	Otospermophilus beecheyi (California ground squirrel)	34862	vertebrate	1
+35258-Lambdapapillomavirus-2-Canine-oral-papillomavirus	35258	Lambdapapillomavirus 2 (Canine oral papillomavirus)	35258	virus	25
+35269-Woodchuck-hepatitis-virus-Woodchuck-hepatitis-B-virus	35269	Woodchuck hepatitis virus (Woodchuck hepatitis B virus)	10430, 10433, 35269, 341946	virus	94
+35275-Murine-endogenous-retrovirus-Murine-endogenous-virus-EMV-1	35275	Murine endogenous retrovirus (Murine endogenous virus EMV-1)	35275	virus	14
+35288-Grapevine-virus-A	35288	Grapevine virus A	35288	virus	19
+35297-Striped-jack-nervous-necrosis-virus	35297	Striped jack nervous necrosis virus	35297	virus	1
+35670-Naja-naja-Indian-cobra	35670	Naja naja (Indian cobra)	35670	vertebrate	6
+35725-Macrophomina-phaseolina-charcoal-rot	35725	Macrophomina phaseolina (charcoal rot)	35725, 1126212	other-eukaryote	2
+35788-Rickettsia-africae	35788	Rickettsia africae	35788	bacterium	1
+35791-Rickettsia-massiliae	35791	Rickettsia massiliae	35791, 416276	bacterium	3
+35792-Rickettsia-parkeri	35792	Rickettsia parkeri	35792	bacterium	1
+35793-Rickettsia-sibirica	35793	Rickettsia sibirica	35793, 272951	bacterium	36
+35795-Ehrlichia-muris	35795	Ehrlichia muris	35795	bacterium	3
+35797-Nitrococcus-mobilis	35797	Nitrococcus mobilis	314278	bacterium	1
+35818-Helicobacter-pullorum	35818	Helicobacter pullorum	35818	bacterium	1
+36080-Mucor-circinelloides	36080	Mucor circinelloides	36080	other-eukaryote	3
+36087-Trichuris-trichiura-human-whipworm	36087	Trichuris trichiura (human whipworm)	36087	other-eukaryote	15
+36596-Prunus-armeniaca-apricot	36596	Prunus armeniaca (apricot)	36596	plant	4
+36809-Mycobacteroides-abscessus	36809	Mycobacteroides abscessus	36809, 1198627	bacterium	301
+36845-Clostridium-intestinale	36845	Clostridium intestinale	36845	bacterium	2
+36855-Brucella-canis-Brucella-melitensis-bv-Canis	36855	Brucella canis (Brucella melitensis bv. Canis)	36855, 483179	bacterium	12
+36911-Clavispora-lusitaniae-Clavispora-imtechensis-nom,-inval	36911	Clavispora lusitaniae (Clavispora imtechensis (nom, inval.))	36911	other-eukaryote	1
+36914-Lodderomyces-elongisporus	36914	Lodderomyces elongisporus	36914	other-eukaryote	3
+36936-Lepidoglyphus-destructor	36936	Lepidoglyphus destructor	36936	other-eukaryote	24
+37124-Chikungunya-virus	37124	Chikungunya virus	37124, 10001934, 10001997, 10002144, 10002197, 10002694, 10002695, 10002696	virus	1174
+37128-Potato-mop-top-virus-Potato-mop-top-virus	37128	Potato mop-top virus (Potato mop top virus)	37128	virus	8
+37207-Rio-Segundo-hantavirus-Reithrodontomys-mexicanus-hantavirus	37207	Rio Segundo hantavirus (Reithrodontomys mexicanus hantavirus)	37207	virus	1
+37326-Nocardia-brasiliensis-Nocardia-brasilensis	37326	Nocardia brasiliensis (Nocardia brasilensis)	37326	bacterium	7
+37332-Nocardia-seriolae	37332	Nocardia seriolae	37332	bacterium	4
+37347-Tupaia-belangeri-common-tree-shrew	37347	Tupaia belangeri (common tree shrew)	37347	vertebrate	1
+37682-Aegilops-tauschii	37682	Aegilops tauschii	37682	plant	4
+37734-Enterococcus-casseliflavus	37734	Enterococcus casseliflavus	37734	bacterium	1
+37769-Cryptococcus-gattii-VGI	37769	Cryptococcus gattii VGI	37769	other-eukaryote	1
+38020-Callitrichinae-sp-marmosets	38020	Callitrichinae sp. (marmosets)	38020	vertebrate	2
+38033-Chaetomium-globosum	38033	Chaetomium globosum	38033	other-eukaryote	1
+38170-Avian-orthoreovirus-Avian-reovirus	38170	Avian orthoreovirus (Avian reovirus)	38171, 77153, 253446, 10001918, 10002815, 10002816	virus	90
+38289-Corynebacterium-jeikeium	38289	Corynebacterium jeikeium	38289	bacterium	1
+38323-Bartonella-henselae	38323	Bartonella henselae	38323, 283166	bacterium	2
+38873-Fraxinus-excelsior-European-ash	38873	Fraxinus excelsior (European ash)	38873	plant	6
+39414-Plantago-lanceolata-ribgrass	39414	Plantago lanceolata (ribgrass)	39414	plant	4
+39483-Faecalitalea-cylindroides	39483	Faecalitalea cylindroides	39483	bacterium	1
+39584-Juniperus-virginiana-red-cedar	39584	Juniperus virginiana (red cedar)	39584	plant	2
+39778-Veillonella-dispar	39778	Veillonella dispar	39778	bacterium	5
+39803-Qubevirus-durum-Allolevivirus-subgroup-III	39803	Qubevirus durum (Allolevivirus subgroup III)	39803	virus	2
+39950-Dialister-pneumosintes	39950	Dialister pneumosintes	39950	bacterium	2
+40051-Bluetongue-virus-Bluetongue-virus-group	40051	Bluetongue virus (Bluetongue virus group)	10900, 10903, 10904, 33717, 35327, 35329, 35330, 35331, 40051, 45029, 94966, 94967, 197780, 10002006, 10002027, 10002028	virus	133
+40214-Acinetobacter-johnsonii	40214	Acinetobacter johnsonii	40214	bacterium	1
+40216-Acinetobacter-radioresistens	40216	Acinetobacter radioresistens	40216	bacterium	1
+40324-Stenotrophomonas-maltophilia	40324	Stenotrophomonas maltophilia	40324	bacterium	1
+40697-Blomia-tropicalis	40697	Blomia tropicalis	40697	other-eukaryote	87
+40834-Borrelia-duttonii	40834	Borrelia duttonii	412419	bacterium	29
+41997-Enterococcus-saccharolyticus	41997	Enterococcus saccharolyticus	41997	bacterium	1
+42097-Isla-Vista-hantavirus-Isla-Vista-virus	42097	Isla Vista hantavirus (Isla Vista virus)	42097	virus	3
+42229-Prunus-avium-gean	42229	Prunus avium (gean)	42229	plant	1
+42345-Phoenix-dactylifera-date-palm	42345	Phoenix dactylifera (date palm)	42345	plant	5
+42358-Hantavirus-Monongahela-3	42358	Hantavirus Monongahela-3	42358	virus	6
+42374-Candida-dubliniensis	42374	Candida dubliniensis	42374	other-eukaryote	2
+42862-Rickettsia-felis	42862	Rickettsia felis	42862, 315456	bacterium	8
+43335-Populus-alba-abele	43335	Populus alba (abele)	43335	plant	1
+43763-Redspotted-grouper-nervous-necrosis-virus-Grouper-nervous-necrosis-virus	43763	Redspotted grouper nervous necrosis virus (Grouper nervous necrosis virus)	43763, 292633	virus	39
+43765-Corynebacterium-amycolatum	43765	Corynebacterium amycolatum	43765	bacterium	1
+43767-Prescottella-equi	43767	Prescottella equi	43767	bacterium	120
+44001-Caldicellulosiruptor-saccharolyticus	44001	Caldicellulosiruptor saccharolyticus	351627	bacterium	1
+44088-Canarypox-virus-Avipoxvirus-clade-B1	44088	Canarypox virus (Avipoxvirus clade B1)	44088	virus	9
+44271-Leishmania-chagasi	44271	Leishmania chagasi	44271	other-eukaryote	3
+44386-Haemaphysalis-longicornis-longhorned-tick	44386	Haemaphysalis longicornis (longhorned tick)	44386	other-eukaryote	1
+44689-Dictyostelium-discoideum	44689	Dictyostelium discoideum	44689	other-eukaryote	2
+44755-New-York-hantavirus-New-York-virus	44755	New York hantavirus (New York virus)	44755	virus	4
+45617-Human-endogenous-retrovirus-K-HERV-K-provirus	45617	Human endogenous retrovirus K (HERV-K provirus)	45617, 64382	virus	47
+46221-Porcine-circovirus	46221	Porcine circovirus	46221	virus	65
+46457-Cycloclasticus-oligotrophus	46457	Cycloclasticus oligotrophus	46457	bacterium	1
+46503-Parabacteroides-merdae	46503	Parabacteroides merdae	46503	bacterium	1
+46506-Bacteroides-stercoris	46506	Bacteroides stercoris	46506	bacterium	1
+46681-Entamoeba-dispar	46681	Entamoeba dispar	370354	other-eukaryote	20
+46771-Simian-virus-12-Baboon-polyomavirus-1	46771	Simian virus 12 (Baboon polyomavirus 1)	46771	virus	1
+46835-Fasciola-gigantica	46835	Fasciola gigantica	46835	other-eukaryote	4
+46920-Rio-Mamore-hantavirus-Rio-Mamore-virus	46920	Rio Mamore hantavirus (Rio Mamore virus)	46920, 379963	virus	7
+47000-Equine-rhinitis-A-virus-Equine-Rhinovirus-type-1	47000	Equine rhinitis A virus (Equine Rhinovirus type 1)	47000, 10000835	virus	6
+47466-Borrelia-miyamotoi	47466	Borrelia miyamotoi	47466	bacterium	81
+47770-Lactobacillus-crispatus	47770	Lactobacillus crispatus	47770	bacterium	2
+47845-Brachybacterium-alimentarium	47845	Brachybacterium alimentarium	47845	bacterium	15
+48483-Reclinomonas-americana	48483	Reclinomonas americana	48483	other-eukaryote	1
+49011-Hesperocyparis-arizonica	49011	Hesperocyparis arizonica	49011	plant	14
+49338-Desulfitobacterium-hafniense	49338	Desulfitobacterium hafniense	272564	bacterium	3
+51022-Ancylostoma-duodenale	51022	Ancylostoma duodenale	51022	other-eukaryote	8
+51031-Necator-americanus-New-World-hookworm	51031	Necator americanus (New World hookworm)	51031	other-eukaryote	101
+51240-Juglans-regia-English-walnut	51240	Juglans regia (English walnut)	51240	plant	167
+53182-Feline-foamy-virus-Feline-syncytial-virus	53182	Feline foamy virus (Feline syncytial virus)	53182	virus	7
+53326-Ancylostoma-ceylanicum	53326	Ancylostoma ceylanicum	53326	other-eukaryote	3
+53432-Nocardia-uniformis	53432	Nocardia uniformis	96045	bacterium	1
+54390-Micrurus-corallinus-painted-coral-snake	54390	Micrurus corallinus (painted coral snake)	54390	vertebrate	207
+54736-Salmonella-bongori	54736	Salmonella bongori	54736	bacterium	1
+55194-Malassezia-furfur-Pityriasis-Tinea-versicolor-infection-agent	55194	Malassezia furfur (Pityriasis (Tinea) versicolor infection agent)	55194	other-eukaryote	2
+55513-Pistacia-vera-pistachio	55513	Pistacia vera (pistachio)	55513	plant	28
+55518-Magnetospirillum-gryphiswaldense	55518	Magnetospirillum gryphiswaldense	431944	bacterium	1
+55601-Vibrio-anguillarum	55601	Vibrio anguillarum	55601	bacterium	1
+55951-Grapevine-leafroll-associated-virus-3-Grape-leafroll-associated-virus-3	55951	Grapevine leafroll-associated virus 3 (Grape leafroll-associated virus-3)	55951	virus	1
+56636-Aeropyrum-pernix	56636	Aeropyrum pernix	56636	archeobacterium	2
+57068-Acanthisitta-chloris-rifleman	57068	Acanthisitta chloris (rifleman)	57068	vertebrate	1
+57282-Human-endogenous-retrovirus-H	57282	Human endogenous retrovirus H	57282	virus	1
+57372-Mycoplasma-suis	57372	Mycoplasma suis	57372	bacterium	3
+57667-Simian-Human-immunodeficiency-virus-SIV_HIV	57667	Simian-Human immunodeficiency virus (SIV/HIV)	57667	virus	12
+57975-Burkholderia-thailandensis	57975	Burkholderia thailandensis	57975	bacterium	2
+58216-Loxosceles-gaucho	58216	Loxosceles gaucho	58216	other-eukaryote	1
+58217-Loxosceles-laeta	58217	Loxosceles laeta	58217	other-eukaryote	2
+58218-Loxosceles-intermedia	58218	Loxosceles intermedia	58218	other-eukaryote	100
+58291-Rhizopus-microsporus	58291	Rhizopus microsporus	58291	other-eukaryote	1
+58866-Secale-strictum	58866	Secale strictum	37731	plant	1
+58933-Triticum-spelta-spelt	58933	Triticum spelta (spelt)	279889	plant	25
+59300-Getah-virus	59300	Getah virus	59300	virus	22
+59301-Mayaro-virus	59301	Mayaro virus	59301	virus	4
+59538-Pantholops-hodgsonii-Tibetan-antelope	59538	Pantholops hodgsonii (Tibetan antelope)	59538	vertebrate	1
+59729-Taeniopygia-guttata-zebra-finch	59729	Taeniopygia guttata (zebra finch)	59729	vertebrate	1
+59779-Paracoccus-marcusii	59779	Paracoccus marcusii	59779	bacterium	1
+59799-Angomonas-deanei	59799	Angomonas deanei	59799	other-eukaryote	2
+60189-Rhipicephalus-decoloratus	60189	Rhipicephalus decoloratus	60189	other-eukaryote	154
+60217-Shewanella-violacea	60217	Shewanella violacea	60217	bacterium	1
+60552-Burkholderia-vietnamiensis	60552	Burkholderia vietnamiensis	60552, 269482	bacterium	12
+60876-Pixuna-virus-Venezuelan-equine-encephalitis-virus-IV	60876	Pixuna virus (Venezuelan equine encephalitis virus IV)	60876	virus	1
+60879-Cabassou-virus	60879	Cabassou virus	60879	virus	1
+60893-Desulfobacca-acetoxidans	60893	Desulfobacca acetoxidans	60893	bacterium	1
+61435-Dehalococcoides-mccartyi	61435	Dehalococcoides mccartyi	243164	bacterium	1
+61466-Gnathostoma-binucleatum	61466	Gnathostoma binucleatum	61466	other-eukaryote	10
+62319-Halococcus-saccharolyticus	62319	Halococcus saccharolyticus	62319	archeobacterium	1
+62322-Shewanella-baltica	62322	Shewanella baltica	62322, 325240	bacterium	3
+62330-Fagopyrum-tataricum-Kangra-buckwheat	62330	Fagopyrum tataricum (Kangra buckwheat)	62330	plant	11
+63363-Aquifex-aeolicus	63363	Aquifex aeolicus	63363, 224324	bacterium	8
+63673-Turbo-cornutus	63673	Turbo cornutus	63673	other-eukaryote	8
+64320-Zika-virus	64320	Zika virus	64320, 2043570, 2316109, 10002180, 10002181, 10002188, 10002190, 10002301, 10002317, 10002858	virus	7019
+64495-Rhizopus-arrhizus	64495	Rhizopus arrhizus	64495	other-eukaryote	5
+67351-Streptomyces-californicus-Streptomyces-floridensis	67351	Streptomyces californicus (Streptomyces floridensis)	67351	bacterium	1
+68825-Rasamsonia-emersonii	68825	Rasamsonia emersonii	68825	other-eukaryote	1
+68887-Torque-teno-virus-Hepatitis-TT-virus	68887	Torque teno virus (Hepatitis TT virus)	68887, 167758, 486280, 487067	virus	120
+69008-Juniperus-oxycedrus-prickly-juniper	69008	Juniperus oxycedrus (prickly juniper)	69008	plant	4
+69218-Enterobacter-cancerogenus	69218	Enterobacter cancerogenus	69218	bacterium	3
+69820-Spodoptera-litura	69820	Spodoptera litura	69820	other-eukaryote	1
+70203-Fibrovirus-fs1-Vibrio-cholerae-O139-fs1-phage	70203	Fibrovirus fs1 (Vibrio cholerae O139 fs1 phage)	70203	virus	1
+71238-Pseudomonas-sp-G-179	71238	Pseudomonas sp. G-179	71238	bacterium	1
+71647-Pinus-pinaster-cluster-pine	71647	Pinus pinaster (cluster pine)	71647	plant	1
+72004-Bos-mutus-wild-yak	72004	Bos mutus (wild yak)	72004	vertebrate	32
+72556-Achromobacter-piechaudii	72556	Achromobacter piechaudii	72556	bacterium	1
+72664-Eutrema-salsugineum-saltwater-cress	72664	Eutrema salsugineum (saltwater cress)	72664	plant	2
+74437-Alectryonella-plicatula	74437	Alectryonella plicatula	74437	other-eukaryote	9
+74722-Stachybotrys-chartarum	74722	Stachybotrys chartarum	74722	other-eukaryote	24
+75658-Campylobacter-lanienae	75658	Campylobacter lanienae	75658	bacterium	2
+75922-Mycolicibacterium-tusciae	75922	Mycolicibacterium tusciae	75922	bacterium	2
+75985-Mannheimia-haemolytica	75985	Mannheimia haemolytica	45201	bacterium	90
+76832-Myroides-odoratimimus	76832	Myroides odoratimimus	76832	bacterium	1
+77044-Rosellinia-necatrix	77044	Rosellinia necatrix	77044	other-eukaryote	1
+77095-Segatella-bryantii	77095	Segatella bryantii	77095	bacterium	3
+79327-Schmidtea-mediterranea-freshwater-planarian	79327	Schmidtea mediterranea (freshwater planarian)	79327	other-eukaryote	1
+79698-Merluccius-bilinearis-silver-hake	79698	Merluccius bilinearis (silver hake)	79698	vertebrate	1
+79880-Shouchella-clausii	79880	Shouchella clausii	66692	bacterium	1
+79923-Clonorchis-sinensis-oriental-liver-fluke	79923	Clonorchis sinensis (oriental liver fluke)	79923	other-eukaryote	3
+80859-Streptomyces-ribosidificus	80859	Streptomyces ribosidificus	80859	bacterium	1
+80956-Pomacentrus-moluccensis-lemon-damsel	80956	Pomacentrus moluccensis (lemon damsel)	80956	vertebrate	1
+81032-Hyphomonas-neptunium	81032	Hyphomonas neptunium	81032	bacterium	1
+81475-Frateuria-aurantia	81475	Frateuria aurantia	81475	bacterium	1
+81985-Capsella-rubella	81985	Capsella rubella	81985	plant	1
+82348-Streptococcus-pluranimalium	82348	Streptococcus pluranimalium	82348	bacterium	1
+82508-Trichosporon-asahii	82508	Trichosporon asahii	1186058	other-eukaryote	1
+83192-Topografov-hantavirus-Topografov-virus	83192	Topografov hantavirus (Topografov virus)	83192	virus	1
+83262-Mycobacteroides-immunogenum	83262	Mycobacteroides immunogenum	83262	bacterium	5
+83455-Myxococcus-stipitatus	83455	Myxococcus stipitatus	83455, 1278073	bacterium	2
+83554-Chlamydia-psittaci	83554	Chlamydia psittaci	83554, 1050221, 1112244, 1112253, 1112254, 1112258, 1112262, 1112269	bacterium	141
+83555-Chlamydia-abortus	83555	Chlamydia abortus	83555, 218497, 10000559	bacterium	91
+83556-Chlamydia-felis	83556	Chlamydia felis	83556, 264202	bacterium	34
+83557-Chlamydia-caviae	83557	Chlamydia caviae	83557, 227941	bacterium	28
+83558-Chlamydia-pneumoniae	83558	Chlamydia pneumoniae	83558, 115711, 115713, 182082, 10000852	bacterium	403
+83559-Chlamydia-suis	83559	Chlamydia suis	83559, 1405296	bacterium	45
+83560-Chlamydia-muridarum-agent-of-mouse-pneumonitis	83560	Chlamydia muridarum (agent of mouse pneumonitis)	83560, 243161	bacterium	125
+83810-Thosea-asigna-virus-Setothosea-asigna-virus	83810	Thosea asigna virus (Setothosea asigna virus)	83810	virus	2
+83816-Methanobrevibacter-ruminantium	83816	Methanobrevibacter ruminantium	83816	archeobacterium	17
+85552-Scylla-paramamosain-green-mud-crab	85552	Scylla paramamosain (green mud crab)	85552	other-eukaryote	82
+85698-Achromobacter-xylosoxidans-Achromobacter-xylosoxydans	85698	Achromobacter xylosoxidans (Achromobacter xylosoxydans)	85698	bacterium	1
+85708-Porcine-circovirus-2-Porcine-circovirus-Type-II	85708	Porcine circovirus 2 (Porcine circovirus Type II)	85708, 85709, 86385, 10001881	virus	127
+85831-Bacteroides-acidifaciens	85831	Bacteroides acidifaciens	85831	bacterium	2
+85929-Sphaerulina-musiva	85929	Sphaerulina musiva	85929	other-eukaryote	1
+85991-Chlamydia-pecorum	85991	Chlamydia pecorum	85991, 331635, 1427371	bacterium	269
+86049-Cladophialophora-carrionii	86049	Cladophialophora carrionii	86049	other-eukaryote	2
+86600-Discosoma-sp	86600	Discosoma sp.	86600	other-eukaryote	12
+86782-Amur-virus	86782	Amur virus	86782, 170955	virus	41
+87786-Human-endogenous-retrovirus-W	87786	Human endogenous retrovirus W	62805, 87786, 89382	virus	25
+87883-Burkholderia-multivorans	87883	Burkholderia multivorans	87883	bacterium	3
+88036-Selaginella-moellendorffii	88036	Selaginella moellendorffii	88036	other-eukaryote	1
+88085-Lachesis-stenophrys	88085	Lachesis stenophrys	88085	vertebrate	13
+88086-Protobothrops-elegans-sakishima-habu	88086	Protobothrops elegans (sakishima habu)	88086	vertebrate	12
+88087-Protobothrops-flavoviridis-habu	88087	Protobothrops flavoviridis (habu)	88087	vertebrate	7
+88431-Dorea-longicatena	88431	Dorea longicatena	88431	bacterium	1
+89059-Ligilactobacillus-acidipiscis	89059	Ligilactobacillus acidipiscis	89059	bacterium	1
+89462-Bubalus-bubalis-domestic-water-buffalo	89462	Bubalus bubalis (domestic water buffalo)	89462	vertebrate	9
+89586-Neoehrlichia-mikurensis	89586	Neoehrlichia mikurensis	89586	bacterium	1
+89946-Merluccius-australis-southern-hake	89946	Merluccius australis (southern hake)	307685	vertebrate	1
+91465-Pseudomonas-sp-MIS38	91465	Pseudomonas sp. MIS38	91465	bacterium	1
+91626-Mucor-ambiguus	91626	Mucor ambiguus	91626	other-eukaryote	1
+92050-Macruronus-magellanicus-Patagonian-grenadier	92050	Macruronus magellanicus (Patagonian grenadier)	92050	vertebrate	2
+92637-Metarhizium-acridum	92637	Metarhizium acridum	92637	other-eukaryote	1
+93621-Heteropneustes-fossilis-stinging-catfish	93621	Heteropneustes fossilis (stinging catfish)	93621	vertebrate	1
+93678-TTV-like-mini-virus-Torque-teno-mini-virus	93678	TTV-like mini virus (Torque teno mini virus)	93678	virus	1
+95486-Burkholderia-cenocepacia	95486	Burkholderia cenocepacia	95486, 331272, 350702	bacterium	4
+95602-Eriocheir-sinensis-Chinese-hairy-crab	95602	Eriocheir sinensis (Chinese hairy crab)	95602	other-eukaryote	10
+97138-Clostridium-sp-MD294	97138	Clostridium sp. MD294	97138	bacterium	3
+97253-Eubacterium-plexicaudatum	97253	Eubacterium plexicaudatum	97253, 1235802	bacterium	6
+97477-Acetomicrobium-mobile	97477	Acetomicrobium mobile	97477	bacterium	1
+99586-Echis-ocellatus	99586	Echis ocellatus	99586	vertebrate	6
+99806-Taxus-cuspidata-Japanese-yew	99806	Taxus cuspidata (Japanese yew)	99806	plant	1
+99883-Tetraodon-nigroviridis-spotted-green-pufferfish	99883	Tetraodon nigroviridis (spotted green pufferfish)	99883	vertebrate	3
+103448-Pleistophora-sp-LS	103448	Pleistophora sp. LS	103448	other-eukaryote	1
+104102-Acetobacter-tropicalis	104102	Acetobacter tropicalis	104102	bacterium	1
+104355-Gloeophyllum-trabeum	104355	Gloeophyllum trabeum	104355	other-eukaryote	1
+104388-Anatid-alphaherpesvirus-1-Anatid-Herpes-virus-1	104388	Anatid alphaherpesvirus 1 (Anatid Herpes virus-1)	10001573	virus	1
+105560-Methylibium-petroleiphilum	105560	Methylibium petroleiphilum	420662	bacterium	1
+105751-Aeromonas-bestiarum	105751	Aeromonas bestiarum	105751	bacterium	1
+106276-Mimachlamys-nobilis-noble-scallop	106276	Mimachlamys nobilis (noble scallop)	106276	other-eukaryote	7
+106590-Cupriavidus-necator	106590	Cupriavidus necator	381666	bacterium	1
+106654-Acinetobacter-nosocomialis	106654	Acinetobacter nosocomialis	106654	bacterium	1
+108098-Human-mastadenovirus-B-Human-adenovirus-B	108098	Human mastadenovirus B (Human adenovirus B)	10519, 10521, 10541, 45659, 108098, 343462, 343463, 714978, 10001392	virus	74
+110321-Sinorhizobium-medicae-Ensifer-meliloti-WSM4191	110321	Sinorhizobium medicae (Ensifer meliloti WSM4191)	110321	bacterium	1
+110539-Mycolicibacterium-vanbaalenii	110539	Mycolicibacterium vanbaalenii	350058	bacterium	806
+114497-Cordyceps-fumosorosea	114497	Cordyceps fumosorosea	114497	other-eukaryote	1
+114742-Pythium-insidiosum	114742	Pythium insidiosum	114742	other-eukaryote	2
+117207-Sphingopyxis-alaskensis-Sphingomonas-alaska	117207	Sphingopyxis alaskensis (Sphingomonas alaska)	317655	bacterium	1
+117260-Rosa-acicularis	117260	Rosa acicularis	117260	plant	1
+118161-Pleurocapsa-sp-PCC-7319	118161	Pleurocapsa sp. PCC 7319	118161	bacterium	1
+119219-Cupriavidus-metallidurans	119219	Cupriavidus metallidurans	266264	bacterium	3
+120505-Baboon-cytomegalovirus	120505	Baboon cytomegalovirus	120505	virus	1
+121225-Pediculus-humanus-body-lice	121225	Pediculus humanus (body lice)	121224	other-eukaryote	1
+121723-Photobacterium-sp-SKA34	121723	Photobacterium sp. SKA34	121723	bacterium	1
+121759-Paracoccidioides-brasiliensis	121759	Paracoccidioides brasiliensis	121759, 502780, 10000566	other-eukaryote	49
+122291-Kappapapillomavirus-1-Rabbit-oral-papillomavirus	122291	Kappapapillomavirus 1 (Rabbit oral papillomavirus)	122291	virus	2
+122355-Pseudomonas-psychrophila	122355	Pseudomonas psychrophila	122355	bacterium	1
+123734-Hypoderma-bovis-northern-cattle-grub	123734	Hypoderma bovis (northern cattle grub)	123734	other-eukaryote	1
+123841-Helicobacter-canadensis	123841	Helicobacter canadensis	123841	bacterium	1
+127886-Halalkalibacter-hemicellulosilyticus	127886	Halalkalibacter hemicellulosilyticus	127886	bacterium	1
+129052-Catelliglobosispora-koreensis-Catellatispora-koreensis	129052	Catelliglobosispora koreensis (Catellatispora koreensis)	129052	bacterium	1
+129470-Micrurus-surinamensis	129470	Micrurus surinamensis	129470	vertebrate	139
+129727-Bovine-papular-stomatitis-virus	129727	Bovine papular stomatitis virus	129727	virus	2
+129788-Ruditapes-philippinarum-Japanese-littleneck	129788	Ruditapes philippinarum (Japanese littleneck)	129788	other-eukaryote	3
+129875-Human-mastadenovirus-A-Human-adenovirus-A	129875	Human mastadenovirus A (Human adenovirus A)	10529, 28282, 129875	virus	24
+129951-Human-mastadenovirus-C-Human-adenovirus-C	129951	Human mastadenovirus C (Human adenovirus C)	10515, 10533, 28285, 129951	virus	394
+129956-Murine-mastadenovirus-A-Murine-adenovirus-A	129956	Murine mastadenovirus A (Murine adenovirus A)	10530	virus	2
+130308-Human-mastadenovirus-E-Human-adenovirus-E	130308	Human mastadenovirus E (Human adenovirus E)	28280	virus	1
+130309-Human-mastadenovirus-F-Human-adenovirus-F	130309	Human mastadenovirus F (Human adenovirus F)	10524, 28284	virus	4
+130310-Human-mastadenovirus-D-Human-adenovirus-D	130310	Human mastadenovirus D (Human adenovirus D)	28276, 31545, 46921, 46941	virus	5
+131110-Schaalia-radingae	131110	Schaalia radingae	131110	bacterium	1
+131568-Kineococcus-radiotolerans	131568	Kineococcus radiotolerans	266940	bacterium	2
+133704-Porcine-circovirus-1-Porcine-circovirus-type-1	133704	Porcine circovirus 1 (Porcine circovirus type 1)	133704, 10001964	virus	22
+133926-Olsenella-uli	133926	Olsenella uli	133926	bacterium	1
+134537-Paraburkholderia-fungorum	134537	Paraburkholderia fungorum	134537	bacterium	1
+136966-SEN-virus-SEN-V	136966	SEN virus (SEN-V)	136966	virus	7
+138072-Candidatus-Hamiltonella-defensa	138072	Candidatus Hamiltonella defensa	138072	bacterium	1
+138336-Blastococcus-saxobsidens	138336	Blastococcus saxobsidens	1146883	bacterium	1
+138948-Enterovirus-A-Coxsackievirus-A	138948	Enterovirus A (Coxsackievirus A)	31704, 39054, 42769, 42785, 42786, 69153, 138948, 150846, 2884179, 10000548, 10000549, 10001902, 10002015, 10002056	virus	786
+138949-Enterovirus-B-Enterovirus-EV-B	138949	Enterovirus B (Enterovirus EV-B)	12060, 12067, 12071, 12072, 12073, 12075, 12077, 12078, 35293, 82639, 103903, 103905, 103906, 103915, 138949, 10001002	virus	477
+138950-Enterovirus-C-Enterovirus-EV-C	138950	Enterovirus C (Enterovirus EV-C)	12080, 12081, 12082, 12086, 12088, 42782, 138950, 270338, 10001040	virus	345
+138951-Enterovirus-D-Enterovirus-EV-D	138951	Enterovirus D (Enterovirus EV-D)	42789, 138951	virus	20
+139445-Limestone-Canyon-virus	139445	Limestone Canyon virus	139445	virus	23
+145262-Methanothermobacter-thermautotrophicus	145262	Methanothermobacter thermautotrophicus	145262, 187420	archeobacterium	2
+147272-Paspalum-notatum-Bahia-grass	147272	Paspalum notatum (Bahia grass)	147272	plant	26
+147711-Rhinovirus-A-Human-rhinovirus-A	147711	Rhinovirus A (Human rhinovirus A)	12130, 12132, 12134, 31708, 147711, 185894, 185905, 185907, 650130, 10000987	virus	388
+147712-Rhinovirus-B-Human-rhinovirus-B	147712	Rhinovirus B (Human rhinovirus B)	12131	virus	12
+150340-Vibrio-antiquarius	150340	Vibrio antiquarius	150340	bacterium	17
+151250-Kali-turgidum-common-saltwort	151250	Kali turgidum (common saltwort)	151250	plant	86
+152480-Burkholderia-ambifaria	152480	Burkholderia ambifaria	339670	bacterium	5
+152682-Sphingomonas-melonis	152682	Sphingomonas melonis	152682	bacterium	10
+152794-Corynebacterium-efficiens	152794	Corynebacterium efficiens	152794, 196164	bacterium	10
+153496-Kozakia-baliensis	153496	Kozakia baliensis	153496	bacterium	1
+155615-Fusobacterium-vincentii-Fusibacterium-nucleatum-subsp-fusiforme	155615	Fusobacterium vincentii (Fusibacterium nucleatum subsp. fusiforme)	209882	bacterium	2
+157914-Ziziphus-mauritiana-Chinese-date	157914	Ziziphus mauritiana (Chinese-date)	157914	plant	5
+158836-Enterobacter-hormaechei-CDC-Enteric-Group-75	158836	Enterobacter hormaechei (CDC Enteric Group 75)	158836	bacterium	8
+158899-Collimonas-fungivorans	158899	Collimonas fungivorans	158899, 1005048	bacterium	3
+159091-Pseudomonas-sp-KIE171	159091	Pseudomonas sp. KIE171	159091	bacterium	1
+159449-Embleya-scabrispora	159449	Embleya scabrispora	159449	bacterium	1
+159479-Saaremaa-hantavirus-Saaremaa-virus	159479	Saaremaa hantavirus (Saaremaa virus)	159479	virus	25
+160808-Acidithiobacillus-ferrivorans	160808	Acidithiobacillus ferrivorans	160808	bacterium	1
+161600-Yellow-grouper-nervous-necrosis-virus	161600	Yellow grouper nervous necrosis virus	161600	virus	1
+162145-Human-metapneumovirus	162145	Human metapneumovirus	162145, 10001894, 10002120	virus	316
+162425-Aspergillus-nidulans	162425	Aspergillus nidulans	162425	other-eukaryote	1
+163164-Wolbachia-endosymbiont-of-Drosophila-melanogaster-Wolbachia-endosymbiont-of-Drosophila-melanogaster	163164	Wolbachia endosymbiont of Drosophila melanogaster (Wolbachia (endosymbiont of Drosophila melanogaster))	163164	bacterium	1
+164756-Mycobacterium-sp-MCS	164756	Mycobacterium sp. MCS	164756	bacterium	1129
+164757-Mycobacterium-sp-JLS	164757	Mycobacterium sp. JLS	164757	bacterium	1166
+165179-Segatella-copri	165179	Segatella copri	165179, 1263102	bacterium	8
+166486-Roseburia-intestinalis	166486	Roseburia intestinalis	166486	bacterium	1
+169174-Calabazo-virus	169174	Calabazo virus	169174	virus	1
+171929-Anacardium-occidentale-maranon	171929	Anacardium occidentale (maranon)	171929	plant	286
+176275-Beauveria-bassiana	176275	Beauveria bassiana	176275	other-eukaryote	1
+180498-Jatropha-curcas	180498	Jatropha curcas	180498	plant	13
+185949-Sphingomonas-aurantiaca	185949	Sphingomonas aurantiaca	185949	bacterium	1
+189918-Mycobacterium-sp-KMS	189918	Mycobacterium sp. KMS	189918	bacterium	1131
+190063-Fowl-aviadenovirus-C-Fowl-adenovirus-C	190063	Fowl aviadenovirus C (Fowl adenovirus C)	130663, 190063	virus	4
+190898-Desulfotignum-phosphitoxidans	190898	Desulfotignum phosphitoxidans	1286635	bacterium	1
+194326-Companilactobacillus-versmoldensis	194326	Companilactobacillus versmoldensis	194326	bacterium	1
+194440-Primate-T-lymphotropic-virus-1	194440	Primate T-lymphotropic virus 1	11908, 11926, 11927, 11928, 33747, 39015, 10001004	virus	1304
+196403-Baboon-endogenous-virus	196403	Baboon endogenous virus	11764, 196403	virus	3
+199306-Coccidioides-posadasii	199306	Coccidioides posadasii	199306, 222929	other-eukaryote	34
+199738-uncultured-Chlamydia-sp	199738	uncultured Chlamydia sp.	199738	bacterium	2
+200454-Pseudomonas-tremae	200454	Pseudomonas tremae	200454	bacterium	1
+202950-Acinetobacter-baylyi	202950	Acinetobacter baylyi	202950	bacterium	2
+203192-Stutzerimonas-chloritidismutans	203192	Stutzerimonas chloritidismutans	203192	bacterium	1
+205075-Candidatus-Rickettsia-tarasevichiae-Rickettsia-tarasevichiae	205075	Candidatus Rickettsia tarasevichiae (Rickettsia tarasevichiae)	205075	bacterium	1
+208226-Alkaliphilus-metalliredigens	208226	Alkaliphilus metalliredigens	208226	bacterium	1
+214856-Alistipes-finegoldii	214856	Alistipes finegoldii	214856	bacterium	1
+215243-Exophiala-oligosperma	215243	Exophiala oligosperma	215243	other-eukaryote	1
+215358-Larimichthys-crocea-croceine-croaker	215358	Larimichthys crocea (croceine croaker)	215358	vertebrate	3
+216465-Polaromonas-naphthalenivorans	216465	Polaromonas naphthalenivorans	365044	bacterium	2
+216816-Bifidobacterium-longum	216816	Bifidobacterium longum	205913	bacterium	3
+217686-Little-cherry-virus-1-Little-cherry-closterovirus	217686	Little cherry virus 1 (Little cherry closterovirus)	217686	virus	1
+218538-Dialister-invisus	218538	Dialister invisus	218538	bacterium	1
+220837-Cryptosporidium-sp-MNJ-1	220837	Cryptosporidium sp. MNJ-1	220837	other-eukaryote	1
+223337-Tobacco-leaf-curl-Zimbabwe-virus	223337	Tobacco leaf curl Zimbabwe virus	223337	virus	1
+226899-Leptographium-clavigerum	226899	Leptographium clavigerum	655863	other-eukaryote	1
+231455-Dyella-japonica	231455	Dyella japonica	231455	bacterium	1
+237609-Pseudomonas-alkylphenolica	237609	Pseudomonas alkylphenolica	237609	bacterium	1
+237895-Cryptosporidium-hominis	237895	Cryptosporidium hominis	237895	other-eukaryote	4
+239935-Akkermansia-muciniphila	239935	Akkermansia muciniphila	239935, 349741	bacterium	13
+240125-Mycobacterium-parascrofulaceum	240125	Mycobacterium parascrofulaceum	525368	bacterium	630
+240426-Squirrelpox-virus-Squirrel-parapoxvirus	240426	Squirrelpox virus (Squirrel parapoxvirus)	240426	virus	1
+246437-Tupaia-chinensis-Chinese-tree-shrew	246437	Tupaia chinensis (Chinese tree shrew)	246437	vertebrate	7
+246618-Bifidobacterium-thermacidophilum	246618	Bifidobacterium thermacidophilum	246618	bacterium	1
+246787-Bacteroides-cellulosilyticus	246787	Bacteroides cellulosilyticus	246787	bacterium	1
+252307-Robiginitalea-biformata	252307	Robiginitalea biformata	313596	bacterium	1
+256839-Shewanella-decolorationis	256839	Shewanella decolorationis	256839	bacterium	6
+259354-Desulfatibacillum-alkenivorans-Desulfatibacillum-alcenivorans	259354	Desulfatibacillum alkenivorans (Desulfatibacillum alcenivorans)	439235	bacterium	1
+261202-Alto-Paraguay-hantavirus-Hantavirus-strain-AlPa	261202	Alto Paraguay hantavirus (Hantavirus strain AlPa)	261202	virus	3
+261204-Itapua-hantavirus	261204	Itapua hantavirus	261204	virus	12
+261658-Cavenderia-fasciculata	261658	Cavenderia fasciculata	261658	other-eukaryote	1
+263511-Crocosphaera-watsonii	263511	Crocosphaera watsonii	165597	bacterium	1
+263815-Pneumocystis-murina-Pneumocystis-carinii-f-sp-muris	263815	Pneumocystis murina (Pneumocystis carinii f. sp. muris)	263815	other-eukaryote	3
+265619-Ornithodoros-erraticus	265619	Ornithodoros erraticus	265619	other-eukaryote	60
+266779-Chelativorans-sp-BNC1	266779	Chelativorans sp. BNC1	266779	bacterium	4
+267212-Neisseria-bacilliformis	267212	Neisseria bacilliformis	267212	bacterium	1
+270478-Zantedeschia-mild-mosaic-virus	270478	Zantedeschia mild mosaic virus	270478	virus	1
+272131-Nostoc-punctiforme	272131	Nostoc punctiforme	63737	bacterium	2
+272636-Adeno-associated-virus	272636	Adeno-associated virus	272636	virus	153
+273371-Candida-orthopsilosis	273371	Candida orthopsilosis	273371	other-eukaryote	1
+277944-Human-coronavirus-NL63-Coronavirus-NL63	277944	Human coronavirus NL63 (Coronavirus NL63)	277944, 10002687	virus	20519
+280240-Nocardiopsis-baichengensis	280240	Nocardiopsis baichengensis	280240	bacterium	1
+283877-Leucobacter-chromiireducens	283877	Leucobacter chromiireducens	283877	bacterium	1
+284581-Priestia-koreensis	284581	Priestia koreensis	284581	bacterium	1
+290028-Human-coronavirus-HKU1-CoV-HKU1	290028	Human coronavirus HKU1 (CoV-HKU1)	290028, 443239, 443240, 443241	virus	17398
+296587-Micromonas-commoda	296587	Micromonas commoda	296587	other-eukaryote	1
+298653-Frankia-sp-EAN1pec	298653	Frankia sp. EAN1pec	298653	bacterium	2
+300180-Mopeia-Lassa-virus-reassortant-29-Mopeia-Lassa-reassortant-29	300180	Mopeia Lassa virus reassortant 29 (Mopeia Lassa reassortant 29)	300180	virus	4
+301964-CY1014-virus-New-Mapoon-virus-strain-CY1014	301964	CY1014 virus (New Mapoon virus strain CY1014)	301964	virus	1
+304895-Catenulispora-acidiphila	304895	Catenulispora acidiphila	304895	bacterium	1
+308159-Araucaria-virus-Paran-virus	308159	Araucaria virus (Paran virus)	308061, 308159	virus	26
+310542-Chimpanzee-adenovirus	310542	Chimpanzee adenovirus	310542	virus	5
+311410-Roseibium-album	311410	Roseibium album	311410	bacterium	1
+312185-Erbovirus-A-Equine-rhinitis-B-virus	312185	Erbovirus A (Equine rhinitis B virus)	650131, 10001929, 10001930	virus	18
+312306-Pseudomonas-entomophila	312306	Pseudomonas entomophila	384676	bacterium	1
+313589-Janibacter-sp-HTCC2649	313589	Janibacter sp. HTCC2649	313589	bacterium	1
+313627-Bacillus-sp-NRRL-B-14911	313627	Bacillus sp. NRRL B-14911	313627	bacterium	2
+314262-Roseobacter-sp-MED193	314262	Roseobacter sp. MED193	314262	bacterium	1
+314275-Alteromonas-mediterranea	314275	Alteromonas mediterranea	314275	bacterium	1
+316068-Leadbetterella-byssophila	316068	Leadbetterella byssophila	316068	bacterium	1
+320667-Trichosanthes-dioica-palwal	320667	Trichosanthes dioica (palwal)	320667	plant	1
+322053-Konjac-mosaic-virus	322053	Konjac mosaic virus	322053	virus	1
+328812-Parabacteroides-goldsteinii	328812	Parabacteroides goldsteinii	328812	bacterium	5
+328814-Alistipes-shahii	328814	Alistipes shahii	328814	bacterium	1
+329091-Cupressus-torulosa	329091	Cupressus torulosa	329091	plant	1
+329854-Bacteroides-intestinalis	329854	Bacteroides intestinalis	329854	bacterium	2
+333367-Enterocloster-asparagiformis	333367	Enterocloster asparagiformis	333367	bacterium	1
+333754-Alphapapillomavirus-10-Human-papillomavirus---6	333754	Alphapapillomavirus 10 (Human papillomavirus - 6)	10573, 10580, 10592, 10600, 31552	virus	353
+333757-Alphapapillomavirus-8-Human-papillomavirus---7	333757	Alphapapillomavirus 8 (Human papillomavirus - 7)	10615, 10620	virus	4
+333766-Alphapapillomavirus-13	333766	Alphapapillomavirus 13	1671798	virus	1
+333767-Alphapapillomavirus-3-Human-papillomavirus---61	333767	Alphapapillomavirus 3 (Human papillomavirus - 61)	171370	virus	1
+333926-Gammapapillomavirus-1	333926	Gammapapillomavirus 1	10617	virus	4
+334203-Mupapillomavirus-1-Human-papillomavirus---1	334203	Mupapillomavirus 1 (Human papillomavirus - 1)	10583, 334203	virus	77
+334205-Nupapillomavirus-1-Human-papillomavirus---41	334205	Nupapillomavirus 1 (Human papillomavirus - 41)	10589	virus	1
+334426-Angiostrongylus-costaricensis-American-rat-lungworm	334426	Angiostrongylus costaricensis (American rat lungworm)	334426	other-eukaryote	1
+337039-Alphapapillomavirus-2-Human-papillomavirus---10	337039	Alphapapillomavirus 2 (Human papillomavirus - 10)	10614, 37111, 37112	virus	5
+337041-Alphapapillomavirus-9	337041	Alphapapillomavirus 9	10585, 10586, 10587, 10598, 10618, 37120, 333760	virus	2047
+337042-Alphapapillomavirus-7	337042	Alphapapillomavirus 7	10588, 10593, 37115, 39457, 45240, 333761, 337042	virus	489
+337043-Alphapapillomavirus-4-Human-papillomavirus---2	337043	Alphapapillomavirus 4 (Human papillomavirus - 2)	333751, 337043	virus	11
+337044-Alphapapillomavirus-5-Human-papillomavirus---26	337044	Alphapapillomavirus 5 (Human papillomavirus - 26)	10595, 37121, 333762	virus	4
+337048-Alphapapillomavirus-1-Human-papillomavirus---32	337048	Alphapapillomavirus 1 (Human papillomavirus - 32)	333763	virus	1
+337049-Alphapapillomavirus-11-Human-papillomavirus---34	337049	Alphapapillomavirus 11 (Human papillomavirus - 34)	51033	virus	2
+337050-Alphapapillomavirus-6-Human-papillomavirus---53	337050	Alphapapillomavirus 6 (Human papillomavirus - 53)	10596, 10611, 333765	virus	10
+337051-Betapapillomavirus-1	337051	Betapapillomavirus 1	333923	virus	1
+337052-Deltapapillomavirus-4	337052	Deltapapillomavirus 4	337052, 2758382	virus	200
+337090-Chlorobium-chlorochromatii-epibiont-of-the-phototrophic-consortium-\Chlorochromatium-aggregatum\	337090	"Chlorobium chlorochromatii (epibiont of the phototrophic consortium \""Chlorochromatium aggregatum\"")"	337090, 340177	bacterium	2
+337810-Oratosquilla-oratoria	337810	Oratosquilla oratoria	337810	other-eukaryote	8
+338079-African-green-monkey-simian-foamy-virus	338079	African green monkey simian foamy virus	338079	virus	4
+338188-Bacteroides-finegoldii	338188	Bacteroides finegoldii	338188	bacterium	1
+338478-Macaque-simian-foamy-virus-Simian-foamy-virus-TYPE-1	338478	Macaque simian foamy virus (Simian foamy virus (TYPE 1))	338478	virus	1
+339268-Mycobacterium-colombiense	339268	Mycobacterium colombiense	1041522	bacterium	336
+342409-White-spot-syndrome-virus-White-spot-syndrome-virus-1	342409	White spot syndrome virus (White spot syndrome virus 1)	92652, 342409	virus	4
+344880-Sphingomonas-dokdonensis	344880	Sphingomonas dokdonensis	344880	bacterium	7
+345840-Palaemon-modestus	345840	Palaemon modestus	345840	other-eukaryote	93
+351073-Mammalian-orthoreovirus	351073	Mammalian orthoreovirus	351073, 538123	virus	3
+351091-Oscillibacter-valericigenes	351091	Oscillibacter valericigenes	351091	bacterium	2
+351745-Shewanella-sp-W3-18-1	351745	Shewanella sp. W3-18-1	351745	bacterium	1
+357276-Phocaeicola-dorei	357276	Phocaeicola dorei	357276	bacterium	5
+360549-Themiste-hennahi	360549	Themiste hennahi	360549	other-eukaryote	1
+363265-Leyella-stercorea	363265	Leyella stercorea	363265	bacterium	1
+368445-Crocodilepox-virus	368445	Crocodilepox virus	368445	virus	2
+370405-Gallionella-capsiferriformans	370405	Gallionella capsiferriformans	395494	bacterium	1
+371601-Bacteroides-xylanisolvens	371601	Bacteroides xylanisolvens	371601	bacterium	2
+374838-Reinekea-blandensis	374838	Reinekea blandensis	314283	bacterium	1
+376805-Phocaeicola-salanitronis	376805	Phocaeicola salanitronis	667015	bacterium	1
+386056-Paraburkholderia-ferrariae	386056	Paraburkholderia ferrariae	386056	bacterium	1
+387090-Phocaeicola-coprophilus	387090	Phocaeicola coprophilus	387090	bacterium	2
+387093-Sulfurovum-sp-NBC37-1	387093	Sulfurovum sp. NBC37-1	387093	bacterium	1
+387661-Parabacteroides-johnsonii	387661	Parabacteroides johnsonii	387661	bacterium	1
+388634-Bombyx-mandarina-nuclear-polyhedrosis-virus	388634	Bombyx mandarina nuclear polyhedrosis virus	388634	virus	1
+390157-Senecavirus-A-Seneca-valley-virus	390157	Senecavirus A (Seneca valley virus)	390157, 10002579, 10002853	virus	141
+392734-Terriglobus-roseus	392734	Terriglobus roseus	392734	bacterium	1
+393662-Congregibacter-litoralis	393662	Congregibacter litoralis	314285	bacterium	1
+402648-Streptomyces-hainanensis	402648	Streptomyces hainanensis	402648	bacterium	1
+408580-Bacillus-coahuilensis	408580	Bacillus coahuilensis	441769	bacterium	1
+408657-Dyadobacter-koreensis	408657	Dyadobacter koreensis	408657	bacterium	1
+410072-Coprococcus-comes	410072	Coprococcus comes	410072	bacterium	1
+413502-Cronobacter-turicensis	413502	Cronobacter turicensis	413502	bacterium	1
+419612-Camelus-ferus-Wild-Bactrian-camel	419612	Camelus ferus (Wild Bactrian camel)	419612	vertebrate	1
+425088-Tanganya-virus	425088	Tanganya virus	425088	virus	1
+430511-Juquitiba-virus	430511	Juquitiba virus	430511	virus	3
+439220-Streptococcus-caballi	439220	Streptococcus caballi	439220	bacterium	1
+444922-Psychromonas-ossibalaenae	444922	Psychromonas ossibalaenae	444922	bacterium	2
+446679-Nostoc-sphaeroides	446679	Nostoc sphaeroides	446679	bacterium	1
+447106-Leptospira-licerasiae	447106	Leptospira licerasiae	447106	bacterium	1
+452646-Neogale-vison-mink	452646	Neogale vison (mink)	452646	vertebrate	1
+453927-Juniperus-formosana	453927	Juniperus formosana	453927	plant	1
+456999-Rhizoctonia-solani	456999	Rhizoctonia solani	456999	other-eukaryote	1
+463676-Rhinovirus-C-Human-rhinovirus-C	463676	Rhinovirus C (Human rhinovirus C)	463676, 1219377	virus	73
+465541-Streptomyces-sp-Mg1	465541	Streptomyces sp. Mg1	465541	bacterium	1
+469009-Brassica-napus-phytoplasma	469009	'Brassica napus' phytoplasma	469009	bacterium	1
+469613-Enterobacteriaceae-bacterium-9_2_54FAA	469613	Enterobacteriaceae bacterium 9_2_54FAA	469613	bacterium	1
+471223-Geobacillus-sp-WCH70	471223	Geobacillus sp. WCH70	471223	bacterium	2
+472390-Prunus-dulcis-x-Prunus-persica	472390	Prunus dulcis x Prunus persica	472390	plant	15
+479935-Gluconobacter-morbifer	479935	Gluconobacter morbifer	479935	bacterium	1
+482957-Burkholderia-lata	482957	Burkholderia lata	482957	bacterium	2
+487317-Aequorivita-capsosiphonis	487317	Aequorivita capsosiphonis	487317	bacterium	1
+502049-Thalassospira-profundimaris	502049	Thalassospira profundimaris	502049	bacterium	1
+502790-Aeromonas-diversa	502790	Aeromonas diversa	502790	bacterium	1
+507750-Peptoniphilus-duerdenii	507750	Peptoniphilus duerdenii	507750	bacterium	1
+519424-Alkalihalobacillus-trypoxylicola	519424	Alkalihalobacillus trypoxylicola	519424	bacterium	1
+543824-Synechocystis-aquatilis	543824	Synechocystis aquatilis	543824	bacterium	1
+545501-Oceanobacillus-oncorhynchi	545501	Oceanobacillus oncorhynchi	545501	bacterium	1
+545650-Sporothrix-brasiliensis	545650	Sporothrix brasiliensis	1398154	other-eukaryote	7
+549169-Pseudogulbenkiania-ferrooxidans	549169	Pseudogulbenkiania ferrooxidans	549169	bacterium	1
+551760-Aromatoleum-aromaticum	551760	Aromatoleum aromaticum	551760	bacterium	1
+558553-Crassostrea-angulata-Portugese-oyster	558553	Crassostrea angulata (Portugese oyster)	558553	other-eukaryote	27
+559561-Aureobasidium-namibiae	559561	Aureobasidium namibiae	559561	other-eukaryote	1
+563466-Scedosporium-apiospermum	563466	Scedosporium apiospermum	563466	other-eukaryote	1
+565995-Bundibugyo-ebolavirus-Bundibugyo-virus	565995	Bundibugyo ebolavirus (Bundibugyo virus)	565995	virus	6
+566466-gamma-proteobacterium-NOR5-3	566466	gamma proteobacterium NOR5-3	566466	bacterium	1
+571800-Psychrobacter-sp-G	571800	Psychrobacter sp. G	571800	bacterium	1
+571949-Encephalitozoon-romaleae	571949	Encephalitozoon romaleae	1178016	other-eukaryote	1
+580165-Bacillus-cytotoxicus	580165	Bacillus cytotoxicus	315749, 580165	bacterium	3
+588596-Rhizophagus-irregularis	588596	Rhizophagus irregularis	588596	other-eukaryote	1
+593106-Pyrophorus-angustus	593106	Pyrophorus angustus	593107	other-eukaryote	2
+626940-Phascolarctobacterium-succinatutens	626940	Phascolarctobacterium succinatutens	626940	bacterium	1
+630277-Tarsius-lariang-Lariang-tarsier	630277	Tarsius lariang (Lariang tarsier)	630277	vertebrate	1
+632955-Acinetobacter-rudis	632955	Acinetobacter rudis	632955	bacterium	1
+649756-Anaerostipes-hadrus	649756	Anaerostipes hadrus	649756	bacterium	1
+651183-Aurantimonas-manganoxydans	651183	Aurantimonas manganoxydans	651183	bacterium	1
+655809-Prevotella-sp-oral-taxon-472	655809	Prevotella sp. oral taxon 472	619693	bacterium	1
+658655-Lachnospiraceae-bacterium-1_4_56FAA	658655	Lachnospiraceae bacterium 1_4_56FAA	658655	bacterium	1
+664662-Borreliella-bavariensis	664662	Borreliella bavariensis	664662	bacterium	1
+674529-Bacteroides-faecis	674529	Bacteroides faecis	674529	bacterium	1
+686984-Sapelovirus-A-Porcine-enterovirus-A	686984	Sapelovirus A (Porcine enterovirus A)	686984, 1002921	virus	2
+687347-Torque-teno-virus-8	687347	Torque teno virus 8	687347	virus	6
+687350-Torque-teno-virus-11	687350	Torque teno virus 11	687350	virus	1
+687355-Torque-teno-virus-16	687355	Torque teno virus 16	687355	virus	4
+687362-Torque-teno-virus-23	687362	Torque teno virus 23	687362	virus	2
+687366-Torque-teno-virus-27	687366	Torque teno virus 27	687366	virus	5
+687367-Torque-teno-virus-28	687367	Torque teno virus 28	687367	virus	3
+691956-Avihepatovirus-A-Duck-hepatitis-A-virus	691956	Avihepatovirus A (Duck hepatitis A virus)	1006061, 10002132, 10002151, 10002152	virus	5
+693153-Vibrio-atlanticus	693153	Vibrio atlanticus	575788	bacterium	1
+693997-Alphacoronavirus-1-Alphacoronavirus-1	693997	Alphacoronavirus 1 (Alphacoronavirus-1)	11135, 11149, 11150, 11151, 11153, 12663, 33734, 454951, 502101, 10001154, 10001624, 10001798	virus	294
+693998-Rhinolophus-bat-coronavirus-HKU2-Bat-coronavirus-HKU2	693998	Rhinolophus bat coronavirus HKU2 (Bat coronavirus HKU2)	693998	virus	2
+693999-Scotophilus-bat-coronavirus-512-Bat-coronavirus-BtCoV_512_2005	693999	Scotophilus bat coronavirus 512 (Bat coronavirus (BtCoV/512/2005))	693999	virus	1
+694003-Betacoronavirus-1	694003	Betacoronavirus 1	11128, 31631, 215681, 233262, 694003, 2501420, 10002633, 10002686	virus	32552
+694006-Rousettus-bat-coronavirus-HKU9-Bat-coronavirus-HKU9	694006	Rousettus bat coronavirus HKU9 (Bat coronavirus HKU9)	694006	virus	2
+694007-Tylonycteris-bat-coronavirus-HKU4-Bat-coronavirus-HKU4	694007	Tylonycteris bat coronavirus HKU4 (Bat coronavirus HKU4)	424362, 694007	virus	4
+694008-Pipistrellus-bat-coronavirus-HKU5-Bat-coronavirus-HKU5	694008	Pipistrellus bat coronavirus HKU5 (Bat coronavirus HKU5)	694008	virus	3
+694014-Avian-coronavirus	694014	Avian coronavirus	11120, 11127, 11152, 231428, 633557, 10001431, 10002165, 10002169	virus	115
+696859-Murine-mastadenovirus-C-Murine-adenovirus-C	696859	Murine mastadenovirus C (Murine adenovirus C)	573199	virus	1
+696863-Sprivivirus-cyprinus-Carp-sprivivirus	696863	Sprivivirus cyprinus (Carp sprivivirus)	696863	virus	1
+708187-Colletotrichum-chlorophyti	708187	Colletotrichum chlorophyti	708187	other-eukaryote	1
+742503-Tokudaia-muenninki-Okinawa-island-spiny-rat	742503	Tokudaia muenninki (Okinawa island spiny rat)	742503	vertebrate	1
+743722-Sphingobacterium-sp-21	743722	Sphingobacterium sp. 21	743722	bacterium	1
+746128-Aspergillus-fumigatus	746128	Aspergillus fumigatus	330879, 451804, 746128	other-eukaryote	745
+759851-Sporosarcina-newyorkensis	759851	Sporosarcina newyorkensis	759851	bacterium	2
+863370-Meiothermus-granaticius	863370	Meiothermus granaticius	863370	bacterium	1
+868131-Methanobacterium-paludis	868131	Methanobacterium paludis	868131	archeobacterium	2
+870484-Nonlabens-agnitus	870484	Nonlabens agnitus	870484	bacterium	1
+871325-Bacteroides-faecichinchillae	871325	Bacteroides faecichinchillae	871325	bacterium	1
+875328-Mycolicibacter-sinensis	875328	Mycolicibacter sinensis	875328	bacterium	276
+884045-Juniperus-saxicola	884045	Juniperus saxicola	884045	plant	1
+940614-Granulicella-mallensis	940614	Granulicella mallensis	940614	bacterium	1
+945780-Synechocystis-salina	945780	Synechocystis salina	945782	bacterium	1
+983924-Eidolon-bat-coronavirus_Kenya_KY24_2006-Bat-coronavirus-BtKY24_Eidolon-helvum_Kenya_2006	983924	Eidolon bat coronavirus/Kenya/KY24/2006 (Bat coronavirus BtKY24/Eidolon helvum/Kenya/2006)	983924	virus	1
+983929-Chaerephon-bat-coronavirus_Kenya_KY22_2006-Bat-coronavirus-BtKY22_Chaerephon-sp_Kenya_2006	983929	Chaerephon bat coronavirus/Kenya/KY22/2006 (Bat coronavirus BtKY22/Chaerephon sp./Kenya/2006)	983929	virus	1
+1004253-Cyberlindnera-mrakii	1004253	Cyberlindnera mrakii	1004253	other-eukaryote	2
+1005962-Ogataea-parapolymorpha	1005962	Ogataea parapolymorpha	871575, 1005962	other-eukaryote	2
+1016852-Banana-streak-CA-virus-Banana-streak-Cavendish-virus	1016852	Banana streak CA virus (Banana streak Cavendish virus)	1016852	virus	23
+1045775-Paenibacillus-catalpae	1045775	Paenibacillus catalpae	1045775	bacterium	1
+1047168-Zymoseptoria-brevis	1047168	Zymoseptoria brevis	1047168	other-eukaryote	1
+1071379-Tetrapisispora-blattae	1071379	Tetrapisispora blattae	1071379	other-eukaryote	1
+1133319-Bacteroides-reticulotermitis	1133319	Bacteroides reticulotermitis	1133319	bacterium	1
+1134687-Klebsiella-michiganensis	1134687	Klebsiella michiganensis	1134687	bacterium	1
+1159904-Night-heron-coronavirus-HKU19-Night-heron-coronavirus-HKU19	1159904	Night heron coronavirus HKU19 (Night-heron coronavirus HKU19)	1159904	virus	1
+1159907-White-eye-coronavirus-HKU16	1159907	White-eye coronavirus HKU16	1159907	virus	1
+1159908-Wigeon-coronavirus-HKU20	1159908	Wigeon coronavirus HKU20	1159908	virus	1
+1160968-Rabbit-coronavirus-HKU14	1160968	Rabbit coronavirus HKU14	1160968	virus	1
+1173701-Colletotrichum-sublineola	1173701	Colletotrichum sublineola	1173701	other-eukaryote	1
+1176145-Pipapillomavirus-2	1176145	Pipapillomavirus 2	763552	virus	57
+1179777-Mycoplasma-feriruminatoris	1179777	Mycoplasma feriruminatoris	1179777	bacterium	1
+1193095-Paucilactobacillus-hokkaidonensis	1193095	Paucilactobacillus hokkaidonensis	1193095	bacterium	1
+1209926-Colletotrichum-orchidophilum	1209926	Colletotrichum orchidophilum	1209926	other-eukaryote	1
+1214225-Acidocella-sp-MX-AZ02	1214225	Acidocella sp. MX-AZ02	1214225	bacterium	1
+1218488-Torque-teno-sus-virus-k2-Torque-teno-sus-virus-3	1218488	Torque teno sus virus k2 (Torque teno sus virus 3)	1218488	virus	11
+1223514-Corynebacterium-humireducens	1223514	Corynebacterium humireducens	1223514	bacterium	11
+1236180-Halopelagius-longus	1236180	Halopelagius longus	1236180	archeobacterium	1
+1239567-Mamastrovirus-3-Porcine-astrovirus	1239567	Mamastrovirus 3 (Porcine astrovirus)	1239567, 10002484	virus	5
+1268303-Rhodococcus-sp-AW25M09	1268303	Rhodococcus sp. AW25M09	1268303	bacterium	2
+1281454-Rodent-hepacivirus	1281454	Rodent hepacivirus	1281454	virus	23
+1330520-Enterovirus-F	1330520	Enterovirus F	269638, 1330520	virus	3
+1335626-Middle-East-respiratory-syndrome-related-coronavirus-MERS-coronavirus	1335626	Middle East respiratory syndrome-related coronavirus (MERS coronavirus)	1235996, 1263720, 1335626	virus	55137
+1349999-Goose-astrovirus	1349999	Goose astrovirus	1349999	virus	5
+1355477-Bradyrhizobium-diazoefficiens	1355477	Bradyrhizobium diazoefficiens	1355477	bacterium	1
+1380386-Mycobacterium-sp-URHB0044	1380386	Mycobacterium sp. URHB0044	1380386	bacterium	1
+1380865-Rana-catesbeiana-virus	1380865	Rana catesbeiana virus	1380865	virus	2
+1432052-Eisenbergiella-tayi	1432052	Eisenbergiella tayi	1432052	bacterium	3
+1457141-Chlamydia-avium	1457141	Chlamydia avium	1229831, 1457141	bacterium	3
+1457153-Chlamydia-gallinacea	1457153	Chlamydia gallinacea	1457153	bacterium	3
+1463841-Streptomyces-sp-NRRL-F-2580	1463841	Streptomyces sp. NRRL F-2580	1463841	bacterium	1
+1464048-Micromonospora-parva	1464048	Micromonospora parva	1464048	bacterium	1
+1472417-Butyricimonas-paravirosa	1472417	Butyricimonas paravirosa	1472417	bacterium	1
+1498499-Legionella-norrlandica	1498499	Legionella norrlandica	1498499	bacterium	1
+1501332-Oribacterium-asaccharolyticum	1501332	Oribacterium asaccharolyticum	1501332	bacterium	1
+1508220-Bat-coronavirus	1508220	Bat coronavirus	1508220	virus	1
+1511895-Dependoparvovirus-anseriform1-Anseriform-dependoparvovirus-1	1511895	Dependoparvovirus anseriform1 (Anseriform dependoparvovirus 1)	37325, 38251	virus	45
+1513262-Gammapapillomavirus-17	1513262	Gammapapillomavirus 17	1070417	virus	1
+1527299-Psychromonas-sp-PRT-SC03	1527299	Psychromonas sp. PRT-SC03	1527299	bacterium	1
+1564681-Carnobacterium-sp-CP1	1564681	Carnobacterium sp. CP1	1564681	bacterium	1
+1566298-Paraiso-Escondido-virus	1566298	Paraiso Escondido virus	1566298	virus	1
+1574408-Cervus-canadensis-elk	1574408	Cervus canadensis (elk)	9864	vertebrate	1
+1631247-Mesorhizobium-delmotii	1631247	Mesorhizobium delmotii	1631247	bacterium	1
+1678143-Paslahepevirus-balayani	1678143	Paslahepevirus balayani	31767, 31768, 63421, 509628, 1678143, 10000519, 10000520, 10002195, 10002196	virus	1935
+1678144-Avihepevirus-magniiecur-Orthohepevirus-B	1678144	Avihepevirus magniiecur (Orthohepevirus B)	1678144	virus	24
+1737357-Rhizobium-wenxiniae	1737357	Rhizobium wenxiniae	1737357	bacterium	1
+1776082-Shigella-genomosp-SF-2015	1776082	Shigella genomosp. SF-2015	358708	bacterium	1
+1783360-Comamonas-sediminis	1783360	Comamonas sediminis	1783360	bacterium	1
+1796646-Muribaculum-intestinale	1796646	Muribaculum intestinale	1796646	bacterium	1
+1803956-Parechovirus-A-Human-parechovirus	1803956	Parechovirus A (Human parechovirus)	12063, 195055, 1803956	virus	11
+1812858-Anaerosacchariphilus-polymeriproducens	1812858	Anaerosacchariphilus polymeriproducens	1812858	bacterium	1
+1821750-Cardiovirus-B	1821750	Cardiovirus B	12124, 12125, 12126, 204711, 10000855	virus	322
+1849603-Enterobacteriaceae-bacterium	1849603	Enterobacteriaceae bacterium	1849603	bacterium	1
+1855372-bacterium-JGI-053	1855372	bacterium JGI 053	1855372	bacterium	1
+1891729-Alphapolyomavirus-mauratus-Hamster-polyomavirus	1891729	Alphapolyomavirus mauratus (Hamster polyomavirus)	1891729	virus	26
+1891730-Alphapolyomavirus-muris-Murine-polyomavirus	1891730	Alphapolyomavirus muris (Murine polyomavirus)	10636, 157703, 1891730	virus	74
+1891762-Betapolyomavirus-hominis-BK-polyomavirus	1891762	Betapolyomavirus hominis (BK polyomavirus)	10631, 1891762, 10001761	virus	101
+1891767-Betapolyomavirus-macacae-Macaca-mulatta-polyomavirus-1	1891767	Betapolyomavirus macacae (Macaca mulatta polyomavirus 1)	1891767, 10001763	virus	91
+1898104-Bacteroidota-bacterium	1898104	Bacteroidota bacterium	1898104	bacterium	2
+1898112-Rhodospirillaceae-bacterium	1898112	Rhodospirillaceae bacterium	1898112	bacterium	1
+1898203-Lachnospiraceae-bacterium	1898203	Lachnospiraceae bacterium	1898203	bacterium	4
+1913988-Alphaproteobacteria-bacterium	1913988	Alphaproteobacteria bacterium	1913988	bacterium	1
+1965089-Coronavirus-HKU15	1965089	Coronavirus HKU15	1586324, 10002449, 10002682, 10002807	virus	28
+1972593-Ephemerovirus-febris-Bovine-fever-ephemerovirus	1972593	Ephemerovirus febris (Bovine fever ephemerovirus)	10000472	virus	2
+1977402-Inovirus-M13-Coliphage-M13	1977402	Inovirus M13 (Coliphage M13)	10863, 1977402	virus	3
+1978231-Acidobacteriota-bacterium	1978231	Acidobacteriota bacterium	1978231	bacterium	1
+1980456-Orthohantavirus-andesense-Andes-hantavirus	1980456	Orthohantavirus andesense (Andes hantavirus)	69245, 69246, 69247, 69248, 367400, 1980456, 10000553	virus	337
+2015173-Ooceraea-biroi-clonal-raider-ant	2015173	Ooceraea biroi (clonal raider ant)	2015173	other-eukaryote	1
+2016460-Giant-panda-anellovirus	2016460	Giant panda anellovirus	2016460	virus	1
+2016461-Giant-panda-associated-gemycircularvirus	2016461	Giant panda associated gemycircularvirus	2016461	virus	1
+2024894-Acidimicrobiaceae-bacterium	2024894	Acidimicrobiaceae bacterium	2024894	bacterium	1
+2026800-Verrucomicrobiaceae-bacterium	2026800	Verrucomicrobiaceae bacterium	2026800	bacterium	1
+2029108-Bacillus-sp-UMB0899	2029108	Bacillus sp. UMB0899	2029108	bacterium	1
+2030927-Bacteroidales-bacterium	2030927	Bacteroidales bacterium	2030927	bacterium	8
+2032731-Swine-acute-diarrhea-syndrome-coronavirus	2032731	Swine acute diarrhea syndrome coronavirus	2032731	virus	3
+2044587-Schaedlerella-arabinosiphila	2044587	Schaedlerella arabinosiphila	2044587	bacterium	5
+2044939-Clostridia-bacterium	2044939	Clostridia bacterium	2044939	bacterium	3
+2049047-Prevotellaceae-bacterium	2049047	Prevotellaceae bacterium	2049047	bacterium	2
+2050018-Rodent-coronavirus	2050018	Rodent coronavirus	2050018	virus	1
+2066070-Mesorhizobium-japonicum	2066070	Mesorhizobium japonicum	2066070	bacterium	1
+2115988-Swine-acute-diarrhea-syndrome-related-coronavirus	2115988	Swine acute diarrhea syndrome related coronavirus	2115988	virus	1
+2116544-Synechococcus-lacustris	2116544	Synechococcus lacustris	2116544	bacterium	1
+2136182-Acinetobacter-cumulans	2136182	Acinetobacter cumulans	2136182	bacterium	4
+2169700-Alphatectivirus-PRD1-Pseudomonas-virus-PRD1	2169700	Alphatectivirus PRD1 (Pseudomonas virus PRD1)	10002289	virus	2
+2169971-Visna-maedi-virus-Maedi-visna-virus	2169971	Visna-maedi virus (Maedi visna virus)	11742, 11743, 12750, 36374, 2169971	virus	123
+2169991-Mammarenavirus-juninense-Argentinian-mammarenavirus	2169991	Mammarenavirus juninense (Argentinian mammarenavirus)	2169991, 10001614	virus	1007
+2170195-Eastern-chimpanzee-simian-foamy-virus	2170195	Eastern chimpanzee simian foamy virus	10002865	virus	12
+2170197-Guenon-simian-foamy-virus	2170197	Guenon simian foamy virus	2170197	virus	1
+2170200-Spider-monkey-simian-foamy-virus-Spider-monkey-foamy-virus	2170200	Spider monkey simian foamy virus (Spider monkey foamy virus)	2170200	virus	1
+2170201-Squirrel-monkey-simian-foamy-virus-Squirrel-monkey-foamy-virus	2170201	Squirrel monkey simian foamy virus (Squirrel monkey foamy virus)	2170201	virus	1
+2170206-Yellow-breasted-capuchin-simian-foamy-virus	2170206	Yellow-breasted capuchin simian foamy virus	2170206	virus	1
+2212467-Bacteroidaceae-bacterium	2212467	Bacteroidaceae bacterium	2212467	bacterium	1
+2282107-Pyrrhoderma-noxium	2282107	Pyrrhoderma noxium	2282107	other-eukaryote	1
+2478486-Holophagales-bacterium	2478486	Holophagales bacterium	2478486	bacterium	1
+2485925-Oscillospiraceae-bacterium	2485925	Oscillospiraceae bacterium	2485925	bacterium	1
+2487134-Clostridium-sp-E02	2487134	Clostridium sp. E02	2487134	bacterium	1
+2492960-Bacillus-yapensis	2492960	Bacillus yapensis	2492960	bacterium	1
+2499680-Betaarterivirus-suid-1	2499680	Betaarterivirus suid 1	11049	virus	339
+2502994-Fusarium-odoratissimum	2502994	Fusarium odoratissimum	2502994	other-eukaryote	1
+2560319-Avian-orthoavulavirus-1-Avian-Paramyxovirus-Serotype-I	2560319	Avian orthoavulavirus 1 (Avian Paramyxovirus Serotype I)	11177, 11186, 351071, 2560319, 10001032, 10001138, 10001140	virus	699
+2560602-Mumps-orthorubulavirus-Mumps-virus	2560602	Mumps orthorubulavirus (Mumps virus)	1384672, 2560602	virus	152
+2584949-Enterobacter-sp-DE0047	2584949	Enterobacter sp. DE0047	2584949	bacterium	1
+2594813-Fusarium-fasciculatum	2594813	Fusarium fasciculatum	2594813	other-eukaryote	1
+2599941-Oligoflexia-bacterium	2599941	Oligoflexia bacterium	2599941	bacterium	1
+2678873-Trimerodytes-annularis-ringed-water-snake	2678873	Trimerodytes annularis (ringed water snake)	2678873	vertebrate	1
+2697049-SARS-CoV2	2697049	SARS-CoV2	2697049, 10002324, 10002325, 10002329, 10002334, 10002370, 10002376, 10002524, 10002525, 10002526, 10002528, 10002529, 10002530, 10002531, 10002533, 10002534, 10002562, 10002626, 10002654, 10002655, 10002677, 10002679, 10002709, 10002715, 10002716, 10002717, 10002718, 10002719, 10002720, 10002721, 10002722, 10002723, 10002724, 10002725, 10002726, 10002727, 10002728, 10002729, 10002730, 10002731, 10002732, 10002733, 10002734, 10002735, 10002736, 10002737, 10002738, 10002739, 10002740, 10002741, 10002742, 10002744, 10002745, 10002746, 10002747, 10002748, 10002749, 10002750, 10002751, 10002752, 10002753, 10002754, 10002755, 10002756, 10002757, 10002758, 10002759, 10002760, 10002774, 10002775, 10002971	virus	35918
+2707005-Paenibacillus-lutimineralis	2707005	Paenibacillus lutimineralis	2707005	bacterium	1
+2708335-Pangolin-coronavirus	2708335	Pangolin coronavirus	2708335	virus	4568
+2770637-Aestuariibaculum-sediminum	2770637	Aestuariibaculum sediminum	2770637	bacterium	1
+2851130-Dermatophagoides-pteronyssinus-virus-3	2851130	Dermatophagoides pteronyssinus virus 3	2851130	virus	83
+2900548-Actinomycetota-bacterium-Actinobacteria-bacterium	2900548	Actinomycetota bacterium (Actinobacteria bacterium)	2900548	bacterium	1
+2978683-Burkholderia-orbicola	2978683	Burkholderia orbicola	2978683	bacterium	7
+3042615-Paraglaciecola-sp-T6c-Paraglaciecola-atlantica-T6c	3042615	Paraglaciecola sp. T6c (Paraglaciecola atlantica T6c)	3042615	bacterium	1
+3047813-Circovirus-duck	3047813	Circovirus duck	10002903	virus	1
+3048360-Orthoflavivirus-tembusu	3048360	Orthoflavivirus tembusu	64293, 1002900, 1399582, 10002970	virus	83
+3051624-Amdoparvovirus-carnivoran1-Carnivore-amdoparvovirus-1	3051624	Amdoparvovirus carnivoran1 (Carnivore amdoparvovirus 1)	10783, 28314	virus	16
+3052189-Erythroparvovirus-primate1-Primate-erythroparvovirus-1	3052189	Erythroparvovirus primate1 (Primate erythroparvovirus 1)	10798, 10000438	virus	354
+3052223-Henipavirus-hendraense-Equine-morbillivirus	3052223	Henipavirus hendraense (Equine morbillivirus)	3052223	virus	5
+3052225-Henipavirus-nipahense-Nipah-henipavirus	3052225	Henipavirus nipahense (Nipah henipavirus)	3052225	virus	144
+3052230-Hepatitis-C-virus	3052230	Hepatitis C virus	11104, 11105, 11108, 11110, 11113, 11115, 11116, 31644, 31645, 31647, 31649, 31650, 31653, 31654, 31655, 33745, 33746, 40271, 41856, 42182, 42792, 63746, 329389, 333284, 356114, 356386, 356391, 356410, 356411, 356413, 356415, 356416, 356417, 356418, 356419, 356421, 356424, 356426, 357355, 420174, 421877, 1053141, 2847144, 3052230, 10000453, 10000455, 10000456, 10000457, 10000458, 10000460, 10000968	virus	17672
+3052296-Mammarenavirus-amapariense-Serra-do-Navio-mammarenavirus	3052296	Mammarenavirus amapariense (Serra do Navio mammarenavirus)	3052296	virus	3
+3052299-Mammarenavirus-brazilense-Brazilian-mammarenavirus	3052299	Mammarenavirus brazilense (Brazilian mammarenavirus)	3052299	virus	991
+3052300-Mammarenavirus-caliense-Cali-mammarenavirus	3052300	Mammarenavirus caliense (Cali mammarenavirus)	3052300	virus	13
+3052303-Mammarenavirus-choriomeningitidis-Lymphocytic-choriomeningitis-mammarenavirus	3052303	Mammarenavirus choriomeningitidis (Lymphocytic choriomeningitis mammarenavirus)	11624, 11625, 11626, 11627, 3052303, 10000487, 10000488, 10000490, 10000491, 10000494, 10000495, 10000496, 10000497	virus	4710
+3052304-Mammarenavirus-cupixiense-Cupixi-mammarenavirus	3052304	Mammarenavirus cupixiense (Cupixi mammarenavirus)	3052304	virus	1
+3052307-Mammarenavirus-guanaritoense-Guanarito-arenavirus	3052307	Mammarenavirus guanaritoense (Guanarito arenavirus)	3052307, 10001616	virus	944
+3052310-Mammarenavirus-lassaense-Lassa-mammarenavirus	3052310	Mammarenavirus lassaense (Lassa mammarenavirus)	11621, 11622, 3052310	virus	1513
+3052317-Mammarenavirus-machupoense-Machupo-mammarenavirus	3052317	Mammarenavirus machupoense (Machupo mammarenavirus)	3052317, 10001615	virus	904
+3052320-Mammarenavirus-mopeiaense-Mopeia-mammarenavirus	3052320	Mammarenavirus mopeiaense (Mopeia mammarenavirus)	3052320	virus	17
+3052322-Mammarenavirus-oliverosense-Oliveros-arenavirus	3052322	Mammarenavirus oliverosense (Oliveros arenavirus)	3052322	virus	3
+3052323-Mammarenavirus-paranaense-Paraguayan-mammarenavirus	3052323	Mammarenavirus paranaense (Paraguayan mammarenavirus)	3052323	virus	1
+3052325-Mammarenavirus-praomyidis-Mobala-mammarenavirus	3052325	Mammarenavirus praomyidis (Mobala mammarenavirus)	3052325	virus	1
+3052328-Mammarenavirus-tacaribeense-Tacaribe-mammarenavirus	3052328	Mammarenavirus tacaribeense (Tacaribe mammarenavirus)	31615, 31616, 928313, 3052328	virus	128
+3052331-Mammarenavirus-whitewaterense-Whitewater-Arroyo-mammarenavirus	3052331	Mammarenavirus whitewaterense (Whitewater Arroyo mammarenavirus)	3052331, 10001617	virus	394
+3052342-Morbillivirus-canis-Canine-distemper-virus	3052342	Morbillivirus canis (Canine distemper virus)	11233, 3052342, 10002310, 10002809, 10002810	virus	154
+3052343-Morbillivirus-caprinae-Pseudorinderpest-virus	3052343	Morbillivirus caprinae (Pseudorinderpest virus)	2593991, 3052343, 10000532, 10001020, 10002123	virus	218
+3052470-Orthohantavirus-bayoui-Bayou-hantavirus	3052470	Orthohantavirus bayoui (Bayou hantavirus)	3052470	virus	1
+3052474-Orthohantavirus-chocloense-Choclo-orthohantavirus	3052474	Orthohantavirus chocloense (Choclo orthohantavirus)	169173	virus	19
+3052476-Orthohantavirus-delgaditoense-Cano-Delgadito-hantavirus	3052476	Orthohantavirus delgaditoense (Cano Delgadito hantavirus)	3052476	virus	2
+3052477-Orthohantavirus-dobravaense-Dobrava-virus	3052477	Orthohantavirus dobravaense (Dobrava virus)	3052477	virus	28
+3052480-Orthohantavirus-hantanense-Hantaan-hantavirus	3052480	Orthohantavirus hantanense (Hantaan hantavirus)	11602, 74942, 74943, 370830, 458678, 3052480	virus	499
+3052483-Orthohantavirus-khabarovskense-Khabarovsk-hantavirus	3052483	Orthohantavirus khabarovskense (Khabarovsk hantavirus)	74537, 3052483	virus	2
+3052486-Orthohantavirus-montanoense-Montano-orthohantavirus	3052486	Orthohantavirus montanoense (Montano orthohantavirus)	3052486	virus	3
+3052487-Orthohantavirus-moroense-El-Moro-Canyon-hantavirus	3052487	Orthohantavirus moroense (El Moro Canyon hantavirus)	3052487	virus	2
+3052489-Orthohantavirus-negraense-Laguna-Negra-hantavirus	3052489	Orthohantavirus negraense (Laguna Negra hantavirus)	3052489	virus	19
+3052492-Orthohantavirus-prospectense-Prospect-Hill-Hantavirus	3052492	Orthohantavirus prospectense (Prospect Hill Hantavirus)	3052492	virus	4
+3052493-Orthohantavirus-puumalaense-Puumala-hantavirus	3052493	Orthohantavirus puumalaense (Puumala hantavirus)	11605, 39002, 1337063, 3052493, 10000483, 10000484, 10000485	virus	504
+3052496-Orthohantavirus-sangassouense-Sangassou-hantavirus	3052496	Orthohantavirus sangassouense (Sangassou hantavirus)	3052496	virus	12
+3052498-Orthohantavirus-seoulense-Seoul-hantavirus	3052498	Orthohantavirus seoulense (Seoul hantavirus)	11607, 11610, 12557, 280855, 3052498	virus	17
+3052499-Orthohantavirus-sinnombreense-Sin-Nombre-hantavirus	3052499	Orthohantavirus sinnombreense (Sin Nombre hantavirus)	31621, 32614, 3052499, 10000544	virus	75
+3052503-Orthohantavirus-tulaense-Tula-hantavirus	3052503	Orthohantavirus tulaense (Tula hantavirus)	3052503	virus	31
+3052505-Orthomarburgvirus-marburgense-Lake-Victoria-marburgvirus	3052505	Orthomarburgvirus marburgense (Lake Victoria marburgvirus)	33727, 33728, 378809, 378830, 3052505	virus	460
+3052518-Orthonairovirus-haemorrhagiae-Crimean-Congo-haemorrhagic-fever-virus	3052518	Orthonairovirus haemorrhagiae (Crimean-Congo haemorrhagic fever virus)	652961, 3052518	virus	635
+3052562-Orthorubulavirus-suis-Porcine-orthorubulavirus	3052562	Orthorubulavirus suis (Porcine orthorubulavirus)	3052562	virus	3
+3052571-Orthotospovirus-citrullomaculosi	3052571	Orthotospovirus citrullomaculosi	3052571	virus	3
+3052585-Orthotospovirus-tomatomaculae-Tomato-spotted-wilt-orthotospovirus	3052585	Orthotospovirus tomatomaculae (Tomato spotted wilt orthotospovirus)	3052585	virus	1
+3052619-Pestivirus-bovis-Pestivirus-A	3052619	Pestivirus bovis (Pestivirus A)	11099, 11100, 82470, 221918, 981676, 10000857	virus	1209
+3052625-Pestivirus-suis-Pestivirus-C	3052625	Pestivirus suis (Pestivirus C)	11096, 11098, 68621, 279150, 358769, 358805, 358812, 10000451, 10001025, 10001578, 10001764	virus	247
+3052707-Protoparvovirus-carnivoran1-Carnivore-protoparvovirus-1	3052707	Protoparvovirus carnivoran1 (Carnivore protoparvovirus 1)	10786, 10788, 10791, 246878	virus	796
+3052720-Protoparvovirus-ungulate1-Ungulate-protoparvovirus-1	3052720	Protoparvovirus ungulate1 (Ungulate protoparvovirus 1)	10796	virus	41
+3052729-Respirovirus-bovis-Bovine-parainfluenza-3-virus	3052729	Respirovirus bovis (Bovine parainfluenza 3 virus)	3052729	virus	4
+3052731-Respirovirus-muris-Murine-respirovirus	3052731	Respirovirus muris (Murine respirovirus)	11194, 11195, 11196, 11198, 3052731	virus	554
+10002316-SARS-CoV1	10002316	SARS-CoV1	227984, 228330, 228407, 229992, 344702, 627442, 694009, 2708335, 10002316	virus	52031
+10002383-Other-SARS	10002383	Other SARS	284672, 1508227, 2709072	virus	3902
+10002948-Bat-mastadenovirus-G	10002948	Bat mastadenovirus G	10002948	virus	1

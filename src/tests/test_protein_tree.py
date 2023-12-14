@@ -13,7 +13,7 @@ from select_proteome import ProteomeSelector
 from assign_gene_protein import GeneAndProteinAssigner
 
 
-data_path = Path(__file__).parent / "data"
+build_path = Path(__file__).parent / "build"
 
 
 @pytest.fixture(
@@ -30,7 +30,7 @@ def organism(request):
 @pytest.fixture
 def species_path(organism) -> Path:
   taxon_id, species_name, _, _ = organism
-  return data_path / "species" / f"{taxon_id}-{species_name.replace(' ', '-')}"
+  return build_path / "species" / f"{taxon_id}-{species_name.replace(' ', '-')}"
 
 
 @pytest.fixture
@@ -50,7 +50,7 @@ def cleanup_after_all_tests():
   file_names = ['*proteome*', '*ARC_results*']
   files_to_remove = []
   for name in file_names:
-    path = data_path / 'species' / '**' / name
+    path = build_path / 'species' / '**' / name
     files_to_remove.extend(glob.glob(str(path), recursive=True))
 
   for file in files_to_remove:
@@ -61,7 +61,7 @@ def test_select_proteome(species_path, epitopes, organism):
   taxon_id, _, _, proteome_id = organism 
 
   epitopes_df = pd.read_csv(epitopes, sep='\t')
-  Selector = ProteomeSelector(taxon_id, species_path)
+  Selector = ProteomeSelector(taxon_id, species_path, build_path)
   proteome_data = Selector.select_best_proteome(epitopes_df)
   Selector.proteome_to_tsv()
 
@@ -75,7 +75,7 @@ def test_assignments(species_path, epitopes, sources, organism):
   sources_df = pd.read_csv(sources, sep='\t')
 
   Assigner = GeneAndProteinAssigner(
-    taxon_id, species_path, is_vertebrate, num_threads=1, data_path=data_path, bin_path='/usr/bin'
+    taxon_id, species_path, is_vertebrate, num_threads=1, data_path=build_path, bin_path='/usr/bin'
   )
   _, epitope_assignments, source_assignments = Assigner.assign(sources_df, epitopes_df)
   
