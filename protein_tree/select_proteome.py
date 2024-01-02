@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import re
 import os
 import requests
@@ -13,9 +11,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 class ProteomeSelector:
-  def __init__(
-    self, taxon_id, build_path = Path(__file__).parent.parent / 'build'
-  ):
+  def __init__(self, taxon_id, group, build_path = Path(__file__).parent.parent / 'build'):
     self.taxon_id = taxon_id
     self.species_path = build_path / 'species' / f'{taxon_id}'
     self.species_path.mkdir(parents=True, exist_ok=True)
@@ -332,15 +328,14 @@ class ProteomeSelector:
     if self.num_of_proteomes > 2: # there is only a .db file if there is more than one proteome
       os.remove(f'{self.species_path}/{proteome_id}.db')
 
-def run(
-  build_path: Path, taxon_id: int, all_taxa: list, species_path: Path, species_name: str,
-) -> None:
+def run(taxon_id: int, group: str, all_taxa: list, build_path: Path) -> list:
   """Run the proteome selection process for a species.
   
   Args:
     taxon_id (int): Taxon ID for the species.
+    group (str): Group for the species (e.g. bacterium, virus, etc.).
     all_taxa (list): List of all children taxa for the species.
-    species_name (str): Name of the species.
+    build_path (Path): Path to build directory.
   """
   from get_data import DataFetcher
 
@@ -348,9 +343,9 @@ def run(
   all_epitopes = Fetcher.get_all_epitopes()
   epitopes_df = Fetcher.get_epitopes_for_species(all_epitopes, all_taxa)
 
-  print(f'Selecting best proteome for {species_name} (Taxon ID: {taxon_id}).')
+  print(f'Selecting best proteome for species w/ taxon ID: {taxon_id}).')
   
-  Selector = ProteomeSelector(taxon_id, species_path, build_path)
+  Selector = ProteomeSelector(taxon_id, group, build_path)
   print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')
 
   proteome_data = Selector.select_best_proteome(epitopes_df)
@@ -388,7 +383,6 @@ def main():
   all_species = args.all_species
   taxon_id = args.taxon_id
   build_path = Path(args.build_path)
-  
   species_path = build_path / 'species' / f'{taxon_id}'
   
   species_df = pd.read_csv(build_path / 'arborist' / 'active-species.tsv', sep='\t')
@@ -400,28 +394,18 @@ def main():
       species_df['Active Taxa']
     )
   )
-  species_id_to_name_map = dict( # map taxon ID to species name
-    zip(
-      species_df['Species ID'],
-      species_df['Species Label']
-    )
-  )
 
   if all_species: # run all species at once
     for taxon_id in valid_taxon_ids:
-      species_path = build_path / 'species' / f'{taxon_id}'
+      group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
-      proteome_data = run(
-        build_path, taxon_id, all_taxa, species_path, species_id_to_name_map[taxon_id]
-      )
+      proteome_data = run(taxon_id, group, all_taxa, build_path)
 
   else: # one species at a time
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
-
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
-    proteome_data = run(
-      build_path, taxon_id, all_taxa, species_path, species_id_to_name_map[taxon_id]
-    )
+    group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
+    proteome_data = run(taxon_id, group, all_taxa, build_path)
 
   pd.DataFrame( # write proteome data to metrics file
     [proteome_data],
