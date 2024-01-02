@@ -220,6 +220,8 @@ class ProteomeSelector:
 
     idx = self.species_df['Species ID'] == self.taxon_id
 
+    print(idx)
+
     group = self.species_df[idx]['Group'].iloc[0]
     ftp_url = f'https://ftp.uniprot.org/pub/databases/uniprot/knowledgebase/reference_proteomes/'
     
