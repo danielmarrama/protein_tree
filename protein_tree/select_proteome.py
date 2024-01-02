@@ -1,11 +1,15 @@
 import re
 import os
 import requests
+import gzip
 import pandas as pd
 
+from Bio import SeqIO
 from io import StringIO
 from pathlib import Path
 from pepmatch import Preprocessor, Matcher
+
+from protein_tree.get_data import DataFetcher
 
 import warnings
 warnings.filterwarnings('ignore')
@@ -13,6 +17,7 @@ warnings.filterwarnings('ignore')
 class ProteomeSelector:
   def __init__(self, taxon_id, group, build_path = Path(__file__).parent.parent / 'build'):
     self.taxon_id = taxon_id
+    self.group = group
     self.species_path = build_path / 'species' / f'{taxon_id}'
     self.species_path.mkdir(parents=True, exist_ok=True)
 
@@ -92,7 +97,6 @@ class ProteomeSelector:
 
   def proteome_to_tsv(self) -> None:
     """Write the proteome data for a species to a CSV file for later use."""
-    from Bio import SeqIO
     
     if not (self.species_path / 'proteome.fasta').exists():
       return
@@ -212,21 +216,15 @@ class ProteomeSelector:
       proteome_id (str): Proteome ID.
       proteome_taxon (str): Taxon ID for the proteome.
     """
-    import gzip
-
-    idx = self.species_df['Species ID'] == self.taxon_id
-
-    group = self.species_df[idx]['Group'].iloc[0]
-    print(group)
     ftp_url = f'https://ftp.uniprot.org/pub/databases/uniprot/knowledgebase/reference_proteomes/'
     
-    if group == 'archeobacterium':
+    if self.group == 'archeobacterium':
       ftp_url += f'Archaea/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
-    elif group == 'bacterium':
+    elif self.group == 'bacterium':
       ftp_url += f'Bacteria/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
-    elif group in ['plant', 'vertebrate', 'other-eukaryote']:
+    elif self.group in ['plant', 'vertebrate', 'other-eukaryote']:
       ftp_url += f'Eukaryota/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
-    elif group == 'virus':
+    elif self.group == 'virus':
       ftp_url += f'Viruses/{proteome_id}/{proteome_id}_{proteome_taxon}.fasta.gz'
     else:
       return
@@ -337,7 +335,6 @@ def run(taxon_id: int, group: str, all_taxa: list, build_path: Path) -> list:
     all_taxa (list): List of all children taxa for the species.
     build_path (Path): Path to build directory.
   """
-  from get_data import DataFetcher
 
   Fetcher = DataFetcher(build_path)
   all_epitopes = Fetcher.get_all_epitopes()
