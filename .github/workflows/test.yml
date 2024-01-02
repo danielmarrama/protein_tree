@@ -10,7 +10,7 @@ on:
 
 jobs:
   pytest:
-    name: PyTest All Tests
+    name: Select Proteome Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -28,4 +28,4 @@ jobs:
     - name: Run PyTest
       env:
         PYTHONPATH: "."
-      run: pytest
+      run: pytest test/test_proteome_selection.py

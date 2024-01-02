@@ -157,7 +157,7 @@ class ProteomeSelector:
     except ValueError:
       try: # delete proteome_type:1 from URL and try again
         proteome_list_url = proteome_list_url.replace('(proteome_type:1)AND', '')
-        proteome_list = pd.read_xml(requests.get(proteome_list_url).text)
+        proteome_list = pd.read_xml(StringIO(requests.get(proteome_list_url).text))
       except ValueError: # if there are no proteomes, return empty DataFrame
         return pd.DataFrame()
 
@@ -220,9 +220,8 @@ class ProteomeSelector:
 
     idx = self.species_df['Species ID'] == self.taxon_id
 
-    print(idx)
-
     group = self.species_df[idx]['Group'].iloc[0]
+    print(group)
     ftp_url = f'https://ftp.uniprot.org/pub/databases/uniprot/knowledgebase/reference_proteomes/'
     
     if group == 'archeobacterium':
@@ -246,7 +245,8 @@ class ProteomeSelector:
     with open(f'{self.species_path}/gp_proteome.fasta', 'wb') as f:
       f.write(gzip.open(r.raw, 'rb').read())
 
-  def _get_proteome_to_fasta(self, proteome_id: str) -> None:
+  @staticmethod
+  def _get_proteome_to_fasta(proteome_id: str, species_path: Path) -> None:
     """Get the FASTA file for a proteome from UniProt API.
     Include all isoforms and do not compress the file.
 
@@ -256,13 +256,14 @@ class ProteomeSelector:
     url = f'https://rest.uniprot.org/uniprotkb/stream?compressed=false&format=fasta&includeIsoform=true&query=(proteome:{proteome_id})'
     try:
       with requests.get(url, stream=True) as r:
-        r.raise_for_status()   
-        with open(f'{self.species_path}/{proteome_id}.fasta', 'w') as f:
+        r.raise_for_status()
+        species_path.mkdir(parents=True, exist_ok=True)
+        with open(f'{species_path}/{proteome_id}.fasta', 'w') as f:
           for chunk in r.iter_content(chunk_size=8192):
             if chunk:  # filter out keep-alive new chunks
               f.write(chunk.decode())
     except requests.exceptions.ChunkedEncodingError:
-      self._get_proteome_to_fasta(proteome_id)  # Recursive call on error
+      ProteomeSelector._get_proteome_to_fasta(proteome_id, species_path)  # recursive call on error
 
   def _get_proteome_with_most_matches(self, epitopes_df: pd.DataFrame) -> tuple:
     """Get the proteome ID and true taxon ID associated with
@@ -274,15 +275,17 @@ class ProteomeSelector:
       epitopes_df (pd.DataFrame): DataFrame of epitopes for the species.
     """
     if self.num_of_proteomes <= 2:
-      self._get_proteome_to_fasta(self.proteome_list['upid'].iloc[0])
-      return self.proteome_list['upid'].iloc[0], self.proteome_list['taxonomy'].iloc[0]
+      proteome_id = self.proteome_list['upid'].iloc[0]
+      proteome_taxon = self.proteome_list['taxonomy'].iloc[0]
+      ProteomeSelector._get_proteome_to_fasta(proteome_id, self.species_path)
+      return proteome_id, proteome_taxon
 
     epitopes_df = epitopes_df[epitopes_df['Sequence'].notna()] 
     epitopes = epitopes_df['Sequence'].tolist()
 
     match_counts = {} # keep track of # of epitope matches for each proteome
     for proteome_id in list(self.proteome_list['upid']):
-      self._get_proteome_to_fasta(proteome_id)
+      ProteomeSelector._get_proteome_to_fasta(proteome_id, self.species_path)
       
       Preprocessor(
         proteome = f'{self.species_path}/{proteome_id}.fasta',
