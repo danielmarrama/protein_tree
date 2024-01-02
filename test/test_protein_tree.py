@@ -9,8 +9,8 @@ import glob
 # add path to parent directory to sys.path so that we can import modules
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from select_proteome import ProteomeSelector
-from assign_gene_protein import GeneAndProteinAssigner
+from protein_tree.select_proteome import ProteomeSelector
+from protein_tree.assign_gene_protein import GeneAndProteinAssigner
 
 
 build_path = Path(__file__).parent / "build"
@@ -75,7 +75,7 @@ def test_assignments(species_path, epitopes, sources, organism):
   sources_df = pd.read_csv(sources, sep='\t')
 
   Assigner = GeneAndProteinAssigner(
-    taxon_id, species_path, is_vertebrate, num_threads=1, data_path=build_path, bin_path='/usr/bin'
+    taxon_id, species_path, is_vertebrate, num_threads=1, build_path=build_path, bin_path='/usr/bin'
   )
   _, epitope_assignments, source_assignments = Assigner.assign(sources_df, epitopes_df)
   

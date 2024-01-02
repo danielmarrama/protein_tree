@@ -70,7 +70,7 @@ class GeneAndProteinAssigner:
       self.source_protein_assignment[row['Accession']] = None
       self.source_assignment_score[row['Accession']] = None
     for i, row in epitopes_df.iterrows():
-      self.epitope_protein_assignment[(row['Accession'], row['Sequence'])] = None
+      self.epitope_protein_assignment[(row['Source Accession'], row['Sequence'])] = None
 
     # create source to epitope map
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
@@ -158,10 +158,10 @@ class GeneAndProteinAssigner:
     """    
     source_to_epitopes_map = {}
     for i, row in epitopes_df.iterrows():
-      if row['Accession'] in source_to_epitopes_map.keys():
-        source_to_epitopes_map[row['Accession']].append(row['Sequence'])
+      if row['Source Accession'] in source_to_epitopes_map.keys():
+        source_to_epitopes_map[row['Source Accession']].append(row['Sequence'])
       else:
-        source_to_epitopes_map[row['Accession']] = [row['Sequence']]
+        source_to_epitopes_map[row['Source Accession']] = [row['Sequence']]
     
     return source_to_epitopes_map 
 

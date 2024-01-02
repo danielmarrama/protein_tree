@@ -18,7 +18,6 @@ class DataFetcher:
     """Get all epitopes and source antigens tables from the IEDB backend. Also, get
     allergen data from the IUIS allergen nomenclature database.
     """
-    print(self.build_path)
     epitopes_df = self._get_epitope_table()
     sources_df = self._get_source_table()
 

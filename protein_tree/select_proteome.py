@@ -4,22 +4,20 @@ import re
 import os
 import requests
 import pandas as pd
+
+from io import StringIO
 from pathlib import Path
-
 from pepmatch import Preprocessor, Matcher
-
 
 import warnings
 warnings.filterwarnings('ignore')
 
-
 class ProteomeSelector:
   def __init__(
-    self, taxon_id, species_path, build_path = Path(__file__).parent.parent / 'build'
+    self, taxon_id, build_path = Path(__file__).parent.parent / 'build'
   ):
     self.taxon_id = taxon_id
-
-    self.species_path = species_path
+    self.species_path = build_path / 'species' / f'{taxon_id}'
     self.species_path.mkdir(parents=True, exist_ok=True)
 
     self.species_df = pd.read_csv(
@@ -28,7 +26,6 @@ class ProteomeSelector:
 
     self.proteome_list = self._get_proteome_list() # get all candidate proteomes
     self.num_of_proteomes = len(self.proteome_list) + 1 # +1 for all proteins option
-
 
   def select_best_proteome(self, epitopes_df: pd.DataFrame) -> list:
     """Select the best proteome to use for a species. Return the proteome ID,
@@ -97,7 +94,6 @@ class ProteomeSelector:
 
     return proteome_id, proteome_taxon, proteome_type
 
-
   def proteome_to_tsv(self) -> None:
     """Write the proteome data for a species to a CSV file for later use."""
     from Bio import SeqIO
@@ -147,7 +143,6 @@ class ProteomeSelector:
     proteome = proteome[['Database', 'Gene', 'Protein ID', 'Protein Name', 'Protein Existence Level', 'Gene Priority', 'Sequence']]
     proteome.to_csv(f'{self.species_path}/proteome.tsv', sep='\t', index=False)
 
-
   def _get_proteome_list(self) -> pd.DataFrame:
     """Get a list of proteomes for a species from the UniProt API.
     Check for proteome_type:1 first, which are the representative or
@@ -156,21 +151,19 @@ class ProteomeSelector:
     If there are no proteomes, return empty DataFrame.
     """
     # URL to get proteome list for a species - use proteome_type:1 first
-    url = f'https://rest.uniprot.org/proteomes/stream?format=xml&query=(proteome_type:1)AND(taxonomy_id:{self.taxon_id})'
-    
+    proteome_list_url = f'https://rest.uniprot.org/proteomes/stream?format=xml&query=(proteome_type:1)AND(taxonomy_id:{self.taxon_id})'
     try:
-      proteome_list = pd.read_xml(requests.get(url).text)
+      proteome_list = pd.read_xml(StringIO(requests.get(proteome_list_url).text))
     except ValueError:
       try: # delete proteome_type:1 from URL and try again
-        url = url.replace('(proteome_type:1)AND', '')
-        proteome_list = pd.read_xml(requests.get(url).text)
+        proteome_list_url = proteome_list_url.replace('(proteome_type:1)AND', '')
+        proteome_list = pd.read_xml(requests.get(proteome_list_url).text)
       except ValueError: # if there are no proteomes, return empty DataFrame
         return pd.DataFrame()
 
     # remove the namespace from the columns
     proteome_list.columns = [x.replace('{http://uniprot.org/proteome}', '') for x in proteome_list.columns]
     return proteome_list
-
 
   def _get_all_proteins(self) -> None:
     """Get every protein associated with a taxon ID on UniProt.
@@ -186,7 +179,6 @@ class ProteomeSelector:
       with open(f'{self.species_path}/proteome.fasta', 'a') as f:
         f.write(batch.text)
 
-
   def _get_protein_batches(self, batch_url: str) -> requests.Response:
     """Get a batch of proteins from UniProt API because it limits the
     number of proteins you can get at once. Yield each batch until the 
@@ -201,7 +193,6 @@ class ProteomeSelector:
       yield r
       batch_url = self._get_next_link(r.headers)
 
-
   def _get_next_link(self, headers: dict) -> str:
     """UniProt will provide a link to the next batch of proteins when getting
     all proteins for a species' taxon ID.
@@ -215,7 +206,6 @@ class ProteomeSelector:
       match = re_next_link.match(headers['Link'])
       if match:
         return match.group(1)
-
 
   def _get_gp_proteome_to_fasta(self, proteome_id: str, proteome_taxon: str) -> None:
     """Write the gene priority proteome to a file. 
@@ -254,7 +244,6 @@ class ProteomeSelector:
     with open(f'{self.species_path}/gp_proteome.fasta', 'wb') as f:
       f.write(gzip.open(r.raw, 'rb').read())
 
-
   def _get_proteome_to_fasta(self, proteome_id: str) -> None:
     """Get the FASTA file for a proteome from UniProt API.
     Include all isoforms and do not compress the file.
@@ -272,7 +261,6 @@ class ProteomeSelector:
               f.write(chunk.decode())
     except requests.exceptions.ChunkedEncodingError:
       self._get_proteome_to_fasta(proteome_id)  # Recursive call on error
-
 
   def _get_proteome_with_most_matches(self, epitopes_df: pd.DataFrame) -> tuple:
     """Get the proteome ID and true taxon ID associated with
@@ -321,7 +309,6 @@ class ProteomeSelector:
 
     return proteome_id, proteome_taxon
 
-
   def _remove_other_proteomes(self, proteome_id: str) -> None:
     """Remove the proteome FASTA files that are not the chosen proteome for that
     species. Also, remove the .db files and rename the chosen proteome to 
@@ -339,7 +326,6 @@ class ProteomeSelector:
     os.rename(f'{self.species_path}/{proteome_id}.fasta', f'{self.species_path}/proteome.fasta')
     if self.num_of_proteomes > 2: # there is only a .db file if there is more than one proteome
       os.remove(f'{self.species_path}/{proteome_id}.db')
-
 
 def run(
   build_path: Path, taxon_id: int, all_taxa: list, species_path: Path, species_name: str,
@@ -370,7 +356,6 @@ def run(
   print(f'Proteome type: {proteome_data[2]}')
 
   return proteome_data
-
 
 def main():
   import argparse
