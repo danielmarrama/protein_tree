@@ -9,8 +9,6 @@ from io import StringIO
 from pathlib import Path
 from pepmatch import Preprocessor, Matcher
 
-from protein_tree.get_data import DataFetcher
-
 import warnings
 warnings.filterwarnings('ignore')
 
