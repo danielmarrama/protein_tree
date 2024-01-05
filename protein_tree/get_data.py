@@ -5,19 +5,20 @@ import pandas as pd
 from pathlib import Path
 from sqlalchemy import text
 
-from sql_engine import create_sql_engine
-
-
 class DataFetcher:
-  def __init__(self, build_path = Path(__file__).parent.parent / 'build') -> None:
-    self.build_path = build_path
-    self.sql_engine = create_sql_engine()
+  build_path = Path(__file__).parent.parent / 'build'
 
-
+  def __init__(self, build_path=None) -> None:
+    if build_path:
+      self.build_path = build_path
+    
   def get_all_data(self) -> None:
     """Get all epitopes and source antigens tables from the IEDB backend. Also, get
     allergen data from the IUIS allergen nomenclature database.
     """
+
+    from sql_engine import create_sql_engine
+    self.sql_engine = create_sql_engine()
     epitopes_df = self._get_epitope_table()
     sources_df = self._get_source_table()
 
@@ -107,16 +108,15 @@ class DataFetcher:
     
     return sources_df
   
-
-  def get_all_epitopes(self) -> pd.DataFrame:
+  @classmethod
+  def get_all_epitopes(cls) -> pd.DataFrame:
     """Get all epitopes from the written file."""
-    return pd.read_csv(self.build_path / 'iedb' / 'peptides.tsv', sep='\t')
+    return pd.read_csv(cls.build_path / 'iedb' / 'peptide.tsv', sep='\t')
   
-
-  def get_all_sources(self) -> pd.DataFrame:
+  @classmethod
+  def get_all_sources(cls) -> pd.DataFrame:
     """Get all source antigens from the written file."""
-    return pd.read_csv(self.build_path / 'iedb' / 'sources.tsv', sep='\t')
-  
+    return pd.read_csv(cls.build_path / 'iedb' / 'sources.tsv', sep='\t')
 
   def get_epitopes_for_species(
     self, all_epitopes: pd.DataFrame, all_taxa: list
@@ -128,7 +128,6 @@ class DataFetcher:
       all_taxa: list of all active children taxa for a species.
     """
     return all_epitopes[all_epitopes['Organism ID'].isin(all_taxa)]
-
 
   def get_sources_for_species(
     self, all_sources: pd.DataFrame, accessions: list

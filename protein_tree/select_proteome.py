@@ -9,6 +9,8 @@ from io import StringIO
 from pathlib import Path
 from pepmatch import Preprocessor, Matcher
 
+from get_data import DataFetcher
+
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -275,6 +277,12 @@ class ProteomeSelector:
     epitopes_df = epitopes_df[epitopes_df['Sequence'].notna()] 
     epitopes = epitopes_df['Sequence'].tolist()
 
+    if not epitopes: # get proteome with highest protein count
+      idx = self.proteome_list['proteinCount'].idxmax()
+      proteome_id = self.proteome_list['upid'].iloc[idx]
+      ProteomeSelector._get_proteome_to_fasta(proteome_id, self.species_path)
+      return proteome_id, self.taxon_id
+
     match_counts = {} # keep track of # of epitope matches for each proteome
     for proteome_id in list(self.proteome_list['upid']):
       ProteomeSelector._get_proteome_to_fasta(proteome_id, self.species_path)
@@ -316,15 +324,14 @@ class ProteomeSelector:
     """
     proteome_list_to_remove = self.proteome_list[self.proteome_list['upid'] != proteome_id]
     for i in list(proteome_list_to_remove['upid']):
-      os.remove(self.species_path / f'{i}.fasta')
-      os.remove(self.species_path / f'{i}.db')
-    
-    # rename the chosen proteome to proteome.fasta and remove the .db file
-    os.rename(f'{self.species_path}/{proteome_id}.fasta', f'{self.species_path}/proteome.fasta')
-    if self.num_of_proteomes > 2: # there is only a .db file if there is more than one proteome
-      os.remove(f'{self.species_path}/{proteome_id}.db')
+      (self.species_path / f'{i}.fasta').unlink(missing_ok=True)
+      (self.species_path / f'{i}.db').unlink(missing_ok=True)
 
-def run(taxon_id: int, group: str, all_taxa: list, build_path: Path) -> list:
+    Path(f'{self.species_path}/{proteome_id}.db').unlink(missing_ok=True)   
+    os.rename(f'{self.species_path}/{proteome_id}.fasta', f'{self.species_path}/proteome.fasta')
+    
+
+def run(taxon_id: int, group: str, all_taxa: list, build_path: Path, all_epitopes: pd.DataFrame) -> list:
   """Run the proteome selection process for a species.
   
   Args:
@@ -333,9 +340,8 @@ def run(taxon_id: int, group: str, all_taxa: list, build_path: Path) -> list:
     all_taxa (list): List of all children taxa for the species.
     build_path (Path): Path to build directory.
   """
-
+  
   Fetcher = DataFetcher(build_path)
-  all_epitopes = Fetcher.get_all_epitopes()
   epitopes_df = Fetcher.get_epitopes_for_species(all_epitopes, all_taxa)
 
   print(f'Selecting best proteome for species w/ taxon ID: {taxon_id}).')
@@ -348,7 +354,7 @@ def run(taxon_id: int, group: str, all_taxa: list, build_path: Path) -> list:
   
   print(f'Proteome ID: {proteome_data[0]}')
   print(f'Proteome taxon: {proteome_data[1]}')
-  print(f'Proteome type: {proteome_data[2]}')
+  print(f'Proteome type: {proteome_data[2]}\n')
 
   return proteome_data
 
@@ -380,7 +386,7 @@ def main():
   build_path = Path(args.build_path)
   species_path = build_path / 'species' / f'{taxon_id}'
   
-  species_df = pd.read_csv(build_path / 'arborist' / 'active-species.tsv', sep='\t')
+  species_df = pd.read_csv('data/active-species.tsv', sep='\t')
   valid_taxon_ids = species_df['Species ID'].tolist()
 
   all_taxa_map = dict( # map taxon ID to list of all children taxa
@@ -390,17 +396,18 @@ def main():
     )
   )
 
+  all_epitopes = DataFetcher.get_all_epitopes()
   if all_species: # run all species at once
     for taxon_id in valid_taxon_ids:
       group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
-      proteome_data = run(taxon_id, group, all_taxa, build_path)
+      proteome_data = run(taxon_id, group, all_taxa, build_path, all_epitopes)
 
   else: # one species at a time
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
     group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
-    proteome_data = run(taxon_id, group, all_taxa, build_path)
+    proteome_data = run(taxon_id, group, all_taxa, build_path, all_epitopes)
 
   pd.DataFrame( # write proteome data to metrics file
     [proteome_data],
