@@ -6,11 +6,8 @@ from pathlib import Path
 from sqlalchemy import text
 
 class DataFetcher:
-  build_path = Path(__file__).parent.parent / 'build'
-
-  def __init__(self, build_path=None) -> None:
-    if build_path:
-      self.build_path = build_path
+  def __init__(self, build_path: Path = Path(__file__).parent.parent / 'build') -> None:
+    self.build_path = build_path
     
   def get_all_data(self) -> None:
     """Get all epitopes and source antigens tables from the IEDB backend. Also, get
@@ -35,7 +32,6 @@ class DataFetcher:
     epitopes_df.to_csv(self.build_path / 'iedb' / 'epitopes.tsv', sep='\t', index=False)
     sources_df.to_csv(self.build_path / 'iedb' / 'sources.tsv', sep='\t', index=False)
     allergen_df.to_csv(self.build_path / 'arborist' / 'allergens.tsv', sep='\t', index=False)
-
 
   def _get_epitope_table(self) -> pd.DataFrame:
     """Get epitopes from epitope/object tables from the IEDB backend."""
@@ -90,7 +86,6 @@ class DataFetcher:
   
     return epitopes_df[['Sequence', 'Source Name', 'Source Accession', 'Organism ID']]
 
-
   def _get_source_table(self) -> pd.DataFrame:
     """Get all source antigens from source table in IEDB backend."""
     sql_query = f'SELECT accession, name, sequence, organism_id FROM source;'
@@ -108,15 +103,13 @@ class DataFetcher:
     
     return sources_df
   
-  @classmethod
-  def get_all_epitopes(cls) -> pd.DataFrame:
+  def get_all_epitopes(self) -> pd.DataFrame:
     """Get all epitopes from the written file."""
-    return pd.read_csv(cls.build_path / 'iedb' / 'peptide.tsv', sep='\t')
+    return pd.read_csv(self.build_path / 'iedb' / 'peptide.tsv', sep='\t')
   
-  @classmethod
-  def get_all_sources(cls) -> pd.DataFrame:
+  def get_all_sources(self) -> pd.DataFrame:
     """Get all source antigens from the written file."""
-    return pd.read_csv(cls.build_path / 'iedb' / 'sources.tsv', sep='\t')
+    return pd.read_csv(self.build_path / 'iedb' / 'sources.tsv', sep='\t')
 
   def get_epitopes_for_species(
     self, all_epitopes: pd.DataFrame, all_taxa: list
@@ -140,7 +133,6 @@ class DataFetcher:
     """
     return all_sources[all_sources['Accession'].isin(accessions)]
 
-
   @staticmethod
   def update_species():
     """Update species table "active-species-tsv" fron OntoDev site."""
@@ -153,8 +145,7 @@ class DataFetcher:
     with open(file_path, 'wb') as f:
       f.write(r.content)
 
-  
-def main():
+if __name__ == '__main__':
   import argparse
   
   parser = argparse.ArgumentParser()
@@ -230,7 +221,3 @@ def main():
     print('Getting all data...')
     DataFetcher().get_all_data()
     print('All data written.')
-
-
-if __name__ == '__main__':
-  main()
