@@ -12,7 +12,7 @@ from io import StringIO
 from pathlib import Path
 from pepmatch import Preprocessor, Matcher
 
-import get_data
+from protein_tree.get_data import DataFetcher
 
 class ProteomeSelector:
   def __init__(self, taxon_id, group, build_path = Path(__file__).parent.parent / 'build'):
@@ -355,7 +355,7 @@ def run(taxon_id: int, group: str, all_taxa: list, build_path: Path, all_epitope
     proteome_data = update_proteome(species_path, taxon_id, data_path)
     return proteome_data
 
-  Fetcher = get_data.DataFetcher(build_path)
+  Fetcher = DataFetcher(build_path)
   epitopes_df = Fetcher.get_epitopes_for_species(all_epitopes, all_taxa)
 
   print(f'Selecting best proteome for species w/ taxon ID: {taxon_id}).')
@@ -429,7 +429,7 @@ if __name__ == '__main__':
     )
   )
 
-  all_epitopes = get_data.DataFetcher(build_path).get_all_epitopes()
+  all_epitopes = DataFetcher(build_path).get_all_epitopes()
   if all_species: # run all species at once
     for taxon_id in valid_taxon_ids:
       group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
