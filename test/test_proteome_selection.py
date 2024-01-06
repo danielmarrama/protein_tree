@@ -32,7 +32,7 @@ class TestProteomeSelection(unittest.TestCase):
     file_path = build_path / 'species' / '161600' / 'proteome.fasta'
     self.assertTrue(os.path.getsize(file_path) > 0)
 
-  # def tearDown(self):
-  #   species_path = build_path / 'species'
-  #   if species_path.exists() and species_path.is_dir():
-  #     shutil.rmtree(species_path)
+  def tearDown(self):
+    species_path = build_path / 'species'
+    if species_path.exists() and species_path.is_dir():
+      shutil.rmtree(species_path)

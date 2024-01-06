@@ -376,6 +376,11 @@ def run(taxon_id: int, group: str, all_taxa: list, build_path: Path, all_epitope
   print(f'Proteome taxon: {proteome_data[1]}')
   print(f'Proteome type: {proteome_data[2]}\n')
 
+  pd.DataFrame( # write proteome data to metrics file
+    [proteome_data],
+    columns=['Proteome ID', 'Proteome Taxon', 'Proteome Type']
+  ).to_csv(species_path / 'species-data.tsv', sep='\t', index=False)
+
   return proteome_data
 
 if __name__ == '__main__':
@@ -435,8 +440,3 @@ if __name__ == '__main__':
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
     group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
     proteome_data = run(taxon_id, group, all_taxa, build_path, all_epitopes, force)
-
-  pd.DataFrame( # write proteome data to metrics file
-    [proteome_data],
-    columns=['Proteome ID', 'Proteome Taxon', 'Proteome Type']
-  ).to_csv(build_path / 'species' / f'{taxon_id}' / 'species-data.tsv', sep='\t', index=False)
