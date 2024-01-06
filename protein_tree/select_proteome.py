@@ -52,7 +52,7 @@ class ProteomeSelector:
     if self.proteome_list.empty:
       print('No proteomes found. Fetching orphan proteins.')
       self.get_all_proteins(self.taxon_id, self.species_path)
-      return 'None', self.taxon_id, 'All-proteins'
+      return ['None', self.taxon_id, 'All-proteins']
 
     if self.proteome_list['isRepresentativeProteome'].any():
       print('Found representative proteome(s).\n')
@@ -81,12 +81,13 @@ class ProteomeSelector:
     
     else:
       print('Found other proteome(s).\n')
-      proteome_type = 'Other'
+      proteome_type = 'Other' # replace ID with redundant proteome ID
+      self.proteome_list.loc[self.proteome_list['redundantTo'].notna(), 'upid'] = self.proteome_list['redundantTo']
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
 
     self._remove_other_proteomes(proteome_id)
 
-    return proteome_id, proteome_taxon, proteome_type
+    return [proteome_id, proteome_taxon, proteome_type]
 
   def proteome_to_tsv(self) -> None:
     """Write the proteome data for a species to a CSV file for later use."""
@@ -335,7 +336,7 @@ def update_proteome(species_path: Path, taxon_id: int, data_path: Path) -> None:
   else:
     ProteomeSelector.get_proteome_to_fasta(proteome_id, species_path)
   
-  return proteome_id, proteome_taxon, proteome_type
+  return [proteome_id, proteome_taxon, proteome_type]
 
 def run(taxon_id: int, group: str, all_taxa: list, build_path: Path, all_epitopes: pd.DataFrame, force: bool) -> list:
   """Run the proteome selection process for a species.
