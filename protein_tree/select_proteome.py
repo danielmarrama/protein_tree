@@ -51,7 +51,7 @@ class ProteomeSelector:
     """
     if self.proteome_list.empty:
       print('No proteomes found. Fetching orphan proteins.')
-      self._get_all_proteins(self.taxon_id, self.species_path)
+      self.get_all_proteins(self.taxon_id, self.species_path)
       return 'None', self.taxon_id, 'All-proteins'
 
     if self.proteome_list['isRepresentativeProteome'].any():
@@ -85,13 +85,6 @@ class ProteomeSelector:
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
 
     self._remove_other_proteomes(proteome_id)
-    
-    # sanity check to make sure proteome.fasta is not empty
-    if (self.species_path / 'proteome.fasta').stat().st_size == 0:
-      proteome_id = 'None'
-      proteome_taxon = self.taxon_id
-      proteome_type = 'All-proteins'
-      self._get_all_proteins() # get all orphan proteins if proteome.fasta is empty
 
     return proteome_id, proteome_taxon, proteome_type
 
@@ -161,40 +154,10 @@ class ProteomeSelector:
       except ValueError: # if there are no proteomes, return empty DataFrame
         return pd.DataFrame()
 
-    # remove the namespace from the columns
+    proteome_list = proteome_list[proteome_list['excluded'].isna()] if 'excluded' in proteome_list.columns else proteome_list
     proteome_list.columns = [x.replace('{http://uniprot.org/proteome}', '') for x in proteome_list.columns]
+    
     return proteome_list
-
-  @staticmethod
-  def _get_all_proteins(taxon_id: int, species_path: Path) -> None:
-    """Get every protein associated with a taxon ID on UniProt.
-    Species on UniProt will have a proteome, but not every protein is
-    stored within those proteomes. There is a way to get every protein
-    using the taxonomy part of UniProt.
-
-    Args:
-      taxon_id (int): Taxon ID for the species.
-      species_path (Path): Path to species directory.
-    """
-    def get_protein_batches(batch_url: str) -> requests.Response:
-      while batch_url:
-        r = requests.get(batch_url)
-        r.raise_for_status()
-        yield r
-        batch_url = get_next_link(r.headers)
-
-    def get_next_link(headers: dict) -> str:
-      re_next_link = re.compile(r'<(.+)>; rel="next"') # regex to extract URL
-      if 'Link' in headers:
-        match = re_next_link.match(headers['Link'])
-        if match:
-          return match.group(1)
-
-    # URL link to all proteins for a species - size = 500 proteins at a time
-    url = f'https://rest.uniprot.org/uniprotkb/search?format=fasta&query=taxonomy_id:{taxon_id}&size=500'
-    for batch in get_protein_batches(url):
-      with open(f'{species_path}/proteome.fasta', 'a') as f:
-        f.write(batch.text)
 
   def _get_gp_proteome_to_fasta(self, proteome_id: str, proteome_taxon: str) -> None:
     """Write the gene priority proteome to a file. 
@@ -229,24 +192,57 @@ class ProteomeSelector:
       f.write(gzip.open(r.raw, 'rb').read())
 
   @staticmethod
-  def _get_proteome_to_fasta(proteome_id: str, species_path: Path) -> None:
+  def get_proteome_to_fasta(proteome_id: str, species_path: Path) -> None:
     """Get the FASTA file for a proteome from UniProt API.
     Include all isoforms and do not compress the file.
 
     Args:
       proteome_id (str): UniProt Proteome ID.
+      species_path (Path): Path to species directory to write the FASTA file.
     """
     url = f'https://rest.uniprot.org/uniprotkb/stream?compressed=false&format=fasta&includeIsoform=true&query=(proteome:{proteome_id})'
+    species_path.mkdir(parents=True, exist_ok=True)
     try:
       with requests.get(url, stream=True) as r:
         r.raise_for_status()
-        species_path.mkdir(parents=True, exist_ok=True)
         with open(f'{species_path}/{proteome_id}.fasta', 'w') as f:
           for chunk in r.iter_content(chunk_size=8192):
             if chunk:  # filter out keep-alive new chunks
               f.write(chunk.decode())
     except requests.exceptions.ChunkedEncodingError:
-      ProteomeSelector._get_proteome_to_fasta(proteome_id, species_path)  # recursive call on error
+      ProteomeSelector.get_proteome_to_fasta(proteome_id, species_path)  # recursive call on error
+
+  @staticmethod
+  def get_all_proteins(taxon_id: int, species_path: Path) -> None:
+    """Get every protein associated with a taxon ID on UniProt.
+    Species on UniProt will have a proteome, but not every protein is
+    stored within those proteomes. There is a way to get every protein
+    using the taxonomy part of UniProt.
+
+    Args:
+      taxon_id (int): Taxon ID for the species.
+      species_path (Path): Path to species directory.
+    """
+    def get_protein_batches(batch_url: str) -> requests.Response:
+      while batch_url:
+        r = requests.get(batch_url)
+        r.raise_for_status()
+        yield r
+        batch_url = get_next_link(r.headers)
+
+    def get_next_link(headers: dict) -> str:
+      re_next_link = re.compile(r'<(.+)>; rel="next"') # regex to extract URL
+      if 'Link' in headers:
+        match = re_next_link.match(headers['Link'])
+        if match:
+          return match.group(1)
+
+    # URL link to all proteins for a species - size = 500 proteins at a time
+    url = f'https://rest.uniprot.org/uniprotkb/search?format=fasta&query=taxonomy_id:{taxon_id}&size=500'
+    species_path.mkdir(parents=True, exist_ok=True)
+    for batch in get_protein_batches(url):
+      with open(f'{species_path}/proteome.fasta', 'a') as f:
+        f.write(batch.text)
 
   def _get_proteome_with_most_matches(self, epitopes_df: pd.DataFrame) -> tuple:
     """Get the proteome ID and true taxon ID associated with
@@ -260,7 +256,7 @@ class ProteomeSelector:
     if self.num_of_proteomes <= 2:
       proteome_id = self.proteome_list['upid'].iloc[0]
       proteome_taxon = self.proteome_list['taxonomy'].iloc[0]
-      ProteomeSelector._get_proteome_to_fasta(proteome_id, self.species_path)
+      ProteomeSelector.get_proteome_to_fasta(proteome_id, self.species_path)
       return proteome_id, proteome_taxon
 
     epitopes_df = epitopes_df[epitopes_df['Sequence'].notna()] 
@@ -268,13 +264,13 @@ class ProteomeSelector:
 
     if not epitopes: # get proteome with highest protein count
       idx = self.proteome_list['proteinCount'].idxmax()
-      proteome_id = self.proteome_list['upid'].iloc[idx]
-      ProteomeSelector._get_proteome_to_fasta(proteome_id, self.species_path)
+      proteome_id = self.proteome_list['upid'].loc[idx]
+      ProteomeSelector.get_proteome_to_fasta(proteome_id, self.species_path)
       return proteome_id, self.taxon_id
 
     match_counts = {} # keep track of # of epitope matches for each proteome
     for proteome_id in list(self.proteome_list['upid']):
-      ProteomeSelector._get_proteome_to_fasta(proteome_id, self.species_path)
+      ProteomeSelector.get_proteome_to_fasta(proteome_id, self.species_path)
       
       Preprocessor(
         proteome = f'{self.species_path}/{proteome_id}.fasta',
@@ -335,9 +331,9 @@ def update_proteome(species_path: Path, taxon_id: int, data_path: Path) -> None:
       proteome_type = row['Proteome Type']
   
   if proteome_type == 'All-proteins':
-    ProteomeSelector._get_all_proteins(taxon_id, species_path)
+    ProteomeSelector.get_all_proteins(taxon_id, species_path)
   else:
-    ProteomeSelector._get_proteome_to_fasta(proteome_id, species_path)
+    ProteomeSelector.get_proteome_to_fasta(proteome_id, species_path)
   
   return proteome_id, proteome_taxon, proteome_type
 
@@ -352,6 +348,8 @@ def run(taxon_id: int, group: str, all_taxa: list, build_path: Path, all_epitope
     all_epitopes (pd.DataFrame): DataFrame of epitopes for the species.
     force (bool): Force reselection of proteome.
   """
+  species_path = build_path / 'species' / f'{taxon_id}'
+  species_path.mkdir(parents=True, exist_ok=True)
   if not force and (data_path := species_path / 'species-data.tsv').exists():
     proteome_data = update_proteome(species_path, taxon_id, data_path)
     return proteome_data
@@ -366,6 +364,13 @@ def run(taxon_id: int, group: str, all_taxa: list, build_path: Path, all_epitope
 
   proteome_data = Selector.select_best_proteome(epitopes_df)
   Selector.proteome_to_tsv()
+
+  # sanity check to make sure proteome.fasta is not empty
+  if (species_path / 'proteome.fasta').stat().st_size == 0:
+    proteome_data[0] = 'None'
+    proteome_data[1] = taxon_id
+    proteome_data[2] = 'All-proteins'
+    ProteomeSelector.get_all_proteins(taxon_id, species_path)
   
   print(f'Proteome ID: {proteome_data[0]}')
   print(f'Proteome taxon: {proteome_data[1]}')
@@ -407,8 +412,6 @@ if __name__ == '__main__':
   taxon_id = args.taxon_id
   force = args.force
 
-  species_path = build_path / 'species' / f'{taxon_id}'
-
   # TODO: replace the data/active-species.tsv with updated arborist active-species somehow
   species_df = pd.read_csv('data/active-species.tsv', sep='\t')
   valid_taxon_ids = species_df['Species ID'].tolist()
@@ -436,4 +439,4 @@ if __name__ == '__main__':
   pd.DataFrame( # write proteome data to metrics file
     [proteome_data],
     columns=['Proteome ID', 'Proteome Taxon', 'Proteome Type']
-  ).to_csv(species_path / 'species-data.tsv', sep='\t', index=False)
+  ).to_csv(build_path / 'species' / f'{taxon_id}' / 'species-data.tsv', sep='\t', index=False)
