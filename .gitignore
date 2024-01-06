@@ -24,3 +24,6 @@ tree.txt
 
 # locked files
 .~*
+
+# egg-info
+*.egg-info/
