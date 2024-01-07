@@ -182,15 +182,13 @@ class ProteomeSelector:
     else:
       return
 
-    r = requests.get(ftp_url, stream=True)
     try:
-      r.raise_for_status()
-    except:
-      return
-
-    # unzip the request and write the gene priority proteome to a file
-    with open(f'{self.species_path}/gp_proteome.fasta', 'wb') as f:
-      f.write(gzip.open(r.raw, 'rb').read())
+      with requests.get(ftp_url, stream=True) as r:
+        r.raise_for_status()
+        with open(f'{self.species_path}/gp_proteome.fasta', 'wb') as f:
+          f.write(gzip.open(r.raw, 'rb').read())
+    except requests.exceptions.ChunkedEncodingError:
+      self._get_gp_proteome_to_fasta(proteome_id, proteome_taxon) # recursive call on error
 
   @staticmethod
   def get_proteome_to_fasta(proteome_id: str, species_path: Path) -> None:
@@ -352,6 +350,7 @@ def run(taxon_id: int, group: str, all_taxa: list, build_path: Path, all_epitope
   species_path = build_path / 'species' / f'{taxon_id}'
   species_path.mkdir(parents=True, exist_ok=True)
   if not force and (data_path := species_path / 'species-data.tsv').exists():
+    print(f'Updating proteome for species w/ taxon ID: {taxon_id}).')
     proteome_data = update_proteome(species_path, taxon_id, data_path)
     return proteome_data
 
