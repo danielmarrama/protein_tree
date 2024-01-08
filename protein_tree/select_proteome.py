@@ -6,6 +6,7 @@ import csv
 import requests
 import gzip
 import pandas as pd
+import xml.etree.ElementTree as ET
 
 from Bio import SeqIO
 from io import StringIO
@@ -54,14 +55,15 @@ class ProteomeSelector:
       self.get_all_proteins(self.taxon_id, self.species_path)
       return ['None', self.taxon_id, 'All-proteins']
 
-    if self.proteome_list['isRepresentativeProteome'].any():
+    if 'true' in self.proteome_list['isRepresentativeProteome'].tolist():
       print('Found representative proteome(s).\n')
       proteome_type = 'Representative'
+      print(self.proteome_list['isRepresentativeProteome'])
       self.proteome_list = self.proteome_list[self.proteome_list['isRepresentativeProteome']]
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
       self._get_gp_proteome_to_fasta(proteome_id, proteome_taxon)
     
-    elif self.proteome_list['isReferenceProteome'].any():
+    elif 'true' in self.proteome_list['isReferenceProteome'].tolist():
       print('Found reference proteome(s).\n')
       proteome_type = 'Reference'
       self.proteome_list = self.proteome_list[self.proteome_list['isReferenceProteome']]
@@ -136,6 +138,18 @@ class ProteomeSelector:
     proteome = pd.DataFrame(proteome_data, columns=columns)
     proteome = proteome[['Database', 'Gene', 'Protein ID', 'Protein Name', 'Protein Existence Level', 'Gene Priority', 'Sequence']]
     proteome.to_csv(f'{self.species_path}/proteome.tsv', sep='\t', index=False)
+  
+  def _parse_xml(self, xml) -> pd.DataFrame:
+    root = ET.fromstring(xml)
+    details = {
+      'proteinCount': root.attrib['proteinCount'],
+      'upid': root.find('{http://uniprot.org/proteome}upid').text,
+      'taxonomy': root.find('{http://uniprot.org/proteome}taxonomy').text,
+      'modified': root.find('{http://uniprot.org/proteome}modified').text,
+      'isReferenceProteome': root.find('{http://uniprot.org/proteome}isReferenceProteome').text,
+      'isRepresentativeProteome': root.find('{http://uniprot.org/proteome}isRepresentativeProteome').text
+    }
+
 
   def _get_proteome_list(self) -> pd.DataFrame:
     """Get a list of proteomes for a species from the UniProt API.
@@ -144,21 +158,35 @@ class ProteomeSelector:
 
     If there are no proteomes, return empty DataFrame.
     """
+    def _parse_xml_element(element, prefix=''):
+      """Recursively parse an XML element and return a dictionary."""
+      data = {}
+      for k, v in element.attrib.items():
+        data[f"{prefix}{k}"] = v
+      for child in element:
+        child_data = _parse_xml_element(child, prefix=child.tag+'_')
+        data.update(child_data)
+      if element.text and element.text.strip():
+        data[prefix.strip('_')] = element.text.strip()
+      return data
+
     # URL to get proteome list for a species - use proteome_type:1 first
-    proteome_list_url = f'https://rest.uniprot.org/proteomes/stream?format=xml&query=(proteome_type:1)AND(taxonomy_id:{self.taxon_id})'
+    proteome_list_url = f'https://rest.uniprot.org/proteomes/stream?format=xml&query=taxonomy_id:{self.taxon_id}'
     try:
-      proteome_list = pd.read_xml(StringIO(requests.get(proteome_list_url).text))
-    except ValueError:
-      try: # delete proteome_type:1 from URL and try again
-        proteome_list_url = proteome_list_url.replace('(proteome_type:1)AND', '')
-        proteome_list = pd.read_xml(StringIO(requests.get(proteome_list_url).text))
-      except ValueError: # if there are no proteomes, return empty DataFrame
-        return pd.DataFrame()
+      r = requests.get(proteome_list_url)
+      r.raise_for_status()
+      xml_root = ET.fromstring(r.text)
+      all_proteome_data = []
+      for proteome in xml_root:
+        proteome_data = _parse_xml_element(proteome)
+        all_proteome_data.append(proteome_data)
+      proteome_list = pd.DataFrame(all_proteome_data) if all_proteome_data else pd.DataFrame()
     except (requests.exceptions.ChunkedEncodingError, requests.exceptions.ReadTimeout):
       proteome_list = self._get_proteome_list()
     
     proteome_list = proteome_list[proteome_list['excluded'].isna()] if 'excluded' in proteome_list.columns else proteome_list
     proteome_list.columns = [x.replace('{http://uniprot.org/proteome}', '') for x in proteome_list.columns]
+    proteome_list.to_csv(f'{self.species_path}/proteome-list.tsv', sep='\t', index=False)
     
     return proteome_list
 
