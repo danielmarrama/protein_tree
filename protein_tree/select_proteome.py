@@ -154,7 +154,7 @@ class ProteomeSelector:
         proteome_list = pd.read_xml(StringIO(requests.get(proteome_list_url).text))
       except ValueError: # if there are no proteomes, return empty DataFrame
         return pd.DataFrame()
-    except requests.exceptions.ReadTimeout or requests.exceptions.ConnectionError:
+    except (requests.exceptions.ChunkedEncodingError, requests.exceptions.ReadTimeout):
       proteome_list = self._get_proteome_list()
     
     proteome_list = proteome_list[proteome_list['excluded'].isna()] if 'excluded' in proteome_list.columns else proteome_list
@@ -189,7 +189,7 @@ class ProteomeSelector:
         r.raise_for_status()
         with open(f'{self.species_path}/gp_proteome.fasta', 'wb') as f:
           f.write(gzip.open(r.raw, 'rb').read())
-    except requests.exceptions.ChunkedEncodingError:
+    except (requests.exceptions.ChunkedEncodingError, requests.exceptions.ReadTimeout):
       self._get_gp_proteome_to_fasta(proteome_id, proteome_taxon) # recursive call on error
 
   @staticmethod
@@ -210,7 +210,7 @@ class ProteomeSelector:
           for chunk in r.iter_content(chunk_size=8192):
             if chunk:  # filter out keep-alive new chunks
               f.write(chunk.decode())
-    except requests.exceptions.ChunkedEncodingError or requests.exceptions.ReadTimeout:
+    except (requests.exceptions.ChunkedEncodingError, requests.exceptions.ReadTimeout):
       ProteomeSelector.get_proteome_to_fasta(proteome_id, species_path)  # recursive call on error
 
   @staticmethod
