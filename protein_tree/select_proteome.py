@@ -154,7 +154,9 @@ class ProteomeSelector:
         proteome_list = pd.read_xml(StringIO(requests.get(proteome_list_url).text))
       except ValueError: # if there are no proteomes, return empty DataFrame
         return pd.DataFrame()
-
+    except requests.exceptions.ReadTimeout or requests.exceptions.ConnectionError:
+      proteome_list = self._get_proteome_list()
+    
     proteome_list = proteome_list[proteome_list['excluded'].isna()] if 'excluded' in proteome_list.columns else proteome_list
     proteome_list.columns = [x.replace('{http://uniprot.org/proteome}', '') for x in proteome_list.columns]
     
@@ -208,7 +210,7 @@ class ProteomeSelector:
           for chunk in r.iter_content(chunk_size=8192):
             if chunk:  # filter out keep-alive new chunks
               f.write(chunk.decode())
-    except requests.exceptions.ChunkedEncodingError:
+    except requests.exceptions.ChunkedEncodingError or requests.exceptions.ReadTimeout:
       ProteomeSelector.get_proteome_to_fasta(proteome_id, species_path)  # recursive call on error
 
   @staticmethod
