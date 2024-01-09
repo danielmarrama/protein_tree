@@ -55,15 +55,14 @@ class ProteomeSelector:
       self.get_all_proteins(self.taxon_id, self.species_path)
       return ['None', self.taxon_id, 'All-proteins']
 
-    if 'true' in self.proteome_list['isRepresentativeProteome'].tolist():
+    if self.proteome_list['isRepresentativeProteome'].any():
       print('Found representative proteome(s).\n')
       proteome_type = 'Representative'
-      print(self.proteome_list['isRepresentativeProteome'])
       self.proteome_list = self.proteome_list[self.proteome_list['isRepresentativeProteome']]
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
       self._get_gp_proteome_to_fasta(proteome_id, proteome_taxon)
     
-    elif 'true' in self.proteome_list['isReferenceProteome'].tolist():
+    elif self.proteome_list['isReferenceProteome'].any():
       print('Found reference proteome(s).\n')
       proteome_type = 'Reference'
       self.proteome_list = self.proteome_list[self.proteome_list['isReferenceProteome']]
@@ -140,6 +139,9 @@ class ProteomeSelector:
     proteome.to_csv(f'{self.species_path}/proteome.tsv', sep='\t', index=False)
   
   def _parse_proteome_xml(self, xml) -> pd.DataFrame:
+    def str_to_bool(value):
+      return value.lower() == 'true'
+
     root = ET.fromstring(xml)
     proteomes = root.findall('{http://uniprot.org/proteome}proteome')
     proteome_data = []
@@ -149,8 +151,8 @@ class ProteomeSelector:
         'upid': proteome.find('{http://uniprot.org/proteome}upid').text,
         'taxonomy': proteome.find('{http://uniprot.org/proteome}taxonomy').text,
         'modified': proteome.find('{http://uniprot.org/proteome}modified').text,
-        'isReferenceProteome': proteome.find('{http://uniprot.org/proteome}isReferenceProteome').text,
-        'isRepresentativeProteome': proteome.find('{http://uniprot.org/proteome}isRepresentativeProteome').text}
+        'isReferenceProteome': str_to_bool(proteome.find('{http://uniprot.org/proteome}isReferenceProteome').text),
+        'isRepresentativeProteome': str_to_bool(proteome.find('{http://uniprot.org/proteome}isRepresentativeProteome').text)}
       for score_cols in proteome.findall('{http://uniprot.org/proteome}scores'):
         score_type = score_cols.attrib['name']
         for property in score_cols.findall('{http://uniprot.org/proteome}property'):
@@ -167,7 +169,6 @@ class ProteomeSelector:
 
     If there are no proteomes, return empty DataFrame.
     """
-
     # URL to get proteome list for a species - use proteome_type:1 first
     proteome_list_url = f'https://rest.uniprot.org/proteomes/stream?format=xml&query=taxonomy_id:{self.taxon_id}'
     try:
@@ -277,6 +278,13 @@ class ProteomeSelector:
     if self.num_of_proteomes <= 2:
       proteome_id = self.proteome_list['upid'].iloc[0]
       proteome_taxon = self.proteome_list['taxonomy'].iloc[0]
+      ProteomeSelector.get_proteome_to_fasta(proteome_id, self.species_path)
+      return proteome_id, proteome_taxon
+    
+    elif self.num_of_proteomes >= 100: # use max BUSCO score if there are too many proteomes
+      idx = self.proteome_list['busco_score'].idxmax()
+      proteome_id = self.proteome_list['upid'].loc[idx]
+      proteome_taxon = self.proteome_list['taxonomy'].loc[idx]
       ProteomeSelector.get_proteome_to_fasta(proteome_id, self.species_path)
       return proteome_id, proteome_taxon
 
@@ -440,7 +448,7 @@ if __name__ == '__main__':
   force = args.force
 
   # TODO: replace the data/active-species.tsv with updated arborist active-species somehow
-  species_df = pd.read_csv('data/active-species.tsv', sep='\t')
+  species_df = pd.read_csv(build_path / 'arborist' / 'active-species.tsv', sep='\t')
   valid_taxon_ids = species_df['Species ID'].tolist()
 
   all_taxa_map = dict( # map taxon ID to list of all children taxa
@@ -452,7 +460,7 @@ if __name__ == '__main__':
 
   all_epitopes = DataFetcher(build_path).get_all_epitopes()
   if all_species: # run all species at once
-    for taxon_id in valid_taxon_ids[1970:]:
+    for taxon_id in valid_taxon_ids:
       group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
       proteome_data = run(taxon_id, group, all_taxa, build_path, all_epitopes, force)
