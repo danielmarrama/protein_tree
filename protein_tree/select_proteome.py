@@ -146,13 +146,15 @@ class ProteomeSelector:
     proteomes = root.findall('{http://uniprot.org/proteome}proteome')
     proteome_data = []
     for proteome in proteomes:
+      excluded = True if proteome.find('{http://uniprot.org/proteome}excluded') is not None else False
       data = {
         'proteinCount': proteome.attrib['proteinCount'],
         'upid': proteome.find('{http://uniprot.org/proteome}upid').text,
         'taxonomy': proteome.find('{http://uniprot.org/proteome}taxonomy').text,
         'modified': proteome.find('{http://uniprot.org/proteome}modified').text,
         'isReferenceProteome': str_to_bool(proteome.find('{http://uniprot.org/proteome}isReferenceProteome').text),
-        'isRepresentativeProteome': str_to_bool(proteome.find('{http://uniprot.org/proteome}isRepresentativeProteome').text)}
+        'isRepresentativeProteome': str_to_bool(proteome.find('{http://uniprot.org/proteome}isRepresentativeProteome').text),
+        'excluded': excluded}
       for score_cols in proteome.findall('{http://uniprot.org/proteome}scores'):
         score_type = score_cols.attrib['name']
         for property in score_cols.findall('{http://uniprot.org/proteome}property'):
@@ -177,8 +179,8 @@ class ProteomeSelector:
       proteome_list = self._parse_proteome_xml(r.text)
     except (requests.exceptions.ChunkedEncodingError, requests.exceptions.ReadTimeout):
       proteome_list = self._get_proteome_list()
-    
-    proteome_list = proteome_list[proteome_list['excluded'].isna()] if 'excluded' in proteome_list.columns else proteome_list
+
+    proteome_list = proteome_list[proteome_list['excluded'] == False] # drop excluded
     proteome_list.to_csv(f'{self.species_path}/proteome-list.tsv', sep='\t', index=False)
     
     return proteome_list
@@ -247,10 +249,13 @@ class ProteomeSelector:
     """
     def get_protein_batches(batch_url: str) -> requests.Response:
       while batch_url:
-        r = requests.get(batch_url)
-        r.raise_for_status()
-        yield r
-        batch_url = get_next_link(r.headers)
+        try:
+          r = requests.get(batch_url)
+          r.raise_for_status()
+          yield r
+          batch_url = get_next_link(r.headers)
+        except (requests.exceptions.ChunkedEncodingError, requests.exceptions.ReadTimeout):
+          yield from get_protein_batches(batch_url)
 
     def get_next_link(headers: dict) -> str:
       re_next_link = re.compile(r'<(.+)>; rel="next"') # regex to extract URL
@@ -275,13 +280,13 @@ class ProteomeSelector:
     Args:
       epitopes_df (pd.DataFrame): DataFrame of epitopes for the species.
     """
-    if self.num_of_proteomes <= 2:
+    if self.num_of_proteomes <= 2: # excludes all proteins option
       proteome_id = self.proteome_list['upid'].iloc[0]
       proteome_taxon = self.proteome_list['taxonomy'].iloc[0]
       ProteomeSelector.get_proteome_to_fasta(proteome_id, self.species_path)
       return proteome_id, proteome_taxon
-    
-    elif self.num_of_proteomes >= 100: # use max BUSCO score if there are too many proteomes
+
+    elif self.num_of_proteomes >= 20: # use max BUSCO score if there are too many proteomes
       idx = self.proteome_list['busco_score'].idxmax()
       proteome_id = self.proteome_list['upid'].loc[idx]
       proteome_taxon = self.proteome_list['taxonomy'].loc[idx]
@@ -451,14 +456,11 @@ if __name__ == '__main__':
   species_df = pd.read_csv(build_path / 'arborist' / 'active-species.tsv', sep='\t')
   valid_taxon_ids = species_df['Species ID'].tolist()
 
-  all_taxa_map = dict( # map taxon ID to list of all children taxa
-    zip(
+  all_taxa_map = dict(zip( # map taxon ID to list of all children taxa
       species_df['Species ID'],
-      species_df['Active Taxa']
-    )
-  )
-
+      species_df['Active Taxa']))
   all_epitopes = DataFetcher(build_path).get_all_epitopes()
+
   if all_species: # run all species at once
     for taxon_id in valid_taxon_ids:
       group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
