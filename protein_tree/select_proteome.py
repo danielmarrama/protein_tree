@@ -59,32 +59,32 @@ class ProteomeSelector:
       print('Found representative proteome(s).\n')
       proteome_type = 'Representative'
       self.proteome_list = self.proteome_list[self.proteome_list['isRepresentativeProteome']]
-      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
+      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df, True)
       self._get_gp_proteome_to_fasta(proteome_id, proteome_taxon)
     
     elif self.proteome_list['isReferenceProteome'].any():
       print('Found reference proteome(s).\n')
       proteome_type = 'Reference'
       self.proteome_list = self.proteome_list[self.proteome_list['isReferenceProteome']]
-      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
+      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df, True)
       self._get_gp_proteome_to_fasta(proteome_id, proteome_taxon)
 
     elif 'redundantTo' not in self.proteome_list.columns:
       print('Found other proteome(s).\n')
       proteome_type = 'Other'
-      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
+      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df, False)
     
     elif self.proteome_list['redundantTo'].isna().any():
       print('Found non-redundant proteome(s).\n')
       proteome_type = 'Non-redundant'
       self.proteome_list = self.proteome_list[self.proteome_list['redundantTo'].isna()]
-      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
+      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df, False)
     
     else:
       print('Found other proteome(s).\n')
       proteome_type = 'Other' # replace ID with redundant proteome ID
       self.proteome_list.loc[self.proteome_list['redundantTo'].notna(), 'upid'] = self.proteome_list['redundantTo']
-      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df)
+      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df, False)
 
     self._remove_other_proteomes(proteome_id)
 
@@ -180,7 +180,8 @@ class ProteomeSelector:
     except (requests.exceptions.ChunkedEncodingError, requests.exceptions.ReadTimeout):
       proteome_list = self._get_proteome_list()
 
-    proteome_list = proteome_list[proteome_list['excluded'] == False] # drop excluded
+    if 'excluded' in proteome_list.columns:
+      proteome_list = proteome_list[proteome_list['excluded'] == False] # drop excluded
     proteome_list.to_csv(f'{self.species_path}/proteome-list.tsv', sep='\t', index=False)
     
     return proteome_list
@@ -214,6 +215,8 @@ class ProteomeSelector:
           f.write(gzip.open(r.raw, 'rb').read())
     except (requests.exceptions.ChunkedEncodingError, requests.exceptions.ReadTimeout):
       self._get_gp_proteome_to_fasta(proteome_id, proteome_taxon) # recursive call on error
+    except requests.exceptions.HTTPError:
+      return
 
   @staticmethod
   def get_proteome_to_fasta(proteome_id: str, species_path: Path) -> None:
@@ -271,7 +274,7 @@ class ProteomeSelector:
       with open(f'{species_path}/proteome.fasta', 'a') as f:
         f.write(batch.text)
 
-  def _get_proteome_with_most_matches(self, epitopes_df: pd.DataFrame) -> tuple:
+  def _get_proteome_with_most_matches(self, epitopes_df: pd.DataFrame, rep_or_ref: bool) -> tuple:
     """Get the proteome ID and true taxon ID associated with
     that proteome with the most epitope matches in case there is a tie.
     We get the true taxon so we can extract the data from the FTP server
@@ -285,8 +288,9 @@ class ProteomeSelector:
       proteome_taxon = self.proteome_list['taxonomy'].iloc[0]
       ProteomeSelector.get_proteome_to_fasta(proteome_id, self.species_path)
       return proteome_id, proteome_taxon
-
-    elif self.num_of_proteomes >= 20: # use max BUSCO score if there are too many proteomes
+    
+    # use max BUSCO score if there are too many proteomes
+    elif not rep_or_ref and self.num_of_proteomes >= 20 and 'busco_score' in self.proteome_list.columns:
       idx = self.proteome_list['busco_score'].idxmax()
       proteome_id = self.proteome_list['upid'].loc[idx]
       proteome_taxon = self.proteome_list['taxonomy'].loc[idx]
