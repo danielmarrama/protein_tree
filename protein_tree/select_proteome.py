@@ -53,7 +53,7 @@ class ProteomeSelector:
     if self.proteome_list.empty:
       print('No proteomes found. Fetching orphan proteins.')
       self.get_all_proteins(self.taxon_id, self.species_path)
-      return ['None', self.taxon_id, 'All-proteins']
+      return ['None', self.taxon_id, 'Orphans']
 
     if self.proteome_list['isRepresentativeProteome'].any():
       print('Found representative proteome(s).\n')
@@ -368,10 +368,11 @@ def update_proteome(species_path: Path, taxon_id: int, data_path: Path) -> None:
       proteome_taxon = row['Proteome Taxon']
       proteome_type = row['Proteome Type']
   
-  if proteome_type == 'All-proteins':
+  if proteome_type == 'Orphans':
     ProteomeSelector.get_all_proteins(taxon_id, species_path)
   else:
     ProteomeSelector.get_proteome_to_fasta(proteome_id, species_path)
+    os.rename(f'{species_path}/{proteome_id}.fasta', f'{species_path}/proteome.fasta')
   
   return [proteome_id, proteome_taxon, proteome_type]
 
@@ -388,6 +389,7 @@ def run(taxon_id: int, group: str, all_taxa: list, build_path: Path, all_epitope
   """
   species_path = build_path / 'species' / f'{taxon_id}'
   species_path.mkdir(parents=True, exist_ok=True)
+
   if not force and (data_path := species_path / 'species-data.tsv').exists():
     print(f'Updating proteome for species w/ taxon ID: {taxon_id}).')
     proteome_data = update_proteome(species_path, taxon_id, data_path)
@@ -408,7 +410,7 @@ def run(taxon_id: int, group: str, all_taxa: list, build_path: Path, all_epitope
   if (species_path / 'proteome.fasta').stat().st_size == 0:
     proteome_data[0] = 'None'
     proteome_data[1] = taxon_id
-    proteome_data[2] = 'All-proteins'
+    proteome_data[2] = 'Orphans'
     ProteomeSelector.get_all_proteins(taxon_id, species_path)
   
   print(f'Proteome ID: {proteome_data[0]}')
