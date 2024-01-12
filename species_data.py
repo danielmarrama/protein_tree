@@ -3,6 +3,12 @@
 import os
 import pandas as pd
 
+def create_proteome_link(row):
+  if 'Orphans' in row['Proteome Type']:
+    return f"https://www.uniprot.org/uniprotkb?query=taxonomy_id:{row['Species Taxon ID']}"
+  else:
+    return f"https://www.uniprot.org/uniprotkb?query=proteome:{row['Proteome ID']}"
+
 if __name__ == '__main__':
   df = pd.DataFrame()
   for path, _, files in os.walk('build/species'):
@@ -14,4 +20,6 @@ if __name__ == '__main__':
 
   df.reset_index(inplace=True, drop=True)
   df.insert(0, 'Species Taxon ID', df.pop('Species Taxon ID')) # move taxon ID to first
+  df['Proteome Link'] = df.apply(create_proteome_link, axis=1)
+  df.sort_values(by=['Species Taxon ID'], inplace=True)
   df.to_csv('build/species-data.tsv', sep='\t', index=False)

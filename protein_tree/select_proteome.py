@@ -376,11 +376,12 @@ def update_proteome(species_path: Path, taxon_id: int, data_path: Path) -> None:
   
   return [proteome_id, proteome_taxon, proteome_type]
 
-def run(taxon_id: int, group: str, all_taxa: list, build_path: Path, all_epitopes: pd.DataFrame, force: bool) -> list:
+def run(taxon_id: int, species_name: str, group: str, all_taxa: list, build_path: Path, all_epitopes: pd.DataFrame, force: bool) -> list:
   """Run the proteome selection process for a species.
   
   Args:
     taxon_id (int): Taxon ID for the species.
+    species_name (str): Name of the species.
     group (str): Group for the species (e.g. bacterium, virus, etc.).
     all_taxa (list): List of all children taxa for the species.
     build_path (Path): Path to build directory.
@@ -418,8 +419,8 @@ def run(taxon_id: int, group: str, all_taxa: list, build_path: Path, all_epitope
   print(f'Proteome type: {proteome_data[2]}\n')
 
   pd.DataFrame( # write proteome data to metrics file
-    [proteome_data],
-    columns=['Proteome ID', 'Proteome Taxon', 'Proteome Type']
+    [[proteome_data][0] + [species_name]],
+    columns=['Proteome ID', 'Proteome Taxon', 'Proteome Type', 'Species Name']
   ).to_csv(species_path / 'species-data.tsv', sep='\t', index=False)
 
   return proteome_data
@@ -463,18 +464,24 @@ if __name__ == '__main__':
   valid_taxon_ids = species_df['Species ID'].tolist()
 
   all_taxa_map = dict(zip( # map taxon ID to list of all children taxa
-      species_df['Species ID'],
-      species_df['Active Taxa']))
+    species_df['Species ID'],
+    species_df['Active Taxa']))
+  taxon_to_species_map = dict(zip( # map taxon ID to species name
+    species_df['Species ID'],
+    species_df['Species Label']))
+  
   all_epitopes = DataFetcher(build_path).get_all_epitopes()
 
   if all_species: # run all species at once
     for taxon_id in valid_taxon_ids:
+      species_name = taxon_to_species_map[taxon_id]
       group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
-      proteome_data = run(taxon_id, group, all_taxa, build_path, all_epitopes, force)
+      proteome_data = run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, force)
 
   else: # one species at a time
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
+    species_name = taxon_to_species_map[taxon_id]
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
     group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
-    proteome_data = run(taxon_id, group, all_taxa, build_path, all_epitopes, force)
+    proteome_data = run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, force)
