@@ -14,6 +14,7 @@ from Bio.SeqRecord import SeqRecord
 from pathlib import Path
 from pepmatch import Preprocessor, Matcher
 
+from protein_tree.get_data import DataFetcher
 
 class GeneAndProteinAssigner:
   def __init__(
@@ -70,10 +71,11 @@ class GeneAndProteinAssigner:
       self.source_protein_assignment[row['Accession']] = None
       self.source_assignment_score[row['Accession']] = None
     for i, row in epitopes_df.iterrows():
-      self.epitope_protein_assignment[(row['Source Accession'], row['Sequence'])] = None
+      self.epitope_protein_assignment[(row['Accession'], row['Sequence'])] = None
 
-    # create source to epitope map
     self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
+
+    sources_df['Length'] = sources_df['Sequence'].str.len() # add length column to sources
     self.source_length_map = dict( # create map of source antigens to their length
       zip(
         sources_df['Accession'],
@@ -158,10 +160,10 @@ class GeneAndProteinAssigner:
     """    
     source_to_epitopes_map = {}
     for i, row in epitopes_df.iterrows():
-      if row['Source Accession'] in source_to_epitopes_map.keys():
-        source_to_epitopes_map[row['Source Accession']].append(row['Sequence'])
+      if row['Accession'] in source_to_epitopes_map.keys():
+        source_to_epitopes_map[row['Accession']].append(row['Sequence'])
       else:
-        source_to_epitopes_map[row['Source Accession']] = [row['Sequence']]
+        source_to_epitopes_map[row['Accession']] = [row['Sequence']]
     
     return source_to_epitopes_map 
 
@@ -448,3 +450,99 @@ class GeneAndProteinAssigner:
     except OSError:
       pass
 
+def run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, all_antigens):
+  species_path = build_path / 'species' / f'{taxon_id}' # directory to write species data
+
+  print(f'Writing separate files for {species_name}...')
+  epitopes_df = DataFetcher(build_path).get_epitopes_for_species(all_epitopes, all_taxa)
+  sources_df = DataFetcher(build_path).get_sources_for_species(all_antigens, epitopes_df['Accession'].tolist())
+
+  is_vertebrate = group == 'vertebrate'
+
+  print(f'Assigning genes and proteins for {species_name}...')
+  Assigner = GeneAndProteinAssigner(
+    taxon_id,
+    species_path,
+    is_vertebrate,
+    num_threads=14,
+    build_path=build_path,
+    bin_path=build_path.parent.parent / 'bin'
+  )
+  assigner_data, epitope_assignments, antigen_assignments = Assigner.assign(sources_df, epitopes_df)
+  num_sources, num_epitopes, num_matched_sources, num_matched_epitopes = assigner_data
+
+  print(f'Writing files for {species_name}...')
+  epitope_assignments.to_csv(species_path / 'epitope-assignments.tsv', sep='\t', index=False)
+  antigen_assignments.to_csv(species_path / 'antigen-assignments.tsv', sep='\t', index=False)
+
+  print(f'Wrote files for {species_name}.\n')
+
+  assignment_data = (
+    taxon_id,
+    species_name,
+    num_sources,
+    num_epitopes,
+    num_matched_sources,
+    num_matched_epitopes
+  )
+
+  return assignment_data
+
+if __name__ == '__main__':
+  import argparse
+
+  parser = argparse.ArgumentParser()
+  
+  parser.add_argument(
+    '-b', '--build_path', 
+    type=str,
+    default=Path(__file__).parent.parent / 'build',
+    help='Path to data directory.'
+  )
+  parser.add_argument(
+    '-a', '--all_species', 
+    action='store_true', 
+    help='Build protein tree for all IEDB species.'
+  )
+  parser.add_argument(
+    '-t', '--taxon_id', 
+    type=int,
+    help='Taxon ID for the species to pull data for.'
+  )
+
+  args = parser.parse_args()
+
+  build_path = Path(args.build_path)
+  all_species = args.all_species
+  taxon_id = args.taxon_id
+
+  assert all_species or taxon_id, 'Please specify either --all_species or --taxon_id.'
+  assert (all_species and not taxon_id) or (taxon_id and not all_species), 'Please specify either --all_species or --taxon_id.'
+
+  # TODO: replace the data/active-species.tsv with updated arborist active-species somehow
+  species_df = pd.read_csv(build_path / 'arborist' / 'active-species.tsv', sep='\t')
+  valid_taxon_ids = species_df['Species ID'].tolist()
+
+  all_epitopes = DataFetcher(build_path).get_all_epitopes()
+  all_antigens = DataFetcher(build_path).get_all_antigens()
+
+  all_taxa_map = dict(zip( # map taxon ID to list of all children taxa
+    species_df['Species ID'],
+    species_df['Active Taxa']))
+  taxon_to_species_map = dict(zip( # map taxon ID to species name
+    species_df['Species ID'],
+    species_df['Species Label']))
+
+  if all_species: # run all species at once
+    for taxon_id in valid_taxon_ids:
+      species_name = taxon_to_species_map[taxon_id]
+      group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
+      all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
+      assignment_data = run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, all_antigens)
+
+  else: # one species at a time
+    assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
+    species_name = taxon_to_species_map[taxon_id]
+    all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
+    group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
+    assignment_data = run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, all_antigens)

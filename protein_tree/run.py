@@ -5,7 +5,7 @@ from pathlib import Path
 
 from get_data import DataFetcher
 from select_proteome import ProteomeSelector
-from assign_gene_protein import GeneAndProteinAssigner
+from protein_tree.assign import GeneAndProteinAssigner
 
 
 def run_protein_tree(

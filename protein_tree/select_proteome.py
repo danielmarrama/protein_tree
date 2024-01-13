@@ -459,9 +459,14 @@ if __name__ == '__main__':
   taxon_id = args.taxon_id
   force = args.force
 
+  assert all_species or taxon_id, 'Please specify either --all_species or --taxon_id.'
+  assert (all_species and not taxon_id) or (taxon_id and not all_species), 'Please specify either --all_species or --taxon_id.'
+
   # TODO: replace the data/active-species.tsv with updated arborist active-species somehow
   species_df = pd.read_csv(build_path / 'arborist' / 'active-species.tsv', sep='\t')
   valid_taxon_ids = species_df['Species ID'].tolist()
+
+  all_epitopes = DataFetcher(build_path).get_all_epitopes()
 
   all_taxa_map = dict(zip( # map taxon ID to list of all children taxa
     species_df['Species ID'],
@@ -470,8 +475,6 @@ if __name__ == '__main__':
     species_df['Species ID'],
     species_df['Species Label']))
   
-  all_epitopes = DataFetcher(build_path).get_all_epitopes()
-
   if all_species: # run all species at once
     for taxon_id in valid_taxon_ids:
       species_name = taxon_to_species_map[taxon_id]

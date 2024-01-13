@@ -107,9 +107,9 @@ class DataFetcher:
     """Get all epitopes from the written file."""
     return pd.read_csv(self.build_path / 'iedb' / 'peptide.tsv', sep='\t')
   
-  def get_all_sources(self) -> pd.DataFrame:
+  def get_all_antigens(self) -> pd.DataFrame:
     """Get all source antigens from the written file."""
-    return pd.read_csv(self.build_path / 'iedb' / 'sources.tsv', sep='\t')
+    return pd.read_csv(self.build_path / 'iedb' / 'peptide_source.tsv', sep='\t')
 
   def get_epitopes_for_species(
     self, all_epitopes: pd.DataFrame, all_taxa: list
@@ -193,7 +193,7 @@ if __name__ == '__main__':
       print('All data written.')
 
     all_epitopes = DataFetcher().get_all_epitopes()
-    all_sources = DataFetcher().get_all_sources()
+    all_sources = DataFetcher().get_all_antigens()
 
     print(all_epitopes)
 
