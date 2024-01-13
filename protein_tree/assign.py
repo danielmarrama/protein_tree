@@ -57,7 +57,6 @@ class GeneAndProteinAssigner:
       )
     )
 
-
   def assign(self, sources_df: pd.DataFrame, epitopes_df: pd.DataFrame) -> None:
     """Overall function to assign genes and parent proteins to sources and epitopes.
 
@@ -126,7 +125,6 @@ class GeneAndProteinAssigner:
 
     return assigner_data, epitopes_df, sources_df
 
-
   def _assign_sources(self, sources_df: pd.DataFrame) -> None:
     """Assign a gene to the source antigens of a species.
 
@@ -151,7 +149,6 @@ class GeneAndProteinAssigner:
       print('Running ARC for MHC/TCR/Ig assignments...')
       self._run_arc(sources_df)
 
-
   def _create_source_to_epitopes_map(self, epitopes_df: pd.DataFrame) -> dict:
     """Create a map from source antigens to their epitopes.
     
@@ -166,7 +163,6 @@ class GeneAndProteinAssigner:
         source_to_epitopes_map[row['Accession']] = [row['Sequence']]
     
     return source_to_epitopes_map 
-
 
   def _write_to_fasta(self, sources_df: pd.DataFrame, filename: str) -> None:
     """Write source antigens to FASTA file.
@@ -191,7 +187,6 @@ class GeneAndProteinAssigner:
     with open(f'{self.species_path}/{filename}.fasta', 'w') as f:
       SeqIO.write(seq_records, f, 'fasta')
 
-
   def _preprocess_proteome_if_needed(self) -> None:
     """Preprocess the proteome if the preprocessed files don't exist."""
     if not os.path.exists(f'{self.species_path}/proteome.db'):
@@ -201,7 +196,6 @@ class GeneAndProteinAssigner:
         preprocessed_files_path = f'{self.species_path}',
         gene_priority_proteome=gp_proteome
       ).sql_proteome(k = 5)
-
 
   def _run_blast(self) -> None:
     """BLAST source antigens against the selected proteome, then read in with
@@ -273,7 +267,6 @@ class GeneAndProteinAssigner:
       self.source_gene_assignment[str(row['Query'])] = row['Target Gene Symbol']
       self.source_protein_assignment[str(row['Query'])] = row['Target']
       self.source_assignment_score[str(row['Query'])] = row['Quality Score']
-  
 
   def _assign_epitopes(self, epitopes_df: pd.DataFrame) -> None:
     """Assign a parent protein to each epitope.
@@ -368,7 +361,6 @@ class GeneAndProteinAssigner:
         unassigned_epitopes['Best Isoform ID']))
     )
 
-
   def _run_arc(self, sources_df: pd.DataFrame) -> None:
     """Run ARC to assign MHC/TCR/Ig to source antigens.
     
@@ -404,7 +396,6 @@ class GeneAndProteinAssigner:
     if not arc_results_df.dropna(subset=['class']).empty:
       self.source_arc_assignment = arc_results_df.set_index('id')['class'].to_dict()
 
-
   def _assign_allergens(self) -> None:
     """Get allergen data from allergen.org and then assign allergens to sources."""
     allergen_df = pd.read_csv(self.build_path / 'arborist' / 'allergens.tsv', sep='\t')
@@ -413,7 +404,6 @@ class GeneAndProteinAssigner:
     for k, v in self.source_protein_assignment.items():
       if v in allergen_map.keys():
         self.uniprot_id_to_name_map[v] = allergen_map[v]
-
 
   def _assign_manuals(self) -> None:
     """Get manual assignments from manual_assignments.tsv and then assign
@@ -433,7 +423,6 @@ class GeneAndProteinAssigner:
         self.source_assignment_score[k] = -1
         self.uniprot_id_to_name_map[k] = manual_protein_name_map[k]
 
-
   def _remove_files(self) -> None:
     """Delete all the files that were created when making the BLAST database."""
     for extension in ['pdb', 'phr', 'pin', 'pjs', 'pot', 'psq', 'ptf', 'pto']:
@@ -445,21 +434,23 @@ class GeneAndProteinAssigner:
     os.remove(f'{self.species_path}/blast_results.csv')
     os.remove(f'{self.species_path}/sources.fasta')
 
-    try: # if proteome.db exists, remove it
-      os.remove(f'{self.species_path}/proteome.db')
-    except OSError:
-      pass
+    # try: # if proteome.db exists, remove it
+    #   os.remove(f'{self.species_path}/proteome.db')
+    # except OSError:
+    #   pass
 
 def run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, all_antigens):
   species_path = build_path / 'species' / f'{taxon_id}' # directory to write species data
 
-  print(f'Writing separate files for {species_name}...')
   epitopes_df = DataFetcher(build_path).get_epitopes_for_species(all_epitopes, all_taxa)
   sources_df = DataFetcher(build_path).get_sources_for_species(all_antigens, epitopes_df['Accession'].tolist())
 
+  if sources_df.empty and epitopes_df.empty:
+    return
+
   is_vertebrate = group == 'vertebrate'
 
-  print(f'Assigning genes and proteins for {species_name}...')
+  print(f'Assigning peptides and sources for species w/ taxon ID: {taxon_id}).')
   Assigner = GeneAndProteinAssigner(
     taxon_id,
     species_path,
@@ -468,14 +459,12 @@ def run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, all_a
     build_path=build_path,
     bin_path=build_path.parent.parent / 'bin'
   )
+
   assigner_data, epitope_assignments, antigen_assignments = Assigner.assign(sources_df, epitopes_df)
   num_sources, num_epitopes, num_matched_sources, num_matched_epitopes = assigner_data
 
-  print(f'Writing files for {species_name}...')
   epitope_assignments.to_csv(species_path / 'epitope-assignments.tsv', sep='\t', index=False)
   antigen_assignments.to_csv(species_path / 'antigen-assignments.tsv', sep='\t', index=False)
-
-  print(f'Wrote files for {species_name}.\n')
 
   assignment_data = (
     taxon_id,
@@ -509,7 +498,7 @@ if __name__ == '__main__':
     type=int,
     help='Taxon ID for the species to pull data for.'
   )
-
+  _3708 == 3708
   args = parser.parse_args()
 
   build_path = Path(args.build_path)

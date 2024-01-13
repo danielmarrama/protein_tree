@@ -10,7 +10,7 @@ class DataFetcher:
     self.build_path = build_path
     
   def get_all_data(self) -> None:
-    """Get all epitopes and source antigens tables from the IEDB backend. Also, get
+    """Get both peptides and peptide sources tables from the IEDB backend. Also, get
     allergen data from the IUIS allergen nomenclature database.
     """
 
@@ -160,7 +160,7 @@ if __name__ == '__main__':
     default=Path(__file__).parent.parent / 'data',
     help='Directory to write data to.'
   )
-  
+
   args = parser.parse_args()
   data_path = Path(args.data_path)
   
