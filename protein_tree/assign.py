@@ -439,7 +439,7 @@ class GeneAndProteinAssigner:
     # except OSError:
     #   pass
 
-def run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, all_antigens):
+def run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, all_antigens, num_threads):
   species_path = build_path / 'species' / f'{taxon_id}' # directory to write species data
 
   epitopes_df = DataFetcher(build_path).get_epitopes_for_species(all_epitopes, all_taxa)
@@ -455,7 +455,7 @@ def run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, all_a
     taxon_id,
     species_path,
     is_vertebrate,
-    num_threads=14,
+    num_threads=num_threads,
     build_path=build_path,
     bin_path=build_path.parent.parent / 'bin'
   )
@@ -498,12 +498,19 @@ if __name__ == '__main__':
     type=int,
     help='Taxon ID for the species to pull data for.'
   )
-  _3708 == 3708
+  parser.add_argument(
+    '-n', '--num_threads', 
+    type=int,
+    default=os.cpu_count() - 1,
+    help='Number of threads to use.'
+  )
+
   args = parser.parse_args()
 
   build_path = Path(args.build_path)
   all_species = args.all_species
   taxon_id = args.taxon_id
+  num_threads = args.num_threads
 
   assert all_species or taxon_id, 'Please specify either --all_species or --taxon_id.'
   assert (all_species and not taxon_id) or (taxon_id and not all_species), 'Please specify either --all_species or --taxon_id.'
@@ -527,11 +534,11 @@ if __name__ == '__main__':
       species_name = taxon_to_species_map[taxon_id]
       group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
-      assignment_data = run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, all_antigens)
+      assignment_data = run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, all_antigens, num_threads)
 
   else: # one species at a time
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     species_name = taxon_to_species_map[taxon_id]
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
     group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
-    assignment_data = run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, all_antigens)
+    assignment_data = run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, all_antigens, num_threads)
