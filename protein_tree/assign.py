@@ -439,7 +439,7 @@ class GeneAndProteinAssigner:
     # except OSError:
     #   pass
 
-def run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, all_antigens, num_threads):
+def run(taxon_id, species_name, group, all_taxa, build_path, bin_path, all_epitopes, all_antigens, num_threads):
   species_path = build_path / 'species' / f'{taxon_id}' # directory to write species data
 
   epitopes_df = DataFetcher(build_path).get_epitopes_for_species(all_epitopes, all_taxa)
@@ -457,7 +457,7 @@ def run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, all_a
     is_vertebrate,
     num_threads=num_threads,
     build_path=build_path,
-    bin_path=build_path.parent.parent / 'bin'
+    bin_path=bin_path
   )
 
   assigner_data, epitope_assignments, antigen_assignments = Assigner.assign(sources_df, epitopes_df)
@@ -489,6 +489,12 @@ if __name__ == '__main__':
     help='Path to data directory.'
   )
   parser.add_argument(
+    '-B', '--bin_path',
+    type=str,
+    default=Path(__file__).parent.parent / 'bin',
+    help='Path to bin directory.'
+  )
+  parser.add_argument(
     '-a', '--all_species', 
     action='store_true', 
     help='Build protein tree for all IEDB species.'
@@ -508,6 +514,7 @@ if __name__ == '__main__':
   args = parser.parse_args()
 
   build_path = Path(args.build_path)
+  bin_path = Path(args.bin_path)
   all_species = args.all_species
   taxon_id = args.taxon_id
   num_threads = args.num_threads
@@ -534,11 +541,15 @@ if __name__ == '__main__':
       species_name = taxon_to_species_map[taxon_id]
       group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
-      assignment_data = run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, all_antigens, num_threads)
+      assignment_data = run(
+        taxon_id, species_name, group, all_taxa, build_path, bin_path, all_epitopes, all_antigens, num_threads
+      )
 
   else: # one species at a time
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     species_name = taxon_to_species_map[taxon_id]
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
     group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
-    assignment_data = run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, all_antigens, num_threads)
+    assignment_data = run(
+      taxon_id, species_name, group, all_taxa, build_path, bin_path, all_epitopes, all_antigens, num_threads
+    )
