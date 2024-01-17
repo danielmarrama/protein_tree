@@ -475,6 +475,13 @@ def run(taxon_id, species_name, group, all_taxa, build_path, bin_path, all_epito
     num_matched_epitopes
   )
 
+  species_data = pd.read_csv(species_path / 'species-data.tsv', sep='\t')
+  species_data.loc[:, 'Num Sources'] = num_sources
+  species_data.loc[:, 'Num Peptides'] = num_epitopes
+  species_data.loc[:, 'Num Matched Sources'] = num_matched_sources
+  species_data.loc[:, 'Num Matched Peptides'] = num_matched_epitopes
+  species_data.to_csv(species_path / 'species-data.tsv', sep='\t', index=False)
+
   return assignment_data
 
 if __name__ == '__main__':
