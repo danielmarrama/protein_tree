@@ -478,8 +478,8 @@ def run(taxon_id, species_name, group, all_taxa, build_path, bin_path, all_epito
   species_data = pd.read_csv(species_path / 'species-data.tsv', sep='\t')
   species_data.loc[:, 'Num Sources'] = num_sources
   species_data.loc[:, 'Num Peptides'] = num_epitopes
-  species_data.loc[:, 'Num Matched Sources'] = num_matched_sources
-  species_data.loc[:, 'Num Matched Peptides'] = num_matched_epitopes
+  species_data.loc[:, '% Assigned Sources'] = round((num_matched_sources / num_sources)*100, 2)
+  species_data.loc[:, '% Assigned Peptides'] = round((num_matched_epitopes / num_epitopes)*100, 2)
   species_data.to_csv(species_path / 'species-data.tsv', sep='\t', index=False)
 
   return assignment_data
