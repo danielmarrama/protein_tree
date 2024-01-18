@@ -103,6 +103,7 @@ class GeneAndProteinAssigner:
     epitopes_df.loc[:, 'Assigned Gene'] = epitopes_df['Accession'].map(self.source_gene_assignment)
     epitopes_df.set_index(['Accession', 'Sequence'], inplace=True)
     epitopes_df.loc[:, 'Assigned Protein ID'] = epitopes_df.index.map(self.epitope_protein_assignment)
+    epitopes_df.loc[:, 'Assigned Protein Name'] = epitopes_df['Assigned Protein ID'].map(self.uniprot_id_to_name_map)
     epitopes_df.reset_index(inplace=True)
     epitopes_df.loc[:, 'ARC Assignment'] = epitopes_df['Accession'].map(self.source_arc_assignment)
 
