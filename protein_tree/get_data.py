@@ -195,8 +195,6 @@ if __name__ == '__main__':
     all_epitopes = DataFetcher().get_all_epitopes()
     all_sources = DataFetcher().get_all_antigens()
 
-    print(all_epitopes)
-
     taxon_id = args.taxon_id
     assert taxon_id in all_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     

@@ -445,7 +445,7 @@ def run(taxon_id, species_name, group, all_taxa, build_path, bin_path, all_epito
   epitopes_df = DataFetcher(build_path).get_epitopes_for_species(all_epitopes, all_taxa)
   sources_df = DataFetcher(build_path).get_sources_for_species(all_antigens, epitopes_df['Accession'].tolist())
 
-  if sources_df.empty and epitopes_df.empty:
+  if sources_df.empty or epitopes_df.empty:
     return
 
   is_vertebrate = group == 'vertebrate'
