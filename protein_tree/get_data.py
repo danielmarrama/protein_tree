@@ -16,12 +16,12 @@ class DataFetcher:
 
     from sql_engine import create_sql_engine
     self.sql_engine = create_sql_engine()
-    epitopes_df = self._get_epitope_table()
+    peptides_df = self._get_peptide_table()
     sources_df = self._get_source_table()
 
-    # keep only epitopes whose source antigen is in sources_df
-    epitopes_df = epitopes_df[
-      epitopes_df['Source Accession'].isin(sources_df['Accession'])
+    # keep only peptides whose source is in sources_df
+    peptides_df = peptides_df[
+      peptides_df['Source Accession'].isin(sources_df['Accession'])
     ]
 
     # get allergen data
@@ -29,25 +29,25 @@ class DataFetcher:
     allergen_df = pd.read_csv(url)
     
     # write data to TSV files
-    epitopes_df.to_csv(self.build_path / 'iedb' / 'epitopes.tsv', sep='\t', index=False)
+    peptides_df.to_csv(self.build_path / 'iedb' / 'peptides.tsv', sep='\t', index=False)
     sources_df.to_csv(self.build_path / 'iedb' / 'sources.tsv', sep='\t', index=False)
     allergen_df.to_csv(self.build_path / 'arborist' / 'allergens.tsv', sep='\t', index=False)
 
-  def _get_epitope_table(self) -> pd.DataFrame:
-    """Get epitopes from epitope/object tables from the IEDB backend."""
+  def _get_peptide_table(self) -> pd.DataFrame:
+    """Get peptides from peptide/object tables from the IEDB backend."""
     sql_query1 = f"""
       SELECT object.mol1_seq, object.region, object.mol2_name, 
              object.mol2_accession, object.organism2_id
-      FROM epitope, object
-      WHERE epitope.e_object_id = object.object_id
+      FROM peptide, object
+      WHERE peptide.e_object_id = object.object_id
       AND object.object_sub_type IN 
         ("Peptide from protein", "Discontinuous protein residues")
       """
     sql_query2 = f"""
       SELECT object.mol1_seq, object.region, object.mol2_name,
              object.mol2_accession, object.organism2_id
-      FROM epitope, object
-      WHERE epitope.related_object_id = object.object_id
+      FROM peptide, object
+      WHERE peptide.related_object_id = object.object_id
       AND object.object_sub_type IN 
         ("Peptide from protein", "Discontinuous protein residues")
       """
@@ -63,31 +63,31 @@ class DataFetcher:
       df1 = pd.DataFrame(result1.fetchall(), columns=columns)
       df2 = pd.DataFrame(result2.fetchall(), columns=columns)
       
-    epitopes_df = pd.concat([df1, df2], ignore_index=True)
+    peptides_df = pd.concat([df1, df2], ignore_index=True)
     
     # combine linear and discontinuous sequences
-    epitopes_df['Sequence'] = epitopes_df['Linear Sequence'].fillna(
-      epitopes_df['Discontinuous Sequence']
+    peptides_df['Sequence'] = peptides_df['Linear Sequence'].fillna(
+      peptides_df['Discontinuous Sequence']
     )
-    epitopes_df.drop( # remove original sequence
+    peptides_df.drop( # remove original sequence
       columns=['Linear Sequence', 'Discontinuous Sequence'], 
       inplace=True
     )
-    # remove epitopes with no sequence
-    epitopes_df.dropna(subset=['Sequence'], inplace=True)
+    # remove peptides with no sequence
+    peptides_df.dropna(subset=['Sequence'], inplace=True)
 
-    # limit to epitopes with 5 or more amino acids
-    epitopes_df = epitopes_df[epitopes_df['Sequence'].str.len() >= 5]
+    # limit to peptides with 5 or more amino acids
+    peptides_df = peptides_df[peptides_df['Sequence'].str.len() >= 5]
 
-    # make epitope sequences uppercase
-    epitopes_df['Sequence'] = epitopes_df['Sequence'].str.upper()
+    # make peptide sequences uppercase
+    peptides_df['Sequence'] = peptides_df['Sequence'].str.upper()
 
-    epitopes_df.drop_duplicates(inplace=True)
+    peptides_df.drop_duplicates(inplace=True)
   
-    return epitopes_df[['Sequence', 'Source Name', 'Source Accession', 'Organism ID']]
+    return peptides_df[['Sequence', 'Source Name', 'Source Accession', 'Organism ID']]
 
   def _get_source_table(self) -> pd.DataFrame:
-    """Get all source antigens from source table in IEDB backend."""
+    """Get all peptide sources from source table in IEDB backend."""
     sql_query = f'SELECT accession, name, sequence, organism_id FROM source;'
 
     with self.sql_engine.connect() as connection:
@@ -103,32 +103,32 @@ class DataFetcher:
     
     return sources_df
   
-  def get_all_epitopes(self) -> pd.DataFrame:
-    """Get all epitopes from the written file."""
+  def get_all_peptides(self) -> pd.DataFrame:
+    """Get all peptides from the written file."""
     return pd.read_csv(self.build_path / 'iedb' / 'peptide.tsv', sep='\t')
   
-  def get_all_antigens(self) -> pd.DataFrame:
-    """Get all source antigens from the written file."""
+  def get_all_sources(self) -> pd.DataFrame:
+    """Get all peptide sources from the written file."""
     return pd.read_csv(self.build_path / 'iedb' / 'peptide_source.tsv', sep='\t')
 
-  def get_epitopes_for_species(
-    self, all_epitopes: pd.DataFrame, all_taxa: list
+  def get_peptides_for_species(
+    self, all_peptides: pd.DataFrame, all_taxa: list
   ) -> pd.DataFrame:
-    """Get epitopes from the written file only for a specific species.
+    """Get peptides from the written file only for a specific species.
     
     Args:
-      all_epitopes: list of all epitopes from the backend. 
+      all_peptides: list of all peptides from the backend. 
       all_taxa: list of all active children taxa for a species.
     """
-    return all_epitopes[all_epitopes['Organism ID'].isin(all_taxa)]
+    return all_peptides[all_peptides['Organism ID'].isin(all_taxa)]
 
   def get_sources_for_species(
     self, all_sources: pd.DataFrame, accessions: list
   ) -> pd.DataFrame:
-    """Get source antigens from the written file only for a specific species.
+    """Get peptide sources from the written file only for a specific species.
     
     Args:
-      all_sources: list of all source antigens from the backend.
+      all_sources: list of all peptide sources from the backend.
       all_taxa: list of all active children taxa for a species.
     """
     return all_sources[all_sources['Accession'].isin(accessions)]
@@ -183,7 +183,7 @@ if __name__ == '__main__':
 
   if args.taxon_id:
     files_exist = (
-      (data_path / 'iedb' / 'epitopes.tsv').exists() and
+      (data_path / 'iedb' / 'peptides.tsv').exists() and
       (data_path / 'iedb' / 'sources.tsv').exists() and
       (data_path / 'arborist' / 'allergens.tsv').exists()
     )
@@ -192,8 +192,8 @@ if __name__ == '__main__':
       DataFetcher().get_all_data()
       print('All data written.')
 
-    all_epitopes = DataFetcher().get_all_epitopes()
-    all_sources = DataFetcher().get_all_antigens()
+    all_peptides = DataFetcher().get_all_peptides()
+    all_sources = DataFetcher().get_all_sources()
 
     taxon_id = args.taxon_id
     assert taxon_id in all_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
@@ -206,14 +206,14 @@ if __name__ == '__main__':
     print(f'Writing separate files for {species_name}...')
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
     
-    epitopes_df = DataFetcher().get_epitopes_for_species(all_epitopes, all_taxa)
+    peptides_df = DataFetcher().get_peptides_for_species(all_peptides, all_taxa)
     sources_df = DataFetcher().get_sources_for_species(
-      all_sources, epitopes_df['Source Accession'].tolist()
+      all_sources, peptides_df['Source Accession'].tolist()
     )
     
-    epitopes_df.to_csv(species_path / 'epitopes.tsv', sep='\t', index=False)
+    peptides_df.to_csv(species_path / 'peptides.tsv', sep='\t', index=False)
     sources_df.to_csv(species_path / 'sources.tsv', sep='\t', index=False)
-    print(f'Epitopes and sources for {species_name} written.')
+    print(f'peptides and sources for {species_name} written.')
 
   else:
     print('Getting all data...')

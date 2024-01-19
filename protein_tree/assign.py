@@ -39,7 +39,7 @@ class GeneAndProteinAssigner:
     self.source_protein_assignment = {}
     self.source_assignment_score = {}
     self.source_arc_assignment = {}
-    self.epitope_protein_assignment = {}
+    self.peptide_protein_assignment = {}
 
     # create UniProt ID -> gene map
     self.proteome = pd.read_csv(f'{self.species_path}/proteome.tsv', sep='\t')
@@ -57,89 +57,89 @@ class GeneAndProteinAssigner:
       )
     )
 
-  def assign(self, sources_df: pd.DataFrame, epitopes_df: pd.DataFrame) -> None:
-    """Overall function to assign genes and parent proteins to sources and epitopes.
+  def assign(self, sources_df: pd.DataFrame, peptides_df: pd.DataFrame) -> None:
+    """Overall function to assign genes and parent proteins to sources and peptides.
 
     Args:
-      sources_df: DataFrame of source antigens for a species.
-      epitopes_df: DataFrame of epitopes for a species.
+      sources_df: DataFrame of peptide sources for a species.
+      peptides_df: DataFrame of peptides for a species.
     """
-    # assign None to all source antigens and epitopes to start
+    # assign None to all peptide sources and peptides to start
     for i, row in sources_df.iterrows():
       self.source_gene_assignment[row['Accession']] = None
       self.source_protein_assignment[row['Accession']] = None
       self.source_assignment_score[row['Accession']] = None
-    for i, row in epitopes_df.iterrows():
-      self.epitope_protein_assignment[(row['Accession'], row['Sequence'])] = None
+    for i, row in peptides_df.iterrows():
+      self.peptide_protein_assignment[(row['Accession'], row['Sequence'])] = None
 
-    self.source_to_epitopes_map = self._create_source_to_epitopes_map(epitopes_df)
+    self.source_to_peptides_map = self._create_source_to_peptides_map(peptides_df)
 
     sources_df['Length'] = sources_df['Sequence'].str.len() # add length column to sources
-    self.source_length_map = dict( # create map of source antigens to their length
+    self.source_length_map = dict( # create map of peptide sources to their length
       zip(
         sources_df['Accession'],
         sources_df['Length']
       )
     )
-    print('Assigning source antigens...')
+    print('Assigning peptide sources...')
     self._assign_sources(sources_df)
-    print('Done assigning source antigens.\n')
+    print('Done assigning peptide sources.\n')
 
     self._assign_allergens()
     self._assign_manuals()
 
-    print('Assigning epitopes...')
-    self._assign_epitopes(epitopes_df)
+    print('Assigning peptides...')
+    self._assign_peptides(peptides_df)
     print('Done.\n')
 
-    # map source antigens to their BLAST matches and ARC assignments
+    # map peptide sources to their BLAST matches and ARC assignments
     sources_df.loc[:, 'Assigned Gene'] = sources_df['Accession'].map(self.source_gene_assignment)
     sources_df.loc[:, 'Assigned Protein ID'] = sources_df['Accession'].map(self.source_protein_assignment)
     sources_df.loc[:, 'Assigned Protein Name'] = sources_df['Assigned Protein ID'].map(self.uniprot_id_to_name_map)
     sources_df.loc[:, 'Assignment Score'] = sources_df['Accession'].map(self.source_assignment_score)
     sources_df.loc[:, 'ARC Assignment'] = sources_df['Accession'].map(self.source_arc_assignment)
 
-    # map epitope source antigens to assignments above and then PEPMatch assignments
-    epitopes_df.loc[:, 'Assigned Gene'] = epitopes_df['Accession'].map(self.source_gene_assignment)
-    epitopes_df.set_index(['Accession', 'Sequence'], inplace=True)
-    epitopes_df.loc[:, 'Assigned Protein ID'] = epitopes_df.index.map(self.epitope_protein_assignment)
-    epitopes_df.loc[:, 'Assigned Protein Name'] = epitopes_df['Assigned Protein ID'].map(self.uniprot_id_to_name_map)
-    epitopes_df.reset_index(inplace=True)
-    epitopes_df.loc[:, 'ARC Assignment'] = epitopes_df['Accession'].map(self.source_arc_assignment)
+    # map peptide peptide sources to assignments above and then PEPMatch assignments
+    peptides_df.loc[:, 'Assigned Gene'] = peptides_df['Accession'].map(self.source_gene_assignment)
+    peptides_df.set_index(['Accession', 'Sequence'], inplace=True)
+    peptides_df.loc[:, 'Assigned Protein ID'] = peptides_df.index.map(self.peptide_protein_assignment)
+    peptides_df.loc[:, 'Assigned Protein Name'] = peptides_df['Assigned Protein ID'].map(self.uniprot_id_to_name_map)
+    peptides_df.reset_index(inplace=True)
+    peptides_df.loc[:, 'ARC Assignment'] = peptides_df['Accession'].map(self.source_arc_assignment)
 
-    epitopes_df.drop_duplicates(subset=['Accession', 'Sequence'], inplace=True) # drop duplicate epitopes
+    peptides_df.drop_duplicates(subset=['Accession', 'Sequence'], inplace=True) # drop duplicate peptides
     sources_df.drop(columns=['Sequence'], inplace=True) # drop sequence column for output
 
     self._remove_files()
     
     num_sources = len(sources_df['Accession'].drop_duplicates())
-    num_epitopes = len(epitopes_df[['Accession', 'Sequence']].drop_duplicates())
+    num_peptides = len(peptides_df[['Accession', 'Sequence']].drop_duplicates())
     num_matched_sources = len(sources_df[sources_df['Assigned Protein ID'].notnull()])
-    num_matched_epitopes = len(epitopes_df[epitopes_df['Assigned Protein ID'].notnull()])
+    num_matched_peptides = len(peptides_df[peptides_df['Assigned Protein ID'].notnull()])
   
     assigner_data = (
       num_sources,
-      num_epitopes,
+      num_peptides,
       num_matched_sources,
-      num_matched_epitopes
+      num_matched_peptides
     )
 
-    return assigner_data, epitopes_df, sources_df
+    return assigner_data, peptides_df, sources_df
 
   def _assign_sources(self, sources_df: pd.DataFrame) -> None:
-    """Assign a gene to the source antigens of a species.
+    """Assign a gene to the peptide sources of a species.
 
-    Run ARC for vertebrates to assign MHC/TCR/Ig to source antigens first.
-    Run BLAST for all other source antigens to assign a gene and protein. 
-    If there are ties, use PEPMatch to search the epitopes within the protein 
+    Run ARC for vertebrates to assign MHC/TCR/Ig to peptide sources first.
+    Run BLAST for all other peptide sources to assign a gene and protein. 
+    If there are ties, use PEPMatch to search the peptides within the protein 
     sequences andselect the protein with the most matches.
 
     Args:
-      sources_df: DataFrame of source antigens for a species.
+      sources_df: DataFrame of peptide sources for a species.
     """    
     self._write_to_fasta(sources_df, 'sources') # write sources to FASTA file
 
-    print('Running BLAST for source antigens...')
+    print('Running BLAST for peptide sources...')
     self._run_blast()
 
     if self.is_vertebrate:
@@ -150,26 +150,26 @@ class GeneAndProteinAssigner:
       print('Running ARC for MHC/TCR/Ig assignments...')
       self._run_arc(sources_df)
 
-  def _create_source_to_epitopes_map(self, epitopes_df: pd.DataFrame) -> dict:
-    """Create a map from source antigens to their epitopes.
+  def _create_source_to_peptides_map(self, peptides_df: pd.DataFrame) -> dict:
+    """Create a map from peptide sources to their peptides.
     
     Args:
-      epitopes_df: DataFrame of epitopes for a species.
+      peptides_df: DataFrame of peptides for a species.
     """    
-    source_to_epitopes_map = {}
-    for i, row in epitopes_df.iterrows():
-      if row['Accession'] in source_to_epitopes_map.keys():
-        source_to_epitopes_map[row['Accession']].append(row['Sequence'])
+    source_to_peptides_map = {}
+    for i, row in peptides_df.iterrows():
+      if row['Accession'] in source_to_peptides_map.keys():
+        source_to_peptides_map[row['Accession']].append(row['Sequence'])
       else:
-        source_to_epitopes_map[row['Accession']] = [row['Sequence']]
+        source_to_peptides_map[row['Accession']] = [row['Sequence']]
     
-    return source_to_epitopes_map 
+    return source_to_peptides_map 
 
   def _write_to_fasta(self, sources_df: pd.DataFrame, filename: str) -> None:
-    """Write source antigens to FASTA file.
+    """Write peptide sources to FASTA file.
 
     Args:
-      sources_df: DataFrame of source antigens for a species.
+      sources_df: DataFrame of peptide sources for a species.
       filename: Name of the FASTA file to write to.    
     """          
     seq_records = [] # create seq records of sources with ID and sequence
@@ -199,15 +199,15 @@ class GeneAndProteinAssigner:
       ).sql_proteome(k = 5)
 
   def _run_blast(self) -> None:
-    """BLAST source antigens against the selected proteome, then read in with
+    """BLAST peptide sources against the selected proteome, then read in with
     pandas and assign column names. By default, blastp doesn't return header.
 
     Then, create a quality score based on % identity, alignment length, and
-    query length. Select the best match for each source antigen and assign
+    query length. Select the best match for each peptide source and assign
     the gene symbol and UniProt ID to the source_gene_assignment and
     source_protein_assignment maps.
 
-    If there are ties, use PEPMatch to search the epitopes within the protein
+    If there are ties, use PEPMatch to search the peptides within the protein
     sequences and select the protein with the most matches.
     """
     # escape parentheses in species path
@@ -246,7 +246,7 @@ class GeneAndProteinAssigner:
     blast_results_df['Query Length'] = blast_results_df['Query'].astype(str).map(self.source_length_map)
     blast_results_df['Quality Score'] = blast_results_df['Percentage Identity'] * (blast_results_df['Alignment Length'] / blast_results_df['Query Length'])
 
-    # join proteome metadata to select the best match for each source antigen
+    # join proteome metadata to select the best match for each source
     blast_results_df = blast_results_df.merge(
       self.proteome[['Protein ID', 'Protein Existence Level', 'Gene Priority']], 
       left_on='Target', 
@@ -269,20 +269,20 @@ class GeneAndProteinAssigner:
       self.source_protein_assignment[str(row['Query'])] = row['Target']
       self.source_assignment_score[str(row['Query'])] = row['Quality Score']
 
-  def _assign_epitopes(self, epitopes_df: pd.DataFrame) -> None:
-    """Assign a parent protein to each epitope.
+  def _assign_peptides(self, peptides_df: pd.DataFrame) -> None:
+    """Assign a parent protein to each peptide.
     
-    Preprocess the proteome and then search all the epitopes within
+    Preprocess the proteome and then search all the peptides within
     the proteome using PEPMatch. Then, assign the parent protein
-    to each epitope by selecting the best isoform of the assigned gene for
-    its source antigen.
+    to each peptide by selecting the best isoform of the assigned gene for
+    its source.
     """
     self._preprocess_proteome_if_needed()
 
-    # search all epitopes within the proteome using PEPMatch
-    all_epitopes = epitopes_df['Sequence'].unique().tolist()
+    # search all peptides within the proteome using PEPMatch
+    all_peptides = peptides_df['Sequence'].unique().tolist()
     all_matches_df = Matcher(
-      query = all_epitopes,
+      query = all_peptides,
       proteome_file = f'{self.species_path}/proteome.fasta',
       max_mismatches = 0, 
       k = 5, 
@@ -292,86 +292,87 @@ class GeneAndProteinAssigner:
       sequence_version=False
     ).match()
     
-    # if no source antigens were assigned, return
+    # if no peptide sources were assigned, return
     if not self.source_gene_assignment or not self.source_protein_assignment:
       return
 
-    # create dataframes of source antigen mappings so we can merge and perform operations
-    epitope_source_map_df = pd.DataFrame({
-      'Epitope': epitope,
-      'Source Antigen': antigen
-    } for antigen, epitopes in self.source_to_epitopes_map.items() for epitope in epitopes)
+    # create dataframes of peptide source mappings so we can merge and perform operations
+    peptide_source_map_df = pd.DataFrame({
+      'Peptide': peptide,
+      'Source': source
+    } for source, peptides in self.source_to_peptides_map.items() for peptide in peptides)
     source_protein_assignment_df = pd.DataFrame({
-      'Source Antigen': antigen, 
+      'Source': source, 
       'Protein ID': protein_id
-    } for antigen, protein_id in self.source_protein_assignment.items())
+    } for source, protein_id in self.source_protein_assignment.items())
     source_gene_assignment_df = pd.DataFrame({
-      'Source Antigen': antigen, 
+      'Source': source, 
       'Gene': gene
-    } for antigen, gene in self.source_gene_assignment.items())
+    } for source, gene in self.source_gene_assignment.items())
 
-    # merge the source antigen for each epitope
+    # merge the sources for each peptide
     merged_df = pd.merge( 
       all_matches_df, 
-      epitope_source_map_df, 
+      peptide_source_map_df, 
       how='left', 
       left_on='Query Sequence', 
-      right_on='Epitope'
+      right_on='Peptide'
     )
-    # merge the protein ID for each source antigen
+
+    # merge the protein ID for each source
     merged_df = pd.merge( 
       merged_df, 
       source_protein_assignment_df, 
       how='left', 
-      on='Source Antigen',
+      on='Source',
       suffixes=('', '_assigned')
     )
 
-    # now, grab epitopes that match to the assigned protein for their source antigen
-    assigned_epitopes = merged_df[merged_df['Protein ID'] == merged_df['Protein ID_assigned']]
+    # now, grab peptides that match to the assigned protein for their source
+    assigned_peptides = merged_df[merged_df['Protein ID'] == merged_df['Protein ID_assigned']]
 
-    self.epitope_protein_assignment.update(
+    self.peptide_protein_assignment.update(
       dict(zip(
-        zip(assigned_epitopes['Source Antigen'], assigned_epitopes['Query Sequence']),
-        assigned_epitopes['Protein ID']))
+        zip(assigned_peptides['Source'], assigned_peptides['Query Sequence']),
+        assigned_peptides['Protein ID']))
     )
-    # remove assigned epitopes
-    merged_df = merged_df[~merged_df['Query Sequence'].isin(assigned_epitopes['Query Sequence'])]
+    # remove assigned peptides
+    merged_df = merged_df[~merged_df['Query Sequence'].isin(assigned_peptides['Query Sequence'])]
 
-    # grab the rest of the epitopes and merged with gene assignments
-    unassigned_epitopes = merged_df[merged_df['Protein ID'] != merged_df['Protein ID_assigned']]
+    # grab the rest of the peptides and merged with gene assignments
+    unassigned_peptides = merged_df[merged_df['Protein ID'] != merged_df['Protein ID_assigned']]
 
-    if unassigned_epitopes.empty: # if there are no unassigned epitopes, return
-      return len(self.epitope_protein_assignment.keys())
+    if unassigned_peptides.empty: # if there are no unassigned peptides, return
+      return len(self.peptide_protein_assignment.keys())
 
     # merge with gene assignments
-    unassigned_epitopes = pd.merge(
-      unassigned_epitopes,
+    unassigned_peptides = pd.merge(
+      unassigned_peptides,
       source_gene_assignment_df,
       how='left',
-      on='Source Antigen',
+      on='Source',
       suffixes=('', '_assigned')
     )
     # now, get the isoform of the assigned gene with the best protein existence level
-    best_isoform_indices = unassigned_epitopes.groupby(['Gene', 'Query Sequence'])['Protein Existence Level'].idxmin()
-    best_isoforms = unassigned_epitopes.loc[best_isoform_indices, ['Gene', 'Query Sequence', 'Protein ID']].set_index(['Gene', 'Query Sequence'])['Protein ID']
-    unassigned_epitopes['Best Isoform ID'] = unassigned_epitopes.set_index(['Gene', 'Query Sequence']).index.map(best_isoforms)
+    best_isoform_indices = unassigned_peptides.groupby(['Gene', 'Query Sequence'])['Protein Existence Level'].idxmin()
+    best_isoforms = unassigned_peptides.loc[best_isoform_indices, ['Gene', 'Query Sequence', 'Protein ID']].set_index(['Gene', 'Query Sequence'])['Protein ID']
+    unassigned_peptides['Best Isoform ID'] = unassigned_peptides.set_index(['Gene', 'Query Sequence']).index.map(best_isoforms)
     
-    # drop any unassigned epitopes that couldn't be assigned an isoform
-    unassigned_epitopes = unassigned_epitopes.dropna(subset=['Best Isoform ID'])
+    # drop any unassigned peptides that couldn't be assigned an isoform
+    unassigned_peptides = unassigned_peptides.dropna(subset=['Best Isoform ID'])
 
     # Update the protein assignment with the best isoform
-    self.epitope_protein_assignment.update(
+    self.peptide_protein_assignment.update(
       dict(zip(
-        zip(unassigned_epitopes['Source Antigen'], unassigned_epitopes['Query Sequence']),
-        unassigned_epitopes['Best Isoform ID']))
+        zip(unassigned_peptides['Source'], unassigned_peptides['Query Sequence']),
+        unassigned_peptides['Best Isoform ID']))
     )
 
   def _run_arc(self, sources_df: pd.DataFrame) -> None:
-    """Run ARC to assign MHC/TCR/Ig to source antigens.
+    """Run ARC to assign MHC/TCR/Ig to peptide sources.
     
     Args:
-      sources_df: DataFrame of source antigens for a species.
+      sources_df: DataFrame of peptide sources for a species.
     """
     try: # read ARC results if they already exist and only run ARC on new sources
       past_arc_results_df = pd.read_csv(f'{self.species_path}/ARC_results.tsv', sep='\t')
@@ -445,13 +446,13 @@ class GeneAndProteinAssigner:
     # except OSError:
     #   pass
 
-def run(taxon_id, species_name, group, all_taxa, build_path, bin_path, all_epitopes, all_antigens, num_threads):
+def run(taxon_id, species_name, group, all_taxa, build_path, bin_path, all_peptides, all_sources, num_threads):
   species_path = build_path / 'species' / f'{taxon_id}' # directory to write species data
 
-  epitopes_df = DataFetcher(build_path).get_epitopes_for_species(all_epitopes, all_taxa)
-  sources_df = DataFetcher(build_path).get_sources_for_species(all_antigens, epitopes_df['Accession'].tolist())
+  peptides_df = DataFetcher(build_path).get_peptides_for_species(all_peptides, all_taxa)
+  sources_df = DataFetcher(build_path).get_sources_for_species(all_sources, peptides_df['Accession'].tolist())
 
-  if sources_df.empty or epitopes_df.empty:
+  if sources_df.empty or peptides_df.empty:
     return
 
   is_vertebrate = group == 'vertebrate'
@@ -466,26 +467,26 @@ def run(taxon_id, species_name, group, all_taxa, build_path, bin_path, all_epito
     bin_path=bin_path
   )
 
-  assigner_data, epitope_assignments, antigen_assignments = Assigner.assign(sources_df, epitopes_df)
-  num_sources, num_epitopes, num_matched_sources, num_matched_epitopes = assigner_data
+  assigner_data, peptide_assignments, source_assignments = Assigner.assign(sources_df, peptides_df)
+  num_sources, num_peptides, num_matched_sources, num_matched_peptides = assigner_data
 
-  epitope_assignments.to_csv(species_path / 'epitope-assignments.tsv', sep='\t', index=False)
-  antigen_assignments.to_csv(species_path / 'antigen-assignments.tsv', sep='\t', index=False)
+  peptide_assignments.to_csv(species_path / 'peptide-assignments.tsv', sep='\t', index=False)
+  source_assignments.to_csv(species_path / 'source-assignments.tsv', sep='\t', index=False)
 
   assignment_data = (
     taxon_id,
     species_name,
     num_sources,
-    num_epitopes,
+    num_peptides,
     num_matched_sources,
-    num_matched_epitopes
+    num_matched_peptides
   )
 
   species_data = pd.read_csv(species_path / 'species-data.tsv', sep='\t')
   species_data.loc[:, 'Num Sources'] = num_sources
-  species_data.loc[:, 'Num Peptides'] = num_epitopes
+  species_data.loc[:, 'Num Peptides'] = num_peptides
   species_data.loc[:, '% Assigned Sources'] = round((num_matched_sources / num_sources)*100, 2)
-  species_data.loc[:, '% Assigned Peptides'] = round((num_matched_epitopes / num_epitopes)*100, 2)
+  species_data.loc[:, '% Assigned Peptides'] = round((num_matched_peptides / num_peptides)*100, 2)
   species_data.to_csv(species_path / 'species-data.tsv', sep='\t', index=False)
 
   return assignment_data
@@ -539,8 +540,8 @@ if __name__ == '__main__':
   species_df = pd.read_csv(build_path / 'arborist' / 'active-species.tsv', sep='\t')
   valid_taxon_ids = species_df['Species ID'].tolist()
 
-  all_epitopes = DataFetcher(build_path).get_all_epitopes()
-  all_antigens = DataFetcher(build_path).get_all_antigens()
+  all_peptides = DataFetcher(build_path).get_all_peptides()
+  all_sources = DataFetcher(build_path).get_all_sources()
 
   all_taxa_map = dict(zip( # map taxon ID to list of all children taxa
     species_df['Species ID'],
@@ -555,7 +556,7 @@ if __name__ == '__main__':
       group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
       assignment_data = run(
-        taxon_id, species_name, group, all_taxa, build_path, bin_path, all_epitopes, all_antigens, num_threads
+        taxon_id, species_name, group, all_taxa, build_path, bin_path, all_peptides, all_sources, num_threads
       )
 
   else: # one species at a time
@@ -564,5 +565,5 @@ if __name__ == '__main__':
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
     group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
     assignment_data = run(
-      taxon_id, species_name, group, all_taxa, build_path, bin_path, all_epitopes, all_antigens, num_threads
+      taxon_id, species_name, group, all_taxa, build_path, bin_path, all_peptides, all_sources, num_threads
     )

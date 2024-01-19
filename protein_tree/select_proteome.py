@@ -29,7 +29,7 @@ class ProteomeSelector:
     self.proteome_list = self._get_proteome_list() # get all candidate proteomes
     self.num_of_proteomes = len(self.proteome_list) + 1 # +1 for all proteins option
 
-  def select_best_proteome(self, epitopes_df: pd.DataFrame) -> list:
+  def select_best_proteome(self, peptides_df: pd.DataFrame) -> list:
     """Select the best proteome to use for a species. Return the proteome ID,
     proteome taxon, and proteome type.
     
@@ -41,14 +41,14 @@ class ProteomeSelector:
     3. Are there any non-redudant proteomes?
     4. Are there any other proteomes?
 
-    If yes to any of the above, check if there are multiples and do epitope
+    If yes to any of the above, check if there are multiples and do peptide
     search for tie breaks.
 
     If no to all of the above, then get every protein associated with
     the taxon ID using the get_all_proteins method.
 
     Args:
-      epitopes_df (pd.DataFrame): DataFrame of epitopes for the species to use for tie breaks.
+      peptides_df (pd.DataFrame): DataFrame of peptides for the species to use for tie breaks.
     """
     if self.proteome_list.empty:
       print('No proteomes found. Fetching orphan proteins.')
@@ -59,32 +59,32 @@ class ProteomeSelector:
       print('Found representative proteome(s).\n')
       proteome_type = 'Representative'
       self.proteome_list = self.proteome_list[self.proteome_list['isRepresentativeProteome']]
-      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df, True)
+      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(peptides_df, True)
       self._get_gp_proteome_to_fasta(proteome_id, proteome_taxon)
     
     elif self.proteome_list['isReferenceProteome'].any():
       print('Found reference proteome(s).\n')
       proteome_type = 'Reference'
       self.proteome_list = self.proteome_list[self.proteome_list['isReferenceProteome']]
-      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df, True)
+      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(peptides_df, True)
       self._get_gp_proteome_to_fasta(proteome_id, proteome_taxon)
 
     elif 'redundantTo' not in self.proteome_list.columns:
       print('Found other proteome(s).\n')
       proteome_type = 'Other'
-      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df, False)
+      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(peptides_df, False)
     
     elif self.proteome_list['redundantTo'].isna().any():
       print('Found non-redundant proteome(s).\n')
       proteome_type = 'Non-redundant'
       self.proteome_list = self.proteome_list[self.proteome_list['redundantTo'].isna()]
-      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df, False)
+      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(peptides_df, False)
     
     else:
       print('Found other proteome(s).\n')
       proteome_type = 'Other' # replace ID with redundant proteome ID
       self.proteome_list.loc[self.proteome_list['redundantTo'].notna(), 'upid'] = self.proteome_list['redundantTo']
-      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(epitopes_df, False)
+      proteome_id, proteome_taxon = self._get_proteome_with_most_matches(peptides_df, False)
 
     self._remove_other_proteomes(proteome_id)
 
@@ -274,14 +274,14 @@ class ProteomeSelector:
       with open(f'{species_path}/proteome.fasta', 'a') as f:
         f.write(batch.text)
 
-  def _get_proteome_with_most_matches(self, epitopes_df: pd.DataFrame, rep_or_ref: bool) -> tuple:
+  def _get_proteome_with_most_matches(self, peptides_df: pd.DataFrame, rep_or_ref: bool) -> tuple:
     """Get the proteome ID and true taxon ID associated with
-    that proteome with the most epitope matches in case there is a tie.
+    that proteome with the most peptide matches in case there is a tie.
     We get the true taxon so we can extract the data from the FTP server
     if needed.
 
     Args:
-      epitopes_df (pd.DataFrame): DataFrame of epitopes for the species.
+      peptides_df (pd.DataFrame): DataFrame of peptides for the species.
     """
     if self.num_of_proteomes <= 2: # excludes all proteins option
       proteome_id = self.proteome_list['upid'].iloc[0]
@@ -297,16 +297,16 @@ class ProteomeSelector:
       ProteomeSelector.get_proteome_to_fasta(proteome_id, self.species_path)
       return proteome_id, proteome_taxon
 
-    epitopes_df = epitopes_df[epitopes_df['Sequence'].notna()] 
-    epitopes = epitopes_df['Sequence'].tolist()
+    peptides_df = peptides_df[peptides_df['Sequence'].notna()] 
+    peptides = peptides_df['Sequence'].tolist()
 
-    if not epitopes: # get proteome with highest protein count
+    if not peptides: # get proteome with highest protein count
       idx = self.proteome_list['proteinCount'].idxmax()
       proteome_id = self.proteome_list['upid'].loc[idx]
       ProteomeSelector.get_proteome_to_fasta(proteome_id, self.species_path)
       return proteome_id, self.taxon_id
 
-    match_counts = {} # keep track of # of epitope matches for each proteome
+    match_counts = {} # keep track of # of peptide matches for each proteome
     for proteome_id in list(self.proteome_list['upid']):
       ProteomeSelector.get_proteome_to_fasta(proteome_id, self.species_path)
       
@@ -316,7 +316,7 @@ class ProteomeSelector:
       ).sql_proteome(k = 5)
 
       matches_df = Matcher(
-        query = epitopes, 
+        query = peptides, 
         proteome_file = f'{self.species_path}/{proteome_id}.fasta', 
         max_mismatches = 0, 
         k = 5,
@@ -354,7 +354,7 @@ class ProteomeSelector:
     os.rename(f'{self.species_path}/{proteome_id}.fasta', f'{self.species_path}/proteome.fasta')
 
 def update_proteome(species_path: Path, taxon_id: int, data_path: Path) -> None:
-  """Update the proteome for a species if there are new epitopes.
+  """Update the proteome for a species if there are new peptides.
   
   Args:
     species_path (Path): Path to species directory.
@@ -376,7 +376,7 @@ def update_proteome(species_path: Path, taxon_id: int, data_path: Path) -> None:
   
   return [proteome_id, proteome_taxon, proteome_type]
 
-def run(taxon_id: int, species_name: str, group: str, all_taxa: list, build_path: Path, all_epitopes: pd.DataFrame, force: bool) -> list:
+def run(taxon_id: int, species_name: str, group: str, all_taxa: list, build_path: Path, all_peptides: pd.DataFrame, force: bool) -> list:
   """Run the proteome selection process for a species.
   
   Args:
@@ -385,7 +385,7 @@ def run(taxon_id: int, species_name: str, group: str, all_taxa: list, build_path
     group (str): Group for the species (e.g. bacterium, virus, etc.).
     all_taxa (list): List of all children taxa for the species.
     build_path (Path): Path to build directory.
-    all_epitopes (pd.DataFrame): DataFrame of epitopes for the species.
+    all_peptides (pd.DataFrame): DataFrame of peptides for the species.
     force (bool): Force reselection of proteome.
   """
   species_path = build_path / 'species' / f'{taxon_id}'
@@ -397,14 +397,14 @@ def run(taxon_id: int, species_name: str, group: str, all_taxa: list, build_path
     return proteome_data
 
   Fetcher = DataFetcher(build_path)
-  epitopes_df = Fetcher.get_epitopes_for_species(all_epitopes, all_taxa)
+  peptides_df = Fetcher.get_peptides_for_species(all_peptides, all_taxa)
 
   print(f'Selecting best proteome for species w/ taxon ID: {taxon_id}).')
   
   Selector = ProteomeSelector(taxon_id, group, build_path)
   print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')
 
-  proteome_data = Selector.select_best_proteome(epitopes_df)
+  proteome_data = Selector.select_best_proteome(peptides_df)
   Selector.proteome_to_tsv()
 
   # sanity check to make sure proteome.fasta is not empty
@@ -466,7 +466,7 @@ if __name__ == '__main__':
   species_df = pd.read_csv(build_path / 'arborist' / 'active-species.tsv', sep='\t')
   valid_taxon_ids = species_df['Species ID'].tolist()
 
-  all_epitopes = DataFetcher(build_path).get_all_epitopes()
+  all_peptides = DataFetcher(build_path).get_all_peptides()
 
   all_taxa_map = dict(zip( # map taxon ID to list of all children taxa
     species_df['Species ID'],
@@ -480,11 +480,11 @@ if __name__ == '__main__':
       species_name = taxon_to_species_map[taxon_id]
       group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
-      proteome_data = run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, force)
+      proteome_data = run(taxon_id, species_name, group, all_taxa, build_path, all_peptides, force)
 
   else: # one species at a time
     assert taxon_id in valid_taxon_ids, f'{taxon_id} is not a valid taxon ID.'
     species_name = taxon_to_species_map[taxon_id]
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
     group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
-    proteome_data = run(taxon_id, species_name, group, all_taxa, build_path, all_epitopes, force)
+    proteome_data = run(taxon_id, species_name, group, all_taxa, build_path, all_peptides, force)
