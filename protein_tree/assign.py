@@ -326,13 +326,18 @@ class GeneAndProteinAssigner:
       on='Source Antigen',
       suffixes=('', '_assigned')
     )
+
     # now, grab epitopes that match to the assigned protein for their source antigen
     assigned_epitopes = merged_df[merged_df['Protein ID'] == merged_df['Protein ID_assigned']]
+
     self.epitope_protein_assignment.update(
       dict(zip(
         zip(assigned_epitopes['Source Antigen'], assigned_epitopes['Query Sequence']),
         assigned_epitopes['Protein ID']))
     )
+    # remove assigned epitopes
+    merged_df = merged_df[~merged_df['Query Sequence'].isin(assigned_epitopes['Query Sequence'])]
+
     # grab the rest of the epitopes and merged with gene assignments
     unassigned_epitopes = merged_df[merged_df['Protein ID'] != merged_df['Protein ID_assigned']]
 
