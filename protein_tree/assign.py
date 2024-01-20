@@ -417,11 +417,10 @@ class GeneAndProteinAssigner:
         self.uniprot_id_to_name_map[v] = allergen_map[v]
 
   def _assign_manuals(self) -> None:
-    """Get manual assignments from manual_assignments.tsv and then assign
+    """Get manual assignments from manual-parents.tsv and then assign
     genes and proteins to sources.
     """
-    # manual_assignments.tsv should be in the directory above this one
-    manual_df = pd.read_csv(self.build_path / 'arborist' / 'manual_assignments.tsv', sep='\t')
+    manual_df = pd.read_csv(self.build_path / 'arborist' / 'manual-parents.tsv', sep='\t')
 
     manual_gene_map = manual_df.set_index('Accession')['Accession Gene'].to_dict()
     manual_protein_id_map = manual_df.set_index('Accession')['Parent Accession'].to_dict()
