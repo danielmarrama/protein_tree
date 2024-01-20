@@ -24,14 +24,12 @@ class GeneAndProteinAssigner:
     is_vertebrate,
     num_threads,
     build_path = Path(__file__).parent.parent / 'build',
-    bin_path = Path(__file__).parent.parent / 'bin',
   ):
     
     self.species_path = species_path
     self.taxon_id = taxon_id
     self.is_vertebrate = is_vertebrate
     self.build_path = build_path
-    self.bin_path = bin_path
     self.num_threads = num_threads
 
     # initialize dicts for assignments
@@ -214,11 +212,11 @@ class GeneAndProteinAssigner:
     species_path = str(self.species_path).replace('(', '\\(').replace(')', '\\)')
 
     os.system( # make BLAST database from proteome
-      f'{self.bin_path}/makeblastdb -in {species_path}/proteome.fasta '\
+      f'makeblastdb -in {species_path}/proteome.fasta '\
       f'-dbtype prot > /dev/null'
     )
     os.system( # run blastp
-      f'{self.bin_path}/blastp -query {species_path}/sources.fasta '\
+      f'blastp -query {species_path}/sources.fasta '\
       f'-db {species_path}/proteome.fasta '\
       f'-evalue 1  -num_threads {self.num_threads} -outfmt 10 '\
       f'-out {species_path}/blast_results.csv'
@@ -389,8 +387,6 @@ class GeneAndProteinAssigner:
       SeqClassifier( # run ARC
         outfile = f'{self.species_path}/ARC_results.tsv',
         threads = self.num_threads,
-        hmmer_path = str(self.bin_path) + '/',
-        blast_path = str(self.bin_path) + '/',
       ).classify_seqfile(f'{self.species_path}/ARC_sources.fasta')
 
     os.remove(f'{self.species_path}/ARC_sources.fasta')
@@ -446,7 +442,7 @@ class GeneAndProteinAssigner:
     # except OSError:
     #   pass
 
-def run(taxon_id, species_name, group, all_taxa, build_path, bin_path, all_peptides, all_sources, num_threads):
+def run(taxon_id, species_name, group, all_taxa, build_path, all_peptides, all_sources, num_threads):
   species_path = build_path / 'species' / f'{taxon_id}' # directory to write species data
 
   peptides_df = DataFetcher(build_path).get_peptides_for_species(all_peptides, all_taxa)
@@ -464,7 +460,6 @@ def run(taxon_id, species_name, group, all_taxa, build_path, bin_path, all_pepti
     is_vertebrate,
     num_threads=num_threads,
     build_path=build_path,
-    bin_path=bin_path
   )
 
   assigner_data, peptide_assignments, source_assignments = Assigner.assign(sources_df, peptides_df)
@@ -503,12 +498,6 @@ if __name__ == '__main__':
     help='Path to data directory.'
   )
   parser.add_argument(
-    '-B', '--bin_path',
-    type=str,
-    default=Path(__file__).parent.parent / 'bin',
-    help='Path to bin directory.'
-  )
-  parser.add_argument(
     '-a', '--all_species', 
     action='store_true', 
     help='Build protein tree for all IEDB species.'
@@ -528,7 +517,6 @@ if __name__ == '__main__':
   args = parser.parse_args()
 
   build_path = Path(args.build_path)
-  bin_path = Path(args.bin_path)
   all_species = args.all_species
   taxon_id = args.taxon_id
   num_threads = args.num_threads
@@ -556,7 +544,7 @@ if __name__ == '__main__':
       group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
       assignment_data = run(
-        taxon_id, species_name, group, all_taxa, build_path, bin_path, all_peptides, all_sources, num_threads
+        taxon_id, species_name, group, all_taxa, build_path, all_peptides, all_sources, num_threads
       )
 
   else: # one species at a time
@@ -565,5 +553,5 @@ if __name__ == '__main__':
     all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
     group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
     assignment_data = run(
-      taxon_id, species_name, group, all_taxa, build_path, bin_path, all_peptides, all_sources, num_threads
+      taxon_id, species_name, group, all_taxa, build_path, all_peptides, all_sources, num_threads
     )
