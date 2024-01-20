@@ -368,36 +368,44 @@ class GeneAndProteinAssigner:
 
   def _run_arc(self, sources_df: pd.DataFrame) -> None:
     """Run ARC to assign MHC/TCR/Ig to peptide sources.
-    
+
     Args:
-      sources_df: DataFrame of peptide sources for a species.
+        sources_df: DataFrame of peptide sources for a species.
     """
-    try: # read ARC results if they already exist and only run ARC on new sources
+    try:
       past_arc_results_df = pd.read_csv(f'{self.species_path}/ARC_results.tsv', sep='\t')
-      past_arc_ids = past_arc_results_df['id'].tolist()
+      past_arc_ids = set(past_arc_results_df['id'])
       arc_sources_df = sources_df[~sources_df['Accession'].isin(past_arc_ids)]
-      self._write_to_fasta(arc_sources_df, 'ARC_sources')
       past_results = True
     except FileNotFoundError:
-      self._write_to_fasta(sources_df, 'ARC_sources')
+      arc_sources_df = sources_df
       past_results = False
 
-    # make sure ARC_sources.fasta isn't empty, then run ARC
-    if os.stat(f'{self.species_path}/ARC_sources.fasta').st_size != 0:
-      SeqClassifier( # run ARC
-        outfile = f'{self.species_path}/ARC_results.tsv',
-        threads = self.num_threads,
-      ).classify_seqfile(f'{self.species_path}/ARC_sources.fasta')
+    if not arc_sources_df.empty:
+      self._write_to_fasta(arc_sources_df, 'ARC_sources')
 
-    os.remove(f'{self.species_path}/ARC_sources.fasta')
-    
+      if os.path.getsize(f'{self.species_path}/ARC_sources.fasta') != 0: # make sure file isn't empty
+        SeqClassifier(
+          outfile=f'{self.species_path}/ARC_temp_results.tsv',
+          threads=self.num_threads,
+        ).classify_seqfile(f'{self.species_path}/ARC_sources.fasta')
+
+      new_arc_results_df = pd.read_csv(f'{self.species_path}/ARC_temp_results.tsv', sep='\t')
+
+      if past_results:
+        combined_results_df = pd.concat([past_arc_results_df, new_arc_results_df])
+      else:
+        combined_results_df = new_arc_results_df
+
+      combined_results_df.to_csv(f'{self.species_path}/ARC_results.tsv', sep='\t', index=False)
+      
+      os.remove(f'{self.species_path}/ARC_temp_results.tsv')
+      os.remove(f'{self.species_path}/ARC_sources.fasta')
+
+    # Update source to ARC assignment dictionary
     arc_results_df = pd.read_csv(f'{self.species_path}/ARC_results.tsv', sep='\t')
-    if past_results: # combine old results and new, then write all to file
-      arc_results_df = pd.concat([arc_results_df, past_arc_results_df])
-      arc_results_df.to_csv(f'{self.species_path}/ARC_results.tsv', sep='\t', index=False)
-
     if not arc_results_df.dropna(subset=['class']).empty:
-      self.source_arc_assignment = arc_results_df.set_index('id')['class'].to_dict()
+        self.source_arc_assignment = arc_results_df.set_index('id')['class'].to_dict()
 
   def _assign_allergens(self) -> None:
     """Get allergen data from allergen.org and then assign allergens to sources."""
