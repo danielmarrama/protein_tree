@@ -6,7 +6,7 @@ from anytree import Node, RenderTree
 from pathlib import Path
 
 
-def build_tree_for_species(taxon_id: int) -> dict:
+def build_tree_for_species(taxon_id: str) -> dict:
   """Create a tree of assigned genes and proteins for a given species.
 
   Args:
@@ -16,8 +16,11 @@ def build_tree_for_species(taxon_id: int) -> dict:
   tree = {root.name: root}
   protein_tracker = {}
 
-  peptide_assignments_df = pd.read_csv(build_path / 'species' / str(taxon_id) / 'peptide-assignments.tsv', sep='\t')
-  peptide_assignments_df['Assigned Gene'].fillna(peptide_assignments_df['ARC Assignment'], inplace=True)
+  try:
+    peptide_assignments_df = pd.read_csv(build_path / 'species' / taxon_id / 'peptide-assignments.tsv', sep='\t')
+    peptide_assignments_df['Assigned Gene'].fillna(peptide_assignments_df['ARC Assignment'], inplace=True)
+  except FileNotFoundError:
+    return tree
 
   for _, row in peptide_assignments_df.iterrows():
     gene = row['Assigned Gene'] if not pd.isna(row['Assigned Gene']) else 'Unknown Gene'
@@ -71,7 +74,7 @@ if __name__ == '__main__':
   )
   parser.add_argument(
     '-t', '--taxon_id', 
-    type=int,
+    type=str,
     help='Taxon ID for the species to pull data for.'
   )
   parser.add_argument(
@@ -89,7 +92,7 @@ if __name__ == '__main__':
 
   tree = {}
   if all_species:
-    for taxon_id in [139, 9593]:
+    for taxon_id in os.listdir(build_path / 'species'):
       tree[taxon_id] = build_tree_for_species(taxon_id)
 
   else:
