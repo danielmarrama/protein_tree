@@ -48,6 +48,10 @@ def main():
     all_peptides_df = pd.concat([all_peptides_df, peptides_df])
     all_sources_df = pd.concat([all_sources_df, sources_df])
 
+  # fill in missing gene values with ARC assignments
+  all_peptides_df['Assigned Gene'].fillna(all_peptides_df['ARC Assignment'], inplace=True)
+  all_sources_df['Assigned Gene'].fillna(all_sources_df['ARC Assignment'], inplace=True)
+
   # write to files
   all_peptides_df.to_csv(build_path / 'arborist' / 'all-peptide-assignments.tsv', sep='\t', index=False)
   all_sources_df.to_csv(build_path / 'arborist' / 'all-source-assignments.tsv', sep='\t', index=False)
