@@ -68,7 +68,7 @@ class GeneAndProteinAssigner:
       self.source_protein_assignment[row['Accession']] = None
       self.source_assignment_score[row['Accession']] = None
     for i, row in peptides_df.iterrows():
-      self.peptide_protein_assignment[(row['Accession'], row['Sequence'])] = None
+      self.peptide_protein_assignment[(row['Source Accession'], row['Sequence'])] = None
 
     self.source_to_peptides_map = self._create_source_to_peptides_map(peptides_df)
 
@@ -98,22 +98,22 @@ class GeneAndProteinAssigner:
     sources_df.loc[:, 'ARC Assignment'] = sources_df['Accession'].map(self.source_arc_assignment)
 
     # map peptide peptide sources to assignments above and then PEPMatch assignments
-    peptides_df.loc[:, 'Parent Antigen ID'] = peptides_df['Accession'].map(self.source_protein_assignment)
+    peptides_df.loc[:, 'Parent Antigen ID'] = peptides_df['Source Accession'].map(self.source_protein_assignment)
     peptides_df.loc[:, 'Parent Antigen Name'] = peptides_df['Parent Antigen ID'].map(self.uniprot_id_to_name_map)
-    peptides_df.loc[:, 'Parent Antigen Gene'] = peptides_df['Accession'].map(self.source_gene_assignment)
-    peptides_df.set_index(['Accession', 'Sequence'], inplace=True)
+    peptides_df.loc[:, 'Parent Antigen Gene'] = peptides_df['Source Accession'].map(self.source_gene_assignment)
+    peptides_df.set_index(['Source Accession', 'Sequence'], inplace=True)
     peptides_df.loc[:, 'Parent Antigen Gene Isoform ID'] = peptides_df.index.map(self.peptide_protein_assignment)
     peptides_df.loc[:, 'Parent Antigen Gene Isoform Name'] = peptides_df['Parent Antigen Gene Isoform ID'].map(self.uniprot_id_to_name_map)
     peptides_df.reset_index(inplace=True)
-    peptides_df.loc[:, 'ARC Assignment'] = peptides_df['Accession'].map(self.source_arc_assignment)
+    peptides_df.loc[:, 'ARC Assignment'] = peptides_df['Source Accession'].map(self.source_arc_assignment)
 
-    peptides_df.drop_duplicates(subset=['Accession', 'Sequence'], inplace=True) # drop duplicate peptides
+    peptides_df.drop_duplicates(subset=['Source Accession', 'Sequence'], inplace=True) # drop duplicate peptides
     sources_df.drop(columns=['Sequence'], inplace=True) # drop sequence column for output
 
     self._remove_files()
     
     num_sources = len(sources_df['Accession'].drop_duplicates())
-    num_peptides = len(peptides_df[['Accession', 'Sequence']].drop_duplicates())
+    num_peptides = len(peptides_df[['Source Accession', 'Sequence']].drop_duplicates())
     num_matched_sources = len(sources_df[sources_df['Assigned Protein ID'].notnull()])
     num_matched_peptides = len(peptides_df[peptides_df['Parent Antigen Gene Isoform ID'].notnull()])
   
@@ -158,10 +158,10 @@ class GeneAndProteinAssigner:
     """    
     source_to_peptides_map = {}
     for i, row in peptides_df.iterrows():
-      if row['Accession'] in source_to_peptides_map.keys():
-        source_to_peptides_map[row['Accession']].append(row['Sequence'])
+      if row['Source Accession'] in source_to_peptides_map.keys():
+        source_to_peptides_map[row['Source Accession']].append(row['Sequence'])
       else:
-        source_to_peptides_map[row['Accession']] = [row['Sequence']]
+        source_to_peptides_map[row['Source Accession']] = [row['Sequence']]
     
     return source_to_peptides_map 
 
@@ -459,7 +459,7 @@ def run(taxon_id, species_name, group, all_taxa, build_path, all_peptides, all_s
   species_path = build_path / 'species' / f'{taxon_id}' # directory to write species data
 
   peptides_df = DataFetcher(build_path).get_peptides_for_species(all_peptides, all_taxa)
-  sources_df = DataFetcher(build_path).get_sources_for_species(all_sources, peptides_df['Accession'].tolist())
+  sources_df = DataFetcher(build_path).get_sources_for_species(all_sources, peptides_df['Source Accession'].tolist())
 
   if sources_df.empty or peptides_df.empty:
     return
