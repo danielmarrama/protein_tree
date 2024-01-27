@@ -351,6 +351,10 @@ class GeneAndProteinAssigner:
       on='Source',
       suffixes=('', '_assigned')
     )
+
+    # isolate only those peptides that match to the assigned gene for their source
+    unassigned_peptides = unassigned_peptides[unassigned_peptides['Gene'] == unassigned_peptides['Gene_assigned']]
+
     # now, get the isoform of the assigned gene with the best protein existence level
     best_isoform_indices = unassigned_peptides.groupby(['Gene', 'Query Sequence'])['Protein Existence Level'].idxmin()
     best_isoforms = unassigned_peptides.loc[best_isoform_indices, ['Gene', 'Query Sequence', 'Protein ID']].set_index(['Gene', 'Query Sequence'])['Protein ID']
