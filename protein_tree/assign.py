@@ -564,10 +564,7 @@ if __name__ == '__main__':
     species_df['Species Label']))
 
   if all_species: # run all species at once
-    for taxon_id in valid_taxon_ids[540:]:
-      if taxon_id in [9606, 10090, 10116]:
-        continue
-
+    for taxon_id in valid_taxon_ids:
       species_name = taxon_to_species_map[taxon_id]
       group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
