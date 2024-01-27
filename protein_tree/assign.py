@@ -15,6 +15,7 @@ from pathlib import Path
 from pepmatch import Preprocessor, Matcher
 
 from protein_tree.get_data import DataFetcher
+from protein_tree.select_proteome import ProteomeSelector
 
 class GeneAndProteinAssigner:
   def __init__(
@@ -22,6 +23,8 @@ class GeneAndProteinAssigner:
     taxon_id,
     species_path,
     is_vertebrate,
+    group,
+    peptides_df,
     num_threads,
     build_path = Path(__file__).parent.parent / 'build',
   ):
@@ -39,9 +42,16 @@ class GeneAndProteinAssigner:
     self.source_arc_assignment = {}
     self.peptide_protein_assignment = {}
 
-    # create UniProt ID -> gene map
-    self.proteome = pd.read_csv(f'{self.species_path}/proteome.tsv', sep='\t')
-    self.uniprot_id_to_gene_map = dict(
+    try: # read in proteome data
+      self.proteome = pd.read_csv(f'{self.species_path}/proteome.tsv', sep='\t')
+    except FileNotFoundError: # if proteome data doesn't exist, select best proteome
+      print('No proteome file found. Selecting best proteome...')
+      selector = ProteomeSelector(taxon_id, group, build_path)
+      selector.select_best_proteome(peptides_df)
+      selector.proteome_to_tsv()
+      self.proteome = pd.read_csv(f'{self.species_path}/proteome.tsv', sep='\t')
+
+    self.uniprot_id_to_gene_map = dict( # create UniProt ID -> gene map
       zip(
         self.proteome['Protein ID'], 
         self.proteome['Gene']
@@ -471,6 +481,8 @@ def run(taxon_id, species_name, group, all_taxa, build_path, all_peptides, all_s
     taxon_id,
     species_path,
     is_vertebrate,
+    group,
+    peptides_df,
     num_threads=num_threads,
     build_path=build_path,
   )
@@ -552,7 +564,10 @@ if __name__ == '__main__':
     species_df['Species Label']))
 
   if all_species: # run all species at once
-    for taxon_id in valid_taxon_ids:
+    for taxon_id in valid_taxon_ids[540:]:
+      if taxon_id in [9606, 10090, 10116]:
+        continue
+
       species_name = taxon_to_species_map[taxon_id]
       group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]

@@ -10,11 +10,11 @@ build_path = Path(__file__).parent / 'build'
 
 class TestProteomeSelection(unittest.TestCase):
   def test_proteome_list_pull(self):
-    selector = ProteomeSelector(taxon_id=12345, group='virus', build_path=build_path)
+    selector = ProteomeSelector(taxon_id=12345, species_name='Gaunavirus GA1', group='virus', build_path=build_path)
     self.assertIsInstance(selector.proteome_list, pd.DataFrame)
 
   def test_gp_proteome_pull(self):
-    selector = ProteomeSelector(taxon_id=694003, group='virus', build_path=build_path)
+    selector = ProteomeSelector(taxon_id=694003, species_name='Betacoronavirus 1', group='virus', build_path=build_path)
     selector._get_gp_proteome_to_fasta('UP000007552', '31631')
     
     file_path = build_path / 'species' / '694003' / 'gp_proteome.fasta'

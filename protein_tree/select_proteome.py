@@ -16,9 +16,10 @@ from pepmatch import Preprocessor, Matcher
 from protein_tree.get_data import DataFetcher
 
 class ProteomeSelector:
-  def __init__(self, taxon_id, group, build_path = Path(__file__).parent.parent / 'build'):
+  def __init__(self, taxon_id, species_name, group, build_path = Path(__file__).parent.parent / 'build'):
     self.taxon_id = taxon_id
     self.group = group
+    self.species_name = species_name
     self.species_path = build_path / 'species' / f'{taxon_id}'
     self.species_path.mkdir(parents=True, exist_ok=True)
 
@@ -87,6 +88,11 @@ class ProteomeSelector:
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(peptides_df, False)
 
     self._remove_other_proteomes(proteome_id)
+
+    pd.DataFrame( # write proteome data to metrics file
+      [[proteome_id, proteome_taxon, proteome_type, self.species_name]],
+      columns=['Proteome ID', 'Proteome Taxon', 'Proteome Type', 'Species Name']
+    ).to_csv(self.species_path / 'species-data.tsv', sep='\t', index=False)
 
     return [proteome_id, proteome_taxon, proteome_type]
 
@@ -401,7 +407,7 @@ def run(taxon_id: int, species_name: str, group: str, all_taxa: list, build_path
 
   print(f'Selecting best proteome for species w/ taxon ID: {taxon_id}).')
   
-  Selector = ProteomeSelector(taxon_id, group, build_path)
+  Selector = ProteomeSelector(taxon_id, species_name, group, build_path)
   print(f'Number of candidate proteomes: {Selector.num_of_proteomes}')
 
   proteome_data = Selector.select_best_proteome(peptides_df)
@@ -417,11 +423,6 @@ def run(taxon_id: int, species_name: str, group: str, all_taxa: list, build_path
   print(f'Proteome ID: {proteome_data[0]}')
   print(f'Proteome taxon: {proteome_data[1]}')
   print(f'Proteome type: {proteome_data[2]}\n')
-
-  pd.DataFrame( # write proteome data to metrics file
-    [[proteome_data][0] + [species_name]],
-    columns=['Proteome ID', 'Proteome Taxon', 'Proteome Type', 'Species Name']
-  ).to_csv(species_path / 'species-data.tsv', sep='\t', index=False)
 
   return proteome_data
 
