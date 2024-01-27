@@ -98,10 +98,12 @@ class GeneAndProteinAssigner:
     sources_df.loc[:, 'ARC Assignment'] = sources_df['Accession'].map(self.source_arc_assignment)
 
     # map peptide peptide sources to assignments above and then PEPMatch assignments
-    peptides_df.loc[:, 'Assigned Gene'] = peptides_df['Accession'].map(self.source_gene_assignment)
+    peptides_df.loc[:, 'Parent Antigen ID'] = peptides_df['Accession'].map(self.source_protein_assignment)
+    peptides_df.loc[:, 'Parent Antigen Name'] = peptides_df['Parent Antigen ID'].map(self.uniprot_id_to_name_map)
+    peptides_df.loc[:, 'Parent Antigen Gene'] = peptides_df['Accession'].map(self.source_gene_assignment)
     peptides_df.set_index(['Accession', 'Sequence'], inplace=True)
-    peptides_df.loc[:, 'Assigned Protein ID'] = peptides_df.index.map(self.peptide_protein_assignment)
-    peptides_df.loc[:, 'Assigned Protein Name'] = peptides_df['Assigned Protein ID'].map(self.uniprot_id_to_name_map)
+    peptides_df.loc[:, 'Parent Antigen Gene Isoform ID'] = peptides_df.index.map(self.peptide_protein_assignment)
+    peptides_df.loc[:, 'Parent Antigen Gene Isoform Name'] = peptides_df['Parent Antigen Gene Isoform ID'].map(self.uniprot_id_to_name_map)
     peptides_df.reset_index(inplace=True)
     peptides_df.loc[:, 'ARC Assignment'] = peptides_df['Accession'].map(self.source_arc_assignment)
 
