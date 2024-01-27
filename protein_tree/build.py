@@ -157,13 +157,10 @@ def main():
     tree_df.loc[tree_df['object'] == 'Organism protein', 'object'] = 'protein'
     
     old_df = build_old_tree(tree_df, peptide_assignments)
-    # new_df = build_new_tree(tree_df, peptide_assignments)
-
-    # old_df.to_csv('~/Downloads/protein_tree_old.csv', index=False)
-    # new_df.to_csv('~/Downloads/protein_tree_new.csv', index=False)
-
+    new_df = build_new_tree(tree_df, peptide_assignments)
+  
     old_df.to_sql('protein_tree_old', connection, if_exists='replace', index=False)
-    # new_df.to_sql('protein_tree_new', connection, if_exists='replace', index=False)
+    new_df.to_sql('protein_tree_new', connection, if_exists='replace', index=False)
 
 if __name__ == "__main__":
   main()
