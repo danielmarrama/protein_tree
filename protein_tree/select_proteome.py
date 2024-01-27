@@ -54,9 +54,11 @@ class ProteomeSelector:
     if self.proteome_list.empty:
       print('No proteomes found. Fetching orphan proteins.')
       self.get_all_proteins(self.taxon_id, self.species_path)
-      return ['None', self.taxon_id, 'Orphans']
+      proteome_id, proteome_taxon, proteome_type = '', self.taxon_id, 'Orphans'
+      self._write_species_data(proteome_id, proteome_taxon, proteome_type)
+      return [proteome_id, proteome_taxon, proteome_type]
 
-    if self.proteome_list['isRepresentativeProteome'].any():
+    elif self.proteome_list['isRepresentativeProteome'].any():
       print('Found representative proteome(s).\n')
       proteome_type = 'Representative'
       self.proteome_list = self.proteome_list[self.proteome_list['isRepresentativeProteome']]
@@ -88,13 +90,16 @@ class ProteomeSelector:
       proteome_id, proteome_taxon = self._get_proteome_with_most_matches(peptides_df, False)
 
     self._remove_other_proteomes(proteome_id)
+    self._write_species_data(proteome_id, proteome_taxon, proteome_type)
 
+    return [proteome_id, proteome_taxon, proteome_type]
+
+  def _write_species_data(self, proteome_id: str, proteome_taxon: str, proteome_type: str) -> None:
+    """Write the proteome ID/taxon/type for a species to a CSV file for later use."""
     pd.DataFrame( # write proteome data to metrics file
       [[proteome_id, proteome_taxon, proteome_type, self.species_name]],
       columns=['Proteome ID', 'Proteome Taxon', 'Proteome Type', 'Species Name']
     ).to_csv(self.species_path / 'species-data.tsv', sep='\t', index=False)
-
-    return [proteome_id, proteome_taxon, proteome_type]
 
   def proteome_to_tsv(self) -> None:
     """Write the proteome data for a species to a CSV file for later use."""

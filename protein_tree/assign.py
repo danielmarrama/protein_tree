@@ -223,6 +223,10 @@ class GeneAndProteinAssigner:
     # escape parentheses in species path
     species_path = str(self.species_path).replace('(', '\\(').replace(')', '\\)')
 
+    # if proteome.fasta is empty then return
+    if os.path.getsize(f'{self.species_path}/proteome.fasta') == 0:
+      return
+    
     os.system( # make BLAST database from proteome
       f'makeblastdb -in {species_path}/proteome.fasta '\
       f'-dbtype prot > /dev/null'
@@ -456,14 +460,9 @@ class GeneAndProteinAssigner:
         os.remove(glob.glob(f'{self.species_path}/*.{extension}')[0])
       except IndexError:
         pass 
-    
-    os.remove(f'{self.species_path}/blast_results.csv')
-    os.remove(f'{self.species_path}/sources.fasta')
 
-    # try: # if proteome.db exists, remove it
-    #   os.remove(f'{self.species_path}/proteome.db')
-    # except OSError:
-    #   pass
+    (self.species_path / 'blast_results.csv').unlink(missing_ok=True)
+    (self.species_path / 'sources.fasta').unlink(missing_ok=True)
 
 def run(taxon_id, species_name, group, all_taxa, build_path, all_peptides, all_sources, num_threads):
   species_path = build_path / 'species' / f'{taxon_id}' # directory to write species data
@@ -564,7 +563,7 @@ if __name__ == '__main__':
     species_df['Species Label']))
 
   if all_species: # run all species at once
-    for taxon_id in valid_taxon_ids:
+    for taxon_id in valid_taxon_ids[1900:]:
       species_name = taxon_to_species_map[taxon_id]
       group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
