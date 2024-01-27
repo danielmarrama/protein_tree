@@ -115,7 +115,7 @@ class GeneAndProteinAssigner:
     num_sources = len(sources_df['Accession'].drop_duplicates())
     num_peptides = len(peptides_df[['Accession', 'Sequence']].drop_duplicates())
     num_matched_sources = len(sources_df[sources_df['Assigned Protein ID'].notnull()])
-    num_matched_peptides = len(peptides_df[peptides_df['Assigned Protein ID'].notnull()])
+    num_matched_peptides = len(peptides_df[peptides_df['Parent Antigen Gene Isoform ID'].notnull()])
   
     assigner_data = (
       num_sources,
