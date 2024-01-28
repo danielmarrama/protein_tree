@@ -46,7 +46,7 @@ class GeneAndProteinAssigner:
       self.proteome = pd.read_csv(f'{self.species_path}/proteome.tsv', sep='\t')
     except FileNotFoundError: # if proteome data doesn't exist, select best proteome
       print('No proteome file found. Selecting best proteome...')
-      selector = ProteomeSelector(taxon_id, group, build_path)
+      selector = ProteomeSelector(taxon_id, species_name, group, build_path)
       selector.select_best_proteome(peptides_df)
       selector.proteome_to_tsv()
       self.proteome = pd.read_csv(f'{self.species_path}/proteome.tsv', sep='\t')
@@ -563,7 +563,7 @@ if __name__ == '__main__':
     species_df['Species Label']))
 
   if all_species: # run all species at once
-    for taxon_id in valid_taxon_ids[1900:]:
+    for taxon_id in valid_taxon_ids:
       species_name = taxon_to_species_map[taxon_id]
       group = species_df[species_df['Species ID'] == taxon_id]['Group'].iloc[0]
       all_taxa = [int(taxon) for taxon in all_taxa_map[taxon_id].split(', ')]
