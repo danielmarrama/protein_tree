@@ -18,14 +18,14 @@ def build_tree_for_species(taxon_id: str) -> dict:
 
   try:
     peptide_assignments_df = pd.read_csv(build_path / 'species' / taxon_id / 'peptide-assignments.tsv', sep='\t')
-    peptide_assignments_df['Assigned Gene'].fillna(peptide_assignments_df['ARC Assignment'], inplace=True)
+    peptide_assignments_df['Parent Antigen Gene'].fillna(peptide_assignments_df['ARC Assignment'], inplace=True)
   except FileNotFoundError:
     return tree
 
   for _, row in peptide_assignments_df.iterrows():
-    gene = row['Assigned Gene'] if not pd.isna(row['Assigned Gene']) else 'Unknown Gene'
-    protein_name = row['Assigned Protein Name']
-    protein_id = row['Assigned Protein ID']
+    gene = row['Parent Antigen Gene'] if not pd.isna(row['Parent Antigen Gene']) else 'Unknown Gene'
+    protein_name = row['Parent Antigen Gene Isoform Name']
+    protein_id = row['Parent Antigen Gene Isoform ID']
 
     if pd.isna(protein_id):
       continue

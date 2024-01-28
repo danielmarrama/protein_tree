@@ -2,7 +2,9 @@
 
 import pandas as pd
 import sqlite3
-from argparse import ArgumentParser
+import argparse
+
+from pathlib import Path
 
 import warnings
 warnings.filterwarnings('ignore')
@@ -25,7 +27,7 @@ def old_protein_id(row):
     'assertion': 1,
     'retraction': 0,
     'graph': 'iedb-taxon:protein_tree',
-    'subject': f"{row['Assigned Protein ID']}",
+    'subject': f"{row['Parent Antigen Gene Isoform ID']}",
     'predicate': 'rdfs:subClassOf',
     'object': f"NCBITaxon:{row['Species Taxon ID']}",
     'datatype': 'xsd:string',
@@ -38,9 +40,9 @@ def old_protein_label(row):
     'assertion': 1,
     'retraction': 0,
     'graph': 'iedb-taxon:protein_tree',
-    'subject': f"{row['Assigned Protein ID']}",
+    'subject': f"{row['Parent Antigen Gene Isoform ID']}",
     'predicate': 'rdfs:label',
-    'object': f"{row['Assigned Protein Name']} (UniProt:{row['Assigned Protein ID']})",
+    'object': f"{row['Parent Antigen Gene Isoform Name']} (UniProt:{row['Parent Antigen Gene Isoform ID']})",
     'datatype': 'xsd:string',
     'annotation': None
   }
@@ -51,9 +53,9 @@ def old_gene_label(row):
     'assertion': 1,
     'retraction': 0,
     'graph': 'iedb-taxon:protein_tree',
-    'subject': f"{row['Assigned Protein ID']}",
+    'subject': f"{row['Parent Antigen Gene Isoform ID']}",
     'predicate': 'from_gene',
-    'object': f"{row['Assigned Gene']}",
+    'object': f"{row['Parent Antigen Gene']}",
     'datatype': 'xsd:string',
     'annotation': None
   }
@@ -75,7 +77,7 @@ def new_gene_label(row):
     'assertion': 1,
     'retraction': 0,
     'graph': 'iedb-taxon:protein_tree',
-    'subject': f"{row['Species Taxon ID']}:{row['Assigned Gene']}",
+    'subject': f"{row['Species Taxon ID']}:{row['Parent Antigen Gene']}",
     'predicate': 'rdf:type',
     'object': 'owl:Class',
     'datatype': '_IRI',
@@ -85,9 +87,9 @@ def new_gene_label(row):
     'assertion': 1,
     'retraction': 0,
     'graph': 'iedb-taxon:protein_tree',
-    'subject': f"{row['Species Taxon ID']}:{row['Assigned Gene']}",
+    'subject': f"{row['Species Taxon ID']}:{row['Parent Antigen Gene']}",
     'predicate': 'rdfs:label',
-    'object': f"{row['Assigned Gene']}",
+    'object': f"{row['Parent Antigen Gene']}",
     'datatype': 'xsd:string',
     'annotation': None
   }
@@ -95,7 +97,7 @@ def new_gene_label(row):
     'assertion': 1,
     'retraction': 0,
     'graph': 'iedb-taxon:protein_tree',
-    'subject': f"{row['Species Taxon ID']}:{row['Assigned Gene']}",
+    'subject': f"{row['Species Taxon ID']}:{row['Parent Antigen Gene']}",
     'predicate': 'rdfs:subClassOf',
     'object': f"NCBITaxon:{row['Species Taxon ID']}",
     'datatype': 'xsd:string',
@@ -108,9 +110,9 @@ def new_protein_id(row):
     'assertion': 1,
     'retraction': 0,
     'graph': 'iedb-taxon:protein_tree',
-    'subject': f"{row['Assigned Protein ID']}",
+    'subject': f"{row['Parent Antigen Gene Isoform ID']}",
     'predicate': 'rdfs:subClassOf',
-    'object': f"{row['Species Taxon ID']}:{row['Assigned Gene']}",
+    'object': f"{row['Species Taxon ID']}:{row['Parent Antigen Gene']}",
     'datatype': 'xsd:string',
     'annotation': None
   }
@@ -121,30 +123,31 @@ def new_protein_label(row):
     'assertion': 1,
     'retraction': 0,
     'graph': 'iedb-taxon:protein_tree',
-    'subject': f"{row['Assigned Protein ID']}",
+    'subject': f"{row['Parent Antigen Gene Isoform ID']}",
     'predicate': 'rdfs:label',
-    'object': f"{row['Assigned Protein Name']} (UniProt:{row['Assigned Protein ID']})",
+    'object': f"{row['Parent Antigen Gene Isoform Name']} (UniProt:{row['Parent Antigen Gene Isoform ID']})",
     'datatype': 'xsd:string',
     'annotation': None
   }
   return protein_label_row
 
 def main():
-  parser = ArgumentParser('Build the protein tree.')
- 
-  parser.add_argument('sqlite_db', help='Path to the SQLite database')
+  parser = argparse.ArgumentParser()
+
   parser.add_argument(
-    'peptide_assignments',
-    help='Path to all-peptide-assignments.tsv to read for tree building.',
+    'build_path',
+    type=str,
+    default='build/',
+    help='Path to species directory.'
   )
-    
+
   args = parser.parse_args()
+  build_path = Path(args.build_path)
 
-  peptide_assignments = pd.read_csv(args.peptide_assignments, sep='\t')
-  peptide_assignments['Assigned Gene'].fillna(peptide_assignments['ARC Assignment'], inplace=True)
-  peptide_assignments.drop_duplicates(subset=['Assigned Protein ID'], inplace=True)
+  peptide_assignments = pd.read_csv(build_path / 'arborist' / 'all-peptide-assignments.tsv', sep='\t')
+  peptide_assignments.drop_duplicates(subset=['Parent Antigen Gene Isoform ID'], inplace=True)
 
-  with sqlite3.connect(args.sqlite_db) as connection:
+  with sqlite3.connect(build_path / 'arborist' / 'nanobot.db') as connection:
     tree_df = pd.read_sql_query("SELECT * FROM organism_tree", connection)
   
     predicates = ['rdfs:subClassOf', 'rdf:type', 'rdfs:label']
