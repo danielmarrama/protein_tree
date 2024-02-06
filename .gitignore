@@ -20,7 +20,7 @@ data/all_source_assignments.tsv
 # other files
 docs/protein_tree.drawio
 id_to_gene_name.tsv
-tree.txt
+*.txt
 
 # locked files
 .~*

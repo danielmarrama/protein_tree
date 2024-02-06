@@ -102,6 +102,7 @@ class GeneAndProteinAssigner:
 
     # map peptide sources to their BLAST matches and ARC assignments
     sources_df.loc[:, 'Assigned Gene'] = sources_df['Accession'].map(self.source_gene_assignment)
+    sources_df.loc[:, 'Assigned Gene'] = sources_df['Assigned Gene'].fillna(sources_df['Accession'].map(self.source_arc_assignment))
     sources_df.loc[:, 'Assigned Protein ID'] = sources_df['Accession'].map(self.source_protein_assignment)
     sources_df.loc[:, 'Assigned Protein Name'] = sources_df['Assigned Protein ID'].map(self.uniprot_id_to_name_map)
     sources_df.loc[:, 'Assignment Score'] = sources_df['Accession'].map(self.source_assignment_score)
@@ -111,6 +112,7 @@ class GeneAndProteinAssigner:
     peptides_df.loc[:, 'Parent Antigen ID'] = peptides_df['Source Accession'].map(self.source_protein_assignment)
     peptides_df.loc[:, 'Parent Antigen Name'] = peptides_df['Parent Antigen ID'].map(self.uniprot_id_to_name_map)
     peptides_df.loc[:, 'Parent Antigen Gene'] = peptides_df['Source Accession'].map(self.source_gene_assignment)
+    peptides_df.loc[:, 'Parent Antigen Gene'] = peptides_df['Parent Antigen Gene'].fillna(peptides_df['Source Accession'].map(self.source_arc_assignment))
     peptides_df.set_index(['Source Accession', 'Sequence'], inplace=True)
     peptides_df.loc[:, 'Parent Antigen Gene Isoform ID'] = peptides_df.index.map(self.peptide_protein_assignment)
     peptides_df.loc[:, 'Parent Antigen Gene Isoform Name'] = peptides_df['Parent Antigen Gene Isoform ID'].map(self.uniprot_id_to_name_map)
@@ -315,10 +317,6 @@ class GeneAndProteinAssigner:
       'Peptide': peptide,
       'Source': source
     } for source, peptides in self.source_to_peptides_map.items() for peptide in peptides)
-    source_protein_assignment_df = pd.DataFrame({
-      'Source': source, 
-      'Protein ID': protein_id
-    } for source, protein_id in self.source_protein_assignment.items())
     source_gene_assignment_df = pd.DataFrame({
       'Source': source, 
       'Gene': gene
@@ -336,54 +334,28 @@ class GeneAndProteinAssigner:
     # merge the protein ID for each source
     merged_df = pd.merge( 
       merged_df, 
-      source_protein_assignment_df, 
+      source_gene_assignment_df, 
       how='left', 
       on='Source',
       suffixes=('', '_assigned')
     )
 
-    # now, grab peptides that match to the assigned protein for their source
-    assigned_peptides = merged_df[merged_df['Protein ID'] == merged_df['Protein ID_assigned']]
-
-    self.peptide_protein_assignment.update(
-      dict(zip(
-        zip(assigned_peptides['Source'], assigned_peptides['Query Sequence']),
-        assigned_peptides['Protein ID']))
-    )
-    # remove assigned peptides
-    merged_df = merged_df[~merged_df['Query Sequence'].isin(assigned_peptides['Query Sequence'])]
-
-    # grab the rest of the peptides and merged with gene assignments
-    unassigned_peptides = merged_df[merged_df['Protein ID'] != merged_df['Protein ID_assigned']]
-
-    if unassigned_peptides.empty: # if there are no unassigned peptides, return
-      return len(self.peptide_protein_assignment.keys())
-
-    # merge with gene assignments
-    unassigned_peptides = pd.merge(
-      unassigned_peptides,
-      source_gene_assignment_df,
-      how='left',
-      on='Source',
-      suffixes=('', '_assigned')
-    )
-
     # isolate only those peptides that match to the assigned gene for their source
-    unassigned_peptides = unassigned_peptides[unassigned_peptides['Gene'] == unassigned_peptides['Gene_assigned']]
+    merged_df = merged_df[merged_df['Gene'] == merged_df['Gene_assigned']]
 
     # now, get the isoform of the assigned gene with the best protein existence level
-    best_isoform_indices = unassigned_peptides.groupby(['Gene', 'Query Sequence'])['Protein Existence Level'].idxmin()
-    best_isoforms = unassigned_peptides.loc[best_isoform_indices, ['Gene', 'Query Sequence', 'Protein ID']].set_index(['Gene', 'Query Sequence'])['Protein ID']
-    unassigned_peptides['Best Isoform ID'] = unassigned_peptides.set_index(['Gene', 'Query Sequence']).index.map(best_isoforms)
+    best_isoform_indices = merged_df.groupby(['Gene', 'Query Sequence'])['Protein Existence Level'].idxmin()
+    best_isoforms = merged_df.loc[best_isoform_indices, ['Gene', 'Query Sequence', 'Protein ID']].set_index(['Gene', 'Query Sequence'])['Protein ID']
+    merged_df['Best Isoform ID'] = merged_df.set_index(['Gene', 'Query Sequence']).index.map(best_isoforms)
     
     # drop any unassigned peptides that couldn't be assigned an isoform
-    unassigned_peptides = unassigned_peptides.dropna(subset=['Best Isoform ID'])
+    merged_df = merged_df.dropna(subset=['Best Isoform ID'])
 
     # Update the protein assignment with the best isoform
     self.peptide_protein_assignment.update(
       dict(zip(
-        zip(unassigned_peptides['Source'], unassigned_peptides['Query Sequence']),
-        unassigned_peptides['Best Isoform ID']))
+        zip(merged_df['Source'], merged_df['Query Sequence']),
+        merged_df['Best Isoform ID']))
     )
 
   def _run_arc(self, sources_df: pd.DataFrame) -> None:
@@ -425,7 +397,7 @@ class GeneAndProteinAssigner:
     # Update source to ARC assignment dictionary
     arc_results_df = pd.read_csv(f'{self.species_path}/ARC_results.tsv', sep='\t')
     if not arc_results_df.dropna(subset=['class']).empty:
-        self.source_arc_assignment = arc_results_df.set_index('id')['class'].to_dict()
+      self.source_arc_assignment = arc_results_df.set_index('id')['class'].to_dict()
 
   def _assign_allergens(self) -> None:
     """Get allergen data from allergen.org and then assign allergens to sources."""
