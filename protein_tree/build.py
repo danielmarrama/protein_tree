@@ -14,33 +14,33 @@ warnings.filterwarnings('ignore')
 def build_old_tree(tree_df, peptide_assignments):
   new_rows = []
   for _, row in peptide_assignments.iterrows():
-    new_rows.append(old_protein_id(row))
+    new_rows.append(old_protein_class(row))
     new_rows.append(old_protein_label(row))
-    new_rows.append(old_gene_label(row))
+    # new_rows.append(old_gene_label(row))
   
   tree_df = pd.concat([tree_df, pd.DataFrame(new_rows)], ignore_index=True)
   
   return tree_df
 
-def old_protein_id(row):
-  protein_label_row = {
+def old_protein_class(row):
+  protein_class_row = {
     'assertion': 1,
     'retraction': 0,
     'graph': 'iedb-taxon:protein_tree',
-    'subject': f"{row['Parent Antigen Gene Isoform ID']}",
+    'subject': f"UP:{row['Parent Antigen Gene Isoform ID']}",
     'predicate': 'rdfs:subClassOf',
     'object': f"NCBITaxon:{row['Species Taxon ID']}",
-    'datatype': 'xsd:string',
+    'datatype': '_IRI',
     'annotation': None
   }
-  return protein_label_row
+  return protein_class_row
 
 def old_protein_label(row):
   protein_label_row = {
     'assertion': 1,
     'retraction': 0,
     'graph': 'iedb-taxon:protein_tree',
-    'subject': f"{row['Parent Antigen Gene Isoform ID']}",
+    'subject': f"UP:{row['Parent Antigen Gene Isoform ID']}",
     'predicate': 'rdfs:label',
     'object': f"{row['Parent Antigen Gene Isoform Name']} (UniProt:{row['Parent Antigen Gene Isoform ID']})",
     'datatype': 'xsd:string',
@@ -53,7 +53,7 @@ def old_gene_label(row):
     'assertion': 1,
     'retraction': 0,
     'graph': 'iedb-taxon:protein_tree',
-    'subject': f"{row['Parent Antigen Gene Isoform ID']}",
+    'subject': f"UP:{row['Parent Antigen Gene Isoform ID']}",
     'predicate': 'from_gene',
     'object': f"{row['Parent Antigen Gene']}",
     'datatype': 'xsd:string',
@@ -65,7 +65,7 @@ def build_new_tree(tree_df, peptide_assignments):
   new_rows = []
   for _, row in peptide_assignments.iterrows():
     new_rows.extend(new_gene_label(row))
-    new_rows.append(new_protein_id(row))
+    new_rows.append(new_protein_class(row))
     new_rows.append(new_protein_label(row))
     
   tree_df = pd.concat([tree_df, pd.DataFrame(new_rows)], ignore_index=True)
@@ -105,25 +105,25 @@ def new_gene_label(row):
   }
   return gene_class_row, gene_label_row, gene_subclass_row
 
-def new_protein_id(row):
-  protein_label_row = {
+def new_protein_class(row):
+  protein_class_row = {
     'assertion': 1,
     'retraction': 0,
     'graph': 'iedb-taxon:protein_tree',
-    'subject': f"{row['Parent Antigen Gene Isoform ID']}",
+    'subject': f"UP:{row['Parent Antigen Gene Isoform ID']}",
     'predicate': 'rdfs:subClassOf',
     'object': f"{row['Species Taxon ID']}:{row['Parent Antigen Gene']}",
-    'datatype': 'xsd:string',
+    'datatype': '_IRI',
     'annotation': None
   }
-  return protein_label_row
+  return protein_class_row
 
 def new_protein_label(row):
   protein_label_row = {
     'assertion': 1,
     'retraction': 0,
     'graph': 'iedb-taxon:protein_tree',
-    'subject': f"{row['Parent Antigen Gene Isoform ID']}",
+    'subject': f"UP:{row['Parent Antigen Gene Isoform ID']}",
     'predicate': 'rdfs:label',
     'object': f"{row['Parent Antigen Gene Isoform Name']} (UniProt:{row['Parent Antigen Gene Isoform ID']})",
     'datatype': 'xsd:string',
